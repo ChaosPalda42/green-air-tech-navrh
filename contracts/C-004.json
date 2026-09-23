@@ -1,0 +1,13 @@
+{
+  "id": "C-004",
+  "file": "src/lib/form-validate.mjs",
+  "role": "coder",
+  "title": "Validace kontaktního formuláře",
+  "interface": "export function isEmail(value) -> boolean\n  true jen pro tvar `lokalni@domena.tld`: neprázdná lokální část bez mezer a bez zavináče, jeden zavináč, doména s alespoň jednou tečkou, žádná část kolem tečky prázdná, TLD alespoň 2 písmena. Bez mezer kdekoli. Prázdná hodnota -> false.\n\nexport function normalizePhone(value) -> string\n  Odstraní mezery, závorky a pomlčky. Vedoucí \"00420\" nebo \"420\" (bez plusu, celkem 12 číslic) převede na \"+420…\". Devítimístné číslo bez předvolby doplní na \"+420\" + číslo. Jinak vrať očištěný řetězec beze změny předvolby.\n\nexport function isPhoneCz(value) -> boolean\n  true právě když normalizePhone(value) odpovídá \"+420\" následovanému přesně devíti číslicemi, z nichž první je 6, 7, 2, 3, 5 nebo 9. Prázdná hodnota -> false.\n\nexport function validateContact(values, messages = {}) -> { ok: boolean, errors: {...}, messages: {...} }\n  `values` může obsahovat: jmeno, email, telefon, typ, zprava, souhlas.\n  Pravidla (na každé pole nejvýše jeden kód chyby, v tomto pořadí):\n  - jmeno: chybí nebo po trim prázdné -> \"required\".\n  - email: chybí nebo po trim prázdné -> \"required\"; jinak !isEmail -> \"email\".\n  - telefon: nepovinný. Prázdný je v pořádku. Vyplněný a !isPhoneCz -> \"telefon\".\n  - typ: nepovinný, nikdy nechybuje.\n  - zprava: chybí nebo po trim prázdné -> \"required\"; jinak délka po trim < 10 -> \"zprava-kratka\".\n  - souhlas: cokoli jiného než true -> \"souhlas\".\n  `errors` je objekt pole -> kód chyby, obsahuje jen chybující pole. `ok` je true právě když je `errors` prázdný objekt.\n  `messages` ve výstupu je objekt pole -> lidská hláška: pro každé chybující pole se vezme messages[pole], pokud existuje, jinak messages[kod], pokud existuje, jinak samotný kód chyby.",
+  "uses": {},
+  "acceptance": "tests/test_form_validate.py",
+  "notes": "ESM modul BEZ jakýchkoli importů. Musí běžet v Node 24 i v prohlížeči: žádné `require`, žádné Node API (fs, path, process), žádné DOM API (document, window, localStorage). Jen čistý JavaScript a standardní vestavěné objekty. Bez závislostí, bez buildu.",
+  "budget": {
+    "iterations": 12
+  }
+}

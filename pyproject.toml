@@ -1,0 +1,14 @@
+[project]
+name = "green-air-tech"
+version = "0.1.0"
+description = "Návrh nového webu Green Air Tech s.r.o."
+requires-python = ">=3.11"
+dependencies = [
+    "pytest>=8.0",
+    "pillow>=10.0",
+    "httpx>=0.27",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

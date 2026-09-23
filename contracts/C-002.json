@@ -1,0 +1,13 @@
+{
+  "id": "C-002",
+  "file": "src/lib/i18n.mjs",
+  "role": "coder",
+  "title": "Slovníky překladů – tečkové klíče, záskok, zplošťování",
+  "interface": "Slovník je vnořený objekt s řetězcovými listy (může obsahovat i pole řetězců).\n\nexport function get(dict, path) -> hodnota | null\n  `path` je tečková cesta (\"nav.sluzby\"). Když kterýkoli mezičlánek chybí nebo není objekt, vrať null (ne undefined, ne výjimku). Existující prázdný řetězec vrať jako \"\".\n\nexport function t(dict, path, vars = {}, fallbackDict = null) -> string\n  1. Vezmi get(dict, path). Když je to neprázdný řetězec (po trim), použij ho.\n  2. Jinak zkus get(fallbackDict, path); když je to neprázdný řetězec, použij ho.\n  3. Když ani tam nic není, vrať samotné `path`.\n  Do výsledku dosaď proměnné: každý výskyt {klic} nahraď String(vars[klic]), pokud klíč ve `vars` existuje. Neznámé {klic} nech beze změny.\n\nexport function flatten(obj, prefix = \"\") -> ploché { \"a.b\": \"text\" }\n  Rekurzivně projde objekty i pole. Pole se indexují číslem: { seznam: [\"a\"] } -> { \"seznam.0\": \"a\" }. Ve výsledku jsou jen listy (řetězce, čísla a boolean se uloží tak, jak jsou); vnitřní uzly ve výsledku nejsou.\n\nexport function unflatten(map) -> vnořený objekt\n  Přesně opačná operace k flatten. Klíč, jehož segment je celé nezáporné číslo, vytvoří pole (ne objekt s číselnými klíči), takže unflatten(flatten(x)) se rovná x i pro pole.\n\nexport function missingKeys(reference, dict) -> pole tečkových klíčů\n  Projde flatten(reference) a vrátí klíče, u kterých reference MÁ neprázdný řetězec (po trim), ale `dict` na stejné cestě hodnotu nemá, nebo má řetězec, který je po trim prázdný. Klíče, kde je i v referenci prázdno, se nehlásí. Pořadí = pořadí z flatten(reference). Prázdné -> [].",
+  "uses": {},
+  "acceptance": "tests/test_i18n.py",
+  "notes": "ESM modul BEZ jakýchkoli importů. Musí běžet v Node 24 i v prohlížeči: žádné `require`, žádné Node API (fs, path, process), žádné DOM API (document, window, localStorage). Jen čistý JavaScript a standardní vestavěné objekty. Bez závislostí, bez buildu.",
+  "budget": {
+    "iterations": 12
+  }
+}

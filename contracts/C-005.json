@@ -1,0 +1,13 @@
+{
+  "id": "C-005",
+  "file": "src/lib/realizace-filter.mjs",
+  "role": "coder",
+  "title": "Filtrování, řazení a stránkování referencí",
+  "interface": "Položka = { id, nazev, datum: \"YYYY-MM-DD\", kategorie: string[], misto?, perex? }.\n\nexport function normalizeText(value) -> string\n  Malá písmena bez diakritiky: String(value).toLowerCase().normalize(\"NFD\") a odstranění U+0300–U+036F.\n\nexport function filterItems(items, { kategorie, dotaz, rok } = {}) -> nové pole\n  - kategorie: prázdné, chybějící nebo \"vse\" nefiltruje; jinak zůstanou položky, jejichž pole `kategorie` obsahuje tuto hodnotu.\n  - rok: prázdný nebo chybějící nefiltruje; jinak zůstanou položky, jejichž `datum` začíná tímto rokem (Number i string se chovají stejně).\n  - dotaz: prázdný nefiltruje; jinak se dotaz i text položky proženou normalizeText a dotaz se rozdělí na slova podle mezer. Položka projde, když KAŽDÉ slovo dotazu je podřetězcem spojeného textu `nazev + \" \" + misto + \" \" + perex + \" \" + kategorie.join(\" \")`.\n  Filtry se kombinují (logické A). Pořadí položek zůstává jako ve vstupu. Vstupní pole se nemutuje.\n\nexport function collectKategorie(items) -> [{ id, count }]\n  Všechny kategorie napříč položkami se spočtou. Řazení: podle `count` sestupně, při shodě podle `id` vzestupně (localeCompare s \"cs\").\n\nexport function collectRoky(items) -> pole čísel\n  Unikátní roky z `datum` jako čísla, sestupně. Položky bez `datum` se přeskočí.\n\nexport function sortItems(items, mode) -> nové pole (vstup se nemutuje)\n  - \"nejnovejsi\" (i výchozí pro neznámý mode): podle `datum` sestupně.\n  - \"nejstarsi\": podle `datum` vzestupně.\n  - \"nazev\": podle `nazev` přes localeCompare(b.nazev, \"cs\").\n\nexport function paginate(items, page, perPage) -> { items, page, pages, total }\n  total = items.length; pages = Math.max(1, Math.ceil(total / perPage)); page se ořízne do rozsahu 1..pages (menší než 1 -> 1, větší než pages -> pages). `items` je odpovídající výřez.",
+  "uses": {},
+  "acceptance": "tests/test_realizace_filter.py",
+  "notes": "ESM modul BEZ jakýchkoli importů. Musí běžet v Node 24 i v prohlížeči: žádné `require`, žádné Node API (fs, path, process), žádné DOM API (document, window, localStorage). Jen čistý JavaScript a standardní vestavěné objekty. Bez závislostí, bez buildu.",
+  "budget": {
+    "iterations": 12
+  }
+}

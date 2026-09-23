@@ -1,0 +1,13 @@
+{
+  "id": "C-006",
+  "file": "tools/optimize_images.py",
+  "role": "coder",
+  "title": "Responzivní obrázky – WebP + záložní formát",
+  "interface": "Python 3.11+, jediná závislost Pillow (PIL). Bez síťového volání.\n\ndef plan_sizes(width: int, targets: list[int]) -> list[int]\n  Z `targets` vezme ty, které jsou menší než `width`, a přidá `width`, pokud je menší nebo roven největšímu targetu; výsledek je vzestupně a bez duplicit. plan_sizes(1600, [480, 960, 1440, 1920]) -> [480, 960, 1440, 1600]; plan_sizes(400, [480, 960]) -> [400]; plan_sizes(960, [480, 960, 1440]) -> [480, 960].\n\ndef process_image(src: Path, out_dir: Path, widths: list[int], quality: int = 82) -> dict\n  `out_dir` se vytvoří, pokud neexistuje. Pro každou šířku ve `widths` (bere se tak, jak přijde — volající už zavolal plan_sizes) vyrobí zmenšeninu přes Image.LANCZOS se zachovaným poměrem stran (výška = round(w * h / orig_w)) a uloží:\n    <jmeno>-<w>.webp  (vždy)\n    <jmeno>-<w>.<zaloha>  kde `zaloha` je \"png\" pro vstup s průhledností (režim RGBA/LA nebo \"transparency\" v info), jinak \"jpg\"\n  `jmeno` je název vstupního souboru bez přípony. JPEG se ukládá s quality=quality a optimize=True, WebP s quality=quality a method=6, PNG s optimize=True. Pro jpg zálohu se obrázek převede na RGB.\n  Vrací { \"name\": jmeno, \"zdroj\": src.name, \"zaloha\": \"jpg\"|\"png\", \"pomer\": orig_w / orig_h, \"varianty\": [{\"w\": w, \"h\": h, \"webp\": \"<jmeno>-<w>.webp\", \"zaloha\": \"<jmeno>-<w>.<zaloha>\"}, …] } ve stejném pořadí jako `widths`.\n\ndef build_manifest(src_dir: Path, out_dir: Path, targets: list[int]) -> dict\n  Projde soubory .jpg/.jpeg/.png/.webp v `src_dir` (seřazené podle jména, bez rekurze), pro každý spočítá plan_sizes z jeho šířky a zavolá process_image. Vrací { jmeno: zaznam }. Soubor, který už v `out_dir` existuje a je NOVĚJŠÍ než zdroj, se znovu negeneruje (porovnej st_mtime_ns; při přeskočení se záznam do manifestu přesto doplní ze skutečných rozměrů existujících souborů).\n\ndef srcset(zaznam: dict, druh: str, prefix: str = \"\") -> str\n  `druh` je \"webp\" nebo \"zaloha\". Vrací \"prefix+soubor <w>w\" pro všechny varianty spojené \", \" v pořadí, v jakém jsou v záznamu.\n\nModul jde spustit i jako skript: `python tools/optimize_images.py <src_dir> <out_dir>` vypíše JSON manifestu na stdout (blok `if __name__ == \"__main__\":`).",
+  "uses": {},
+  "acceptance": "tests/test_optimize_images.py",
+  "notes": "Používej pathlib.Path. Nikdy nezvětšuj obrázek nad původní rozlišení.",
+  "budget": {
+    "iterations": 14
+  }
+}

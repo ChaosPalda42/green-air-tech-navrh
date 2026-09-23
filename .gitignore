@@ -4,3 +4,7 @@ __pycache__/
 .pytest_cache/
 .factory-runtime/
 *.db
+out/
+_balicek/
+node_modules/
+.DS_Store
