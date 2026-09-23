@@ -1,7 +1,7 @@
 /* Těla jednotlivých stránek. */
 
 import { ikona } from "./ikony.mjs";
-import { podhlavi, vyzva, potrubiDelic } from "./layout.mjs";
+import { podhlavi, vyzva } from "./layout.mjs";
 import { motivRealizace, heroSchema } from "./grafika.mjs";
 
 const dc = (k) => ` data-cms="${k}"`;
@@ -221,9 +221,8 @@ export function domu(ctx) {
   </div>
 </section>
 
-${potrubiDelic()}
 
-<section class="sekce">
+<section class="sekce sekce-papir">
   <div class="obal">
     <div class="hlavicka-sekce">
       <span class="stitek"${dc("home.duvody.stitek")}>${t("home.duvody.stitek")}</span>

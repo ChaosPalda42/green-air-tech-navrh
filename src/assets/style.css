@@ -758,14 +758,14 @@ abbr.zkratka:hover, abbr.zkratka:focus-visible { background: var(--zelena-závoj
 }
 /* zelený prstenec, který se kolem portrétu roztáhne */
 .avatar::after {
-  content: ""; position: absolute; inset: -5px; z-index: 2;
+  content: ""; position: absolute; inset: -4px; z-index: 2;
   border-radius: 50%; pointer-events: none;
   border: 2px solid var(--zelena);
   opacity: 0; transform: scale(0.82);
   transition: opacity 380ms ease-out, transform 520ms cubic-bezier(0.16, 0.8, 0.24, 1);
 }
 .karta-clovek:hover .avatar,
-.karta-clovek:focus-within .avatar { transform: scale(1.18); box-shadow: 0 12px 30px rgba(47, 106, 18, 0.26); }
+.karta-clovek:focus-within .avatar { transform: scale(1.1); box-shadow: 0 12px 30px rgba(47, 106, 18, 0.26); }
 .karta-clovek:hover .avatar .inicialy,
 .karta-clovek:focus-within .avatar .inicialy { opacity: 0; transform: scale(0.86); }
 .karta-clovek:hover .avatar .portret,
@@ -874,8 +874,6 @@ abbr.zkratka:hover, abbr.zkratka:focus-visible { background: var(--zelena-závoj
 @media (min-width: 1060px) { .nahoru { right: 1.5rem; bottom: 1.5rem; } }
 
 /* ---------------------------------------------------------------- dekorace */
-.potrubi-delic { display: block; width: 100%; height: 26px; color: var(--linka); }
-.sekce-tmava .potrubi-delic { color: rgba(255,255,255,0.12); }
 
 .editovatelne-zvyrazneni [data-cms] {
   outline: 1px dashed rgba(88, 74, 149, 0.55);
@@ -956,20 +954,54 @@ abbr.zkratka:hover, abbr.zkratka:focus-visible { background: var(--zelena-závoj
 @media (prefers-reduced-motion: reduce) { .zavan { display: none; } }
 
 /* příchod bloků při scrollu — jako by je přifouklo zprava */
-.privane { opacity: 0; transform: translate3d(0, 26px, 0) scale(0.985); }
-.privane.je-videt {
-  opacity: 1; transform: none;
-  transition: opacity 0.62s cubic-bezier(0.22, 0.68, 0.16, 1),
-              transform 0.72s cubic-bezier(0.22, 0.68, 0.16, 1);
+/* ===================================================== příchod obsahu
+   Obsah nepřibližuje se „odněkud", ale přilétá zleva po větru: v letu je
+   nakloněný a vodorovně protažený (jako rozmazaný pohybem), při dosednutí
+   mírně přestřelí a srovná se. Průhlednost naskočí rychleji než pohyb,
+   aby to nepůsobilo jako pomalé načítání. */
+.privane {
+  opacity: 0;
+  transform: translate3d(-54px, 4px, 0) rotate(-1.1deg) skewX(3.5deg) scaleX(1.04);
+  transform-origin: 50% 60%;
 }
-/* nadpisy sekcí přijíždějí zleva, jako by se zarovnaly k pásu teček */
-.privane.privane-nadpis { transform: translate3d(-18px, 12px, 0); }
-/* karty se vynoří zespodu a lehce se dorovnají */
-.privane.privane-karta { transform: translate3d(0, 34px, 0) scale(0.97); }
-/* kroky postupu vyjedou s vlastní čárou */
-.krok.privane { transform: translate3d(0, 18px, 0); }
-.krok.privane::before { opacity: 0; transition: opacity 0.4s ease-out 0.18s; }
+.privane.je-videt {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.34s ease-out,
+              transform 0.82s cubic-bezier(0.18, 1.04, 0.28, 1);
+}
+/* nadpisy přilétají kratší dráhou, ať nepůsobí neklidně */
+.privane.privane-nadpis { transform: translate3d(-38px, 0, 0) skewX(2.5deg); }
+/* karty mají delší nálet a znatelnější naklonění */
+.privane.privane-karta {
+  transform: translate3d(-72px, 8px, 0) rotate(-1.6deg) skewX(4.5deg) scaleX(1.06);
+}
+/* kroky postupu si dokreslí číslo, až dosednou */
+.krok.privane::before { opacity: 0; transition: opacity 0.4s ease-out 0.24s; }
 .krok.privane.je-videt::before { opacity: 1; }
+
+/* poryv, který sekcí prolétne ve chvíli, kdy obsah přilétá */
+.pruvan {
+  position: absolute; inset: 0; z-index: 2;
+  overflow: hidden; pointer-events: none;
+  opacity: 0;
+}
+.sekce.je-zavan .pruvan, .vyzva.je-zavan .pruvan { opacity: 1; }
+.pruvan i {
+  position: absolute; left: 0; height: 2px; width: 40vw; border-radius: 2px;
+  background: linear-gradient(90deg, rgba(88, 172, 37, 0), rgba(123, 209, 63, 0.5) 55%, rgba(88, 172, 37, 0));
+  transform: translate3d(-44vw, 0, 0);
+  opacity: 0;
+}
+.sekce.je-zavan .pruvan i, .vyzva.je-zavan .pruvan i {
+  animation: pruvan-pas var(--doba) cubic-bezier(0.24, 0.62, 0.2, 1) var(--zpozdeni) both;
+}
+@keyframes pruvan-pas {
+  0% { transform: translate3d(-44vw, 0, 0) scaleX(0.55); opacity: 0; }
+  18% { opacity: 1; }
+  100% { transform: translate3d(114vw, 0, 0) scaleX(1.3); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) { .pruvan { display: none; } }
 @media (prefers-reduced-motion: reduce) {
   .privane { opacity: 1; transform: none; filter: none; }
 }
@@ -1014,7 +1046,10 @@ abbr.zkratka:hover, abbr.zkratka:focus-visible { background: var(--zelena-závoj
     radial-gradient(circle at 50% 50%, currentColor var(--tecka-polomer), transparent calc(var(--tecka-polomer) + 0.7px)),
     radial-gradient(circle at 50% 50%, currentColor var(--tecka-polomer), transparent calc(var(--tecka-polomer) + 0.7px));
   background-size: var(--tecka-krok) var(--tecka-krok);
-  background-position: 0 0, calc(var(--tecka-krok) / 2) calc(var(--tecka-krok) / 2);
+  /* --posun drží mřížku zarovnanou přes celou stránku, ne jen v rámci sekce */
+  background-position:
+    0 var(--posun, 0px),
+    calc(var(--tecka-krok) / 2) calc(var(--posun, 0px) + var(--tecka-krok) / 2);
 }
 
 .lista { position: sticky; }
@@ -1053,18 +1088,25 @@ abbr.zkratka:hover, abbr.zkratka:focus-visible { background: var(--zelena-závoj
    nakloní — jako plech ve vzduchovém proudu. Vše zůstává uvnitř karty. */
 .karta-sluzba, .karta-realizace, .karta-clanek, .karta-kontakt, .karta-clovek, .slovnik-karta {
   position: relative;
-  transform-style: preserve-3d;
-  will-change: transform;
+  transition: transform var(--plynule), box-shadow var(--plynule), border-color var(--rychle);
 }
 .karta-sluzba::after, .karta-realizace::after, .karta-clanek::after,
 .karta-kontakt::after, .karta-clovek::after, .slovnik-karta::after {
   content: "";
   position: absolute; inset: 0; z-index: 2;
   border-radius: inherit; pointer-events: none;
-  background: radial-gradient(320px circle at var(--cx, 50%) var(--cy, 0%),
-              rgba(88, 172, 37, 0.13), rgba(88, 172, 37, 0.05) 42%, transparent 68%);
+  background:
+    radial-gradient(150px circle at var(--cx, 50%) var(--cy, 0%), rgba(123, 209, 63, 0.3), transparent 62%),
+    radial-gradient(420px circle at var(--cx, 50%) var(--cy, 0%), rgba(88, 172, 37, 0.16), transparent 70%);
   opacity: 0;
-  transition: opacity 320ms ease-out;
+  transition: opacity 260ms ease-out;
+}
+.karta-sluzba[data-kurzor], .karta-realizace[data-kurzor], .karta-clanek[data-kurzor],
+.karta-kontakt[data-kurzor], .karta-clovek[data-kurzor], .slovnik-karta[data-kurzor] {
+  z-index: 3;
+  border-color: rgba(88, 172, 37, 0.75);
+  box-shadow: 0 18px 44px rgba(16, 26, 18, 0.14), 0 0 0 1px rgba(88, 172, 37, 0.22);
+  transform: translate3d(0, -3px, 0);
 }
 .karta-sluzba[data-kurzor]::after, .karta-realizace[data-kurzor]::after,
 .karta-clanek[data-kurzor]::after, .karta-kontakt[data-kurzor]::after,
@@ -1073,11 +1115,82 @@ abbr.zkratka:hover, abbr.zkratka:focus-visible { background: var(--zelena-závoj
 /* na tmavých kartách svítí jasněji */
 .karta-realizace::after,
 .karta-kontakt.zvyrazneny::after {
-  background: radial-gradient(320px circle at var(--cx, 50%) var(--cy, 0%),
-              rgba(123, 209, 63, 0.16), rgba(123, 209, 63, 0.06) 42%, transparent 68%);
+  background:
+    radial-gradient(160px circle at var(--cx, 50%) var(--cy, 0%), rgba(123, 209, 63, 0.34), transparent 62%),
+    radial-gradient(440px circle at var(--cx, 50%) var(--cy, 0%), rgba(123, 209, 63, 0.14), transparent 72%);
 }
 
 @media (hover: none), (prefers-reduced-motion: reduce) {
   .karta-sluzba::after, .karta-realizace::after, .karta-clanek::after,
   .karta-kontakt::after, .karta-clovek::after, .slovnik-karta::after { display: none; }
+}
+
+/* ==================================================== zaměřovací kurzor
+   Za šipkou myši se s mírným zpožděním veze kroužek se čtyřmi ryskami —
+   jako zaměřovací značka na technickém výkresu. Nad odkazy a tlačítky se
+   roztáhne a rozsvítí, nad textem se naopak stáhne, aby nepřekážel.
+   Nikdy nechytá kliknutí a na dotykových zařízeních vůbec nevzniká. */
+.zamerovac {
+  position: fixed; left: 0; top: 0; z-index: 950;
+  width: 38px; height: 38px; margin: -19px 0 0 -19px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(88, 172, 37, 0.55);
+  pointer-events: none;
+  opacity: 0;
+  transform: translate3d(-200px, -200px, 0);
+  transition:
+    width 260ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    height 260ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    margin 260ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 260ms ease-out,
+    background-color 260ms ease-out,
+    opacity 260ms ease-out;
+}
+.zamerovac[data-zive="1"] { opacity: 1; }
+
+/* čtyři rysky do kříže */
+.zamerovac::before,
+.zamerovac::after {
+  content: "";
+  position: absolute; left: 50%; top: 50%;
+  background: currentColor;
+  transform: translate(-50%, -50%);
+  transition: all 260ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.zamerovac { color: rgba(88, 172, 37, 0.75); }
+.zamerovac::before { width: calc(100% + 14px); height: 1px; }
+.zamerovac::after { width: 1px; height: calc(100% + 14px); }
+.zamerovac .stred {
+  position: absolute; left: 50%; top: 50%;
+  width: 5px; height: 5px; margin: -2.5px 0 0 -2.5px;
+  border-radius: 50%; background: var(--zelena);
+  transition: transform 260ms cubic-bezier(0.2, 0.8, 0.2, 1), opacity 200ms;
+}
+
+/* nad odkazem nebo tlačítkem se rozevře */
+.zamerovac[data-cil="akce"] {
+  width: 62px; height: 62px; margin: -31px 0 0 -31px;
+  border-color: rgba(88, 172, 37, 0.9);
+  background-color: rgba(88, 172, 37, 0.09);
+}
+.zamerovac[data-cil="akce"] .stred { transform: scale(0.4); opacity: 0.5; }
+
+/* nad textem se stáhne do tenkého kříže, ať nic nepřekrývá */
+.zamerovac[data-cil="text"] {
+  width: 12px; height: 12px; margin: -6px 0 0 -6px;
+  border-color: transparent;
+  color: rgba(90, 98, 118, 0.45);
+}
+.zamerovac[data-cil="text"] .stred { opacity: 0; }
+
+/* na tmavém podkladu svítí */
+.zamerovac[data-podklad="tmavy"] {
+  border-color: rgba(123, 209, 63, 0.75);
+  color: rgba(123, 209, 63, 0.8);
+}
+.zamerovac[data-podklad="tmavy"] .stred { background: var(--zelena-svetlá); }
+.zamerovac[data-podklad="tmavy"][data-cil="akce"] { background-color: rgba(123, 209, 63, 0.14); }
+
+@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .zamerovac { display: none; }
 }

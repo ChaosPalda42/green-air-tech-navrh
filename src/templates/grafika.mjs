@@ -5,22 +5,6 @@ const ZELENA = "#58ac25";
 const ZELENA_SV = "#7bd13f";
 const FIALOVA = "#8a7ecd";
 
-/* ------------------------------------------------------------- dělič sekcí */
-/** Vodorovný pás potrubí s přírubami — jemný předěl mezi sekcemi. */
-export function potrubiDelic() {
-  let priruby = "";
-  for (let x = 0; x <= 1200; x += 60) {
-    priruby += `<path d="M${x} 6v14"/>`;
-  }
-  return (
-    '<svg class="potrubi-delic" viewBox="0 0 1200 26" preserveAspectRatio="none" aria-hidden="true" focusable="false" ' +
-    'fill="none" stroke="currentColor" stroke-width="1.4">' +
-    '<path d="M0 6h1200M0 20h1200"/>' +
-    priruby +
-    "</svg>"
-  );
-}
-
 /* ------------------------------------------------------------- hero schéma */
 /** Podélný řez vzduchotechnickou jednotkou s proudnicemi — dekorace pod hero obrázkem. */
 export function heroSchema() {

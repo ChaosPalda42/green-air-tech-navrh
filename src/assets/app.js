@@ -547,13 +547,97 @@
      a maska ji drží v levém pásu, takže přes celou výšku stránky vzniká
      jeden souvislý okraj — stejný jako kolem loga v hlavičce. */
   function pasTecek() {
+    var vrstvy = [];
+
     $$(".sekce:not(.sekce-tmava)").forEach(function (sekce) {
       var vrstva = document.createElement("span");
       vrstva.className = "rastr";
       vrstva.setAttribute("aria-hidden", "true");
       vrstva.innerHTML = "<i></i>";
       sekce.insertBefore(vrstva, sekce.firstChild);
+      vrstvy.push(vrstva);
     });
+    if (!vrstvy.length) return;
+
+    // Každá sekce má vlastní počátek souřadnic, takže by na sebe mřížky
+    // nenavazovaly. Posuneme je tak, aby všechny sedly na jednu mřížku
+    // vedenou od horního okraje dokumentu.
+    function zarovnej() {
+      var krok = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--tecka-krok")) || 41;
+      var odsun = window.scrollY || window.pageYOffset || 0;
+      for (var i = 0; i < vrstvy.length; i++) {
+        var vrchol = vrstvy[i].getBoundingClientRect().top + odsun;
+        var posun = -(((vrchol % krok) + krok) % krok);
+        vrstvy[i].querySelector("i").style.setProperty("--posun", posun.toFixed(2) + "px");
+      }
+    }
+
+    zarovnej();
+    window.addEventListener("load", zarovnej);
+    window.addEventListener("resize", function () {
+      clearTimeout(pasTecek.casovac);
+      pasTecek.casovac = setTimeout(zarovnej, 150);
+    }, { passive: true });
+    if ("ResizeObserver" in window) {
+      new ResizeObserver(function () { zarovnej(); }).observe(document.body);
+    }
+  }
+
+  /* ======================================================= zaměřovací kurzor
+     Kroužek s ryskami, který se veze za myší s mírným zpožděním. Nad odkazy
+     se rozevře, nad textem stáhne, na tmavých sekcích se rozsvítí zeleně. */
+  function zamerovac() {
+    if (mene.matches || dotykove.matches) return;
+    if (!window.matchMedia("(pointer: fine)").matches) return;
+
+    var znacka = document.createElement("div");
+    znacka.className = "zamerovac";
+    znacka.setAttribute("aria-hidden", "true");
+    znacka.innerHTML = '<span class="stred"></span>';
+    document.body.appendChild(znacka);
+
+    var cilX = -200, cilY = -200, x = -200, y = -200;
+    var bezi = false, tik = 0;
+    var AKCE = 'a, button, [role="button"], summary, label.zaskrtavatko, .chip, input[type="submit"]';
+    var TEXT = "p, li, h1, h2, h3, h4, dd, dt, address, span.lead, td, th, blockquote";
+    var TMAVE = ".hero, .podhlavi, .sekce-tmava, .paticka, .vyzva, .karta-nahled, .karta-kontakt.zvyrazneny";
+
+    function krok() {
+      // plynulé dohánění — kroužek se veze za šipkou
+      x += (cilX - x) * 0.22;
+      y += (cilY - y) * 0.22;
+      znacka.style.transform = "translate3d(" + x.toFixed(1) + "px," + y.toFixed(1) + "px,0)";
+      if (Math.abs(cilX - x) > 0.4 || Math.abs(cilY - y) > 0.4) {
+        requestAnimationFrame(krok);
+      } else {
+        bezi = false;
+      }
+    }
+
+    document.addEventListener("pointermove", function (e) {
+      if (e.pointerType === "touch") return;
+      cilX = e.clientX;
+      cilY = e.clientY;
+      znacka.setAttribute("data-zive", "1");
+
+      if ((tik++ & 3) === 0) {
+        var pod = e.target;
+        var jeAkce = pod.closest && pod.closest(AKCE);
+        var jeText = !jeAkce && pod.closest && pod.closest(TEXT);
+        if (jeAkce) znacka.setAttribute("data-cil", "akce");
+        else if (jeText) znacka.setAttribute("data-cil", "text");
+        else znacka.removeAttribute("data-cil");
+
+        var tmavy = pod.closest && pod.closest(TMAVE);
+        if (tmavy) znacka.setAttribute("data-podklad", "tmavy");
+        else znacka.removeAttribute("data-podklad");
+      }
+
+      if (!bezi) { bezi = true; requestAnimationFrame(krok); }
+    }, { passive: true });
+
+    document.addEventListener("pointerleave", function () { znacka.removeAttribute("data-zive"); }, { passive: true });
+    document.addEventListener("pointerdown", function () { znacka.setAttribute("data-cil", "akce"); }, { passive: true });
   }
 
   /* ====================================================== karty pod kurzorem
@@ -575,17 +659,11 @@
       var py = (y - r.top) / r.height;
       aktivni.style.setProperty("--cx", (px * 100).toFixed(1) + "%");
       aktivni.style.setProperty("--cy", (py * 100).toFixed(1) + "%");
-      var naklonX = (0.5 - py) * 3.2;   // stupně
-      var naklonY = (px - 0.5) * 3.2;
-      aktivni.style.transform =
-        "perspective(900px) rotateX(" + naklonX.toFixed(2) + "deg) rotateY(" +
-        naklonY.toFixed(2) + "deg) translate3d(0,-3px,0)";
     }
 
     function opust(karta) {
       if (!karta) return;
       karta.removeAttribute("data-kurzor");
-      karta.style.transform = "";
       karta.style.removeProperty("--cx");
       karta.style.removeProperty("--cy");
     }
@@ -593,6 +671,7 @@
     document.addEventListener("pointermove", function (e) {
       if (e.pointerType === "touch") return;
       var karta = e.target.closest ? e.target.closest(VYBER) : null;
+      if (karta && karta.classList.contains("privane")) karta = null;
       if (karta !== aktivni) {
         opust(aktivni);
         aktivni = karta;
@@ -635,9 +714,50 @@
 
     var cekajici = [];
 
+    // poryv: tři zelené pruhy, které sekcí prolétnou ve chvíli příletu obsahu
+    function vlozPoryv(sekce) {
+      if (sekce.querySelector(":scope > .pruvan")) return;
+      var pruvan = document.createElement("span");
+      pruvan.className = "pruvan";
+      pruvan.setAttribute("aria-hidden", "true");
+      var html = "";
+      for (var i = 0; i < 3; i++) {
+        var top = (14 + i * 30 + Math.random() * 16).toFixed(1);
+        var doba = (620 + Math.random() * 360).toFixed(0);
+        var zpozdeni = (i * 90).toFixed(0);
+        html += '<i style="top:' + top + "%;--doba:" + doba + "ms;--zpozdeni:" + zpozdeni + 'ms"></i>';
+      }
+      pruvan.innerHTML = html;
+      sekce.appendChild(pruvan);
+    }
+
+    function spustPoryv(prvek) {
+      var sekce = prvek.closest(".sekce, .vyzva");
+      if (!sekce || sekce.dataset.poryvBezel === "1") return;
+      sekce.dataset.poryvBezel = "1";
+      vlozPoryv(sekce);
+      requestAnimationFrame(function () {
+        sekce.classList.add("je-zavan");
+        setTimeout(function () { sekce.classList.remove("je-zavan"); }, 1600);
+      });
+    }
+
+    function uklid(prvek) {
+      prvek.classList.remove("privane", "privane-karta", "privane-nadpis", "je-videt");
+      prvek.style.transitionDelay = "";
+    }
+
     function odkryj(prvek) {
-      if (document.hidden) prvek.classList.remove("privane");
-      else prvek.classList.add("je-videt");
+      if (document.hidden) {
+        uklid(prvek);
+      } else {
+        spustPoryv(prvek);
+        prvek.classList.add("je-videt");
+        // až animace doběhne, třídy zmizí — jinak by jejich transform
+        // kolidoval s nakloněním karty pod kurzorem
+        var zpozdeni = parseFloat(prvek.style.transitionDelay) || 0;
+        setTimeout(function () { uklid(prvek); }, 1200 + zpozdeni);
+      }
       var i = cekajici.indexOf(prvek);
       if (i !== -1) cekajici.splice(i, 1);
       pozorovatel.unobserve(prvek);
@@ -646,6 +766,17 @@
     var pozorovatel = new IntersectionObserver(function (zaznamy) {
       zaznamy.forEach(function (z) { if (z.isIntersecting) odkryj(z.target); });
     }, { rootMargin: "0px 0px 12% 0px", threshold: 0 });
+
+    function pocetSloupcu(skupina, deti) {
+      if (!deti.length) return 1;
+      var prvniTop = Math.round(deti[0].getBoundingClientRect().top);
+      var n = 0;
+      for (var i = 0; i < deti.length; i++) {
+        if (Math.abs(Math.round(deti[i].getBoundingClientRect().top) - prvniTop) > 4) break;
+        n++;
+      }
+      return Math.max(1, n);
+    }
 
     function priprav(prvek, trida, zpozdeni) {
       if (!prvek || prvek.classList.contains("privane")) return;
@@ -664,8 +795,12 @@
       var skupiny = $$(".mrizka, .postup, .slovnik-polozky", sekce);
       if (skupiny.length) {
         skupiny.forEach(function (skupina) {
-          Array.prototype.slice.call(skupina.children).forEach(function (dite, i) {
-            priprav(dite, "privane-karta", Math.min(i, 5) * 70);
+          var deti = Array.prototype.slice.call(skupina.children);
+          var sloupcu = pocetSloupcu(skupina, deti);
+          deti.forEach(function (dite, i) {
+            var sloupec = i % sloupcu;
+            var rada = Math.floor(i / sloupcu);
+            priprav(dite, "privane-karta", sloupec * 115 + Math.min(rada, 3) * 60);
           });
         });
       }
@@ -779,6 +914,7 @@
     slovnikHledani();
     pasTecek();
     kartyPodKurzorem();
+    zamerovac();
     zavanPriPrichodu();
     prichodObsahu();
     pocitadla();

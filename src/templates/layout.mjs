@@ -1,7 +1,6 @@
 /* Kostra stránky: hlavička, mobilní panel, spodní lišta, patička. */
 
 import { ikona } from "./ikony.mjs";
-import { potrubiDelic } from "./grafika.mjs";
 
 export const POLOZKY_MENU = ["index", "sluzby", "realizace", "onas", "novinky", "kariera", "kontakt"];
 
@@ -237,4 +236,4 @@ export function vyzva(ctx, { titulek, lead, primarni, sekundarni } = {}) {
 </section>`;
 }
 
-export { potrubiDelic, ikona };
+export { ikona };
