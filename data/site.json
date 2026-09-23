@@ -1,0 +1,300 @@
+{
+  "_comment": "Nepřekládaná struktura webu: fakta o firmě, lidé, seznam služeb, realizací a novinek. Texty k nim jsou v data/content/<jazyk>.json pod stejnými id.",
+  "firma": {
+    "nazev": "Green Air Tech s.r.o.",
+    "ico": "19667531",
+    "dic": "CZ19667531",
+    "datovaSchranka": "mht6ddw",
+    "banka": "Komerční banka a.s.",
+    "ucet": "131-1230500267/0100",
+    "email": "info@greenairtech.cz",
+    "telefon": "+420 383 809 730",
+    "telefonHref": "+420383809730",
+    "mobilKancelar": "+420 731 680 053",
+    "mobilKancelarHref": "+420731680053",
+    "dispecinkTelefon": "+420 383 809 730",
+    "dispecinkTelefonHref": "+420383809730",
+    "dispecinkEmail": "servis@greenairtech.cz",
+    "web": "greenairtech.cz",
+    "praxeLet": 30,
+    "sidlo": {
+      "ulice": "Pobřežní 394/12",
+      "psc": "186 00",
+      "mesto": "Praha 8"
+    },
+    "provozovna": {
+      "ulice": "5. května 310",
+      "psc": "399 01",
+      "mesto": "Milevsko"
+    }
+  },
+  "jazyky": [
+    {
+      "kod": "cs",
+      "nazev": "Čeština",
+      "zkratka": "CZ",
+      "html": "cs",
+      "adresar": ""
+    },
+    {
+      "kod": "en",
+      "nazev": "English",
+      "zkratka": "EN",
+      "html": "en",
+      "adresar": "en"
+    },
+    {
+      "kod": "de",
+      "nazev": "Deutsch",
+      "zkratka": "DE",
+      "html": "de",
+      "adresar": "de"
+    }
+  ],
+  "lide": [
+    {
+      "id": "pavel-janda",
+      "jmeno": "Pavel Janda",
+      "telefon": "+420 736 532 284",
+      "telefonHref": "+420736532284",
+      "email": "pavel.janda@greenairtech.cz",
+      "inicialy": "PJ"
+    },
+    {
+      "id": "martina-masindova",
+      "jmeno": "Martina Mašindová",
+      "telefon": "+420 731 680 053",
+      "telefonHref": "+420731680053",
+      "email": "martina.masindova@greenairtech.cz",
+      "inicialy": "MM"
+    },
+    {
+      "id": "zdenek-bauska",
+      "jmeno": "Zdeněk Bauška",
+      "telefon": "+420 736 532 311",
+      "telefonHref": "+420736532311",
+      "email": "zdenek.bauska@greenairtech.cz",
+      "inicialy": "ZB"
+    },
+    {
+      "id": "jan-rezac",
+      "jmeno": "Jan Řezáč",
+      "telefon": "+420 736 532 316",
+      "telefonHref": "+420736532316",
+      "email": "jan.rezac@greenairtech.cz",
+      "inicialy": "JŘ"
+    },
+    {
+      "id": "radek-tyla",
+      "jmeno": "Radek Týla",
+      "telefon": "+420 736 532 319",
+      "telefonHref": "+420736532319",
+      "email": "radek.tyla@greenairtech.cz",
+      "inicialy": "RT"
+    },
+    {
+      "id": "denisa-jandova",
+      "jmeno": "Bc. Denisa Jandová",
+      "telefon": "+420 720 253 436",
+      "telefonHref": "+420720253436",
+      "email": "denisa.jandova@greenairtech.cz",
+      "inicialy": "DJ"
+    },
+    {
+      "id": "jonas-benak",
+      "jmeno": "Jonáš Benák",
+      "telefon": "+420 736 532 285",
+      "telefonHref": "+420736532285",
+      "email": "jonas.benak@greenairtech.cz",
+      "inicialy": "JB"
+    }
+  ],
+  "sluzby": [
+    {
+      "id": "projekce",
+      "soubor": "projekce",
+      "ikona": "projekce",
+      "foto": "foto-projekce"
+    },
+    {
+      "id": "realizace-montaze",
+      "soubor": "realizace-a-montaze",
+      "ikona": "montaz",
+      "foto": "foto-strojovna"
+    },
+    {
+      "id": "servis",
+      "soubor": "servis",
+      "ikona": "servis",
+      "foto": "foto-servis"
+    },
+    {
+      "id": "energetika",
+      "soubor": "penb-a-audity",
+      "ikona": "energetika",
+      "foto": "foto-audit"
+    },
+    {
+      "id": "klimatizace",
+      "soubor": "klimatizace-a-tepelna-cerpadla",
+      "ikona": "klimatizace",
+      "foto": "foto-cerpadla"
+    },
+    {
+      "id": "eac-filtry",
+      "soubor": "eac-filtry",
+      "ikona": "filtr",
+      "foto": "foto-filtry"
+    },
+    {
+      "id": "vymeniky",
+      "soubor": "opravy-vymeniku",
+      "ikona": "vymenik",
+      "foto": "foto-strojovna"
+    }
+  ],
+  "kategorieRealizaci": [
+    "vzt",
+    "chlazeni",
+    "vytapeni",
+    "tepelna-cerpadla",
+    "energetika",
+    "servis"
+  ],
+  "realizace": [
+    {
+      "id": "logisticke-centrum-d1",
+      "datum": "2026-07-15",
+      "kategorie": [
+        "energetika",
+        "vytapeni"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "18 400 m²",
+      "doba": "9 měsíců",
+      "motiv": 1
+    },
+    {
+      "id": "administrativni-budova-karlin",
+      "datum": "2026-05-20",
+      "kategorie": [
+        "vzt",
+        "chlazeni"
+      ],
+      "kraj": "Praha",
+      "plocha": "6 200 m²",
+      "doba": "7 měsíců",
+      "motiv": 2
+    },
+    {
+      "id": "poliklinika-pisek",
+      "datum": "2026-02-10",
+      "kategorie": [
+        "chlazeni",
+        "vzt"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "3 100 m²",
+      "doba": "5 měsíců",
+      "motiv": 3
+    },
+    {
+      "id": "vyrobni-hala-milevsko",
+      "datum": "2025-09-08",
+      "kategorie": [
+        "vzt",
+        "chlazeni"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "9 800 m²",
+      "doba": "6 měsíců",
+      "motiv": 4
+    },
+    {
+      "id": "depozitar-galerie-tabor",
+      "datum": "2025-06-12",
+      "kategorie": [
+        "vzt",
+        "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "1 450 m²",
+      "doba": "4 měsíce",
+      "motiv": 5
+    },
+    {
+      "id": "obchodni-centrum-budejovice",
+      "datum": "2025-03-18",
+      "kategorie": [
+        "vzt",
+        "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "24 000 m²",
+      "doba": "3 měsíce",
+      "motiv": 6
+    },
+    {
+      "id": "zakladni-skola-pribram",
+      "datum": "2024-11-05",
+      "kategorie": [
+        "tepelna-cerpadla",
+        "vzt"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "4 600 m²",
+      "doba": "8 měsíců",
+      "motiv": 7
+    },
+    {
+      "id": "hotel-na-sumave",
+      "datum": "2024-06-24",
+      "kategorie": [
+        "tepelna-cerpadla",
+        "chlazeni"
+      ],
+      "kraj": "Plzeňský kraj",
+      "plocha": "2 700 m²",
+      "doba": "5 měsíců",
+      "motiv": 8
+    }
+  ],
+  "novinky": [
+    {
+      "id": "napsali-o-nas",
+      "datum": "2026-09-10",
+      "odkaz": "https://www.eko-adepto.cz/post/green-air-tech-s-r-o",
+      "motiv": 2
+    },
+    {
+      "id": "klimatizace-bungalovu",
+      "datum": "2026-07-03",
+      "motiv": 3
+    },
+    {
+      "id": "kontrola-38-2022",
+      "datum": "2025-09-01",
+      "motiv": 1
+    },
+    {
+      "id": "nabor-techniku",
+      "datum": "2024-06-10",
+      "motiv": 4
+    },
+    {
+      "id": "firemni-den-systemair",
+      "datum": "2023-11-19",
+      "motiv": 5
+    },
+    {
+      "id": "panelova-diskuze-cvut",
+      "datum": "2023-11-18",
+      "motiv": 6
+    },
+    {
+      "id": "rozsireni-servisu",
+      "datum": "2023-09-10",
+      "motiv": 7
+    }
+  ]
+}

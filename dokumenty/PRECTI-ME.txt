@@ -1,0 +1,79 @@
+GREEN AIR TECH s.r.o. — NÁVRH NOVÉHO WEBU
+=========================================
+
+Tohle je klikací ukázka. Není to hotový web na ostro — je to návrh,
+na kterém si můžete osahat, jak by nový web vypadal a fungoval.
+
+
+JAK TO OTEVŘÍT
+--------------
+Dvakrát klikněte na OTEVRIT-UKAZKU.html. Otevře se v prohlížeči a dál
+už se to chová jako normální web — klikejte, kam chcete.
+
+Nic se neinstaluje, nikam se nic neposílá, funguje to i bez internetu.
+
+
+CO SI URČITĚ ZKUSTE
+-------------------
+1) ZKRATKY
+   Kdekoli uvidíte podtrženou zkratku (TZB, PENB, VZT, EAC, BMS …),
+   najeďte na ni myší — vysvětlí se. Na mobilu na ni ťukněte.
+   Kompletní přehled je v menu pod "Slovník zkratek".
+
+2) KONTAKT NA DVA KLIKY
+   Na mobilu máte dole pořád tři tlačítka: Zavolat, Dispečink 24/7
+   a Napsat nám. Na počítači je číslo na dispečink v horní liště.
+
+3) ADMINISTRACE
+   Otevřete soubor "administrace.html" (ve složce web) nebo si k adrese
+   dopište /administrace.html. Přihlášení nic nekontroluje — klikněte
+   rovnou na "Vstoupit".
+   Uvnitř můžete:
+     · přepsat jakýkoli text na webu (a hned se podívat, jak to vypadá),
+     · přidat, upravit nebo smazat realizaci,
+     · stáhnout si provedené změny jako soubor a zase je nahrát zpátky.
+   Změny se ukládají jen do vašeho prohlížeče, takže nemůžete nic
+   pokazit. Kdykoli je můžete vrátit tlačítkem "Vrátit vše do výchozího
+   stavu". Na ostrém webu by se ukládaly na server.
+
+4) JAZYKY
+   Vpravo nahoře přepínáte mezi češtinou, angličtinou a němčinou.
+
+5) MOBIL
+   Ukázku otevřete i na telefonu — je stavěná hlavně pro něj.
+
+
+CO JE V UKÁZCE SMYŠLENÉ
+-----------------------
+Aby web nebyl prázdný, doplnili jsme obsah, který zatím nemáte. Tohle
+je vymyšlené a před spuštěním to chce nahradit skutečnými údaji:
+
+  · VŠECH OSM REALIZACÍ (logistické centrum u D1, budova v Karlíně,
+    poliklinika v Písku, hala v Milevsku, depozitář v Táboře, obchodní
+    centrum v Budějovicích, škola v Příbrami, hotel na Šumavě) —
+    včetně ploch, dob realizace a výsledků. Jsou to ukázky, jak bude
+    sekce vypadat, až do ní dáte své zakázky.
+  · Text "Ochrana osobních údajů" — je obecný, nechte ho zkontrolovat.
+
+NAOPAK SKUTEČNÉ JE: logo, kontakty, adresy, IČO a DIČ, bankovní spojení,
+datová schránka, celý tým i s čísly a e-maily, popisy všech sedmi služeb
+(vycházejí z vašeho současného webu) a všechny novinky.
+
+Fotky jsou vaše vlastní, stažené z dnešního webu. Náhledy u realizací
+NEJSOU fotky — jsou to kreslená technická schémata, právě proto, aby
+nevznikl dojem, že ty stavby už proběhly.
+
+Anglická a německá verze je zatím strojový překlad. Před spuštěním
+doporučujeme nechat projít rodilým mluvčím.
+
+
+CO ZBÝVÁ DOHODNOUT
+------------------
+  · Skutečné realizace — ideálně i s fotkami.
+  · Kam mají chodit poptávky z formuláře (teď nikam, je to ukázka).
+    A jestli má zůstat i odkaz na app.mwork365.com.
+  · Jestli mají v kontaktech zůstat přímá čísla celého týmu.
+  · Nasazení na doménu greenairtech.cz včetně přesměrování starých adres.
+
+
+Kdyby cokoli — ozvěte se.

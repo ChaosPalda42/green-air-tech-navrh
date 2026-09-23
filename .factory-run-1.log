@@ -1,0 +1,21 @@
+model: coder: qwen3.6-35b-a3b served at http://127.0.0.1:8082/v1
+model: coder_retry: qwen3.8-flash-next served at http://127.0.0.1:8080/v1
+model: tester: qwen3.6-35b-a3b served at http://127.0.0.1:8082/v1
+model: tester_retry: qwen3.8-flash-next served at http://127.0.0.1:8080/v1
+model: triage: qwen3.8-flash-next served at http://127.0.0.1:8080/v1
+model: reviewer: qwen3.8-flash-next served at http://127.0.0.1:8080/v1
+model: text: gemma-4-26b-a4b served at http://127.0.0.1:8081/v1
+model: vision: gemma-4-26b-a4b served at http://127.0.0.1:8081/v1
+C-002: green (4 iterations) — worker: green after 4 iterations; review: fix (2 findings, worst high)
+C-004: waited 15s for another client
+C-003: green (6 iterations) — worker: green after 6 iterations; review: fix (2 findings, worst high)
+C-005: waited 60s for another client
+C-004: green (8 iterations) — worker: green after 8 iterations; review: ok
+C-006: waited 15s for another client
+C-005: green (3 iterations) — worker: green after 3 iterations; review: fix (2 findings, worst high)
+C-001: green (7 iterations) — worker: green after 7 iterations; review: fix (2 findings, worst high)
+C-006: green (3 iterations) — worker: green after 3 iterations; review: fix (3 findings, worst high)
+C-007: green (4 iterations) — worker: green after 4 iterations; review: fix (5 findings, worst high)
+
+green: full suite passed (0 tests)
+green 7 · escalated 0 · iterations 35

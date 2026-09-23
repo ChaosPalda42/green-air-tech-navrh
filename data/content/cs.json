@@ -1,0 +1,1085 @@
+{
+  "ui": {
+    "vice": "Více informací",
+    "viceOSluzbe": "Více o službě",
+    "zpet": "Zpět",
+    "vsechnySluzby": "Všechny služby",
+    "vsechnyRealizace": "Všechny realizace",
+    "vsechnyNovinky": "Všechny novinky",
+    "nezavaznaPoptavka": "Nezávazná poptávka",
+    "napsatNam": "Napsat nám",
+    "zavolat": "Zavolat",
+    "dispecink": "Dispečink 24/7",
+    "dispecinkPopis": "Porucha teď? Voláme zpět do hodiny.",
+    "menu": "Menu",
+    "zavrit": "Zavřít",
+    "jazyk": "Jazyk",
+    "nahoru": "Nahoru",
+    "prejitNaObsah": "Přejít na obsah",
+    "vysvetlivka": "Vysvětlivka zkratky",
+    "celySlovnik": "Celý slovník zkratek",
+    "hledat": "Hledat",
+    "filtrovat": "Filtrovat",
+    "vse": "Vše",
+    "rok": "Rok",
+    "kategorie": "Kategorie",
+    "razeni": "Řazení",
+    "nejnovejsi": "Od nejnovějších",
+    "nejstarsi": "Od nejstarších",
+    "podleNazvu": "Podle názvu",
+    "nenalezeno": "Nic jsme nenašli. Zkuste jiný filtr.",
+    "zrusitFiltry": "Zrušit filtry",
+    "dalsiStrana": "Další strana",
+    "predchoziStrana": "Předchozí strana",
+    "stranaZ": "Strana {strana} z {celkem}",
+    "sdilet": "Sdílet",
+    "publikovano": "Publikováno",
+    "cist": "Číst dál",
+    "externiClanek": "Otevřít původní článek",
+    "kontaktujteNas": "Ozvěte se nám",
+    "povinnePole": "Povinné pole",
+    "odeslat": "Odeslat poptávku",
+    "odesilam": "Odesílám…",
+    "ukazkaFormulare": "Toto je ukázka — formulář zatím nikam neodesílá.",
+    "kopirovat": "Kopírovat",
+    "zkopirovano": "Zkopírováno",
+    "ilustracniGrafika": "Ilustrační technická grafika"
+  },
+  "lide": {
+    "pavel-janda": "jednatel",
+    "martina-masindova": "administrátorka společnosti",
+    "zdenek-bauska": "vedoucí servisního oddělení",
+    "jan-rezac": "projektový manažer",
+    "radek-tyla": "hlavní technik společnosti",
+    "denisa-jandova": "obchodně technická manažerka",
+    "jonas-benak": "obchodně technický manažer"
+  },
+  "nav": {
+    "uvod": "Úvod",
+    "sluzby": "Služby",
+    "realizace": "Realizace",
+    "onas": "O nás",
+    "novinky": "Novinky",
+    "kariera": "Kariéra",
+    "kontakt": "Kontakt",
+    "slovnik": "Slovník zkratek",
+    "administrace": "Administrace"
+  },
+  "meta": {
+    "home": {
+      "titulek": "Green Air Tech s.r.o. — projekce, realizace a servis TZB",
+      "popis": "Vzduchotechnika, chlazení, vytápění a tepelná čerpadla od projektu po servis. Nonstop dispečink, vlastní technici, 30 let praxe. Praha a Milevsko."
+    },
+    "sluzby": {
+      "titulek": "Služby — co pro vás umíme | Green Air Tech",
+      "popis": "Projekce TZB v BIM, dodávky a montáže, servis 24/7, PENB a energetické audity, klimatizace a tepelná čerpadla, EAC filtry, opravy výměníků."
+    },
+    "realizace": {
+      "titulek": "Realizace a reference | Green Air Tech",
+      "popis": "Vybrané zakázky z oblasti vzduchotechniky, chlazení, vytápění a tepelných čerpadel."
+    },
+    "onas": {
+      "titulek": "O nás — tým techniků TZB | Green Air Tech",
+      "popis": "Jsme kolektiv techniků s více než 30letou praxí v oboru technického zařízení budov. Projekce, realizace i servis pod jednou střechou."
+    },
+    "novinky": {
+      "titulek": "Novinky | Green Air Tech",
+      "popis": "Co je u nás nového — realizace, legislativa, školení a nábor."
+    },
+    "kariera": {
+      "titulek": "Kariéra — hledáme servisní techniky TZB | Green Air Tech",
+      "popis": "Přidejte se k týmu servisních techniků TZB. Vlastní vozidlo, vybavení, školení a férové podmínky."
+    },
+    "kontakt": {
+      "titulek": "Kontakt | Green Air Tech s.r.o.",
+      "popis": "Praha 8 a Milevsko. Nonstop servisní dispečink +420 383 809 730, info@greenairtech.cz."
+    },
+    "slovnik": {
+      "titulek": "Slovník zkratek TZB | Green Air Tech",
+      "popis": "TZB, VZT, PENB, BMS, EAC a další zkratky srozumitelně vysvětlené."
+    },
+    "gdpr": {
+      "titulek": "Ochrana osobních údajů | Green Air Tech",
+      "popis": "Jak nakládáme s osobními údaji z kontaktního formuláře."
+    },
+    "chyba404": {
+      "titulek": "Stránka nenalezena | Green Air Tech",
+      "popis": "Tuto stránku jsme nenašli. Zkuste přejít na úvod, na přehled služeb nebo nám rovnou napište — rádi poradíme."
+    },
+    "administrace": {
+      "titulek": "Administrace ukázky | Green Air Tech",
+      "popis": "Demo administrace — úprava textů a realizací."
+    }
+  },
+  "home": {
+    "hero": {
+      "stitek": "Technická zařízení budov",
+      "titulek": "Vzduch, teplo a chlad,<br>které v budově prostě fungují",
+      "lead": "Projektujeme, stavíme a servisujeme TZB — vzduchotechniku, chlazení, vytápění, ZTI a MaR. Jeden tým od první obhlídky po nonstop servis.",
+      "cta": "Poptat řešení",
+      "ctaDruhe": "Co konkrétně umíme",
+      "dispecinkStitek": "Porucha? Dispečink 24/7"
+    },
+    "cisla": {
+      "titulek": "Čím se opíráme",
+      "praxe": {
+        "hodnota": "30+",
+        "popis": "let praxe techniků v oboru TZB"
+      },
+      "oblasti": {
+        "hodnota": "7",
+        "popis": "oborů, které vedeme od projektu po servis"
+      },
+      "dispecink": {
+        "hodnota": "24/7",
+        "popis": "servisní dispečink po celý rok"
+      },
+      "technici": {
+        "hodnota": "100 %",
+        "popis": "kmenoví technici s vlastním vybavením"
+      }
+    },
+    "sluzby": {
+      "stitek": "Co umíme",
+      "titulek": "Sedm oborů, jedna odpovědnost",
+      "lead": "Nemusíte skládat dohromady projektanta, montážní firmu a servis. Vedeme celý řetězec — a když se za dva roky něco stane, voláte pořád stejné číslo."
+    },
+    "postup": {
+      "stitek": "Jak to u nás chodí",
+      "titulek": "Od obhlídky k dlouhodobé péči",
+      "lead": "Čtyři kroky, žádná překvapení. U každého víte, co dostanete a kdo za to odpovídá.",
+      "kroky": {
+        "obhlidka": {
+          "titulek": "Obhlídka a zadání",
+          "popis": "Přijedeme k vám, zaměříme objekt, projdeme technickou dokumentaci a poslechneme si, co skutečně potřebujete. Chybějící podklady umíme po dohodě zajistit sami."
+        },
+        "navrh": {
+          "titulek": "Návrh a cenová nabídka",
+          "popis": "Zpracujeme technické řešení, rozpočet a harmonogram. U větších celků zpracujeme všechny stupně projektové dokumentace, v případě potřeby v BIM."
+        },
+        "realizace": {
+          "titulek": "Realizace a předání",
+          "popis": "Dodáme a namontujeme, koordinujeme návaznosti s ostatními profesemi, provádíme autorský i technický dozor. Na konci zaškolíme obsluhu a předáme dokumentaci."
+        },
+        "servis": {
+          "titulek": "Servis a úspory",
+          "popis": "Přebíráme pravidelnou údržbu, revize a kontroly. Po dohodnuté době zkontrolujeme, jestli systém drží slíbené úspory."
+        }
+      }
+    },
+    "realizace": {
+      "stitek": "Vybrané realizace",
+      "titulek": "Kde už dýchá náš vzduch",
+      "lead": "Administrativa, zdravotnictví, výroba i školy. Podívejte se, co konkrétně jsme na stavbě řešili."
+    },
+    "duvody": {
+      "stitek": "Proč zrovna my",
+      "titulek": "Tři věci, na kterých nám záleží",
+      "polozky": {
+        "udrzitelnost": {
+          "titulek": "Nejdřív refit, teprve pak výměna",
+          "popis": "Nejlevnější kilowatthodina je ta, kterou nespotřebujete. Po auditu řekneme, co ze stávajícího systému má smysl zachovat a co skutečně vyměnit. Ne každý projekt musí začít demolicí strojovny."
+        },
+        "jedenTym": {
+          "titulek": "Projektant a servisák u jednoho stolu",
+          "popis": "Kolegové ze servisní divize chodí po stavbě s realizačním týmem. Poznají objekt dřív, než ho převezmou — a to se pozná na rychlosti prvního zásahu."
+        },
+        "dispecink": {
+          "titulek": "Dispečink, který zvedá telefon",
+          "popis": "Nonstop linka po celý rok. Když se nedovoláte okamžitě, nahrajete vzkaz — ten nám okamžitě přijde e‑mailem a ozýváme se zpět."
+        }
+      }
+    },
+    "slovnik": {
+      "stitek": "Mluvíme technicky, ale srozumitelně",
+      "titulek": "Zkratka, které nerozumíte? Najeďte na ni.",
+      "lead": "V našem oboru je zkratek víc než šroubů. Kdekoli na webu narazíte na podtrženou zkratku, stačí na ni najet myší nebo na ni ťuknout na mobilu — vysvětlíme ji.",
+      "ukazka": "Zpracujeme PENB, navrhneme VZT i MaR a systém napojíme na BMS.",
+      "cta": "Otevřít slovník zkratek"
+    },
+    "kontakt": {
+      "stitek": "Ozvěte se",
+      "titulek": "Popište nám, co řešíte",
+      "lead": "Stačí pár vět. Ozveme se zpravidla do jednoho pracovního dne — a když jde o poruchu, volejte rovnou dispečink."
+    }
+  },
+  "sluzby": {
+    "prehled": {
+      "stitek": "Služby",
+      "titulek": "Co pro vás umíme",
+      "lead": "Od první čáry v projektu po pravidelnou revizi za pět let. Vyberte si obor — nebo nám rovnou napište, co řešíte, a poradíme, kam to patří."
+    },
+    "spolecne": {
+      "coZahrnuje": "Co služba zahrnuje",
+      "jakProbiha": "Jak to probíhá",
+      "souvisi": "Souvisí s tím",
+      "zajimaVas": "Zajímá vás tahle služba?",
+      "zajimaVasLead": "Napište nám pár vět o objektu a ozveme se s návrhem dalšího kroku."
+    },
+    "polozky": {
+      "projekce": {
+        "nazev": "Projekce TZB",
+        "kratky": "Všechny stupně projektové dokumentace včetně BIM, rozpočtu a dozoru.",
+        "titulek": "Projekce TZB — od studie po realizační dokumentaci",
+        "lead": "Projekt, podle kterého se dá skutečně stavět. Zpracujeme všechny stupně dokumentace, ohlídáme návaznosti mezi profesemi a zůstaneme u toho až do předání.",
+        "popis": "Naši projektanti kreslí TZB denně a chodí i na stavbu — což je na výkresech poznat. Zpracujeme dokumentaci pro každý stupeň, od studie přes DSP a DPS až po RDS a dokumentaci skutečného provedení, v případě potřeby celou v BIM.",
+        "body": {
+          "b1": "Obhlídka objektu a místní šetření před první čarou",
+          "b2": "Všechny stupně projektu dle zadání včetně položkového rozpočtu",
+          "b3": "Chybějící podklady po dohodě zajistíme (zaměření, diagnostika, pasport)",
+          "b4": "Koordinace s ostatními profesemi a návaznost jednotlivých projektů",
+          "b5": "Zpracování dokumentace v BIM",
+          "b6": "Autorský dozor po celou dobu stavby",
+          "b7": "Technický dozor stavebníka (TDS)"
+        },
+        "kroky": {
+          "k1": {
+            "titulek": "Obhlídka a zadání",
+            "popis": "Projdeme objekt, prodiskutujeme zadání a navrhneme nejefektivnější řešení pro váš provoz i rozpočet."
+          },
+          "k2": {
+            "titulek": "Podklady",
+            "popis": "Doplníme, co chybí — zaměření, diagnostiku stávajícího stavu, výpočty tepelných ztrát a zisků."
+          },
+          "k3": {
+            "titulek": "Dokumentace",
+            "popis": "Vypracujeme potřebný stupeň dokumentace včetně rozpočtu a technické zprávy."
+          },
+          "k4": {
+            "titulek": "Dozor na stavbě",
+            "popis": "Průběžně koordinujeme řešení s realizátorem a hlídáme, že se staví podle projektu."
+          }
+        }
+      },
+      "realizace-montaze": {
+        "nazev": "Realizace a montáže",
+        "kratky": "Dodávky a montáže VZT, chlazení, vytápění, ZTI, plynu a tepelných čerpadel.",
+        "titulek": "Realizace dodávek a montáží TZB",
+        "lead": "Partnerem jsme v celém procesu — od přípravy zakázky přes montáž až po předání investorovi. Včetně stavebního dozoru.",
+        "popis": "Jsme kolektiv techniků s více než 30letou praxí v oboru technického zařízení budov. Opíráme se o zkušenosti i o nové poznatky z oboru, který se stále dynamicky vyvíjí — a o to, že náš servis zná objekt dřív, než ho převezme.",
+        "body": {
+          "b1": "Vzduchotechnika a rekuperace (ZZT)",
+          "b2": "Chlazení — průmyslové i rezidenční",
+          "b3": "Vytápění včetně kotelen a předávacích stanic",
+          "b4": "Vodovod a kanalizace (ZTI)",
+          "b5": "Rozvody plynu",
+          "b6": "Tepelná čerpadla",
+          "b7": "Měření a regulace (MaR) a napojení na BMS",
+          "b8": "Záruční i pozáruční servis od stejného týmu"
+        },
+        "kroky": {
+          "k1": {
+            "titulek": "Příprava zakázky",
+            "popis": "Projdeme projekt, upozorníme na kolize a připravíme harmonogram i stavební připravenost."
+          },
+          "k2": {
+            "titulek": "Dodávka a montáž",
+            "popis": "Montujeme s vlastními techniky, koordinujeme návaznosti s ostatními profesemi a hlídáme termíny."
+          },
+          "k3": {
+            "titulek": "Zprovoznění a zaškolení",
+            "popis": "Nastavíme parametry, systém vyregulujeme a zaškolíme obsluhu. Předáme protokoly i dokumentaci."
+          },
+          "k4": {
+            "titulek": "Převzetí servisem",
+            "popis": "Kolegové ze servisní divize si stavbu projdou ještě před předáním — přebírají objekt, který znají."
+          }
+        }
+      },
+      "servis": {
+        "nazev": "Servis a údržba",
+        "kratky": "Pravidelný servis, revize a nonstop dispečink pro všechny systémy TZB.",
+        "titulek": "Servis TZB s nonstop dispečinkem",
+        "lead": "Několik týmů kmenových techniků s kompletním vybavením a dispečink, který běží 365 dní v roce.",
+        "popis": "Servisujeme to, co jsme postavili, i to, co po někom přebíráme. Jezdíme v týmech po dvou; kde to povaha zásahu nevyžaduje, přijede technik sám — ať zbytečně neplatíte druhého člověka.",
+        "body": {
+          "b1": "Vzduchotechnická zařízení a systémy",
+          "b2": "Systémy chlazení — průmyslové i rezidenční",
+          "b3": "Systémy a prvky vytápění",
+          "b4": "Zdravotně technické instalace (ZTI)",
+          "b5": "Měření a regulace (MaR)",
+          "b6": "Tepelná čerpadla",
+          "b7": "Kogenerační jednotky (KJ)",
+          "b8": "Požárně bezpečnostní řešení objektů (PBŘ)",
+          "b9": "Revize plynu (PS, PZ, OPZ) a tlakových nádob (TNS), školení topičů",
+          "b10": "Provozování kotelen, kalkulace tepla",
+          "b11": "Tvorba provozní a technické dokumentace, revizní knihy",
+          "b12": "Vyvažování otopných soustav a soustav chlazení včetně protokolů"
+        },
+        "kroky": {
+          "k1": {
+            "titulek": "Obhlídka objektu",
+            "popis": "Přijedeme se podívat, co provozujete, v jakém je to stavu a co vás pálí nejvíc."
+          },
+          "k2": {
+            "titulek": "Návrh řešení",
+            "popis": "Z dostupné dokumentace a místního šetření zpracujeme návrh rozsahu servisu a ceny."
+          },
+          "k3": {
+            "titulek": "Realizace opatření",
+            "popis": "Po odsouhlasení řešení, ceny a smlouvy provedeme opatření a nastavíme plán pravidelné údržby."
+          },
+          "k4": {
+            "titulek": "Kontrola úspor",
+            "popis": "Po určené době zkontrolujeme, jestli se stanovených cílů úspor skutečně dosáhlo."
+          }
+        },
+        "dispecink": {
+          "titulek": "Dispečink 24/7",
+          "popis": "Servisní divize provozuje nonstop dispečink. Pokud se nedovoláte okamžitě, nahrajte nám vzkaz — přijde nám e‑mailem a ozveme se zpět."
+        }
+      },
+      "energetika": {
+        "nazev": "PENB, audity a refity",
+        "kratky": "Průkazy, energetické audity, povinné kontroly dle vyhl. 38/2022 Sb. a refity.",
+        "titulek": "PENB, energetické audity a refity",
+        "lead": "Vážíme si vaší energie. Změříme, spočítáme a řekneme, co má smysl měnit — a co ne.",
+        "popis": "Náš energetický specialista zpracuje PENB i energetický audit, provede povinné kontroly provozovaných soustav a navrhne refit, který nezačíná demolicí strojovny.",
+        "body": {
+          "b1": "Zpracování PENB v souladu s energetickým zákonem; eviduje se v databázi ENEX (MPO)",
+          "b2": "Kontrola provozovaných soustav dle vyhl. 38/2022 Sb. pro zdroje tepla nad 70 kW",
+          "b3": "Energetický audit dle zák. č. 406/2000 Sb. a vyhl. č. 480/2012 Sb., vždy min. dvě varianty",
+          "b4": "Energetické posudky",
+          "b5": "Diagnostika otopných soustav, soustav chlazení a VZT",
+          "b6": "Vyvažování soustav dle vyhl. 193/2007 Sb. včetně protokolu o nastavení průtoků",
+          "b7": "Revize tlakových nádob a plynových spotřebičů",
+          "b8": "Měření kvality vnitřního prostředí — tepelná pohoda, CO₂, TVOC"
+        },
+        "upozorneni": {
+          "titulek": "Pozor na povinnou kontrolu",
+          "popis": "Dle aktualizace z 1. 1. 2023 má vlastník povinnost nechat 1× za 5 let zpracovat energetickým specialistou kontrolu provozovaných soustav. Za nesplnění hrozí pokuta až 200 tis. Kč."
+        },
+        "refit": {
+          "titulek": "Refit místo výměny",
+          "popis": "Naší filozofií je udržitelnost. Po auditu navrhneme, které části systému lze zachovat a které nahradit novými, účinnějšími a vyhovujícími současným normám. Výsledkem je nižší investice i menší dopad na prostředí."
+        },
+        "kroky": {
+          "k1": {
+            "titulek": "Sběr dat",
+            "popis": "Projdeme objekt, odečty, dokumentaci a skutečný provoz — ne jen projektové hodnoty."
+          },
+          "k2": {
+            "titulek": "Výpočet a varianty",
+            "popis": "Zpracujeme zhodnocení stávajícího hospodářství a navrhneme minimálně dvě varianty optimalizace."
+          },
+          "k3": {
+            "titulek": "Doporučení",
+            "popis": "Vyhodnotíme varianty ekonomicky i ekologicky a doporučíme tu nejvhodnější — s odůvodněním."
+          },
+          "k4": {
+            "titulek": "Realizace a ověření",
+            "popis": "Opatření umíme i realizovat a po dohodnuté době ověřit, že úspory skutečně nastaly."
+          }
+        }
+      },
+      "klimatizace": {
+        "nazev": "Klimatizace a tepelná čerpadla",
+        "kratky": "Návrh, montáž, dotace i servis klimatizací a tepelných čerpadel.",
+        "titulek": "Klimatizace a tepelná čerpadla",
+        "lead": "Od obhlídky přes vyřízení dotace až po zaškolení obsluhy. Pro firmy, veřejné objekty i rodinné domy.",
+        "popis": "Vybírat můžete ze široké škály dodavatelů a vaše přání budeme respektovat. Rádi ale poradíme — máme bohaté zkušenosti a víme, že to není jen o pořizovací ceně.",
+        "body": {
+          "b1": "Obhlídka místa instalace a zaměření",
+          "b2": "Cenová i technická nabídka na míru objektu",
+          "b3": "Projekt jako podklad k žádosti o dotaci",
+          "b4": "Montáž zpravidla 1–3 pracovní dny",
+          "b5": "Nastavení parametrů, uvedení do provozu a zaškolení obsluhy",
+          "b6": "Vyřízení dotace na základě plné moci",
+          "b7": "Záruční i pozáruční servis, u vybraných dodavatelů prodloužená záruka",
+          "b8": "Servisní dispečink 24/7"
+        },
+        "kroky": {
+          "k1": {
+            "titulek": "Obhlídka",
+            "popis": "Technik přijede, zaměří vše potřebné a probere s vámi představy o chlazení i vytápění. Zapůjčíme si dostupnou dokumentaci k objektu."
+          },
+          "k2": {
+            "titulek": "Nabídka a projekt",
+            "popis": "Připravíme cenovou a technickou nabídku, případně projekt jako podklad k dotaci."
+          },
+          "k3": {
+            "titulek": "Montáž",
+            "popis": "Domluvíme termín podle potvrzených dodávek, napíšeme, jaká je nutná stavební připravenost — nebo ji zajistíme sami."
+          },
+          "k4": {
+            "titulek": "Provoz a servis",
+            "popis": "Systém spustíme, vyladíme, zaškolíme obsluhu, podepíšeme předávací protokol. Pak přebíráme servis."
+          }
+        }
+      },
+      "eac-filtry": {
+        "nazev": "EAC filtry Honeywell",
+        "kratky": "Elektronické čističe vzduchu s životností 15 let. Jsme partnerem pro ČR.",
+        "titulek": "EAC filtry Honeywell",
+        "lead": "Jsme partnerem společnosti Honeywell pro ČR v oblasti speciálních EAC filtrů. Zachytí jemný prach a přitom sníží spotřebu vzduchotechniky.",
+        "popis": "Elektronický čistič vzduchu zachycuje škodlivé částice PM2,5 a zároveň má výrazně nižší tlakovou ztrátu než běžný filtr. Ventilátor nemusí tolik táhnout — a to se projeví na faktuře.",
+        "body": {
+          "b1": "Předfiltr na větší částice a kolektorové desky na částice 0,3–3 mikrometry",
+          "b2": "Nižší tlaková ztráta než u standardního filtru — cca 5 % úspory výkonu ventilátoru AHU",
+          "b3": "Orientační návratnost kolem 1,5 roku",
+          "b4": "Omyvatelný předfiltr i kolektor — nižší provozní náklady, šetrnější k prostředí",
+          "b5": "Životnost filtru 15 let",
+          "b6": "Pracuje pouze, když běží ventilátory",
+          "b7": "Výstupní relé pro monitorování EAC do BMS",
+          "b8": "Blokovací spínač proti poškození a riziku při otevření mřížky",
+          "b9": "LED indikace stavů ZAP/VYP, alarmu a potřeby čištění",
+          "b10": "Vzájemně propojitelné modely F58G a F58H pro flexibilní instalaci"
+        },
+        "servis": {
+          "titulek": "Servis EAC filtrů",
+          "popis": "Kromě záručního servisu poskytujeme i pozáruční. Čištění se provádí oplachem ve vaničce a dispečink běží 24/7."
+        }
+      },
+      "vymeniky": {
+        "nazev": "Opravy výměníků",
+        "kratky": "Diagnostika, oprava a tlaková zkouška poškozených výměníků na našem pracovišti.",
+        "titulek": "Opravy a repase výměníků",
+        "lead": "Prasklý výměník nemusí znamenat nový výměník. Diagnostikujeme, opravíme a odzkoušíme — často za zlomek ceny výměny.",
+        "popis": "Máme vlastní pracoviště s vanami i héliovou zkouškou, takže poznáme i netěsnost, kterou vodní tlakovka nenajde.",
+        "body": {
+          "b1": "Diagnostika poškozeného výměníku přímo v místě provozu",
+          "b2": "Demontáž a odvoz na tlakovou diagnostiku na naše pracoviště",
+          "b3": "Oprava či výměna jednotlivých dílů výměníku",
+          "b4": "Natlakování vodou nebo přesnější tlaková zkouška héliem",
+          "b5": "Zpětná montáž do zařízení a odzkoušení v provozu",
+          "b6": "Následná kontrola při pravidelných servisních prohlídkách"
+        }
+      }
+    }
+  },
+  "realizace": {
+    "stranka": {
+      "stitek": "Realizace",
+      "titulek": "Zakázky, za kterými si stojíme",
+      "lead": "Vybrané realizace z posledních let. U každé najdete, co jsme řešili, jaké technologie jsme nasadili a jak to dopadlo."
+    },
+    "detail": {
+      "rozsah": "Rozsah prací",
+      "technologie": "Nasazené technologie",
+      "vysledek": "Výsledek",
+      "parametry": "Parametry zakázky",
+      "plocha": "Obsluhovaná plocha",
+      "doba": "Doba realizace",
+      "kraj": "Lokalita",
+      "dokonceno": "Dokončeno",
+      "dalsiRealizace": "Další realizace",
+      "maObdobny": "Máte podobný objekt?",
+      "maObdobnyLead": "Napište nám pár vět a ozveme se s návrhem postupu."
+    },
+    "kategorie": {
+      "vse": "Všechny obory",
+      "vzt": "Vzduchotechnika",
+      "chlazeni": "Chlazení",
+      "vytapeni": "Vytápění",
+      "tepelna-cerpadla": "Tepelná čerpadla",
+      "energetika": "Energetika a audity",
+      "servis": "Servis a údržba"
+    },
+    "polozky": {
+      "logisticke-centrum-d1": {
+        "nazev": "Refit vytápění logistického centra u D1",
+        "misto": "Středočeský kraj",
+        "perex": "Energetický audit ukázal, že se vyplatí zachovat rozvody a vyměnit jen zdroje a regulaci. Spotřeba plynu klesla o třetinu.",
+        "zadani": "Provozovatel logistického areálu chtěl snížit náklady na vytápění hal a administrativní části. Původní záměr zněl vyměnit celou kotelnu.",
+        "rozsah": {
+          "r1": "Energetický audit celého areálu včetně dvou variant řešení",
+          "r2": "Refit plynové kotelny — zachované rozvody, nové kondenzační zdroje",
+          "r3": "Nová ekvitermní regulace a napojení na BMS objektu",
+          "r4": "Vyvážení otopné soustavy včetně protokolu",
+          "r5": "Zpracování PENB po dokončení opatření"
+        },
+        "technologie": {
+          "t1": "Kondenzační kotle",
+          "t2": "Ekvitermní regulace",
+          "t3": "MaR s dohledem",
+          "t4": "Hydraulické vyvážení"
+        },
+        "vysledek": "Investice vyšla přibližně o 40 % níž než navrhovaná kompletní výměna. Po první sezóně klesla spotřeba plynu o zhruba třetinu a areál splnil povinnou kontrolu provozovaných soustav."
+      },
+      "administrativni-budova-karlin": {
+        "nazev": "Vzduchotechnika a chlazení administrativní budovy v Karlíně",
+        "misto": "Praha 8",
+        "perex": "Výměna dvou VZT jednotek a rekonstrukce rozvodů chladu v šestipodlažní budově — za plného provozu nájemců.",
+        "zadani": "Majitel budovy potřeboval vyměnit dosluhující jednotky a zvýšit chladicí výkon, aniž by museli nájemci na jediný den opustit kanceláře.",
+        "rozsah": {
+          "r1": "Demontáž a výměna dvou AHU jednotek na střeše, včetně jeřábnických prací v noci",
+          "r2": "Rekonstrukce rozvodů chladu ve 3.–6. podlaží",
+          "r3": "Osazení nových fan‑coilů v kancelářích",
+          "r4": "Rozšíření MaR a napojení na stávající BMS",
+          "r5": "Etapizace po podlažích tak, aby provoz pokračoval"
+        },
+        "technologie": {
+          "t1": "AHU s rekuperací (ZZT)",
+          "t2": "Vodní chlazení",
+          "t3": "Fan‑coily",
+          "t4": "BMS integrace"
+        },
+        "vysledek": "Budova běžela po celou dobu bez výpadku pronájmu. Nové jednotky s rekuperací snížily spotřebu vzduchotechniky a nájemci poprvé po letech drží teplotu i v srpnu."
+      },
+      "poliklinika-pisek": {
+        "nazev": "Klimatizace a větrání polikliniky v Písku",
+        "misto": "Písek",
+        "perex": "Ordinace, čekárny a laboratoř. Všude jiné požadavky na čistotu vzduchu i hlučnost — a nikde nesmělo být slyšet.",
+        "zadani": "Zdravotnické zařízení potřebovalo vyřešit letní přehřívání ordinací a zajistit hygienicky odpovídající výměnu vzduchu v odběrových místnostech.",
+        "rozsah": {
+          "r1": "Projekt VZT a chlazení včetně hygienických požadavků",
+          "r2": "Montáž multisplit systémů do ordinací s důrazem na nízkou hlučnost",
+          "r3": "Nucené větrání odběrových a laboratorních místností",
+          "r4": "Filtrace a měření kvality vnitřního prostředí",
+          "r5": "Zaškolení personálu a nastavení servisního plánu"
+        },
+        "technologie": {
+          "t1": "VRF systém",
+          "t2": "Nucené větrání",
+          "t3": "Filtrace vzduchu",
+          "t4": "Měření CO₂"
+        },
+        "vysledek": "Ordinace drží nastavenou teplotu i v parném létě, hluk v čekárnách zůstal pod limitem a poliklinika má doložené měření kvality vnitřního prostředí."
+      },
+      "vyrobni-hala-milevsko": {
+        "nazev": "Chlazení a větrání výrobní haly v Milevsku",
+        "misto": "Milevsko",
+        "perex": "Lisovna, kde v létě teplota u strojů přesahovala 38 °C. Řešení muselo zvládnout teplo z technologie i odsávání.",
+        "zadani": "Výrobce potřeboval snížit teplotu na pracovištích u lisů a odvést teplo i výpary z technologie, aniž by vyfoukal vytopený vzduch celé haly.",
+        "rozsah": {
+          "r1": "Výpočet tepelné zátěže od technologie a návrh koncepce",
+          "r2": "Dodávka a montáž vzduchotechniky s rekuperací",
+          "r3": "Lokální odsávání u lisovacích stanic",
+          "r4": "Adiabatické chlazení přiváděného vzduchu",
+          "r5": "Regulace podle teploty a obsazenosti směn"
+        },
+        "technologie": {
+          "t1": "Průmyslová VZT",
+          "t2": "Rekuperace (ZZT)",
+          "t3": "Adiabatické chlazení",
+          "t4": "Lokální odsávání"
+        },
+        "vysledek": "Teplota na pracovištích klesla v letních špičkách zhruba o 8 °C. Rekuperace vrací teplo zpět v zimě, takže náklady na vytápění haly nevzrostly."
+      },
+      "depozitar-galerie-tabor": {
+        "nazev": "Klima depozitáře galerie v Táboře",
+        "misto": "Tábor",
+        "perex": "Sbírkové předměty nepotřebují chlad, ale stabilitu. Vlhkost tu musí držet v úzkém pásmu po celý rok.",
+        "zadani": "Galerie potřebovala v novém depozitáři udržet teplotu i relativní vlhkost v předepsaném rozmezí a mít o průběhu doložitelný záznam.",
+        "rozsah": {
+          "r1": "Návrh VZT s přesnou regulací vlhkosti",
+          "r2": "Montáž jednotky s vlhčením i odvlhčováním",
+          "r3": "Čidla teploty a vlhkosti v jednotlivých sekcích depozitáře",
+          "r4": "Záznam hodnot a alarmy do BMS s odesíláním na dispečink",
+          "r5": "Servisní smlouva s pravidelnými kontrolami"
+        },
+        "technologie": {
+          "t1": "VZT s vlhčením",
+          "t2": "Přesná regulace (MaR)",
+          "t3": "Záznam a alarmy",
+          "t4": "Filtrace"
+        },
+        "vysledek": "Depozitář drží vlhkost v předepsaném pásmu, galerie má průběžný záznam pro pojišťovnu i zápůjčky a na odchylku upozorní dispečink dřív, než ji někdo zjistí ráno."
+      },
+      "obchodni-centrum-budejovice": {
+        "nazev": "EAC filtry v obchodním centru v Českých Budějovicích",
+        "misto": "České Budějovice",
+        "perex": "Výměna klasických filtrů za elektronické čističe vzduchu ve vzduchotechnických jednotkách. Nižší tlaková ztráta, méně odpadu.",
+        "zadani": "Správce centra řešil rostoucí náklady na provoz vzduchotechniky a opakovanou výměnu filtračních vložek napříč jednotkami.",
+        "rozsah": {
+          "r1": "Posouzení stávajících AHU jednotek a tlakových poměrů",
+          "r2": "Dodávka a montáž EAC filtrů Honeywell F58G a F58H",
+          "r3": "Napojení výstupních relé a indikace do BMS centra",
+          "r4": "Zaškolení techniků správce na čištění kolektorů",
+          "r5": "Servisní plán s pravidelným oplachem ve vaničce"
+        },
+        "technologie": {
+          "t1": "Honeywell EAC",
+          "t2": "Monitoring do BMS",
+          "t3": "Omyvatelné kolektory",
+          "t4": "Filtrace PM2,5"
+        },
+        "vysledek": "Odpadla pravidelná výměna filtračních vložek a s ní i odpad. Snížená tlaková ztráta se projevila na příkonu ventilátorů; správce počítá s návratností do dvou let."
+      },
+      "zakladni-skola-pribram": {
+        "nazev": "Tepelná čerpadla a rekuperace základní školy v Příbrami",
+        "misto": "Příbram",
+        "perex": "Škola vyměnila plynovou kotelnu za tepelná čerpadla a získala řízené větrání tříd. Dotaci jsme vyřídili za zřizovatele.",
+        "zadani": "Zřizovatel chtěl snížit provozní náklady budovy a současně vyřešit vydýchané třídy, na které si dlouhodobě stěžovali učitelé.",
+        "rozsah": {
+          "r1": "Projekt a podklady k žádosti o dotaci",
+          "r2": "Kaskáda tepelných čerpadel vzduch–voda jako hlavní zdroj",
+          "r3": "Rekuperační jednotky do tříd s regulací podle CO₂",
+          "r4": "Rekonstrukce rozvodů a hydraulické vyvážení",
+          "r5": "Vyřízení dotace na základě plné moci a zaškolení školníka"
+        },
+        "technologie": {
+          "t1": "Tepelná čerpadla vzduch–voda",
+          "t2": "Rekuperace (ZZT)",
+          "t3": "Regulace podle CO₂",
+          "t4": "MaR"
+        },
+        "vysledek": "Náklady na vytápění klesly výrazně proti plynové kotelně a třídy mají čerstvý vzduch bez otevřených oken v zimě. Škola prošla kontrolou provozovaných soustav bez nálezu."
+      },
+      "hotel-na-sumave": {
+        "nazev": "Tepelná čerpadla a klimatizace hotelu na Šumavě",
+        "misto": "Plzeňský kraj",
+        "perex": "Horský hotel, kde se topí osm měsíců v roce a v létě je potřeba chladit pokoje pod střechou. Vše muselo být slyšet co nejméně.",
+        "zadani": "Hotel potřeboval nahradit dosluhující zdroj tepla, přidat chlazení podkrovních pokojů a nezasahovat do sezóny.",
+        "rozsah": {
+          "r1": "Obhlídka, výpočet tepelných ztrát a zisků, varianty řešení",
+          "r2": "Kaskáda tepelných čerpadel s bivalentním zdrojem pro mrazivé dny",
+          "r3": "Klimatizace podkrovních pokojů s tichými vnitřními jednotkami",
+          "r4": "Ohřev teplé vody a napojení na stávající akumulaci",
+          "r5": "Realizace mimo hlavní sezónu ve dvou etapách"
+        },
+        "technologie": {
+          "t1": "Kaskáda tepelných čerpadel",
+          "t2": "Bivalentní zdroj",
+          "t3": "Tiché vnitřní jednotky",
+          "t4": "Ohřev TV"
+        },
+        "vysledek": "Hotel topí za nižší náklady, podkrovní pokoje jde poprvé v létě obsadit bez stížností a celá stavba proběhla mezi sezónami."
+      }
+    }
+  },
+  "onas": {
+    "stitek": "O nás",
+    "titulek": "Kolektiv techniků, ne obchodní zastoupení",
+    "lead": "Jsme společnost působící v oblasti technického zařízení budov. Poskytujeme kompletní řešení od projekce přes realizaci až po servis — a většinu věcí děláme vlastními lidmi.",
+    "pribeh": {
+      "titulek": "Kdo jsme",
+      "p1": "Jsme tým zkušených zaměstnanců, z nichž mnozí mají v oboru TZB přes 25 let praxe. Opíráme se jak o tyto zkušenosti, tak o nové poznatky z oboru, který se stále dynamicky vyvíjí.",
+      "p2": "Působíme z Prahy a z provozovny v Milevsku. Hlavními zákazníky jsou pro nás firmy a provozovatelé kancelářských budov, obchodních center, nemocnic, muzeí, galerií a veřejných objektů — ale uděláme i klimatizaci rodinného domu, když dává smysl.",
+      "p3": "Co nás baví nejvíc: když se sejde jasná představa náročného zákazníka a šikovnost našich techniků."
+    },
+    "hodnoty": {
+      "titulek": "Na čem stavíme",
+      "polozky": {
+        "h1": {
+          "titulek": "Udržitelnost není slogan",
+          "popis": "Než navrhneme výměnu, spočítáme refit. Zachovat, co funguje, je levnější pro vás i pro prostředí."
+        },
+        "h2": {
+          "titulek": "Vlastní technici",
+          "popis": "Kmenoví zaměstnanci s certifikovaným nářadím, které průběžně školíme. Ne parta subdodavatelů, kterou vidíte poprvé."
+        },
+        "h3": {
+          "titulek": "Jedna odpovědnost",
+          "popis": "Projekce, realizace i servis pod jednou střechou. Když je problém, nikdo neukazuje na souseda."
+        },
+        "h4": {
+          "titulek": "Srozumitelnost",
+          "popis": "Zkratky vysvětlujeme, protokoly předáváme, obsluhu zaškolíme. Web, kde nikdo ničemu nerozumí, k ničemu není."
+        }
+      }
+    },
+    "divize": {
+      "titulek": "Tři divize, jeden tým",
+      "polozky": {
+        "d1": {
+          "titulek": "Projekce",
+          "popis": "Projektanti, kteří chodí i na stavbu. Všechny stupně dokumentace, v případě potřeby v BIM."
+        },
+        "d2": {
+          "titulek": "Realizace",
+          "popis": "Dodávky a montáže VZT, chlazení, vytápění, ZTI a plynu. Včetně stavebního dozoru."
+        },
+        "d3": {
+          "titulek": "Servis",
+          "popis": "Několik týmů techniků, nonstop dispečink, revize, diagnostiky a energetický specialista."
+        }
+      }
+    },
+    "odznak": {
+      "titulek": "Spolehlivá firma 2026",
+      "popis": "Ocenění za prověřenou historii, spolehlivost a bezdlužnost."
+    },
+    "tym": {
+      "titulek": "Lidé, se kterými budete mluvit",
+      "lead": "Žádná anonymní e‑mailová schránka. Tady je celý tým i s přímými čísly."
+    }
+  },
+  "novinky": {
+    "stranka": {
+      "stitek": "Novinky",
+      "titulek": "Co je u nás nového",
+      "lead": "Realizace, které stojí za zmínku, změny v legislativě, školení a nábor."
+    },
+    "polozky": {
+      "napsali-o-nas": {
+        "nazev": "Napsali o nás: rozhovor pro Eko‑Adepto",
+        "perex": "Nezávislý projekt Eko‑Adepto nás navštívil osobně a sepsal, co jsme mu o firmě, technologiích a servisu řekli.",
+        "text": "Zástupci projektu Eko‑Adepto u nás byli osobně a prošli s námi nabízené technologie, fungování firmy, servis i zkušenosti týmu. V článku najdete, na co se skutečně soustředíme: technická zařízení větších budov — kanceláře, obchodní centra, nemocnice, muzea a galerie i veřejné objekty. Domácnosti tvoří menší část zakázek, ale klimatizace, tepelná čerpadla a rekuperaci pro ně děláme také."
+      },
+      "klimatizace-bungalovu": {
+        "nazev": "Klimatizace rodinného bungalovu bez jediné lišty",
+        "perex": "Zákazník chtěl designové vnitřní jednotky a čistý interiér bez viditelných lišt pro chladivové potrubí. Vyřešily to tři výjezdy a drážky ve zdivu.",
+        "text": "Po odsouhlasení nabídky tým vyrazil na místo a přesně zakreslil trasy pro drážky ve zdivu. Při druhém výjezdu jsme roztahali potrubí, kabeláž i odvod kondenzátu do připravených drážek a přes půdu je svedli k místu venkovní jednotky — šlo o multisplit se třemi vnitřními a jednou venkovní jednotkou. Zákazník si pak drážky nechal zednicky zapravit a vymalovat. Při třetí návštěvě jsme jednotky osadili, systém zprovoznili, otestovali a vysvětlili kompletní ovládání včetně aplikace v telefonu."
+      },
+      "kontrola-38-2022": {
+        "nazev": "Máte už povinnou kontrolu dle vyhl. 38/2022 Sb.?",
+        "perex": "Dle aktualizace z 1. 1. 2023 musí vlastník nechat 1× za 5 let zpracovat kontrolu provozovaných soustav. Pokuta za nesplnění jde až do 200 tisíc korun.",
+        "text": "Povinnost se týká objektů se zdroji tepla vyššími než 70 kW, a to i mimo budovy. Kontrolu provozovaných soustav — vzduchotechniky, topení, chladu i kogeneračních jednotek — smí zpracovat pouze energetický specialista a eviduje se v databázi ENEX, kterou spravuje MPO. Zajistíme vám ji včetně navazujících diagnostik, vyvážení soustav dle vyhl. 193/2007 Sb. a revizí tlakových nádob."
+      },
+      "nabor-techniku": {
+        "nazev": "Přijímáme servisní techniky TZB",
+        "perex": "Rozšiřujeme servisní divizi. Hledáme techniky se vztahem k vzduchotechnice, chlazení nebo vytápění — zkušenosti vítáme, ochotu učit se taky.",
+        "text": "Nabízíme vlastní servisní vozidlo, kompletní certifikované vybavení, průběžná školení u výrobců a práci v týmu, kde se má kdo zeptat. Jezdíme převážně ve dvojicích po Praze, středních a jižních Čechách. Ozvěte se na stránce Kariéra nebo rovnou vedoucímu servisního oddělení."
+      },
+      "firemni-den-systemair": {
+        "nazev": "Firemní den Systemair v Českých Budějovicích",
+        "perex": "V rámci produktového vzdělávání zaměstnanců jsme se zúčastnili firemního dne společnosti Systemair.",
+        "text": "Partnerům ze společnosti Systemair děkujeme za předání nových poznatků z oboru i za příjemně strávený čas ve volnočasové části programu. Produktové vzdělávání našich techniků bereme vážně — na stavbě se pozná, kdo zařízení opravdu zná."
+      },
+      "panelova-diskuze-cvut": {
+        "nazev": "Panelová diskuze o tepelných čerpadlech na ČVUT",
+        "perex": "Zúčastnili jsme se panelové diskuze o tepelných čerpadlech na ČVUT v Praze.",
+        "text": "Debata se točila kolem reálné účinnosti tepelných čerpadel v našich klimatických podmínkách, návrhu bivalentních zdrojů a toho, jak se liší projektové předpoklady od skutečného provozu. Přesně tyhle rozdíly potkáváme na stavbách a rádi je s odbornou veřejností probíráme."
+      },
+      "rozsireni-servisu": {
+        "nazev": "Rozšíření služeb servisního oddělení",
+        "perex": "Servisní divize přibrala energetického specialistu, diagnostiku soustav a opravy výměníků na vlastním pracovišti.",
+        "text": "Nově pro vás zajistíme PENB a energetické posudky, technické zprávy o kontrole provozovaných soustav, vyvažování otopných soustav i soustav chlazení včetně protokolů a měření kvality vnitřního prostředí. Přibyly také opravy a repase poškozených či prasklých výměníků — s diagnostikou, opravou a odzkoušením ve vanách nebo natlakováním héliem."
+      }
+    }
+  },
+  "kariera": {
+    "stitek": "Kariéra",
+    "titulek": "Hledáme servisní techniky TZB",
+    "lead": "Rozšiřujeme servisní divizi. Pokud vás baví vzduchotechnika, chlazení nebo vytápění a chcete jezdit s vlastním vybavením, ozvěte se.",
+    "cohledame": {
+      "titulek": "Koho hledáme",
+      "polozky": {
+        "p1": "Servisní techniky vzduchotechniky a chlazení",
+        "p2": "Techniky tepelných čerpadel a vytápění",
+        "p3": "Montážníky se zájmem o servis",
+        "p4": "Zkušenosti vítáme, ochotu učit se ještě víc"
+      }
+    },
+    "nabizime": {
+      "titulek": "Co nabízíme",
+      "polozky": {
+        "p1": {
+          "titulek": "Vlastní vozidlo a vybavení",
+          "popis": "Servisní vůz a kompletní certifikované nářadí. Nesháníte si nic sami."
+        },
+        "p2": {
+          "titulek": "Průběžná školení",
+          "popis": "Produktová školení u výrobců i odborné certifikace. Chceme, abyste zařízení skutečně rozuměli."
+        },
+        "p3": {
+          "titulek": "Práce v týmu",
+          "popis": "Jezdíme převážně ve dvojicích. Vždycky je kdo poradit — i po telefonu."
+        },
+        "p4": {
+          "titulek": "Rozumné dojíždění",
+          "popis": "Praha, střední a jižní Čechy. Ne celá republika a ne montáže na měsíc."
+        }
+      }
+    },
+    "formular": {
+      "titulek": "Máte zájem?",
+      "lead": "Napište nám pár vět o tom, co umíte. Životopis není podmínkou — stačí, co jste dělali a kde.",
+      "typ": "Kariéra — mám zájem o pozici"
+    }
+  },
+  "kontakt": {
+    "stitek": "Kontakt",
+    "titulek": "Ozvěte se nám",
+    "lead": "Poptávka, dotaz i porucha. Vyberte si, co se vám hodí nejvíc.",
+    "rychle": {
+      "dispecink": {
+        "titulek": "Nonstop dispečink 24/7",
+        "popis": "Porucha zařízení, havárie, nefunguje chlazení. Pokud se nedovoláte hned, nahrajte vzkaz — přijde nám e‑mailem."
+      },
+      "poptavka": {
+        "titulek": "Nová poptávka",
+        "popis": "Projekt, rekonstrukce, klimatizace nebo tepelné čerpadlo. Napište nám pár vět o objektu."
+      },
+      "kancelar": {
+        "titulek": "Kancelář",
+        "popis": "Fakturace, smlouvy a vše ostatní."
+      }
+    },
+    "adresy": {
+      "titulek": "Kde nás najdete",
+      "sidlo": "Sídlo společnosti",
+      "provozovna": "Provozovna",
+      "fakturacni": "Fakturační údaje",
+      "otevritMapu": "Otevřít v mapě"
+    },
+    "tym": {
+      "titulek": "Přímé kontakty",
+      "lead": "Víte, s kým potřebujete mluvit? Volejte rovnou."
+    },
+    "formular": {
+      "titulek": "Napište nám",
+      "lead": "Ozveme se zpravidla do jednoho pracovního dne.",
+      "jmeno": "Jméno a příjmení",
+      "firma": "Firma (nepovinné)",
+      "email": "E‑mail",
+      "telefon": "Telefon (nepovinné)",
+      "typ": "Čeho se poptávka týká",
+      "zprava": "Co potřebujete vyřešit",
+      "zpravaHint": "Typ objektu, co je nainstalované, co vás trápí. Klidně stručně.",
+      "souhlas": "Souhlasím se zpracováním osobních údajů pro vyřízení poptávky.",
+      "souhlasOdkaz": "Ochrana osobních údajů",
+      "odeslano": "Děkujeme, zpráva je na cestě. Ozveme se vám.",
+      "odeslanoDemo": "V téhle ukázce se zpráva nikam neodesílá — na ostrém webu dorazí na info@greenairtech.cz.",
+      "typy": {
+        "projekce": "Projekce TZB",
+        "realizace": "Realizace nebo rekonstrukce",
+        "servis": "Servis a údržba",
+        "energetika": "PENB, audit nebo povinná kontrola",
+        "klimatizace": "Klimatizace nebo tepelné čerpadlo",
+        "filtry": "EAC filtry",
+        "vymeniky": "Oprava výměníku",
+        "kariera": "Kariéra — mám zájem o pozici",
+        "jine": "Něco jiného"
+      },
+      "chyby": {
+        "required": "Tohle pole prosím vyplňte.",
+        "email": "Zkontrolujte prosím tvar e‑mailu.",
+        "telefon": "Zkontrolujte prosím telefonní číslo.",
+        "zprava-kratka": "Napište prosím alespoň větu, ať víme, o co jde.",
+        "souhlas": "Bez souhlasu bohužel nemůžeme poptávku zpracovat."
+      }
+    }
+  },
+  "slovnik": {
+    "stranka": {
+      "stitek": "Slovník",
+      "titulek": "Slovník zkratek TZB",
+      "lead": "V našem oboru se zkratkami šetří jen málokdo. Tady jsou vysvětlené — a kdekoli na webu na některou narazíte, stačí na ni najet nebo ťuknout.",
+      "hledat": "Hledat zkratku nebo pojem",
+      "nenalezeno": "Takovou zkratku tu zatím nemáme. Zeptejte se nás."
+    },
+    "terminy": {
+      "TZB": {
+        "full": "technická zařízení budov",
+        "popis": "Souhrnný název pro vzduchotechniku, vytápění, chlazení, zdravotní instalace, plyn a měření a regulaci — tedy vše, co v budově rozvádí teplo, chlad, vzduch a vodu."
+      },
+      "VZT": {
+        "full": "vzduchotechnika",
+        "popis": "Systém, který do budovy přivádí čerstvý vzduch, odvádí znehodnocený a cestou ho filtruje, ohřívá nebo chladí."
+      },
+      "ZTI": {
+        "full": "zdravotně technické instalace",
+        "popis": "Rozvody vody, kanalizace a zařizovací předměty v budově."
+      },
+      "MaR": {
+        "full": "měření a regulace",
+        "popis": "Čidla, regulátory a řídicí systém, které udržují nastavené hodnoty — teplotu, vlhkost, průtok — bez lidského zásahu."
+      },
+      "BMS": {
+        "full": "building management system",
+        "popis": "Nadřazený dohledový systém budovy. Sbírá data ze všech technologií, hlídá alarmy a umožňuje řídit provoz z jednoho místa."
+      },
+      "PENB": {
+        "full": "průkaz energetické náročnosti budovy",
+        "popis": "Povinný dokument hodnotící energetickou náročnost budovy. Zpracovává ho energetický specialista a eviduje se v databázi ENEX."
+      },
+      "ENEX": {
+        "full": "databáze energetických dokumentů",
+        "popis": "Evidence průkazů, auditů a posudků, kterou spravuje Ministerstvo průmyslu a obchodu."
+      },
+      "MPO": {
+        "full": "Ministerstvo průmyslu a obchodu",
+        "popis": "Ústřední orgán, pod který spadá energetická legislativa a databáze ENEX."
+      },
+      "BIM": {
+        "full": "informační model budovy",
+        "popis": "Způsob projektování, kdy místo čar kreslíte skutečné prvky s vlastnostmi. Z modelu pak jdou vytáhnout výkazy, kolize i podklady pro správu budovy."
+      },
+      "TČ": {
+        "full": "tepelné čerpadlo",
+        "popis": "Zařízení, které přečerpává teplo z venkovního vzduchu, země nebo vody do otopné soustavy. Za jednu kilowatthodinu elektřiny dodá několik kilowatthodin tepla."
+      },
+      "EAC": {
+        "full": "elektronický čistič vzduchu",
+        "popis": "Filtr, který nabíjí prachové částice a zachytává je na kolektorových deskách. Proti klasické vložce má nižší tlakovou ztrátu a dá se omývat."
+      },
+      "AHU": {
+        "full": "vzduchotechnická jednotka",
+        "popis": "Strojní srdce vzduchotechniky: ventilátory, filtry, výměníky a rekuperace v jedné skříni. Anglicky air handling unit."
+      },
+      "ZZT": {
+        "full": "zpětné získávání tepla",
+        "popis": "Rekuperace. Odcházející teplý vzduch předá teplo přiváděnému čerstvému — bez toho, aby se oba proudy smíchaly."
+      },
+      "PM2,5": {
+        "full": "jemné prachové částice",
+        "popis": "Částice menší než 2,5 mikrometru. Dostanou se hluboko do plic, takže je smyslem filtrace zachytit právě je."
+      },
+      "TVOC": {
+        "full": "těkavé organické látky",
+        "popis": "Souhrnný ukazatel plynných organických látek ve vnitřním vzduchu — z nábytku, lepidel, barev i úklidu. Měří se při posuzování kvality prostředí."
+      },
+      "KJ": {
+        "full": "kogenerační jednotka",
+        "popis": "Zařízení vyrábějící současně elektřinu a teplo. Využití paliva je díky tomu výrazně vyšší než u samotné výroby elektřiny."
+      },
+      "PBŘ": {
+        "full": "požárně bezpečnostní řešení",
+        "popis": "Část dokumentace určující požární odolnost, únikové cesty a chování vzduchotechniky při požáru."
+      },
+      "TNS": {
+        "full": "tlaková nádoba stabilní",
+        "popis": "Nádoba pracující pod tlakem, u které předpis vyžaduje pravidelné revize — typicky expanzomaty a zásobníky."
+      },
+      "COP": {
+        "full": "topný faktor",
+        "popis": "Poměr dodaného tepla k spotřebované elektřině v daném okamžiku. COP 4 znamená čtyři kilowatthodiny tepla za jednu kilowatthodinu elektřiny."
+      },
+      "SCOP": {
+        "full": "sezónní topný faktor",
+        "popis": "Topný faktor přepočtený na celou topnou sezónu. Pro porovnání tepelných čerpadel je poctivější než COP."
+      },
+      "EER": {
+        "full": "chladicí faktor",
+        "popis": "Poměr chladicího výkonu ke spotřebovanému elektrickému příkonu."
+      },
+      "VRF": {
+        "full": "systém s proměnným průtokem chladiva",
+        "popis": "Klimatizace, kde jedna venkovní jednotka obsluhuje mnoho vnitřních a průtok chladiva se řídí podle skutečné potřeby každé z nich."
+      },
+      "DSP": {
+        "full": "dokumentace pro stavební povolení",
+        "popis": "Stupeň projektu, který slouží stavebnímu úřadu k posouzení stavby."
+      },
+      "DPS": {
+        "full": "dokumentace pro provádění stavby",
+        "popis": "Podrobný stupeň projektu, podle kterého se na stavbě skutečně montuje."
+      },
+      "RDS": {
+        "full": "realizační dokumentace stavby",
+        "popis": "Dokumentace zpracovaná dodavatelem pro vlastní provádění, navazuje na DPS."
+      },
+      "TDS": {
+        "full": "technický dozor stavebníka",
+        "popis": "Odborník hájící zájmy investora na stavbě — kontroluje kvalitu, rozsah i soulad s projektem."
+      },
+      "ČSN": {
+        "full": "česká technická norma",
+        "popis": "Národní technická norma. Určuje požadavky například na množství čerstvého vzduchu, hluk nebo bezpečnost zařízení."
+      },
+      "HVAC": {
+        "full": "heating, ventilation, air conditioning",
+        "popis": "Anglická zkratka pro vytápění, větrání a klimatizaci. Zahraniční obdoba českého TZB."
+      }
+    }
+  },
+  "gdpr": {
+    "titulek": "Ochrana osobních údajů",
+    "lead": "Krátce a bez právničiny: co se stane s údaji, které nám pošlete přes formulář.",
+    "sekce": {
+      "s1": {
+        "titulek": "Kdo údaje zpracovává",
+        "text": "Správcem je Green Air Tech s.r.o., IČO 19667531, se sídlem Pobřežní 394/12, 186 00 Praha 8."
+      },
+      "s2": {
+        "titulek": "Jaké údaje a proč",
+        "text": "Zpracováváme jméno, e‑mail, telefon a text zprávy — výhradně proto, abychom mohli odpovědět na vaši poptávku a případně připravit nabídku."
+      },
+      "s3": {
+        "titulek": "Jak dlouho",
+        "text": "Údaje z nevyřízených poptávek mažeme do dvou let. U uzavřených zakázek je uchováváme po dobu danou účetními a daňovými předpisy."
+      },
+      "s4": {
+        "titulek": "Komu je předáváme",
+        "text": "Nikomu mimo naši společnost a poskytovatele e‑mailové a účetní služby, kteří jsou vázáni mlčenlivostí. Údaje neprodáváme a nepoužíváme k profilování."
+      },
+      "s5": {
+        "titulek": "Vaše práva",
+        "text": "Máte právo na přístup k údajům, jejich opravu, výmaz i vznesení námitky. Stačí napsat na info@greenairtech.cz."
+      },
+      "s6": {
+        "titulek": "Cookies",
+        "text": "Web používá pouze technické cookies nutné pro jeho fungování. Analytické ani marketingové nástroje bez vašeho souhlasu nespouštíme."
+      }
+    },
+    "poznamka": "Tento text je ukázkový a před spuštěním webu ho doporučujeme nechat zkontrolovat."
+  },
+  "chyba404": {
+    "titulek": "Tuhle stránku jsme nenašli",
+    "lead": "Asi jsme ji přestěhovali — nebo se v adrese někde ztratilo písmenko. Zkuste to odsud.",
+    "cta": "Zpět na úvod",
+    "ctaDruhe": "Podívat se na služby"
+  },
+  "footer": {
+    "tagline": "Projekce, realizace a servis technických zařízení budov. Praha a Milevsko, celá ČR.",
+    "sluzby": "Služby",
+    "firma": "Firma",
+    "kontakt": "Kontakt",
+    "sidlo": "Sídlo",
+    "provozovna": "Provozovna",
+    "dispecink": "Nonstop dispečink",
+    "prava": "Všechna práva vyhrazena.",
+    "ukazka": "Ukázkový návrh webu — neoficiální, neindexováno."
+  },
+  "admin": {
+    "titulek": "Administrace",
+    "podtitulek": "Ukázka editace obsahu",
+    "uvod": "Tohle je funkční ukázka administrace. Všechno, co tu změníte, se hned projeví na webu — změny se ukládají do vašeho prohlížeče, takže si můžete cokoli zkusit bez rizika. Na ostré verzi se ukládají na server.",
+    "prihlaseni": {
+      "titulek": "Přihlášení do administrace",
+      "lead": "Ukázkové přihlášení — zadejte cokoli, nebo rovnou klikněte na Vstoupit.",
+      "jmeno": "Uživatel",
+      "heslo": "Heslo",
+      "vstoupit": "Vstoupit",
+      "poznamka": "Demo: přihlášení nic neověřuje."
+    },
+    "zalozky": {
+      "texty": "Texty webu",
+      "realizace": "Realizace",
+      "novinky": "Novinky",
+      "data": "Záloha a obnovení"
+    },
+    "texty": {
+      "titulek": "Texty webu",
+      "lead": "Vyberte stránku, upravte text a klikněte na Uložit. Vpravo je vždy vidět, jak text vypadá teď.",
+      "hledat": "Hledat v textech",
+      "jazyk": "Jazyk",
+      "puvodni": "Původní text",
+      "zmeneno": "Změněno",
+      "vratit": "Vrátit původní",
+      "ulozit": "Uložit změny",
+      "ulozeno": "Uloženo",
+      "zadnyVysledek": "Žádný text neodpovídá hledání."
+    },
+    "realizace": {
+      "titulek": "Realizace",
+      "lead": "Přidejte novou realizaci nebo upravte stávající. Zobrazí se hned na webu.",
+      "pridat": "Přidat realizaci",
+      "upravit": "Upravit",
+      "smazat": "Smazat",
+      "smazatPotvrzeni": "Opravdu smazat tuto realizaci?",
+      "nazev": "Název realizace",
+      "misto": "Místo",
+      "datum": "Datum dokončení",
+      "kategorie": "Obory",
+      "perex": "Krátký popis do výpisu",
+      "zadani": "Zadání zákazníka",
+      "rozsah": "Rozsah prací (každý bod na nový řádek)",
+      "technologie": "Technologie (oddělte čárkou)",
+      "vysledek": "Výsledek",
+      "plocha": "Obsluhovaná plocha",
+      "doba": "Doba realizace",
+      "ulozit": "Uložit realizaci",
+      "zrusit": "Zrušit",
+      "vlastni": "Vaše",
+      "upravena": "Upravená",
+      "prazdne": "Zatím žádná vlastní realizace. Přidejte první."
+    },
+    "data": {
+      "titulek": "Záloha a obnovení",
+      "lead": "Změny žijí ve vašem prohlížeči. Tady si je můžete stáhnout jako soubor, nahrát zpět nebo všechno vrátit do výchozího stavu.",
+      "stahnout": "Stáhnout změny (JSON)",
+      "nahrat": "Nahrát soubor se změnami",
+      "vymazat": "Vrátit vše do výchozího stavu",
+      "vymazatPotvrzeni": "Opravdu zahodit všechny provedené změny?",
+      "posledniZmena": "Poslední změna",
+      "zadnaZmena": "Zatím nic neupraveno.",
+      "chybaImportu": "Soubor se nepodařilo načíst."
+    },
+    "odhlasit": "Odhlásit",
+    "zpetNaWeb": "Zpět na web",
+    "demoUpozorneni": "Demo administrace — změny se ukládají jen do tohoto prohlížeče."
+  }
+}

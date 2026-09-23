@@ -1,0 +1,80 @@
+{
+  "contracts": {
+    "C-001": {
+      "status": "green",
+      "attempts": 1,
+      "iterations": 7,
+      "commit": "49aa70e",
+      "last_finding": "",
+      "packet": "",
+      "updated_at": "2026-09-23T18:06:09+00:00"
+    },
+    "C-002": {
+      "status": "green",
+      "attempts": 1,
+      "iterations": 4,
+      "commit": "561cbc1",
+      "last_finding": "",
+      "packet": "",
+      "updated_at": "2026-09-23T18:03:33+00:00"
+    },
+    "C-003": {
+      "status": "green",
+      "attempts": 1,
+      "iterations": 6,
+      "commit": "4318fc8",
+      "last_finding": "",
+      "packet": "",
+      "updated_at": "2026-09-23T18:04:04+00:00"
+    },
+    "C-004": {
+      "status": "green",
+      "attempts": 1,
+      "iterations": 8,
+      "commit": "75e4bfb",
+      "last_finding": "",
+      "packet": "",
+      "updated_at": "2026-09-23T18:05:38+00:00"
+    },
+    "C-005": {
+      "status": "green",
+      "attempts": 1,
+      "iterations": 3,
+      "commit": "cbf5fb7",
+      "last_finding": "",
+      "packet": "",
+      "updated_at": "2026-09-23T18:06:09+00:00"
+    },
+    "C-006": {
+      "status": "green",
+      "attempts": 1,
+      "iterations": 3,
+      "commit": "8c3e0aa",
+      "last_finding": "",
+      "packet": "",
+      "updated_at": "2026-09-23T18:07:25+00:00"
+    },
+    "C-007": {
+      "status": "green",
+      "attempts": 1,
+      "iterations": 4,
+      "commit": "d7f81cb",
+      "last_finding": "",
+      "packet": "",
+      "updated_at": "2026-09-23T18:07:44+00:00"
+    }
+  },
+  "runs": [
+    {
+      "started_at": "2026-09-23T18:01:56+00:00",
+      "finished_at": "2026-09-23T18:07:49+00:00",
+      "outcome": "green",
+      "iterations": 35,
+      "green": 7,
+      "red": 0,
+      "escalated": 0,
+      "note": "full suite passed (0 tests)"
+    }
+  ],
+  "open_packets": []
+}

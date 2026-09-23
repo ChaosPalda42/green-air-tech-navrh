@@ -1,0 +1,15 @@
+{
+  "_comment": "Zkratky, které vzniknou až překladem (česká verze je nemá). Build je přimíchá ke slovníku daného jazyka.",
+  "de": {
+    "TGA": { "full": "Technische Gebäudeausrüstung", "popis": "Sammelbegriff für Lüftung, Heizung, Kühlung, Sanitär, Gas sowie Mess- und Regeltechnik – das tschechische Pendant heißt TZB." },
+    "RLT": { "full": "Raumlufttechnik", "popis": "Anlagen, die frische Luft zuführen, verbrauchte abführen und sie dabei filtern, erwärmen oder kühlen." },
+    "MSR": { "full": "Mess-, Steuer- und Regeltechnik", "popis": "Sensoren, Regler und Steuerung, die Temperatur, Feuchte und Volumenstrom ohne Eingriff halten." },
+    "KWK": { "full": "Kraft-Wärme-Kopplung", "popis": "Gleichzeitige Erzeugung von Strom und Wärme – die Brennstoffausnutzung ist deutlich höher als bei reiner Stromerzeugung." }
+  },
+  "en": {
+    "MEP": { "full": "mechanical, electrical and plumbing", "popis": "The building services trades — the English counterpart of the Czech abbreviation TZB." },
+    "AHU": { "full": "air handling unit", "popis": "The mechanical heart of a ventilation system: fans, filters, coils and heat recovery in one casing." },
+    "BMS": { "full": "building management system", "popis": "The supervisory system that collects data from every technology in the building, watches alarms and lets it all be run from one place." },
+    "EPC": { "full": "energy performance certificate", "popis": "The mandatory document rating a building's energy performance — PENB in Czech." }
+  }
+}
