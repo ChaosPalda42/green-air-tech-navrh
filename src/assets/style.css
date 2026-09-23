@@ -961,20 +961,24 @@ abbr.zkratka:hover, abbr.zkratka:focus-visible { background: var(--zelena-závoj
    aby to nepůsobilo jako pomalé načítání. */
 .privane {
   opacity: 0;
-  transform: translate3d(-54px, 4px, 0) rotate(-1.1deg) skewX(3.5deg) scaleX(1.04);
+  transform: translate3d(-58px, 4px, 0) rotate(-1.1deg) skewX(3.5deg) scaleX(1.04);
   transform-origin: 50% 60%;
 }
-.privane.je-videt {
-  opacity: 1;
-  transform: none;
-  transition: opacity 0.34s ease-out,
-              transform 0.82s cubic-bezier(0.18, 1.04, 0.28, 1);
-}
 /* nadpisy přilétají kratší dráhou, ať nepůsobí neklidně */
-.privane.privane-nadpis { transform: translate3d(-38px, 0, 0) skewX(2.5deg); }
+.privane.privane-nadpis { transform: translate3d(-42px, 0, 0) skewX(2.5deg); }
 /* karty mají delší nálet a znatelnější naklonění */
 .privane.privane-karta {
-  transform: translate3d(-72px, 8px, 0) rotate(-1.6deg) skewX(4.5deg) scaleX(1.06);
+  transform: translate3d(-92px, 10px, 0) rotate(-1.8deg) skewX(5deg) scaleX(1.07);
+}
+/* Cílový stav musí přebít i varianty výše — proto tři třídy v selektoru.
+   (Se dvěma by varianta vyhrála pořadím a transform by nikdy neodjel.) */
+.privane.je-videt,
+.privane.privane-nadpis.je-videt,
+.privane.privane-karta.je-videt {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.3s ease-out,
+              transform 0.88s cubic-bezier(0.16, 1.03, 0.3, 1);
 }
 /* kroky postupu si dokreslí číslo, až dosednou */
 .krok.privane::before { opacity: 0; transition: opacity 0.4s ease-out 0.24s; }

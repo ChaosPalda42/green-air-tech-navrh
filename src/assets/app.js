@@ -765,7 +765,7 @@
 
     var pozorovatel = new IntersectionObserver(function (zaznamy) {
       zaznamy.forEach(function (z) { if (z.isIntersecting) odkryj(z.target); });
-    }, { rootMargin: "0px 0px 12% 0px", threshold: 0 });
+    }, { rootMargin: "0px 0px -14% 0px", threshold: 0 });
 
     function pocetSloupcu(skupina, deti) {
       if (!deti.length) return 1;
@@ -780,7 +780,7 @@
 
     function priprav(prvek, trida, zpozdeni) {
       if (!prvek || prvek.classList.contains("privane")) return;
-      if (prvek.getBoundingClientRect().top < window.innerHeight * 0.9) return;
+      if (prvek.getBoundingClientRect().top < window.innerHeight * 0.86) return;
       prvek.classList.add("privane");
       if (trida) prvek.classList.add(trida);
       prvek.style.transitionDelay = zpozdeni + "ms";
@@ -820,7 +820,7 @@
 
     function dorovnej() {
       cekajici.slice().forEach(function (prvek) {
-        if (prvek.getBoundingClientRect().top < window.innerHeight * 1.1) odkryj(prvek);
+        if (prvek.getBoundingClientRect().top < window.innerHeight * 0.86) odkryj(prvek);
       });
     }
     window.addEventListener("scroll", dorovnej, { passive: true });
