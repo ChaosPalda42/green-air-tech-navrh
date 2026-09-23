@@ -2,6 +2,7 @@
    `node build.mjs` -> out/web/  (funguje z file://, z GitHub Pages i z libovolného hostingu) */
 
 import { readFile, writeFile, mkdir, rm, cp, readdir } from "node:fs/promises";
+import { createHash } from "node:crypto";
 import { existsSync } from "node:fs";
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
@@ -47,7 +48,7 @@ function soubor(druh, id) {
 }
 
 /* ----------------------------------------------------------- kontext */
-function vytvorKontext({ lang, site, slovnik, zaskok, aktualniSoubor, obrazky }) {
+function vytvorKontext({ lang, site, slovnik, zaskok, aktualniSoubor, obrazky, verze }) {
   const jazyk = site.jazyky.find((j) => j.kod === lang);
   const prefix = jazyk.adresar ? "../" : "";
   const terminy = Object.entries(slovnik).map(([abbr, v]) => ({ abbr, full: v.full, popis: v.popis }));
@@ -73,7 +74,9 @@ function vytvorKontext({ lang, site, slovnik, zaskok, aktualniSoubor, obrazky })
     return new Intl.DateTimeFormat(locale, { ...opts, timeZone: "UTC" }).format(d);
   };
 
-  const asset = (p) => `${prefix}assets/${p}`;
+  // CSS a JS dostanou ?v=<otisk obsahu>, aby prohlížeč po nasazení
+  // nesahal po staré verzi z mezipaměti (GitHub Pages cachuje 10 minut)
+  const asset = (p) => `${prefix}assets/${p}${verze[p] ? `?v=${verze[p]}` : ""}`;
   const odkaz = (druh, id) => `${soubor(druh, id)}`;
   const jazykOdkaz = (kod) => {
     const cil = site.jazyky.find((j) => j.kod === kod);
@@ -178,6 +181,12 @@ async function main() {
   await writeFile(path.join(VEN, "assets", "app.js"), `${bundl}\n${app}`);
   await writeFile(path.join(VEN, "assets", "admin.js"), adminJs);
 
+  const verze = {};
+  for (const jmeno of ["style.css", "admin.css", "app.js", "admin.js"]) {
+    const obsah = await readFile(path.join(VEN, "assets", jmeno));
+    verze[jmeno] = createHash("sha1").update(obsah).digest("hex").slice(0, 8);
+  }
+
   await writeFile(
     path.join(VEN, "robots.txt"),
     "# Ukázkový návrh webu – neindexovat.\nUser-agent: *\nDisallow: /\n"
@@ -220,6 +229,7 @@ async function main() {
         zaskok: { dict: j.dict, cs },
         aktualniSoubor,
         obrazky,
+        verze,
       });
 
     const vykresli = async (jmenoSouboru, telo, metaKlic, aktivni = "", trida = "", skripty = "") => {
@@ -268,6 +278,7 @@ async function main() {
       zaskok: { dict: cs, cs },
       aktualniSoubor: SOUBORY.administrace,
       obrazky,
+      verze,
     });
     const slovniky = Object.fromEntries(jazyky.map((j) => [j.kod, i18n.flatten(j.dict)]));
     const realizaceProAdmin = site.realizace.map((r) => ({

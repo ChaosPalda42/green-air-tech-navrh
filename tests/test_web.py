@@ -345,3 +345,24 @@ def test_fonty_jsou_lokalni(stranky):
         html = stranka.read_text(encoding="utf-8")
         assert "fonts.googleapis.com" not in html, stranka.name
         assert "fonts.gstatic.com" not in html, stranka.name
+
+
+def test_styly_a_skripty_maji_otisk_verze(stranky):
+    """Bez ?v=<otisk> by prohlížeč po nasazení servíroval starou verzi
+    z mezipaměti (GitHub Pages cachuje aktiva 10 minut)."""
+    vzor = re.compile(r'(?:href|src)="([^"]*assets/(?:style|admin)\.css|[^"]*assets/(?:app|admin)\.js)([^"]*)"')
+    bez_verze = []
+    for stranka in stranky:
+        for cesta, zbytek in vzor.findall(stranka.read_text(encoding="utf-8")):
+            if not re.match(r"^\?v=[0-9a-f]{8}$", zbytek):
+                bez_verze.append(f"{stranka.name}: {cesta}{zbytek}")
+    assert not bez_verze, bez_verze[:10]
+
+
+def test_v_kodu_nezustal_zamerovaci_kurzor(web):
+    """Zrušené efekty nesmí zůstat viset jako mrtvý kód."""
+    css = (web / "assets" / "style.css").read_text(encoding="utf-8")
+    js = (web / "assets" / "app.js").read_text(encoding="utf-8")
+    for zrusene in ("zamerovac", "tecky-zaric", "vitr-kurzor", "potrubi-delic"):
+        assert zrusene not in css, f"{zrusene} zůstal v CSS"
+        assert zrusene not in js, f"{zrusene} zůstal v JS"

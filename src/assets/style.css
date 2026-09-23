@@ -918,26 +918,6 @@ abbr.zkratka:hover, abbr.zkratka:focus-visible { background: var(--zelena-závoj
    a jemné „přivanutí" sekcí při scrollu. Vše se vypne při
    prefers-reduced-motion a nikdy nebrání kliknutí. */
 
-/* Rastr teček se pod kurzorem rozsvítí. Dvě vrstvy s opačným mísením:
-   „multiply" ztmaví tečky na světlém podkladu a na tmavém nedělá nic,
-   „screen" rozsvítí tečky na tmavém a na bílém nedělá nic. Rastr tak
-   reaguje sám od sebe, ať je kurzor kdekoli. */
-.tecky-zaric {
-  position: fixed; inset: 0; z-index: 400; pointer-events: none;
-  opacity: 0; transition: opacity 420ms ease-out;
-}
-.tecky-zaric[data-zive="1"] { opacity: 1; }
-.tecky-zaric i {
-  position: absolute; inset: 0;
-  background-image: radial-gradient(currentColor 1.4px, transparent 1.7px);
-  background-size: 15px 15px;
-  background-position: 3px 3px;
-  -webkit-mask-image: radial-gradient(circle 165px at var(--mx, -400px) var(--my, -400px), #000 0%, rgba(0, 0, 0, 0.55) 42%, transparent 74%);
-  mask-image: radial-gradient(circle 165px at var(--mx, -400px) var(--my, -400px), #000 0%, rgba(0, 0, 0, 0.55) 42%, transparent 74%);
-}
-.tecky-zaric .ztmavi { color: rgba(60, 86, 58, 0.5); mix-blend-mode: multiply; }
-.tecky-zaric .rozsviti { color: rgba(123, 209, 63, 0.5); mix-blend-mode: screen; }
-@media (hover: none), (prefers-reduced-motion: reduce) { .tecky-zaric { display: none; } }
 
 .zavan { position: fixed; inset: 0; z-index: 940; pointer-events: none; overflow: hidden; }
 .zavan i {
