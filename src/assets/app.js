@@ -583,63 +583,6 @@
     }
   }
 
-  /* ======================================================= zaměřovací kurzor
-     Kroužek s ryskami, který se veze za myší s mírným zpožděním. Nad odkazy
-     se rozevře, nad textem stáhne, na tmavých sekcích se rozsvítí zeleně. */
-  function zamerovac() {
-    if (mene.matches || dotykove.matches) return;
-    if (!window.matchMedia("(pointer: fine)").matches) return;
-
-    var znacka = document.createElement("div");
-    znacka.className = "zamerovac";
-    znacka.setAttribute("aria-hidden", "true");
-    znacka.innerHTML = '<span class="stred"></span>';
-    document.body.appendChild(znacka);
-
-    var cilX = -200, cilY = -200, x = -200, y = -200;
-    var bezi = false, tik = 0;
-    var AKCE = 'a, button, [role="button"], summary, label.zaskrtavatko, .chip, input[type="submit"]';
-    var TEXT = "p, li, h1, h2, h3, h4, dd, dt, address, span.lead, td, th, blockquote";
-    var TMAVE = ".hero, .podhlavi, .sekce-tmava, .paticka, .vyzva, .karta-nahled, .karta-kontakt.zvyrazneny";
-
-    function krok() {
-      // plynulé dohánění — kroužek se veze za šipkou
-      x += (cilX - x) * 0.22;
-      y += (cilY - y) * 0.22;
-      znacka.style.transform = "translate3d(" + x.toFixed(1) + "px," + y.toFixed(1) + "px,0)";
-      if (Math.abs(cilX - x) > 0.4 || Math.abs(cilY - y) > 0.4) {
-        requestAnimationFrame(krok);
-      } else {
-        bezi = false;
-      }
-    }
-
-    document.addEventListener("pointermove", function (e) {
-      if (e.pointerType === "touch") return;
-      cilX = e.clientX;
-      cilY = e.clientY;
-      znacka.setAttribute("data-zive", "1");
-
-      if ((tik++ & 3) === 0) {
-        var pod = e.target;
-        var jeAkce = pod.closest && pod.closest(AKCE);
-        var jeText = !jeAkce && pod.closest && pod.closest(TEXT);
-        if (jeAkce) znacka.setAttribute("data-cil", "akce");
-        else if (jeText) znacka.setAttribute("data-cil", "text");
-        else znacka.removeAttribute("data-cil");
-
-        var tmavy = pod.closest && pod.closest(TMAVE);
-        if (tmavy) znacka.setAttribute("data-podklad", "tmavy");
-        else znacka.removeAttribute("data-podklad");
-      }
-
-      if (!bezi) { bezi = true; requestAnimationFrame(krok); }
-    }, { passive: true });
-
-    document.addEventListener("pointerleave", function () { znacka.removeAttribute("data-zive"); }, { passive: true });
-    document.addEventListener("pointerdown", function () { znacka.setAttribute("data-cil", "akce"); }, { passive: true });
-  }
-
   /* ====================================================== karty pod kurzorem
      Po povrchu karty putuje měkký proud světla podle polohy kurzoru a karta
      se o zlomek stupně nakloní — jako plech nastavený do proudu vzduchu.
@@ -914,7 +857,6 @@
     slovnikHledani();
     pasTecek();
     kartyPodKurzorem();
-    zamerovac();
     zavanPriPrichodu();
     prichodObsahu();
     pocitadla();
