@@ -99,12 +99,14 @@ function vytvorKontext({ lang, site, slovnik, zaskok, aktualniSoubor, obrazky })
     </picture>`;
   };
 
+  const maObrazek = (jmeno) => Object.prototype.hasOwnProperty.call(obrazky, jmeno);
+
   const chybyFormulare = () =>
     Object.fromEntries(klice("kontakt.formular.chyby").map((k) => [k, t(`kontakt.formular.chyby.${k}`)]));
 
   return {
     lang, site, t, existuje, klice, datum, asset, odkaz, jazykOdkaz, zk, skupinyZkratek, obrazek, terminy,
-    chybyFormulare,
+    chybyFormulare, maObrazek,
     realizaceSeznam: site.realizace,
     novinkySeznam: site.novinky,
   };

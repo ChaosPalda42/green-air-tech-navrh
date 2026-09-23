@@ -54,8 +54,14 @@ function kartaNovinky(ctx, n) {
 
 function kartaClovek(ctx, osoba) {
   const { t } = ctx;
+  const portret = ctx.maObrazek(`portret-${osoba.id}`)
+    ? ctx.obrazek(`portret-${osoba.id}`, { alt: osoba.jmeno, sirky: "72px", trida: "portret" })
+    : "";
   return `<div class="karta-clovek">
-    <span class="avatar" aria-hidden="true">${osoba.inicialy}</span>
+    <span class="avatar">
+      <span class="inicialy" aria-hidden="true">${osoba.inicialy}</span>
+      ${portret}
+    </span>
     <span class="jmeno">${osoba.jmeno}</span>
     <span class="role"${dc(`lide.${osoba.id}`)}>${t(`lide.${osoba.id}`)}</span>
     <a href="tel:${osoba.telefonHref}">${ikona("telefon")}${osoba.telefon}</a>

@@ -542,63 +542,70 @@
   }
 
   /* ================================================================ pomocné */
-  /* ===================================================== rastr teček u kurzoru
-     Do každé sekce se vloží vrstva s tečkovaným rastrem — leží POD obsahem,
-     takže nikdy nepřekreslí text. Druhá vrstva téhož rastru je odmaskovaná
-     kroužkem u kurzoru, takže se tečky „rozsvítí" přesně tam, kde už jsou. */
-  function rastrTecek() {
-    var svetle = $$(".sekce:not(.sekce-tmava)");
-    var tmave = $$(".hero, .podhlavi, .sekce-tmava, .paticka");
-    var vrstvy = [];
-
-    function vloz(sekce, tmava) {
+  /* ============================================================ pás teček
+     Do každé světlé sekce vložíme vrstvu s rastrem. Leží pod obsahem
+     a maska ji drží v levém pásu, takže přes celou výšku stránky vzniká
+     jeden souvislý okraj — stejný jako kolem loga v hlavičce. */
+  function pasTecek() {
+    $$(".sekce:not(.sekce-tmava)").forEach(function (sekce) {
       var vrstva = document.createElement("span");
-      vrstva.className = "rastr" + (tmava ? " rastr-tmavy" : "");
+      vrstva.className = "rastr";
       vrstva.setAttribute("aria-hidden", "true");
-      vrstva.innerHTML = '<i class="klid"></i><i class="zar"></i>';
+      vrstva.innerHTML = "<i></i>";
       sekce.insertBefore(vrstva, sekce.firstChild);
-      vrstvy.push(vrstva);
-    }
+    });
+  }
 
-    svetle.forEach(function (s) { vloz(s, false); });
-    tmave.forEach(function (s) { vloz(s, true); });
-    if (!vrstvy.length) return;
+  /* ====================================================== karty pod kurzorem
+     Po povrchu karty putuje měkký proud světla podle polohy kurzoru a karta
+     se o zlomek stupně nakloní — jako plech nastavený do proudu vzduchu.
+     Efekt nikdy neopustí kartu, takže nekříží text. */
+  function kartyPodKurzorem() {
     if (mene.matches || dotykove.matches) return;
 
-    var x = 0, y = 0, ceka = false, usnul;
+    var VYBER = ".karta-sluzba, .karta-realizace, .karta-clanek, .karta-kontakt, .karta-clovek, .slovnik-karta";
+    var aktivni = null, x = 0, y = 0, ceka = false;
 
     function prekresli() {
       ceka = false;
-      for (var i = 0; i < vrstvy.length; i++) {
-        var v = vrstvy[i];
-        var r = v.getBoundingClientRect();
-        if (r.bottom < -220 || r.top > window.innerHeight + 220) {
-          v.removeAttribute("data-zive");
-          continue;
-        }
-        v.style.setProperty("--mx", (x - r.left) + "px");
-        v.style.setProperty("--my", (y - r.top) + "px");
-        v.setAttribute("data-zive", "1");
-      }
+      if (!aktivni) return;
+      var r = aktivni.getBoundingClientRect();
+      if (!r.width || !r.height) return;
+      var px = (x - r.left) / r.width;
+      var py = (y - r.top) / r.height;
+      aktivni.style.setProperty("--cx", (px * 100).toFixed(1) + "%");
+      aktivni.style.setProperty("--cy", (py * 100).toFixed(1) + "%");
+      var naklonX = (0.5 - py) * 3.2;   // stupně
+      var naklonY = (px - 0.5) * 3.2;
+      aktivni.style.transform =
+        "perspective(900px) rotateX(" + naklonX.toFixed(2) + "deg) rotateY(" +
+        naklonY.toFixed(2) + "deg) translate3d(0,-3px,0)";
     }
 
-    function uspi() {
-      for (var i = 0; i < vrstvy.length; i++) vrstvy[i].removeAttribute("data-zive");
+    function opust(karta) {
+      if (!karta) return;
+      karta.removeAttribute("data-kurzor");
+      karta.style.transform = "";
+      karta.style.removeProperty("--cx");
+      karta.style.removeProperty("--cy");
     }
 
     document.addEventListener("pointermove", function (e) {
       if (e.pointerType === "touch") return;
+      var karta = e.target.closest ? e.target.closest(VYBER) : null;
+      if (karta !== aktivni) {
+        opust(aktivni);
+        aktivni = karta;
+        if (aktivni) aktivni.setAttribute("data-kurzor", "1");
+      }
+      if (!aktivni) return;
       x = e.clientX;
       y = e.clientY;
       if (!ceka) { ceka = true; requestAnimationFrame(prekresli); }
-      clearTimeout(usnul);
-      usnul = setTimeout(uspi, 2600);
     }, { passive: true });
 
-    document.addEventListener("pointerleave", uspi, { passive: true });
-    window.addEventListener("scroll", function () {
-      if (!ceka) { ceka = true; requestAnimationFrame(prekresli); }
-    }, { passive: true });
+    document.addEventListener("pointerleave", function () { opust(aktivni); aktivni = null; }, { passive: true });
+    window.addEventListener("scroll", function () { opust(aktivni); aktivni = null; }, { passive: true });
   }
 
   /* ============================================== závan při příchodu na stránku */
@@ -620,43 +627,65 @@
     setTimeout(function () { obal.remove(); }, 1800);
   }
 
-  /* ================================================ přivanutí sekcí při scrollu */
-  function privanuteSekce() {
+  /* ============================================== příchod obsahu při scrollu
+     Nadpisy přijedou zleva k pásu teček, karty se vynoří zespodu jedna po
+     druhé. Pojistka na konci zaručí, že nic nezůstane neviditelné. */
+  function prichodObsahu() {
     if (mene.matches || !("IntersectionObserver" in window)) return;
-    var bloky = $$(".sekce > .obal > *, .hero-pruh, .vyzva");
-    if (!bloky.length) return;
 
     var cekajici = [];
 
-    function odkryj(blok) {
-      // ve skryté záložce se přechody nepřehrají — nastavíme rovnou konečný stav
-      if (document.hidden) blok.classList.remove("privane");
-      else blok.classList.add("je-videt");
-      var i = cekajici.indexOf(blok);
+    function odkryj(prvek) {
+      if (document.hidden) prvek.classList.remove("privane");
+      else prvek.classList.add("je-videt");
+      var i = cekajici.indexOf(prvek);
       if (i !== -1) cekajici.splice(i, 1);
-      pozorovatel.unobserve(blok);
+      pozorovatel.unobserve(prvek);
     }
 
     var pozorovatel = new IntersectionObserver(function (zaznamy) {
-      zaznamy.forEach(function (z) {
-        if (z.isIntersecting) odkryj(z.target);
-      });
-    }, { rootMargin: "0px 0px 14% 0px", threshold: 0 });
+      zaznamy.forEach(function (z) { if (z.isIntersecting) odkryj(z.target); });
+    }, { rootMargin: "0px 0px 12% 0px", threshold: 0 });
 
-    bloky.forEach(function (blok, i) {
-      var r = blok.getBoundingClientRect();
-      if (r.top < window.innerHeight * 0.92) return; // co je hned vidět, nerozjíždíme
-      blok.classList.add("privane");
-      blok.style.transitionDelay = ((i % 3) * 55) + "ms";
-      cekajici.push(blok);
-      pozorovatel.observe(blok);
+    function priprav(prvek, trida, zpozdeni) {
+      if (!prvek || prvek.classList.contains("privane")) return;
+      if (prvek.getBoundingClientRect().top < window.innerHeight * 0.9) return;
+      prvek.classList.add("privane");
+      if (trida) prvek.classList.add(trida);
+      prvek.style.transitionDelay = zpozdeni + "ms";
+      cekajici.push(prvek);
+      pozorovatel.observe(prvek);
+    }
+
+    $$(".sekce, .vyzva").forEach(function (sekce) {
+      priprav($(".hlavicka-sekce", sekce), "privane-nadpis", 0);
+
+      // mřížky a postupy nastupují po položkách
+      var skupiny = $$(".mrizka, .postup, .slovnik-polozky", sekce);
+      if (skupiny.length) {
+        skupiny.forEach(function (skupina) {
+          Array.prototype.slice.call(skupina.children).forEach(function (dite, i) {
+            priprav(dite, "privane-karta", Math.min(i, 5) * 70);
+          });
+        });
+      }
+
+      // ostatní přímé bloky sekce (text, formulář, obrázek)
+      var obal = $(".obal", sekce);
+      if (obal) {
+        Array.prototype.slice.call(obal.children).forEach(function (dite, i) {
+          if (dite.classList.contains("hlavicka-sekce")) return;
+          if ($(".mrizka, .postup, .slovnik-polozky", dite) || dite.classList.contains("mrizka")) return;
+          priprav(dite, "", i * 60);
+        });
+      }
     });
 
-    // Pojistka: ve skryté záložce se vykreslování zastaví a pozorovatel nemusí
-    // stihnout zareagovat. Nic nesmí zůstat neviditelné.
+    priprav($(".hero-pruh"), "", 0);
+
     function dorovnej() {
-      cekajici.slice().forEach(function (blok) {
-        if (blok.getBoundingClientRect().top < window.innerHeight * 1.12) odkryj(blok);
+      cekajici.slice().forEach(function (prvek) {
+        if (prvek.getBoundingClientRect().top < window.innerHeight * 1.1) odkryj(prvek);
       });
     }
     window.addEventListener("scroll", dorovnej, { passive: true });
@@ -748,9 +777,10 @@
     vypisRealizaci();
     detailZeSablony();
     slovnikHledani();
-    rastrTecek();
+    pasTecek();
+    kartyPodKurzorem();
     zavanPriPrichodu();
-    privanuteSekce();
+    prichodObsahu();
     pocitadla();
   }
 

@@ -729,11 +729,57 @@ abbr.zkratka:hover, abbr.zkratka:focus-visible { background: var(--zelena-závoj
 }
 .karta-clovek:hover { border-color: rgba(88,172,37,0.5); box-shadow: var(--stín-1); }
 .avatar {
-  width: 54px; height: 54px; border-radius: 50%; margin-bottom: 0.85rem;
-  display: grid; place-items: center;
+  position: relative;
+  width: 72px; height: 72px; border-radius: 50%; margin-bottom: 1.05rem;
+  display: grid; place-items: center; flex: none;
   background: linear-gradient(140deg, var(--zelena) 0%, var(--zelena-tmavá) 100%);
-  color: #fff; font-family: var(--font-nadpis); font-weight: 700; font-size: 1.15rem;
+  color: #fff; font-family: var(--font-nadpis); font-weight: 700; font-size: 1.28rem;
   letter-spacing: 0.02em;
+  isolation: isolate;
+  transition: transform 420ms cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 420ms ease-out;
+}
+.avatar .inicialy {
+  transition: opacity 260ms ease-out, transform 420ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+/* portrét se vyjeví kruhovou clonou — jako když se otevře objektiv */
+.avatar picture {
+  position: absolute; inset: 0; z-index: 1; display: block; border-radius: 50%; overflow: hidden;
+}
+.avatar .portret {
+  position: absolute; inset: 0; z-index: 1;
+  width: 100%; height: 100%; object-fit: cover; border-radius: 50%;
+  background: none;
+  opacity: 0;
+  transform: scale(1.14);
+  clip-path: circle(0% at 50% 50%);
+  transition: opacity 320ms ease-out,
+              transform 620ms cubic-bezier(0.16, 0.8, 0.24, 1),
+              clip-path 620ms cubic-bezier(0.16, 0.8, 0.24, 1);
+}
+/* zelený prstenec, který se kolem portrétu roztáhne */
+.avatar::after {
+  content: ""; position: absolute; inset: -5px; z-index: 2;
+  border-radius: 50%; pointer-events: none;
+  border: 2px solid var(--zelena);
+  opacity: 0; transform: scale(0.82);
+  transition: opacity 380ms ease-out, transform 520ms cubic-bezier(0.16, 0.8, 0.24, 1);
+}
+.karta-clovek:hover .avatar,
+.karta-clovek:focus-within .avatar { transform: scale(1.18); box-shadow: 0 12px 30px rgba(47, 106, 18, 0.26); }
+.karta-clovek:hover .avatar .inicialy,
+.karta-clovek:focus-within .avatar .inicialy { opacity: 0; transform: scale(0.86); }
+.karta-clovek:hover .avatar .portret,
+.karta-clovek:focus-within .avatar .portret { opacity: 1; transform: scale(1); clip-path: circle(72% at 50% 50%); }
+.karta-clovek:hover .avatar::after,
+.karta-clovek:focus-within .avatar::after { opacity: 1; transform: scale(1); }
+
+/* bez myši (dotyk) je portrét vidět rovnou */
+@media (hover: none) {
+  .avatar .portret { opacity: 1; transform: none; clip-path: circle(72% at 50% 50%); }
+  .avatar .inicialy { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .avatar, .avatar .portret, .avatar .inicialy, .avatar::after { transition: none; }
 }
 .karta-clovek .jmeno { font-family: var(--font-nadpis); font-weight: 700; font-size: 1.1rem; }
 .karta-clovek .role { font-size: 0.88rem; color: var(--břidlice); margin-bottom: 0.75rem; }
@@ -910,13 +956,20 @@ abbr.zkratka:hover, abbr.zkratka:focus-visible { background: var(--zelena-závoj
 @media (prefers-reduced-motion: reduce) { .zavan { display: none; } }
 
 /* příchod bloků při scrollu — jako by je přifouklo zprava */
-.privane { opacity: 0; transform: translate3d(22px, 10px, 0); filter: blur(2px); }
+.privane { opacity: 0; transform: translate3d(0, 26px, 0) scale(0.985); }
 .privane.je-videt {
-  opacity: 1; transform: none; filter: none;
-  transition: opacity 0.55s cubic-bezier(0.2, 0.6, 0.2, 1),
-              transform 0.55s cubic-bezier(0.2, 0.6, 0.2, 1),
-              filter 0.55s ease-out;
+  opacity: 1; transform: none;
+  transition: opacity 0.62s cubic-bezier(0.22, 0.68, 0.16, 1),
+              transform 0.72s cubic-bezier(0.22, 0.68, 0.16, 1);
 }
+/* nadpisy sekcí přijíždějí zleva, jako by se zarovnaly k pásu teček */
+.privane.privane-nadpis { transform: translate3d(-18px, 12px, 0); }
+/* karty se vynoří zespodu a lehce se dorovnají */
+.privane.privane-karta { transform: translate3d(0, 34px, 0) scale(0.97); }
+/* kroky postupu vyjedou s vlastní čárou */
+.krok.privane { transform: translate3d(0, 18px, 0); }
+.krok.privane::before { opacity: 0; transition: opacity 0.4s ease-out 0.18s; }
+.krok.privane.je-videt::before { opacity: 1; }
 @media (prefers-reduced-motion: reduce) {
   .privane { opacity: 1; transform: none; filter: none; }
 }
@@ -944,11 +997,9 @@ abbr.zkratka:hover, abbr.zkratka:focus-visible { background: var(--zelena-závoj
 .karta-sluzba:hover .karta-ikona svg circle:first-of-type { animation: otacej 3.4s linear infinite; transform-origin: center; }
 
 /* ======================================================= tečkovaný rastr
-   Přesně podle hlavičky stávajícího webu: tečky ⌀ 13 px, rozteč 41 px,
-   sudé řady posunuté o půl kroku (kosočtvercová vazba), odstín #e2e2e2.
-   Rastr leží VŽDY pod obsahem (z-index 0 proti .obal se z-indexem 1),
-   takže nikdy nepřekreslí text. Zvýraznění u kurzoru je jen další vrstva
-   uvnitř téhož rastru — proto sedí tečka na tečku. */
+   Podle hlavičky stávajícího webu: tečky ⌀ 13 px, rozteč 41 px, sudé řady
+   posunuté o půl kroku. Kreslí se jen v levém pásu, který přes celou výšku
+   stránky plynule mizí doprava — a vždycky LEŽÍ POD obsahem. */
 :root {
   --tecka-polomer: 6.5px;
   --tecka-krok: 41px;
@@ -966,61 +1017,67 @@ abbr.zkratka:hover, abbr.zkratka:focus-visible { background: var(--zelena-závoj
   background-position: 0 0, calc(var(--tecka-krok) / 2) calc(var(--tecka-krok) / 2);
 }
 
-/* hlavička — jako na původním webu: hustě u loga, k pravému okraji se vytratí */
 .lista { position: sticky; }
 .lista::before {
   content: "";
   position: absolute; inset: 0; pointer-events: none;
   color: rgba(90, 98, 118, 0.1);
-  -webkit-mask-image: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.8) 18%, transparent 48%);
-  mask-image: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.8) 18%, transparent 48%);
+  -webkit-mask-image: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.7) 14%, transparent 42%);
+  mask-image: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.7) 14%, transparent 42%);
 }
 .lista-vnitrek { position: relative; z-index: 1; }
 
-/* vrstva rastru vkládaná do sekcí (pod obsah) */
+/* pás rastru vkládaný do sekcí (pod obsah) */
 .rastr {
   position: absolute; inset: 0; z-index: 0;
   pointer-events: none; overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.7) 13%, transparent 38%);
+  mask-image: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.7) 13%, transparent 38%);
 }
-.rastr i {
-  position: absolute; inset: 0; display: block;
-}
-/* základní, klidový rastr */
-.rastr .klid { color: rgba(90, 98, 118, 0.075); }
-/* zvýraznění pod kurzorem — stejná mřížka, jen sytější */
-.rastr .zar {
-  color: rgba(90, 98, 118, 0.2);
-  -webkit-mask-image: radial-gradient(circle 190px at var(--mx, -900px) var(--my, -900px), #000 0%, rgba(0, 0, 0, 0.5) 44%, transparent 76%);
-  mask-image: radial-gradient(circle 190px at var(--mx, -900px) var(--my, -900px), #000 0%, rgba(0, 0, 0, 0.5) 44%, transparent 76%);
-  opacity: 0; transition: opacity 400ms ease-out;
-}
-.rastr[data-zive="1"] .zar { opacity: 1; }
-
-/* na tmavých plochách se rozsvítí zeleně a klidová vrstva se nekreslí */
-.rastr-tmavy .klid { display: none; }
-.rastr-tmavy .zar { color: rgba(123, 209, 63, 0.22); }
-
-/* Rastr se drží MIMO textový sloupec: kreslí se jen v postranních okrajích
-   a ve vodorovných pásech nad a pod obsahem sekce. Tři maskovací vrstvy se
-   sčítají (výchozí mask-composite: add), takže vznikne dotečkovaný rám. */
-.rastr {
-  --sloupec: 600px;   /* polovina obsahového sloupce (--sirka / 2) */
-  --pas: clamp(1.6rem, 4vw, 3.4rem);
-  -webkit-mask-image:
-    linear-gradient(90deg, #000 0, #000 calc(50% - var(--sloupec) - 24px), transparent calc(50% - var(--sloupec) + 26px),
-                    transparent calc(50% + var(--sloupec) - 26px), #000 calc(50% + var(--sloupec) + 24px), #000 100%),
-    linear-gradient(180deg, #000 0, #000 var(--pas), transparent calc(var(--pas) + 44px)),
-    linear-gradient(0deg, #000 0, #000 var(--pas), transparent calc(var(--pas) + 44px));
-  mask-image:
-    linear-gradient(90deg, #000 0, #000 calc(50% - var(--sloupec) - 24px), transparent calc(50% - var(--sloupec) + 26px),
-                    transparent calc(50% + var(--sloupec) - 26px), #000 calc(50% + var(--sloupec) + 24px), #000 100%),
-    linear-gradient(180deg, #000 0, #000 var(--pas), transparent calc(var(--pas) + 44px)),
-    linear-gradient(0deg, #000 0, #000 var(--pas), transparent calc(var(--pas) + 44px));
-}
+.rastr i { position: absolute; inset: 0; display: block; color: rgba(90, 98, 118, 0.075); }
+.rastr-tmavy { display: none; }
 
 .sekce, .hero, .podhlavi, .paticka { position: relative; }
 .obal { position: relative; z-index: 1; }
 
+@media (max-width: 720px) {
+  .rastr {
+    -webkit-mask-image: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.6) 10%, transparent 30%);
+    mask-image: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.6) 10%, transparent 30%);
+  }
+}
+
+/* ============================================ karty reagují na kurzor
+   Místo efektu nad textem se rozsvítí samotná karta: po jejím povrchu
+   putuje měkký proud světla podle polohy kurzoru a karta se o kousek
+   nakloní — jako plech ve vzduchovém proudu. Vše zůstává uvnitř karty. */
+.karta-sluzba, .karta-realizace, .karta-clanek, .karta-kontakt, .karta-clovek, .slovnik-karta {
+  position: relative;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+.karta-sluzba::after, .karta-realizace::after, .karta-clanek::after,
+.karta-kontakt::after, .karta-clovek::after, .slovnik-karta::after {
+  content: "";
+  position: absolute; inset: 0; z-index: 2;
+  border-radius: inherit; pointer-events: none;
+  background: radial-gradient(320px circle at var(--cx, 50%) var(--cy, 0%),
+              rgba(88, 172, 37, 0.13), rgba(88, 172, 37, 0.05) 42%, transparent 68%);
+  opacity: 0;
+  transition: opacity 320ms ease-out;
+}
+.karta-sluzba[data-kurzor]::after, .karta-realizace[data-kurzor]::after,
+.karta-clanek[data-kurzor]::after, .karta-kontakt[data-kurzor]::after,
+.karta-clovek[data-kurzor]::after, .slovnik-karta[data-kurzor]::after { opacity: 1; }
+
+/* na tmavých kartách svítí jasněji */
+.karta-realizace::after,
+.karta-kontakt.zvyrazneny::after {
+  background: radial-gradient(320px circle at var(--cx, 50%) var(--cy, 0%),
+              rgba(123, 209, 63, 0.16), rgba(123, 209, 63, 0.06) 42%, transparent 68%);
+}
+
 @media (hover: none), (prefers-reduced-motion: reduce) {
-  .rastr .zar { display: none; }
+  .karta-sluzba::after, .karta-realizace::after, .karta-clanek::after,
+  .karta-kontakt::after, .karta-clovek::after, .slovnik-karta::after { display: none; }
 }
