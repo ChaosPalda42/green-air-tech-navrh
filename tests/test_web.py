@@ -385,3 +385,21 @@ def test_svetle_plochy_v_hlavicce_maji_vlastni_barvu_textu(web):
     for selektor in (".menu-panel {", ".jazyky-seznam {", ".panel {"):
         blok = css[css.index(selektor) : css.index(selektor) + 400]
         assert "color: var(--text)" in blok, f"{selektor} nemá vlastní barvu textu"
+
+
+def test_hlavicka_nema_backdrop_filter(web):
+    """backdrop-filter na hlavičce z ní dělá vztažný rámec pro position:fixed
+    a mobilní panel se do ní zabalí — stalo se to jednou, už nikdy."""
+    css = (web / "assets" / "style.css").read_text(encoding="utf-8")
+    bez_komentaru = re.sub(r"/\*.*?\*/", "", css, flags=re.S)
+    blok = bez_komentaru[bez_komentaru.index(".lista {") : bez_komentaru.index(".lista.je-odscrollovana")]
+    assert "backdrop-filter" not in blok, "hlavička má zase backdrop-filter"
+
+
+def test_mobilni_panel_ma_dlouhe_offsety(web):
+    """Zkratka `inset` v některých starších prohlížečích chybí; s dlouhými
+    zápisy se panel roztáhne přes celé okno i tam."""
+    css = (web / "assets" / "style.css").read_text(encoding="utf-8")
+    blok = css[css.index(".panel {") : css.index(".panel {") + 600]
+    for vlastnost in ("top:", "right:", "bottom:", "left:", "max-height:"):
+        assert vlastnost in blok, f".panel nemá {vlastnost}"

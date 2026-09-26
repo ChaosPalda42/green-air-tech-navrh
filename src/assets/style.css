@@ -225,7 +225,7 @@ a:hover { color: var(--zelena-hluboká); }
    Barvy lišty jsou v jedné sadě proměnných, aby šla varianta přepnout
    na jednom místě (tmavě zelená / světle zelená). */
 .lista {
-  --lista-pozadi: rgba(20, 39, 26, 0.94);
+  --lista-pozadi: #14271a;
   --lista-text: #e6f0e2;
   --lista-text-tlumeny: #b6c9b1;
   --lista-linka: rgba(255, 255, 255, 0.12);
@@ -237,10 +237,10 @@ a:hover { color: var(--zelena-hluboká); }
   --lista-obrys: rgba(255, 255, 255, 0.28);
 
   position: sticky; top: 0; z-index: 900;
+  /* Pozadí je krycí a BEZ backdrop-filter: ten by z hlavičky udělal vztažný
+     rámec pro position:fixed a mobilní panel by se roztáhl jen přes ni. */
   background: var(--lista-pozadi);
   color: var(--lista-text);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--lista-linka);
   transition: box-shadow var(--rychle);
 }
@@ -340,10 +340,16 @@ body.menu-otevreno .hamburger span::after { top: 0; transform: rotate(-45deg); }
 /* mobilní panel */
 .panel {
   color: var(--text);
-  position: fixed; inset: var(--lišta) 0 0 0; z-index: 890;
+  position: fixed;
+  top: var(--lišta); right: 0; bottom: 0; left: 0;
+  z-index: 890;
+  height: auto;
+  max-height: calc(100vh - var(--lišta));
+  max-height: calc(100dvh - var(--lišta));
   background: var(--papír);
   padding: 1.25rem var(--okraj) 2.5rem;
   overflow-y: auto; overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
   display: flex; flex-direction: column; gap: 0.3rem;
   opacity: 0; visibility: hidden; transform: translateY(-8px);
   transition: opacity var(--plynule), transform var(--plynule), visibility var(--plynule);
