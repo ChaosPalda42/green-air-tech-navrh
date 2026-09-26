@@ -303,6 +303,7 @@ a:hover { color: var(--zelena-hluboká); }
 .jazyky-tl svg { width: 14px; height: 14px; transition: transform var(--rychle); }
 .jazyky[data-otevreno="1"] .jazyky-tl svg { transform: rotate(180deg); }
 .jazyky-seznam {
+  color: var(--text);
   position: absolute; right: 0; top: calc(100% + 0.5rem);
   background: #fff; border: 1px solid var(--linka); border-radius: var(--r-m);
   box-shadow: var(--stín-2); padding: 0.35rem; min-width: 150px;
@@ -338,6 +339,7 @@ body.menu-otevreno .hamburger span::after { top: 0; transform: rotate(-45deg); }
 
 /* mobilní panel */
 .panel {
+  color: var(--text);
   position: fixed; inset: var(--lišta) 0 0 0; z-index: 890;
   background: var(--papír);
   padding: 1.25rem var(--okraj) 2.5rem;
@@ -911,6 +913,7 @@ abbr.zkratka:hover, abbr.zkratka:focus-visible { background: var(--zelena-závoj
 /* ------------------------------------------------- rozbalovací menu služeb */
 .menu-rozbal { position: relative; }
 .menu-panel {
+  color: var(--text);
   position: absolute; left: 50%; top: calc(100% + 0.55rem);
   transform: translateX(-50%) translateY(-6px);
   background: #fff; border: 1px solid var(--linka); border-radius: var(--r-l);
@@ -928,6 +931,13 @@ abbr.zkratka:hover, abbr.zkratka:focus-visible { background: var(--zelena-závoj
   display: flex !important; align-items: center; gap: 0.7rem;
   padding: 0.65rem 0.8rem !important; border-radius: var(--r-s);
   font-weight: 500 !important; font-size: 0.95rem !important;
+  /* panel je světlý — nesmí zdědit světlý text ze zelené lišty */
+  color: var(--text) !important;
+}
+.menu-panel a:hover,
+.menu-panel a:focus-visible {
+  background: var(--zelena-závoj) !important;
+  color: var(--zelena-hluboká) !important;
 }
 .menu-panel a svg { width: 21px; height: 21px; flex: none; color: var(--zelena-tmavá); }
 .menu-panel a:hover svg { color: var(--zelena-hluboká); }

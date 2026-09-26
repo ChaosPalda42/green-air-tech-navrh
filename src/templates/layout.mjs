@@ -72,7 +72,11 @@ function hlavicka(ctx) {
       <button type="button" class="hamburger" data-hamburger aria-expanded="false" aria-controls="panel" aria-label="${t("ui.menu")}"><span></span></button>
     </div>
   </div>
-  <div class="panel" id="panel" data-panel>
+</header>
+<!-- Panel je ZÁMĚRNĚ mimo <header>: hlavička má backdrop-filter, a ten by
+     z ní udělal vztažný rámec pro position:fixed (panel by se pak roztáhl
+     jen přes hlavičku, ne přes obrazovku). -->
+<div class="panel" id="panel" data-panel>
     <a class="panel-polozka" href="${odkaz("index")}"${aktivni === "index" ? ' aria-current="page"' : ""}>${t("nav.uvod")}${ikona("sip")}</a>
     <div class="panel-skupina">
       <div class="panel-nadpis">${t("nav.sluzby")}</div>
@@ -83,8 +87,7 @@ function hlavicka(ctx) {
       <a class="tl tl-hlavni" href="tel:${site.firma.dispecinkTelefonHref}">${ikona("telefon")}${t("ui.dispecink")}</a>
       <a class="tl tl-obrys" href="mailto:${site.firma.email}">${ikona("mail")}${site.firma.email}</a>
     </div>
-  </div>
-</header>`;
+</div>`;
 }
 
 /** Spodní akční lišta — na mobilu pořád po ruce. */

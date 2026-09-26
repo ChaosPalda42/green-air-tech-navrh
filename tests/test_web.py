@@ -366,3 +366,22 @@ def test_v_kodu_nezustal_zamerovaci_kurzor(web):
     for zrusene in ("zamerovac", "tecky-zaric", "vitr-kurzor", "potrubi-delic"):
         assert zrusene not in css, f"{zrusene} zůstal v CSS"
         assert zrusene not in js, f"{zrusene} zůstal v JS"
+
+
+def test_mobilni_panel_neni_uvnitr_hlavicky(stranky):
+    """Hlavička má backdrop-filter, a ten by z ní udělal vztažný rámec pro
+    position:fixed — panel by se pak roztáhl jen přes hlavičku, ne přes okno."""
+    for stranka in stranky:
+        html = stranka.read_text(encoding="utf-8")
+        konec_hlavicky = html.index("</header>")
+        zacatek_panelu = html.index('<div class="panel"')
+        assert zacatek_panelu > konec_hlavicky, f"{stranka.name}: panel je uvnitř <header>"
+
+
+def test_svetle_plochy_v_hlavicce_maji_vlastni_barvu_textu(web):
+    """Lišta je tmavě zelená se světlým textem; rozbalovací panely na ní jsou
+    světlé, takže si musí barvu textu nastavit samy."""
+    css = (web / "assets" / "style.css").read_text(encoding="utf-8")
+    for selektor in (".menu-panel {", ".jazyky-seznam {", ".panel {"):
+        blok = css[css.index(selektor) : css.index(selektor) + 400]
+        assert "color: var(--text)" in blok, f"{selektor} nemá vlastní barvu textu"
