@@ -53,7 +53,7 @@
   --sirka-uzka: 760px;
   --okraj: clamp(1.15rem, 4vw, 2.5rem);
   --sekce: clamp(3.5rem, 8vw, 7rem);
-  --lišta: 68px;            /* výška horní lišty */
+  --lišta: 76px;            /* výška horní lišty */
   --spodni-lišta: 0px;      /* na mobilu se přepíše */
 
   --font-nadpis: "Barlow", "Barlow Fallback", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -221,13 +221,27 @@ a:hover { color: var(--zelena-hluboká); }
 
 .tlacitka { display: flex; flex-wrap: wrap; gap: 0.75rem; }
 
-/* ---------------------------------------------------------------- hlavička */
+/* ---------------------------------------------------------------- hlavička
+   Barvy lišty jsou v jedné sadě proměnných, aby šla varianta přepnout
+   na jednom místě (tmavě zelená / světle zelená). */
 .lista {
+  --lista-pozadi: rgba(20, 39, 26, 0.94);
+  --lista-text: #e6f0e2;
+  --lista-text-tlumeny: #b6c9b1;
+  --lista-linka: rgba(255, 255, 255, 0.12);
+  --lista-hover-pozadi: rgba(123, 209, 63, 0.16);
+  --lista-hover-text: #ffffff;
+  --lista-aktivni-pozadi: rgba(123, 209, 63, 0.2);
+  --lista-aktivni-text: var(--zelena-svetlá);
+  --lista-rastr: rgba(255, 255, 255, 0.11);
+  --lista-obrys: rgba(255, 255, 255, 0.28);
+
   position: sticky; top: 0; z-index: 900;
-  background: rgba(255, 255, 255, 0.92);
+  background: var(--lista-pozadi);
+  color: var(--lista-text);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--linka);
+  border-bottom: 1px solid var(--lista-linka);
   transition: box-shadow var(--rychle);
 }
 .lista.je-odscrollovana { box-shadow: var(--stín-1); }
@@ -236,22 +250,27 @@ a:hover { color: var(--zelena-hluboká); }
   display: flex; align-items: center; gap: 1rem;
   min-height: var(--lišta);
 }
-.logo { display: flex; align-items: center; flex: none; margin-right: auto; }
-.logo img { width: 148px; height: 67px; object-fit: contain; background: none; }
-@media (min-width: 900px) { .logo img { width: 168px; height: 76px; } }
+.logo {
+  display: flex; align-items: center; flex: none; margin-right: auto;
+  background: var(--lista-logo-pozadi, #fff);
+  border-radius: var(--r-m);
+  padding: 6px 12px;
+}
+.logo img { width: 120px; height: 54px; object-fit: contain; background: none; }
+@media (max-width: 400px) { .logo { padding: 5px 10px; } .logo img { width: 104px; height: 47px; } }
 
 .menu { display: none; }
 @media (min-width: 1060px) {
   .menu { display: flex; align-items: center; gap: 0.15rem; }
   .menu a {
     font-family: var(--font-nadpis); font-weight: 600; font-size: 0.98rem;
-    color: var(--text); text-decoration: none;
+    color: var(--lista-text); text-decoration: none;
     padding: 0.55rem 0.72rem; border-radius: var(--r-s);
     white-space: nowrap;
     transition: background var(--rychle), color var(--rychle);
   }
-  .menu a:hover { background: var(--zelena-závoj); color: var(--zelena-hluboká); }
-  .menu a[aria-current] { color: var(--zelena-tmavá); background: var(--zelena-závoj); }
+  .menu a:hover { background: var(--lista-hover-pozadi); color: var(--lista-hover-text); }
+  .menu a[aria-current] { color: var(--lista-aktivni-text); background: var(--lista-aktivni-pozadi); }
 }
 
 .lista-akce { display: flex; align-items: center; gap: 0.5rem; }
@@ -260,10 +279,10 @@ a:hover { color: var(--zelena-hluboká); }
   .lista-tel {
     display: inline-flex; align-items: center; gap: 0.5rem;
     font-family: var(--font-nadpis); font-weight: 700; font-size: 0.98rem;
-    color: var(--inkoust); text-decoration: none;
-    padding: 0.5rem 0.9rem; border-radius: 999px; border: 2px solid var(--linka);
+    color: var(--lista-text); text-decoration: none;
+    padding: 0.5rem 0.9rem; border-radius: 999px; border: 2px solid var(--lista-obrys);
   }
-  .lista-tel:hover { border-color: var(--zelena); background: var(--zelena-závoj); color: var(--zelena-hluboká); }
+  .lista-tel:hover { border-color: var(--zelena-svetlá); background: var(--lista-hover-pozadi); color: var(--lista-hover-text); }
   .lista-tel .tecka { width: 8px; height: 8px; border-radius: 50%; background: var(--zelena); box-shadow: 0 0 0 0 rgba(88,172,37,0.6); animation: tep 2.4s infinite; }
 }
 @keyframes tep {
@@ -277,10 +296,10 @@ a:hover { color: var(--zelena-hluboká); }
 .jazyky-tl {
   display: inline-flex; align-items: center; gap: 0.35rem;
   font-family: var(--font-nadpis); font-weight: 700; font-size: 0.9rem;
-  background: none; border: 2px solid var(--linka); border-radius: 999px;
-  padding: 0.45rem 0.7rem; min-height: 42px; cursor: pointer; color: var(--text);
+  background: none; border: 2px solid var(--lista-obrys); border-radius: 999px;
+  padding: 0.45rem 0.7rem; min-height: 42px; cursor: pointer; color: var(--lista-text);
 }
-.jazyky-tl:hover { border-color: var(--zelena); color: var(--zelena-tmavá); }
+.jazyky-tl:hover { border-color: var(--zelena-svetlá); color: var(--lista-hover-text); background: var(--lista-hover-pozadi); }
 .jazyky-tl svg { width: 14px; height: 14px; transition: transform var(--rychle); }
 .jazyky[data-otevreno="1"] .jazyky-tl svg { transform: rotate(180deg); }
 .jazyky-seznam {
@@ -301,10 +320,10 @@ a:hover { color: var(--zelena-hluboká); }
 .hamburger {
   display: inline-flex; align-items: center; justify-content: center;
   width: 46px; height: 46px; flex: none;
-  background: none; border: 2px solid var(--linka); border-radius: 999px; cursor: pointer;
-  color: var(--text);
+  background: none; border: 2px solid var(--lista-obrys); border-radius: 999px; cursor: pointer;
+  color: var(--lista-text);
 }
-.hamburger:hover { border-color: var(--zelena); color: var(--zelena-tmavá); }
+.hamburger:hover { border-color: var(--zelena-svetlá); color: var(--lista-hover-text); background: var(--lista-hover-pozadi); }
 @media (min-width: 1060px) { .hamburger { display: none; } }
 .hamburger span { position: relative; width: 19px; height: 2px; background: currentColor; border-radius: 2px; transition: background var(--rychle); }
 .hamburger span::before, .hamburger span::after {
@@ -1040,7 +1059,7 @@ abbr.zkratka:hover, abbr.zkratka:focus-visible { background: var(--zelena-závoj
 .lista::before {
   content: "";
   position: absolute; inset: 0; pointer-events: none;
-  color: rgba(90, 98, 118, 0.1);
+  color: var(--lista-rastr);
   -webkit-mask-image: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.7) 14%, transparent 42%);
   mask-image: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.7) 14%, transparent 42%);
 }
