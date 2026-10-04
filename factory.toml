@@ -1,3 +1,6 @@
+# Role mířící na qwen3.8-flash-next (coder_retry, triage) odstraněny 4. 10. 2026:
+# ten model je vypnutý (111 GB tlačilo stroj do swapu a na kvalitě nic nepřidával).
+# Role se berou z harnessu; vlastní si přidej, až si je pro tenhle projekt změříš.
 # Factory v2 – green-air-tech. Role -> lokální llama-server (loopback).
 [run]
 test_command = ['uv', 'run', 'pytest', '-q']
@@ -11,26 +14,12 @@ context_length = 65536
 slots = 3
 reasoning_effort = "none"
 
-[roles.coder_retry]
-model = "qwen3.8-flash-next"
-base_url = "http://127.0.0.1:8080/v1"
-context_length = 131072
-slots = 2
-reasoning_effort = "none"
-
 [roles.tester]
 model = "qwen3.6-35b-a3b"
 base_url = "http://127.0.0.1:8082/v1"
 context_length = 65536
 slots = 2
 reasoning_effort = "none"
-
-[roles.triage]
-model = "qwen3.8-flash-next"
-base_url = "http://127.0.0.1:8080/v1"
-context_length = 131072
-slots = 1
-reasoning_effort = "low"
 
 [roles.text]
 model = "gemma-4-26b-a4b"
