@@ -442,7 +442,9 @@ ${vyzva(ctx, { titulek: t("sluzby.spolecne.zajimaVas"), lead: t("sluzby.spolecne
 
 export function realizacePrehled(ctx) {
   const { t, site, odkaz, datum } = ctx;
-  const kategorie = ["vse", ...site.kategorieRealizaci];
+  // nabízíme jen obory, které se v téhle větvi opravdu vyskytují
+  const pouzite = new Set(ctx.realizaceSeznam.flatMap((r) => r.kategorie));
+  const kategorie = ["vse", ...site.kategorieRealizaci.filter((k) => pouzite.has(k))];
   const chipy = kategorie
     .map(
       (k) =>
