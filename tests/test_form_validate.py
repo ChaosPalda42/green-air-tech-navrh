@@ -1,14 +1,18 @@
-"""Akceptační test C-004 — src/lib/form-validate.mjs (kontaktní formulář)."""
+"""Akceptační test C-004 — src/lib/form-validate.mjs (kontaktní formulář).
+
+Po schůzce 9. 10. 2026 je formulář co nejkratší: povinné je jen „co řešíte“,
+jméno, souhlas a aspoň jeden kontaktní údaj. Zpráva je nepovinná.
+"""
 from __future__ import annotations
 
 import pytest
 
 PLATNY = {
-    "jmeno": "Jan Novák",
-    "email": "jan@novak.cz",
-    "telefon": "+420 736 532 284",
     "typ": "servis",
-    "zprava": "Potřebujeme servis vzduchotechniky v hale.",
+    "jmeno": "Jan Novák",
+    "telefon": "+420 736 532 284",
+    "email": "",
+    "zprava": "",
     "souhlas": True,
 }
 
@@ -23,44 +27,71 @@ def js():
     return call
 
 
-def test_platny_formular_projde(js):
+# ------------------------------------------------------------- průchod
+
+
+def test_staci_typ_jmeno_telefon_a_souhlas(js):
     vysledek = js('out(m.validateContact(A.platny));')
     assert vysledek["ok"] is True
     assert vysledek["errors"] == {}
 
 
-def test_chybejici_povinna_pole(js):
-    vysledek = js('out(m.validateContact({ souhlas: false }));')
-    assert vysledek["ok"] is False
-    assert vysledek["errors"]["jmeno"] == "required"
-    assert vysledek["errors"]["email"] == "required"
-    assert vysledek["errors"]["zprava"] == "required"
-    assert vysledek["errors"]["souhlas"] == "souhlas"
-
-
-def test_telefon_neni_povinny(js):
-    vysledek = js('out(m.validateContact({ ...A.platny, telefon: "" }));')
+def test_misto_telefonu_staci_email(js):
+    vysledek = js('out(m.validateContact({ ...A.platny, telefon: "", email: "jan@novak.cz" }));')
     assert vysledek["ok"] is True
 
 
-def test_samotne_mezery_jsou_prazdna_hodnota(js):
-    vysledek = js('out(m.validateContact({ ...A.platny, jmeno: "   " }));')
-    assert vysledek["errors"]["jmeno"] == "required"
+def test_zprava_neni_povinna(js):
+    assert js('out(m.validateContact({ ...A.platny, zprava: "" }).ok);') is True
+    assert js('out(m.validateContact({ ...A.platny, zprava: "   " }).ok);') is True
+
+
+# ------------------------------------------------------------- povinná pole
+
+
+def test_typ_poptavky_je_povinny(js):
+    vysledek = js('out(m.validateContact({ ...A.platny, typ: "" }));')
+    assert vysledek["errors"]["typ"] == "required"
+
+
+def test_jmeno_je_povinne(js):
+    assert js('out(m.validateContact({ ...A.platny, jmeno: "   " }).errors.jmeno);') == "required"
+
+
+def test_souhlas_je_povinny(js):
+    assert js('out(m.validateContact({ ...A.platny, souhlas: false }).errors.souhlas);') == "souhlas"
+
+
+def test_bez_telefonu_i_emailu_chybi_kontakt(js):
+    vysledek = js('out(m.validateContact({ ...A.platny, telefon: "", email: "" }));')
+    assert vysledek["errors"]["kontakt"] == "kontakt"
+    assert "email" not in vysledek["errors"]
+    assert "telefon" not in vysledek["errors"]
+
+
+def test_prazdny_formular_hlasi_vsechno_podstatne(js):
+    vysledek = js('out(m.validateContact({}));')
+    assert vysledek["ok"] is False
+    for pole in ("typ", "jmeno", "kontakt", "souhlas"):
+        assert pole in vysledek["errors"], f"chybí hlášení pro {pole}"
+
+
+# --------------------------------------------------------------- tvary
 
 
 def test_spatny_email(js):
-    vysledek = js('out(m.validateContact({ ...A.platny, email: "jan@novak" }));')
+    vysledek = js('out(m.validateContact({ ...A.platny, telefon: "", email: "jan@novak" }));')
     assert vysledek["errors"]["email"] == "email"
-
-
-def test_kratka_zprava(js):
-    vysledek = js('out(m.validateContact({ ...A.platny, zprava: "Ahoj" }));')
-    assert vysledek["errors"]["zprava"] == "zprava-kratka"
+    assert "kontakt" not in vysledek["errors"], "vyplněný e-mail se počítá jako kontakt"
 
 
 def test_spatny_telefon(js):
-    vysledek = js('out(m.validateContact({ ...A.platny, telefon: "12345" }));')
-    assert vysledek["errors"]["telefon"] == "telefon"
+    assert js('out(m.validateContact({ ...A.platny, telefon: "12345" }).errors.telefon);') == "telefon"
+
+
+def test_kratka_zprava_kdyz_je_vyplnena(js):
+    assert js('out(m.validateContact({ ...A.platny, zprava: "Ahoj" }).errors.zprava);') == "zprava-kratka"
+    assert js('out(m.validateContact({ ...A.platny, zprava: "Potřebuji servis klimatizace." }).ok);') is True
 
 
 def test_is_email(js):
@@ -83,8 +114,15 @@ def test_normalize_phone_sjednoti_tvar(js):
     assert js('out(A.zapisy.map(m.normalizePhone));', zapisy=zapisy) == ["+420736532284"] * 3
 
 
+# -------------------------------------------------------------- hlášky
+
+
 def test_chyby_lze_prelozit_pres_slovnik(js):
     hlaska = js(
-        'out(m.validateContact({ ...A.platny, email: "x" }, { email: "Zkontrolujte e-mail." }).messages.email);'
+        'out(m.validateContact({ ...A.platny, telefon: "", email: "" }, { kontakt: "Nechte nám kontakt." }).messages.kontakt);'
     )
-    assert hlaska == "Zkontrolujte e-mail."
+    assert hlaska == "Nechte nám kontakt."
+
+
+def test_bez_slovniku_vrati_kod(js):
+    assert js('out(m.validateContact({ ...A.platny, jmeno: "" }).messages.jmeno);') == "required"

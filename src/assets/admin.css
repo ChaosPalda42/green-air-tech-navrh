@@ -108,3 +108,67 @@ body.je-administrace { background: var(--papír-2); }
   font-family: var(--font-nadpis); font-weight: 700; font-size: 1.7rem;
   line-height: 1.15; letter-spacing: -0.015em; margin: 0 0 0.6rem;
 }
+
+/* ================================================= nástěnka statistik */
+.admin-obdobi { display: flex; gap: 0.35rem; }
+
+.admin-metriky {
+  display: grid; gap: 0.8rem; margin: 1.2rem 0 1.6rem;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+}
+.admin-metrika {
+  background: var(--papír); border: 1px solid var(--linka); border-radius: var(--r-m);
+  padding: 1rem 1.1rem; display: flex; flex-direction: column; gap: 0.15rem;
+}
+.admin-metrika-nazev { font-size: 0.85rem; color: var(--břidlice); }
+.admin-metrika strong {
+  font-family: var(--font-nadpis); font-size: clamp(1.5rem, 3vw, 1.9rem);
+  font-weight: 700; line-height: 1.1; font-variant-numeric: tabular-nums;
+}
+.admin-metrika-zmena { font-weight: 600; font-size: 0.92rem; font-variant-numeric: tabular-nums; }
+.admin-metrika-zmena[data-smer="nahoru"] { color: var(--zelena-tmavá); }
+.admin-metrika-zmena[data-smer="dolu"] { color: #b7472f; }
+.admin-metrika-zmena[data-smer="nic"] { color: var(--břidlice); }
+.admin-metrika-popis { font-size: 0.78rem; color: var(--břidlice); }
+
+.admin-graf {
+  background: var(--papír); border: 1px solid var(--linka); border-radius: var(--r-l);
+  padding: 1.2rem 1.3rem; margin-bottom: 1.4rem; position: relative;
+}
+.admin-graf h3 { font-size: 1.05rem; margin-bottom: 0.9rem; }
+.admin-sparkline { width: 100%; height: 150px; display: block; }
+.admin-sparkline-plocha { fill: rgba(88, 172, 37, 0.16); stroke: none; }
+.admin-sparkline-cara {
+  fill: none; stroke: var(--zelena-tmavá); stroke-width: 1.6;
+  vector-effect: non-scaling-stroke; stroke-linejoin: round; stroke-linecap: round;
+}
+.admin-graf-osa {
+  display: flex; justify-content: space-between;
+  font-size: 0.78rem; color: var(--břidlice); margin-top: 0.5rem;
+  font-variant-numeric: tabular-nums;
+}
+.admin-graf-rozsah {
+  position: absolute; right: 1.3rem; top: 1.2rem;
+  font-size: 0.8rem; color: var(--břidlice); font-variant-numeric: tabular-nums;
+}
+
+.admin-rozpady { display: grid; gap: 0.9rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.admin-rozpad {
+  background: var(--papír); border: 1px solid var(--linka); border-radius: var(--r-l);
+  padding: 1.1rem 1.2rem;
+}
+.admin-rozpad h3 { font-size: 1rem; margin-bottom: 0.8rem; }
+.admin-radek {
+  display: grid; grid-template-columns: 1fr 70px 46px; gap: 0.6rem;
+  align-items: center; padding: 0.35rem 0; font-size: 0.9rem;
+}
+.admin-radek b { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; }
+.admin-pruh { display: block; height: 6px; border-radius: 3px; background: var(--papír-3); overflow: hidden; }
+.admin-pruh i { display: block; height: 100%; background: var(--zelena); border-radius: 3px; }
+
+.admin-vetev {
+  display: inline-block; font-family: var(--font-nadpis); font-weight: 600;
+  font-size: 0.72rem; letter-spacing: 0.05em; text-transform: uppercase;
+  padding: 0.1rem 0.45rem; border-radius: 999px;
+  background: var(--zelena-závoj); color: var(--zelena-tmavá); margin-right: 0.4rem;
+}

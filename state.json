@@ -28,13 +28,13 @@
       "updated_at": "2026-09-23T18:04:04+00:00"
     },
     "C-004": {
-      "status": "green",
+      "status": "running",
       "attempts": 1,
       "iterations": 8,
       "commit": "75e4bfb",
-      "last_finding": "",
+      "last_finding": "reset by operator",
       "packet": "",
-      "updated_at": "2026-09-23T18:05:38+00:00"
+      "updated_at": "2026-10-09T23:00:02+00:00"
     },
     "C-005": {
       "status": "green",
@@ -73,13 +73,13 @@
       "updated_at": "2026-10-09T22:52:20+00:00"
     },
     "C-009": {
-      "status": "running",
-      "attempts": 0,
-      "iterations": 0,
-      "commit": "",
+      "status": "green",
+      "attempts": 1,
+      "iterations": 3,
+      "commit": "9cb3595",
       "last_finding": "",
       "packet": "",
-      "updated_at": "2026-10-09T22:47:38+00:00"
+      "updated_at": "2026-10-09T22:58:35+00:00"
     }
   },
   "runs": [
@@ -95,13 +95,23 @@
     },
     {
       "started_at": "2026-10-09T22:47:38+00:00",
-      "finished_at": "",
-      "outcome": "running",
-      "iterations": 0,
-      "green": 0,
+      "finished_at": "2026-10-09T22:58:52+00:00",
+      "outcome": "green",
+      "iterations": 6,
+      "green": 9,
       "red": 0,
       "escalated": 0,
-      "note": ""
+      "note": "test_command passed (174 tests)"
+    },
+    {
+      "started_at": "2026-10-09T23:00:02+00:00",
+      "finished_at": "2026-10-09T23:04:10+00:00",
+      "outcome": "interrupted",
+      "iterations": 0,
+      "green": 8,
+      "red": 0,
+      "escalated": 0,
+      "note": "přerušeno zvenčí (Ctrl-C nebo signál)"
     }
   ],
   "open_packets": []
