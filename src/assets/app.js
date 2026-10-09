@@ -330,7 +330,9 @@
         if (!vysledek.ok) {
           var prvni = null;
           Object.keys(vysledek.errors).forEach(function (pole) {
-            var vstup = form.elements[pole];
+            // „kontakt" není pole formuláře — je to pravidlo přes telefon a e-mail.
+            // Hlášku ukážeme u telefonu, který je v pořadí první.
+            var vstup = pole === "kontakt" ? form.elements.telefon : form.elements[pole];
             if (!vstup) return;
             var obal = vstup.closest(".pole");
             if (!obal) return;

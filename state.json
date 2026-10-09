@@ -28,13 +28,13 @@
       "updated_at": "2026-09-23T18:04:04+00:00"
     },
     "C-004": {
-      "status": "running",
-      "attempts": 1,
-      "iterations": 8,
-      "commit": "75e4bfb",
-      "last_finding": "reset by operator",
+      "status": "green",
+      "attempts": 2,
+      "iterations": 20,
+      "commit": "ddce4d7",
+      "last_finding": "",
       "packet": "",
-      "updated_at": "2026-10-09T23:00:02+00:00"
+      "updated_at": "2026-10-09T23:15:35+00:00"
     },
     "C-005": {
       "status": "green",
@@ -115,13 +115,13 @@
     },
     {
       "started_at": "2026-10-09T23:06:24+00:00",
-      "finished_at": "",
-      "outcome": "running",
-      "iterations": 0,
-      "green": 0,
+      "finished_at": "2026-10-09T23:15:52+00:00",
+      "outcome": "green",
+      "iterations": 12,
+      "green": 9,
       "red": 0,
       "escalated": 0,
-      "note": ""
+      "note": "test_command passed (179 tests)"
     }
   ],
   "open_packets": []
