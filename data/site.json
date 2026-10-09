@@ -26,7 +26,8 @@
       "ulice": "5. května 310",
       "psc": "399 01",
       "mesto": "Milevsko"
-    }
+    },
+    "webBase": "https://www.greenairtech.cz"
   },
   "jazyky": [
     {
@@ -114,43 +115,74 @@
       "id": "projekce",
       "soubor": "projekce",
       "ikona": "projekce",
-      "foto": "foto-projekce"
+      "foto": "foto-projekce",
+      "vetev": "firmy"
     },
     {
       "id": "realizace-montaze",
       "soubor": "realizace-a-montaze",
       "ikona": "montaz",
-      "foto": "foto-strojovna"
+      "foto": "foto-strojovna",
+      "vetev": "firmy"
     },
     {
       "id": "servis",
       "soubor": "servis",
       "ikona": "servis",
-      "foto": "foto-servis"
+      "foto": "foto-servis",
+      "vetev": "firmy"
     },
     {
       "id": "energetika",
       "soubor": "penb-a-audity",
       "ikona": "energetika",
-      "foto": "foto-audit"
+      "foto": "foto-audit",
+      "vetev": "firmy"
     },
     {
       "id": "klimatizace",
       "soubor": "klimatizace-a-tepelna-cerpadla",
       "ikona": "klimatizace",
-      "foto": "foto-cerpadla"
+      "foto": "foto-cerpadla",
+      "vetev": "firmy"
     },
     {
       "id": "eac-filtry",
       "soubor": "eac-filtry",
       "ikona": "filtr",
-      "foto": "foto-filtry"
+      "foto": "foto-filtry",
+      "vetev": "firmy"
     },
     {
       "id": "vymeniky",
       "soubor": "opravy-vymeniku",
       "ikona": "vymenik",
-      "foto": "foto-strojovna"
+      "foto": "foto-strojovna",
+      "vetev": "firmy"
+    },
+    {
+      "id": "d-klimatizace",
+      "ikona": "klimatizace",
+      "foto": "foto-servis",
+      "vetev": "domacnosti"
+    },
+    {
+      "id": "d-tepelna-cerpadla",
+      "ikona": "energetika",
+      "foto": "foto-cerpadla",
+      "vetev": "domacnosti"
+    },
+    {
+      "id": "d-rekuperace",
+      "ikona": "montaz",
+      "foto": "foto-strojovna",
+      "vetev": "domacnosti"
+    },
+    {
+      "id": "d-servis",
+      "ikona": "servis",
+      "foto": "foto-servis",
+      "vetev": "domacnosti"
     }
   ],
   "kategorieRealizaci": [
@@ -172,7 +204,8 @@
       "kraj": "Středočeský kraj",
       "plocha": "18 400 m²",
       "doba": "9 měsíců",
-      "motiv": 1
+      "motiv": 1,
+      "vetev": "firmy"
     },
     {
       "id": "administrativni-budova-karlin",
@@ -184,7 +217,8 @@
       "kraj": "Praha",
       "plocha": "6 200 m²",
       "doba": "7 měsíců",
-      "motiv": 2
+      "motiv": 2,
+      "vetev": "firmy"
     },
     {
       "id": "poliklinika-pisek",
@@ -196,7 +230,8 @@
       "kraj": "Jihočeský kraj",
       "plocha": "3 100 m²",
       "doba": "5 měsíců",
-      "motiv": 3
+      "motiv": 3,
+      "vetev": "firmy"
     },
     {
       "id": "vyrobni-hala-milevsko",
@@ -208,7 +243,8 @@
       "kraj": "Jihočeský kraj",
       "plocha": "9 800 m²",
       "doba": "6 měsíců",
-      "motiv": 4
+      "motiv": 4,
+      "vetev": "firmy"
     },
     {
       "id": "depozitar-galerie-tabor",
@@ -220,7 +256,8 @@
       "kraj": "Jihočeský kraj",
       "plocha": "1 450 m²",
       "doba": "4 měsíce",
-      "motiv": 5
+      "motiv": 5,
+      "vetev": "firmy"
     },
     {
       "id": "obchodni-centrum-budejovice",
@@ -232,7 +269,8 @@
       "kraj": "Jihočeský kraj",
       "plocha": "24 000 m²",
       "doba": "3 měsíce",
-      "motiv": 6
+      "motiv": 6,
+      "vetev": "firmy"
     },
     {
       "id": "zakladni-skola-pribram",
@@ -244,7 +282,8 @@
       "kraj": "Středočeský kraj",
       "plocha": "4 600 m²",
       "doba": "8 měsíců",
-      "motiv": 7
+      "motiv": 7,
+      "vetev": "firmy"
     },
     {
       "id": "hotel-na-sumave",
@@ -256,7 +295,59 @@
       "kraj": "Plzeňský kraj",
       "plocha": "2 700 m²",
       "doba": "5 měsíců",
-      "motiv": 8
+      "motiv": 8,
+      "vetev": "firmy"
+    },
+    {
+      "id": "d-bungalov-klimatizace",
+      "datum": "2026-07-03",
+      "kategorie": [
+        "chlazeni"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "140 m²",
+      "doba": "3 výjezdy",
+      "motiv": 3,
+      "vetev": "domacnosti",
+      "skutecna": true
+    },
+    {
+      "id": "d-rodinny-dum-cerpadlo",
+      "datum": "2026-04-18",
+      "kategorie": [
+        "tepelna-cerpadla",
+        "vytapeni"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "180 m²",
+      "doba": "6 týdnů",
+      "motiv": 6,
+      "vetev": "domacnosti"
+    },
+    {
+      "id": "d-byt-rekuperace",
+      "datum": "2025-11-12",
+      "kategorie": [
+        "vzt"
+      ],
+      "kraj": "Praha",
+      "plocha": "92 m²",
+      "doba": "2 týdny",
+      "motiv": 1,
+      "vetev": "domacnosti"
+    },
+    {
+      "id": "d-vymena-kotle",
+      "datum": "2025-02-04",
+      "kategorie": [
+        "vytapeni",
+        "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "rodinný dům",
+      "doba": "2 dny",
+      "motiv": 4,
+      "vetev": "domacnosti"
     }
   ],
   "novinky": [
@@ -295,6 +386,22 @@
       "id": "rozsireni-servisu",
       "datum": "2023-09-10",
       "motiv": 7
+    }
+  ],
+  "vetve": [
+    {
+      "id": "domacnosti",
+      "soubor": "domacnosti",
+      "ikona": "dum",
+      "foto": "foto-cerpadla",
+      "motiv": 6
+    },
+    {
+      "id": "firmy",
+      "soubor": "firemni-zakaznici",
+      "ikona": "budova",
+      "foto": "foto-strojovna",
+      "motiv": 2
     }
   ]
 }

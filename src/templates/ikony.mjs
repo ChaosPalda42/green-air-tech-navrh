@@ -25,6 +25,16 @@ const T = {
     '<rect x="3.5" y="5.5" width="17" height="13" rx="1.5"/><path d="M7 5.5v13M10.3 5.5v13M13.7 5.5v13M17 5.5v13"/><path d="M1.5 9h2M1.5 15h2M20.5 9h2M20.5 15h2"/>',
 
   /* --- rozhraní -------------------------------------------------- */
+  // dům: rezidenční větev
+  dum: '<path d="M3.5 10.5L12 3.5l8.5 7"/><path d="M5.5 9.3V20h13V9.3"/><path d="M9.8 20v-6h4.4v6"/>',
+  // budova: firemní větev
+  budova: '<path d="M4 20.5h16"/><rect x="5.5" y="3.5" width="13" height="17" rx="1.5"/><path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2"/>',
+  prepnout: '<path d="M4 8h13l-3-3"/><path d="M20 16H7l3 3"/>',
+  kolonka: '<rect x="3.5" y="4.5" width="17" height="15" rx="2"/><path d="M3.5 9.5h17M9 9.5v10"/>',
+  graf: '<path d="M4 20V4"/><path d="M4 20h16"/><path d="M7.5 16.5l3.5-5 3 3 4.5-7"/>',
+  oko: '<path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/>',
+  klic: '<circle cx="8" cy="15" r="4.5"/><path d="M11.2 11.8L20 3"/><path d="M17 6l2.5 2.5M15 8l2 2"/>',
+
   sip: '<path d="M4 12h15"/><path d="M13 6l6 6-6 6"/>',
   sipZpet: '<path d="M20 12H5"/><path d="M11 6l-6 6 6 6"/>',
   sipNahoru: '<path d="M12 20V5"/><path d="M6 11l6-6 6 6"/>',

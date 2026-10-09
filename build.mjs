@@ -25,9 +25,6 @@ const nacti = async (p) => JSON.parse(await readFile(path.join(KOREN, p), "utf8"
 /* ----------------------------------------------------------- odkazy */
 const SOUBORY = {
   index: "index.html",
-  sluzby: "sluzby.html",
-  realizace: "realizace.html",
-  realizaceDetail: "realizace-detail.html",
   novinky: "novinky.html",
   onas: "o-nas.html",
   kariera: "kariera.html",
@@ -38,17 +35,38 @@ const SOUBORY = {
   administrace: "administrace.html",
 };
 
-function soubor(druh, id) {
+/** Názvy souborů. Větvené stránky nesou v názvu id větve, detaily zůstávají
+    sdílené (id služby i realizace jsou napříč větvemi jedinečná). */
+function soubor(druh, id, vetev, site) {
   if (druh === "sluzba") return `sluzba-${id}.html`;
-  if (druh === "realizace" && id) return `realizace-${id}.html`;
   if (druh === "novinka") return `novinka-${id}.html`;
+  if (druh === "vetev") {
+    const v = site.vetve.find((x) => x.id === id);
+    if (!v) throw new Error(`Neznámá větev: ${id}`);
+    return `${v.soubor}.html`;
+  }
+  if (druh === "sluzby") {
+    const v = id || vetev;
+    if (!v) throw new Error("odkaz na přehled služeb vyžaduje větev");
+    return `${v}-sluzby.html`;
+  }
+  if (druh === "realizace") {
+    if (id) return `realizace-${id}.html`;
+    if (!vetev) throw new Error("odkaz na přehled realizací vyžaduje větev");
+    return `${vetev}-realizace.html`;
+  }
+  if (druh === "realizaceDetail") {
+    const v = id || vetev;
+    if (!v) throw new Error("šablona detailu realizace vyžaduje větev");
+    return `${v}-realizace-detail.html`;
+  }
   const s = SOUBORY[druh];
   if (!s) throw new Error(`Neznámý druh odkazu: ${druh}`);
   return s;
 }
 
 /* ----------------------------------------------------------- kontext */
-function vytvorKontext({ lang, site, slovnik, zaskok, aktualniSoubor, obrazky, verze }) {
+function vytvorKontext({ lang, site, slovnik, zaskok, aktualniSoubor, obrazky, verze, vetev = null }) {
   const jazyk = site.jazyky.find((j) => j.kod === lang);
   const prefix = jazyk.adresar ? "../" : "";
   const terminy = Object.entries(slovnik).map(([abbr, v]) => ({ abbr, full: v.full, popis: v.popis }));
@@ -77,7 +95,15 @@ function vytvorKontext({ lang, site, slovnik, zaskok, aktualniSoubor, obrazky, v
   // CSS a JS dostanou ?v=<otisk obsahu>, aby prohlížeč po nasazení
   // nesahal po staré verzi z mezipaměti (GitHub Pages cachuje 10 minut)
   const asset = (p) => `${prefix}assets/${p}${verze[p] ? `?v=${verze[p]}` : ""}`;
-  const odkaz = (druh, id) => `${soubor(druh, id)}`;
+  const odkaz = (druh, id) => soubor(druh, id, vetev, site);
+  const odkazVetve = (vetevId, druh = "vetev") => {
+    if (druh === "vetev") return soubor("vetev", vetevId, null, site);
+    if (druh === "sluzby") return `${vetevId}-sluzby.html`;
+    if (druh === "realizace") return `${vetevId}-realizace.html`;
+    throw new Error(`odkazVetve: neznámý druh ${druh}`);
+  };
+  const sluzbyVetve = (v) => site.sluzby.filter((s) => s.vetev === v);
+  const realizaceVetve = (v) => site.realizace.filter((r) => r.vetev === v);
   const jazykOdkaz = (kod) => {
     const cil = site.jazyky.find((j) => j.kod === kod);
     const jmeno = aktualniSoubor === SOUBORY.administrace && kod !== "cs" ? SOUBORY.index : aktualniSoubor;
@@ -110,7 +136,8 @@ function vytvorKontext({ lang, site, slovnik, zaskok, aktualniSoubor, obrazky, v
   return {
     lang, site, t, existuje, klice, datum, asset, odkaz, jazykOdkaz, zk, skupinyZkratek, obrazek, terminy,
     chybyFormulare, maObrazek,
-    realizaceSeznam: site.realizace,
+    vetev, odkazVetve, sluzbyVetve, realizaceVetve,
+    realizaceSeznam: vetev ? realizaceVetve(vetev) : site.realizace,
     novinkySeznam: site.novinky,
   };
 }
@@ -189,13 +216,18 @@ async function main() {
 
   await writeFile(
     path.join(VEN, "robots.txt"),
-    "# Ukázkový návrh webu – neindexovat.\nUser-agent: *\nDisallow: /\n"
+    "# Ukázkový návrh webu – neindexovat.\n" +
+      "# Na ostrém webu se Disallow odstraní a Sitemap se přepne na doménu klienta.\n" +
+      "User-agent: *\nDisallow: /\n\nSitemap: " +
+      `${site.firma.webBase}/sitemap.xml\n`
   );
   await writeFile(path.join(VEN, ".nojekyll"), "");
 
   let pocet = 0;
   const editovatelneKlice = new Set();
+  const stranky = [];
   const zapis = async (adresar, jmeno, html) => {
+    stranky.push(adresar ? `${adresar}/${jmeno}` : jmeno);
     const cil = path.join(VEN, adresar, jmeno);
     await mkdir(path.dirname(cil), { recursive: true });
     await writeFile(cil, html);
@@ -221,7 +253,7 @@ async function main() {
     // slovník jazyka + zkratky, které vznikly až překladem (TGA, RLT, MEP …)
     const slovnikTerminy = { ...(j.dict.slovnik?.terminy || cs.slovnik.terminy), ...(zkratkyNavic[j.kod] || {}) };
 
-    const ctxPro = (aktualniSoubor) =>
+    const ctxPro = (aktualniSoubor, vetev = null) =>
       vytvorKontext({
         lang: j.kod,
         site,
@@ -230,10 +262,12 @@ async function main() {
         aktualniSoubor,
         obrazky,
         verze,
+        vetev,
       });
 
-    const vykresli = async (jmenoSouboru, telo, metaKlic, aktivni = "", trida = "", skripty = "") => {
-      const ctx = ctxPro(jmenoSouboru);
+    const vykresli = async (jmenoSouboru, telo, metaKlic, volby = {}) => {
+      const { aktivni = "", trida = "", skripty = "", vetev = null } = volby;
+      const ctx = ctxPro(jmenoSouboru, vetev);
       const html = stranka(
         { ...ctx, aktivni },
         {
@@ -247,24 +281,43 @@ async function main() {
       await zapis(adresar, jmenoSouboru, html);
     };
 
-    await vykresli(SOUBORY.index, S.domu, "home", "index");
-    await vykresli(SOUBORY.sluzby, S.sluzbyPrehled, "sluzby", "sluzby");
-    for (const s of site.sluzby) {
-      await vykresli(soubor("sluzba", s.id), (c) => S.sluzbaDetail(c, s), "sluzby", "sluzby");
+    // rozcestník
+    await vykresli(SOUBORY.index, S.rozcestnik, "home", { aktivni: "index", trida: "je-rozcestnik" });
+
+    // obě větve: domovská stránka, přehled služeb, přehled realizací a detaily
+    for (const v of site.vetve) {
+      const vetev = v.id;
+      await vykresli(soubor("vetev", vetev, null, site), S.vetevDomu, `vetve.${vetev}`, { aktivni: "vetev", vetev });
+      await vykresli(soubor("sluzby", vetev, vetev, site), S.sluzbyPrehled, `sluzbyVetve.${vetev}`, {
+        aktivni: "sluzby", vetev,
+      });
+      for (const s of site.sluzby.filter((x) => x.vetev === vetev)) {
+        await vykresli(soubor("sluzba", s.id), (c) => S.sluzbaDetail(c, s), `sluzbyVetve.${vetev}`, {
+          aktivni: "sluzby", vetev,
+        });
+      }
+      await vykresli(soubor("realizace", null, vetev, site), S.realizacePrehled, `realizaceVetve.${vetev}`, {
+        aktivni: "realizace", vetev,
+      });
+      for (const r of site.realizace.filter((x) => x.vetev === vetev)) {
+        await vykresli(soubor("realizace", r.id), (c) => S.realizaceDetail(c, r), `realizaceVetve.${vetev}`, {
+          aktivni: "realizace", vetev,
+        });
+      }
+      await vykresli(soubor("realizaceDetail", vetev, vetev, site), S.realizaceSablona, `realizaceVetve.${vetev}`, {
+        aktivni: "realizace", vetev,
+      });
     }
-    await vykresli(SOUBORY.realizace, S.realizacePrehled, "realizace", "realizace");
-    for (const r of site.realizace) {
-      await vykresli(soubor("realizace", r.id), (c) => S.realizaceDetail(c, r), "realizace", "realizace");
-    }
-    await vykresli(SOUBORY.realizaceDetail, S.realizaceSablona, "realizace", "realizace");
-    await vykresli(SOUBORY.onas, S.oNas, "onas", "onas");
-    await vykresli(SOUBORY.novinky, S.novinkyPrehled, "novinky", "novinky");
+
+    // společné stránky
+    await vykresli(SOUBORY.onas, S.oNas, "onas", { aktivni: "onas" });
+    await vykresli(SOUBORY.novinky, S.novinkyPrehled, "novinky", { aktivni: "novinky" });
     for (const n of site.novinky) {
-      await vykresli(soubor("novinka", n.id), (c) => S.novinkaDetail(c, n), "novinky", "novinky");
+      await vykresli(soubor("novinka", n.id), (c) => S.novinkaDetail(c, n), "novinky", { aktivni: "novinky" });
     }
-    await vykresli(SOUBORY.kariera, S.kariera, "kariera", "kariera");
-    await vykresli(SOUBORY.kontakt, S.kontakt, "kontakt", "kontakt");
-    await vykresli(SOUBORY.slovnik, S.slovnik, "slovnik", "slovnik");
+    await vykresli(SOUBORY.kariera, S.kariera, "kariera", { aktivni: "kariera" });
+    await vykresli(SOUBORY.kontakt, S.kontakt, "kontakt", { aktivni: "kontakt" });
+    await vykresli(SOUBORY.slovnik, S.slovnik, "slovnik", { aktivni: "slovnik" });
     await vykresli(SOUBORY.gdpr, S.gdpr, "gdpr");
     await vykresli(SOUBORY.chyba404, S.chyba404, "chyba404");
   }
@@ -288,6 +341,7 @@ async function main() {
       kategorie: r.kategorie,
       plocha: r.plocha,
       doba: r.doba,
+      vetev: r.vetev,
       nazev: ctx.t(`realizace.polozky.${r.id}.nazev`),
       misto: ctx.t(`realizace.polozky.${r.id}.misto`),
       perex: ctx.t(`realizace.polozky.${r.id}.perex`),
@@ -303,6 +357,7 @@ async function main() {
       slovniky,
       realizace: realizaceProAdmin,
       kategorie: Object.fromEntries(site.kategorieRealizaci.map((k) => [k, ctx.t(`realizace.kategorie.${k}`)])),
+      vetve: site.vetve.map((v) => ({ id: v.id, nazev: ctx.t(`vetve.${v.id}.nazev`) })),
     };
     const html = stranka(
       { ...ctx, aktivni: "administrace" },
@@ -315,6 +370,25 @@ async function main() {
       }
     );
     await zapis("", SOUBORY.administrace, html);
+  }
+
+  // sitemapa pro Google Search Console — na ostrém webu se jen přepne doména
+  {
+    const dnes = new Date().toISOString().slice(0, 10);
+    const polozky = stranky
+      .filter((c) => !c.endsWith("404.html") && !c.endsWith("administrace.html"))
+      .sort()
+      .map((c) => {
+        const adresa = `${site.firma.webBase}/${c}`.replace(/&/g, "&amp;");
+        const priorita = c === "index.html" ? "1.0" : c.includes("/") ? "0.6" : "0.8";
+        return `  <url>\n    <loc>${adresa}</loc>\n    <lastmod>${dnes}</lastmod>\n    <priority>${priorita}</priority>\n  </url>`;
+      })
+      .join("\n");
+    await writeFile(
+      path.join(VEN, "sitemap.xml"),
+      `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${polozky}\n</urlset>\n`
+    );
+    console.log(`  sitemap.xml: ${stranky.length} adres`);
   }
 
   // kontrola úplnosti překladů

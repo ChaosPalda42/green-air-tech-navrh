@@ -91,40 +91,43 @@ function kroky(ctx, prefix) {
 /** Kontaktní formulář — stejná komponenta na Kontaktu i v Kariéře. */
 export function formular(ctx, { predvolenyTyp = "", id = "formular" } = {}) {
   const { t, odkaz } = ctx;
-  const typy = ctx.klice("kontakt.formular.typy");
-  const volby = typy
+  const volby = ctx
+    .klice("kontakt.formular.typy")
     .map(
       (k) =>
         `<option value="${k}"${k === predvolenyTyp ? " selected" : ""}>${t(`kontakt.formular.typy.${k}`)}</option>`
     )
     .join("");
+
+  // Záměrně co nejmíň polí: čím víc toho člověk musí vyplnit, tím míň
+  // formulářů odejde. Firma, adresa a podrobnosti se doberou po telefonu.
   return `<form class="formular" id="${id}" data-formular novalidate>
   <div class="hlaska hlaska-info">${ikona("info")}<span${dc("kontakt.formular.odeslanoDemo")}>${t("kontakt.formular.odeslanoDemo")}</span></div>
+  <div class="pole">
+    <label for="${id}-typ">${t("kontakt.formular.typ")} <span aria-hidden="true">*</span></label>
+    <select id="${id}-typ" name="typ" required>
+      <option value="">${t("kontakt.formular.typPlaceholder")}</option>
+      ${volby}
+    </select>
+  </div>
+  <div class="pole">
+    <label for="${id}-jmeno">${t("kontakt.formular.jmeno")} <span aria-hidden="true">*</span></label>
+    <input type="text" id="${id}-jmeno" name="jmeno" autocomplete="name" required>
+  </div>
   <div class="formular-dvojice">
-    <div class="pole">
-      <label for="${id}-jmeno">${t("kontakt.formular.jmeno")} <span aria-hidden="true">*</span></label>
-      <input type="text" id="${id}-jmeno" name="jmeno" autocomplete="name" required>
-    </div>
-    <div class="pole">
-      <label for="${id}-firma">${t("kontakt.formular.firma")}</label>
-      <input type="text" id="${id}-firma" name="firma" autocomplete="organization">
-    </div>
-    <div class="pole">
-      <label for="${id}-email">${t("kontakt.formular.email")} <span aria-hidden="true">*</span></label>
-      <input type="email" id="${id}-email" name="email" autocomplete="email" required>
-    </div>
     <div class="pole">
       <label for="${id}-telefon">${t("kontakt.formular.telefon")}</label>
       <input type="tel" id="${id}-telefon" name="telefon" autocomplete="tel" inputmode="tel">
     </div>
+    <div class="pole">
+      <label for="${id}-email">${t("kontakt.formular.email")}</label>
+      <input type="email" id="${id}-email" name="email" autocomplete="email">
+    </div>
   </div>
+  <p class="napoveda" style="margin:-0.5rem 0 1.05rem">${t("kontakt.formular.kontaktHint")}</p>
   <div class="pole">
-    <label for="${id}-typ">${t("kontakt.formular.typ")}</label>
-    <select id="${id}-typ" name="typ">${volby}</select>
-  </div>
-  <div class="pole">
-    <label for="${id}-zprava">${t("kontakt.formular.zprava")} <span aria-hidden="true">*</span></label>
-    <textarea id="${id}-zprava" name="zprava" required></textarea>
+    <label for="${id}-zprava">${t("kontakt.formular.zprava")}</label>
+    <textarea id="${id}-zprava" name="zprava" rows="3"></textarea>
     <span class="napoveda">${t("kontakt.formular.zpravaHint")}</span>
   </div>
   <div class="pole">
@@ -138,10 +141,27 @@ export function formular(ctx, { predvolenyTyp = "", id = "formular" } = {}) {
 </form>`;
 }
 
-/* ------------------------------------------------------------------ úvod */
+/* ------------------------------------------------------------ rozcestník */
 
-export function domu(ctx) {
-  const { t, site, odkaz, asset } = ctx;
+/** Dlaždice větve — hlavní prvek úvodní stránky. */
+function dlazdiceVetve(ctx, v) {
+  const { t, odkazVetve, obrazek } = ctx;
+  return `<a class="dlazdice" href="${odkazVetve(v.id, "vetev")}">
+    <span class="dlazdice-obraz">
+      ${obrazek(v.foto, { alt: "", sirky: "(min-width: 900px) 46vw, 92vw" })}
+      <span class="dlazdice-ikona">${ikona(v.ikona, { velikost: 30 })}</span>
+    </span>
+    <span class="dlazdice-telo">
+      <span class="dlazdice-nazev"${dc(`vetve.${v.id}.nazev`)}>${t(`vetve.${v.id}.nazev`)}</span>
+      <span class="dlazdice-podtitul"${dc(`vetve.${v.id}.podtitul`)}>${t(`vetve.${v.id}.podtitul`)}</span>
+      <span class="dlazdice-perex"${dc(`vetve.${v.id}.perex`)}>${ctx.zk(t(`vetve.${v.id}.perex`))}</span>
+      <span class="odkaz-sip">${t(`vetve.${v.id}.cta`)}${ikona("sip")}</span>
+    </span>
+  </a>`;
+}
+
+export function rozcestnik(ctx) {
+  const { t, site, odkaz } = ctx;
   const cisla = ["praxe", "oblasti", "dispecink", "technici"]
     .map(
       (k) =>
@@ -149,7 +169,6 @@ export function domu(ctx) {
     )
     .join("");
 
-  const posledni = ctx.realizaceSeznam.slice(0, 3).map((r) => kartaRealizace(ctx, r)).join("");
   const duvody = ctx
     .klice("home.duvody.polozky")
     .map(
@@ -161,39 +180,18 @@ export function domu(ctx) {
     )
     .join("");
 
-  return `<section class="hero">
+  return `<section class="hero hero-rozcestnik">
   <canvas class="hero-platno" data-vitr="hero" aria-hidden="true"></canvas>
-  <div class="obal hero-vnitrek">
-    <div>
-      <span class="stitek"${dc("home.hero.stitek")}>${t("home.hero.stitek")}</span>
-      <h1${dc("home.hero.titulek")}>${t("home.hero.titulek")}</h1>
-      <p class="lead"${dc("home.hero.lead")}>${ctx.zk(t("home.hero.lead"))}</p>
-      <div class="tlacitka">
-        <a class="tl tl-hlavni" href="${odkaz("kontakt")}#formular">${ikona("mail")}${t("home.hero.cta")}</a>
-        <a class="tl tl-obrys" href="#sluzby">${ikona("sipDolu")}${t("home.hero.ctaDruhe")}</a>
-      </div>
-      <a class="hero-dispecink" href="tel:${site.firma.dispecinkTelefonHref}">
-        <span class="zivy">${ikona("telefon", { velikost: 16 })}</span>
-        <span>${t("home.hero.dispecinkStitek")} <b>${site.firma.dispecinkTelefon}</b></span>
-      </a>
+  <div class="obal">
+    <div class="rozcestnik-uvod">
+      <span class="stitek"${dc("rozcestnik.stitek")}>${t("rozcestnik.stitek")}</span>
+      <h1${dc("rozcestnik.titulek")}>${t("rozcestnik.titulek")}</h1>
+      <p class="lead"${dc("rozcestnik.lead")}>${ctx.zk(t("rozcestnik.lead"))}</p>
     </div>
-    <div class="hero-obrazek">
-      ${ctx.obrazek("foto-strojovna", { alt: "Strojovna s rozvody vzduchotechniky", sirky: "(min-width: 1000px) 44vw, 92vw", prioritni: true })}
-      ${heroSchema()}
-    </div>
+    <div class="rozcestnik">${site.vetve.map((v) => dlazdiceVetve(ctx, v)).join("")}</div>
+    <p class="rozcestnik-pomoc"${dc("rozcestnik.vyberteLead")}>${t("rozcestnik.vyberteLead")}</p>
   </div>
   <div class="obal"><div class="hero-pruh">${cisla}</div></div>
-</section>
-
-<section class="sekce" id="sluzby">
-  <div class="obal">
-    <div class="hlavicka-sekce">
-      <span class="stitek"${dc("home.sluzby.stitek")}>${t("home.sluzby.stitek")}</span>
-      <h2${dc("home.sluzby.titulek")}>${t("home.sluzby.titulek")}</h2>
-      <p class="lead"${dc("home.sluzby.lead")}>${ctx.zk(t("home.sluzby.lead"))}</p>
-    </div>
-    <div class="mrizka mrizka-3">${site.sluzby.map((s) => kartaSluzby(ctx, s)).join("")}</div>
-  </div>
 </section>
 
 <section class="sekce sekce-papir">
@@ -208,21 +206,6 @@ export function domu(ctx) {
 </section>
 
 <section class="sekce">
-  <div class="obal">
-    <div class="hlavicka-sekce">
-      <span class="stitek"${dc("home.realizace.stitek")}>${t("home.realizace.stitek")}</span>
-      <h2${dc("home.realizace.titulek")}>${t("home.realizace.titulek")}</h2>
-      <p class="lead"${dc("home.realizace.lead")}>${ctx.zk(t("home.realizace.lead"))}</p>
-    </div>
-    <div class="mrizka mrizka-3">${posledni}</div>
-    <div class="tlacitka" style="margin-top:2rem">
-      <a class="tl tl-obrys" href="${odkaz("realizace")}">${t("ui.vsechnyRealizace")}${ikona("sip")}</a>
-    </div>
-  </div>
-</section>
-
-
-<section class="sekce sekce-papir">
   <div class="obal">
     <div class="hlavicka-sekce">
       <span class="stitek"${dc("home.duvody.stitek")}>${t("home.duvody.stitek")}</span>
@@ -250,7 +233,87 @@ export function domu(ctx) {
   </div>
 </section>
 
-<section class="sekce sekce-papir" id="kontakt">
+${sekceKontakt(ctx)}`;
+}
+
+/* --------------------------------------------------------- domovská stránka větve */
+
+export function vetevDomu(ctx) {
+  const { t, odkaz, odkazVetve, vetev, site } = ctx;
+  const v = site.vetve.find((x) => x.id === vetev);
+  const druha = site.vetve.find((x) => x.id !== vetev);
+  const sluzby = ctx.sluzbyVetve(vetev);
+  const realizace = ctx.realizaceVetve(vetev).slice(0, 3);
+
+  return `<section class="hero">
+  <canvas class="hero-platno" data-vitr="hero" aria-hidden="true"></canvas>
+  <div class="obal hero-vnitrek">
+    <div>
+      <span class="stitek"${dc(`vetve.${vetev}.nazev`)}>${t(`vetve.${vetev}.nazev`)}</span>
+      <h1${dc(`vetve.${vetev}.titulek`)}>${t(`vetve.${vetev}.titulek`)}</h1>
+      <p class="lead"${dc(`vetve.${vetev}.lead`)}>${ctx.zk(t(`vetve.${vetev}.lead`))}</p>
+      <div class="tlacitka">
+        <a class="tl tl-hlavni" href="${odkaz("kontakt")}#formular">${ikona("mail")}${t("home.hero.cta")}</a>
+        <a class="tl tl-obrys" href="${odkaz("sluzby")}">${ikona("sipDolu")}${t("home.hero.ctaDruhe")}</a>
+      </div>
+      <a class="hero-dispecink" href="tel:${site.firma.dispecinkTelefonHref}">
+        <span class="zivy">${ikona("telefon", { velikost: 16 })}</span>
+        <span>${t("home.hero.dispecinkStitek")} <b>${site.firma.dispecinkTelefon}</b></span>
+      </a>
+    </div>
+    <div class="hero-obrazek">
+      ${ctx.obrazek(v.foto, { alt: "", sirky: "(min-width: 1000px) 44vw, 92vw", prioritni: true })}
+      ${heroSchema()}
+    </div>
+  </div>
+</section>
+
+<section class="sekce" id="sluzby">
+  <div class="obal">
+    <div class="hlavicka-sekce">
+      <span class="stitek">${t("nav.sluzby")}</span>
+      <h2${dc(`vetve.${vetev}.sluzbyTitulek`)}>${t(`vetve.${vetev}.sluzbyTitulek`)}</h2>
+      <p class="lead"${dc(`vetve.${vetev}.sluzbyLead`)}>${ctx.zk(t(`vetve.${vetev}.sluzbyLead`))}</p>
+    </div>
+    <div class="mrizka mrizka-3">${sluzby.map((s) => kartaSluzby(ctx, s)).join("")}</div>
+  </div>
+</section>
+
+<section class="sekce sekce-papir">
+  <div class="obal">
+    <div class="hlavicka-sekce">
+      <span class="stitek"${dc("home.postup.stitek")}>${t("home.postup.stitek")}</span>
+      <h2${dc("home.postup.titulek")}>${t("home.postup.titulek")}</h2>
+    </div>
+    ${kroky(ctx, "home.postup.kroky")}
+  </div>
+</section>
+
+<section class="sekce">
+  <div class="obal">
+    <div class="hlavicka-sekce">
+      <span class="stitek">${t("nav.realizace")}</span>
+      <h2${dc(`vetve.${vetev}.realizaceTitulek`)}>${t(`vetve.${vetev}.realizaceTitulek`)}</h2>
+      <p class="lead"${dc(`vetve.${vetev}.realizaceLead`)}>${ctx.zk(t(`vetve.${vetev}.realizaceLead`))}</p>
+    </div>
+    <div class="mrizka mrizka-3">${realizace.map((r) => kartaRealizace(ctx, r)).join("")}</div>
+    <div class="tlacitka" style="margin-top:2rem">
+      <a class="tl tl-obrys" href="${odkaz("realizace")}">${t("ui.vsechnyRealizace")}${ikona("sip")}</a>
+    </div>
+    <div class="panel-info" style="margin-top:2.4rem">
+      <p${dc(`vetve.${vetev}.poznamka`)}>${ctx.zk(t(`vetve.${vetev}.poznamka`))}</p>
+      <p style="margin-top:.8rem"><a class="odkaz-sip" href="${odkazVetve(druha.id, "vetev")}">${t(`vetve.${druha.id}.cta`)}${ikona("sip")}</a></p>
+    </div>
+  </div>
+</section>
+
+${sekceKontakt(ctx)}`;
+}
+
+/** Kontaktní sekce s formulářem — stejná na rozcestníku i v obou větvích. */
+function sekceKontakt(ctx) {
+  const { t, site } = ctx;
+  return `<section class="sekce sekce-papir" id="kontakt">
   <div class="obal">
     <div class="dvojsloupec">
       <div>
@@ -276,19 +339,20 @@ export function domu(ctx) {
 </section>`;
 }
 
-/* ------------------------------------------------------------- služby */
-
 export function sluzbyPrehled(ctx) {
-  const { t, site } = ctx;
+  const { t, vetev, odkazVetve } = ctx;
   return `${podhlavi(ctx, {
-    stitek: t("sluzby.prehled.stitek"),
-    titulek: t("sluzby.prehled.titulek"),
-    lead: ctx.zk(t("sluzby.prehled.lead")),
-    drobecky: [{ nazev: t("nav.sluzby") }],
+    stitek: t(`vetve.${vetev}.nazev`),
+    titulek: t(`vetve.${vetev}.sluzbyTitulek`),
+    lead: ctx.zk(t(`vetve.${vetev}.sluzbyLead`)),
+    drobecky: [
+      { nazev: t(`vetve.${vetev}.nazev`), href: odkazVetve(vetev, "vetev") },
+      { nazev: t("nav.sluzby") },
+    ],
   })}
 <section class="sekce">
   <div class="obal">
-    <div class="mrizka mrizka-3">${site.sluzby.map((s) => kartaSluzby(ctx, s)).join("")}</div>
+    <div class="mrizka mrizka-3">${ctx.sluzbyVetve(vetev).map((s) => kartaSluzby(ctx, s)).join("")}</div>
   </div>
 </section>
 ${kroky_sekce(ctx)}
@@ -312,7 +376,7 @@ export function sluzbaDetail(ctx, s) {
   const { t, site, odkaz, klice } = ctx;
   const p = `sluzby.polozky.${s.id}`;
   const maKroky = klice(`${p}.kroky`).length > 0;
-  const souvisi = site.sluzby.filter((x) => x.id !== s.id).slice(0, 3);
+  const souvisi = ctx.sluzbyVetve(ctx.vetev).filter((x) => x.id !== s.id).slice(0, 3);
 
   const doplnky = ["upozorneni", "refit", "dispecink", "servis"]
     .filter((k) => ctx.existuje(`${p}.${k}.titulek`))
@@ -325,10 +389,14 @@ export function sluzbaDetail(ctx, s) {
     .join("");
 
   return `${podhlavi(ctx, {
-    stitek: t("sluzby.prehled.stitek"),
+    stitek: t(`vetve.${ctx.vetev}.nazev`),
     titulek: t(`${p}.titulek`),
     lead: ctx.zk(t(`${p}.lead`)),
-    drobecky: [{ nazev: t("nav.sluzby"), klic: "sluzby" }, { nazev: t(`${p}.nazev`) }],
+    drobecky: [
+      { nazev: t(`vetve.${ctx.vetev}.nazev`), href: ctx.odkazVetve(ctx.vetev, "vetev") },
+      { nazev: t("nav.sluzby"), klic: "sluzby" },
+      { nazev: t(`${p}.nazev`) },
+    ],
   })}
 
 <section class="sekce">
@@ -394,10 +462,13 @@ export function realizacePrehled(ctx) {
   }));
 
   return `${podhlavi(ctx, {
-    stitek: t("realizace.stranka.stitek"),
-    titulek: t("realizace.stranka.titulek"),
-    lead: ctx.zk(t("realizace.stranka.lead")),
-    drobecky: [{ nazev: t("nav.realizace") }],
+    stitek: t(`vetve.${ctx.vetev}.nazev`),
+    titulek: t(`vetve.${ctx.vetev}.realizaceTitulek`),
+    lead: ctx.zk(t(`vetve.${ctx.vetev}.realizaceLead`)),
+    drobecky: [
+      { nazev: t(`vetve.${ctx.vetev}.nazev`), href: ctx.odkazVetve(ctx.vetev, "vetev") },
+      { nazev: t("nav.realizace") },
+    ],
   })}
 <section class="sekce">
   <div class="obal">
@@ -439,10 +510,14 @@ export function realizaceDetail(ctx, r) {
     .join(" ");
 
   return `${podhlavi(ctx, {
-    stitek: t("realizace.stranka.stitek"),
+    stitek: t(`vetve.${ctx.vetev}.nazev`),
     titulek: t(`${p}.nazev`),
     lead: ctx.zk(t(`${p}.perex`)),
-    drobecky: [{ nazev: t("nav.realizace"), klic: "realizace" }, { nazev: t(`${p}.nazev`) }],
+    drobecky: [
+      { nazev: t(`vetve.${ctx.vetev}.nazev`), href: ctx.odkazVetve(ctx.vetev, "vetev") },
+      { nazev: t("nav.realizace"), klic: "realizace" },
+      { nazev: t(`${p}.nazev`) },
+    ],
   })}
 
 <section class="sekce">
@@ -882,7 +957,9 @@ export function chyba404(ctx) {
       <p class="lead" style="margin-inline:auto">${t("chyba404.lead")}</p>
       <div class="tlacitka" style="justify-content:center;margin-top:1.8rem">
         <a class="tl tl-hlavni" href="${odkaz("index")}">${ikona("sipZpet")}${t("chyba404.cta")}</a>
-        <a class="tl tl-obrys" href="${odkaz("sluzby")}">${t("chyba404.ctaDruhe")}${ikona("sip")}</a>
+        ${ctx.site.vetve
+          .map((v) => `<a class="tl tl-obrys" href="${ctx.odkazVetve(v.id, "vetev")}">${t(`vetve.${v.id}.nazev`)}${ikona("sip")}</a>`)
+          .join("")}
       </div>
     </div>
   </div>

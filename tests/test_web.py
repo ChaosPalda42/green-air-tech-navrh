@@ -93,12 +93,38 @@ def rozebrat(cesta: Path) -> SberacOdkazu:
 
 def test_ceska_verze_ma_vsechny_stranky(web):
     ocekavane = [
-        "index.html", "sluzby.html", "realizace.html", "realizace-detail.html",
-        "novinky.html", "o-nas.html", "kariera.html", "kontakt.html",
+        "index.html", "novinky.html", "o-nas.html", "kariera.html", "kontakt.html",
         "slovnik.html", "ochrana-osobnich-udaju.html", "404.html", "administrace.html",
+        # obě větve mají vlastní domovskou stránku, služby i realizace
+        "domacnosti.html", "domacnosti-sluzby.html", "domacnosti-realizace.html",
+        "domacnosti-realizace-detail.html",
+        "firemni-zakaznici.html", "firmy-sluzby.html", "firmy-realizace.html",
+        "firmy-realizace-detail.html",
     ]
     for jmeno in ocekavane:
         assert (web / jmeno).exists(), f"chybí {jmeno}"
+
+
+def test_uvodni_stranka_nabizi_obe_vetve(web):
+    """Rozcestník je hlavní rozhodnutí návštěvníka — musí tam být obě dlaždice."""
+    html = (web / "index.html").read_text(encoding="utf-8")
+    assert html.count('class="dlazdice"') == 2
+    assert 'href="domacnosti.html"' in html
+    assert 'href="firemni-zakaznici.html"' in html
+
+
+def test_vetve_maji_vlastni_sluzby_a_realizace(web):
+    site = json.loads((ROOT / "data" / "site.json").read_text(encoding="utf-8"))
+    for v in site["vetve"]:
+        sluzby = [s["id"] for s in site["sluzby"] if s["vetev"] == v["id"]]
+        cizi = [s["id"] for s in site["sluzby"] if s["vetev"] != v["id"]]
+        cela = (web / f"{v['id']}-sluzby.html").read_text(encoding="utf-8")
+        # mimo <main> nabízí navigace záměrně obě větve, kontrolujeme obsah stránky
+        obsah = cela[cela.index("<main"):cela.index("</main>")]
+        for sid in sluzby:
+            assert f'href="sluzba-{sid}.html"' in obsah, f"{v['id']}: chybí {sid}"
+        for sid in cizi:
+            assert f'href="sluzba-{sid}.html"' not in obsah, f"{v['id']}: prosákla cizí služba {sid}"
 
 
 def test_kazda_sluzba_ma_svou_stranku(web):

@@ -62,6 +62,24 @@
       "last_finding": "",
       "packet": "",
       "updated_at": "2026-09-23T18:07:44+00:00"
+    },
+    "C-008": {
+      "status": "green",
+      "attempts": 1,
+      "iterations": 3,
+      "commit": "4db76df",
+      "last_finding": "",
+      "packet": "",
+      "updated_at": "2026-10-09T22:52:20+00:00"
+    },
+    "C-009": {
+      "status": "running",
+      "attempts": 0,
+      "iterations": 0,
+      "commit": "",
+      "last_finding": "",
+      "packet": "",
+      "updated_at": "2026-10-09T22:47:38+00:00"
     }
   },
   "runs": [
@@ -74,6 +92,16 @@
       "red": 0,
       "escalated": 0,
       "note": "full suite passed (0 tests)"
+    },
+    {
+      "started_at": "2026-10-09T22:47:38+00:00",
+      "finished_at": "",
+      "outcome": "running",
+      "iterations": 0,
+      "green": 0,
+      "red": 0,
+      "escalated": 0,
+      "note": ""
     }
   ],
   "open_packets": []

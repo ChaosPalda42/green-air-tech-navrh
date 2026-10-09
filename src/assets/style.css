@@ -17,50 +17,82 @@
 
 /* ---------------------------------------------------------------- tokeny */
 :root {
-  --zelena: #58ac25;          /* zelená z loga — grafika, akcenty */
+  /* --- značka (z loga, nemění se podle režimu) --- */
+  --zelena: #58ac25;
   --zelena-sytá: #4a9a1c;
-  --zelena-tmavá: #2f6a12;    /* text a tlačítka (kontrast AA) */
+  --zelena-tmavá: #2f6a12;    /* text a tlačítka na světlém (kontrast AA) */
   --zelena-hluboká: #21500c;
   --zelena-svetlá: #7bd13f;   /* na tmavém pozadí */
-  --zelena-závoj: #eaf5e2;
-  --fialová: #584a95;         /* doplňková z loga */
+  --fialová: #584a95;
   --fialová-svetlá: #8a7ecd;
-  --inkoust: #101a12;         /* tmavé sekce */
-  --inkoust-2: #18271a;
-  --břidlice: #5a6276;        /* sekundární text */
+
+  /* --- plochy a text; v tmavém režimu se přepisují níž --- */
+  --zelena-závoj: #eaf5e2;
+  --inkoust: #23583a;         /* hlavní tmavá plocha — po připomínce klienta
+                                 výrazně světlejší a jednoznačně zelená */
+  --inkoust-2: #1b4630;
+  --břidlice: #5a6276;
   --břidlice-svetlá: #8b93a5;
   --papír: #ffffff;
   --papír-2: #f5f8f3;
   --papír-3: #eef2ec;
   --linka: #e0e7dc;
-  --linka-tmavá: rgba(255, 255, 255, 0.14);
+  --linka-tmavá: rgba(255, 255, 255, 0.16);
 
   --text: #16211a;
   --text-tlumený: #59634f;
-  --text-na-tmavém: #e8efe6;
-  --text-na-tmavém-tlumený: #a6b5a4;
-
-  --r-s: 8px;
-  --r-m: 14px;
-  --r-l: 22px;
-  --r-xl: 32px;
+  --text-na-tmavém: #eaf3e7;
+  --text-na-tmavém-tlumený: #b4c9b7;
 
   --stín-1: 0 1px 2px rgba(16, 26, 18, 0.06), 0 2px 8px rgba(16, 26, 18, 0.04);
   --stín-2: 0 2px 6px rgba(16, 26, 18, 0.07), 0 12px 28px rgba(16, 26, 18, 0.09);
   --stín-3: 0 18px 50px rgba(16, 26, 18, 0.16);
 
+  /* --- rozměry a typografie (na režimu nezávislé) --- */
+  --r-s: 8px;
+  --r-m: 14px;
+  --r-l: 22px;
+  --r-xl: 32px;
+
   --sirka: 1200px;
   --sirka-uzka: 760px;
   --okraj: clamp(1.15rem, 4vw, 2.5rem);
   --sekce: clamp(3.5rem, 8vw, 7rem);
-  --lišta: 76px;            /* výška horní lišty */
-  --spodni-lišta: 0px;      /* na mobilu se přepíše */
+  --lišta: 76px;
+  --spodni-lišta: 0px;
 
   --font-nadpis: "Barlow", "Barlow Fallback", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-text: "Inter", "Inter Fallback", system-ui, -apple-system, "Segoe UI", sans-serif;
 
   --rychle: 160ms cubic-bezier(0.22, 0.61, 0.36, 1);
   --plynule: 320ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* ===================================================== tmavý režim
+   Web se přepíná podle nastavení zařízení. Mění se jen plochy, text
+   a stíny — značkové zelené zůstávají, aby web zůstal pořád „Green". */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --zelena-tmavá: #7bd13f;
+    --zelena-hluboká: #9ade66;
+    --zelena-závoj: #1d3524;
+
+    --inkoust: #16271d;
+    --inkoust-2: #112019;
+    --břidlice: #9aa8a0;
+    --břidlice-svetlá: #7d8a84;
+    --papír: #141d18;
+    --papír-2: #18231c;
+    --papír-3: #1e2b22;
+    --linka: #2a3a30;
+
+    --text: #e7efe6;
+    --text-tlumený: #a9b8a6;
+
+    --stín-1: 0 1px 2px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.28);
+    --stín-2: 0 2px 6px rgba(0, 0, 0, 0.45), 0 12px 28px rgba(0, 0, 0, 0.4);
+    --stín-3: 0 18px 50px rgba(0, 0, 0, 0.55);
+  }
 }
 
 /* ---------------------------------------------------------------- základ */
@@ -169,8 +201,10 @@ a:hover { color: var(--zelena-hluboká); }
 .stitek::before {
   content: ""; width: 26px; height: 2px; background: var(--zelena); border-radius: 2px;
 }
-.sekce-tmava .stitek { color: var(--zelena-svetlá); }
-.sekce-tmava .stitek::before { background: var(--zelena-svetlá); }
+/* na všech tmavých plochách — nejen v .sekce-tmava, ale i v hero a podhlaví */
+.sekce-tmava .stitek, .hero .stitek, .podhlavi .stitek, .vyzva .stitek { color: #a9e87c; }
+.sekce-tmava .stitek::before, .hero .stitek::before,
+.podhlavi .stitek::before, .vyzva .stitek::before { background: var(--zelena-svetlá); }
 .na-stred .stitek::before { display: none; }
 
 .lead { font-size: clamp(1.04rem, 1.6vw, 1.18rem); color: var(--text-tlumený); }
@@ -225,16 +259,19 @@ a:hover { color: var(--zelena-hluboká); }
    Barvy lišty jsou v jedné sadě proměnných, aby šla varianta přepnout
    na jednom místě (tmavě zelená / světle zelená). */
 .lista {
-  --lista-pozadi: #14271a;
-  --lista-text: #e6f0e2;
-  --lista-text-tlumeny: #b6c9b1;
-  --lista-linka: rgba(255, 255, 255, 0.12);
-  --lista-hover-pozadi: rgba(123, 209, 63, 0.16);
-  --lista-hover-text: #ffffff;
-  --lista-aktivni-pozadi: rgba(123, 209, 63, 0.2);
-  --lista-aktivni-text: var(--zelena-svetlá);
-  --lista-rastr: rgba(255, 255, 255, 0.11);
-  --lista-obrys: rgba(255, 255, 255, 0.28);
+  /* Světlý režim: bledě zelená lišta — klient chtěl zesvětlit a logo
+     tak nepotřebuje podložku. Tmavý režim níž ji překlopí do hluboké zelené. */
+  --lista-pozadi: #e7f3df;
+  --lista-text: #18271c;
+  --lista-text-tlumeny: #4c5f4f;
+  --lista-linka: rgba(47, 106, 18, 0.18);
+  --lista-hover-pozadi: rgba(88, 172, 37, 0.18);
+  --lista-hover-text: var(--zelena-hluboká);
+  --lista-aktivni-pozadi: #ffffff;
+  --lista-aktivni-text: var(--zelena-tmavá);
+  --lista-rastr: rgba(47, 106, 18, 0.15);
+  --lista-obrys: rgba(47, 106, 18, 0.3);
+  --lista-logo-pozadi: transparent;
 
   position: sticky; top: 0; z-index: 900;
   /* Pozadí je krycí a BEZ backdrop-filter: ten by z hlavičky udělal vztažný
@@ -415,7 +452,7 @@ body.menu-otevreno .panel { opacity: 1; visibility: visible; transform: none; }
   background:
     radial-gradient(120% 80% at 82% 18%, rgba(88, 172, 37, 0.24) 0%, rgba(88, 172, 37, 0) 58%),
     radial-gradient(90% 70% at 10% 92%, rgba(88, 74, 149, 0.22) 0%, rgba(88, 74, 149, 0) 62%),
-    linear-gradient(170deg, #142019 0%, #0d160f 60%, #101c12 100%);
+    linear-gradient(170deg, var(--inkoust) 0%, var(--inkoust-2) 62%, var(--inkoust) 100%);
 }
 .hero-platno { position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; opacity: 0.85; }
 .hero-vnitrek {
@@ -428,7 +465,7 @@ body.menu-otevreno .panel { opacity: 1; visibility: visible; transform: none; }
 }
 .hero h1 { color: #fff; margin-bottom: 0.45em; }
 .hero h1 strong { color: var(--zelena-svetlá); font-weight: 700; }
-.hero .lead { max-width: 34rem; font-size: clamp(1.06rem, 1.8vw, 1.22rem); color: #cbd9c7; }
+.hero .lead { max-width: 34rem; font-size: clamp(1.06rem, 1.8vw, 1.22rem); color: #d7e6d2; }
 .hero .tlacitka { margin-top: 1.9rem; }
 
 .hero-dispecink {
@@ -451,7 +488,7 @@ body.menu-otevreno .panel { opacity: 1; visibility: visible; transform: none; }
   border-radius: var(--r-l);
   border: 1px solid rgba(255,255,255,0.12);
   box-shadow: var(--stín-3);
-  background: #0c140d;
+  background: var(--inkoust-2);
 }
 .hero-schema { position: absolute; inset: auto -4% -8% -4%; pointer-events: none; }
 
@@ -483,11 +520,11 @@ body.menu-otevreno .panel { opacity: 1; visibility: visible; transform: none; }
   content: ""; position: absolute; inset: 0; z-index: -1;
   background:
     radial-gradient(110% 130% at 88% 0%, rgba(88, 172, 37, 0.22) 0%, rgba(88,172,37,0) 60%),
-    linear-gradient(160deg, #142019 0%, #0d160f 100%);
+    linear-gradient(160deg, var(--inkoust) 0%, var(--inkoust-2) 100%);
 }
 .podhlavi-platno { position: absolute; inset: 0; z-index: -1; opacity: 0.6; }
 .podhlavi h1 { color: #fff; margin-bottom: 0.35em; }
-.podhlavi .lead { max-width: 46rem; color: #c8d6c4; }
+.podhlavi .lead { max-width: 46rem; color: #d7e6d2; }
 
 .drobecky { font-size: 0.86rem; margin-bottom: 1.4rem; color: var(--text-na-tmavém-tlumený); }
 .drobecky ol { list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0; padding: 0; }
@@ -695,9 +732,9 @@ abbr.zkratka:hover, abbr.zkratka:focus-visible { background: var(--zelena-závoj
 }
 
 .slovnik-ukazka {
-  background: rgba(255,255,255,0.05); border: 1px dashed rgba(123,209,63,0.45);
+  background: rgba(255,255,255,0.07); border: 1px dashed rgba(169,232,124,0.5);
   border-radius: var(--r-m); padding: 1.1rem 1.25rem;
-  font-size: 1.05rem; color: #dbe7d7; margin-bottom: 1.6rem;
+  font-size: 1.05rem; color: #e3efdf; margin-bottom: 1.6rem;
 }
 
 .slovnik-skupina { margin-bottom: 2.2rem; }
@@ -852,7 +889,7 @@ abbr.zkratka:hover, abbr.zkratka:focus-visible { background: var(--zelena-závoj
 .vyzva {
   position: relative; overflow: hidden; isolation: isolate;
   border-radius: var(--r-xl);
-  background: linear-gradient(135deg, #1b2e1d 0%, #10200f 100%);
+  background: linear-gradient(135deg, var(--inkoust) 0%, var(--inkoust-2) 100%);
   color: var(--text-na-tmavém);
   padding: clamp(1.9rem, 5vw, 3.4rem);
 }
@@ -861,7 +898,7 @@ abbr.zkratka:hover, abbr.zkratka:focus-visible { background: var(--zelena-závoj
   background: radial-gradient(90% 120% at 100% 0%, rgba(88,172,37,0.28) 0%, rgba(88,172,37,0) 60%);
 }
 .vyzva h2 { color: #fff; }
-.vyzva p { color: #c5d4c2; max-width: 38rem; }
+.vyzva p { color: #d7e6d2; max-width: 38rem; }
 .vyzva .tlacitka { margin-top: 1.6rem; }
 
 /* ---------------------------------------------------------------- patička */
@@ -1144,3 +1181,116 @@ abbr.zkratka:hover, abbr.zkratka:focus-visible { background: var(--zelena-závoj
   .karta-kontakt::after, .karta-clovek::after, .slovnik-karta::after { display: none; }
 }
 
+
+/* ------------------------------------------- hlavička v tmavém režimu */
+@media (prefers-color-scheme: dark) {
+  .lista {
+    --lista-pozadi: #122018;
+    --lista-text: #e6f0e2;
+    --lista-text-tlumeny: #a9bca6;
+    --lista-linka: rgba(255, 255, 255, 0.12);
+    --lista-hover-pozadi: rgba(123, 209, 63, 0.18);
+    --lista-hover-text: #ffffff;
+    --lista-aktivni-pozadi: rgba(123, 209, 63, 0.22);
+    --lista-aktivni-text: var(--zelena-svetlá);
+    --lista-rastr: rgba(255, 255, 255, 0.1);
+    --lista-obrys: rgba(255, 255, 255, 0.28);
+    /* na tmavé liště by se šedé „Tech" v logu ztratilo */
+    --lista-logo-pozadi: #ffffff;
+  }
+  .logo { padding: 6px 12px; }
+}
+@media (prefers-color-scheme: light) {
+  .logo { padding: 0; }
+}
+
+/* obrázky v tmavém režimu mírně ztlumíme, ať nesvítí */
+@media (prefers-color-scheme: dark) {
+  .dvojsloupec-obraz img, .hero-obrazek img { filter: brightness(0.88) saturate(0.95); }
+  img { background: var(--papír-3); }
+}
+
+/* ================================================== rozcestník na úvodu
+   Dvě velké dlaždice — hlavní rozhodnutí, které návštěvník na webu dělá.
+   Leží přímo v hero, aby je nešlo přehlédnout. */
+.hero-rozcestnik > .obal:first-of-type { padding-block: clamp(2.6rem, 6vw, 4.5rem) 0; }
+.hero-rozcestnik > .obal:last-of-type { padding-top: clamp(2.2rem, 4vw, 3.4rem); }
+
+.rozcestnik-uvod { max-width: 46rem; margin-bottom: clamp(1.8rem, 4vw, 2.8rem); }
+.rozcestnik-uvod h1 { color: #fff; }
+.rozcestnik-pomoc {
+  margin-top: 1.4rem; color: var(--text-na-tmavém-tlumený);
+  font-size: 0.95rem; max-width: 46rem;
+}
+
+.rozcestnik { display: grid; gap: clamp(1rem, 2.5vw, 1.8rem); }
+@media (min-width: 860px) { .rozcestnik { grid-template-columns: 1fr 1fr; } }
+
+.dlazdice {
+  display: flex; flex-direction: column; overflow: hidden;
+  background: var(--papír); color: var(--text);
+  border: 1px solid var(--linka);
+  border-radius: var(--r-xl); text-decoration: none;
+  box-shadow: var(--stín-3);
+  transition: transform var(--plynule), box-shadow var(--plynule), border-color var(--rychle);
+}
+.dlazdice:hover, .dlazdice:focus-visible {
+  transform: translateY(-5px);
+  border-color: rgba(88, 172, 37, 0.55);
+}
+.dlazdice-obraz { position: relative; display: block; aspect-ratio: 16 / 9; overflow: hidden; }
+.dlazdice-obraz picture, .dlazdice-obraz img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.dlazdice-obraz::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(35, 88, 58, 0.12) 0%, rgba(27, 70, 48, 0.45) 100%);
+}
+.dlazdice-ikona {
+  position: absolute; left: clamp(1rem, 2.5vw, 1.5rem); bottom: -28px; z-index: 2;
+  width: 58px; height: 58px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--zelena-tmavá); color: #fff;
+  box-shadow: var(--stín-2);
+  transition: transform var(--plynule);
+}
+.dlazdice:hover .dlazdice-ikona { transform: scale(1.08); }
+.dlazdice-telo {
+  padding: 2.5rem clamp(1.2rem, 2.5vw, 1.8rem) clamp(1.3rem, 2.5vw, 1.8rem);
+  display: flex; flex-direction: column; flex: 1;
+}
+.dlazdice-podtitul {
+  font-family: var(--font-nadpis); font-size: 0.78rem; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--zelena-tmavá);
+  margin-bottom: 0.3rem;
+}
+.dlazdice-nazev {
+  font-family: var(--font-nadpis); font-weight: 700; line-height: 1.08;
+  font-size: clamp(1.6rem, 3.4vw, 2.2rem); letter-spacing: -0.015em;
+}
+.dlazdice-perex { color: var(--text-tlumený); margin: 0.75rem 0 1.3rem; font-size: 1rem; }
+.dlazdice .odkaz-sip { margin-top: auto; }
+
+/* ------------------------------------------- odznak větve v hlavičce */
+.lista-vetev {
+  display: none; align-items: center; gap: 0.5rem;
+  margin-right: auto;
+  padding: 0.4rem 0.5rem 0.4rem 0.85rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--lista-obrys);
+  color: var(--lista-text); text-decoration: none;
+  font-family: var(--font-nadpis); font-weight: 600; font-size: 0.9rem;
+  white-space: nowrap;
+  transition: border-color var(--rychle), background var(--rychle);
+}
+@media (min-width: 720px) { .lista-vetev { display: inline-flex; } }
+.lista-vetev:hover { border-color: var(--zelena); background: var(--lista-hover-pozadi); color: var(--lista-hover-text); }
+.lista-vetev-prepni {
+  display: grid; place-items: center; width: 26px; height: 26px;
+  border-radius: 50%; background: var(--lista-hover-pozadi); color: var(--zelena-tmavá);
+}
+.logo { margin-right: 0; }
+.lista-vnitrek > .menu { margin-left: auto; }
+@media (max-width: 719px) { .logo { margin-right: auto; } }
+
+/* aktivní větev v mobilním panelu */
+.panel-skupina[data-aktivni="1"] .panel-nadpis { color: var(--zelena-tmavá); }
+.panel-skupina[data-aktivni="1"] { background: var(--zelena-závoj); border-radius: var(--r-m); padding: 0 0.6rem 0.4rem; }

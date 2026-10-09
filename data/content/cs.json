@@ -67,8 +67,8 @@
   },
   "meta": {
     "home": {
-      "titulek": "Green Air Tech s.r.o. — projekce, realizace a servis TZB",
-      "popis": "Vzduchotechnika, chlazení, vytápění a tepelná čerpadla od projektu po servis. Nonstop dispečink, vlastní technici, 30 let praxe. Praha a Milevsko."
+      "titulek": "Green Air Tech s.r.o. — technická zařízení budov pro domácnosti i firmy",
+      "popis": "Klimatizace, tepelná čerpadla a rekuperace do domu i kompletní TZB pro firemní objekty. Projekce, realizace a nonstop servis. Praha a Milevsko."
     },
     "sluzby": {
       "titulek": "Služby — co pro vás umíme | Green Air Tech",
@@ -109,6 +109,36 @@
     "administrace": {
       "titulek": "Administrace ukázky | Green Air Tech",
       "popis": "Demo administrace — úprava textů a realizací."
+    },
+    "vetve": {
+      "domacnosti": {
+        "titulek": "Pro domácnosti — klimatizace, tepelná čerpadla, servis | Green Air Tech",
+        "popis": "Klimatizace, tepelná čerpadla, rekuperace a havarijní servis pro rodinné domy a byty. Obhlídka, montáž, dotace i nonstop dispečink."
+      },
+      "firmy": {
+        "titulek": "Pro firemní zákazníky — projekce, realizace a servis TZB | Green Air Tech",
+        "popis": "Projekce TZB v BIM, dodávky a montáže, servis 24/7, PENB a energetické audity, EAC filtry a opravy výměníků pro komerční a průmyslové objekty."
+      }
+    },
+    "sluzbyVetve": {
+      "domacnosti": {
+        "titulek": "Služby pro domácnosti | Green Air Tech",
+        "popis": "Klimatizace, tepelná čerpadla, rekuperace a servis pro rodinné domy a byty — co přesně děláme a jak to probíhá."
+      },
+      "firmy": {
+        "titulek": "Služby pro firemní zákazníky | Green Air Tech",
+        "popis": "Projekce TZB, realizace a montáže, servis, PENB a audity, EAC filtry a opravy výměníků pro firemní objekty."
+      }
+    },
+    "realizaceVetve": {
+      "domacnosti": {
+        "titulek": "Realizace u domácností | Green Air Tech",
+        "popis": "Klimatizace, tepelná čerpadla a rekuperace v rodinných domech a bytech — co jsme řešili a jak to dopadlo."
+      },
+      "firmy": {
+        "titulek": "Realizace pro firemní zákazníky | Green Air Tech",
+        "popis": "Vybrané zakázky z oblasti vzduchotechniky, chlazení, vytápění a energetiky v komerčních objektech."
+      }
     }
   },
   "home": {
@@ -444,6 +474,143 @@
           "b5": "Zpětná montáž do zařízení a odzkoušení v provozu",
           "b6": "Následná kontrola při pravidelných servisních prohlídkách"
         }
+      },
+      "d-klimatizace": {
+        "nazev": "Klimatizace do domu a bytu",
+        "kratky": "Návrh, montáž a servis klimatizace pro rodinné domy a byty — i bez viditelných lišt.",
+        "titulek": "Klimatizace do domu a bytu",
+        "lead": "Od obhlídky po zaškolení obsluhy. Montáž zabere jeden až tři dny a pak už jen víte, komu zavolat, když je potřeba.",
+        "popis": "Vybírat můžete ze široké škály výrobců a vaše přání budeme respektovat. Rádi ale poradíme — rozhodující totiž není pořizovací cena, ale jak se zařízení chová po pěti letech.",
+        "body": {
+          "b1": "Obhlídka a zaměření včetně tras chladivového potrubí a odvodu kondenzátu",
+          "b2": "Návrh výkonu podle tepelných zisků, ne podle metrů čtverečních",
+          "b3": "Multisplit i jednotlivé jednotky — nástěnné, kazetové i parapetní",
+          "b4": "Vedení potrubí v drážkách, aby v interiéru nezůstaly viditelné lišty",
+          "b5": "Montáž zpravidla 1–3 pracovní dny",
+          "b6": "Zprovoznění, nastavení a zaškolení obsluhy včetně aplikace v telefonu",
+          "b7": "Pravidelné čištění a servis, záruční i pozáruční"
+        },
+        "kroky": {
+          "k1": {
+            "titulek": "Obhlídka",
+            "popis": "Technik přijede, zaměří a probere s vámi, kde chcete chladit a kudy může vést potrubí."
+          },
+          "k2": {
+            "titulek": "Nabídka",
+            "popis": "Dostanete cenovou i technickou nabídku s konkrétními jednotkami, ne paušální částku."
+          },
+          "k3": {
+            "titulek": "Montáž",
+            "popis": "Domluvíme termín podle dodávky. Napíšeme, jaká je nutná stavební připravenost — nebo ji zajistíme sami."
+          },
+          "k4": {
+            "titulek": "Provoz",
+            "popis": "Systém spustíme, vyladíme, zaškolíme vás a předáme protokol. Pak přebíráme servis."
+          }
+        }
+      },
+      "d-tepelna-cerpadla": {
+        "nazev": "Tepelná čerpadla",
+        "kratky": "Výměna kotle za tepelné čerpadlo včetně projektu a vyřízení dotace.",
+        "titulek": "Tepelná čerpadla pro rodinné domy",
+        "lead": "Spočítáme, jestli se to u vás vyplatí, navrhneme výkon, namontujeme — a dotaci za vás vyřídíme.",
+        "popis": "Tepelné čerpadlo není univerzální řešení pro každý dům. Než ho doporučíme, spočítáme tepelné ztráty a podíváme se na otopnou soustavu. U starých radiátorů s vysokou teplotou vody vychází návratnost docela jinak, než slibuje leták.",
+        "body": {
+          "b1": "Výpočet tepelných ztrát a posouzení stávající otopné soustavy",
+          "b2": "Návrh typu a výkonu — vzduch‑voda i země‑voda",
+          "b3": "Bivalentní zdroj pro nejchladnější dny, pokud dává smysl",
+          "b4": "Projekt jako podklad k žádosti o dotaci",
+          "b5": "Vyřízení dotace na základě plné moci",
+          "b6": "Napojení na ohřev teplé vody a akumulaci",
+          "b7": "Hydraulické vyvážení soustavy po výměně zdroje",
+          "b8": "Záruční i pozáruční servis, u vybraných dodavatelů prodloužená záruka"
+        },
+        "kroky": {
+          "k1": {
+            "titulek": "Výpočet",
+            "popis": "Změříme dům, spočítáme ztráty a řekneme rovnou, jestli se čerpadlo u vás vyplatí."
+          },
+          "k2": {
+            "titulek": "Návrh a dotace",
+            "popis": "Navrhneme zdroj, připravíme projekt a podklady k dotaci. Vyřídit ji můžeme za vás."
+          },
+          "k3": {
+            "titulek": "Montáž",
+            "popis": "Vyměníme zdroj, napojíme ohřev vody a soustavu hydraulicky vyvážíme."
+          },
+          "k4": {
+            "titulek": "První sezóna",
+            "popis": "Po zimě se ozveme a podle skutečného provozu doladíme ekvitermní křivku."
+          }
+        }
+      },
+      "d-rekuperace": {
+        "nazev": "Rekuperace a větrání",
+        "kratky": "Řízené větrání s rekuperací do novostavby i do bytu po rekonstrukci.",
+        "titulek": "Rekuperace a řízené větrání",
+        "lead": "Čerstvý vzduch bez otevřených oken — a bez toho, abyste v zimě vytápěli ulici.",
+        "popis": "Rekuperace vrací teplo z odcházejícího vzduchu zpět do domu. V praxi to znamená, že můžete větrat pořád a přitom netopit víc než dřív. Nejlíp se dělá při stavbě nebo rekonstrukci, ale zvládneme ji i do hotového bytu.",
+        "body": {
+          "b1": "Centrální jednotka i lokální rekuperace do jednotlivých místností",
+          "b2": "Návrh rozvodů tak, aby se vešly do podhledů a nesnížily strop víc, než je nutné",
+          "b3": "Filtrace přiváděného vzduchu — a u nás i EAC filtry s životností 15 let",
+          "b4": "Regulace podle obsazenosti nebo podle CO₂",
+          "b5": "Tlumiče hluku, aby nebylo slyšet jednotku ani proudění",
+          "b6": "Zaregulování průtoků na jednotlivých vyústkách s protokolem",
+          "b7": "Pravidelná výměna filtrů a čištění, ať se vám do pokojů nevrací prach"
+        },
+        "kroky": {
+          "k1": {
+            "titulek": "Obhlídka",
+            "popis": "Projdeme dispozici, podhledy a možné trasy. Řekneme rovnou, co jde a co ne."
+          },
+          "k2": {
+            "titulek": "Návrh",
+            "popis": "Spočítáme množství vzduchu na místnost a navrhneme jednotku i rozvody."
+          },
+          "k3": {
+            "titulek": "Montáž",
+            "popis": "Rozvody, jednotka, vyústky. Koordinujeme se stavbou, ať se nic nebourá dvakrát."
+          },
+          "k4": {
+            "titulek": "Zaregulování",
+            "popis": "Nastavíme průtoky, změříme je a předáme protokol. Pak už jen měníme filtry."
+          }
+        }
+      },
+      "d-servis": {
+        "nazev": "Servis a havárie",
+        "kratky": "Netopí, teče, nechladí. Nonstop dispečink a technici po Praze, středních a jižních Čechách.",
+        "titulek": "Servis a havárie v domácnosti",
+        "lead": "Když se něco pokazí, voláte jedno číslo. Dispečink běží nonstop, celý rok.",
+        "popis": "Jezdíme k tepelným čerpadlům, klimatizacím, kotlům i rekuperacím — a to i k těm, které jsme nemontovali. Pokud se nedovoláte okamžitě, nahrajte vzkaz; přijde nám e‑mailem a ozveme se zpět.",
+        "body": {
+          "b1": "Havárie a poruchy — netopí, nechladí, teče, hlučí",
+          "b2": "Pravidelné prohlídky tepelných čerpadel a klimatizací",
+          "b3": "Čištění jednotek a výměna filtrů",
+          "b4": "Revize plynových spotřebičů a tlakových nádob",
+          "b5": "Kontrola a doplnění chladiva",
+          "b6": "Výměna dosluhujícího kotle včetně odvozu starého",
+          "b7": "Poradenství po telefonu — někdy stačí poradit a nemusíme nikam jezdit"
+        },
+        "kroky": {
+          "k1": {
+            "titulek": "Zavoláte",
+            "popis": "Na nonstop dispečink. Zeptáme se na pár věcí a odhadneme, jestli to spěchá."
+          },
+          "k2": {
+            "titulek": "Přijedeme",
+            "popis": "Technik dorazí s vybavením. U běžných poruch má náhradní díly s sebou."
+          },
+          "k3": {
+            "titulek": "Opravíme",
+            "popis": "Co jde na místě, spravíme hned. Co ne, objednáme a řekneme termín."
+          },
+          "k4": {
+            "titulek": "Pohlídáme",
+            "popis": "Nabídneme pravidelnou prohlídku, ať se stejná porucha neopakuje."
+          }
+        }
       }
     }
   },
@@ -635,6 +802,86 @@
           "t4": "Ohřev TV"
         },
         "vysledek": "Hotel topí za nižší náklady, podkrovní pokoje jde poprvé v létě obsadit bez stížností a celá stavba proběhla mezi sezónami."
+      },
+      "d-bungalov-klimatizace": {
+        "nazev": "Klimatizace rodinného bungalovu bez jediné lišty",
+        "misto": "Jižní Čechy",
+        "perex": "Zákazník chtěl designové vnitřní jednotky a čistý interiér — bez viditelných lišt pro chladivové potrubí.",
+        "zadani": "Majitel bungalovu si vybral designové vnitřní jednotky, ale měl jednu zásadní podmínku: v interiéru nesmí být vidět jediná lišta pro chladivové potrubí.",
+        "rozsah": {
+          "r1": "Obhlídka a přesné zakreslení tras pro drážky ve zdivu",
+          "r2": "Roztažení chladivového potrubí, kabeláže a odvodu kondenzátu do připravených drážek",
+          "r3": "Svedení rozvodů přes půdu k místu venkovní jednotky",
+          "r4": "Osazení tří vnitřních a jedné venkovní jednotky, zprovoznění a otestování",
+          "r5": "Zaškolení obsluhy včetně ovládání přes aplikaci v telefonu"
+        },
+        "technologie": {
+          "t1": "Multisplit 3+1",
+          "t2": "Potrubí v drážkách",
+          "t3": "Odvod kondenzátu",
+          "t4": "Ovládání přes Wi‑Fi"
+        },
+        "vysledek": "Potrubí vede ve zdivu a přes půdu, v interiéru není vidět nic než samotné jednotky. Zákazník si drážky nechal mezi našimi výjezdy zednicky zapravit a vymalovat."
+      },
+      "d-rodinny-dum-cerpadlo": {
+        "nazev": "Tepelné čerpadlo místo plynového kotle",
+        "misto": "Středočeský kraj",
+        "perex": "Starší dům s radiátory. Místo rychlé výměny zdroje jsme nejdřív spočítali ztráty a upravili soustavu — jinak by čerpadlo jelo draho.",
+        "zadani": "Majitelé chtěli pryč od plynu. Dům má původní radiátory navržené na vysokou teplotu vody, což je přesně situace, kdy tepelné čerpadlo samo o sobě úsporu nepřinese.",
+        "rozsah": {
+          "r1": "Výpočet tepelných ztrát a posouzení otopné soustavy",
+          "r2": "Výměna dvou poddimenzovaných radiátorů, aby soustava jela na nižší teplotu",
+          "r3": "Tepelné čerpadlo vzduch‑voda v kaskádě s bivalentním dohřevem",
+          "r4": "Napojení na ohřev teplé vody a akumulační nádobu",
+          "r5": "Hydraulické vyvážení soustavy a vyřízení dotace na plnou moc"
+        },
+        "technologie": {
+          "t1": "Tepelné čerpadlo vzduch‑voda",
+          "t2": "Bivalentní dohřev",
+          "t3": "Akumulace",
+          "t4": "Ekvitermní regulace"
+        },
+        "vysledek": "Po první zimě jsme se vrátili a podle skutečného provozu doladili ekvitermní křivku. Soustava jede na nižší teplotu vody, než jaká byla původně navržená, a čerpadlo tím drží slušný topný faktor."
+      },
+      "d-byt-rekuperace": {
+        "nazev": "Rekuperace do bytu po rekonstrukci",
+        "misto": "Praha",
+        "perex": "Byt v cihlovém domě po kompletní rekonstrukci. Rozvody se musely vejít do podhledů, které už byly navržené.",
+        "zadani": "Majitelé chtěli větrat bez otevírání oken do rušné ulice. Rekonstrukce už byla rozjetá, takže na rozvody zbývalo jen to místo, které bylo v podhledech.",
+        "rozsah": {
+          "r1": "Zaměření dispozice a prověření volného místa v podhledech",
+          "r2": "Návrh množství vzduchu pro jednotlivé místnosti",
+          "r3": "Centrální rekuperační jednotka v technické místnosti",
+          "r4": "Rozvody plochým potrubím a tlumiče hluku u jednotky",
+          "r5": "Zaregulování průtoků na vyústkách včetně protokolu"
+        },
+        "technologie": {
+          "t1": "Centrální rekuperace",
+          "t2": "Ploché potrubí",
+          "t3": "Tlumiče hluku",
+          "t4": "Regulace podle CO₂"
+        },
+        "vysledek": "Byt se větrá nepřetržitě a do ulice nejsou otevřená okna. Hluk jednotky zůstal pod úrovní, kterou je v obytných místnostech slyšet."
+      },
+      "d-vymena-kotle": {
+        "nazev": "Havarijní výměna kotle v topné sezóně",
+        "misto": "Jižní Čechy",
+        "perex": "Volání na dispečink v lednu: netopí. Starý kotel už nešlo opravit, nový jel za dva dny.",
+        "zadani": "Paní volala na nonstop dispečink, že jí přestal topit kotel. Při prohlídce se ukázalo, že oprava už nedává smysl — na díly se čekalo déle, než by trvala výměna.",
+        "rozsah": {
+          "r1": "Výjezd na prohlídku týž den a diagnostika poruchy",
+          "r2": "Návrh náhradního zdroje a cenová nabídka ještě na místě",
+          "r3": "Demontáž a odvoz starého kotle",
+          "r4": "Montáž nového kondenzačního kotle včetně úpravy odtahu spalin",
+          "r5": "Revize, zaškolení a zapsání do revizní knihy"
+        },
+        "technologie": {
+          "t1": "Kondenzační kotel",
+          "t2": "Úprava odtahu spalin",
+          "t3": "Revize plynu",
+          "t4": "Ekvitermní regulace"
+        },
+        "vysledek": "Od telefonátu k zatopení uplynuly dva dny, z toho jeden čekání na dodávku kotle. Domácnost byla bez tepla jednu noc."
       }
     }
   },
@@ -810,24 +1057,27 @@
     },
     "formular": {
       "titulek": "Napište nám",
-      "lead": "Ozveme se zpravidla do jednoho pracovního dne.",
+      "lead": "Stačí tři údaje. Zbytek si řekneme po telefonu.",
       "jmeno": "Jméno a příjmení",
       "firma": "Firma (nepovinné)",
       "email": "E‑mail",
       "telefon": "Telefon (nepovinné)",
-      "typ": "Čeho se poptávka týká",
-      "zprava": "Co potřebujete vyřešit",
-      "zpravaHint": "Typ objektu, co je nainstalované, co vás trápí. Klidně stručně.",
+      "typ": "S čím potřebujete pomoct?",
+      "zprava": "Chcete ještě něco dodat? (nepovinné)",
+      "zpravaHint": "Typ objektu, co je nainstalované, co vás trápí. Klidně jednou větou — nebo vůbec.",
       "souhlas": "Souhlasím se zpracováním osobních údajů pro vyřízení poptávky.",
       "souhlasOdkaz": "Ochrana osobních údajů",
       "odeslano": "Děkujeme, zpráva je na cestě. Ozveme se vám.",
       "odeslanoDemo": "V téhle ukázce se zpráva nikam neodesílá — na ostrém webu dorazí na info@greenairtech.cz.",
       "typy": {
+        "havarie": "Havárie — nefunguje topení nebo chlazení",
+        "klimatizace": "Klimatizace — nová instalace",
+        "tepelne-cerpadlo": "Tepelné čerpadlo",
+        "rekuperace": "Rekuperace a větrání",
+        "servis": "Pravidelný servis nebo revize",
         "projekce": "Projekce TZB",
-        "realizace": "Realizace nebo rekonstrukce",
-        "servis": "Servis a údržba",
+        "realizace": "Větší realizace nebo rekonstrukce",
         "energetika": "PENB, audit nebo povinná kontrola",
-        "klimatizace": "Klimatizace nebo tepelné čerpadlo",
         "filtry": "EAC filtry",
         "vymeniky": "Oprava výměníku",
         "kariera": "Kariéra — mám zájem o pozici",
@@ -838,8 +1088,12 @@
         "email": "Zkontrolujte prosím tvar e‑mailu.",
         "telefon": "Zkontrolujte prosím telefonní číslo.",
         "zprava-kratka": "Napište prosím alespoň větu, ať víme, o co jde.",
-        "souhlas": "Bez souhlasu bohužel nemůžeme poptávku zpracovat."
-      }
+        "souhlas": "Bez souhlasu bohužel nemůžeme poptávku zpracovat.",
+        "kontakt": "Nechte nám prosím telefon nebo e‑mail, ať se máme kam ozvat.",
+        "typ": "Vyberte prosím, co řešíte."
+      },
+      "typPlaceholder": "Vyberte, co řešíte",
+      "kontaktHint": "Stačí jedno z toho. Co vám víc vyhovuje?"
     }
   },
   "slovnik": {
@@ -1026,9 +1280,10 @@
       "poznamka": "Demo: přihlášení nic neověřuje."
     },
     "zalozky": {
+      "nastenka": "Nástěnka",
       "texty": "Texty webu",
       "realizace": "Realizace",
-      "novinky": "Novinky",
+      "uzivatele": "Uživatelé",
       "data": "Záloha a obnovení"
     },
     "texty": {
@@ -1065,7 +1320,9 @@
       "zrusit": "Zrušit",
       "vlastni": "Vaše",
       "upravena": "Upravená",
-      "prazdne": "Zatím žádná vlastní realizace. Přidejte první."
+      "prazdne": "Zatím žádná vlastní realizace. Přidejte první.",
+      "vetev": "Pro koho",
+      "vsechnyVetve": "Obě části webu"
     },
     "data": {
       "titulek": "Záloha a obnovení",
@@ -1080,6 +1337,116 @@
     },
     "odhlasit": "Odhlásit",
     "zpetNaWeb": "Zpět na web",
-    "demoUpozorneni": "Demo administrace — změny se ukládají jen do tohoto prohlížeče."
+    "demoUpozorneni": "Demo administrace — změny se ukládají jen do tohoto prohlížeče.",
+    "nastenka": {
+      "titulek": "Nástěnka",
+      "lead": "Návštěvnost webu a odeslané poptávky. Data se berou z Google Analytics — v téhle ukázce jsou vymyšlená, na ostrém webu poběží doopravdy.",
+      "upozorneni": "Ukázková data. Po nasazení webu začne Google Analytics sbírat skutečná čísla, první se objeví zhruba po týdnu provozu.",
+      "obdobi": "Období",
+      "obdobi7": "7 dní",
+      "obdobi30": "30 dní",
+      "obdobi90": "90 dní",
+      "protiMinulemu": "proti předchozímu období",
+      "metriky": {
+        "navstevy": "Návštěvy",
+        "uzivatele": "Uživatelé",
+        "zobrazeni": "Zobrazení stránek",
+        "poptavky": "Odeslané poptávky",
+        "cas": "Čas na stránce",
+        "opusteni": "Míra okamžitého opuštění"
+      },
+      "napoveda": {
+        "navstevy": "Kolikrát někdo přišel na web. Jeden člověk může za období přijít víckrát.",
+        "uzivatele": "Kolik různých lidí web navštívilo. Tohle číslo je vždycky menší než návštěvy.",
+        "zobrazeni": "Kolik stránek si lidé dohromady otevřeli.",
+        "poptavky": "Kolikrát někdo odeslal kontaktní formulář. Nejdůležitější číslo na téhle nástěnce.",
+        "cas": "Jak dlouho průměrně na stránce zůstanou. Delší čas obvykle znamená, že je obsah zaujal.",
+        "opusteni": "Kolik lidí odešlo hned z první stránky, aniž by někam klikli. Čím míň, tím líp."
+      },
+      "grafTitulek": "Vývoj návštěvnosti",
+      "zdroje": "Odkud lidé přišli",
+      "vstupni": "Na jaké stránce začali",
+      "zarizeni": "Z čeho se dívali",
+      "poptavkyPodle": "Odkud přišly poptávky",
+      "zdrojePolozky": {
+        "vyhledavani": "Vyhledávání Google",
+        "primy": "Přímý přístup",
+        "mapy": "Mapy a Firmy.cz",
+        "ecoadepto": "Eko‑Adepto",
+        "socialni": "Sociální sítě",
+        "ostatni": "Ostatní odkazy"
+      },
+      "vstupniPolozky": {
+        "uvod": "Úvodní rozcestník",
+        "domacnosti": "Domácnosti",
+        "firmy": "Firemní zákazníci",
+        "servis": "Servis a havárie",
+        "kontakt": "Kontakt"
+      },
+      "zarizeniPolozky": {
+        "mobil": "Mobil",
+        "pocitac": "Počítač",
+        "tablet": "Tablet"
+      }
+    },
+    "uzivatele": {
+      "titulek": "Uživatelé a oprávnění",
+      "lead": "Kdo se dostane do administrace a co tam smí. Role se dají kdykoli změnit — například externí autor článků vidí jen Novinky.",
+      "pridat": "Přidat uživatele",
+      "jmeno": "Jméno",
+      "email": "E‑mail",
+      "role": "Role",
+      "pravaSloupec": "Co smí",
+      "odebrat": "Odebrat",
+      "odebratPotvrzeni": "Opravdu odebrat tohoto uživatele?",
+      "ulozit": "Uložit uživatele",
+      "zrusit": "Zrušit",
+      "prazdne": "Zatím tu není nikdo další.",
+      "poznamka": "V ukázce se uživatelé ukládají jen do vašeho prohlížeče. Na ostré verzi se každému pošle pozvánka a heslo si nastaví sám.",
+      "role_spravce": "Správce",
+      "role_editor": "Editor obsahu",
+      "role_autor": "Autor článků",
+      "prava_spravce": "Všechno včetně uživatelů a statistik",
+      "prava_editor": "Texty, realizace a novinky",
+      "prava_autor": "Jen novinky a články"
+    }
+  },
+  "rozcestnik": {
+    "stitek": "Technická zařízení budov",
+    "titulek": "Vzduch, teplo a chlad,<br>které prostě fungují",
+    "lead": "Projektujeme, stavíme a servisujeme TZB — v rodinném domě i ve velkém objektu. Vyberte si, odkud přicházíte, a web se podle toho přizpůsobí.",
+    "vyberte": "Kam to máte?",
+    "vyberteLead": "Pro každou stranu děláme něco jiného. Vyberte si a uvidíte jen to, co se vás týká — své služby, své realizace, svůj servis.",
+    "prepnout": "Přepnout na druhou část",
+    "jsteTady": "Prohlížíte si část pro:",
+    "spolecne": "Společné pro obě části"
+  },
+  "vetve": {
+    "domacnosti": {
+      "nazev": "Domácnosti",
+      "podtitul": "Rodinné domy a byty",
+      "perex": "Klimatizace, tepelné čerpadlo, rekuperace, havárie kotle. Přijedeme, navrhneme, namontujeme — a pak se o to staráme.",
+      "cta": "Vstoupit do sekce pro domácnosti",
+      "titulek": "Teplo a čistý vzduch u vás doma",
+      "lead": "Menší zakázky řeší naše servisní oddělení. Znamená to jednoho člověka od obhlídky po záruční servis a číslo, na které voláte, když se něco stane.",
+      "sluzbyTitulek": "S čím vám doma pomůžeme",
+      "sluzbyLead": "Čtyři obory, které pokrývají skoro všechno, co v domě dýchá, topí nebo chladí.",
+      "realizaceTitulek": "Co jsme udělali u lidí doma",
+      "realizaceLead": "Bungalov bez jediné lišty, čerpadlo místo kotle, rekuperace do bytu. U každé zakázky najdete, co jsme řešili a jak to dopadlo.",
+      "poznamka": "Menší zakázky zhruba do 750 tisíc korun vede servisní oddělení. Větší projekty a tendry najdete v části pro firemní zákazníky."
+    },
+    "firmy": {
+      "nazev": "Firemní zákazník",
+      "podtitul": "Komerční a průmyslové objekty",
+      "perex": "Projekce v BIM, realizace a montáže, servis s nonstop dispečinkem, energetické audity a refity. Kompletní TZB od první čáry po pravidelnou revizi.",
+      "cta": "Vstoupit do sekce pro firmy",
+      "titulek": "Technická zařízení budov od návrhu po servis",
+      "lead": "Administrativa, výroba, zdravotnictví, obchodní centra i veřejné objekty. Nemusíte skládat dohromady projektanta, montážní firmu a servis.",
+      "sluzbyTitulek": "Sedm oborů, jedna odpovědnost",
+      "sluzbyLead": "Vedeme celý řetězec — a když se za dva roky něco stane, voláte pořád stejné číslo.",
+      "realizaceTitulek": "Zakázky, za kterými si stojíme",
+      "realizaceLead": "Administrativa, zdravotnictví, výroba i školy. Podívejte se, co konkrétně jsme na stavbě řešili.",
+      "poznamka": "Realizace a tendry zhruba od jednoho milionu korun. Menší zakázky v domácnostech najdete v části pro domácnosti."
+    }
   }
 }
