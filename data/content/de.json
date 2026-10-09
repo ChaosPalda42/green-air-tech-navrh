@@ -9,14 +9,14 @@
     "nezavaznaPoptavka": "Unverbindliche Anfrage",
     "napsatNam": "Schreiben Sie uns",
     "zavolat": "Anrufen",
-    "dispecink": "24/7-Notdienst",
+    "dispecink": "Notdienst 24/7",
     "dispecinkPopis": "Störung jetzt? Wir rufen innerhalb einer Stunde zurück.",
     "menu": "Menü",
     "zavrit": "Schließen",
     "jazyk": "Sprache",
     "nahoru": "Nach oben",
     "prejitNaObsah": "Zum Inhalt springen",
-    "vysvetlivka": "Abkürzungsverzeichnis",
+    "vysvetlivka": "Erklärung der Abkürzungen",
     "celySlovnik": "Vollständiges Abkürzungsverzeichnis",
     "hledat": "Suchen",
     "filtrovat": "Filtern",
@@ -51,8 +51,8 @@
     "zdenek-bauska": "Leiter der Serviceabteilung",
     "jan-rezac": "Projektmanager",
     "radek-tyla": "Technischer Leiter des Unternehmens",
-    "denisa-jandova": "Technisch-kaufmännische Managerin",
-    "jonas-benak": "Technisch-kaufmännischer Manager"
+    "denisa-jandova": "Vertriebstechnische Managerin",
+    "jonas-benak": "Vertriebstechnischer Manager"
   },
   "nav": {
     "uvod": "Startseite",
@@ -67,16 +67,16 @@
   },
   "meta": {
     "home": {
-      "titulek": "Green Air Tech s.r.o. — Planung, Umsetzung und Service für TGA",
-      "popis": "Lüftung, Kühlung, Heizung und Wärmepumpen – von der Planung bis zum Service. 24/7-Notdienst, eigene Techniker, 30 Jahre Erfahrung. Prag und Milevsko."
+      "titulek": "Green Air Tech s.r.o. — Technische Gebäudeausrüstung für Haushalte und Unternehmen",
+      "popis": "Klimatisierung, Wärmepumpen und Lüftung für Privathaushalte sowie komplette TGA für Gewerbeobjekte. Planung, Umsetzung und Nonstop-Service. Prag und Milevsko."
     },
     "sluzby": {
       "titulek": "Dienstleistungen — Was wir für Sie tun können | Green Air Tech",
-      "popis": "TGA-Planung in BIM, Lieferung und Montage, 24/7-Service, Energieaudits und PENB, Klimatisierung und Wärmepumpen, EAC-Filter, Wärmetauscher-Reparaturen."
+      "popis": "TGA-Planung in BIM, Lieferung und Montage, 24/7-Service, PENB und Energieaudits, Klimatisierung und Wärmepumpen, EAC-Filter, Austausch von Wärmetauschern."
     },
     "realizace": {
       "titulek": "Projekte und Referenzen | Green Air Tech",
-      "popis": "Ausgewählte Projekte aus den Bereichen Lüftung, Kühlung, Heizung und Wärmepumpen."
+      "popis": "Ausgewählte Aufträge aus den Bereichen Lüftungstechnik, Kühlung, Heizung und Wärmepumpen."
     },
     "onas": {
       "titulek": "Über uns — Das TGA-Technikteam | Green Air Tech",
@@ -84,15 +84,15 @@
     },
     "novinky": {
       "titulek": "Neuigkeiten | Green Air Tech",
-      "popis": "Was es bei uns Neues gibt — Projekte, Gesetzgebung, Schulungen und Recruiting."
+      "popis": "Was es bei uns Neues gibt — Projekte, Gesetzgebung, Schulungen und Personalbeschaffung."
     },
     "kariera": {
       "titulek": "Karriere — Wir suchen TGA-Servicetechniker | Green Air Tech",
-      "popis": "Werden Sie Teil unseres TGA-Serviceteams. Firmenwagen, Ausrüstung, Schulungen und faire Bedingungen."
+      "popis": "Werden Sie Teil unseres TGA-Servicetechnik-Teams. Eigenes Fahrzeug, Ausrüstung, Schulungen und faire Bedingungen."
     },
     "kontakt": {
       "titulek": "Kontakt | Green Air Tech s.r.o.",
-      "popis": "Prag 8 und Milevsko. 24/7-Service-Notdienst +420 383 809 730, info@greenairtech.cz."
+      "popis": "Prag 8 und Milevsko. Nonstop-Service-Notdienst +420 383 809 730, info@greenairtech.cz."
     },
     "slovnik": {
       "titulek": "TGA-Abkürzungsverzeichnis | Green Air Tech",
@@ -104,27 +104,57 @@
     },
     "chyba404": {
       "titulek": "Seite nicht gefunden | Green Air Tech",
-      "popis": "Diese Seite haben wir nicht gefunden. Versuchen Sie die Startseite oder die Leistungsübersicht — oder schreiben Sie uns einfach."
+      "popis": "Diese Seite konnten wir nicht finden. Versuchen Sie es auf der Startseite, in der Dienstleistungsübersicht oder schreiben Sie uns direkt — wir beraten Sie gerne."
     },
     "administrace": {
       "titulek": "Demo-Administration | Green Air Tech",
       "popis": "Demo-Administration — Bearbeitung von Texten und Projekten."
+    },
+    "vetve": {
+      "domacnosti": {
+        "titulek": "Für Haushalte — Klimatisierung, Wärmepumpen, Service | Green Air Tech",
+        "popis": "Klimatisierung, Wärmepumpen, Lüftung und Notdienst für Einfamilienhäuser und Wohnungen. Besichtigung, Montage, Förderung und 24/7-Notdienst."
+      },
+      "firmy": {
+        "titulek": "Für Firmenkunden — Planung, Umsetzung und Service der TGA | Green Air Tech",
+        "popis": "TGA-Planung in BIM, Lieferung und Montage, 24/7-Service, PENB und Energieaudits, EAC-Filter und Austausch von Wärmetauschern für Gewerbe- und Industrieobjekte."
+      }
+    },
+    "sluzbyVetve": {
+      "domacnosti": {
+        "titulek": "Dienstleistungen für Haushalte | Green Air Tech",
+        "popis": "Klimatisierung, Wärmepumpen, Lüftung und Service für Einfamilienhäuser und Wohnungen — was genau wir tun und wie der Ablauf ist."
+      },
+      "firmy": {
+        "titulek": "Dienstleistungen für Firmenkunden | Green Air Tech",
+        "popis": "TGA-Planung, Umsetzung und Montage, Service, PENB und Audits, EAC-Filter und Austausch von Wärmetauschern für Gewerbeobjekte."
+      }
+    },
+    "realizaceVetve": {
+      "domacnosti": {
+        "titulek": "Projekte im privaten Bereich | Green Air Tech",
+        "popis": "Klimatisierung, Wärmepumpen und Lüftung in Einfamilienhäusern und Wohnungen — was wir gelöst haben und wie das Ergebnis aussieht."
+      },
+      "firmy": {
+        "titulek": "Projekte für Firmenkunden | Green Air Tech",
+        "popis": "Ausgewählte Aufträge aus den Bereichen Lüftungstechnik, Kühlung, Heizung und Energieversorgung in Gewerbeobjekten."
+      }
     }
   },
   "home": {
     "hero": {
       "stitek": "Technische Gebäudeausrüstung",
-      "titulek": "Luft, Wärme und Kälte,<br>die in Gebäuden einfach funktionieren",
-      "lead": "Wir planen, bauen und warten TGA — Lüftung, Kühlung, Heizung, Sanitär und Kältetechnik. Ein Team von der ersten Besichtigung bis zum 24/7-Service.",
+      "titulek": "Luft, Wärme und Kälte,<br>die im Gebäude einfach funktionieren",
+      "lead": "Wir planen, bauen und warten TGA — Lüftung, Kühlung, Heizung, Sanitär und MSR. Ein Team von der ersten Besichtigung bis zum 24/7-Service.",
       "cta": "Lösung anfragen",
       "ctaDruhe": "Unsere Kompetenzen",
-      "dispecinkStitek": "Störung? 24/7-Notdienst"
+      "dispecinkStitek": "Störung? Notdienst 24/7"
     },
     "cisla": {
       "titulek": "Wofür wir stehen",
       "praxe": {
         "hodnota": "30+",
-        "popis": "Jahre Erfahrung der Techniker im TGA-Bereich"
+        "popis": "Jahre Erfahrung unserer Techniker im TGA-Bereich"
       },
       "oblasti": {
         "hodnota": "7",
@@ -140,137 +170,137 @@
       }
     },
     "sluzby": {
-      "stitek": "Unsere Kompetenzen",
+      "stitek": "Was wir können",
       "titulek": "Sieben Fachbereiche, eine Verantwortung",
       "lead": "Sie müssen nicht Planer, Montagefirma und Service separat koordinieren. Wir decken die gesamte Kette ab — und wenn in zwei Jahren etwas passiert, rufen Sie einfach dieselbe Nummer an."
     },
     "postup": {
-      "stitek": "Unser Ablauf",
+      "stitek": "Wie wir arbeiten",
       "titulek": "Von der Besichtigung bis zur langfristigen Betreuung",
       "lead": "Vier Schritte, keine Überraschungen. Bei jedem Schritt wissen Sie genau, was Sie erhalten und wer dafür verantwortlich ist.",
       "kroky": {
         "obhlidka": {
-          "titulek": "Besichtigung und Auftragsklärung",
-          "popis": "Wir kommen zu Ihnen vor Ort, nehmen das Objekt auf, prüfen die technische Dokumentation und hören genau zu, was Sie wirklich benötigen. Fehlende Unterlagen können wir nach Absprache selbst beschaffen."
+          "titulek": "Besichtigung und Auftragserteilung",
+          "popis": "Wir kommen zu Ihnen vor Ort, vermessen das Objekt, prüfen die technische Dokumentation und hören genau zu, was Sie tatsächlich benötigen. Fehlende Unterlagen können wir nach Absprache auch selbst beschaffen."
         },
         "navrh": {
           "titulek": "Planung und Angebot",
-          "popis": "Wir erstellen die technische Lösung, das Budget und den Zeitplan. Bei größeren Projekten erstellen wir alle Planungsstufen, bei Bedarf auch in BIM."
+          "popis": "Wir erstellen die technische Lösung, das Budget und den Zeitplan. Bei größeren Projekten bearbeiten wir alle Stufen der Projektdokumentation, bei Bedarf auch in BIM."
         },
         "realizace": {
           "titulek": "Umsetzung und Übergabe",
-          "popis": "Wir liefern und montieren, koordinieren die Schnittstellen zu anderen Gewerken und übernehmen die Bauleitung sowie die technische Überwachung. Zum Abschluss schulen wir das Personal und übergeben die Dokumentation."
+          "popis": "Wir liefern und montieren, koordinieren die Schnittstellen zu anderen Gewerken und führen die Urheber- sowie die technische Bauüberwachung durch. Zum Abschluss schulen wir das Bedienpersonal und übergeben die Dokumentation."
         },
         "servis": {
           "titulek": "Service und Einsparungen",
-          "popis": "Wir übernehmen die regelmäßige Wartung, Revisionen und Kontrollen. Nach einem vereinbarten Zeitraum prüfen wir, ob das System die versprochenen Einsparungen tatsächlich erzielt."
+          "popis": "Wir übernehmen die regelmäßige Wartung, Prüfungen und Kontrollen. Nach einem vereinbarten Zeitraum prüfen wir, ob das System die versprochenen Einsparungen tatsächlich erzielt."
         }
       }
     },
     "realizace": {
       "stitek": "Ausgewählte Projekte",
-      "titulek": "Wo unsere Technik bereits im Einsatz ist",
-      "lead": "Verwaltung, Gesundheitswesen, Produktion und Schulen. Sehen Sie sich an, welche technischen Herausforderungen wir konkret gelöst haben."
+      "titulek": "Wo unsere Luft bereits fließt",
+      "lead": "Verwaltung, Gesundheitswesen, Produktion und Schulen. Sehen Sie sich an, welche konkreten Herausforderungen wir auf der Baustelle gelöst haben."
     },
     "duvody": {
-      "stitek": "Warum wir",
+      "stitek": "Warum wir?",
       "titulek": "Drei Dinge, die uns wichtig sind",
       "polozky": {
         "udrzitelnost": {
-          "titulek": "Erst sanieren, dann ersetzen",
-          "popis": "Die günstigste Kilowattstunde ist diejenige, die Sie nicht verbrauchen. Nach einem Audit sagen wir Ihnen, was an Ihrem bestehenden System sinnvoll zu behalten und was tatsächlich ausgetauscht werden sollte. Nicht jedes Projekt muss mit dem Abriss des Maschinenraums beginnen."
+          "titulek": "Erst Sanierung, dann Austausch",
+          "popis": "Die günstigste Kilowattstunde ist die, die Sie gar nicht erst verbrauchen. Nach einem Audit sagen wir Ihnen, was am bestehenden System sinnvoll erhalten werden kann und was wirklich ersetzt werden muss. Nicht jedes Projekt muss mit dem Abriss des Maschinenraums beginnen."
         },
         "jedenTym": {
           "titulek": "Planer und Servicetechniker an einem Tisch",
-          "popis": "Kollegen aus der Serviceabteilung begehen die Baustelle gemeinsam mit dem Ausführungsteam. Sie kennen das Objekt, bevor sie es übernehmen – und das zeigt sich an der Schnelligkeit des ersten Einsatzes."
+          "popis": "Kollegen aus der Serviceabteilung begleiten das Umsetzungsteam auf der Baustelle. Sie kennen das Objekt bereits, bevor sie es übernehmen – das sorgt für eine schnellere Reaktionszeit im ersten Einsatzfall."
         },
         "dispecink": {
-          "titulek": "Die Leitstelle, die abhebt",
-          "popis": "Rund um die Uhr, das ganze Jahr über. Wenn Sie niemanden sofort erreichen, hinterlassen Sie eine Nachricht – diese wird uns sofort per E-Mail zugestellt, und wir melden uns umgehend zurück."
+          "titulek": "Ein Dispositionszentrum, das ans Telefon geht",
+          "popis": "Rund um die Uhr erreichbar, das ganze Jahr über. Wenn Sie uns nicht sofort erreichen, hinterlassen Sie eine Nachricht – diese kommt sofort per E-Mail bei uns an, und wir melden uns umgehend zurück."
         }
       }
     },
     "slovnik": {
       "stitek": "Wir sprechen technisch, aber verständlich",
       "titulek": "Abkürzung nicht verstanden? Fahren Sie mit der Maus darüber.",
-      "lead": "In unserer Branche gibt es mehr Abkürzungen als Schrauben. Wenn Sie auf der Website auf eine unterstrichene Abkürzung stoßen, fahren Sie einfach mit der Maus darüber oder tippen Sie auf dem Handy darauf – wir erklären sie Ihnen.",
-      "ukazka": "Wir erstellen Energieausweise, planen Lüftungstechnik sowie Mess- und Regeltechnik und binden das System an das BMS an.",
-      "cta": "Glossar der Abkürzungen öffnen"
+      "lead": "In unserer Branche gibt es mehr Abkürzungen als Schrauben. Wenn Sie auf der Website auf eine unterstrichene Abkürzung stoßen, fahren Sie einfach mit der Maus darüber oder tippen Sie sie auf dem Handy an – wir erklären sie Ihnen.",
+      "ukazka": "Wir erstellen Energieausweise, planen Lüftungstechnik sowie MSR und binden das System in die Gebäudeautomation (BMS) ein.",
+      "cta": "Abkürzungsverzeichnis öffnen"
     },
     "kontakt": {
       "stitek": "Kontaktieren Sie uns",
       "titulek": "Beschreiben Sie uns Ihr Anliegen",
-      "lead": "Ein paar Sätze genügen. Wir melden uns in der Regel innerhalb eines Arbeitstages – und im Falle einer Störung rufen Sie bitte direkt die Leitstelle an."
+      "lead": "Ein paar Sätze genügen. Wir melden uns in der Regel innerhalb eines Arbeitstages zurück – im Falle einer Störung rufen Sie bitte direkt unsere Disposition an."
     }
   },
   "sluzby": {
     "prehled": {
       "stitek": "Dienstleistungen",
       "titulek": "Was wir für Sie tun können",
-      "lead": "Von der ersten Linie im Entwurf bis zur regelmäßigen Revision nach fünf Jahren. Wählen Sie einen Bereich aus – oder schreiben Sie uns direkt, was Sie benötigen, und wir beraten Sie gerne."
+      "lead": "Von der ersten Skizze im Projekt bis zur regelmäßigen Prüfung nach fünf Jahren. Wählen Sie einen Bereich aus – oder schreiben Sie uns direkt, was Sie benötigen, und wir beraten Sie gerne."
     },
     "spolecne": {
       "coZahrnuje": "Was die Dienstleistung umfasst",
       "jakProbiha": "Ablauf",
-      "souvisi": "Zusammenhängend mit",
+      "souvisi": "Zusammenhänge",
       "zajimaVas": "Interessiert Sie diese Dienstleistung?",
-      "zajimaVasLead": "Schreiben Sie uns ein paar Sätze über das Objekt, und wir melden uns mit einem Vorschlag für das weitere Vorgehen."
+      "zajimaVasLead": "Schreiben Sie uns ein paar Sätze zum Objekt, und wir melden uns mit einem Vorschlag für das weitere Vorgehen."
     },
     "polozky": {
       "projekce": {
-        "nazev": "Gebäudetechnik-Projektierung (TZB)",
-        "kratky": "Alle Projektplanungsstufen inklusive BIM, Kostenplan und Bauüberwachung.",
-        "titulek": "Gebäudetechnik-Projektierung — von der Studie bis zur Ausführungsplanung",
-        "lead": "Ein Projekt, nach dem man tatsächlich bauen kann. Wir erstellen alle Planungsstufen, koordinieren die Schnittstellen zwischen den Gewerken und begleiten das Projekt bis zur Übergabe.",
-        "popis": "Unsere Planer zeichnen täglich TZB-Pläne und sind auch auf der Baustelle präsent – was man den Zeichnungen ansieht. Wir erstellen Dokumentationen für jede Stufe, von der Vorstudie über die Entwurfs- und Genehmigungsplanung bis hin zur Ausführungsplanung und der Bestandsdokumentation, bei Bedarf vollständig in BIM.",
+        "nazev": "TGA-Planung",
+        "kratky": "Alle Planungsstufen inklusive BIM, Budgetierung und Bauüberwachung.",
+        "titulek": "TGA-Planung – von der Vorstudie bis zur Ausführungsplanung",
+        "lead": "Ein Projekt, nach dem man tatsächlich bauen kann. Wir erstellen alle Planungsstufen, koordinieren die Schnittstellen zwischen den Gewerken und begleiten den Prozess bis zur Übergabe.",
+        "popis": "Unsere Planer zeichnen täglich TGA-Pläne und sind auch auf der Baustelle präsent – was man in den Zeichnungen deutlich sieht. Wir erstellen die Dokumentation für jede Stufe, von der Vorstudie über die Genehmigungsplanung bis hin zur Ausführungsplanung und der Dokumentation der tatsächlich ausgeführten Arbeiten, bei Bedarf vollständig in BIM.",
         "body": {
-          "b1": "Objektbegehung und Vor-Ort-Aufnahme vor der ersten Planung",
-          "b2": "Alle Projektstufen gemäß Auftrag inklusive Leistungsverzeichnis",
-          "b3": "Fehlende Unterlagen stellen wir nach Absprache bereit (Aufmaß, Diagnose, Objektpass)",
+          "b1": "Objektbesichtigung und lokale Aufnahmen vor der ersten Planung",
+          "b2": "Alle Planungsstufen gemäß Auftrag inklusive Leistungsverzeichnis",
+          "b3": "Fehlende Unterlagen beschaffen wir nach Absprache (Aufmaß, Diagnose, Bestandsaufnahme)",
           "b4": "Koordination mit anderen Gewerken und Sicherstellung der Schnittstellen",
           "b5": "Erstellung der Dokumentation in BIM",
-          "b6": "Urheberrechtliche Bauleitung während der gesamten Bauphase",
-          "b7": "Bauherrenvertretung / Technische Bauleitung (TDS)"
+          "b6": "Urheberüberwachung während der gesamten Bauphase",
+          "b7": "Bauüberwachung für den Bauherrn (TDS)"
         },
         "kroky": {
           "k1": {
-            "titulek": "Begehung und Auftragserteilung",
+            "titulek": "Besichtigung und Auftragserteilung",
             "popis": "Wir besichtigen das Objekt, besprechen die Anforderungen und schlagen die effizienteste Lösung für Ihren Betrieb und Ihr Budget vor."
           },
           "k2": {
             "titulek": "Unterlagen",
-            "popis": "Wir ergänzen das Fehlende – Aufmaß, Diagnose des Ist-Zustands sowie Berechnungen von Wärmeverlusten und -gewinnen."
+            "popis": "Wir ergänzen, was fehlt – Aufmaß, Diagnose des Ist-Zustands, Berechnungen von Wärmeverlusten und -gewinnen."
           },
           "k3": {
             "titulek": "Dokumentation",
-            "popis": "Wir erstellen die erforderliche Planungsstufe inklusive Kostenplan und technischem Bericht."
+            "popis": "Wir erstellen die erforderliche Planungsstufe inklusive Budget und technischem Bericht."
           },
           "k4": {
             "titulek": "Bauüberwachung",
-            "popis": "Wir koordinieren die Lösungen laufend mit dem Ausführenden und stellen sicher, dass gemäß Projekt gebaut wird."
+            "popis": "Wir koordinieren die Lösungen laufend mit dem ausführenden Unternehmen und stellen sicher, dass gemäß der Planung gebaut wird."
           }
         }
       },
       "realizace-montaze": {
-        "nazev": "Ausführung und Montage",
-        "kratky": "Lieferung und Montage von Lüftung, Kühlung, Heizung, Sanitär, Gas und Wärmepumpen.",
-        "titulek": "Ausführung von Lieferungen und Montagen der Gebäudetechnik",
+        "nazev": "Umsetzung und Montage",
+        "kratky": "Lieferung und Montage von Lüftungstechnik, Kühlung, Heizung, Sanitärtechnik, Gas und Wärmepumpen.",
+        "titulek": "Umsetzung von TGA-Lieferungen und Montagen",
         "lead": "Wir sind Ihr Partner im gesamten Prozess – von der Auftragsvorbereitung über die Montage bis zur Übergabe an den Investor, inklusive Bauüberwachung.",
-        "popis": "Wir sind ein Team von Technikern mit über 30 Jahren Erfahrung im Bereich der Gebäudetechnik. Wir stützen uns sowohl auf unsere Erfahrung als auch auf neue Erkenntnisse in diesem dynamischen Fachbereich – und darauf, dass unser Service das Objekt bereits kennt, bevor wir es offiziell übernehmen.",
+        "popis": "Wir sind ein Team aus Technikern mit über 30 Jahren Erfahrung im Bereich der Technischen Gebäudeausrüstung. Wir stützen uns sowohl auf unsere Erfahrung als auch auf neue Erkenntnisse in diesem sich dynamisch entwickelnden Sektor – und darauf, dass unser Service das Objekt bereits kennt, bevor wir es übernehmen.",
         "body": {
-          "b1": "Lüftungstechnik und Wärmerückgewinnung (VZT)",
-          "b2": "Kühlung — Industrie- und Wohnbereich",
-          "b3": "Heizung inklusive Kesselhäuser und Übergabestationen",
-          "b4": "Wasser und Abwasser (Sanitär)",
+          "b1": "Lüftungstechnik und Wärmerückgewinnung (RLT)",
+          "b2": "Kühlung – industriell und wohnwirtschaftlich",
+          "b3": "Heizung einschließlich Heizungskesselräumen und Übergabestationen",
+          "b4": "Wasser- und Abwasserinstallationen (Sanitärtechnik)",
           "b5": "Gasinstallationen",
           "b6": "Wärmepumpen",
-          "b7": "Mess- und Regeltechnik (MaR) und BMS-Anbindung",
-          "b8": "Garantie- und Wartungsservice vom selben Team"
+          "b7": "Mess- und Regeltechnik (MSR) und BMS-Anbindung",
+          "b8": "Garantie- und Nachgarantieservice vom selben Team"
         },
         "kroky": {
           "k1": {
             "titulek": "Auftragsvorbereitung",
-            "popis": "Wir prüfen das Projekt, weisen auf Kollisionen hin und erstellen Zeitpläne sowie die bauliche Vorbereitung."
+            "popis": "Wir prüfen das Projekt, weisen auf Kollisionen hin und erstellen einen Zeitplan sowie die Baustellenvorbereitung."
           },
           "k2": {
             "titulek": "Lieferung und Montage",
@@ -282,81 +312,81 @@
           },
           "k4": {
             "titulek": "Übernahme durch den Service",
-            "popis": "Die Kollegen aus der Serviceabteilung besichtigen die Baustelle noch vor der Übergabe – sie übernehmen ein Objekt, das sie bereits kennen."
+            "popis": "Kollegen der Serviceabteilung besichtigen die Baustelle noch vor der Übergabe – sie übernehmen ein Objekt, das sie bereits kennen."
           }
         }
       },
       "servis": {
         "nazev": "Service und Wartung",
-        "kratky": "Regelmäßiger Service, Revisionen und eine 24/7-Leitstelle für alle TZB-Systeme.",
-        "titulek": "Gebäudetechnik-Service mit 24/7-Leitstelle",
-        "lead": "Mehrere Teams von festangestellten Technikern mit kompletter Ausrüstung und eine Leitstelle, die 365 Tage im Jahr besetzt ist.",
-        "popis": "Wir warten sowohl unsere eigenen Installationen als auch Anlagen, die wir von Dritten übernehmen. Wir arbeiten in Zweierteams; sofern die Art des Einsatzes es nicht erfordert, kommt der Techniker allein – damit Sie nicht unnötig für eine zweite Person bezahlen müssen.",
+        "kratky": "Regelmäßiger Service, Revisionen und 24/7-Notdienst für alle TZB-Systeme.",
+        "titulek": "TZB-Service mit 24/7-Notdienst",
+        "lead": "Mehrere Teams von Stammtechnikern mit kompletter Ausrüstung und eine Disposition, die 365 Tage im Jahr besetzt ist.",
+        "popis": "Wir warten, was wir gebaut haben, aber auch, was wir von anderen übernehmen. Wir fahren in Zweierteams; sofern die Art des Einsatzes es nicht erfordert, kommt der Techniker allein – damit Sie nicht unnötig für eine zweite Person bezahlen.",
         "body": {
           "b1": "Lüftungsanlagen und -systeme",
           "b2": "Kühlsysteme – industriell und wohnwirtschaftlich",
-          "b3": "Heizsysteme und -komponenten",
+          "b3": "Heizsysteme und -elemente",
           "b4": "Sanitärtechnische Installationen (ZTI)",
-          "b5": "Mess- und Regeltechnik (M&R)",
+          "b5": "Mess- und Regeltechnik (MSR)",
           "b6": "Wärmepumpen",
           "b7": "Kraft-Wärme-Kopplungsanlagen (KWK)",
-          "b8": "Brandschutztechnische Lösungen für Gebäude (PBŘ)",
-          "b9": "Gasprüfung (PS, PZ, OPZ) und Druckbehälterprüfung (TNS), Schulung von Heizungsfachkräften",
-          "b10": "Kesselhausbetrieb, Wärmeberechnung",
-          "b11": "Erstellung von Betriebs- und technischer Dokumentation, Revisionsbücher",
-          "b12": "Hydraulischer Abgleich von Heiz- und Kühlsystemen inklusive Protokollierung"
+          "b8": "Brandschutztechnische Lösungen für Gebäude",
+          "b9": "Gasrevisionen (PS, PZ, OPZ) und Druckbehälterprüfung (TNS), Schulung von Heizungsfachkräften",
+          "b10": "Betrieb von Kesselräumen, Wärmeberechnung",
+          "b11": "Erstellung von Betriebs- und Technischer Dokumentation, Revisionsbüchern",
+          "b12": "Hydraulischer Abgleich von Heizungs- und Kühlsystemen einschließlich Protokollen"
         },
         "kroky": {
           "k1": {
             "titulek": "Objektbesichtigung",
-            "popis": "Wir kommen vorbei, um Ihre Anlagen, deren Zustand und Ihre dringendsten Anliegen zu prüfen."
+            "popis": "Wir kommen vorbei, um zu sehen, was Sie betreiben, in welchem Zustand es sich befindet und was Ihre dringendsten Anliegen sind."
           },
           "k2": {
-            "titulek": "Lösungskonzept",
-            "popis": "Auf Basis vorhandener Dokumentation und einer Vor-Ort-Begehung erstellen wir einen Vorschlag für den Wartungsumfang und den Preis."
+            "titulek": "Lösungsvorschlag",
+            "popis": "Auf Basis vorhandener Dokumentation und einer Vor-Ort-Prüfung erstellen wir einen Vorschlag für den Serviceumfang und den Preis."
           },
           "k3": {
             "titulek": "Umsetzung der Maßnahmen",
-            "popis": "Nach Genehmigung der Lösung, des Preises und des Vertrags führen wir die Maßnahmen durch und erstellen einen Plan für die regelmäßige Wartung."
+            "popis": "Nach Zustimmung der Lösung, des Preises und des Vertrags führen wir die Maßnahmen durch und erstellen einen Plan für die regelmäßige Wartung."
           },
           "k4": {
             "titulek": "Einsparungskontrolle",
-            "popis": "Nach einem festgelegten Zeitraum überprüfen wir, ob die gesetzten Einsparziele tatsächlich erreicht wurden."
+            "popis": "Nach einem festgelegten Zeitraum prüfen wir, ob die gesetzten Einsparungsziele tatsächlich erreicht wurden."
           }
         },
         "dispecink": {
-          "titulek": "24/7-Dispensierung",
-          "popis": "Unsere Serviceabteilung betreibt eine nonstop erreichbare Zentrale. Falls Sie uns nicht sofort erreichen können, hinterlassen Sie uns eine Nachricht – diese kommt per E-Mail bei uns an und wir melden uns umgehend zurück."
+          "titulek": "24/7-Disposition",
+          "popis": "Die Serviceabteilung betreibt einen 24/7-Notdienst. Wenn Sie uns nicht sofort erreichen können, hinterlassen Sie uns eine Nachricht – diese kommt per E-Mail bei uns an und wir melden uns zurück."
         }
       },
       "energetika": {
-        "nazev": "PENB, Audits und Refits",
-        "kratky": "Energieausweise, Energieaudits, Pflichtprüfungen gemäß Verordnung 38/2022 Sb. und Refits.",
-        "titulek": "PENB, Energieaudits und Refits",
-        "lead": "Wir schätzen Ihre Energie. Wir messen, berechnen und sagen Ihnen, was sich sinnvoll ändern sollte – und was nicht.",
+        "nazev": "PENB, Audits und Refit",
+        "kratky": "Energieausweise, Energieaudits, Pflichtprüfungen gemäß Verordnung 38/2022 Sb. und Refit.",
+        "titulek": "PENB, Energieaudits und Refit",
+        "lead": "Wir schätzen Ihre Energie. Wir messen, berechnen und sagen Ihnen, was es sinnvoll macht zu ändern – und was nicht.",
         "popis": "Unser Energieexperte erstellt PENB sowie Energieaudits, führt Pflichtprüfungen der Betriebssysteme durch und schlägt einen Refit vor, der nicht mit dem Abriss des Maschinenraums beginnt.",
         "body": {
-          "b1": "Erstellung von PENB gemäß Energiemodell; Eintragung in die ENEX-Datenbank (MPO)",
+          "b1": "Erstellung von PENB gemäß Energiewirtschaftsgesetz; Eintragung in die ENEX-Datenbank (MPO)",
           "b2": "Prüfung der Betriebssysteme gemäß Verordnung 38/2022 Sb. für Wärmequellen über 70 kW",
-          "b3": "Energieaudit gemäß Gesetz Nr. 406/2000 Sb. und Verordnung Nr. 480/2012 Sb., stets mit mindestens zwei Varianten",
+          "b3": "Energieaudit gemäß Gesetz Nr. 406/2000 Sb. und Verordnung Nr. 480/2012 Sb., immer mit mindestens zwei Varianten",
           "b4": "Energiegutachten",
-          "b5": "Diagnose von Heizsystemen, Kühlsystemen und Lüftungsanlagen (VZT)",
-          "b6": "Systemabgleich gemäß Verordnung 193/2007 Sb. inklusive Protokoll über die Durchflussmengen",
-          "b7": "Prüfung von Druckbehältern und Gasgeräten",
-          "b8": "Messung der Innenraumqualität – thermischer Komfort, CO₂, TVOC"
+          "b5": "Diagnose von Heizungs-, Kühl- und Lüftungssystemen",
+          "b6": "Hydraulischer Abgleich der Systeme gemäß Verordnung 193/2007 Sb. einschließlich Protokoll über die Durchflussmengen",
+          "b7": "Revision von Druckbehältern und Gasgeräten",
+          "b8": "Messung der Innenraumqualität – thermisches Wohlbefinden, CO₂, TVOC"
         },
         "upozorneni": {
           "titulek": "Achtung: Pflichtprüfung",
-          "popis": "Gemäß der Aktualisierung vom 01.01.2023 ist der Eigentümer verpflichtet, alle 5 Jahre eine Prüfung der Betriebssysteme durch einen Energieexperten durchführen zu lassen. Bei Nichteinhaltung drohen Bußgelder von bis zu 200.000 CZK."
+          "popis": "Gemäß der Aktualisierung vom 01.01.2023 ist der Eigentümer verpflichtet, alle 5 Jahre eine durch einen Energieexperten durchgeführte Prüfung der Betriebssysteme veranlassen zu lassen. Bei Nichteinhaltung drohen Bußgelder von bis zu 200.000 CZK."
         },
         "refit": {
           "titulek": "Refit statt Austausch",
-          "popis": "Unsere Philosophie ist Nachhaltigkeit. Nach dem Audit schlagen wir vor, welche Teile des Systems erhalten und welche durch neue, effizientere und normgerechte Komponenten ersetzt werden können. Das Ergebnis sind geringere Investitionen und eine kleinere Umweltbelastung."
+          "popis": "Unsere Philosophie ist Nachhaltigkeit. Nach dem Audit schlagen wir vor, welche Systemteile erhalten und welche durch neue, effizientere und normgerechte Komponenten ersetzt werden können. Das Ergebnis sind geringere Investitionen und eine kleinere Umweltbelastung."
         },
         "kroky": {
           "k1": {
             "titulek": "Datenerhebung",
-            "popis": "Wir besichtigen das Objekt und prüfen Ablesungen, Dokumentation und den tatsächlichen Betrieb – nicht nur die Planwerte."
+            "popis": "Wir besichtigen das Objekt, prüfen Ablesungen, Dokumentationen und den tatsächlichen Betrieb – nicht nur die Planwerte."
           },
           "k2": {
             "titulek": "Berechnung und Varianten",
@@ -364,10 +394,10 @@
           },
           "k3": {
             "titulek": "Empfehlung",
-            "popis": "Wir bewerten die Varianten wirtschaftlich sowie ökologisch und empfehlen die am besten geeignete – mit entsprechender Begründung."
+            "popis": "Wir bewerten die Varianten wirtschaftlich sowie ökologisch und empfehlen die am besten geeignete – mit Begründung."
           },
           "k4": {
-            "titulek": "Umsetzung und Überprüfung",
+            "titulek": "Umsetzung und Verifizierung",
             "popis": "Wir können die Maßnahmen auch umsetzen und nach einem vereinbarten Zeitraum überprüfen, ob die Einsparungen tatsächlich eingetreten sind."
           }
         }
@@ -376,73 +406,210 @@
         "nazev": "Klimatisierung und Wärmepumpen",
         "kratky": "Planung, Montage, Förderung sowie Service von Klimaanlagen und Wärmepumpen.",
         "titulek": "Klimatisierung und Wärmepumpen",
-        "lead": "Von der Besichtigung über die Förderabwicklung bis zur Einweisung des Personals. Für Unternehmen, öffentliche Gebäude und Einfamilienhäuser.",
-        "popis": "Sie können aus einer breiten Palette von Anbietern wählen, und wir werden Ihre Wünsche respektieren. Gerne beraten wir Sie jedoch – wir verfügen über umfangreiche Erfahrung und wissen, dass es nicht nur auf den Anschaffungspreis ankommt.",
+        "lead": "Von der Besichtigung über die Abwicklung von Förderanträgen bis hin zur Einweisung des Bedienpersonals. Für Unternehmen, öffentliche Gebäude und Einfamilienhäuser.",
+        "popis": "Sie können aus einer breiten Palette von Lieferanten wählen, und wir werden Ihre Wünsche respektieren. Gerne beraten wir Sie jedoch – wir verfügen über umfangreiche Erfahrung und wissen, dass es nicht nur auf den Anschaffungspreis ankommt.",
         "body": {
-          "b1": "Besichtigung des Installationsortes und Aufmaß",
-          "b2": "Maßgeschneidertes Preis- und Technikangebot für das Objekt",
+          "b1": "Besichtigung des Installationsortes und Ausmessung",
+          "b2": "Maßgeschneidertes Preis- und technisches Angebot für das Objekt",
           "b3": "Projekt als Grundlage für den Förderantrag",
-          "b4": "Montage in der Regel innerhalb von 1–3 Arbeitstagen",
+          "b4": "Montage in der Regel 1–3 Arbeitstage",
           "b5": "Parametrierung, Inbetriebnahme und Einweisung des Bedienpersonals",
-          "b6": "Förderabwicklung auf Basis einer Vollmacht",
-          "b7": "Garantie- und Nachgarantieservice, bei ausgewählten Anbietern verlängerte Garantie",
-          "b8": "24/7-Servicezentrale"
+          "b6": "Abwicklung der Förderung auf Basis einer Vollmacht",
+          "b7": "Garantie- und Garantieverlängerungsservice, bei ausgewählten Lieferanten verlängerte Garantie",
+          "b8": "Service-Leitstelle 24/7"
         },
         "kroky": {
           "k1": {
             "titulek": "Besichtigung",
-            "popis": "Ein Techniker kommt vorbei, nimmt alle notwendigen Maße auf und bespricht mit Ihnen Ihre Vorstellungen bezüglich Kühlung und Heizung. Wir lassen uns die verfügbaren Objektdokumentationen aushändigen."
+            "popis": "Ein Techniker kommt vorbei, misst alles Notwendige aus und bespricht mit Ihnen Ihre Vorstellungen zur Kühlung und Heizung. Wir fordern die verfügbare Objektdokumentation an."
           },
           "k2": {
             "titulek": "Angebot und Projektierung",
-            "popis": "Wir erstellen ein Preis- und Technikangebot oder gegebenenfalls ein Projekt als Grundlage für die Förderung."
+            "popis": "Wir erstellen ein Preis- und technisches Angebot oder gegebenenfalls ein Projekt als Grundlage für die Förderung."
           },
           "k3": {
             "titulek": "Montage",
-            "popis": "Wir vereinbaren einen Termin basierend auf den bestätigten Lieferungen und teilen Ihnen mit, welche baulichen Voraussetzungen nötig sind – oder wir sorgen diese selbst dafür."
+            "popis": "Wir vereinbaren einen Termin entsprechend der bestätigten Lieferungen und informieren Sie über die notwendige bauliche Vorbereitung – oder wir übernehmen diese selbst."
           },
           "k4": {
             "titulek": "Betrieb und Service",
-            "popis": "Wir nehmen das System in Betrieb, optimieren es, schulen das Bedienpersonal und unterzeichnen das Übergabeprotokoll. Anschließend übernehmen wir den Service."
+            "popis": "Wir nehmen das System in Betrieb, optimieren es, weisen das Personal ein und unterzeichnen das Übergabeprotokoll. Danach übernehmen wir den Service."
           }
         }
       },
       "eac-filtry": {
-        "nazev": "EAC-Filter Honeywell",
+        "nazev": "Honeywell EAC-Filter",
         "kratky": "Elektronische Luftreiniger mit einer Lebensdauer von 15 Jahren. Wir sind Partner für die Tschechische Republik.",
-        "titulek": "EAC-Filter Honeywell",
-        "lead": "Wir sind der Partner von Honeywell für die Tschechische Republik im Bereich spezieller EAC-Filter. Diese fangen Feinstaub ein und senken gleichzeitig den Energieverbrauch der Lüftungsanlagen.",
-        "popis": "Der elektronische Luftreiniger fängt schädliche PM2,5-Partikel ein und weist gleichzeitig einen deutlich geringeren Druckverlust als herkömmliche Filter auf. Der Ventilator muss weniger leisten – was sich positiv auf der Rechnung bemerkbar macht.",
+        "titulek": "Honeywell EAC-Filter",
+        "lead": "Wir sind der Partner von Honeywell für die Tschechische Republik im Bereich spezieller EAC-Filter. Sie fangen feinen Staub ein und senken gleichzeitig den Energieverbrauch der Lüftungsanlage.",
+        "popis": "Der elektronische Luftreiniger fängt schädliche PM2,5-Partikel ein und weist gleichzeitig einen deutlich geringeren Druckverlust auf als herkömmliche Filter. Der Ventilator muss weniger leisten – was sich positiv auf der Rechnung bemerkbar macht.",
         "body": {
           "b1": "Vorfilter für größere Partikel und Kollektorplatten für Partikel von 0,3–3 Mikrometern",
           "b2": "Geringerer Druckverlust als bei Standardfiltern – ca. 5 % Einsparung der AHU-Ventilatorleistung",
           "b3": "Ungefähre Amortisationszeit von etwa 1,5 Jahren",
           "b4": "Waschbarer Vorfilter und Kollektor – geringere Betriebskosten, umweltfreundlicher",
           "b5": "Lebensdauer des Filters: 15 Jahre",
-          "b6": "Funktioniert nur, wenn die Ventilatoren laufen",
+          "b6": "Arbeitet nur, wenn die Ventilatoren laufen",
           "b7": "Ausgangsrelais zur EAC-Überwachung in das BMS",
-          "b8": "Sicherheitsschalter gegen Beschädigung und Risiko beim Öffnen des Gitters",
-          "b9": "LED-Anzeige für Zustände AN/AUS, Alarm und Reinigungsbedarf",
-          "b10": "Interoperable Modelle F58G und F58H für flexible Installation"
+          "b8": "Verriegelungsschalter zum Schutz vor Beschädigung und Risiko beim Öffnen des Gitters",
+          "b9": "LED-Statusanzeige für EIN/AUS, Alarm und Reinigungsbedarf",
+          "b10": "Untereinander kompatible Modelle F58G und F58H für flexible Installation"
         },
         "servis": {
           "titulek": "EAC-Filter-Service",
-          "popis": "Neben dem Garantieservice bieten wir auch einen Service nach Ablauf der Garantie an. Die Reinigung erfolgt durch Abspülen in einem Becken, und unsere Leitstelle ist 24/7 erreichbar."
+          "popis": "Neben dem Garantieservice bieten wir auch einen Service nach Ablauf der Garantie an. Die Reinigung erfolgt durch Abspülen in einer Wanne, und unsere Service-Leitstelle ist 24/7 erreichbar."
         }
       },
       "vymeniky": {
-        "nazev": "Wärmetauscher-Reparaturen",
+        "nazev": "Wärmetauscher-Reparatur",
         "kratky": "Diagnose, Reparatur und Druckprüfung beschädigter Wärmetauscher in unserer Werkstatt.",
-        "titulek": "Reparatur und Sanierung von Wärmetauschern",
-        "lead": "Ein defekter Wärmetauscher muss nicht zwangsläufig ein neuer sein. Wir diagnostizieren, reparieren und testen – oft zu einem Bruchteil der Kosten eines Austauschs.",
-        "popis": "Wir verfügen über eine eigene Werkstatt mit Reinigungsbecken und Helium-Prüfverfahren, sodass wir selbst kleinste Undichtigkeiten finden, die bei einer herkömmlichen Wasserprüfung unentdeckt bleiben.",
+        "titulek": "Reparatur und Instandsetzung von Wärmetauschern",
+        "lead": "Ein defekter Wärmetauscher muss nicht zwangsläufig ein neuer sein. Wir diagnostizieren, reparieren und prüfen – oft zu einem Bruchteil der Kosten eines Austauschs.",
+        "popis": "Wir verfügen über eine eigene Werkstatt mit Spülwannen und Helium-Prüfverfahren, sodass wir selbst kleinste Undichtigkeiten finden, die eine herkömmliche Wasser-Druckprüfung nicht erkennt.",
         "body": {
           "b1": "Diagnose des beschädigten Wärmetauschers direkt vor Ort",
           "b2": "Demontage und Transport zur Druckdiagnose in unsere Werkstatt",
           "b3": "Reparatur oder Austausch einzelner Wärmetauscherkomponenten",
-          "b4": "Wasserbeaufschlagung oder präzisere Helium-Druckprüfung",
-          "b5": "Wiedereinbau in die Anlage und Funktionsprüfung vor Ort",
-          "b6": "Nachfolgende Kontrolle im Rahmen regelmäßiger Wartungsintervalle"
+          "b4": "Druckprüfung mit Wasser oder präzisere Helium-Druckprüfung",
+          "b5": "Wiedereinbau in das Gerät und Funktionsprüfung im Betrieb",
+          "b6": "Nachkontrolle im Rahmen regelmäßiger Serviceinspektionen"
+        }
+      },
+      "d-klimatizace": {
+        "nazev": "Klimatisierung für Haus und Wohnung",
+        "kratky": "Planung, Montage und Service von Klimaanlagen für Einfamilienhäuser und Wohnungen – auch ohne sichtbare Leisten.",
+        "titulek": "Klimatisierung für Haus und Wohnung",
+        "lead": "Von der Besichtigung bis zur Einweisung des Bedienpersonals. Die Montage dauert ein bis drei Tage, und danach wissen Sie genau, wen Sie im Bedarfsfall anrufen können.",
+        "popis": "Sie können aus einer breiten Palette von Herstellern wählen, und wir werden Ihre Wünsche respektieren. Gerne beraten wir Sie jedoch – entscheidend ist nicht der Anschaffungspreis, sondern wie sich das Gerät nach fünf Jahren verhält.",
+        "body": {
+          "b1": "Besichtigung und Ausmessung inklusive der Leitungsverlegung für Kältemittel und Kondensatablauf",
+          "b2": "Leistungsplanung basierend auf Wärmeeintrag statt Quadratmetern",
+          "b3": "Multi-Split-Systeme oder Einzelgeräte – Wand-, Decken- oder Konsolengeräte",
+          "b4": "Verlegung der Leitungen in Schlitzen, damit keine sichtbaren Leisten im Innenraum verbleiben",
+          "b5": "Montage in der Regel 1–3 Arbeitstage",
+          "b6": "Inbetriebnahme, Einstellung und Einweisung des Bedienpersonals inklusive App-Anwendung",
+          "b7": "Regelmäßige Reinigung und Service, sowohl innerhalb als auch nach der Garantiezeit"
+        },
+        "kroky": {
+          "k1": {
+            "titulek": "Besichtigung",
+            "popis": "Ein Techniker kommt vorbei, misst aus und bespricht mit Ihnen, welche Bereiche gekühlt werden sollen und wie die Leitungen geführt werden können."
+          },
+          "k2": {
+            "titulek": "Angebot",
+            "popis": "Sie erhalten ein Preis- und technisches Angebot mit konkreten Geräten statt eines Pauschalbetrags."
+          },
+          "k3": {
+            "titulek": "Montage",
+            "popis": "Wir vereinbaren einen Termin entsprechend der Lieferung. Wir informieren Sie über die notwendige bauliche Vorbereitung – oder wir übernehmen diese selbst."
+          },
+          "k4": {
+            "titulek": "Betrieb",
+            "popis": "Wir nehmen das System in Betrieb, optimieren es, schulen Sie ein und übergeben das Protokoll. Danach übernehmen wir den Service."
+          }
+        }
+      },
+      "d-tepelna-cerpadla": {
+        "nazev": "Wärmepumpen",
+        "kratky": "Austausch des Kessels gegen eine Wärmepumpe inklusive Planung und Abwicklung der Förderung.",
+        "titulek": "Wärmepumpen für Einfamilienhäuser",
+        "lead": "Wir berechnen die Wirtschaftlichkeit, planen die Leistung, führen die Montage durch – und kümmern uns um die Förderung für Sie.",
+        "popis": "Eine Wärmepumpe ist keine universelle Lösung für jedes Haus. Bevor wir sie empfehlen, berechnen wir die Wärmeverluste und prüfen das Heizsystem. Bei alten Radiatoren mit hohen Vorlauftemperaturen fällt die Amortisation oft anders aus, als es Prospekte versprechen.",
+        "body": {
+          "b1": "Berechnung der Wärmeverluste und Bewertung des bestehenden Heizsystems",
+          "b2": "Planung von Typ und Leistung – Luft-Wasser sowie Sole-Wasser",
+          "b3": "Bivalente Wärmequelle für die kältesten Tage, sofern sinnvoll",
+          "b4": "Projektplanung als Grundlage für den Förderantrag",
+          "b5": "Abwicklung der Förderung auf Basis einer Vollmacht",
+          "b6": "Anschluss an die Warmwasserbereitung und Speicherung",
+          "b7": "Hydraulischer Abgleich des Systems nach dem Austausch der Wärmequelle",
+          "b8": "Garantie- und Nicht-Garantie-Service, bei ausgewählten Lieferanten mit verlängerter Garantie"
+        },
+        "kroky": {
+          "k1": {
+            "titulek": "Berechnung",
+            "popis": "Wir vermessen das Haus, berechnen die Verluste und sagen Ihnen direkt, ob sich eine Wärmepumpe für Sie lohnt."
+          },
+          "k2": {
+            "titulek": "Planung und Förderung",
+            "popis": "Wir planen die Wärmequelle und erstellen das Projekt sowie die Unterlagen für die Förderung. Wir können die Abwicklung für Sie übernehmen."
+          },
+          "k3": {
+            "titulek": "Montage",
+            "popis": "Wir tauschen die Wärmequelle aus, schließen die Warmwasserbereitung an und führen den hydraulischen Abgleich durch."
+          },
+          "k4": {
+            "titulek": "Erste Saison",
+            "popis": "Nach dem Winter melden wir uns bei Ihnen und optimieren die Heizkurve basierend auf dem tatsächlichen Betrieb."
+          }
+        }
+      },
+      "d-rekuperace": {
+        "nazev": "Rekuperation und Lüftung",
+        "kratky": "Kontrollierte Lüftung mit Wärmerückgewinnung für Neubauten oder Wohnungen nach einer Sanierung.",
+        "titulek": "Rekuperation und kontrollierte Lüftung",
+        "lead": "Frische Luft ohne offene Fenster – und ohne dass Sie im Winter die Straße mitheizen.",
+        "popis": "Die Rekuperation gibt die Wärme aus der Abluft zurück ins Haus. In der Praxis bedeutet das, dass Sie ständig lüften können, ohne mehr zu heizen als zuvor. Am besten lässt sich dies während des Neubaus oder der Sanierung umsetzen, aber wir können sie auch in bestehende Wohnungen integrieren.",
+        "body": {
+          "b1": "Zentrale Einheiten oder lokale Rekuperation für einzelne Räume",
+          "b2": "Planung der Leitungsführung, sodass sie in die Decken passt, ohne die Deckenhöhe unnötig zu reduzieren",
+          "b3": "Filtration der Zuluft – bei uns auch mit EAC-Filtern mit einer Lebensdauer von 15 Jahren",
+          "b4": "Regelung nach Belegung oder CO₂-Gehalt",
+          "b5": "Schalldämpfer, damit weder das Gerät noch die Luftströmung hörbar sind",
+          "b6": "Regulierung der Luftströme an den einzelnen Auslässen inklusive Protokollierung",
+          "b7": "Regelmäßiger Filterwechsel und Reinigung, damit kein Staub in die Räume zurückkehrt"
+        },
+        "kroky": {
+          "k1": {
+            "titulek": "Besichtigung",
+            "popis": "Wir prüfen den Grundriss, die Deckenhöhen und mögliche Trassen. Wir sagen Ihnen direkt, was machbar ist und was nicht."
+          },
+          "k2": {
+            "titulek": "Planung",
+            "popis": "Wir berechnen das Luftvolumen pro Raum und planen die Einheit sowie die Leitungsführung."
+          },
+          "k3": {
+            "titulek": "Montage",
+            "popis": "Leitungen, Einheit, Auslässe. Wir koordinieren uns mit der Baustelle, damit nichts doppelt aufgebrochen werden muss."
+          },
+          "k4": {
+            "titulek": "Regulierung",
+            "popis": "Wir stellen die Luftströme ein, messen sie und übergeben das Protokoll. Danach müssen Sie nur noch die Filter wechseln."
+          }
+        }
+      },
+      "d-servis": {
+        "nazev": "Service und Notdienst",
+        "kratky": "Heizung aus, Wasser läuft, Kühlung defekt. Rund um die Uhr Notdienst und Techniker in Prag, Mittel- und Südböhmen.",
+        "titulek": "Service und Notfälle im Haushalt",
+        "lead": "Wenn etwas nicht funktioniert, rufen Sie nur eine Nummer an. Unsere Notrufzentrale ist rund um die Uhr, das ganze Jahr über erreichbar.",
+        "popis": "Wir fahren zu Wärmepumpen, Klimaanlagen, Kesseln und Rekuperationsanlagen – auch zu solchen, die wir nicht installiert haben. Falls Sie uns nicht sofort erreichen können, hinterlassen Sie eine Nachricht; diese kommt per E-Mail bei uns an und wir melden uns zurück.",
+        "body": {
+          "b1": "Notfälle und Störungen – Heizung aus, Kühlung defekt, Wasserleck, Lärmbelästigung",
+          "b2": "Regelmäßige Inspektion von Wärmepumpen und Klimaanlagen",
+          "b3": "Reinigung der Einheiten und Filterwechsel",
+          "b4": "Prüfung von Gasgeräten und Druckbehältern",
+          "b5": "Kontrolle und Nachfüllen von Kältemitteln",
+          "b6": "Austausch des alten Kessels inklusive Entsorgung des Altgeräts",
+          "b7": "Telefonische Beratung – manchmal reicht ein Rat und wir müssen nicht vor Ort sein"
+        },
+        "kroky": {
+          "k1": {
+            "titulek": "Anruf",
+            "popis": "Bei unserer 24/7-Notrufzentrale. Wir stellen ein paar Fragen und schätzen ein, wie dringend es ist."
+          },
+          "k2": {
+            "titulek": "Einsatz",
+            "popis": "Der Techniker kommt mit der nötigen Ausrüstung. Bei gängigen Defekten hat er Ersatzteile direkt dabei."
+          },
+          "k3": {
+            "titulek": "Reparatur",
+            "popis": "Was vor Ort reparierbar ist, erledigen wir sofort. Was nicht, bestellen wir und nennen Ihnen einen Termin."
+          },
+          "k4": {
+            "titulek": "Nachsorge",
+            "popis": "Wir bieten regelmäßige Inspektionen an, damit derselbe Defekt nicht erneut auftritt."
+          }
         }
       }
     }
@@ -451,7 +618,7 @@
     "stranka": {
       "stitek": "Referenzen",
       "titulek": "Projekte, auf die wir stolz sind",
-      "lead": "Ausgewählte Projekte aus den letzten Jahren. Bei jedem Projekt finden Sie heraus, welche Herausforderungen wir gelöst haben, welche Technologien wir eingesetzt haben und wie das Ergebnis aussieht."
+      "lead": "Ausgewählte Projekte aus den letzten Jahren. Finden Sie bei jedem Projekt heraus, welche Herausforderung wir gelöst haben, welche Technologien zum Einsatz kamen und wie das Ergebnis aussieht."
     },
     "detail": {
       "rozsah": "Leistungsumfang",
@@ -459,15 +626,15 @@
       "vysledek": "Ergebnis",
       "parametry": "Projektdaten",
       "plocha": "Versorgte Fläche",
-      "doba": "Umsetzungszeitraum",
+      "doba": "Umsetzungsdauer",
       "kraj": "Standort",
       "dokonceno": "Abgeschlossen",
-      "dalsiRealizace": "Weitere Projekte",
+      "dalsiRealizace": "Weitere Referenzen",
       "maObdobny": "Haben Sie ein ähnliches Objekt?",
-      "maObdobnyLead": "Schreiben Sie uns ein paar Zeilen, und wir melden uns mit einem Lösungsvorschlag bei Ihnen."
+      "maObdobnyLead": "Schreiben Sie uns ein paar Sätze, und wir melden uns mit einem Vorschlag für das weitere Vorgehen."
     },
     "kategorie": {
-      "vse": "Alle Fachbereiche",
+      "vse": "Alle Bereiche",
       "vzt": "Lüftungstechnik",
       "chlazeni": "Kühlung",
       "vytapeni": "Heizung",
@@ -479,276 +646,356 @@
       "logisticke-centrum-d1": {
         "nazev": "Refit der Heizung eines Logistikzentrums an der D1",
         "misto": "Region Mittelböhmen",
-        "perex": "Ein Energieaudit ergab, dass es rentabler ist, die Leitungen zu behalten und nur die Erzeuger und die Regelung auszutauschen. Der Gasverbrauch sank um ein Drittel.",
-        "zadani": "Der Betreiber des Logistikareals wollte die Heizkosten für die Hallen und den Verwaltungsbereich senken. Der ursprüngliche Plan sah den Austausch des gesamten Heizkellers vor.",
+        "perex": "Das Energieaudit ergab, dass es sich lohnt, die Verteilung beizubehalten und nur die Wärmequellen und die Regelung auszutauschen. Der Gasverbrauch sank um ein Drittel.",
+        "zadani": "Der Betreiber des Logistikgeländes wollte die Heizkosten für die Hallen und den Verwaltungsbereich senken. Der ursprüngliche Plan sah den Austausch des gesamten Heizkesselsystems vor.",
         "rozsah": {
-          "r1": "Energieaudit des gesamten Areals inklusive zweier Lösungsvarianten",
-          "r2": "Refit der Gasheizung – Erhalt der Leitungen, neue Brennwert-Erzeuger",
-          "r3": "Neue ekviterme Regelung und Anbindung an das BMS des Objekts",
-          "r4": "Hydraulischer Abgleich des Heizsystems inklusive Protokoll",
+          "r1": "Energieaudit des gesamten Geländes einschließlich zweier Lösungsvarianten",
+          "r2": "Refit des Gasheizkesselsystems — bestehende Verteilung, neue Brennwertquellen",
+          "r3": "Neue ekvitermale Regelung und Anbindung an das BMS des Gebäudes",
+          "r4": "Hydraulischer Abgleich des Heizsystems einschließlich Protokoll",
           "r5": "Erstellung des Energieausweises (PENB) nach Abschluss der Maßnahmen"
         },
         "technologie": {
-          "t1": "Brennwertkessel",
-          "t2": "Ekviterme Regelung",
-          "t3": "MaR mit Überwachung",
-          "t4": "Hydraulischer Abgleich"
+          "t1": "Kondenzační kotle",
+          "t2": "Ekvitermní regulace",
+          "t3": "MaR s dohledem",
+          "t4": "Hydraulické vyvážení"
         },
-        "vysledek": "Die Investition lag etwa 40 % unter dem geplanten Komplettaustausch. Nach der ersten Saison sank der Gasverbrauch um etwa ein Drittel, und das Areal bestand die obligatorische Prüfung der Betriebsanlagen."
+        "vysledek": "Die Investition fiel etwa 40 % niedriger aus als der geplante vollständige Austausch. Nach der ersten Saison sank der Gasverbrauch um etwa ein Drittel, und das Gelände erfüllte die obligatorische Prüfung der Betriebssysteme."
       },
       "administrativni-budova-karlin": {
-        "nazev": "Lüftung und Kühlung eines Verwaltungsgebäudes in Karlín",
-        "misto": "Prag 8",
-        "perex": "Austausch von zwei Lüftungsgeräten (AHU) und Sanierung der Kälteleitungen in einem sechsgeschossigen Gebäude – während des laufenden Mieterbetriebs.",
-        "zadani": "Der Gebäudeeigentümer musste die veralteten Geräte austauschen und die Kühlleistung erhöhen, ohne dass die Mieter die Büros auch nur für einen Tag verlassen mussten.",
+        "nazev": "Lüftungstechnik und Kühlung des Verwaltungsgebäudes in Karlín",
+        "misto": "Praha 8",
+        "perex": "Austausch von zwei Lüftungsgeräten und Sanierung der Kälteleitungen in einem sechsgeschossigen Gebäude — während des laufenden Betriebs der Mieter.",
+        "zadani": "Der Gebäudeeigentümer musste veraltete Einheiten austauschen und die Kühlleistung erhöhen, ohne dass die Mieter ihre Büros auch nur für einen einzigen Tag verlassen mussten.",
         "rozsah": {
-          "r1": "Demontage und Austausch von zwei AHU-Einheiten auf dem Dach, inklusive Kranarbeiten in der Nacht",
-          "r2": "Sanierung der Kälteleitungen im 3. bis 6. Obergeschoss",
+          "r1": "Demontage und Austausch von zwei Lüftungsgeräten (AHU) auf dem Dach, einschließlich Kranarbeiten in der Nacht",
+          "r2": "Rekonstruktion der Kälteleitungen in den 3.–6. Obergeschossen",
           "r3": "Installation neuer Fan-Coils in den Büros",
-          "r4": "Erweiterung der Regelung (MaR) und Anbindung an das bestehende BMS",
-          "r5": "Etappenweise Umsetzung nach Stockwerken zur Sicherstellung des laufenden Betriebs"
+          "r4": "Erweiterung der Gebäudeautomation und Anbindung an das bestehende BMS",
+          "r5": "Etappierung nach Stockwerken, um den laufenden Betrieb zu gewährleisten"
         },
         "technologie": {
-          "t1": "AHU mit Wärmerückgewinnung (ZZT)",
-          "t2": "Wasserkühlung",
-          "t3": "Fan-Coils",
-          "t4": "BMS-Integration"
+          "t1": "AHU s rekuperací (ZZT)",
+          "t2": "Vodní chlazení",
+          "t3": "Fan‑coily",
+          "t4": "BMS integrace"
         },
-        "vysledek": "Das Gebäude konnte während der gesamten Zeit ohne Mietausfälle betrieben werden. Die neuen Geräte mit Wärmerückgewinnung senkten den Energieverbrauch der Lüftung, und die Mieter können die Temperatur nun auch im August stabil halten."
+        "vysledek": "Das Gebäude blieb während der gesamten Zeit voll vermietet. Die neuen Geräte mit Wärmerückgewinnung reduzierten den Energieverbrauch der Lüftungsanlage, und die Mieter können die Temperatur erstmals seit Jahren auch im August halten."
       },
       "poliklinika-pisek": {
-        "nazev": "Klimatisierung und Belüftung einer Poliklinik in Písek",
+        "nazev": "Klimatisierung und Lüftung der Poliklinik in Písek",
         "misto": "Písek",
         "perex": "Behandlungszimmer, Wartezimmer und Labor. Überall unterschiedliche Anforderungen an Luftreinheit und Geräuschpegel – und nirgendwo durfte etwas zu hören sein.",
-        "zadani": "Die medizinische Einrichtung musste die sommerliche Überhitzung der Behandlungszimmer lösen und eine hygienisch angemessene Luftwechselrate in den Probenentnahmezimmern sicherstellen.",
+        "zadani": "Die medizinische Einrichtung musste die sommerliche Überhitzung der Behandlungszimmer lösen und einen hygienisch angemessenen Luftaustausch in den Entnahmezimmern sicherstellen.",
         "rozsah": {
-          "r1": "Projektierung der Lüftungstechnik und Kühlung unter Berücksichtigung hygienischer Anforderungen",
+          "r1": "Projektierung der Lüftungs- und Kühltechnik unter Berücksichtigung der hygienischen Anforderungen",
           "r2": "Montage von Multi-Split-Systemen in den Behandlungszimmern mit Fokus auf geringe Geräuschentwicklung",
-          "r3": "Mechanische Lüftung der Probenentnahme- und Laborräume",
+          "r3": "Zwangsbelüftung von Blutentnahme- und Laborräumen",
           "r4": "Filtration und Messung der Innenraumluftqualität",
-          "r5": "Personalschulung und Erstellung eines Serviceplans"
+          "r5": "Personalschulung und Erstellung eines Wartungsplans"
         },
         "technologie": {
-          "t1": "VRF-System",
-          "t2": "Mechanische Lüftung",
-          "t3": "Luftfiltration",
-          "t4": "CO₂-Messung"
+          "t1": "VRF systém",
+          "t2": "Nucené větrání",
+          "t3": "Filtrace vzduchu",
+          "t4": "Měření CO₂"
         },
-        "vysledek": "Die Behandlungszimmer halten die eingestellte Temperatur auch im heißen Sommer; der Lärm in den Wartezimmern blieb unter dem Grenzwert, und die Poliklinik verfügt über dokumentierte Messungen der Innenraumluftqualität."
+        "vysledek": "Die Behandlungszimmer halten die eingestellte Temperatur auch in heißen Sommern, der Lärm in den Wartezimmern blieb unter dem Grenzwert und die Poliklinik verfügt über dokumentierte Messungen der Innenraumluftqualität."
       },
       "vyrobni-hala-milevsko": {
-        "nazev": "Kühlung und Lüftung einer Produktionshalle in Milevsko",
+        "nazev": "Kühlung und Lüftung der Produktionshalle in Milevsko",
         "misto": "Milevsko",
-        "perex": "Eine Presswerkstatt, in der die Temperaturen an den Maschinen im Sommer 38 °C überschritten. Die Lösung musste sowohl die Prozesswärme als auch die Absaugung bewältigen.",
-        "zadani": "Der Hersteller musste die Temperatur an den Pressen senken und Prozesswärme sowie Dämpfe abführen, ohne die erwärmte Luft aus der gesamten Halle zu blasen.",
+        "perex": "Eine Presswerkstatt, in der die Temperatur an den Maschinen im Sommer 38 °C überschritt. Die Lösung musste sowohl die Prozesswärme als auch die Absaugung bewältigen.",
+        "zadani": "Der Hersteller musste die Temperatur an den Pressenarbeitsplätzen senken und Prozesswärme sowie Dämpfe abführen, ohne die beheizte Luft der gesamten Halle abzuführen.",
         "rozsah": {
-          "r1": "Berechnung der thermischen Last der Anlagen und Konzeptentwicklung",
+          "r1": "Berechnung der thermischen Last der Technologie und Konzeptentwurf",
           "r2": "Lieferung und Montage der Lüftungstechnik mit Wärmerückgewinnung",
           "r3": "Lokale Absaugung an den Pressstationen",
           "r4": "Adiabatische Kühlung der Zuluft",
           "r5": "Regelung nach Temperatur und Schichtbelegung"
         },
         "technologie": {
-          "t1": "Industrielle Lüftungstechnik",
-          "t2": "Wärmerückgewinnung (RLT)",
-          "t3": "Adiabatische Kühlung",
-          "t4": "Lokale Absaugung"
+          "t1": "Průmyslová VZT",
+          "t2": "Rekuperace (ZZT)",
+          "t3": "Adiabatické chlazení",
+          "t4": "Lokální odsávání"
         },
-        "vysledek": "Die Temperatur an den Arbeitsplätzen sank in den Sommer Spitzenzeiten um etwa 8 °C. Die Wärmerückgewinnung gibt die Wärme im Winter zurück, sodass die Heizkosten für die Halle nicht gestiegen sind."
+        "vysledek": "Die Temperatur an den Arbeitsplätzen sank in den sommerlichen Spitzenzeiten um etwa 8 °C. Die Wärmerückgewinnung gibt die Wärme im Winter zurück, sodass die Heizkosten für die Halle nicht gestiegen sind."
       },
       "depozitar-galerie-tabor": {
-        "nazev": "Klima im Depot der Galerie in Tábor",
+        "nazev": "Klima des Galerie-Depots in Tábor",
         "misto": "Tábor",
-        "perex": "Sammlungsstücke benötigen keine Kälte, sondern Stabilität. Die Luftfeuchtigkeit muss hier das ganze Jahr über in einem engen Bereich gehalten werden.",
-        "zadani": "Die Galerie musste im neuen Depot die Temperatur und die relative Luftfeuchtigkeit in einem vorgegebenen Bereich halten und über eine dokumentierbare Aufzeichnung des Verlaufs verfügen.",
+        "perex": "Sammlungsstücke benötigen keine Kälte, sondern Stabilität. Die Luftfeuchtigkeit muss das ganze Jahr über in einem engen Bereich gehalten werden.",
+        "zadani": "Die Galerie musste im neuen Depot die Temperatur und die relative Luftfeuchtigkeit in einem vorgegebenen Bereich halten und über eine nachweisbare Aufzeichnung des Verlaufs verfügen.",
         "rozsah": {
-          "r1": "Entwurf der Lüftungstechnik mit präziser Feuchtigkeitsregulierung",
+          "r1": "Planung der Lüftungstechnik mit präziser Feuchtigkeitsregulierung",
           "r2": "Montage einer Einheit mit Befeuchtungs- und Entfeuchtungsfunktion",
-          "r3": "Temperatur- und Feuchtigkeitssensoren in den einzelnen Depotsektionen",
-          "r4": "Datenaufzeichnung und Alarme an das BMS mit Übertragung an die Leitstelle",
+          "r3": "Temperatur- und Feuchtigkeitssensoren in den einzelnen Depotbereichen",
+          "r4": "Wertaufzeichnung und Alarme an das BMS mit Übertragung an die Leitstelle",
           "r5": "Servicevertrag mit regelmäßigen Kontrollen"
         },
         "technologie": {
-          "t1": "Lüftungstechnik mit Befeuchtung",
-          "t2": "Präzisionsregulierung (MSR)",
-          "t3": "Aufzeichnung und Alarme",
-          "t4": "Filtration"
+          "t1": "VZT s vlhčením",
+          "t2": "Přesná regulace (MaR)",
+          "t3": "Záznam a alarmy",
+          "t4": "Filtrace"
         },
-        "vysledek": "Das Depot hält die Feuchtigkeit im vorgegebenen Bereich; die Galerie verfügt über eine kontinuierliche Aufzeichnung für Versicherungen und Leihgaben, und die Leitstelle wird bei Abweichungen alarmiert, noch bevor diese am Morgen bemerkt werden."
+        "vysledek": "Das Depot hält die Feuchtigkeit im vorgegebenen Bereich, die Galerie verfügt über eine kontinuierliche Aufzeichnung für die Versicherung und Leihgaben, und die Leitstelle wird bei Abweichungen alarmiert, noch bevor diese am Morgen bemerkt werden."
       },
       "obchodni-centrum-budejovice": {
         "nazev": "EAC-Filter im Einkaufszentrum in České Budějovice",
         "misto": "České Budějovice",
-        "perex": "Austausch klassischer Filter gegen elektronische Luftreiniger in den Lüftungsgeräten. Geringerer Druckverlust, weniger Abfall.",
-        "zadani": "Der Betreiber des Zentrums musste die steigenden Betriebskosten der Lüftungstechnik und den wiederholten Austausch von Filterelementen in den verschiedenen Geräten bewältigen.",
+        "perex": "Austausch konventioneller Filter gegen elektronische Luftreiniger in Lüftungsgeräten. Geringerer Druckverlust, weniger Abfall.",
+        "zadani": "Der Center-Manager befasste sich mit den steigenden Betriebskosten der Lüftungsanlagen und dem häufigen Austausch der Filtermatten in den einzelnen Einheiten.",
         "rozsah": {
-          "r1": "Bewertung der bestehenden RLT-Geräte und Druckverhältnisse",
+          "r1": "Bewertung der bestehenden RLT-Geräte (AHU) und Druckverhältnisse",
           "r2": "Lieferung und Montage von Honeywell F58G und F58H EAC-Filtern",
           "r3": "Anbindung der Ausgangsrelais und Anzeige an das BMS-Zentrum",
           "r4": "Schulung der Techniker des Betreibers zur Reinigung der Kollektoren",
-          "r5": "Serviceplan mit regelmäßiger Spülung in einem Wannenbecken"
+          "r5": "Serviceplan mit regelmäßiger Spülung in der Wanne"
         },
         "technologie": {
           "t1": "Honeywell EAC",
-          "t2": "Monitoring in das BMS",
+          "t2": "BMS-Monitoring",
           "t3": "Waschbare Kollektoren",
           "t4": "PM2,5-Filtration"
         },
-        "vysledek": "Der regelmäßige Austausch von Filterelementen und der damit verbundene Abfall entfielen. Der reduzierte Druckverlust wirkte sich auf die Leistungsaufnahme der Ventilatoren aus; der Betreiber rechnet mit einer Amortisation innerhalb von zwei Jahren."
+        "vysledek": "Der regelmäßige Austausch der Filtermatten und der damit verbundene Abfall entfielen. Der verringerte Druckverlust wirkte sich positiv auf die Leistungsaufnahme der Ventilatoren aus; der Betreiber rechnet mit einer Amortisation innerhalb von zwei Jahren."
       },
       "zakladni-skola-pribram": {
-        "nazev": "Wärmepumpen und Wärmerückgewinnung einer Grundschule in Příbram",
+        "nazev": "Wärmepumpen und Wärmerückgewinnung der Grundschule in Příbram",
         "misto": "Příbram",
-        "perex": "Die Schule ersetzte die Gasheizung durch Wärmepumpen und erhielt eine kontrollierte Lüftung für die Klassenzimmer. Wir haben die Förderung für den Träger abgewickelt.",
+        "perex": "Die Schule ersetzte den Gasheizkessel durch Wärmepumpen und erhielt eine gesteuerte Lüftung für die Klassenzimmer. Wir haben die Förderung für den Träger abgewickelt.",
         "zadani": "Der Träger wollte die Betriebskosten des Gebäudes senken und gleichzeitig das Problem der verbrauchten Luft in den Klassenzimmern lösen, über die sich die Lehrer schon lange beschwerten.",
         "rozsah": {
           "r1": "Projektierung und Unterlagen für den Förderantrag",
-          "r2": "Kaskade von Luft-Wasser-Wärmepumpen als Hauptenergiequelle",
-          "r3": "Wärmerückgewinnungsgeräte für Klassenzimmer mit CO₂-Regelung",
-          "r4": "Sanierung der Leitungen und hydraulischer Abgleich",
-          "r5": "Abwicklung der Förderung in Vollmacht und Schulung des Schulleiters"
+          "r2": "Luft-Wasser-Wärmepumpenkaskade als Hauptquelle",
+          "r3": "Wärmerückgewinnungseinheiten für Klassenzimmer mit CO₂-Regelung",
+          "r4": "Erneuerung der Leitungen und hydraulischer Abgleich",
+          "r5": "Abwicklung der Förderung per Vollmacht und Schulung des Schulleiters"
         },
         "technologie": {
           "t1": "Luft-Wasser-Wärmepumpen",
-          "t2": "Wärmerückgewinnung (RLT)",
+          "t2": "Wärmerückgewinnung (WRG)",
           "t3": "CO₂-Regelung",
-          "t4": "MSR"
+          "t4": "Gebäudeautomation (MaR)"
         },
-        "vysledek": "Die Heizkosten sind im Vergleich zur Gasheizung deutlich gesunken, und die Klassenzimmer haben frische Luft, ohne dass im Winter die Fenster geöffnet werden müssen. Die Schule bestand die Prüfung der Betriebssysteme ohne Beanstandung."
+        "vysledek": "Die Heizkosten sind im Vergleich zum Gasheizkessel deutlich gesunken, und die Klassenzimmer verfügen über frische Luft, ohne dass im Winter die Fenster geöffnet werden müssen. Die Anlage hat die Betriebsprüfung ohne Mängel bestanden."
       },
       "hotel-na-sumave": {
         "nazev": "Wärmepumpen und Klimatisierung eines Hotels im Böhmerwald",
         "misto": "Region Pilsen",
-        "perex": "Ein Berghotel, das acht Monate im Jahr beheizt wird und im Sommer die Zimmer unter dem Dach kühlen muss. Alles musste so leise wie möglich sein.",
-        "zadani": "Das Hotel musste eine veraltete Wärmequelle ersetzen, die Kühlung der Dachgeschosszimmer hinzufügen und dies ohne Beeinträchtigung der Saison umsetzen.",
+        "perex": "Ein Berghotel, das acht Monate im Jahr beheizt wird und im Sommer eine Kühlung der Dachzimmer benötigt. Alles musste so leise wie möglich sein.",
+        "zadani": "Das Hotel musste die veraltete Wärmequelle ersetzen, eine Kühlung für die Dachzimmer hinzufügen und dabei den laufenden Betrieb während der Saison nicht stören.",
         "rozsah": {
           "r1": "Besichtigung, Berechnung von Wärmeverlusten und -gewinnen, Lösungsvarianten",
-          "r2": "Wärmepumpenkaskade mit bivalenter Quelle für frostige Tage",
-          "r3": "Klimatisierung der Dachgeschosszimmer mit leisen Inneneinheiten",
+          "r2": "Wärmepumpenkaskade mit bivalenter Quelle für Frosttage",
+          "r3": "Klimatisierung der Dachzimmer mit leisen Innengeräten",
           "r4": "Warmwasserbereitung und Anschluss an den bestehenden Speicher",
-          "r5": "Umsetzung außerhalb der Hauptsaison in zwei Etappen"
+          "r5": "Realisierung in zwei Etappen außerhalb der Hauptsaison"
         },
         "technologie": {
           "t1": "Wärmepumpenkaskade",
           "t2": "Bivalente Quelle",
-          "t3": "Leise Inneneinheiten",
+          "t3": "Leise Innengeräte",
           "t4": "Warmwasserbereitung"
         },
-        "vysledek": "Das Hotel heizt zu geringeren Kosten, die Dachgeschosszimmer können im Sommer erstmals ohne Beschwerden belegt werden, und der gesamte Bau erfolgte zwischen den Saisons."
+        "vysledek": "Das Hotel heizt zu geringeren Kosten, die Dachzimmer können im Sommer zum ersten Mal ohne Beschwerden belegt werden, und der gesamte Umbau erfolgte zwischen den Saisons."
+      },
+      "d-bungalov-klimatizace": {
+        "nazev": "Klimatisierung eines Familien-Bungalows ohne eine einzige Leiste",
+        "misto": "Südböhmen",
+        "perex": "Der Kunde wünschte sich Design-Innengeräte und ein sauberes Interieur — ohne sichtbare Leisten für die Kältemittelleitungen.",
+        "zadani": "Der Besitzer des Bungalows entschied sich für Design-Innengeräte, hatte jedoch eine entscheidende Bedingung: Im Innenraum darf keine einzige Leiste für die Kältemittelleitungen sichtbar sein.",
+        "rozsah": {
+          "r1": "Besichtigung und präzise Planung der Leitungsverläufe für Schlitze im Mauerwerk",
+          "r2": "Verlegung der Kältemittelleitungen, Verkabelung und Kondensatablauf in die vorbereiteten Schlitze",
+          "r3": "Verlegung der Leitungen über den Dachboden zum Standort des Außengeräts",
+          "r4": "Installation von drei Innengeräten und einem Außengerät, Inbetriebnahme und Testlauf",
+          "r5": "Einweisung des Bedienpersonals, einschließlich der Steuerung per Smartphone-App"
+        },
+        "technologie": {
+          "t1": "Multisplit 3+1",
+          "t2": "Leitungen in Schlitzen",
+          "t3": "Kondensatablauf",
+          "t4": "Wi-Fi-Steuerung"
+        },
+        "vysledek": "Die Leitungen verlaufen im Mauerwerk und über den Dachboden; im Innenraum ist außer den Geräten selbst nichts zu sehen. Der Kunde ließ die Schlitze zwischen unseren Einsätzen durch Maurer verspachteln und streichen."
+      },
+      "d-rodinny-dum-cerpadlo": {
+        "nazev": "Wärmepumpe statt Gasheizkessel",
+        "misto": "Region Mittelböhmen",
+        "perex": "Ein älteres Haus mit Radiatoren. Statt eines schnellen Austauschs der Quelle haben wir zuerst die Verluste berechnet und das System angepasst — andernfalls wäre der Betrieb der Wärmepumpe zu teuer gewesen.",
+        "zadani": "Die Eigentümer wollten weg vom Gas. Das Haus hat ursprüngliche Radiatoren, die für hohe Wassertemperaturen ausgelegt sind, was genau die Situation ist, in der eine Wärmepumpe allein keine Ersparnis bringt.",
+        "rozsah": {
+          "r1": "Berechnung der Wärmeverluste und Bewertung des Heizsystems",
+          "r2": "Austausch von zwei unterdimensionierten Radiatoren, damit das System mit niedrigeren Temperaturen arbeiten kann",
+          "r3": "Luft-Wasser-Wärmepumpenkaskade mit bivalenter Zusatzheizung",
+          "r4": "Anschluss an die Warmwasserbereitung und den Wärmespeicher",
+          "r5": "Hydraulischer Abgleich des Systems und Abwicklung der Förderung per Vollmacht"
+        },
+        "technologie": {
+          "t1": "Luft-Wasser-Wärmepumpe",
+          "t2": "Bivalente Zusatzheizung",
+          "t3": "Speicher",
+          "t4": "Heizkurvenregelung"
+        },
+        "vysledek": "Nach dem ersten Winter sind wir zurückgekehrt und haben die Heizkurve basierend auf dem tatsächlichen Betrieb optimiert. Das System läuft mit einer niedrigeren Wassertemperatur als ursprünglich geplant, wodurch die Wärmepumpe einen guten Jahresarbeitszahl (JAZ) Wert hält."
+      },
+      "d-byt-rekuperace": {
+        "nazev": "Wärmerückgewinnung für eine Wohnung nach Renovierung",
+        "misto": "Prag",
+        "perex": "Wohnung in einem Ziegelbau nach einer Komplettsanierung. Die Leitungen mussten in die bereits geplanten abgehängten Decken integriert werden.",
+        "zadani": "Die Eigentümer wollten lüften, ohne die Fenster zur belebten Straße öffnen zu müssen. Da die Sanierung bereits im Gange war, blieb für die Leitungsführung nur der Platz in den abgehängten Decken.",
+        "rozsah": {
+          "r1": "Aufmaß des Grundrisses und Prüfung des verfügbaren Platzes in den abgehängten Decken",
+          "r2": "Planung des Luftvolumens für die einzelnen Räume",
+          "r3": "Zentrale Lüftungsanlage mit Wärmerückgewinnung im Technikraum",
+          "r4": "Leitungsführung mit Flachkanälen und Schalldämpfer an der Einheit",
+          "r5": "Einstellung der Volumenströme an den Auslässen inklusive Protokollierung"
+        },
+        "technologie": {
+          "t1": "Zentrale Wärmerückgewinnung",
+          "t2": "Flachkanäle",
+          "t3": "Schalldämpfer",
+          "t4": "CO₂-gesteuerte Regelung"
+        },
+        "vysledek": "Die Wohnung wird kontinuierlich belüftet, ohne dass die Fenster zur Straße geöffnet werden müssen. Die Geräuschentwicklung der Anlage liegt unter der Wahrnehmungsschwelle in den Wohnräumen."
+      },
+      "d-vymena-kotle": {
+        "nazev": "Notfallmäßiger Heizkesseltausch während der Heizperiode",
+        "misto": "Südböhmen",
+        "perex": "Anruf in der Notfallzentrale im Januar: keine Heizung mehr. Der alte Kessel war nicht mehr reparabel, der neue war innerhalb von zwei Tagen vor Ort.",
+        "zadani": "Eine Kundin rief beim 24-Stunden-Notdienst an, da ihr Heizkessel ausgefallen war. Bei der Inspektion stellte sich heraus, dass eine Reparatur nicht mehr sinnvoll war – die Wartezeit auf Ersatzteile wäre länger gewesen als ein kompletter Austausch.",
+        "rozsah": {
+          "r1": "Einsatz zur Besichtigung und Fehlerdiagnose",
+          "r2": "Vorschlag einer Ersatzlösung und Erstellung eines Angebots direkt vor Ort",
+          "r3": "Demontage und Abtransport des alten Kessels",
+          "r4": "Montage eines neuen Brennwertkessels inklusive Anpassung des Abgasabzugs",
+          "r5": "Abnahme, Einweisung und Eintragung in das Prüfbuch"
+        },
+        "technologie": {
+          "t1": "Brennwertkessel",
+          "t2": "Anpassung des Abgasabzugs",
+          "t3": "Gasprüfung",
+          "t4": "Equiterm-Regelung"
+        },
+        "vysledek": "Vom Telefonat bis zur Wiederherstellung der Heizung vergingen zwei Tage, davon ein Tag für die Lieferung des Kessels. Der Haushalt war eine Nacht lang ohne Wärme."
       }
     }
   },
   "onas": {
     "stitek": "Über uns",
-    "titulek": "Ein Team von Technikern, keine Handelsvertretung",
-    "lead": "Wir sind ein Unternehmen im Bereich der Gebäudetechnik. Wir bieten Komplettlösungen von der Planung über die Ausführung bis hin zum Service – und die meisten Arbeiten erledigen wir mit eigenem Personal.",
+    "titulek": "Ein Team von Technikern, keine reine Handelsvertretung",
+    "lead": "Wir sind ein Unternehmen im Bereich der Gebäudetechnik. Wir bieten Komplettlösungen von der Planung über die Realisierung bis hin zum Service – und die meisten Arbeiten werden von unseren eigenen Mitarbeitern ausgeführt.",
     "pribeh": {
       "titulek": "Wer wir sind",
-      "p1": "Wir sind ein Team erfahrener Mitarbeiter, von denen viele über mehr als 25 Jahre Erfahrung in der Gebäudetechnik verfügen. Wir stützen uns sowohl auf diese Erfahrung als auch auf neue Erkenntnisse in diesem sich ständig dynamisch entwickelnden Bereich.",
-      "p2": "Wir sind in Prag und in unserem Betrieb in Milevsko tätig. Unsere Hauptkunden sind Unternehmen und Betreiber von Bürogebäuden, Einkaufszentren, Krankenhäusern, Museen, Galerien und öffentlichen Objekten – aber wir installieren auch die Klimatisierung eines Einfamilienhauses, wenn es sinnvoll ist.",
-      "p3": "Was uns am meisten Freude bereitet: Wenn die klare Vorstellung eines anspruchsvollen Kunden auf die Geschicklichkeit unserer Techniker trifft."
+      "p1": "Wir sind ein Team erfahrener Mitarbeiter, von denen viele über mehr als 25 Jahre Erfahrung in der TGA (Technische Gebäudeausrüstung) verfügen. Wir stützen uns sowohl auf diese Erfahrung als auch auf neue Erkenntnisse in diesem sich dynamisch entwickelnden Fachbereich.",
+      "p2": "Wir sind von Prag aus und über unseren Betrieb in Milevsko tätig. Unsere Hauptkunden sind Unternehmen und Betreiber von Bürogebäuden, Einkaufszentren, Krankenhäusern, Museen, Galerien und öffentlichen Objekten – aber wir übernehmen auch die Klimatisierung von Einfamilienhäusern, wenn es sinnvoll ist.",
+      "p3": "Was uns am meisten Freude bereitet: Wenn die klare Vorstellung eines anspruchsvollen Kunden auf die Fachkompetenz unserer Techniker trifft."
     },
     "hodnoty": {
       "titulek": "Unsere Grundsätze",
       "polozky": {
         "h1": {
           "titulek": "Nachhaltigkeit ist kein Slogan",
-          "popis": "Bevor wir einen Austausch vorschlagen, berechnen wir eine Sanierung (Refit). Was funktioniert, zu erhalten, ist sowohl für Sie als auch für die Umwelt kostengünstiger."
+          "popis": "Bevor wir einen Austausch vorschlagen, berechnen wir die Sanierungskosten (Refit). Bestehendes, das noch funktioniert, zu erhalten, ist sowohl für Sie als auch für die Umwelt kostengünstiger."
         },
         "h2": {
           "titulek": "Eigene Techniker",
-          "popis": "Festangestellte Mitarbeiter mit zertifiziertem Werkzeug, das wir kontinuierlich schulen. Keine Gruppe von Subunternehmern, die Sie zum ersten Mal sehen."
+          "popis": "Festangestellte Mitarbeiter mit zertifiziertem Werkzeug, das regelmäßig geschult wird. Keine Gruppe von Subunternehmern, die Sie zum ersten Mal sehen."
         },
         "h3": {
           "titulek": "Alles aus einer Hand",
-          "popis": "Planung, Ausführung und Service unter einem Dach. Wenn es ein Problem gibt, zeigt niemand auf den Nachbarn."
+          "popis": "Planung, Realisierung und Service unter einem Dach. Wenn ein Problem auftritt, zeigt niemand auf den Nachbarn."
         },
         "h4": {
           "titulek": "Verständlichkeit",
-          "popis": "Wir erklären Abkürzungen, übergeben Protokolle und schulen das Bedienpersonal. Eine Website, die niemand versteht, ist nutzlos."
+          "popis": "Wir erklären Fachbegriffe, übergeben Protokolle und weisen in die Bedienung ein. Eine Website, die niemand versteht, ist nutzlos."
         }
       }
     },
     "divize": {
-      "titulek": "Drei Sparten, ein Team",
+      "titulek": "Drei Fachbereiche, ein Team",
       "polozky": {
         "d1": {
           "titulek": "Planung",
-          "popis": "Planer, die auch auf die Baustelle gehen. Alle Planungsstufen, bei Bedarf in BIM."
+          "popis": "Planer, die auch die Baustelle besuchen. Alle Planungsstufen, bei Bedarf in BIM."
         },
         "d2": {
-          "titulek": "Ausführung",
-          "popis": "Lieferung und Montage von Lüftung, Klimatisierung, Heizung, Sanitär- und Gasinstallationen. Inklusive Bauüberwachung."
+          "titulek": "Realisierung",
+          "popis": "Lieferung und Montage von Lüftung (RLT), Kühlung, Heizung, Sanitär (SHK) und Gas. Inklusive Bauüberwachung."
         },
         "d3": {
           "titulek": "Service",
-          "popis": "Mehrere Technikerteams, 24/7-Disponibilität, Prüfungen, Diagnostik und ein Energiespezialist."
+          "popis": "Mehrere Technikerteams, 24-Stunden-Notdienst, Revisionen, Diagnostik und ein Energiespezialist."
         }
       }
     },
     "odznak": {
       "titulek": "Zuverlässiges Unternehmen 2026",
-      "popis": "Auszeichnung für eine geprüfte Historie, Zuverlässigkeit und finanzielle Integrität."
+      "popis": "Auszeichnung für nachgewiesene Historie, Zuverlässigkeit und finanzielle Stabilität."
     },
     "tym": {
       "titulek": "Menschen, mit denen Sie sprechen werden",
-      "lead": "Kein anonymer E-Mail-Posteingang. Hier finden Sie das gesamte Team inklusive direkter Rufnummern."
+      "lead": "Keine anonyme E-Mail-Adresse. Hier finden Sie das gesamte Team inklusive direkter Durchwahlnummern."
     }
   },
   "novinky": {
     "stranka": {
       "stitek": "Neuigkeiten",
       "titulek": "Was es bei uns Neues gibt",
-      "lead": "Bemerkenswerte Projekte, Gesetzesänderungen, Schulungen und Personalbeschaffung."
+      "lead": "Besondere Projekte, Gesetzesänderungen, Schulungen und Personalakquise."
     },
     "polozky": {
       "napsali-o-nas": {
         "nazev": "Bericht über uns: Interview für Eko-Adepto",
-        "perex": "Das unabhängige Projekt Eko-Adepto hat uns persönlich besucht und darüber berichtet, was wir ihm über das Unternehmen, die Technologien und den Service erzählt haben.",
-        "text": "Vertreter des Projekts Eko-Adepto waren persönlich bei uns vor Ort und haben mit uns die angebotenen Technologien, die Arbeitsweise des Unternehmens, den Service und die Erfahrung des Teams besprochen. Im Artikel finden Sie, worauf wir uns wirklich konzentrieren: technische Anlagen für größere Gebäude – Büros, Einkaufszentren, Krankenhäuser, Museen, Galerien und öffentliche Objekte. Privathaushalte machen einen kleineren Teil unserer Aufträge aus, aber auch für sie übernehmen wir Klimatisierung, Wärmepumpen und Wärmerückgewinnung."
+        "perex": "Das unabhängige Projekt Eko-Adepto hat uns persönlich besucht und festgehalten, was wir über das Unternehmen, die Technologien und den Service berichtet haben.",
+        "text": "Vertreter des Projekts Eko-Adepto waren persönlich bei uns vor Ort und haben gemeinsam mit uns die angebotenen Technologien, die Arbeitsweise des Unternehmens, den Service und die Erfahrung des Teams geprüft. Im Artikel erfahren Sie, worauf wir uns wirklich konzentrieren: technische Anlagen für größere Gebäude – Büros, Einkaufszentren, Krankenhäuser, Museen, Galerien und öffentliche Objekte. Privathaushalte machen einen kleineren Teil unserer Aufträge aus, aber auch für sie übernehmen wir Klimatisierung, Wärmepumpen und Lüftungssysteme."
       },
       "klimatizace-bungalovu": {
         "nazev": "Klimatisierung eines Bungalows ohne sichtbare Leisten",
-        "perex": "Der Kunde wünschte sich Design-Inneneinheiten und ein sauberes Interieur ohne sichtbare Leitungsführungen. Gelöst wurde dies durch drei Einsätze und Schlitze im Mauerwerk.",
-        "text": "Nach der Freigabe des Angebots machte sich das Team auf den Weg zum Objekt, um die Trassen für die Schlitze im Mauerwerk exakt einzuzeichnen. Beim zweiten Einsatz verlegten wir die Rohre, die Verkabelung und den Kondensatablauf in die vorbereiteten Schlitze und führten sie über den Dachboden zur Position der Außeneinheit – es handelte sich um ein Multi-Split-System mit drei Inneneinheiten und einer Außeneinheit. Der Kunde ließ die Schlitze anschließend fachgerecht verputzen und streichen. Beim dritten Besuch montierten wir die Einheiten, nahmen das System in Betrieb, testeten es und erklärten die vollständige Bedienung inklusive der Smartphone-App."
+        "perex": "Der Kunde wünschte sich Design-Innengeräte und ein sauberes Interieur ohne sichtbare Leisten für die Kältemittelleitungen. Gelöst wurde dies durch drei Einsätze und Schlitze im Mauerwerk.",
+        "text": "Nach der Annahme des Angebots machte sich das Team auf den Weg zum Einsatzort und zeichnete die Verläufe der Schlitze im Mauerwerk präzise ein. Beim zweiten Einsatz verlegten wir die Rohre, die Verkabelung sowie den Kondensatablauf in die vorbereiteten Schlitze und führten sie über den Dachboden zur Position der Außeneinheit – es handelte sich um eine Multisplit-Anlage mit drei Inneneinheiten und einer Außeneinheit. Der Kunde ließ die Schlitze anschließend vom Maurer verschließen und streichen. Beim dritten Besuch montierten wir die Geräte, nahmen das System in Betrieb, testeten es und erklärten die vollständige Bedienung einschließlich der App auf dem Smartphone."
       },
       "kontrola-38-2022": {
-        "nazev": "Haben Sie bereits die Pflichtprüfung gemäß Verordnung 38/2022 Sb. durchgeführt?",
-        "perex": "Gemäß der Aktualisierung vom 01.01.2023 muss der Eigentümer alle 5 Jahre eine Prüfung der Betriebssysteme durchführen lassen. Die Strafe bei Nichtbeachtung kann bis zu 200.000 CZK betragen.",
-        "text": "Die Verpflichtung betrifft Objekte mit Wärmequellen über 70 kW, auch außerhalb von Gebäuden. Die Prüfung der Betriebssysteme — Lüftung, Heizung, Kühlung und Kraft-Wärme-Kopplungsanlagen — darf nur von Energieexperten durchgeführt werden und wird in der von der MPO verwalteten ENEX-Datenbank erfasst. Wir bieten Ihnen dies inklusive der dazugehörigen Diagnostik, der Systemeinregulierung gemäß Verordnung 193/2007 Sb. und der Prüfung von Druckbehältern an."
+        "nazev": "Haben Sie bereits die vorgeschriebene Prüfung nach der Verordnung 38/2022 Sb. durchführen lassen?",
+        "perex": "Gemäß der Aktualisierung vom 01.01.2023 muss der Eigentümer alle 5 Jahre eine Prüfung der Betriebsanlagen durchführen lassen. Die Strafe bei Nichteinhaltung kann bis zu 200.000 CZK betragen.",
+        "text": "Die Verpflichtung betrifft Objekte mit Wärmequellen über 70 kW, auch außerhalb von Gebäuden. Die Prüfung der Betriebsanlagen – Lüftung, Heizung, Kühlung sowie Kraft-Wärme-Kopplungs-Anlagen – darf nur von einem Energie-Spezialisten durchgeführt werden und wird in der vom Wirtschaftsministerium (MPO) verwalteten ENEX-Datenbank erfasst. Wir organisieren dies für Sie, einschließlich der anschließenden Diagnostik, der Systemhydraulik gemäß der Verordnung 193/2007 Sb. und der Prüfung von Druckbehältern."
       },
       "nabor-techniku": {
-        "nazev": "Wir suchen Servicetechniker für Gebäudetechnik (TGA)",
-        "perex": "Wir erweitern unsere Serviceabteilung. Wir suchen Techniker mit Bezug zu Lüftung, Kältetechnik oder Heizung — Erfahrung wird begrüßt, Lernbereitschaft ebenfalls.",
-        "text": "Wir bieten ein eigenes Servicefahrzeug, eine komplette zertifizierte Ausrüstung, regelmäßige Herstellerschulungen und die Arbeit in einem Team, in dem man immer jemanden fragen kann. Wir sind hauptsächlich in Zweierteams in Prag sowie in Mittel- und Südböhmen unterwegs. Kontaktieren Sie uns auf der Karriereseite oder direkt beim Leiter der Serviceabteilung."
+        "nazev": "Wir suchen Servicetechniker für TGA",
+        "perex": "Wir erweitern unsere Service-Sparte. Wir suchen Techniker mit Bezug zu Lüftung, Kühlung oder Heizung – Erfahrung wird begrüßt, Lernbereitschaft ebenfalls.",
+        "text": "Wir bieten ein eigenes Servicefahrzeug, eine komplette zertifizierte Ausrüstung, regelmäßige Schulungen bei Herstellern und die Arbeit in einem Team, in dem man immer jemanden fragen kann. Wir sind hauptsächlich in Paaren in Prag sowie in Mittel- und Südböhmen unterwegs. Kontaktieren Sie uns auf der Karriereseite oder direkt beim Leiter der Serviceabteilung."
       },
       "firemni-den-systemair": {
-        "nazev": "Systemair Firmentag in České Budějovice",
+        "nazev": "Systemair Firmentag in Budweis",
         "perex": "Im Rahmen der Produktschulung für Mitarbeiter haben wir am Firmentag des Unternehmens Systemair teilgenommen.",
-        "text": "Wir danken unseren Partnern von Systemair für die Vermittlung neuer Fachkenntnisse und für die angenehme Zeit im Freizeitprogramm. Wir nehmen die Produktschulung unserer Techniker ernst — auf der Baustelle zeigt sich, wer die Anlagen wirklich kennt."
+        "text": "Wir danken unseren Partnern von Systemair für die Vermittlung neuer Branchenkenntnisse und die angenehme Zeit im Freizeitprogramm. Wir nehmen die Produktschulung unserer Techniker sehr ernst – auf der Baustelle zeigt sich, wer die Geräte wirklich beherrscht."
       },
       "panelova-diskuze-cvut": {
         "nazev": "Podiumsdiskussion über Wärmepumpen an der ČVUT",
-        "perex": "Wir haben an einer Podiumsdiskussion über Wärmepumpen an der ČVUT in Prag teilgenommen.",
-        "text": "Die Debatte drehte sich um die reale Effizienz von Wärmepumpen unter unseren klimatischen Bedingungen, das Design bivalenter Quellen und die Unterschiede zwischen Projektannahmen und tatsächlichem Betrieb. Genau diese Unterschiede erleben wir auf Baustellen und diskutieren sie gerne mit der Fachöffentlichkeit."
+        "perex": "Wir haben an einer Podiumsdiskussion über Wärmepumpen an der Tschechischen Technischen Universität (ČVUT) in Prag teilgenommen.",
+        "text": "Die Debatte drehte sich um den realen Wirkungsgrad von Wärmepumpen unter unseren klimatischen Bedingungen, das Design bivalenter Quellen und die Unterschiede zwischen Projektannahmen und dem tatsächlichen Betrieb. Genau diese Unterschiede erleben wir auf Baustellen und diskutieren sie gerne mit der Fachöffentlichkeit."
       },
       "rozsireni-servisu": {
         "nazev": "Erweiterung der Serviceleistungen",
-        "perex": "Die Serviceabteilung wurde um einen Energieexperten, Systemdiagnostik und die Reparatur von Wärmetauschern am eigenen Standort erweitert.",
-        "text": "Neu bieten wir Ihnen Energieausweise (PENB) und Energiegutachten, technische Berichte über die Prüfung von Betriebssystemen, die Einregulierung von Heiz- und Kühlsystemen einschließlich Protokollen und Messungen der Innenraumqualität an. Zudem wurden Reparaturen und Instandsetzungen beschädigter oder gerissener Wärmetauscher hinzugefügt — inklusive Diagnostik, Reparatur und Prüfung in Wannen oder durch Helium-Druckprüfung."
+        "perex": "Die Service-Sparte hat einen Energie-Spezialisten, Systemdiagnostik und die Reparatur von Wärmetauschern am eigenen Standort ergänzt.",
+        "text": "Neu bieten wir für Sie Energieausweise (PENB) und Energiegutachten, technische Berichte über die Prüfung von Betriebsanlagen, die hydraulische Einregulierung von Heiz- und Kühlsystemen einschließlich Protokollen und Messungen der Innenraumqualität an. Zudem haben wir Reparaturen und Instandsetzungen beschädigter oder gerissener Wärmetauscher aufgenommen – inklusive Diagnostik, Reparatur und Prüfung in Wannen oder durch Helium-Druckprüfung."
       }
     }
   },
   "kariera": {
     "stitek": "Karriere",
-    "titulek": "Wir suchen Servicetechniker für Gebäudetechnik (TGA)",
-    "lead": "Wir erweitern unsere Serviceabteilung. Wenn Sie sich für Lüftung, Kältetechnik oder Heizung begeistern und mit eigener Ausrüstung arbeiten möchten, melden Sie sich bei uns.",
+    "titulek": "Wir suchen Servicetechniker für TGA",
+    "lead": "Wir erweitern unsere Service-Sparte. Wenn Sie sich für Lüftung, Kühlung oder Heizung begeistern und mit eigener Ausrüstung arbeiten möchten, melden Sie sich bei uns.",
     "cohledame": {
       "titulek": "Wen wir suchen",
       "polozky": {
-        "p1": "Servicetechniker für Lüftung und Kältetechnik",
-        "p2": "Techniker für Wärmepumpen und Heizungstechnik",
-        "p3": "Monteure mit Interesse am Service",
+        "p1": "Servicetechniker für Lüftung und Kühlung",
+        "p2": "Techniker für Wärmepumpen und Heizung",
+        "p3": "Montagekräfte mit Interesse am Service",
         "p4": "Erfahrung wird begrüßt, Lernbereitschaft ist Voraussetzung"
       }
     },
@@ -757,15 +1004,15 @@
       "polozky": {
         "p1": {
           "titulek": "Eigenes Fahrzeug und Ausrüstung",
-          "popis": "Servicefahrzeug und komplette zertifizierte Werkzeuge. Sie müssen nichts selbst beschaffen."
+          "popis": "Ein Servicefahrzeug und komplett zertifiziertes Werkzeug. Sie müssen nichts selbst besorgen."
         },
         "p2": {
           "titulek": "Regelmäßige Schulungen",
-          "popis": "Produktschulungen bei Herstellern sowie Fachzertifizierungen. Wir möchten, dass Sie die Anlagen wirklich verstehen."
+          "popis": "Produktschulungen bei Herstellern sowie fachliche Zertifizierungen. Wir möchten, dass Sie die Anlagen wirklich verstehen."
         },
         "p3": {
           "titulek": "Teamarbeit",
-          "popis": "Wir sind meist zu zweit unterwegs. Es gibt immer jemanden, der Rat gibt — auch telefonisch."
+          "popis": "Wir sind meist zu zweit unterwegs. Es gibt immer jemanden, der einen Rat gibt – auch telefonisch."
         },
         "p4": {
           "titulek": "Angemessene Pendelzeiten",
@@ -775,8 +1022,8 @@
     },
     "formular": {
       "titulek": "Haben Sie Interesse?",
-      "lead": "Schreiben Sie uns ein paar Sätze über Ihre Fähigkeiten. Ein Lebenslauf ist keine Voraussetzung — es reicht zu wissen, was Sie bisher gemacht haben und wo.",
-      "typ": "Karriere — ich interessiere mich für eine Position"
+      "lead": "Schreiben Sie uns ein paar Sätze darüber, was Sie können. Ein Lebenslauf ist keine Bedingung – es reicht zu wissen, was Sie bisher gemacht haben und wo.",
+      "typ": "Karriere — ich interessiere mich für diese Position"
     }
   },
   "kontakt": {
@@ -786,7 +1033,7 @@
     "rychle": {
       "dispecink": {
         "titulek": "24/7 Notdienst",
-        "popis": "Gerätestörung, Notfall, Kühlung funktioniert nicht. Wenn Sie niemanden erreichen, hinterlassen Sie eine Nachricht — diese wird uns per E-Mail zugestellt."
+        "popis": "Gerätestörung, Notfall, Kühlung funktioniert nicht. Wenn Sie niemanden erreichen, hinterlassen Sie eine Nachricht – wir erhalten sie per E-Mail."
       },
       "poptavka": {
         "titulek": "Neue Anfrage",
@@ -794,7 +1041,7 @@
       },
       "kancelar": {
         "titulek": "Büro",
-        "popis": "Fakturierung, Verträge und alles Weitere."
+        "popis": "Rechnungsstellung, Verträge und alles Weitere."
       }
     },
     "adresy": {
@@ -810,27 +1057,30 @@
     },
     "formular": {
       "titulek": "Schreiben Sie uns",
-      "lead": "Wir melden uns in der Regel innerhalb eines Arbeitstages.",
+      "lead": "Drei Angaben genügen. Den Rest besprechen wir am Telefon.",
       "jmeno": "Vor- und Nachname",
       "firma": "Firma (optional)",
       "email": "E-Mail",
       "telefon": "Telefon (optional)",
-      "typ": "Worum geht es bei der Anfrage",
-      "zprava": "Was möchten Sie lösen",
-      "zpravaHint": "Objekttyp, installierte Geräte, Ihr Anliegen. Gerne auch kurz gefasst.",
-      "souhlas": "Ich stimme der Verarbeitung meiner personenbezogenen Daten zur Bearbeitung der Anfrage zu.",
+      "typ": "Wobei benötigen Sie Hilfe?",
+      "zprava": "Möchten Sie noch etwas hinzufügen? (optional)",
+      "zpravaHint": "Objekttyp, was installiert ist, was das Problem ist. Gerne in einem Satz – oder gar nicht.",
+      "souhlas": "Ich stimme der Verarbeitung personenbezogener Daten zur Bearbeitung der Anfrage zu.",
       "souhlasOdkaz": "Datenschutz",
-      "odeslano": "Vielen Dank, Ihre Nachricht ist unterwegs. Wir werden uns bei Ihnen melden.",
-      "odeslanoDemo": "In dieser Demo wird keine Nachricht versendet — auf der echten Website geht sie an info@greenairtech.cz.",
+      "odeslano": "Vielen Dank, Ihre Nachricht wurde versendet. Wir melden uns bei Ihnen.",
+      "odeslanoDemo": "In dieser Demo wird die Nachricht nicht versendet – auf der Live-Website geht sie an info@greenairtech.cz.",
       "typy": {
-        "projekce": "TGA-Planung",
-        "realizace": "Realisierung oder Sanierung",
-        "servis": "Service und Wartung",
-        "energetika": "PENB, Audit oder Pflichtprüfung",
-        "klimatizace": "Klimatisierung oder Wärmepumpe",
+        "havarie": "Notfall – Heizung oder Kühlung funktioniert nicht",
+        "klimatizace": "Klimatisierung – Neuinstallation",
+        "tepelne-cerpadlo": "Wärmepumpe",
+        "rekuperace": "Wärmerückgewinnung und Lüftung",
+        "servis": "Regelmäßiger Service oder Wartung",
+        "projekce": "TGA-Projektierung",
+        "realizace": "Größere Projekte oder Sanierungen",
+        "energetika": "Energieausweis, Audit oder Pflichtprüfung",
         "filtry": "EAC-Filter",
-        "vymeniky": "Reparatur des Wärmetauschers",
-        "kariera": "Karriere — ich interessiere mich für eine Position",
+        "vymeniky": "Wärmetauscher-Reparatur",
+        "kariera": "Karriere – ich interessiere mich für eine Stelle",
         "jine": "Sonstiges"
       },
       "chyby": {
@@ -838,22 +1088,26 @@
         "email": "Bitte überprüfen Sie das E-Mail-Format.",
         "telefon": "Bitte überprüfen Sie die Telefonnummer.",
         "zprava-kratka": "Bitte schreiben Sie mindestens einen Satz, damit wir wissen, worum es geht.",
-        "souhlas": "Ohne Ihre Zustimmung können wir die Anfrage leider nicht bearbeiten."
-      }
+        "souhlas": "Ohne Ihre Zustimmung können wir die Anfrage leider nicht bearbeiten.",
+        "kontakt": "Bitte hinterlassen Sie eine Telefonnummer oder E-Mail, damit wir Sie erreichen können.",
+        "typ": "Bitte wählen Sie Ihr Anliegen aus."
+      },
+      "typPlaceholder": "Wählen Sie Ihr Anliegen",
+      "kontaktHint": "Eines davon genügt. Was ist Ihnen lieber?"
     }
   },
   "slovnik": {
     "stranka": {
       "stitek": "Glossar",
       "titulek": "Glossar der TGA-Abkürzungen",
-      "lead": "In unserer Branche wird selten mit Abkürzungen gespart. Hier sind sie erklärt – und falls Sie auf der Website auf eine stoßen, müssen Sie sie nur anfahren oder anklicken.",
+      "lead": "In unserer Branche wird selten gespart, wenn es um Abkürzungen geht. Hier sind sie erklärt – und falls Sie auf der Website auf eine stoßen, reicht es, mit der Maus darüber zu fahren oder darauf zu klicken.",
       "hledat": "Abkürzung oder Begriff suchen",
       "nenalezeno": "Eine solche Abkürzung haben wir noch nicht. Fragen Sie uns einfach."
     },
     "terminy": {
       "TZB": {
         "full": "Technische Gebäudeausrüstung (TGA)",
-        "popis": "Sammelbegriff für Lüftung, Heizung, Kühlung, Sanitärinstallationen, Gas sowie Mess- und Regeltechnik – also alles, was Wärme, Kälte, Luft und Wasser im Gebäude verteilt."
+        "popis": "Oberbegriff für Lüftung, Heizung, Kühlung, Sanitärinstallationen, Gas sowie Mess-, Steuer- und Regelungstechnik – also alles, was Wärme, Kälte, Luft und Wasser im Gebäude verteilt."
       },
       "VZT": {
         "full": "Lüftungstechnik",
@@ -861,11 +1115,11 @@
       },
       "ZTI": {
         "full": "Sanitärtechnik",
-        "popis": "Wasserleitungen, Kanalisation und Sanitärobjekte im Gebäude."
+        "popis": "Wasserleitungen, Abwasserentsorgung und Sanitärobjekte im Gebäude."
       },
       "MaR": {
-        "full": "Mess- und Regeltechnik",
-        "popis": "Sensoren, Regler und Steuerungssysteme, die eingestellte Werte wie Temperatur, Feuchtigkeit oder Durchfluss ohne menschliches Eingreifen aufrechterhalten."
+        "full": "Mess-, Steuer- und Regelungstechnik (MSR)",
+        "popis": "Sensoren, Regler und Steuerungssysteme, die festgelegte Werte wie Temperatur, Feuchtigkeit oder Durchfluss ohne menschliches Eingreifen aufrechterhalten."
       },
       "BMS": {
         "full": "Gebäudeleittechnik (BMS)",
@@ -876,16 +1130,16 @@
         "popis": "Ein obligatorisches Dokument zur Bewertung der Energieeffizienz eines Gebäudes. Es wird von einem Energieexperten erstellt und in der ENEX-Datenbank registriert."
       },
       "ENEX": {
-        "full": "Datenbank für Energiedokumente",
-        "popis": "Ein Register für Ausweise, Audits und Gutachten, das vom Ministerium für Industrie und Handel verwaltet wird."
+        "full": "ENEX-Datenbank",
+        "popis": "Ein Register für Energieausweise, Audits und Gutachten, das vom Wirtschafts- und Technologieministerium verwaltet wird."
       },
       "MPO": {
-        "full": "Ministerium für Industrie und Handel",
-        "popis": "Die zentrale Behörde, die für die Energierechtgebung und die ENEX-Datenbank zuständig ist."
+        "full": "Wirtschafts- und Technologieministerium",
+        "popis": "Die zentrale Behörde, die für die Energieregelungen und die ENEX-Datenbank zuständig ist."
       },
       "BIM": {
         "full": "Building Information Modeling (BIM)",
-        "popis": "Eine Methode der Planung, bei der statt Linien tatsächliche Bauteile mit Eigenschaften gezeichnet werden. Aus dem Modell können Pläne, Kollisionsprüfungen und Unterlagen für die Gebäudeverwaltung erstellt werden."
+        "popis": "Eine Methode der Planung, bei der statt Linien tatsächliche Bauteile mit Eigenschaften gezeichnet werden. Aus dem Modell können Pläne, Kollisionsprüfungen und Unterlagen für die Gebäudeverwaltung extrahiert werden."
       },
       "TČ": {
         "full": "Wärmepumpe",
@@ -893,80 +1147,80 @@
       },
       "EAC": {
         "full": "Elektronischer Luftreiniger",
-        "popis": "Ein Filter, der Staubpartikel auflädt und auf Kollektorplatten einfängt. Im Vergleich zu klassischen Filtern hat er einen geringeren Druckverlust und ist abwaschbar."
+        "popis": "Ein Filter, der Staubpartikel auflädt und auf Kollektorplatten einfängt. Er hat einen geringeren Druckverlust als klassische Filterelemente und ist waschbar."
       },
       "AHU": {
-        "full": "Lüftungsgerät",
+        "full": "Lüftungsgerät (AHU)",
         "popis": "Das mechanische Herz der Lüftungstechnik: Ventilatoren, Filter, Wärmetauscher und Wärmerückgewinnung in einem Gehäuse. Englisch: air handling unit."
       },
       "ZZT": {
         "full": "Wärmerückgewinnung",
-        "popis": "Rekuperation. Die Wärme der Abluft wird der Zuluft übertragen, ohne dass sich die beiden Luftströme vermischen."
+        "popis": "Rekuperation. Die warme Abluft gibt ihre Wärme an die zugeführte Frischluft ab, ohne dass sich die beiden Luftströme vermischen."
       },
       "PM2,5": {
         "full": "Feinstaubpartikel",
         "popis": "Partikel, die kleiner als 2,5 Mikrometer sind. Sie gelangen tief in die Lunge, weshalb die Filtration genau darauf abzielt, diese einzufangen."
       },
       "TVOC": {
-        "full": "Flüchtige organische Verbindungen (VOC)",
-        "popis": "Ein Sammelindikator für gasförmige organische Stoffe in der Innenraumluft – aus Möbeln, Klebstoffen, Farben und Reinigungsmitteln. Er wird bei der Bewertung der Raumluftqualität gemessen."
+        "full": "Flüchtige organische Verbindungen (TVOC)",
+        "popis": "Ein Summenindikator für gasförmige organische Stoffe in der Innenraumluft – aus Möbeln, Klebstoffen, Farben oder Reinigungsmitteln. Er wird bei der Bewertung der Raumluftqualität gemessen."
       },
       "KJ": {
         "full": "Kraft-Wärme-Kopplung (KWK)",
-        "popis": "Eine Anlage, die gleichzeitig Strom und Wärme erzeugt. Dadurch ist der Brennstoffnutzungsgrad deutlich höher als bei der reinen Stromerzeugung."
+        "popis": "Ein System, das gleichzeitig Strom und Wärme erzeugt. Dadurch ist der Brennstoffnutzungsgrad deutlich höher als bei der reinen Stromerzeugung."
       },
       "PBŘ": {
         "full": "Brandschutztechnische Lösung",
         "popis": "Ein Teil der Dokumentation, der die Feuerwiderstandsfähigkeit, Fluchtwege und das Verhalten der Lüftungstechnik im Brandfall festlegt."
       },
       "TNS": {
-        "full": "Druckbehälter (fest)",
-        "popis": "Ein unter Druck stehender Behälter, für den Vorschriften regelmäßige Prüfungen verlangen – typischerweise Expansionsgefäße und Vorratsbehälter."
+        "full": "Druckbehälter",
+        "popis": "Ein unter Druck stehender Behälter, für den Vorschriften regelmäßige Prüfungen verlangen – typischerweise Ausdehnungsgefäße und Vorratsbehälter."
       },
       "COP": {
         "full": "Leistungszahl (COP)",
-        "popis": "Das Verhältnis der gelieferten Wärme zur verbrauchten elektrischen Energie zu einem bestimmten Zeitpunkt. Ein COP von 4 bedeutet vier Kilowattstunden Wärme pro einer Kilowattstunde Strom."
+        "popis": "Verhältnis der abgegebenen Wärme zur verbrauchten elektrischen Energie zu einem bestimmten Zeitpunkt. Ein COP von 4 bedeutet vier Kilowattstunden Wärme pro eine Kilowattstunde Strom."
       },
       "SCOP": {
-        "full": "Saisonaler Leistungszahl (SCOP)",
-        "popis": "Die auf die gesamte Heizsaison umgerechnete Leistungszahl. Sie ist für den Vergleich von Wärmepumpen ehrlicher als der COP."
+        "full": "saisonale Leistungszahl",
+        "popis": "Die auf die gesamte Heizsaison umgerechnete Leistungszahl. Sie ist für den Vergleich von Wärmepumpen aussagekräftiger als der COP."
       },
       "EER": {
-        "full": "Kühlfaktor (EER)",
-        "popis": "Das Verhältnis der Kühlleistung zur aufgenommenen elektrischen Leistung."
+        "full": "Energieeffizienzrate",
+        "popis": "Verhältnis der Kälteleistung zur aufgenommenen elektrischen Leistung."
       },
       "VRF": {
-        "full": "VRF-System (Variable Refrigerant Flow)",
-        "popis": "Eine Klimatisierung, bei der eine Außeneinheit viele Inneneinheiten bedient und der Kältemittelfluss je nach tatsächlichem Bedarf der einzelnen Einheiten gesteuert wird."
+        "full": "System mit variablem Kältemittelstrom",
+        "popis": "Eine Klimatisierung, bei der eine Außeneinheit viele Inneneinheiten bedient und der Kältemittelstrom je nach tatsächlichem Bedarf der jeweiligen Einheit geregelt wird."
       },
       "DSP": {
-        "full": "Bauantragsunterlagen",
-        "popis": "Die Projektstufe, die dem Bauamt zur Beurteilung des Bauvorhabens dient."
+        "full": "Genehmigungsplanung",
+        "popis": "Planungsstufe, die der Baubehörde zur Prüfung des Bauvorhabens dient."
       },
       "DPS": {
         "full": "Ausführungsplanung",
-        "popis": "Die detaillierte Projektstufe, auf deren Basis die tatsächliche Montage auf der Baustelle erfolgt."
+        "popis": "Detaillierte Planungsstufe, auf deren Grundlage die tatsächliche Montage auf der Baustelle erfolgt."
       },
       "RDS": {
         "full": "Ausführungsdokumentation",
-        "popis": "Vom Auftragnehmer für die eigene Ausführung erstellte Dokumentation, die auf der Ausführungsplanung aufbaut."
+        "popis": "Vom Auftragnehmer für die eigentliche Ausführung erstellte Dokumentation, die auf der Ausführungsplanung aufbaut."
       },
       "TDS": {
-        "full": "Bauherrenvertretung / Technische Bauüberwachung",
-        "popis": "Ein Experte, der die Interessen des Investors auf der Baustelle vertritt – er kontrolliert Qualität, Umfang und die Übereinstimmung mit dem Projekt."
+        "full": "Bauüberwachung (Bauherrenvertretung)",
+        "popis": "Ein Experte, der die Interessen des Bauherrn auf der Baustelle vertritt – er kontrolliert Qualität, Umfang und Übereinstimmung mit der Planung."
       },
       "ČSN": {
         "full": "Tschechische technische Norm",
-        "popis": "Nationale technische Norm. Legt Anforderungen fest, zum Beispiel an die Menge an Frischluft, den Lärmpegel oder die Sicherheit von Geräten."
+        "popis": "Nationale technische Norm. Sie legt Anforderungen fest, zum Beispiel an die Menge der Frischluft, den Lärmpegel oder die Sicherheit der Geräte."
       },
       "HVAC": {
-        "full": "Heizung, Lüftung, Klimatisierung",
-        "popis": "Englische Abkürzung für Heizung, Lüftung und Klimatisierung. Das internationale Äquivalent zur tschechischen TZB (Technische Gebäudeausrüstung)."
+        "full": "Heizung, Lüftung, Klimatechnik (HLK)",
+        "popis": "Englische Abkürzung für Heizung, Lüftung und Klimatisierung. Das internationale Äquivalent zur tschechischen TZB."
       }
     }
   },
   "gdpr": {
-    "titulek": "Schutz personenbezogener Daten",
+    "titulek": "Datenschutz",
     "lead": "Kurz und ohne Juristendeutsch: Was mit den Daten passiert, die Sie uns über das Formular senden.",
     "sekce": {
       "s1": {
@@ -979,7 +1233,7 @@
       },
       "s3": {
         "titulek": "Wie lange",
-        "text": "Daten aus nicht abgeschlossenen Anfragen werden innerhalb von zwei Jahren gelöscht. Bei abgeschlossenen Aufträgen bewahren wir sie gemäß den buchhalterischen und steuerrechtlichen Vorschriften auf."
+        "text": "Daten aus nicht bearbeiteten Anfragen löschen wir innerhalb von zwei Jahren. Bei abgeschlossenen Aufträgen bewahren wir sie für die durch buchhalterische und steuerliche Vorschriften vorgegebene Zeit auf."
       },
       "s4": {
         "titulek": "An wen wir sie weitergeben",
@@ -991,19 +1245,19 @@
       },
       "s6": {
         "titulek": "Cookies",
-        "text": "Die Website verwendet nur technische Cookies, die für deren Funktion notwendig sind. Analytische oder Marketing-Tools werden ohne Ihre Zustimmung nicht gestartet."
+        "text": "Die Website verwendet nur technische Cookies, die für deren Funktion notwendig sind. Analytische oder Marketing-Tools starten wir nicht ohne Ihre Zustimmung."
       }
     },
-    "poznamka": "Dieser Text ist ein Mustertext und wir empfehlen, ihn vor der Veröffentlichung der Website überprüfen zu lassen."
+    "poznamka": "Dieser Text ist ein Muster und sollte vor der Veröffentlichung der Website überprüft werden."
   },
   "chyba404": {
-    "titulek": "Diese Seite konnten wir nicht finden",
-    "lead": "Vielleicht sind wir umgezogen – oder es hat sich ein Tippfehler in der Adresse eingeschlichen. Versuchen Sie es von hier aus.",
+    "titulek": "Diese Seite wurde nicht gefunden",
+    "lead": "Vielleicht haben wir sie verschoben – oder es hat sich ein Tippfehler in der Adresse eingeschlichen. Versuchen Sie es von hier aus.",
     "cta": "Zurück zur Startseite",
     "ctaDruhe": "Zu den Leistungen"
   },
   "footer": {
-    "tagline": "Projektierung, Realisierung und Service von technischen Gebäudeanlagen. Prag und Milevsko, ganz Tschechien.",
+    "tagline": "Projektierung, Realisierung und Service für technische Gebäudeausrüstung. Prag und Milevsko, ganz Tschechien.",
     "sluzby": "Leistungen",
     "firma": "Unternehmen",
     "kontakt": "Kontakt",
@@ -1019,21 +1273,22 @@
     "uvod": "Dies ist eine funktionale Demo der Administration. Alles, was Sie hier ändern, wird sofort auf der Website sichtbar – die Änderungen werden in Ihrem Browser gespeichert, sodass Sie alles risikofrei ausprobieren können. In der Live-Version werden sie auf dem Server gespeichert.",
     "prihlaseni": {
       "titulek": "Anmeldung zur Administration",
-      "lead": "Demo-Anmeldung – geben Sie irgendetwas ein oder klicken Sie direkt auf 'Anmelden'.",
+      "lead": "Beispiel-Anmeldung – geben Sie irgendetwas ein oder klicken Sie direkt auf Anmelden.",
       "jmeno": "Benutzer",
       "heslo": "Passwort",
       "vstoupit": "Anmelden",
-      "poznamka": "Demo: Die Anmeldung führt keine Überprüfung durch."
+      "poznamka": "Demo: Die Anmeldung führt keine Prüfung durch."
     },
     "zalozky": {
+      "nastenka": "Dashboard",
       "texty": "Website-Texte",
-      "realizace": "Realisierungen",
-      "novinky": "Neuigkeiten",
+      "realizace": "Projekte",
+      "uzivatele": "Benutzer",
       "data": "Backup und Wiederherstellung"
     },
     "texty": {
       "titulek": "Website-Texte",
-      "lead": "Wählen Sie eine Seite aus, bearbeiten Sie den Text und klicken Sie auf 'Speichern'. Rechts ist jederzeit zu sehen, wie der Text aktuell aussieht.",
+      "lead": "Wählen Sie eine Seite aus, bearbeiten Sie den Text und klicken Sie auf Speichern. Rechts ist jederzeit zu sehen, wie der Text aktuell aussieht.",
       "hledat": "In Texten suchen",
       "jazyk": "Sprache",
       "puvodni": "Originaltext",
@@ -1044,28 +1299,30 @@
       "zadnyVysledek": "Kein Text entspricht der Suche."
     },
     "realizace": {
-      "titulek": "Realisierungen",
-      "lead": "Fügen Sie eine neue Realisierung hinzu oder bearbeiten Sie eine bestehende. Sie wird sofort auf der Website angezeigt.",
-      "pridat": "Realisierung hinzufügen",
+      "titulek": "Projekte",
+      "lead": "Fügen Sie ein neues Projekt hinzu oder bearbeiten Sie ein bestehendes. Es wird sofort auf der Website angezeigt.",
+      "pridat": "Projekt hinzufügen",
       "upravit": "Bearbeiten",
       "smazat": "Löschen",
-      "smazatPotvrzeni": "Diese Realisierung wirklich löschen?",
-      "nazev": "Name der Realisierung",
+      "smazatPotvrzeni": "Dieses Projekt wirklich löschen?",
+      "nazev": "Projektname",
       "misto": "Ort",
       "datum": "Abschlussdatum",
       "kategorie": "Fachbereiche",
-      "perex": "Kurzbeschreibung für die Liste",
+      "perex": "Kurzbeschreibung für die Übersicht",
       "zadani": "Kundenauftrag",
-      "rozsah": "Leistungsumfang (jeder Punkt in einer neuen Zeile)",
+      "rozsah": "Leistungsumfang (jeder Punkt in eine neue Zeile)",
       "technologie": "Technologien (durch Komma getrennt)",
       "vysledek": "Ergebnis",
       "plocha": "Versorgte Fläche",
       "doba": "Realisierungsdauer",
-      "ulozit": "Realisierung speichern",
+      "ulozit": "Projekt speichern",
       "zrusit": "Abbrechen",
       "vlastni": "Ihre",
       "upravena": "Bearbeitete",
-      "prazdne": "Noch keine eigenen Realisierungen. Fügen Sie die erste hinzu."
+      "prazdne": "Noch keine eigenen Projekte vorhanden. Fügen Sie das erste hinzu.",
+      "vetev": "Für wen",
+      "vsechnyVetve": "Beide Website-Bereiche"
     },
     "data": {
       "titulek": "Backup und Wiederherstellung",
@@ -1073,13 +1330,123 @@
       "stahnout": "Änderungen herunterladen (JSON)",
       "nahrat": "Datei mit Änderungen hochladen",
       "vymazat": "Alles auf Standardzustand zurücksetzen",
-      "vymazatPotvrzeni": "Alle vorgenommenen Änderungen wirklich verwerfen?",
+      "vymazatPotvrzeni": "Wirklich alle vorgenommenen Änderungen verwerfen?",
       "posledniZmena": "Letzte Änderung",
       "zadnaZmena": "Bisher nichts geändert.",
       "chybaImportu": "Datei konnte nicht geladen werden."
     },
     "odhlasit": "Abmelden",
     "zpetNaWeb": "Zurück zur Website",
-    "demoUpozorneni": "Demo-Administration – Änderungen werden nur in diesem Browser gespeichert."
+    "demoUpozorneni": "Demo-Administration — Änderungen werden nur in diesem Browser gespeichert.",
+    "nastenka": {
+      "titulek": "Dashboard",
+      "lead": "Website-Besucher und gesendete Anfragen. Die Daten stammen aus Google Analytics — in dieser Demo sind sie fiktiv, auf der Live-Website werden sie real angezeigt.",
+      "upozorneni": "Beispieldaten. Nach der Veröffentlichung der Website beginnt Google Analytics mit der Erfassung echter Zahlen; die ersten erscheinen nach etwa einer Woche Betrieb.",
+      "obdobi": "Zeitraum",
+      "obdobi7": "7 Tage",
+      "obdobi30": "30 Tage",
+      "obdobi90": "90 Tage",
+      "protiMinulemu": "im Vergleich zum vorherigen Zeitraum",
+      "metriky": {
+        "navstevy": "Besuche",
+        "uzivatele": "Nutzer",
+        "zobrazeni": "Seitenaufrufe",
+        "poptavky": "Gesendete Anfragen",
+        "cas": "Verweildauer",
+        "opusteni": "Absprungrate"
+      },
+      "napoveda": {
+        "navstevy": "Wie oft jemand die Website besucht hat. Eine Person kann im gewählten Zeitraum mehrfach kommen.",
+        "uzivatele": "Wie viele verschiedene Personen die Website besucht haben. Diese Zahl ist immer niedriger als die Anzahl der Besuche.",
+        "zobrazeni": "Wie viele Seiten insgesamt aufgerufen wurden.",
+        "poptavky": "Wie oft ein Kontaktformular gesendet wurde. Die wichtigste Kennzahl auf diesem Dashboard.",
+        "cas": "Wie lange die Nutzer durchschnittlich auf der Seite bleiben. Eine längere Verweildauer deutet meist auf interessanten Inhalt hin.",
+        "opusteni": "Wie viele Personen die Seite sofort verlassen haben, ohne zu klicken. Je niedriger, desto besser."
+      },
+      "grafTitulek": "Besucherentwicklung",
+      "zdroje": "Herkunft der Besucher",
+      "vstupni": "Einstiegsseite",
+      "zarizeni": "Genutzte Geräte",
+      "poptavkyPodle": "Herkunft der Anfragen",
+      "zdrojePolozky": {
+        "vyhledavani": "Google-Suche",
+        "primy": "Direkter Zugriff",
+        "mapy": "Maps und Firmy.cz",
+        "ecoadepto": "Eko‑Adepto",
+        "socialni": "Soziale Netzwerke",
+        "ostatni": "Andere Links"
+      },
+      "vstupniPolozky": {
+        "uvod": "Startseite",
+        "domacnosti": "Privathaushalte",
+        "firmy": "Geschäftskunden",
+        "servis": "Service und Notfälle",
+        "kontakt": "Kontakt"
+      },
+      "zarizeniPolozky": {
+        "mobil": "Mobilgerät",
+        "pocitac": "Computer",
+        "tablet": "Tablet"
+      }
+    },
+    "uzivatele": {
+      "titulek": "Nutzer und Berechtigungen",
+      "lead": "Wer Zugriff auf die Administration hat und welche Rechte besteht. Rollen können jederzeit geändert werden — zum Beispiel sieht ein externer Autor nur die Neuigkeiten.",
+      "pridat": "Nutzer hinzufügen",
+      "jmeno": "Name",
+      "email": "E-Mail",
+      "role": "Rolle",
+      "pravaSloupec": "Berechtigungen",
+      "odebrat": "Entfernen",
+      "odebratPotvrzeni": "Diesen Nutzer wirklich entfernen?",
+      "ulozit": "Nutzer speichern",
+      "zrusit": "Abbrechen",
+      "prazdne": "Bisher sind keine weiteren Nutzer vorhanden.",
+      "poznamka": "In der Demo werden Nutzer nur in Ihrem Browser gespeichert. In der Live-Version wird jedem eine Einladung gesendet, damit er sein Passwort selbst festlegen kann.",
+      "role_spravce": "Administrator",
+      "role_editor": "Content Editor",
+      "role_autor": "Autor",
+      "prava_spravce": "Alles, einschließlich Nutzer und Statistiken",
+      "prava_editor": "Texte, Projekte und Neuigkeiten",
+      "prava_autor": "Nur Neuigkeiten und Artikel"
+    }
+  },
+  "rozcestnik": {
+    "stitek": "Technische Gebäudeausrüstung (TGA)",
+    "titulek": "Luft, Wärme und Kälte,<br>die einfach funktionieren",
+    "lead": "Wir planen, bauen und warten TGA — in Einfamilienhäusern ebenso wie in Großobjekten. Wählen Sie Ihren Bereich, und die Website passt sich an.",
+    "vyberte": "Was suchen Sie?",
+    "vyberteLead": "Für jeden Bereich bieten wir spezialisierte Lösungen. Wählen Sie Ihren Bereich, um nur die für Sie relevanten Informationen zu sehen — Ihre Dienstleistungen, Ihre Projekte, Ihr Service.",
+    "prepnout": "In den anderen Bereich wechseln",
+    "jsteTady": "Sie befinden sich im Bereich für:",
+    "spolecne": "Gemeinsam für beide Bereiche"
+  },
+  "vetve": {
+    "domacnosti": {
+      "nazev": "Privathaushalte",
+      "podtitul": "Einfamilienhäuser und Wohnungen",
+      "perex": "Klimatisierung, Wärmepumpen, Lüftung, Heizungsausfälle. Wir kommen vorbei, planen, montieren — und kümmern uns danach darum.",
+      "cta": "Zum Bereich Privathaushalte",
+      "titulek": "Wärme und saubere Luft in Ihrem Zuhause",
+      "lead": "Kleinere Aufträge werden durch unsere Serviceabteilung abgewickelt. Das bedeutet einen festen Ansprechpartner von der Besichtigung bis zum Garantieservice und einer Telefonnummer, die Sie im Notfall erreichen.",
+      "sluzbyTitulek": "Wobei wir Ihnen zu Hause helfen",
+      "sluzbyLead": "Vier Fachbereiche, die fast alles abdecken, was im Haus atmet, heizt oder kühlt.",
+      "realizaceTitulek": "Unsere Projekte im privaten Bereich",
+      "realizaceLead": "Bungalows ohne Leisten, Wärmepumpen statt Kessel, Lüftungssysteme für Wohnungen. Bei jedem Projekt finden Sie Details zur Lösung und zum Ergebnis.",
+      "poznamka": "Kleinere Aufträge bis ca. 750.000 CZK werden über die Serviceabteilung abgewickelt. Größere Projekte und Ausschreibungen finden Sie im Bereich für Geschäftskunden."
+    },
+    "firmy": {
+      "nazev": "Geschäftskunde",
+      "podtitul": "Gewerbe- und Industrieobjekte",
+      "perex": "BIM-Planung, Realisierung und Montage, Service mit 24/7-Notdienst, Energieaudits und Sanierungen. Komplette TGA von der ersten Skizze bis zur regelmäßigen Revision.",
+      "cta": "Zum Bereich Geschäftskunden",
+      "titulek": "Technische Gebäudeausrüstung von der Planung bis zum Service",
+      "lead": "Verwaltung, Produktion, Gesundheitswesen, Einkaufszentren und öffentliche Gebäude. Sie müssen nicht Planer, Montagefirma und Service separat koordinieren.",
+      "sluzbyTitulek": "Sieben Fachbereiche, eine Verantwortung",
+      "sluzbyLead": "Wir betreuen die gesamte Kette — und wenn in zwei Jahren etwas passiert, rufen Sie immer dieselbe Nummer an.",
+      "realizaceTitulek": "Projekte, für die wir stehen",
+      "realizaceLead": "Verwaltung, Gesundheitswesen, Produktion und Schulen. Sehen Sie sich an, welche spezifischen Herausforderungen wir auf der Baustelle gelöst haben.",
+      "poznamka": "Realisierungen und Ausschreibungen ab ca. einer Million CZK. Kleinere Aufträge für Privathaushalte finden Sie im Bereich Privathaushalte."
+    }
   }
 }

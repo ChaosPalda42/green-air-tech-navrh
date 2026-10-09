@@ -7,27 +7,27 @@
     "vsechnyRealizace": "All projects",
     "vsechnyNovinky": "All news",
     "nezavaznaPoptavka": "Non-binding inquiry",
-    "napsatNam": "Write to us",
+    "napsatNam": "Contact us",
     "zavolat": "Call us",
-    "dispecink": "24/7 Dispatch Center",
-    "dispecinkPopis": "Breakdown now? We call back within an hour.",
+    "dispecink": "Dispatch 24/7",
+    "dispecinkPopis": "Breakdown now? We'll call back within an hour.",
     "menu": "Menu",
     "zavrit": "Close",
     "jazyk": "Language",
     "nahoru": "Back to top",
     "prejitNaObsah": "Skip to content",
     "vysvetlivka": "Abbreviation explanation",
-    "celySlovnik": "Full glossary of abbreviations",
+    "celySlovnik": "Full abbreviation glossary",
     "hledat": "Search",
     "filtrovat": "Filter",
     "vse": "All",
     "rok": "Year",
     "kategorie": "Category",
-    "razeni": "Sort by",
+    "razeni": "Sorting",
     "nejnovejsi": "Newest first",
     "nejstarsi": "Oldest first",
     "podleNazvu": "By name",
-    "nenalezeno": "No results found. Try a different filter.",
+    "nenalezeno": "Nothing found. Try a different filter.",
     "zrusitFiltry": "Clear filters",
     "dalsiStrana": "Next page",
     "predchoziStrana": "Previous page",
@@ -39,7 +39,7 @@
     "kontaktujteNas": "Get in touch",
     "povinnePole": "Required field",
     "odeslat": "Submit inquiry",
-    "odesilam": "Sending…",
+    "odesilam": "Submitting…",
     "ukazkaFormulare": "This is a demo — the form does not submit anywhere yet.",
     "kopirovat": "Copy",
     "zkopirovano": "Copied",
@@ -50,81 +50,111 @@
     "martina-masindova": "Company Administrator",
     "zdenek-bauska": "Head of Service Department",
     "jan-rezac": "Project Manager",
-    "radek-tyla": "Chief Technician",
-    "denisa-jandova": "Technical Sales Manager",
-    "jonas-benak": "Technical Sales Manager"
+    "radek-tyla": "Chief Engineer",
+    "denisa-jandova": "Commercial & Technical Manager",
+    "jonas-benak": "Commercial & Technical Manager"
   },
   "nav": {
     "uvod": "Home",
     "sluzby": "Services",
     "realizace": "Projects",
-    "onas": "About Us",
+    "onas": "About us",
     "novinky": "News",
     "kariera": "Careers",
     "kontakt": "Contact",
-    "slovnik": "Glossary of Abbreviations",
+    "slovnik": "Abbreviation Glossary",
     "administrace": "Administration"
   },
   "meta": {
     "home": {
-      "titulek": "Green Air Tech s.r.o. — Design, Implementation and Service of Building Services",
-      "popis": "HVAC, cooling, heating and heat pumps from design to service. 24/7 dispatch center, in-house technicians, 30 years of experience. Prague and Milevsko."
+      "titulek": "Green Air Tech s.r.o. — Building services for homes and businesses",
+      "popis": "Air conditioning, heat pumps, and heat recovery for homes, plus complete building services for commercial properties. Design, installation, and 24/7 service. Prague and Milevsko."
     },
     "sluzby": {
-      "titulek": "Services — What We Can Do for You | Green Air Tech",
-      "popis": "Building services design in BIM, supply and installation, 24/7 service, energy performance certificates and energy audits, air conditioning and heat pumps, EAC filters, heat exchanger repairs."
+      "titulek": "Services — What we can do for you | Green Air Tech",
+      "popis": "BIM-based building services design, supply and installation, 24/7 service, PENB and energy audits, air conditioning and heat pumps, EAC filters, heat exchanger repairs."
     },
     "realizace": {
       "titulek": "Projects and References | Green Air Tech",
-      "popis": "Selected projects in HVAC, cooling, heating and heat pumps."
+      "popis": "Selected projects in HVAC, cooling, heating, and heat pumps."
     },
     "onas": {
-      "titulek": "About Us — A Team of Building Services Engineers | Green Air Tech",
-      "popis": "We are a team of engineers with over 30 years of experience in building services engineering. Design, implementation and service under one roof."
+      "titulek": "About us — Building services engineering team | Green Air Tech",
+      "popis": "We are a team of engineers with over 30 years of experience in building services. Design, installation, and service under one roof."
     },
     "novinky": {
       "titulek": "News | Green Air Tech",
-      "popis": "What's new with us — projects, legislation, training and recruitment."
+      "popis": "What's new with us — projects, legislation, training, and recruitment."
     },
     "kariera": {
-      "titulek": "Careers — We're Hiring Building Services Technicians | Green Air Tech",
-      "popis": "Join our team of building services technicians. Company vehicle, equipment, training and fair conditions."
+      "titulek": "Careers — We're hiring building services technicians | Green Air Tech",
+      "popis": "Join our team of building services technicians. Company vehicle, equipment, training, and fair terms."
     },
     "kontakt": {
       "titulek": "Contact | Green Air Tech s.r.o.",
       "popis": "Prague 8 and Milevsko. 24/7 service dispatch +420 383 809 730, info@greenairtech.cz."
     },
     "slovnik": {
-      "titulek": "Building Services Glossary | Green Air Tech",
-      "popis": "HVAC, EPC, BMS, EAC and other abbreviations explained in plain language."
+      "titulek": "Building Services Abbreviation Glossary | Green Air Tech",
+      "popis": "TZB, VZT, PENB, BMS, EAC, and other abbreviations clearly explained."
     },
     "gdpr": {
       "titulek": "Privacy Policy | Green Air Tech",
       "popis": "How we handle personal data from the contact form."
     },
     "chyba404": {
-      "titulek": "Page Not Found | Green Air Tech",
-      "popis": "We couldn't find this page. Try the home page, the list of services, or just write to us — we're happy to help."
+      "titulek": "Page not found | Green Air Tech",
+      "popis": "We couldn't find this page. Try going to the homepage, the services overview, or just write to us — we'll be happy to help."
     },
     "administrace": {
       "titulek": "Demo Administration | Green Air Tech",
-      "popis": "Demo admin — editing texts and projects."
+      "popis": "Demo administration — editing texts and projects."
+    },
+    "vetve": {
+      "domacnosti": {
+        "titulek": "For homeowners — air conditioning, heat pumps, service | Green Air Tech",
+        "popis": "Air conditioning, heat pumps, heat recovery, and emergency service for detached houses and apartments. Site survey, installation, subsidies, and 24/7 dispatch."
+      },
+      "firmy": {
+        "titulek": "For commercial clients — building services design, installation, and service | Green Air Tech",
+        "popis": "BIM-based building services design, supply and installation, 24/7 service, PENB and energy audits, EAC filters, and heat exchanger repairs for commercial and industrial properties."
+      }
+    },
+    "sluzbyVetve": {
+      "domacnosti": {
+        "titulek": "Services for homeowners | Green Air Tech",
+        "popis": "Air conditioning, heat pumps, heat recovery, and service for detached houses and apartments — exactly what we do and how it works."
+      },
+      "firmy": {
+        "titulek": "Services for commercial clients | Green Air Tech",
+        "popis": "Building services design, installation, service, PENB and audits, EAC filters, and heat exchanger repairs for commercial properties."
+      }
+    },
+    "realizaceVetve": {
+      "domacnosti": {
+        "titulek": "Projects for homeowners | Green Air Tech",
+        "popis": "Air conditioning, heat pumps, and heat recovery in detached houses and apartments — what we solved and how it turned out."
+      },
+      "firmy": {
+        "titulek": "Projects for commercial clients | Green Air Tech",
+        "popis": "Selected projects in HVAC, cooling, heating, and energy systems in commercial properties."
+      }
     }
   },
   "home": {
     "hero": {
-      "stitek": "Building Services Engineering",
-      "titulek": "Air, heat and cooling<br>that simply work in your building",
-      "lead": "We design, build and service building services — HVAC, cooling, heating, plumbing and controls. One team from the first site visit to 24/7 service.",
+      "stitek": "Building services",
+      "titulek": "Air, heat, and cooling<br>that simply work in your building",
+      "lead": "We design, install, and service building systems — HVAC, cooling, heating, plumbing, and controls. One team from the first site survey to 24/7 service.",
       "cta": "Request a solution",
       "ctaDruhe": "What exactly we do",
-      "dispecinkStitek": "Breakdown? 24/7 Dispatch Center"
+      "dispecinkStitek": "Breakdown? Dispatch 24/7"
     },
     "cisla": {
       "titulek": "What we stand on",
       "praxe": {
         "hodnota": "30+",
-        "popis": "years of our engineers' experience in building services"
+        "popis": "years of technician experience in building services"
       },
       "oblasti": {
         "hodnota": "7",
@@ -132,7 +162,7 @@
       },
       "dispecink": {
         "hodnota": "24/7",
-        "popis": "service dispatch center year-round"
+        "popis": "service dispatch year-round"
       },
       "technici": {
         "hodnota": "100 %",
@@ -140,227 +170,227 @@
       }
     },
     "sluzby": {
-      "stitek": "What We Do",
-      "titulek": "Seven disciplines, one responsibility",
-      "lead": "You don't have to piece together a designer, an installation company and a service provider. We manage the entire chain — and if something happens two years later, you still call the same number."
+      "stitek": "What we do",
+      "titulek": "Seven disciplines, one point of responsibility",
+      "lead": "You don't have to put together a designer, an installation company, and a service provider yourself. We manage the entire chain — and when something goes wrong two years from now, you call the same number."
     },
     "postup": {
-      "stitek": "How We Work",
+      "stitek": "How it works",
       "titulek": "From site survey to long-term care",
-      "lead": "Four steps, no surprises. At each stage you know what you get and who is responsible.",
+      "lead": "Four steps, no surprises. At each stage you know what you get and who is responsible for it.",
       "kroky": {
         "obhlidka": {
           "titulek": "Site Survey and Brief",
-          "popis": "We come to you, take measurements, review technical documentation and listen to what you actually need. Missing documentation can be arranged by us upon agreement."
+          "popis": "We come to your site, measure the building, review the technical documentation, and listen to what you actually need. Missing documentation can be arranged by us upon agreement."
         },
         "navrh": {
           "titulek": "Design and Quotation",
-          "popis": "We prepare the technical solution, budget and schedule. For larger systems we produce all stages of project documentation, in BIM if required."
+          "popis": "We prepare the technical solution, budget, and schedule. For larger projects we produce all stages of design documentation, in BIM if required."
         },
         "realizace": {
           "titulek": "Implementation and Handover",
-          "popis": "We supply and install, coordinate interfaces with other trades, and provide design and technical supervision. At the end we train the operators and hand over documentation."
+          "popis": "We supply and install, coordinate interfaces with other trades, and carry out both design supervision and technical supervision. At the end we train the operators and hand over the documentation."
         },
         "servis": {
           "titulek": "Service and Savings",
-          "popis": "We take over regular maintenance, inspections and checks. After the agreed period we verify that the system delivers the promised savings."
+          "popis": "We take over regular maintenance, inspections, and checks. After an agreed period we verify whether the system is delivering the promised savings."
         }
       }
     },
     "realizace": {
       "stitek": "Selected Projects",
-      "titulek": "Where our air is already circulating",
-      "lead": "Offices, healthcare, manufacturing and schools. See what we specifically solved on site."
+      "titulek": "Where Our Air Is Already Breathing",
+      "lead": "Administration, healthcare, manufacturing, and schools. See what we specifically solved on site."
     },
     "duvody": {
-      "stitek": "Why Choose Us",
-      "titulek": "Three things we care about",
+      "stitek": "Why Us",
+      "titulek": "Three Things We Care About",
       "polozky": {
         "udrzitelnost": {
-          "titulek": "Retrofit first, replace only if necessary",
-          "popis": "The cheapest kilowatt-hour is the one you don't consume. After an audit, we'll tell you what makes sense to keep from the existing system and what actually needs replacing. Not every project has to start with demolishing the plant room."
+          "titulek": "Refit First, Replace Later",
+          "popis": "The cheapest kilowatt-hour is the one you don't use. After an audit we tell you what makes sense to keep from the existing system and what truly needs replacing. Not every project has to start with demolishing the plant room."
         },
         "jedenTym": {
-          "titulek": "Designer and service technician at the same table",
-          "popis": "Colleagues from the service division walk the site alongside the implementation team. They get to know the building before they take it over — and that shows in the speed of the first intervention."
+          "titulek": "Designer and Service Technician at the Same Table",
+          "popis": "Colleagues from our service division walk the site with the implementation team. They get to know the building before they take it over — and it shows in the speed of the first response."
         },
         "dispecink": {
-          "titulek": "A control desk that picks up the phone",
-          "popis": "A 24/7 hotline all year round. If you can't get through immediately, leave a message — it reaches us instantly by email and we call you back."
+          "titulek": "A Dispatch Centre That Picks Up the Phone",
+          "popis": "A 24/7 line all year round. If you can't get through immediately, leave a message — it reaches us by email instantly and we call back."
         }
       }
     },
     "slovnik": {
-      "stitek": "We speak technically, but clearly",
-      "titulek": "An abbreviation you don't understand? Hover over it.",
-      "lead": "In our industry there are more abbreviations than screws. Anywhere on the site you come across an underlined abbreviation, simply hover over it with your mouse or tap it on mobile — we'll explain it.",
-      "ukazka": "We prepare energy performance certificates, design HVAC and controls systems, and integrate them into a BMS.",
-      "cta": "Open the abbreviation glossary"
+      "stitek": "We Speak Technically, but Clearly",
+      "titulek": "An Abbreviation You Don't Know? Hover Over It.",
+      "lead": "In our field there are more abbreviations than screws. Wherever you encounter an underlined abbreviation on our website, just hover over it with your mouse or tap it on mobile — we'll explain it.",
+      "ukazka": "We prepare PENB, design HVAC and MaR systems, and connect the system to BMS.",
+      "cta": "Open the Abbreviation Dictionary"
     },
     "kontakt": {
-      "stitek": "Get in touch",
-      "titulek": "Tell us what you're dealing with",
-      "lead": "A few sentences are enough. We typically respond within one business day — and if it's a breakdown, call the control desk directly."
+      "stitek": "Get in Touch",
+      "titulek": "Tell Us What You're Dealing With",
+      "lead": "A few sentences is enough. We usually respond within one working day — and if it's a fault, call dispatch directly."
     }
   },
   "sluzby": {
     "prehled": {
       "stitek": "Services",
-      "titulek": "What we can do for you",
-      "lead": "From the first line on a drawing to a regular inspection five years from now. Pick a discipline — or just write to us about what you're dealing with and we'll advise where it fits."
+      "titulek": "What We Can Do for You",
+      "lead": "From the first line in a design to a routine inspection five years later. Pick a field — or just write to us about what you're dealing with and we'll advise you on where it fits."
     },
     "spolecne": {
-      "coZahrnuje": "What the service includes",
-      "jakProbiha": "How it works",
-      "souvisi": "Related to this",
-      "zajimaVas": "Interested in this service?",
-      "zajimaVasLead": "Write us a few sentences about the building and we'll get back to you with a proposal for the next step."
+      "coZahrnuje": "What the Service Includes",
+      "jakProbiha": "How It Works",
+      "souvisi": "Related to This",
+      "zajimaVas": "Interested in This Service?",
+      "zajimaVasLead": "Write us a few sentences about your building and we'll get back to you with a proposed next step."
     },
     "polozky": {
       "projekce": {
-        "nazev": "Building services design",
-        "kratky": "All stages of project documentation including BIM, cost estimation, and site supervision.",
-        "titulek": "Building services design — from feasibility study to construction documentation",
-        "lead": "A design you can actually build from. We prepare all stages of documentation, monitor interfaces between disciplines, and stay involved until handover.",
-        "popis": "Our designers work on building services drawings every day and also visit construction sites — and it shows in the drawings. We prepare documentation for every stage, from feasibility study through building permit design and construction documentation to as-built documentation, entirely in BIM if needed.",
+        "nazev": "MEP Design",
+        "kratky": "All stages of design documentation including BIM, budget, and supervision.",
+        "titulek": "MEP Design — From Feasibility Study to Construction Documentation",
+        "lead": "A design that can actually be built to. We produce all stages of documentation, manage interfaces between trades, and stay involved through to handover.",
+        "popis": "Our designers draw MEP systems every day and also visit the site — you can tell on the drawings. We produce documentation for every stage, from feasibility study through preliminary design and detailed design to construction documentation and as-built documentation, in BIM if required.",
         "body": {
-          "b1": "Site survey and local assessment before the first line is drawn",
-          "b2": "All project stages as specified, including itemised cost estimation",
-          "b3": "Missing input data arranged by agreement (surveying, diagnostics, asset register)",
-          "b4": "Coordination with other disciplines and interface management between individual designs",
-          "b5": "Documentation prepared in BIM",
-          "b6": "Design authority supervision throughout the construction period",
-          "b7": "Client's technical supervision (CTS)"
+          "b1": "Site survey and local investigation before the first line is drawn",
+          "b2": "All stages of design as per the brief, including a detailed cost estimate",
+          "b3": "Missing documentation arranged upon agreement (survey, diagnostics, asset passport)",
+          "b4": "Coordination with other trades and interfaces between individual design packages",
+          "b5": "Documentation produced in BIM",
+          "b6": "Design supervision throughout the construction period",
+          "b7": "Client's technical supervision (TDS)"
         },
         "kroky": {
           "k1": {
-            "titulek": "Site survey and brief",
-            "popis": "We walk the building, discuss the brief, and propose the most efficient solution for your operations and budget."
+            "titulek": "Site Survey and Brief",
+            "popis": "We walk through the building, discuss the brief, and propose the most efficient solution for your operations and budget."
           },
           "k2": {
-            "titulek": "Input data",
-            "popis": "We fill in what's missing — surveying, diagnostics of the existing condition, heat loss and heat gain calculations."
+            "titulek": "Documentation",
+            "popis": "We fill in what's missing — surveys, diagnostics of the existing condition, heat loss and gain calculations."
           },
           "k3": {
-            "titulek": "Documentation",
-            "popis": "We prepare the required stage of documentation including cost estimation and technical report."
+            "titulek": "Design Documentation",
+            "popis": "We prepare the required stage of documentation including the budget and technical report."
           },
           "k4": {
-            "titulek": "Site supervision",
+            "titulek": "Site Supervision",
             "popis": "We continuously coordinate solutions with the contractor and ensure construction follows the design."
           }
         }
       },
       "realizace-montaze": {
-        "nazev": "Installation and commissioning",
+        "nazev": "Implementation and Installation",
         "kratky": "Supply and installation of HVAC, cooling, heating, plumbing, gas, and heat pumps.",
-        "titulek": "Building services supply and installation",
-        "lead": "We are a partner throughout the entire process — from project preparation through installation to handover to the investor. Including construction supervision.",
-        "popis": "We are a team of technicians with over 30 years of experience in building services engineering. We rely on experience as well as new insights from an industry that continues to evolve dynamically — and on the fact that our service team knows the building before they take it over.",
+        "titulek": "MEP Supply and Installation",
+        "lead": "We are your partner throughout the entire process — from project preparation through installation to handover to the client. Including construction supervision.",
+        "popis": "We are a team of technicians with over 30 years of experience in building services engineering. We draw on experience as well as new insights from a field that is still evolving dynamically — and on the fact that our service team knows the building before they take it over.",
         "body": {
-          "b1": "Air handling and heat recovery (HVAC)",
+          "b1": "HVAC and heat recovery (ZZT)",
           "b2": "Cooling — industrial and residential",
           "b3": "Heating including boiler rooms and heat exchange stations",
-          "b4": "Water supply and drainage (plumbing)",
+          "b4": "Water supply and sewage (sanitary installations)",
           "b5": "Gas distribution systems",
           "b6": "Heat pumps",
-          "b7": "Controls and instrumentation (BMS) and integration into building management systems",
+          "b7": "Measurement and control (M&C) and BMS integration",
           "b8": "Warranty and post-warranty service from the same team"
         },
         "kroky": {
           "k1": {
             "titulek": "Project preparation",
-            "popis": "We review the design, flag clashes, and prepare the schedule and site readiness plan."
+            "popis": "We review the project, identify clashes, and prepare the schedule and site readiness."
           },
           "k2": {
-            "titulek": "Delivery and installation",
-            "popis": "We install with our own technicians, coordinate interfaces with other trades, and keep to deadlines."
+            "titulek": "Supply and installation",
+            "popis": "We install with our own technicians, coordinate interfaces with other trades, and monitor deadlines."
           },
           "k3": {
             "titulek": "Commissioning and training",
-            "popis": "We set parameters, balance the system, and train the operating staff. We hand over test reports and documentation."
+            "popis": "We set parameters, balance the system, and train the operators. We hand over protocols and documentation."
           },
           "k4": {
             "titulek": "Service handover",
-            "popis": "Colleagues from the service division walk the site before handover — they take over a building they already know."
+            "popis": "Colleagues from the service division inspect the site before handover — they take over a building they already know."
           }
         }
       },
       "servis": {
         "nazev": "Service and maintenance",
-        "kratky": "Regular service, inspections, and a 24/7 control desk for all building services systems.",
-        "titulek": "Building services with a 24/7 control desk",
-        "lead": "Several teams of core technicians with full equipment and a control desk that runs 365 days a year.",
-        "popis": "We service what we have built as well as what we take over from others. We work in teams of two; where the nature of the intervention does not require it, a single technician is dispatched — so you do not unnecessarily pay for a second person.",
+        "kratky": "Regular service, inspections, and 24/7 dispatch for all HVAC and sanitary systems.",
+        "titulek": "HVAC and sanitary service with 24/7 dispatch",
+        "lead": "Several teams of dedicated technicians with full equipment and a dispatch running 365 days a year.",
+        "popis": "We service what we built and what we take over from others. We work in teams of two; where the nature of the intervention does not require it, a single technician will attend — so you don't pay for an unnecessary second person.",
         "body": {
           "b1": "HVAC equipment and systems",
           "b2": "Cooling systems — industrial and residential",
           "b3": "Heating systems and components",
-          "b4": "Plumbing and sanitary installations (PSI)",
-          "b5": "Measurement and regulation (M&R)",
+          "b4": "Sanitary installations (ZTI)",
+          "b5": "Measurement and control (M&C)",
           "b6": "Heat pumps",
           "b7": "Cogeneration units (CHP)",
           "b8": "Fire safety design of buildings (FSD)",
-          "b9": "Gas inspections (PS, PZ, OPZ) and pressure vessels (TNS), operator training",
+          "b9": "Gas inspections (PS, PZ, OPZ) and pressure vessels (TNS), boiler operator training",
           "b10": "Boiler room operation, heat cost calculation",
           "b11": "Preparation of operational and technical documentation, inspection logbooks",
-          "b12": "Balancing of heating and cooling systems including protocols"
+          "b12": "Balancing of heating and cooling systems including flow rate protocols"
         },
         "kroky": {
           "k1": {
             "titulek": "Site inspection",
-            "popis": "We visit to assess what you operate, its current condition, and your most pressing concerns."
+            "popis": "We come and look at what you operate, what condition it is in, and what concerns you most."
           },
           "k2": {
             "titulek": "Solution proposal",
-            "popis": "Based on available documentation and an on-site survey, we prepare a proposal for the scope of service and pricing."
+            "popis": "Based on available documentation and a site survey, we prepare a proposal for the scope of service and pricing."
           },
           "k3": {
             "titulek": "Implementation of measures",
-            "popis": "Once the solution, price, and contract are agreed upon, we carry out the measures and set up a regular maintenance plan."
+            "popis": "After the solution, price, and contract are approved, we carry out the measures and set up a regular maintenance plan."
           },
           "k4": {
             "titulek": "Savings verification",
-            "popis": "After a defined period, we verify whether the targeted savings have actually been achieved."
+            "popis": "After a set period, we verify whether the targeted savings have actually been achieved."
           }
         },
         "dispecink": {
-          "titulek": "24/7 Dispatch Center",
-          "popis": "Our service division operates a 24/7 dispatch center. If you cannot reach us immediately, leave a message — we will receive it by email and get back to you."
+          "titulek": "24/7 Dispatch",
+          "popis": "The service division operates a 24/7 dispatch. If you cannot reach us immediately, leave us a message — it will come through by email and we will call you back."
         }
       },
       "energetika": {
-        "nazev": "EPC, audits, and refits",
-        "kratky": "Energy performance certificates, energy audits, mandatory inspections per Decree 38/2022 Coll., and refits.",
-        "titulek": "EPC, energy audits, and refits",
-        "lead": "We value your energy. We measure, calculate, and tell you what is worth changing — and what is not.",
-        "popis": "Our energy specialist prepares the EPC and energy audit, performs mandatory inspections of operating systems, and proposes a refit that does not start with demolishing the plant room.",
+        "nazev": "Energy performance, audits, and refits",
+        "kratky": "Certificates, energy audits, mandatory inspections per Decree 38/2022 Coll., and refits.",
+        "titulek": "Energy performance certificates, energy audits, and refits",
+        "lead": "We value your energy. We measure, calculate, and tell you what makes sense to change — and what doesn't.",
+        "popis": "Our energy specialist prepares energy performance certificates and energy audits, carries out mandatory inspections of operating systems, and proposes a refit that does not start with demolishing the plant room.",
         "body": {
-          "b1": "Preparation of EPC in compliance with the Energy Act; registered in the ENEX database (Ministry of Industry and Trade)",
+          "b1": "Preparation of energy performance certificates in accordance with the Energy Act; registered in the ENEX database (Ministry of Industry and Trade)",
           "b2": "Inspection of operating systems per Decree 38/2022 Coll. for heat sources above 70 kW",
-          "b3": "Energy audit per Act No. 406/2000 Coll. and Decree No. 480/2012 Coll., always with at least two variants",
+          "b3": "Energy audit per Act No. 406/2000 Coll. and Decree No. 480/2012 Coll., always at least two variants",
           "b4": "Energy assessments",
-          "b5": "Diagnostics of heating systems, cooling systems, and ventilation",
-          "b6": "System balancing per Decree 193/2007 Coll. including a protocol on flow settings",
-          "b7": "Inspections of pressure vessels and gas appliances",
-          "b8": "Indoor environment quality measurement — thermal comfort, CO₂, TVOC"
+          "b5": "Diagnostics of heating systems, cooling systems, and HVAC",
+          "b6": "System balancing per Decree 193/2007 Coll. including flow rate setting protocol",
+          "b7": "Inspection of pressure vessels and gas appliances",
+          "b8": "Indoor air quality measurement — thermal comfort, CO₂, TVOC"
         },
         "upozorneni": {
-          "titulek": "Mandatory inspection reminder",
-          "popis": "Per the update effective 1 January 2023, the owner is required to have an energy specialist perform an inspection of operating systems once every 5 years. Non-compliance carries a fine of up to CZK 200,000."
+          "titulek": "Mandatory inspection notice",
+          "popis": "Per the update effective 1 January 2023, the owner is obligated to have an energy specialist carry out an inspection of operating systems once every 5 years. Failure to comply may result in a fine of up to CZK 200,000."
         },
         "refit": {
           "titulek": "Refit instead of replacement",
-          "popis": "Our philosophy is sustainability. After the audit, we propose which parts of the system can be retained and which should be replaced with new, more efficient components compliant with current standards. The result is a lower investment and a smaller environmental impact."
+          "popis": "Our philosophy is sustainability. After the audit, we propose which parts of the system can be retained and which should be replaced with newer, more efficient units compliant with current standards. The result is lower investment and a smaller environmental impact."
         },
         "kroky": {
           "k1": {
             "titulek": "Data collection",
-            "popis": "We review the building, meter readings, documentation, and actual operation — not just design values."
+            "popis": "We walk through the building, meter readings, documentation, and actual operation — not just design values."
           },
           "k2": {
             "titulek": "Calculation and variants",
-            "popis": "We assess the existing energy performance and propose at least two optimization variants."
+            "popis": "We prepare an assessment of the current energy performance and propose at least two optimization variants."
           },
           "k3": {
             "titulek": "Recommendation",
@@ -374,36 +404,36 @@
       },
       "klimatizace": {
         "nazev": "Air conditioning and heat pumps",
-        "kratky": "Design, installation, subsidy processing, and service for air conditioning and heat pumps.",
+        "kratky": "Design, installation, subsidies, and service for air conditioning and heat pumps.",
         "titulek": "Air conditioning and heat pumps",
         "lead": "From site inspection through subsidy processing to operator training. For businesses, public buildings, and residential homes.",
-        "popis": "You can choose from a wide range of suppliers and we will respect your preferences. We are happy to advise — we have extensive experience and know that it is not just about the purchase price.",
+        "popis": "You can choose from a wide range of suppliers and we will respect your preferences. However, we are happy to advise — we have extensive experience and know that it is not just about the purchase price.",
         "body": {
           "b1": "Site inspection and measurement",
-          "b2": "Customized price and technical proposal tailored to the building",
+          "b2": "Custom pricing and technical proposal tailored to the building",
           "b3": "Design documentation as a basis for a subsidy application",
           "b4": "Installation typically 1–3 working days",
-          "b5": "Parameter setting, commissioning, and operator training",
-          "b6": "Subsidy processing based on a power of attorney",
-          "b7": "Warranty and post-warranty service; extended warranty available with selected suppliers",
-          "b8": "24/7 service dispatch center"
+          "b5": "Parameter configuration, commissioning, and operator training",
+          "b6": "Subsidy processing under a power of attorney",
+          "b7": "Warranty and post-warranty service, extended warranty with selected suppliers",
+          "b8": "24/7 service dispatch"
         },
         "kroky": {
           "k1": {
-            "titulek": "Inspection",
-            "popis": "A technician visits, measures everything needed, and discusses your expectations for cooling and heating. We borrow any available building documentation."
+            "titulek": "Site Inspection",
+            "popis": "A technician will arrive, take all necessary measurements, and discuss your cooling and heating requirements. We will request any available building documentation."
           },
           "k2": {
-            "titulek": "Proposal and design",
-            "popis": "We prepare a price and technical proposal, and if needed, design documentation as a basis for a subsidy."
+            "titulek": "Proposal and Design",
+            "popis": "We will prepare a pricing and technical proposal, and if needed, a design document as a basis for a subsidy application."
           },
           "k3": {
             "titulek": "Installation",
-            "popis": "We agree on a schedule based on confirmed deliveries, inform you of the required construction readiness — or arrange it ourselves."
+            "popis": "We will schedule the installation based on confirmed deliveries and inform you of the required construction readiness — or arrange it ourselves."
           },
           "k4": {
-            "titulek": "Operation and service",
-            "popis": "We start up the system, fine-tune it, train the operating staff, and sign the handover protocol. After that, we take over the service."
+            "titulek": "Operation and Service",
+            "popis": "We will start up the system, fine-tune it, train the operators, and sign the handover protocol. After that, we take over service."
           }
         }
       },
@@ -411,38 +441,175 @@
         "nazev": "Honeywell EAC Filters",
         "kratky": "Electronic air cleaners with a 15-year lifespan. We are the partner for the Czech Republic.",
         "titulek": "Honeywell EAC Filters",
-        "lead": "We are Honeywell's partner for the Czech Republic in the field of specialized EAC filters. They capture fine dust while reducing HVAC energy consumption.",
-        "popis": "The electronic air cleaner captures harmful PM2.5 particles while having a significantly lower pressure drop than a standard filter. The fan doesn't have to work as hard — and that shows up on the energy bill.",
+        "lead": "We are the Honeywell partner for the Czech Republic in the field of special EAC filters. They capture fine dust while reducing HVAC energy consumption.",
+        "popis": "The electronic air cleaner captures harmful PM2.5 particles and has a significantly lower pressure drop than a standard filter. The fan does not have to work as hard — and that shows on the invoice.",
         "body": {
           "b1": "Pre-filter for larger particles and collector plates for particles 0.3–3 micrometers",
-          "b2": "Lower pressure drop than a standard filter — approximately 5 % fan power savings on the AHU",
+          "b2": "Lower pressure drop than a standard filter — approximately 5% savings in AHU fan power",
           "b3": "Estimated payback period of around 1.5 years",
-          "b4": "Washable pre-filter and collector — lower operating costs, more environmentally friendly",
+          "b4": "Washable pre-filter and collector — lower operating costs, environmentally friendly",
           "b5": "Filter lifespan of 15 years",
           "b6": "Operates only when the fans are running",
-          "b7": "Output relay for EAC status monitoring via BMS",
-          "b8": "Interlock switch to prevent damage and risk when the grille is opened",
-          "b9": "LED indicators for ON/OFF status, alarm, and cleaning requirement",
+          "b7": "Output relay for EAC monitoring in BMS",
+          "b8": "Locking switch to prevent damage and risk when the grille is opened",
+          "b9": "LED indication of ON/OFF status, alarm, and cleaning requirement",
           "b10": "Interconnectable F58G and F58H models for flexible installation"
         },
         "servis": {
           "titulek": "EAC Filter Service",
-          "popis": "In addition to warranty service, we also provide post-warranty service. Cleaning is performed by rinsing in a tray, and our dispatch center operates 24/7."
+          "popis": "In addition to warranty service, we also provide post-warranty service. Cleaning is performed by rinsing in a tray and the dispatch center operates 24/7."
         }
       },
       "vymeniky": {
         "nazev": "Heat Exchanger Repairs",
-        "kratky": "Diagnosis, repair, and pressure testing of damaged heat exchangers at our workshop.",
-        "titulek": "Heat Exchanger Repairs and Overhauls",
-        "lead": "A cracked heat exchanger doesn't necessarily mean a new heat exchanger. We diagnose, repair, and test — often at a fraction of the replacement cost.",
-        "popis": "We have our own workshop with tanks and a helium leak test, so we can detect even a leak that a water pressure test would miss.",
+        "kratky": "Diagnostics, repair, and pressure testing of damaged heat exchangers at our facility.",
+        "titulek": "Heat Exchanger Repair and Overhaul",
+        "lead": "A cracked heat exchanger does not necessarily mean a new one. We diagnose, repair, and test — often at a fraction of the replacement cost.",
+        "popis": "We have our own facility with test tanks and helium testing, so we can detect leaks that a water pressure test would miss.",
         "body": {
-          "b1": "Diagnosis of the damaged heat exchanger directly at the operating site",
-          "b2": "Dismantling and transport to our workshop for pressure diagnostics",
+          "b1": "Diagnostics of a damaged heat exchanger on site",
+          "b2": "Disassembly and transport to our facility for pressure diagnostics",
           "b3": "Repair or replacement of individual heat exchanger components",
-          "b4": "Water pressurization or more precise helium pressure testing",
-          "b5": "Reinstallation into the equipment and operational testing",
-          "b6": "Follow-up inspection during regular service checks"
+          "b4": "Water pressure test or more precise helium pressure test",
+          "b5": "Reinstallation into the unit and operational testing",
+          "b6": "Follow-up inspection during regular service visits"
+        }
+      },
+      "d-klimatizace": {
+        "nazev": "Air Conditioning for Homes and Apartments",
+        "kratky": "Design, installation, and service of air conditioning for residential homes and apartments — even without visible ducts.",
+        "titulek": "Air Conditioning for Homes and Apartments",
+        "lead": "From site inspection to operator training. Installation takes one to three days, and after that you simply know who to call when needed.",
+        "popis": "You can choose from a wide range of manufacturers and we will respect your preferences. However, we are happy to advise — what matters is not the purchase price, but how the equipment performs after five years.",
+        "body": {
+          "b1": "Site inspection and measurement including refrigerant piping routes and condensate drainage",
+          "b2": "Capacity design based on heat gains, not square meters",
+          "b3": "Multi-split and single units — wall-mounted, cassette, and window sill types",
+          "b4": "Piping routed in grooves so no visible ducts remain in the interior",
+          "b5": "Installation typically 1–3 working days",
+          "b6": "Commissioning, configuration, and operator training including the mobile app",
+          "b7": "Regular cleaning and service, warranty and post-warranty"
+        },
+        "kroky": {
+          "k1": {
+            "titulek": "Site Inspection",
+            "popis": "A technician will arrive, take measurements, and discuss with you where you want cooling and where the piping can be routed."
+          },
+          "k2": {
+            "titulek": "Proposal",
+            "popis": "You will receive a pricing and technical proposal with specific units, not a flat rate."
+          },
+          "k3": {
+            "titulek": "Installation",
+            "popis": "We will schedule the installation based on delivery. We will inform you of the required construction readiness — or arrange it ourselves."
+          },
+          "k4": {
+            "titulek": "Operation",
+            "popis": "We commission the system, fine-tune it, train you, and hand over the protocol. We then take over servicing."
+          }
+        }
+      },
+      "d-tepelna-cerpadla": {
+        "nazev": "Heat Pumps",
+        "kratky": "Boiler replacement with a heat pump, including design and subsidy application.",
+        "titulek": "Heat Pumps for Residential Homes",
+        "lead": "We calculate whether it pays off for your property, design the capacity, install it — and handle the subsidy application for you.",
+        "popis": "A heat pump is not a universal solution for every home. Before we recommend one, we calculate heat losses and assess the existing heating system. With old radiators requiring high water temperatures, the payback period works out quite differently from what the brochure promises.",
+        "body": {
+          "b1": "Heat loss calculation and assessment of the existing heating system",
+          "b2": "Type and capacity design — air-to-water and ground-to-water",
+          "b3": "Bivalent heat source for the coldest days, where appropriate",
+          "b4": "Design documentation as a basis for the subsidy application",
+          "b5": "Subsidy application handled under power of attorney",
+          "b6": "Connection to domestic hot water heating and thermal storage",
+          "b7": "Hydraulic balancing of the system after heat source replacement",
+          "b8": "Warranty and post-warranty service, extended warranty with selected suppliers"
+        },
+        "kroky": {
+          "k1": {
+            "titulek": "Calculation",
+            "popis": "We survey the building, calculate heat losses, and tell you right away whether a heat pump is worthwhile for your property."
+          },
+          "k2": {
+            "titulek": "Design and Subsidy",
+            "popis": "We design the heat source, prepare the project documentation and subsidy application. We can handle the subsidy on your behalf."
+          },
+          "k3": {
+            "titulek": "Installation",
+            "popis": "We replace the heat source, connect the domestic hot water system, and hydraulically balance the system."
+          },
+          "k4": {
+            "titulek": "First Season",
+            "popis": "After winter we follow up and fine-tune the flow temperature curve based on actual operation."
+          }
+        }
+      },
+      "d-rekuperace": {
+        "nazev": "Heat Recovery and Ventilation",
+        "kratky": "Controlled ventilation with heat recovery for new builds and renovated apartments.",
+        "titulek": "Heat Recovery and Controlled Ventilation",
+        "lead": "Fresh air without open windows — and without heating the street in winter.",
+        "popis": "Heat recovery returns heat from exhaust air back into the building. In practice, this means you can ventilate continuously without using more heating than before. It works best during construction or renovation, but we can install it in a completed apartment as well.",
+        "body": {
+          "b1": "Central units and local heat recovery for individual rooms",
+          "b2": "Duct design that fits within ceiling voids without lowering the ceiling more than necessary",
+          "b3": "Supply air filtration — including EAC filters with a 15-year service life",
+          "b4": "Control based on occupancy or CO₂ levels",
+          "b5": "Silencers to eliminate unit noise and airflow noise",
+          "b6": "Flow rate balancing at individual outlets with a protocol",
+          "b7": "Regular filter replacement and cleaning so dust does not return to your rooms"
+        },
+        "kroky": {
+          "k1": {
+            "titulek": "Site Survey",
+            "popis": "We walk through the layout, ceiling voids, and possible routes. We tell you right away what is feasible and what is not."
+          },
+          "k2": {
+            "titulek": "Design",
+            "popis": "We calculate the air volume per room and design the unit and ductwork."
+          },
+          "k3": {
+            "titulek": "Installation",
+            "popis": "Ductwork, unit, outlets. We coordinate with the construction team so nothing has to be demolished twice."
+          },
+          "k4": {
+            "titulek": "Commissioning",
+            "popis": "We set the flow rates, measure them, and hand over the protocol. After that, it is just filter changes."
+          }
+        }
+      },
+      "d-servis": {
+        "nazev": "Service and Emergency Repairs",
+        "kratky": "No heat, leaks, no cooling. 24/7 dispatch and technicians across Prague, Central Bohemia, and South Bohemia.",
+        "titulek": "Home Service and Emergency Repairs",
+        "lead": "When something breaks, you call one number. Our dispatch runs 24/7, year-round.",
+        "popis": "We service heat pumps, air conditioning units, boilers, and heat recovery systems — including ones we did not install. If you cannot reach us immediately, leave a message; it comes to us by email and we will call you back.",
+        "body": {
+          "b1": "Emergencies and faults — no heat, no cooling, leaks, noise",
+          "b2": "Regular inspections of heat pumps and air conditioning units",
+          "b3": "Unit cleaning and filter replacement",
+          "b4": "Inspection of gas appliances and pressure vessels",
+          "b5": "Refrigerant check and top-up",
+          "b6": "Replacement of end-of-life boilers including removal of the old unit",
+          "b7": "Phone-based advice — sometimes a quick consultation is all it takes and we do not need to visit"
+        },
+        "kroky": {
+          "k1": {
+            "titulek": "You Call",
+            "popis": "Our 24/7 dispatch. We ask a few questions and assess the urgency."
+          },
+          "k2": {
+            "titulek": "We Arrive",
+            "popis": "A technician arrives with equipment. For common faults, spare parts are on board."
+          },
+          "k3": {
+            "titulek": "We Repair",
+            "popis": "What can be fixed on site, we fix immediately. What cannot, we order and give you a timeline."
+          },
+          "k4": {
+            "titulek": "We Follow Up",
+            "popis": "We offer a regular inspection so the same fault does not recur."
+          }
         }
       }
     }
@@ -450,24 +617,24 @@
   "realizace": {
     "stranka": {
       "stitek": "Projects",
-      "titulek": "Projects We Stand Behind",
-      "lead": "Selected projects from recent years. Each one describes the challenge we addressed, the technologies we deployed, and the outcome."
+      "titulek": "Projects We Are Proud Of",
+      "lead": "Selected projects from recent years. For each one, you will find what we addressed, which technologies we deployed, and the outcome."
     },
     "detail": {
       "rozsah": "Scope of Work",
       "technologie": "Technologies Deployed",
       "vysledek": "Outcome",
       "parametry": "Project Parameters",
-      "plocha": "Served Area",
-      "doba": "Project Duration",
+      "plocha": "Area Served",
+      "doba": "Duration",
       "kraj": "Location",
       "dokonceno": "Completed",
-      "dalsiRealizace": "More Projects",
-      "maObdobny": "Do you have a similar building?",
-      "maObdobnyLead": "Send us a few lines and we will get back to you with a proposed approach."
+      "dalsiRealizace": "Next Project",
+      "maObdobny": "Do You Have a Similar Property?",
+      "maObdobnyLead": "Write us a few sentences and we will get back to you with a proposed approach."
     },
     "kategorie": {
-      "vse": "All Sectors",
+      "vse": "All Fields",
       "vzt": "HVAC",
       "chlazeni": "Cooling",
       "vytapeni": "Heating",
@@ -477,116 +644,116 @@
     },
     "polozky": {
       "logisticke-centrum-d1": {
-        "nazev": "Heating System Refit at a Logistics Center Near the D1 Motorway",
+        "nazev": "Heating Retrofit of a Logistics Centre near the D1 Motorway",
         "misto": "Central Bohemian Region",
-        "perex": "An energy audit showed that it was worthwhile to keep the distribution network and replace only the heat sources and controls. Gas consumption dropped by a third.",
-        "zadani": "The operator of the logistics complex wanted to reduce heating costs for the halls and the office section. The original plan was to replace the entire boiler room.",
+        "perex": "An energy audit showed that it was cost-effective to retain the distribution system and replace only the heat sources and controls. Gas consumption dropped by a third.",
+        "zadani": "The operator of a logistics park wanted to reduce heating costs for the warehouses and administrative section. The original plan was to replace the entire boiler room.",
         "rozsah": {
-          "r1": "Energy audit of the entire complex, including two solution variants",
-          "r2": "Gas boiler room refit — existing distribution retained, new condensing heat sources installed",
-          "r3": "New weather-compensated control system and integration with the building's BMS",
-          "r4": "Hydraulic balancing of the heating system, including a protocol",
-          "r5": "Preparation of an Energy Performance Certificate (PENB) after completion of the measures"
+          "r1": "Energy audit of the entire site including two solution variants",
+          "r2": "Gas boiler room retrofit — retained distribution system, new condensing heat sources",
+          "r3": "New equalizer control and integration with the building's BMS",
+          "r4": "Hydraulic balancing of the heating system including a balancing report",
+          "r5": "Updated energy performance certificate (PENB) after completion of measures"
         },
         "technologie": {
           "t1": "Condensing boilers",
-          "t2": "Weather-compensated control",
-          "t3": "Building automation with remote monitoring",
+          "t2": "Equalizer control",
+          "t3": "Measurement and control with monitoring",
           "t4": "Hydraulic balancing"
         },
-        "vysledek": "The investment came in approximately 40 % lower than the proposed full replacement. After the first heating season, gas consumption dropped by roughly a third, and the complex met the mandatory inspection requirements for operated systems."
+        "vysledek": "The investment came in approximately 40% lower than the proposed full replacement. After the first season, gas consumption dropped by roughly a third, and the site passed the mandatory inspection of operating systems."
       },
       "administrativni-budova-karlin": {
-        "nazev": "HVAC and Cooling for an Office Building in Karlín",
+        "nazev": "HVAC and cooling for an office building in Karlín",
         "misto": "Prague 8",
-        "perex": "Replacement of two AHU units and reconstruction of the chilled water distribution in a six-story building — while tenants remained fully operational.",
+        "perex": "Replacement of two AHU units and reconstruction of cooling distribution in a six-storey building — while tenants remained in full operation.",
         "zadani": "The building owner needed to replace end-of-life units and increase cooling capacity without requiring tenants to vacate their offices for even a single day.",
         "rozsah": {
-          "r1": "Dismantling and replacement of two AHU units on the roof, including crane operations at night",
-          "r2": "Reconstruction of the chilled water distribution on floors 3–6",
-          "r3": "Installation of new fan coils in the offices",
-          "r4": "Expansion of building automation and integration with the existing BMS",
-          "r5": "Phased execution by floor to ensure uninterrupted operations"
+          "r1": "Dismantling and replacement of two rooftop AHU units, including nighttime crane operations",
+          "r2": "Reconstruction of cooling distribution on floors 3–6",
+          "r3": "Installation of new fan coils in office spaces",
+          "r4": "Expansion of measurement and control system and integration with the existing BMS",
+          "r5": "Phased execution by floor to ensure continuous operation"
         },
         "technologie": {
-          "t1": "AHU with heat recovery (ERV)",
-          "t2": "Chilled water system",
+          "t1": "AHU with heat recovery (ZZT)",
+          "t2": "Water-based cooling",
           "t3": "Fan coils",
           "t4": "BMS integration"
         },
-        "vysledek": "The building operated without a single day of vacancy throughout the entire project. The new units with heat recovery reduced HVAC energy consumption, and tenants are holding comfortable temperatures even in August for the first time in years."
+        "vysledek": "The building operated throughout the project with no loss of rental income. The new units with heat recovery reduced HVAC energy consumption, and tenants were able to maintain comfortable temperatures even in August for the first time in years."
       },
       "poliklinika-pisek": {
-        "nazev": "Air Conditioning and Ventilation for a Polyclinic in Písek",
+        "nazev": "Air conditioning and ventilation for a polyclinic in Písek",
         "misto": "Písek",
-        "perex": "Examination rooms, waiting areas, and a laboratory. Each space had different requirements for air purity and noise levels — and none of them could be heard.",
-        "zadani": "The healthcare facility needed to address summer overheating in the examination rooms and ensure hygienically adequate air exchange in the sampling rooms.",
+        "perex": "Consultation rooms, waiting areas, and a laboratory. Each with different requirements for air quality and noise levels — and nowhere could any noise be tolerated.",
+        "zadani": "The healthcare facility needed to address summer overheating in consultation rooms and ensure hygienically compliant air exchange in blood-draw rooms.",
         "rozsah": {
-          "r1": "HVAC and cooling design including hygiene requirements",
-          "r2": "Installation of multisplit systems in examination rooms with emphasis on low noise levels",
-          "r3": "Mechanical ventilation of sampling and laboratory rooms",
-          "r4": "Filtration and indoor environment quality measurement",
-          "r5": "Staff training and maintenance plan setup"
+          "r1": "HVAC and cooling design including hygienic requirements",
+          "r2": "Installation of multi-split systems in consultation rooms with emphasis on low noise",
+          "r3": "Mechanical ventilation for blood-draw and laboratory rooms",
+          "r4": "Filtration and indoor air quality monitoring",
+          "r5": "Staff training and establishment of a maintenance plan"
         },
         "technologie": {
           "t1": "VRF system",
           "t2": "Mechanical ventilation",
           "t3": "Air filtration",
-          "t4": "CO₂ measurement"
+          "t4": "CO₂ monitoring"
         },
-        "vysledek": "The examination rooms maintain the set temperature even during hot summer days, noise in the waiting areas remained below the limit, and the polyclinic has documented indoor environment quality measurements."
+        "vysledek": "Consultation rooms maintain the set temperature even during hot summers, noise levels in waiting areas remain below the limit, and the polyclinic has documented indoor air quality measurements."
       },
       "vyrobni-hala-milevsko": {
-        "nazev": "Cooling and ventilation of a production hall in Milevsko",
+        "nazev": "Cooling and ventilation for a production hall in Milevsko",
         "misto": "Milevsko",
-        "perex": "A press shop where temperatures near the machines exceeded 38 °C in summer. The solution had to handle both process heat and exhaust extraction.",
-        "zadani": "The manufacturer needed to reduce temperatures at workstations near the presses and remove heat and vapors from the process without blowing out the heated air from the entire hall.",
+        "perex": "A press shop where temperatures near the machines exceeded 38 °C in summer. The solution had to handle both process heat and exhaust.",
+        "zadani": "The manufacturer needed to reduce temperatures at press workstations and remove process heat and vapours without blowing out the heated air from the entire hall.",
         "rozsah": {
-          "r1": "Heat load calculation from process equipment and concept design",
-          "r2": "Supply and installation of HVAC equipment with heat recovery",
-          "r3": "Local exhaust ventilation at press stations",
+          "r1": "Thermal load calculation from process equipment and concept design",
+          "r2": "Supply and installation of HVAC with heat recovery",
+          "r3": "Local exhaust at press stations",
           "r4": "Adiabatic cooling of supply air",
           "r5": "Control based on temperature and shift occupancy"
         },
         "technologie": {
           "t1": "Industrial HVAC",
-          "t2": "Heat recovery (HRV)",
+          "t2": "Heat recovery (ZZT)",
           "t3": "Adiabatic cooling",
-          "t4": "Local exhaust ventilation"
+          "t4": "Local exhaust"
         },
-        "vysledek": "Temperatures at workstations dropped by approximately 8 °C during summer peaks. Heat recovery returns heat in winter, so hall heating costs did not increase."
+        "vysledek": "Temperatures at workstations dropped by approximately 8 °C during summer peaks. Heat recovery returns heat in winter, so heating costs for the hall did not increase."
       },
       "depozitar-galerie-tabor": {
-        "nazev": "HVAC for a gallery collection storage room in Tábor",
+        "nazev": "Climate control for a gallery storage facility in Tábor",
         "misto": "Tábor",
-        "perex": "Collection items don't need cold — they need stability. Humidity must be maintained within a narrow band year-round.",
-        "zadani": "The gallery needed to maintain both temperature and relative humidity within the prescribed range in the new storage room and have a verifiable record of the conditions.",
+        "perex": "Collection items do not need cold — they need stability. Humidity must be maintained within a narrow range year-round.",
+        "zadani": "The gallery needed to maintain temperature and relative humidity within specified ranges in a new storage facility and have a verifiable record of conditions.",
         "rozsah": {
           "r1": "HVAC design with precise humidity control",
-          "r2": "Installation of a unit with humidification and dehumidification",
+          "r2": "Installation of a unit with both humidification and dehumidification",
           "r3": "Temperature and humidity sensors in individual storage sections",
-          "r4": "Data logging and alarms to BMS with dispatch to the monitoring center",
-          "r5": "Maintenance contract with regular inspections"
+          "r4": "Data logging and alarms to BMS with dispatch to a monitoring centre",
+          "r5": "Service agreement with regular inspections"
         },
         "technologie": {
           "t1": "HVAC with humidification",
-          "t2": "Precision control (BMS)",
+          "t2": "Precise control (MaR)",
           "t3": "Data logging and alarms",
           "t4": "Filtration"
         },
-        "vysledek": "The storage room maintains humidity within the prescribed band, the gallery has a continuous record for insurance and loan purposes, and the monitoring center alerts on deviations before anyone notices them in the morning."
+        "vysledek": "The storage facility maintains humidity within the specified range, the gallery has a continuous record for insurance and loan purposes, and the monitoring centre is alerted to any deviation before anyone notices it in the morning."
       },
       "obchodni-centrum-budejovice": {
-        "nazev": "EAC filters in a shopping center in České Budějovice",
+        "nazev": "EAC filters in a shopping centre in České Budějovice",
         "misto": "České Budějovice",
-        "perex": "Replacement of conventional filters with electronic air cleaners in air handling units. Lower pressure drop, less waste.",
-        "zadani": "The facility manager was dealing with rising HVAC operating costs and repeated filter cartridge replacements across multiple units.",
+        "perex": "Replacement of conventional filters with electronic air cleaners in AHU units. Lower pressure drop, less waste.",
+        "zadani": "The shopping centre manager was dealing with rising HVAC operating costs and repeated replacement of filter cartridges across units.",
         "rozsah": {
-          "r1": "Assessment of existing AHUs and pressure conditions",
+          "r1": "Assessment of existing AHU units and pressure ratios",
           "r2": "Supply and installation of Honeywell F58G and F58H EAC filters",
-          "r3": "Integration of output relays and indication into the center's BMS",
-          "r4": "Training of facility technicians on collector cleaning",
-          "r5": "Maintenance plan with regular rinsing in a tray"
+          "r3": "Connection of output relays and indicators to the centre BMS",
+          "r4": "Training of the manager's technicians on collector cleaning",
+          "r5": "Service plan with regular tray rinsing"
         },
         "technologie": {
           "t1": "Honeywell EAC",
@@ -594,39 +761,39 @@
           "t3": "Washable collectors",
           "t4": "PM2.5 filtration"
         },
-        "vysledek": "Regular filter cartridge replacement and the associated waste were eliminated. The reduced pressure drop was reflected in lower fan power consumption; the facility manager expects a payback period of two years."
+        "vysledek": "Regular filter cartridge replacement and the associated waste have been eliminated. The reduced pressure drop is reflected in lower fan power consumption; the manager expects a payback period of within two years."
       },
       "zakladni-skola-pribram": {
         "nazev": "Heat pumps and heat recovery for a primary school in Příbram",
         "misto": "Příbram",
-        "perex": "The school replaced its gas boiler room with heat pumps and gained demand-controlled classroom ventilation. We handled the grant application on behalf of the school authority.",
-        "zadani": "The school authority wanted to reduce building operating costs while also addressing stuffy classrooms that teachers had been complaining about for a long time.",
+        "perex": "The school replaced its gas boiler room with heat pumps and gained controlled classroom ventilation. We handled the grant application on behalf of the school's governing body.",
+        "zadani": "The governing body wanted to reduce the building's operating costs and simultaneously address stuffy classrooms, which teachers had been complaining about for a long time.",
         "rozsah": {
           "r1": "Design and documentation for the grant application",
-          "r2": "Cascade of air-to-water heat pumps as the primary heat source",
-          "r3": "Heat recovery units in classrooms with CO₂-based control",
-          "r4": "Renovation of distribution piping and hydraulic balancing",
-          "r5": "Grant application processing under full authorization and training of the school caretaker"
+          "r2": "Air-to-water heat pump cascade as the primary heat source",
+          "r3": "Heat recovery units for classrooms with CO₂-based control",
+          "r4": "Retrofit of distribution piping and hydraulic balancing",
+          "r5": "Grant processing under power of attorney and caretaker training"
         },
         "technologie": {
           "t1": "Air-to-water heat pumps",
-          "t2": "Heat recovery (HRV)",
+          "t2": "Heat recovery (ZZT)",
           "t3": "CO₂-based control",
-          "t4": "BMS"
+          "t4": "MaR"
         },
-        "vysledek": "Heating costs decreased significantly compared to the gas boiler, and classrooms have fresh air without opening windows in winter. The school passed the inspection of operated systems with no deficiencies found."
+        "vysledek": "Heating costs dropped significantly compared to the gas boiler room, and classrooms now have fresh air without open windows in winter. The school passed its operational systems inspection with no findings."
       },
       "hotel-na-sumave": {
         "nazev": "Heat pumps and air conditioning for a hotel in the Šumava region",
         "misto": "Plzeň Region",
-        "perex": "A mountain hotel where heating is needed eight months a year and rooms under the roof require cooling in summer. Everything had to be as quiet as possible.",
-        "zadani": "The hotel needed to replace an aging heat source, add cooling to the attic rooms, and avoid disrupting the season.",
+        "perex": "A mountain hotel that requires heating for eight months of the year and needs to cool attic rooms in summer. Everything had to be as quiet as possible.",
+        "zadani": "The hotel needed to replace its end-of-life heat source, add cooling for attic rooms, and avoid disrupting the season.",
         "rozsah": {
-          "r1": "Site survey, heat loss and gain calculations, solution variants",
-          "r2": "Heat pump cascade with a bivalent source for freezing days",
+          "r1": "Site survey, heat loss and gain calculations, and solution variants",
+          "r2": "Heat pump cascade with a bivalent source for frosty days",
           "r3": "Air conditioning for attic rooms with quiet indoor units",
-          "r4": "Domestic hot water heating and connection to existing storage",
-          "r5": "Implementation outside the main season in two phases"
+          "r4": "Domestic hot water heating and connection to existing thermal storage",
+          "r5": "Implementation outside peak season in two phases"
         },
         "technologie": {
           "t1": "Heat pump cascade",
@@ -634,34 +801,114 @@
           "t3": "Quiet indoor units",
           "t4": "DHW heating"
         },
-        "vysledek": "The hotel now heats at lower costs, the attic rooms can be occupied for the first time in summer without complaints, and the entire project was completed between seasons."
+        "vysledek": "The hotel now heats at lower cost, attic rooms can be occupied in summer for the first time without complaints, and the entire project was completed between seasons."
+      },
+      "d-bungalov-klimatizace": {
+        "nazev": "Air conditioning for a family bungalow without a single visible duct",
+        "misto": "South Bohemia",
+        "perex": "The customer wanted design indoor units and a clean interior — with no visible ducts for refrigerant piping.",
+        "zadani": "The bungalow owner chose design indoor units but had one key condition: no visible ducts for refrigerant piping in the interior.",
+        "rozsah": {
+          "r1": "Site survey and precise layout of chases in the masonry",
+          "r2": "Routing of refrigerant piping, cabling, and condensate drainage into prepared chases",
+          "r3": "Routing of distribution lines through the floor to the outdoor unit location",
+          "r4": "Installation of three indoor and one outdoor unit, commissioning, and testing",
+          "r5": "Operator training including control via smartphone app"
+        },
+        "technologie": {
+          "t1": "Multisplit 3+1",
+          "t2": "Piping in chases",
+          "t3": "Condensate drainage",
+          "t4": "Wi-Fi control"
+        },
+        "vysledek": "Piping runs through the masonry and across the floor; nothing is visible in the interior except the units themselves. The customer had the chases filled and repainted by a mason between our site visits."
+      },
+      "d-rodinny-dum-cerpadlo": {
+        "nazev": "Heat pump replacing a gas boiler",
+        "misto": "Central Bohemia",
+        "perex": "An older house with radiators. Instead of a quick source replacement, we first calculated the losses and modified the system — otherwise the heat pump would have been running expensively.",
+        "zadani": "The owners wanted to move away from gas. The house has original radiators designed for high water temperatures, which is exactly the situation where a heat pump alone will not deliver savings.",
+        "rozsah": {
+          "r1": "Heat loss calculation and heating system assessment",
+          "r2": "Replacement of two undersized radiators so the system could operate at a lower temperature",
+          "r3": "Air-to-water heat pump in a cascade with bivalent backup heating",
+          "r4": "Connection to domestic hot water heating and the storage tank",
+          "r5": "Hydraulic balancing of the system and grant processing under power of attorney"
+        },
+        "technologie": {
+          "t1": "Air-to-water heat pump",
+          "t2": "Bivalent backup heating",
+          "t3": "Thermal storage",
+          "t4": "Equithermal control"
+        },
+        "vysledek": "After the first winter we returned and fine-tuned the equithermal curve based on actual operation. The system now runs at a lower water temperature than originally designed, and the heat pump maintains a good heating factor."
+      },
+      "d-byt-rekuperace": {
+        "nazev": "Heat recovery for an apartment after renovation",
+        "misto": "Prague",
+        "perex": "Apartment in a masonry building after a full renovation. The ductwork had to fit within the already-designed suspended ceilings.",
+        "zadani": "The owners wanted ventilation without opening windows onto a noisy street. The renovation was already underway, so the only space left for ductwork was within the suspended ceilings.",
+        "rozsah": {
+          "r1": "Survey of the layout and verification of available space in the suspended ceilings",
+          "r2": "Design of air volumes for individual rooms",
+          "r3": "Central heat recovery unit in the utility room",
+          "r4": "Ductwork with flat ducts and noise attenuators at the unit",
+          "r5": "Flow balancing at the diffusers including a protocol report"
+        },
+        "technologie": {
+          "t1": "Central heat recovery",
+          "t2": "Flat ducts",
+          "t3": "Noise attenuators",
+          "t4": "CO₂-based control"
+        },
+        "vysledek": "The apartment is ventilated continuously without windows open onto the street. Unit noise remained below the level audible in living spaces."
+      },
+      "d-vymena-kotle": {
+        "nazev": "Emergency boiler replacement during heating season",
+        "misto": "South Bohemia",
+        "perex": "A call to the dispatch centre in January: no heating. The old boiler was beyond repair; the new one arrived within two days.",
+        "zadani": "A customer called the 24/7 dispatch centre to report that her boiler had stopped heating. During the inspection, it became clear that repair was no longer viable — parts lead times exceeded the time it would take to replace the unit.",
+        "rozsah": {
+          "r1": "Same-day site visit and fault diagnosis",
+          "r2": "Design of the replacement heat source and on-site quotation",
+          "r3": "Dismantling and removal of the old boiler",
+          "r4": "Installation of a new condensing boiler including flue modification",
+          "r5": "Commissioning, training, and entry into the inspection log"
+        },
+        "technologie": {
+          "t1": "Condensing boiler",
+          "t2": "Flue modification",
+          "t3": "Gas inspection",
+          "t4": "Equithermal control"
+        },
+        "vysledek": "Two days elapsed from the phone call to full heating, one of which was waiting for boiler delivery. The household was without heat for one night."
       }
     }
   },
   "onas": {
     "stitek": "About Us",
-    "titulek": "A team of technicians, not a sales agency",
-    "lead": "We are a company operating in the field of building services engineering. We provide complete solutions from design through implementation to service — and we do most of the work with our own people.",
+    "titulek": "A team of technicians, not a sales representative",
+    "lead": "We are a company operating in the field of building services engineering. We provide complete solutions from design through implementation to maintenance — and we carry out most of the work with our own staff.",
     "pribeh": {
-      "titulek": "Who we are",
-      "p1": "We are a team of experienced employees, many of whom have over 25 years of practice in the building services industry. We rely on both this experience and new insights from a field that continues to evolve dynamically.",
-      "p2": "We operate from Prague and from our facility in Milevsko. Our main clients are companies and operators of office buildings, shopping centers, hospitals, museums, galleries, and public facilities — but we also install air conditioning in a family home when it makes sense.",
+      "titulek": "Who We Are",
+      "p1": "We are a team of experienced employees, many of whom have over 25 years of practice in building services engineering. We draw on both this experience and new insights from an industry that continues to evolve dynamically.",
+      "p2": "We operate from Prague and a branch in Milevsko. Our primary clients are companies and operators of office buildings, shopping centres, hospitals, museums, galleries, and public facilities — but we also install air conditioning in residential homes when it makes sense.",
       "p3": "What we enjoy most: when a demanding client's clear vision meets the skill of our technicians."
     },
     "hodnoty": {
-      "titulek": "What we build on",
+      "titulek": "What We Stand On",
       "polozky": {
         "h1": {
-          "titulek": "Sustainability is not a slogan",
-          "popis": "Before we propose a replacement, we calculate a retrofit. Keeping what works is cheaper for you and for the environment."
+          "titulek": "Sustainability Is Not a Slogan",
+          "popis": "Before proposing a replacement, we calculate a retrofit. Keeping what works is cheaper for you and for the environment."
         },
         "h2": {
-          "titulek": "In-house technicians",
-          "popis": "Core employees with certified tools that we continuously train. Not a group of subcontractors you see for the first time."
+          "titulek": "In-House Technicians",
+          "popis": "Permanent employees with certified tools, which we train on continuously. Not a crew of subcontractors you see for the first time."
         },
         "h3": {
-          "titulek": "Single responsibility",
-          "popis": "Design, implementation, and service under one roof. When there's a problem, nobody points at the neighbor."
+          "titulek": "Single Point of Responsibility",
+          "popis": "Design, implementation, and maintenance under one roof. When there is a problem, nobody points at a neighbour."
         },
         "h4": {
           "titulek": "Clarity",
@@ -670,86 +917,86 @@
       }
     },
     "divize": {
-      "titulek": "Three divisions, one team",
+      "titulek": "Three Divisions, One Team",
       "polozky": {
         "d1": {
           "titulek": "Design",
-          "popis": "Designers who also go on site. All levels of documentation, in BIM if needed."
+          "popis": "Designers who also visit the site. All levels of documentation, in BIM where required."
         },
         "d2": {
           "titulek": "Implementation",
-          "popis": "Supply and installation of HVAC, cooling, heating, plumbing, and gas. Including construction supervision."
+          "popis": "Supply and installation of HVAC, cooling, heating, plumbing, and gas systems. Including construction supervision."
         },
         "d3": {
-          "titulek": "Service",
-          "popis": "Several technician teams, 24/7 dispatch, inspections, diagnostics, and an energy specialist."
+          "titulek": "Maintenance",
+          "popis": "Several teams of technicians, 24/7 dispatch centre, inspections, diagnostics, and an energy specialist."
         }
       }
     },
     "odznak": {
       "titulek": "Reliable Company 2026",
-      "popis": "Award for proven history, reliability, and debt-free status."
+      "popis": "An award for a verified track record, reliability, and debt-free status."
     },
     "tym": {
-      "titulek": "The people you'll be talking to",
-      "lead": "No anonymous email inbox. Here's the entire team with direct numbers."
+      "titulek": "The People You Will Be Talking To",
+      "lead": "No anonymous email inbox. Here is the entire team with direct phone numbers."
     }
   },
   "novinky": {
     "stranka": {
       "stitek": "News",
-      "titulek": "What's new with us",
-      "lead": "Projects worth mentioning, legislative changes, training, and recruitment."
+      "titulek": "What's New With Us",
+      "lead": "Notable projects, legislative changes, training, and recruitment."
     },
     "polozky": {
       "napsali-o-nas": {
-        "nazev": "Written about us: interview for Eko-Adepto",
-        "perex": "The independent Eko-Adepto project visited us in person and wrote up what we told them about the company, technologies, and service.",
-        "text": "Representatives of the Eko-Adepto project visited us in person and went through the offered technologies, company operations, service, and team experience with us. The article covers what we truly focus on: building services for larger buildings — offices, shopping centers, hospitals, museums, and galleries, as well as public facilities. Households make up a smaller portion of our projects, but we also do air conditioning, heat pumps, and heat recovery for them."
+        "nazev": "They Wrote About Us: Interview for Eko-Adepto",
+        "perex": "The independent Eko-Adepto project visited us in person and documented what we told them about the company, technologies, and maintenance.",
+        "text": "Representatives of the Eko-Adepto project visited us in person and walked through our offered technologies, how the company operates, maintenance, and the team's experience. In the article you will find what we truly focus on: building services for larger buildings — offices, shopping centres, hospitals, museums and galleries, and public facilities. Households make up a smaller share of our projects, but we also install air conditioning, heat pumps, and heat recovery for them."
       },
       "klimatizace-bungalovu": {
-        "nazev": "Air conditioning for a family bungalow without a single visible trunking",
-        "perex": "The client wanted designer indoor units and a clean interior without visible trunking for refrigerant piping. Three site visits and grooves cut into the masonry solved it.",
-        "text": "After the quote was approved, the team went on site and precisely marked the routes for grooves in the masonry. On the second visit, we ran the piping, cabling, and condensate drainage into the prepared grooves and routed them through the attic to the outdoor unit location — it was a multisplit system with three indoor and one outdoor unit. The client then had the grooves filled and painted by a mason. On the third visit, we installed the units, commissioned the system, tested it, and explained the complete operation including the phone app."
+        "nazev": "Air Conditioning for a Bungalow Without a Single Trim Strip",
+        "perex": "The client wanted design indoor units and a clean interior with no visible trim strips for refrigerant piping. Three site visits and grooves in the masonry solved it.",
+        "text": "After the offer was approved, the team headed to the site and precisely marked out the routes for grooves in the masonry. On the second visit, we laid the piping, cabling, and condensate drainage into the prepared grooves and routed them through the floor to the outdoor unit location — it was a multi-split system with three indoor units and one outdoor unit. The customer then had the grooves plastered over and painted. On the third visit, we installed the units, commissioned the system, tested it, and explained the complete operation including the phone app."
       },
       "kontrola-38-2022": {
-        "nazev": "Have you had your mandatory inspection under Decree 38/2022 Coll.?",
-        "perex": "Under the update effective 1 January 2023, the owner must have an inspection of operating systems carried out once every 5 years. The fine for non-compliance can reach up to 200,000 CZK.",
-        "text": "The obligation applies to facilities with heat sources exceeding 70 kW, including those located outside buildings. Inspections of operating systems — air handling, heating, cooling, and cogeneration units — may only be performed by a certified energy specialist and are recorded in the ENEX database managed by the Ministry of Industry and Trade. We will arrange this for you, including related diagnostics, system balancing per Decree No. 193/2007 Coll., and pressure vessel inspections."
+        "nazev": "Have you completed the mandatory inspection under Decree 38/2022 Coll.?",
+        "perex": "Per the update effective 1 January 2023, the owner must have an inspection of operated systems carried out once every 5 years. The penalty for non-compliance can reach up to CZK 200,000.",
+        "text": "The obligation applies to buildings with heat sources exceeding 70 kW, including those outside buildings. The inspection of operated systems — HVAC, heating, cooling, and cogeneration units — may only be performed by a certified energy specialist and is recorded in the ENEX database, administered by the Ministry of Industry and Trade. We will arrange this for you, including follow-up diagnostics, system balancing per Decree 193/2007 Coll., and pressure vessel inspections."
       },
       "nabor-techniku": {
         "nazev": "We are hiring HVAC service technicians",
-        "perex": "We are expanding our service division. We are looking for technicians with an interest in air handling, cooling, or heating — experience is welcome, willingness to learn is equally valued.",
-        "text": "We offer a dedicated service vehicle, complete certified equipment, ongoing manufacturer training, and teamwork where you always have someone to ask. We work primarily in pairs across Prague, Central Bohemia, and South Bohemia. Reach out via our Careers page or contact the service department manager directly."
+        "perex": "We are expanding our service division. We are looking for technicians with an interest in HVAC, cooling, or heating — experience is a plus, but willingness to learn is equally valued.",
+        "text": "We offer a dedicated service vehicle, complete certified equipment, ongoing manufacturer training, and a team environment where you can always ask for help. We mostly work in pairs across Prague, central Bohemia, and southern Bohemia. Get in touch via our Careers page or directly with the service department manager."
       },
       "firemni-den-systemair": {
         "nazev": "Systemair company day in České Budějovice",
-        "perex": "As part of our employee product training programme, we attended a company day hosted by Systemair.",
-        "text": "We thank our partners at Systemair for sharing new industry insights and for the enjoyable leisure portion of the programme. We take product training for our technicians seriously — on site, it shows who truly knows the equipment."
+        "perex": "As part of our employee product training, we attended a company day hosted by Systemair.",
+        "text": "We would like to thank our partners at Systemair for sharing new industry insights and for the enjoyable time during the leisure portion of the programme. We take the product training of our technicians seriously — on site, it becomes clear who truly knows the equipment."
       },
       "panelova-diskuze-cvut": {
         "nazev": "Panel discussion on heat pumps at CTU",
-        "perex": "We participated in a panel discussion on heat pumps at the Czech Technical University in Prague.",
-        "text": "The discussion centred on the real-world efficiency of heat pumps in our climate, the design of bivalent heat sources, and how design assumptions differ from actual operation. These are precisely the gaps we encounter on site, and we are happy to discuss them with the professional community."
+        "perex": "We took part in a panel discussion on heat pumps at the Czech Technical University in Prague.",
+        "text": "The debate centred on the real-world efficiency of heat pumps in our climate conditions, the design of bivalent heat sources, and the gap between design assumptions and actual operation. These are exactly the discrepancies we encounter on site, and we are happy to discuss them with the professional community."
       },
       "rozsireni-servisu": {
         "nazev": "Expansion of service department offerings",
-        "perex": "The service division has added an energy specialist, system diagnostics, and heat exchanger repairs performed in-house.",
-        "text": "We can now provide you with Energy Performance Certificates (EPC) and energy assessments, technical reports on operating system inspections, balancing of heating and cooling systems including protocols and indoor air quality measurements. We have also added repair and refurbishment of damaged or cracked heat exchangers — with diagnostics, repair, and testing in water baths or helium pressure testing."
+        "perex": "Our service division has added an energy specialist, system diagnostics, and heat exchanger repairs at our own facility.",
+        "text": "We now offer EPC and energy assessments, technical reports on the inspection of operated systems, balancing of heating and cooling systems including protocols, and indoor air quality measurements. We have also added repair and refurbishment of damaged or cracked heat exchangers — with diagnostics, repair, and testing in immersion tanks or by helium pressure testing."
       }
     }
   },
   "kariera": {
     "stitek": "Careers",
     "titulek": "We are hiring HVAC service technicians",
-    "lead": "We are expanding our service division. If you enjoy air handling, cooling, or heating and want to work with your own equipment, get in touch.",
+    "lead": "We are expanding our service division. If you are passionate about HVAC, cooling, or heating and want to work with your own equipment, get in touch.",
     "cohledame": {
       "titulek": "Who we are looking for",
       "polozky": {
-        "p1": "Service technicians for air handling and cooling",
-        "p2": "Technicians for heat pumps and heating",
-        "p3": "Installation technicians interested in service work",
-        "p4": "Experience is welcome; willingness to learn is even more important"
+        "p1": "HVAC and cooling service technicians",
+        "p2": "Heat pump and heating technicians",
+        "p3": "Installers with an interest in service work",
+        "p4": "Experience is a plus; willingness to learn is even better"
       }
     },
     "nabizime": {
@@ -757,40 +1004,40 @@
       "polozky": {
         "p1": {
           "titulek": "Dedicated vehicle and equipment",
-          "popis": "A service vehicle and complete certified tooling. You do not need to source anything yourself."
+          "popis": "A service vehicle and complete certified toolset. You will not need to source anything yourself."
         },
         "p2": {
           "titulek": "Ongoing training",
-          "popis": "Manufacturer product training and professional certifications. We want you to truly understand the equipment."
+          "popis": "Product training with manufacturers and professional certifications. We want you to truly understand the equipment."
         },
         "p3": {
-          "titulek": "Teamwork",
-          "popis": "We work primarily in pairs. There is always someone to advise — even by phone."
+          "titulek": "Team environment",
+          "popis": "We mostly work in pairs. There is always someone to consult — even by phone."
         },
         "p4": {
-          "titulek": "Reasonable travel",
-          "popis": "Prague, Central Bohemia, and South Bohemia. Not the entire country and not month-long installations."
+          "titulek": "Reasonable commuting",
+          "popis": "Prague, central and southern Bohemia. Not the entire country, and no month-long installations."
         }
       }
     },
     "formular": {
       "titulek": "Interested?",
-      "lead": "Tell us a few sentences about what you can do. A CV is not required — just describe what you have done and where.",
-      "typ": "Careers — I am interested in a position"
+      "lead": "Write us a few sentences about what you can do. A CV is not required — just tell us what you have done and where.",
+      "typ": "Careers — I am interested in the position"
     }
   },
   "kontakt": {
     "stitek": "Contact",
     "titulek": "Get in touch",
-    "lead": "A request, a question, or a breakdown. Choose whichever suits you best.",
+    "lead": "Inquiry, question, or fault report. Choose whichever suits you best.",
     "rychle": {
       "dispecink": {
         "titulek": "24/7 dispatch",
-        "popis": "Equipment failure, emergency, cooling not working. If you cannot get through immediately, leave a voicemail — it will reach us by email."
+        "popis": "Equipment fault, emergency, cooling not working. If you cannot reach us immediately, leave a message — it will be sent to us by email."
       },
       "poptavka": {
-        "titulek": "New enquiry",
-        "popis": "A project, renovation, air conditioning, or heat pump. Tell us a few sentences about the building."
+        "titulek": "New inquiry",
+        "popis": "Project, renovation, air conditioning, or heat pump. Write us a few sentences about the building."
       },
       "kancelar": {
         "titulek": "Office",
@@ -799,242 +1046,250 @@
     },
     "adresy": {
       "titulek": "Where to find us",
-      "sidlo": "Registered office",
-      "provozovna": "Operating facility",
-      "fakturacni": "Billing details",
-      "otevritMapu": "Open in map"
+      "sidlo": "Company Headquarters",
+      "provozovna": "Branch Office",
+      "fakturacni": "Billing Details",
+      "otevritMapu": "Open in Map"
     },
     "tym": {
-      "titulek": "Direct contacts",
+      "titulek": "Direct Contacts",
       "lead": "Know who you need to speak with? Call directly."
     },
     "formular": {
-      "titulek": "Write to us",
-      "lead": "We typically respond within one business day.",
-      "jmeno": "Full name",
+      "titulek": "Contact Us",
+      "lead": "Just three details. We'll sort out the rest over the phone.",
+      "jmeno": "Full Name",
       "firma": "Company (optional)",
-      "email": "Email",
+      "email": "E-mail",
       "telefon": "Phone (optional)",
-      "typ": "What is your enquiry about",
-      "zprava": "What do you need resolved",
-      "zpravaHint": "Building type, what is installed, what is bothering you. Brief is fine.",
-      "souhlas": "I consent to the processing of my personal data for handling this enquiry.",
-      "souhlasOdkaz": "Privacy policy",
-      "odeslano": "Thank you, your message is on its way. We will get back to you.",
-      "odeslanoDemo": "In this demo, the message is not actually sent — on the live site it will arrive at info@greenairtech.cz.",
+      "typ": "How can we help?",
+      "zprava": "Anything else you'd like to add? (optional)",
+      "zpravaHint": "Type of property, what's installed, what's bothering you. A single sentence is fine — or skip it entirely.",
+      "souhlas": "I consent to the processing of personal data for the purpose of handling my inquiry.",
+      "souhlasOdkaz": "Data Protection",
+      "odeslano": "Thank you, your message is on its way. We'll be in touch.",
+      "odeslanoDemo": "In this demo, the message is not sent anywhere — on the live site it will be delivered to info@greenairtech.cz.",
       "typy": {
-        "projekce": "HVAC design",
-        "realizace": "Installation or renovation",
-        "servis": "Service and maintenance",
-        "energetika": "EPC, energy audit, or mandatory inspection",
-        "klimatizace": "Air conditioning or heat pump",
-        "filtry": "EAC filters",
-        "vymeniky": "Heat exchanger repair",
-        "kariera": "Career — I'm interested in a position",
-        "jine": "Something else"
+        "havarie": "Emergency — heating or cooling not working",
+        "klimatizace": "Air Conditioning — New Installation",
+        "tepelne-cerpadlo": "Heat Pump",
+        "rekuperace": "Heat Recovery and Ventilation",
+        "servis": "Regular Maintenance or Inspection",
+        "projekce": "MEP Design",
+        "realizace": "Major Project or Renovation",
+        "energetika": "Energy Performance Certificate, Audit, or Mandatory Inspection",
+        "filtry": "EAC Filters",
+        "vymeniky": "Heat Exchanger Repair",
+        "kariera": "Careers — I'm interested in a position",
+        "jine": "Something Else"
       },
       "chyby": {
         "required": "Please fill in this field.",
-        "email": "Please check the email format.",
+        "email": "Please check the e-mail format.",
         "telefon": "Please check the phone number.",
-        "zprava-kratka": "Please write at least one sentence so we know what it's about.",
-        "souhlas": "Unfortunately, we cannot process your inquiry without consent."
-      }
+        "zprava-kratka": "Please write at least a sentence so we know what it's about.",
+        "souhlas": "Without consent, we unfortunately cannot process your inquiry.",
+        "kontakt": "Please leave us a phone number or e-mail so we know how to reach you.",
+        "typ": "Please select what you need help with."
+      },
+      "typPlaceholder": "Select what you need help with",
+      "kontaktHint": "Just one of these is enough. Which do you prefer?"
     }
   },
   "slovnik": {
     "stranka": {
       "stitek": "Glossary",
-      "titulek": "Building Services Abbreviations Glossary",
-      "lead": "In our industry, abbreviations are used sparingly by few. Here they are explained — and wherever you encounter one on the website, simply hover over or tap it.",
+      "titulek": "MEP Abbreviations Glossary",
+      "lead": "In our industry, few people go easy on abbreviations. Here they are explained — and wherever you come across one on the site, just hover over or tap it.",
       "hledat": "Search for an abbreviation or term",
-      "nenalezeno": "We don't have this abbreviation yet. Contact us."
+      "nenalezeno": "We don't have that abbreviation yet. Ask us."
     },
     "terminy": {
       "TZB": {
-        "full": "building services",
-        "popis": "A collective term for ventilation, heating, cooling, plumbing and sanitary installations, gas systems, and measurement and control — essentially everything in a building that distributes heat, cooling, air, and water."
+        "full": "building technical installations",
+        "popis": "A collective term for HVAC, heating, cooling, sanitary installations, gas, and measurement and control — everything that distributes heat, cold, air, and water in a building."
       },
       "VZT": {
-        "full": "air handling",
-        "popis": "A system that supplies fresh air to a building, exhausts stale air, and filters, heats, or cools it along the way."
+        "full": "ventilation technology",
+        "popis": "A system that supplies fresh air to a building, extracts stale air, and along the way filters, heats, or cools it."
       },
       "ZTI": {
-        "full": "plumbing and sanitary installations",
-        "popis": "Water supply, drainage, and sanitary fixtures within a building."
+        "full": "sanitary installations",
+        "popis": "Water supply, drainage, and fixtures in a building."
       },
       "MaR": {
-        "full": "measurement and regulation",
+        "full": "measurement and control",
         "popis": "Sensors, controllers, and a control system that maintain set values — temperature, humidity, flow rate — without human intervention."
       },
       "BMS": {
         "full": "building management system",
-        "popis": "A supervisory system for the entire building. It collects data from all technologies, monitors alarms, and enables operations to be managed from a single location."
+        "popis": "A supervisory system for the building. It collects data from all systems, monitors alarms, and allows operation to be managed from a single point."
       },
       "PENB": {
-        "full": "building energy performance certificate",
-        "popis": "A mandatory document assessing a building's energy performance. It is prepared by a certified energy specialist and registered in the ENEX database."
+        "full": "energy performance certificate of a building",
+        "popis": "A mandatory document assessing the energy performance of a building. It is prepared by an energy specialist and registered in the ENEX database."
       },
       "ENEX": {
         "full": "energy documents database",
-        "popis": "A registry of energy certificates, audits, and assessments managed by the Ministry of Industry and Trade."
+        "popis": "A registry of certificates, audits, and assessments managed by the Ministry of Industry and Trade."
       },
       "MPO": {
         "full": "Ministry of Industry and Trade",
-        "popis": "The central authority overseeing energy legislation and the ENEX database."
+        "popis": "The central authority responsible for energy legislation and the ENEX database."
       },
       "BIM": {
-        "full": "building information model",
-        "popis": "A design approach where you model actual elements with properties instead of drawing lines. The model can then be used to extract schedules, clash detection results, and facility management data."
+        "full": "building information modelling",
+        "popis": "A design approach where instead of drawing lines you model real elements with properties. From the model you can extract schedules, clash detection, and documentation for building management."
       },
       "TČ": {
         "full": "heat pump",
-        "popis": "A device that transfers heat from outdoor air, ground, or water into the heating system. For every kilowatt-hour of electricity consumed, it delivers several kilowatt-hours of heat."
+        "popis": "A device that transfers heat from outdoor air, the ground, or water into the heating system. For every kilowatt-hour of electricity it delivers several kilowatt-hours of heat."
       },
       "EAC": {
-        "full": "electronic air cleaner",
-        "popis": "A filter that charges dust particles and captures them on collector plates. Compared to a conventional filter insert, it has lower pressure drop and can be washed."
+        "full": "electrostatic air cleaner",
+        "popis": "A filter that charges dust particles and captures them on collector plates. Compared to a conventional filter cartridge, it has a lower pressure drop and can be washed."
       },
       "AHU": {
         "full": "air handling unit",
-        "popis": "The mechanical heart of air handling: fans, filters, heat exchangers, and heat recovery in a single cabinet."
+        "popis": "The mechanical heart of ventilation: fans, filters, heat exchangers, and heat recovery in a single cabinet. In English, air handling unit."
       },
       "ZZT": {
         "full": "heat recovery",
-        "popis": "The outgoing warm air transfers heat to the incoming fresh air — without the two airstreams mixing."
+        "popis": "Recovery. Outgoing warm air transfers its heat to incoming fresh air — without the two streams mixing."
       },
       "PM2,5": {
         "full": "fine particulate matter",
-        "popis": "Particles smaller than 2.5 micrometres. They penetrate deep into the lungs, which is why filtration is designed to capture them specifically."
+        "popis": "Particles smaller than 2.5 micrometres. They penetrate deep into the lungs, which is why the purpose of filtration is to capture precisely these."
       },
       "TVOC": {
         "full": "total volatile organic compounds",
-        "popis": "A summary indicator of gaseous organic substances in indoor air — from furniture, adhesives, paints, and cleaning products. Measured when assessing indoor air quality."
+        "popis": "A collective indicator of gaseous organic compounds in indoor air — from furniture, adhesives, paints, and cleaning products. Measured when assessing indoor air quality."
       },
       "KJ": {
         "full": "cogeneration unit",
-        "popis": "A device that simultaneously produces electricity and heat. Fuel utilisation is significantly higher than with electricity generation alone."
+        "popis": "A device that produces electricity and heat simultaneously. Fuel utilisation is significantly higher than with electricity generation alone."
       },
       "PBŘ": {
         "full": "fire safety design",
-        "popis": "A part of the documentation specifying fire resistance, escape routes, and air handling system behaviour during a fire."
+        "popis": "Part of the documentation specifying fire resistance, escape routes, and the behaviour of ventilation systems in the event of a fire."
       },
       "TNS": {
-        "full": "pressure vessel (stable)",
+        "full": "stable pressure vessel",
         "popis": "A vessel operating under pressure for which regulations require periodic inspections — typically expansion vessels and storage tanks."
       },
       "COP": {
         "full": "coefficient of performance",
-        "popis": "The ratio of heat delivered to electricity consumed at a given moment. A COP of 4 means four kilowatt-hours of heat per kilowatt-hour of electricity."
+        "popis": "The ratio of heat delivered to electricity consumed at a given moment. A COP of 4 means four kilowatt-hours of heat for every one kilowatt-hour of electricity."
       },
       "SCOP": {
-        "full": "seasonal coefficient of performance",
-        "popis": "The coefficient of performance averaged over the entire heating season. It is a fairer metric for comparing heat pumps than COP."
+        "full": "seasonal heating coefficient",
+        "popis": "Heating coefficient averaged over an entire heating season. A fairer metric than COP for comparing heat pumps."
       },
       "EER": {
-        "full": "energy efficiency ratio",
-        "popis": "The ratio of cooling capacity to electrical power input."
+        "full": "cooling efficiency ratio",
+        "popis": "The ratio of cooling capacity to electrical power consumed."
       },
       "VRF": {
         "full": "variable refrigerant flow system",
-        "popis": "An air conditioning system where a single outdoor unit serves multiple indoor units, with refrigerant flow regulated according to each unit's actual demand."
+        "popis": "Air conditioning system in which a single outdoor unit serves multiple indoor units, with refrigerant flow controlled according to the actual demand of each unit."
       },
       "DSP": {
         "full": "building permit documentation",
-        "popis": "A project stage submitted to the building authority for assessment of the construction."
+        "popis": "Design stage used by the building authority to assess the construction project."
       },
       "DPS": {
-        "full": "construction documentation",
-        "popis": "A detailed project stage used for actual installation on site."
+        "full": "construction execution documentation",
+        "popis": "Detailed design stage used as the basis for actual on-site installation."
       },
       "RDS": {
         "full": "as-built documentation",
-        "popis": "Documentation prepared by the contractor for execution purposes, building on the construction documentation."
+        "popis": "Documentation prepared by the contractor for its own execution, building upon the construction execution documentation."
       },
       "TDS": {
-        "full": "construction supervision (client's representative)",
-        "popis": "A specialist safeguarding the investor's interests on site — overseeing quality, scope, and compliance with the design."
+        "full": "client's technical supervision",
+        "popis": "A specialist representing the investor's interests on site — monitors quality, scope, and compliance with the design."
       },
       "ČSN": {
         "full": "Czech technical standard",
-        "popis": "Czech national technical standard. Specifies requirements for, for example, fresh air volume, noise levels, or equipment safety."
+        "popis": "National technical standard. Specifies requirements such as fresh air volume, noise levels, or equipment safety."
       },
       "HVAC": {
         "full": "heating, ventilation, air conditioning",
-        "popis": "English abbreviation for heating, ventilation, and air conditioning. The international equivalent of the Czech term TZB (building services engineering)."
+        "popis": "English abbreviation for heating, ventilation, and air conditioning. The international equivalent of the Czech term TZB."
       }
     }
   },
   "gdpr": {
     "titulek": "Data Protection",
-    "lead": "Short and without legal jargon: what happens to the data you send us via the form.",
+    "lead": "A brief, plain-language summary of what happens to the data you send us through the form.",
     "sekce": {
       "s1": {
         "titulek": "Who processes the data",
-        "text": "The data controller is Green Air Tech s.r.o., Company ID 19667531, registered at Pobřežní 394/12, 186 00 Prague 8."
+        "text": "The data controller is Green Air Tech s.r.o., company ID 19667531, registered office at Pobřežní 394/12, 186 00 Prague 8."
       },
       "s2": {
         "titulek": "What data and why",
-        "text": "We process your name, email, phone number, and message text — solely so that we can respond to your inquiry and, if applicable, prepare a proposal."
+        "text": "We process your name, e-mail, phone number, and message content — solely to respond to your inquiry and, if applicable, prepare a quotation."
       },
       "s3": {
         "titulek": "How long",
-        "text": "Data from unresolved inquiries is deleted within two years. For completed projects, we retain it for the period required by accounting and tax regulations."
+        "text": "Data from unresolved inquiries is deleted within two years. For completed contracts, data is retained for the period required by accounting and tax regulations."
       },
       "s4": {
         "titulek": "Who we share it with",
-        "text": "No one outside our company and our email and accounting service providers, who are bound by confidentiality. We do not sell data or use it for profiling."
+        "text": "No one outside our company and our e-mail and accounting service providers, who are bound by confidentiality. We do not sell data or use it for profiling."
       },
       "s5": {
         "titulek": "Your rights",
-        "text": "You have the right to access your data, request correction, deletion, or object to processing. Simply write to info@greenairtech.cz."
+        "text": "You have the right to access your data, correct it, delete it, and object to its processing. Simply write to info@greenairtech.cz."
       },
       "s6": {
         "titulek": "Cookies",
-        "text": "The website uses only technical cookies necessary for its operation. We do not launch analytics or marketing tools without your consent."
+        "text": "The website uses only technical cookies necessary for its operation. We do not run any analytics or marketing tools without your consent."
       }
     },
-    "poznamka": "This text is a sample; we recommend having it reviewed before the website goes live."
+    "poznamka": "This text is a sample. We recommend having it reviewed before the website goes live."
   },
   "chyba404": {
-    "titulek": "We couldn't find this page",
-    "lead": "We may have moved it — or a letter got lost somewhere in the address. Try starting from here.",
+    "titulek": "Page not found",
+    "lead": "We may have moved it — or a letter went missing from the address. Try starting from here.",
     "cta": "Back to home",
     "ctaDruhe": "View our services"
   },
   "footer": {
-    "tagline": "Design, implementation, and maintenance of building services engineering. Prague and Milevsko, serving all of the Czech Republic.",
+    "tagline": "Design, installation, and maintenance of building technical systems. Prague and Milevsko, throughout the Czech Republic.",
     "sluzby": "Services",
     "firma": "Company",
     "kontakt": "Contact",
-    "sidlo": "Registered Office",
-    "provozovna": "Operating Facility",
-    "dispecink": "24/7 Dispatch",
+    "sidlo": "Registered office",
+    "provozovna": "Branch office",
+    "dispecink": "24/7 dispatch",
     "prava": "All rights reserved.",
     "ukazka": "Sample website design — unofficial, not indexed."
   },
   "admin": {
     "titulek": "Administration",
     "podtitulek": "Content editing demo",
-    "uvod": "This is a functional administration demo. Everything you change here is immediately reflected on the website — changes are saved to your browser, so you can try anything without risk. In the production version, changes are saved to the server.",
+    "uvod": "This is a functional demo of the admin panel. Anything you change here is immediately reflected on the website — changes are saved to your browser, so you can try anything without risk. In the production version, changes are saved to the server.",
     "prihlaseni": {
-      "titulek": "Admin Login",
-      "lead": "Demo login — enter anything, or simply click Sign in.",
+      "titulek": "Admin login",
+      "lead": "Demo login — enter anything, or simply click Enter.",
       "jmeno": "Username",
       "heslo": "Password",
-      "vstoupit": "Sign in",
-      "poznamka": "Demo: login does not verify anything."
+      "vstoupit": "Enter",
+      "poznamka": "Demo: login does not verify credentials."
     },
     "zalozky": {
-      "texty": "Website Texts",
+      "nastenka": "Dashboard",
+      "texty": "Website texts",
       "realizace": "Projects",
-      "novinky": "News",
-      "data": "Backup and Restore"
+      "uzivatele": "Users",
+      "data": "Backup and restore"
     },
     "texty": {
-      "titulek": "Website Texts",
-      "lead": "Select a page, edit the text, and click Save. The current text is always visible on the right.",
-      "hledat": "Search texts",
+      "titulek": "Website texts",
+      "lead": "Select a page, edit the text, and click Save. On the right you can always see how the text currently looks.",
+      "hledat": "Search in texts",
       "jazyk": "Language",
       "puvodni": "Original text",
       "zmeneno": "Modified",
@@ -1054,32 +1309,144 @@
       "misto": "Location",
       "datum": "Completion date",
       "kategorie": "Disciplines",
-      "perex": "Short description for the listing",
+      "perex": "Short description for listing",
       "zadani": "Client requirements",
       "rozsah": "Scope of work (each item on a new line)",
-      "technologie": "Technologies (separate with commas)",
+      "technologie": "Technology (separate with commas)",
       "vysledek": "Result",
       "plocha": "Served area",
-      "doba": "Project duration",
+      "doba": "Duration",
       "ulozit": "Save project",
       "zrusit": "Cancel",
       "vlastni": "Yours",
       "upravena": "Modified",
-      "prazdne": "No custom projects yet. Add the first one."
+      "prazdne": "No custom projects yet. Add the first one.",
+      "vetev": "Target audience",
+      "vsechnyVetve": "Both sections of the website"
     },
     "data": {
-      "titulek": "Backup and Restore",
-      "lead": "Changes live in your browser. Here you can download them as a file, upload them back, or revert everything to the default state.",
+      "titulek": "Backup and restore",
+      "lead": "Changes are stored in your browser. Here you can download them as a file, upload them back, or reset everything to the default state.",
       "stahnout": "Download changes (JSON)",
       "nahrat": "Upload changes file",
-      "vymazat": "Revert everything to default",
+      "vymazat": "Reset all to default",
       "vymazatPotvrzeni": "Are you sure you want to discard all changes?",
       "posledniZmena": "Last change",
-      "zadnaZmena": "Nothing modified yet.",
-      "chybaImportu": "Failed to load the file."
+      "zadnaZmena": "Nothing has been modified yet.",
+      "chybaImportu": "The file could not be loaded."
     },
     "odhlasit": "Log out",
     "zpetNaWeb": "Back to website",
-    "demoUpozorneni": "Demo administration — changes are saved only in this browser."
+    "demoUpozorneni": "Demo administration — changes are saved only in this browser.",
+    "nastenka": {
+      "titulek": "Dashboard",
+      "lead": "Website traffic and submitted inquiries. Data is sourced from Google Analytics — in this demo it is fictional; on the live site it will be real.",
+      "upozorneni": "Sample data. After the site is deployed, Google Analytics will begin collecting real figures; the first data will appear approximately one week after launch.",
+      "obdobi": "Period",
+      "obdobi7": "7 days",
+      "obdobi30": "30 days",
+      "obdobi90": "90 days",
+      "protiMinulemu": "vs. previous period",
+      "metriky": {
+        "navstevy": "Visits",
+        "uzivatele": "Users",
+        "zobrazeni": "Pageviews",
+        "poptavky": "Submitted inquiries",
+        "cas": "Time on page",
+        "opusteni": "Bounce rate"
+      },
+      "napoveda": {
+        "navstevy": "How many times someone visited the site. A single person may visit multiple times within a period.",
+        "uzivatele": "How many unique people visited the site. This number is always lower than visits.",
+        "zobrazeni": "The total number of pages opened by all visitors.",
+        "poptavky": "How many times someone submitted the contact form. The most important metric on this dashboard.",
+        "cas": "How long visitors stay on a page on average. Longer time usually indicates that the content engaged them.",
+        "opusteni": "How many people left from the very first page without clicking anywhere. Lower is better."
+      },
+      "grafTitulek": "Traffic trend",
+      "zdroje": "Where visitors came from",
+      "vstupni": "Entry pages",
+      "zarizeni": "Devices used",
+      "poptavkyPodle": "Inquiry sources",
+      "zdrojePolozky": {
+        "vyhledavani": "Google Search",
+        "primy": "Direct",
+        "mapy": "Maps and Firmy.cz",
+        "ecoadepto": "Eko‑Adepto",
+        "socialni": "Social media",
+        "ostatni": "Other referrals"
+      },
+      "vstupniPolozky": {
+        "uvod": "Main hub",
+        "domacnosti": "Households",
+        "firmy": "Business customers",
+        "servis": "Service and emergencies",
+        "kontakt": "Contact"
+      },
+      "zarizeniPolozky": {
+        "mobil": "Mobile",
+        "pocitac": "Desktop",
+        "tablet": "Tablet"
+      }
+    },
+    "uzivatele": {
+      "titulek": "Users and permissions",
+      "lead": "Who can access the admin panel and what they are allowed to do. Roles can be changed at any time — for example, an external article author can only see News.",
+      "pridat": "Add user",
+      "jmeno": "Name",
+      "email": "E‑mail",
+      "role": "Role",
+      "pravaSloupec": "Permissions",
+      "odebrat": "Remove",
+      "odebratPotvrzeni": "Are you sure you want to remove this user?",
+      "ulozit": "Save user",
+      "zrusit": "Cancel",
+      "prazdne": "No additional users yet.",
+      "poznamka": "In this demo, users are saved only in your browser. On the live version, each user will receive an invitation and set their own password.",
+      "role_spravce": "Administrator",
+      "role_editor": "Content editor",
+      "role_autor": "Article author",
+      "prava_spravce": "Everything, including users and statistics",
+      "prava_editor": "Texts, projects, and news",
+      "prava_autor": "News and articles only"
+    }
+  },
+  "rozcestnik": {
+    "stitek": "Building technical systems",
+    "titulek": "Air, heat, and cooling<br>that simply work",
+    "lead": "We design, build, and maintain HVAC and building services — from single-family homes to large facilities. Choose your path and the site will adapt accordingly.",
+    "vyberte": "Which one are you?",
+    "vyberteLead": "We do different things for each group. Choose your path and you will see only what is relevant to you — your services, your projects, your service.",
+    "prepnout": "Switch to the other section",
+    "jsteTady": "You are viewing the section for:",
+    "spolecne": "Common to both sections"
+  },
+  "vetve": {
+    "domacnosti": {
+      "nazev": "Households",
+      "podtitul": "Single-family homes and apartments",
+      "perex": "Air conditioning, heat pumps, heat recovery ventilation, boiler emergencies. We come, design, install — and then take care of it.",
+      "cta": "Enter the household section",
+      "titulek": "Heat and clean air in your home",
+      "lead": "Smaller projects are handled by our service department. That means one point of contact from the initial survey through warranty service, and a number to call when something goes wrong.",
+      "sluzbyTitulek": "How we can help at home",
+      "sluzbyLead": "Four areas that cover almost everything that breathes, heats, or cools in a home.",
+      "realizaceTitulek": "What we have done in homes",
+      "realizaceLead": "A bungalow without a single duct, a heat pump replacing a boiler, heat recovery ventilation in an apartment. For each project you will find what we addressed and how it turned out.",
+      "poznamka": "Smaller projects up to approximately 750,000 CZK are handled by the service department. Larger projects and tenders can be found in the business customer section."
+    },
+    "firmy": {
+      "nazev": "Business customers",
+      "podtitul": "Commercial and industrial facilities",
+      "perex": "BIM design, construction and installation, service with 24/7 dispatch, energy audits, and retrofits. Complete building services from the first drawing to regular inspections.",
+      "cta": "Enter the business section",
+      "titulek": "Building technical systems from design to service",
+      "lead": "Offices, manufacturing, healthcare, shopping centres, and public buildings. You do not need to coordinate a designer, an installation company, and a service provider separately.",
+      "sluzbyTitulek": "Seven areas, one point of responsibility",
+      "sluzbyLead": "We manage the entire chain — and when something happens two years from now, you still call the same number.",
+      "realizaceTitulek": "Projects we are proud of",
+      "realizaceLead": "Offices, healthcare, manufacturing, and schools. See what we specifically addressed on site.",
+      "poznamka": "Projects and tenders from approximately 1,000,000 CZK. Smaller household projects can be found in the household section."
+    }
   }
 }
