@@ -112,6 +112,16 @@
       "red": 0,
       "escalated": 0,
       "note": "přerušeno zvenčí (Ctrl-C nebo signál)"
+    },
+    {
+      "started_at": "2026-10-09T23:06:24+00:00",
+      "finished_at": "",
+      "outcome": "running",
+      "iterations": 0,
+      "green": 0,
+      "red": 0,
+      "escalated": 0,
+      "note": ""
     }
   ],
   "open_packets": []
