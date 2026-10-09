@@ -104,3 +104,49 @@ Sršně se kreslicí a layoutový kód nevyplácí zadávat kontraktem.
 - EN/DE: překlad je strojový, před spuštěním chce projít rodilým mluvčím.
 - Text ochrany osobních údajů je ukázkový, nechat zkontrolovat.
 - Nasazení na doménu s HTTPS, přesměrování ze starých URL.
+
+## Doplnění zadání ze schůzky s klientem (9. 10. 2026)
+
+Přepis schůzky zpracoval lokální model (kontrakt C-008, `tools/zadani_ze_schuzky.py`),
+výsledek je v `dokumenty/doplneni-zadani-2026-10-09.md`. Z něj plynou rozhodnutí níže.
+
+## Rozhodnutí (10. 10. 2026)
+
+8. **Web se dělí na dvě větve** — Domácnosti a Firemní zákazník. Rozcestník je přímo
+   v heru úvodní stránky, každá větev má vlastní domovskou stránku, vlastní služby
+   a vlastní realizace; O nás, Novinky, Kariéra a Kontakt zůstávají společné.
+   V `data/site.json` přibylo pole `vetve`, každá služba i realizace má `vetev`.
+   `build.mjs` staví odkazy přes `odkazVetve()` a `soubor()` vyhodí chybu, když větev
+   chybí — jinak vznikaly odkazy typu `realizace-domacnosti.html`.
+9. **Světlejší inkoust.** `--inkoust` z `#101a12` na `#23583a`; tmavě zelená byla
+   podle klienta moc tmavá.
+10. **Kratší formulář** (kontrakt C-004 novelizován, před přestavbou `factory contract
+    reset C-004`): první otázka je typ poptávky, pak jméno a jeden kontakt — telefon
+    NEBO e-mail. Zpráva nepovinná, pole Firma zrušeno. Chyba `kontakt` se ukazuje
+    u telefonu.
+11. **Nástěnka se statistikami a správa uživatelů v administraci.** Čísla generuje
+    deterministicky `src/lib/statistiky.mjs` (kontrakt C-009), aby náhled vypadal
+    pokaždé stejně. Role: Správce / Editor obsahu / Autor článků — klient chtěl dát
+    externímu autorovi přístup jen k Novinkám. Uživatelé mají vlastní klíč
+    v localStorage (`gat-admin-uzivatele`), aby je nesmazal import zálohy obsahu.
+12. **Sitemapa a robots.txt** se generují při buildu (klient je chce do Search Console).
+
+### Provozní lekce (10. 10. 2026)
+
+- **Před každým `factory run` commitnout.** Harness vrací soubory, které nevlastní
+  kontrakt. Dvakrát za den tím zmizela hotová práce v `admin.js`, `admin.css`
+  a `app.js`. Zapsáno i do `~/factory/docs/OPERATOR_PREFERENCES.md`.
+- **Neověřovat nasazení curlem.** GitHub Pages servíruje assety s `max-age=600`,
+  takže curl ukazuje novou verzi, zatímco prohlížeč klienta pořád starou. Proto mají
+  CSS i JS v odkazu otisk obsahu (`?v=<sha1[:8]>`) a ověřuje se v prohlížeči.
+- `factory.toml` přesměrován na modely, které jsou opravdu nahrané: coder/tester
+  `qwen3.8-27b` (:8085), coder_retry/text `gemma-4-26b-a4b` (:8081). Služby
+  llama-server jsem kvůli tomu nerestartoval.
+- Zabitý běh nechá v `state.json` `outcome: running` a další běh pak tiše skončí
+  s prázdným logem — stav je potřeba uklidit.
+
+### Stav k 10. 10. 2026
+
+139 stránek ve třech jazycích, 9/9 kontraktů zelených, 179 akceptačních testů prochází.
+Překlad EN/DE běžel nadvakrát: 47 německých hodnot se v prvním průchodu vrátilo
+v češtině (vypadl jeden chunk), doplněno druhým během po menších dávkách.
