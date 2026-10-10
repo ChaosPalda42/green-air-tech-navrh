@@ -65,7 +65,7 @@ export function zkontrolujSoubor(soubor, limity) {
   const l = doplnLimity(limity);
   const s = soubor && typeof soubor === "object" ? soubor : {};
   if (!l.povoleneTypy.includes(s.typ)) return { ok: false, chyba: "typ" };
-  if (jePlatneCislo(s.velikost) && s.velikost > 12 * 1024 * 1024) {
+  if (!jePlatneCislo(s.velikost) || s.velikost <= 0 || s.velikost > 12 * 1024 * 1024) {
     return { ok: false, chyba: "velikost" };
   }
   return { ok: true, chyba: null };
@@ -121,14 +121,23 @@ export function pridejFotky(galerie, nove, limity) {
   let pridano = 0;
 
   for (const f of davka) {
-    if (f === null || typeof f !== "object" || Array.isArray(f)) {
-      odmitnuto.push({ nazev: "", duvod: "duplikat" });
+    const nazev =
+      f && typeof f === "object" && !Array.isArray(f) && jePlatnyText(f.nazev)
+        ? f.nazev
+        : "";
+    if (
+      f === null ||
+      typeof f !== "object" ||
+      Array.isArray(f) ||
+      !jePlatnyText(f.dataUrl) ||
+      !f.dataUrl.startsWith("data:image/")
+    ) {
+      odmitnuto.push({ nazev, duvod: "neplatny" });
       continue;
     }
-    const nazev = jePlatnyText(f.nazev) ? f.nazev : "";
     const fBajty = jePlatneCislo(f.bajty) ? f.bajty : 0;
 
-    if (typeof f.dataUrl === "string" && dataUrls.has(f.dataUrl)) {
+    if (dataUrls.has(f.dataUrl)) {
       odmitnuto.push({ nazev, duvod: "duplikat" });
       continue;
     }
