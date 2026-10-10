@@ -56,6 +56,9 @@ const T = {
   stahnout: '<path d="M12 3.5v11"/><path d="M7.5 10l4.5 4.5 4.5-4.5"/><path d="M4.5 19.5h15"/>',
   nahrat: '<path d="M12 20V9"/><path d="M7.5 13.5L12 9l4.5 4.5"/><path d="M4.5 4.5h15"/>',
   upravit: '<path d="M4 20h4.5L19 9.5a2.1 2.1 0 0 0-3-3L5.5 17 4 20z"/>',
+  // obrázek: rámeček s horizontem a sluncem
+  obrazek:
+    '<rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.6"/><path d="M3.5 16.5l4.5-4 3.5 3 3.5-4 5.5 5.5"/>',
   kos: '<path d="M4.5 6.5h15"/><path d="M9.5 6.5V4.5h5v2"/><path d="M6.5 6.5l1 13h9l1-13"/>',
   plus: '<path d="M12 5v14M5 12h14"/>',
   ulozit: '<path d="M5 4.5h11l3 3v12a1.5 1.5 0 0 1-1.5 1.5h-12A1.5 1.5 0 0 1 4 19.5V6a1.5 1.5 0 0 1 1-1.5z"/><path d="M8 4.5v5h7"/><rect x="8" y="13" width="8" height="6.5"/>',

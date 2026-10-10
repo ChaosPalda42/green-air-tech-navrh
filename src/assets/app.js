@@ -365,6 +365,65 @@
     });
   }
 
+  /* ================================== fotky nahrané v administraci
+     Detailní stránky jsou statické, fotky žijí v localStorage. Proto se
+     dokreslují až v prohlížeči — na kartách i v hlavním náhledu detailu. */
+  function galerieZeStavu(id) {
+    if (!id || !window.GAT || !GAT.fotky || !GAT.cmsStore) return [];
+    var stav = GAT.cmsStore.loadState(bezpecneUloziste());
+    var pridane = (stav.realizace && stav.realizace.added) || [];
+    for (var i = 0; i < pridane.length; i++) {
+      if (pridane[i].id === id) return GAT.fotky.normalizujGalerie(pridane[i].fotky);
+    }
+    var upravene = (stav.realizace && stav.realizace.edited) || {};
+    return GAT.fotky.normalizujGalerie(upravene[id] && upravene[id].fotky);
+  }
+
+  function fotkyNaKartach() {
+    $$("[data-realizace-nahled]").forEach(function (nahled) {
+      var fotky = galerieZeStavu(nahled.getAttribute("data-realizace-nahled"));
+      if (!fotky.length) return;
+      var svg = nahled.querySelector("svg");
+      if (!svg) return;
+      var obr = document.createElement("img");
+      obr.src = fotky[0].dataUrl;
+      obr.alt = "";
+      obr.loading = "lazy";
+      nahled.replaceChild(obr, svg);
+    });
+  }
+
+  function vykresliGalerii(cil, fotky, popis) {
+    if (!cil || !fotky.length) return;
+    cil.classList.add("detail-nahled", "detail-nahled-fotky");
+    var mini = fotky.length < 2 ? "" :
+      '<div class="galerie-pasek">' + fotky.map(function (f, i) {
+        return '<button type="button" class="galerie-mini" data-index="' + i + '"' +
+          (i === 0 ? ' aria-current="true"' : "") + '><img src="' + f.dataUrl + '" alt=""></button>';
+      }).join("") + "</div>";
+    cil.innerHTML = '<div class="galerie-hlavni"><img src="' + fotky[0].dataUrl +
+      '" alt="' + uklid(popis || "") + '"></div>' + mini;
+
+    var hlavni = cil.querySelector(".galerie-hlavni img");
+    $$(".galerie-mini", cil).forEach(function (tl) {
+      tl.addEventListener("click", function () {
+        hlavni.src = fotky[Number(tl.getAttribute("data-index"))].dataUrl;
+        $$(".galerie-mini", cil).forEach(function (x) {
+          if (x === tl) x.setAttribute("aria-current", "true");
+          else x.removeAttribute("aria-current");
+        });
+      });
+    });
+  }
+
+  function galerieNaDetailu() {
+    var cil = $("[data-realizace-galerie]");
+    if (!cil) return;
+    var fotky = galerieZeStavu(cil.getAttribute("data-realizace-galerie"));
+    var nadpis = $("h1");
+    vykresliGalerii(cil, fotky, nadpis ? nadpis.textContent : "");
+  }
+
   /* ========================================================= výpis realizací */
   function vypisRealizaci() {
     var uzel = $("[data-vypis-realizaci]");
@@ -406,8 +465,12 @@
       }).join("");
       var href = r.odkaz || (data.detailSablona + "?id=" + encodeURIComponent(r.id));
       var datum = formatDatum(r.datum);
+      var fotky = GAT.fotky ? GAT.fotky.normalizujGalerie(r.fotky) : [];
+      var nahled = fotky.length
+        ? '<img src="' + fotky[0].dataUrl + '" alt="" loading="lazy">'
+        : motiv(r.motiv != null ? r.motiv : r.id);
       return '<a class="karta-realizace" href="' + href + '">' +
-        '<span class="karta-nahled">' + motiv(r.motiv != null ? r.motiv : r.id) + '<span class="stitky">' + stitky + "</span></span>" +
+        '<span class="karta-nahled">' + nahled + '<span class="stitky">' + stitky + "</span></span>" +
         '<span class="telo"><h3>' + uklid(r.nazev) + "</h3>" +
         '<span class="karta-meta"><span>' + uklid(r.misto || "") + "</span><span>" + datum + "</span></span>" +
         "<p>" + uklid(r.perex || "") + "</p>" +
@@ -503,7 +566,9 @@
       }).join("");
     }
     var nahled = $('[data-sablona="nahled"]');
-    if (nahled && window.GAT_MOTIV) nahled.innerHTML = window.GAT_MOTIV;
+    var fotky = GAT.fotky ? GAT.fotky.normalizujGalerie(polozka.fotky) : [];
+    if (nahled && fotky.length) vykresliGalerii(nahled, fotky, polozka.nazev);
+    else if (nahled && window.GAT_MOTIV) nahled.innerHTML = window.GAT_MOTIV;
   }
 
   /* ================================================================ slovník */
@@ -852,6 +917,8 @@
     navigace();
     $$("[data-vitr]").forEach(vitr);
     cmsPrepisy();
+    fotkyNaKartach();
+    galerieNaDetailu();
     zkratky();
     formulare();
     vypisRealizaci();

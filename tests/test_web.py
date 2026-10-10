@@ -497,3 +497,28 @@ def test_barvy_na_zelene_a_spodni_lista_jsou_tokeny():
     tmavy = css.split("@media (prefers-color-scheme: dark)")[1]
     for token in ("--na-zelené", "--lišta-spodní", "--jantar-závoj", "--cihlová"):
         assert token in tmavy, f"tmavý režim nepřebíjí {token}"
+
+
+def test_realizace_maji_hacky_pro_nahrane_fotky(web):
+    """Fotky z administrace žijí v localStorage, takže je app.js dokresluje
+    do statických stránek — musí mít kam."""
+    vypis = (web / "domacnosti-realizace.html").read_text(encoding="utf-8")
+    assert 'data-realizace-nahled="d-bungalov-klimatizace"' in vypis
+
+    detail = (web / "realizace-d-bungalov-klimatizace.html").read_text(encoding="utf-8")
+    assert 'data-realizace-galerie="d-bungalov-klimatizace"' in detail
+
+    app = (web / "assets" / "app.js").read_text(encoding="utf-8")
+    assert "GAT.fotky = " in app, "knihovna fotek se nedostala do bundlu"
+    assert "galerieZeStavu" in app
+
+
+def test_administrace_umi_nahrat_fotky(web):
+    html = (web / "administrace.html").read_text(encoding="utf-8")
+    assert "data-fotky-vstup" in html
+    assert 'accept="image/jpeg,image/png,image/webp"' in html
+    assert "multiple" in html
+    assert "data-fotky-zona" in html
+    # texty pro hlášky musí projít do slovníku pro admin.js
+    assert "fotkyChyba" in html
+    assert "fotkyPlno" in html

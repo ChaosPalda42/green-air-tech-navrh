@@ -17,8 +17,18 @@
   var jazyk = "cs";
 
   function uloz() {
-    stav = GAT.cmsStore.saveState(uloziste, stav);
+    // Fotky se ukládají jako data URL, takže se dá narazit na strop
+    // localStorage. Když to nevyjde, vrátíme stav zpátky a řekneme to.
+    var predtim = stav;
+    try {
+      stav = GAT.cmsStore.saveState(uloziste, stav);
+    } catch (e) {
+      stav = predtim;
+      window.alert(P.fotkyPlno);
+      return false;
+    }
     obnovCas();
+    return true;
   }
 
   function uklid(t) {
@@ -171,6 +181,13 @@
 
   var filtrVetve = "vse";
 
+  function nahledRealizace(r) {
+    var fotky = F ? F.normalizujGalerie(r.fotky) : [];
+    if (!fotky.length) return '<span class="admin-nahled admin-nahled-prazdny" aria-hidden="true"></span>';
+    return '<span class="admin-nahled"><img src="' + fotky[0].dataUrl + '" alt=""></span>' +
+      (fotky.length > 1 ? '<span class="admin-nahled-pocet">+' + (fotky.length - 1) + "</span>" : "");
+  }
+
   function nazevVetve(id) {
     var v = (data.vetve || []).filter(function (x) { return x.id === id; })[0];
     return v ? v.nazev : "";
@@ -202,6 +219,7 @@
           : "";
         return (
           '<div class="admin-karta-realizace" data-id="' + uklid(r.id) + '">' +
+          nahledRealizace(r) +
           '<div class="info"><div class="nazev">' + uklid(r.nazev) + " " + znacka + "</div>" +
           '<div class="meta"><span class="admin-vetev">' + uklid(nazevVetve(r.vetev || vychoziVetev())) +
           "</span> " + uklid(r.misto || "") + " · " + uklid(r.datum || "") + "</div></div>" +
@@ -231,6 +249,160 @@
     });
   }
 
+  /* ------------------------------------------------------------- fotky
+     Obrázek se před uložením zmenší na dlouhou hranu LIMITY.maxHrana a
+     překlopí do JPEG — bez toho by se do localStorage vešly dvě fotky.
+     Pořadí, limity a formátování velikostí řeší GAT.fotky (kontrakt C-010). */
+  var galerieVDialogu = [];
+  var F = window.GAT && GAT.fotky;
+
+  function zonaFotek() { return $("[data-fotky-zona]", formRealizace); }
+
+  function ukazChybyFotek(seznam) {
+    var cil = $("[data-fotky-chyby]", formRealizace);
+    if (!cil) return;
+    cil.hidden = !seznam.length;
+    cil.innerHTML = seznam
+      .map(function (ch) { return '<p class="chyba">' + uklid(ch) + "</p>"; })
+      .join("");
+  }
+
+  function hlaskaOdmitnuti(o) {
+    var vzor = (P.fotkyChyba || {})[o.duvod] || "{soubor}";
+    return vzor.replace("{soubor}", o.nazev || "");
+  }
+
+  /** Načte soubor, zmenší ho přes canvas a vrátí záznam fotky. */
+  function zpracujSoubor(soubor) {
+    return new Promise(function (hotovo, chyba) {
+      var ctecka = new FileReader();
+      ctecka.onerror = function () { chyba(new Error("cteni")); };
+      ctecka.onload = function () {
+        var obr = new Image();
+        obr.onerror = function () { chyba(new Error("obrazek")); };
+        obr.onload = function () {
+          var cil = F.cilovyRozmer(obr.naturalWidth, obr.naturalHeight, F.LIMITY.maxHrana);
+          var platno = document.createElement("canvas");
+          platno.width = cil.sirka;
+          platno.height = cil.vyska;
+          var ctx = platno.getContext("2d");
+          ctx.drawImage(obr, 0, 0, cil.sirka, cil.vyska);
+          var dataUrl = platno.toDataURL("image/jpeg", 0.82);
+          hotovo({
+            id: "f" + Date.now().toString(36) + Math.random().toString(36).slice(2, 7),
+            nazev: soubor.name,
+            typ: "image/jpeg",
+            sirka: cil.sirka,
+            vyska: cil.vyska,
+            bajty: F.odhadniBajty(dataUrl),
+            dataUrl: dataUrl,
+          });
+        };
+        obr.src = ctecka.result;
+      };
+      ctecka.readAsDataURL(soubor);
+    });
+  }
+
+  function nactiSoubory(soubory) {
+    if (!F || !soubory || !soubory.length) return;
+    var zona = zonaFotek();
+    if (zona) zona.setAttribute("data-nacitam", "1");
+    var chyby = [];
+    var pripravene = [];
+    var fronta = Array.prototype.slice.call(soubory).reduce(function (retez, soubor) {
+      return retez.then(function () {
+        var kontrola = F.zkontrolujSoubor({ nazev: soubor.name, typ: soubor.type, velikost: soubor.size });
+        if (!kontrola.ok) {
+          chyby.push(hlaskaOdmitnuti({ nazev: soubor.name, duvod: kontrola.chyba }));
+          return null;
+        }
+        return zpracujSoubor(soubor).then(
+          function (f) { pripravene.push(f); },
+          function () { chyby.push(hlaskaOdmitnuti({ nazev: soubor.name, duvod: "nacteni" })); }
+        );
+      });
+    }, Promise.resolve());
+
+    fronta.then(function () {
+      var vysledek = F.pridejFotky(galerieVDialogu, pripravene);
+      galerieVDialogu = vysledek.galerie;
+      vysledek.odmitnuto.forEach(function (o) { chyby.push(hlaskaOdmitnuti(o)); });
+      if (zona) zona.removeAttribute("data-nacitam");
+      ukazChybyFotek(chyby);
+      vykresliGalerii();
+    });
+  }
+
+  function vykresliGalerii() {
+    var cil = $("[data-fotky-seznam]", formRealizace);
+    var souhrnEl = $("[data-fotky-souhrn]", formRealizace);
+    if (!cil || !F) return;
+    if (!galerieVDialogu.length) {
+      cil.innerHTML = '<p class="napoveda">' + uklid(P.fotkyPrazdno) + "</p>";
+    } else {
+      cil.innerHTML = galerieVDialogu
+        .map(function (f, i) {
+          return '<figure class="admin-fotka" data-fotka="' + uklid(f.id) + '">' +
+            '<img src="' + f.dataUrl + '" alt="' + uklid(f.nazev) + '" loading="lazy">' +
+            (i === 0 ? '<span class="admin-fotka-titulni">' + uklid(P.fotkyTitulni) + "</span>" : "") +
+            '<figcaption>' + uklid(F.formatVelikost(f.bajty)) + " · " + f.sirka + "×" + f.vyska + "</figcaption>" +
+            '<div class="admin-fotka-akce">' +
+            '<button type="button" data-fotka-doleva aria-label="' + uklid(P.fotkyDoleva) + '" title="' + uklid(P.fotkyDoleva) + '"' + (i === 0 ? " disabled" : "") + ">&#8592;</button>" +
+            '<button type="button" data-fotka-titulni aria-label="' + uklid(P.fotkyNastavTitulni) + '" title="' + uklid(P.fotkyNastavTitulni) + '"' + (i === 0 ? " disabled" : "") + ">&#9733;</button>" +
+            '<button type="button" data-fotka-doprava aria-label="' + uklid(P.fotkyDoprava) + '" title="' + uklid(P.fotkyDoprava) + '"' + (i === galerieVDialogu.length - 1 ? " disabled" : "") + ">&#8594;</button>" +
+            '<button type="button" data-fotka-pryc aria-label="' + uklid(P.fotkyOdebrat) + '" title="' + uklid(P.fotkyOdebrat) + '">&#10005;</button>' +
+            "</div></figure>";
+        })
+        .join("");
+    }
+    if (souhrnEl) {
+      var souhrn = F.souhrn(galerieVDialogu);
+      souhrnEl.textContent = String(P.fotkySouhrn || "")
+        .replace("{pocet}", souhrn.pocet)
+        .replace("{velikost}", F.formatVelikost(souhrn.bajty));
+    }
+  }
+
+  // akce nad dlaždicemi řešíme delegováním — mřížka se překresluje
+  $("[data-fotky-seznam]", formRealizace).addEventListener("click", function (e) {
+    var tl = e.target.closest("button");
+    if (!tl) return;
+    var id = tl.closest("[data-fotka]").getAttribute("data-fotka");
+    if (tl.hasAttribute("data-fotka-pryc")) galerieVDialogu = F.odeberFotku(galerieVDialogu, id);
+    else if (tl.hasAttribute("data-fotka-doleva")) galerieVDialogu = F.presunFotku(galerieVDialogu, id, -1);
+    else if (tl.hasAttribute("data-fotka-doprava")) galerieVDialogu = F.presunFotku(galerieVDialogu, id, 1);
+    else if (tl.hasAttribute("data-fotka-titulni")) galerieVDialogu = F.nastavTitulni(galerieVDialogu, id);
+    vykresliGalerii();
+  });
+
+  var vstupFotek = $("[data-fotky-vstup]", formRealizace);
+  $("[data-fotky-vybrat]", formRealizace).addEventListener("click", function () { vstupFotek.click(); });
+  vstupFotek.addEventListener("change", function () {
+    nactiSoubory(vstupFotek.files);
+    vstupFotek.value = "";
+  });
+
+  (function pretahovani() {
+    var zona = zonaFotek();
+    if (!zona) return;
+    ["dragenter", "dragover"].forEach(function (udalost) {
+      zona.addEventListener(udalost, function (e) {
+        e.preventDefault();
+        zona.setAttribute("data-nad", "1");
+      });
+    });
+    ["dragleave", "drop"].forEach(function (udalost) {
+      zona.addEventListener(udalost, function (e) {
+        e.preventDefault();
+        zona.removeAttribute("data-nad");
+      });
+    });
+    zona.addEventListener("drop", function (e) {
+      if (e.dataTransfer && e.dataTransfer.files) nactiSoubory(e.dataTransfer.files);
+    });
+  })();
+
   function otevriDialog(polozka) {
     var p = polozka || {};
     formRealizace.elements.id.value = p.id || "";
@@ -249,6 +421,9 @@
     $$('input[name="kategorie"]', formRealizace).forEach(function (ch) {
       ch.checked = kat.indexOf(ch.value) !== -1;
     });
+    galerieVDialogu = F ? F.normalizujGalerie(p.fotky) : [];
+    ukazChybyFotek([]);
+    vykresliGalerii();
     $("[data-dialog-titulek]").textContent = p.id ? P.upravit : P.pridat;
     if (typeof dialog.showModal === "function") dialog.showModal();
     else dialog.setAttribute("open", "");
@@ -280,6 +455,7 @@
       technologie: f.technologie.value.split(",").map(function (x) { return x.trim(); }).filter(Boolean),
       kategorie: $$('input[name="kategorie"]:checked', formRealizace).map(function (ch) { return ch.value; }),
     };
+    polozka.fotky = galerieVDialogu;
     if (f.id.value) polozka.id = f.id.value;
     if (!polozka.nazev) return;
     stav = GAT.cmsStore.upsertRealizace(stav, polozka, data.realizace);

@@ -180,3 +180,30 @@ Kontrast a přetékání se neodhaduje ze snímků. V prohlížeči běží sken
 načte do iframu 375 × 812, projdou se všechny prvky s vlastním textem, dohledá se
 nejbližší neprůhledné pozadí v předcích a spočítá se kontrast. Gradienty (`.vyzva`,
 `.avatar`) jsou falešné nálezy — pozadí nemají jako barvu.
+
+## Rozhodnutí (10. 10. 2026, fotky u realizací)
+
+19. **Fotky nahrává klient v administraci**, u každé realizace nejvýš osm.
+    Obrázek se v prohlížeči zmenší na dlouhou hranu 1600 px a překlopí do JPEG
+    (kvalita 0,82) — bez toho by se do `localStorage` vešly dvě fotky z mobilu.
+    Zmenšování dělá canvas v `admin.js`; pořadí, limity, duplicity a formátování
+    velikostí řeší `src/lib/fotky.mjs` (kontrakt **C-010**, zelený, 226 testů).
+20. **Fotky bydlí přímo v položce realizace** (`polozka.fotky`), ne ve vlastním
+    klíči. Díky tomu je nese export i import zálohy a `mergeRealizace` je dostane
+    na web bez dalšího zařizování. Cena za to je strop `localStorage` —
+    `uloz()` proto hlídá výjimku, vrátí stav zpátky a řekne to uživateli.
+    Ověřeno podstrčením `QuotaExceededError`: uložený stav zůstal nedotčený.
+21. **Statické stránky mají jen háčky.** Karta realizace nese
+    `data-realizace-nahled="<id>"`, detail `data-realizace-galerie="<id>"`;
+    `app.js` při startu zjistí, jestli je k id v `localStorage` galerie, a teprve
+    pak nahradí kreslené schéma fotkou. Funguje to i pro realizace, které jsou
+    součástí ukázky (ukládají se do `edited`), ne jen pro nově přidané.
+22. Na detailu se z fotek skládá malá galerie: velký snímek a pásek miniatur,
+    kliknutí přehodí hlavní obrázek. Bez fotek zůstane schéma — klient tak nikdy
+    neuvidí prázdné místo.
+
+### Co review u C-010 našlo
+
+Dvě drobnosti (položka, která není objekt, se odmítala jako „duplikát"; soubor bez
+použitelné velikosti prošel kontrolou). Obojí jsem **nedopisoval ručně** — doplnil
+jsem kontrakt a test a pustil Factory znovu, aby zdrojem pravdy zůstal harness.

@@ -631,7 +631,8 @@
       "dokonceno": "Completed",
       "dalsiRealizace": "Next Project",
       "maObdobny": "Do You Have a Similar Property?",
-      "maObdobnyLead": "Write us a few sentences and we will get back to you with a proposed approach."
+      "maObdobnyLead": "Write us a few sentences and we will get back to you with a proposed approach.",
+      "fotky": "Photos"
     },
     "kategorie": {
       "vse": "All Fields",
@@ -1323,7 +1324,28 @@
       "upravena": "Modified",
       "prazdne": "No custom projects yet. Add the first one.",
       "vetev": "Target audience",
-      "vsechnyVetve": "Both sections of the website"
+      "vsechnyVetve": "Both sections of the website",
+      "fotky": "Photos and images",
+      "fotkyVybrat": "Select from computer",
+      "fotkyNapoveda": "Drag photos here or select them. JPG, PNG, or WebP, up to 8 photos. Large images will be automatically resized.",
+      "fotkyPrazdno": "No photos yet. Without one, a drawn diagram will be shown for the project.",
+      "fotkyNacitam": "Processing photos...",
+      "fotkySouhrn": "{pocet} of 8 photos · {velikost}",
+      "fotkyTitulni": "Cover",
+      "fotkyNastavTitulni": "Set as cover",
+      "fotkyOdebrat": "Remove photo",
+      "fotkyDoleva": "Move left",
+      "fotkyDoprava": "Move right",
+      "fotkyChyba": {
+        "typ": "{soubor}: this format is not supported, please use JPG, PNG, or WebP.",
+        "velikost": "{soubor}: the file is too large (maximum 12 MB).",
+        "pocet": "{soubor}: there is space for eight photos per project.",
+        "misto": "{soubor}: this photo would no longer fit in the demo.",
+        "duplikat": "{soubor}: this photo is already here.",
+        "neplatny": "{soubor}: failed to load the file.",
+        "nacteni": "{soubor}: failed to open the image."
+      },
+      "fotkyPlno": "The browser no longer has space for additional data. Remove some photos, or download the changes to a backup and start fresh."
     },
     "data": {
       "titulek": "Backup and restore",

@@ -183,3 +183,66 @@ body.je-administrace { background: var(--papír-2); }
   padding: 0.1rem 0.45rem; border-radius: 999px;
   background: var(--zelena-závoj); color: var(--zelena-tmavá); margin-right: 0.4rem;
 }
+
+/* ===================================================== fotky u realizace */
+.admin-fotky-zona {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.8rem 1rem;
+  padding: 1rem 1.1rem;
+  border: 2px dashed var(--linka); border-radius: var(--r-m);
+  background: var(--papír-2);
+  transition: border-color var(--rychle), background var(--rychle);
+}
+.admin-fotky-zona[data-nad] { border-color: var(--zelena); background: var(--zelena-závoj); }
+.admin-fotky-zona[data-nacitam] { opacity: 0.6; pointer-events: none; }
+.admin-fotky-zona .napoveda { margin: 0; flex: 1 1 14rem; }
+
+.admin-fotky { display: grid; gap: 0.7rem; margin-top: 0.8rem; }
+@media (min-width: 520px) { .admin-fotky { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); } }
+.admin-fotka {
+  position: relative; margin: 0;
+  border: 1px solid var(--linka); border-radius: var(--r-m); overflow: hidden;
+  background: var(--papír-2);
+}
+.admin-fotka img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.admin-fotka figcaption {
+  padding: 0.45rem 0.55rem 0.35rem; font-size: 0.76rem; color: var(--břidlice);
+  font-variant-numeric: tabular-nums;
+}
+.admin-fotka-titulni {
+  position: absolute; left: 0.45rem; top: 0.45rem;
+  padding: 0.15rem 0.5rem; border-radius: 999px;
+  background: var(--zelena-tmavá); color: var(--na-zelené);
+  font-family: var(--font-nadpis); font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.04em; text-transform: uppercase;
+}
+/* Akce sedí pod snímkem, ne přes něj — čtyři tlačítka a odznak „titulní"
+   se na 150px dlaždici přes sebe přerovnaly. */
+.admin-fotka-akce {
+  display: flex; gap: 0.25rem; padding: 0 0.45rem 0.5rem;
+}
+.admin-fotka-akce button {
+  flex: 1; min-width: 34px; height: 32px; display: grid; place-items: center;
+  border: 1px solid var(--linka); border-radius: 8px; cursor: pointer;
+  background: var(--papír); color: var(--text); font-size: 0.9rem; line-height: 1;
+}
+.admin-fotka-akce button:hover:not(:disabled) {
+  background: var(--zelena-tmavá); border-color: var(--zelena-tmavá); color: var(--na-zelené);
+}
+.admin-fotka-akce button:disabled { opacity: 0.3; cursor: default; }
+.admin-fotka-akce [data-fotka-pryc]:hover { background: var(--cihlová); border-color: var(--cihlová); color: #fff; }
+.admin-fotky-chyby { margin-top: 0.6rem; display: grid; gap: 0.3rem; }
+
+/* náhled fotky ve výpisu realizací */
+.admin-nahled {
+  flex: none; width: 64px; height: 48px; border-radius: var(--r-s); overflow: hidden;
+  background: var(--papír-3); display: block;
+}
+.admin-nahled img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.admin-nahled-prazdny {
+  background:
+    repeating-linear-gradient(45deg, var(--papír-3) 0 6px, var(--papír-2) 6px 12px);
+}
+.admin-nahled-pocet {
+  align-self: center; font-size: 0.76rem; color: var(--břidlice);
+  font-variant-numeric: tabular-nums; margin-left: -0.4rem;
+}

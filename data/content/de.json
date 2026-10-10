@@ -631,7 +631,8 @@
       "dokonceno": "Abgeschlossen",
       "dalsiRealizace": "Weitere Referenzen",
       "maObdobny": "Haben Sie ein ähnliches Objekt?",
-      "maObdobnyLead": "Schreiben Sie uns ein paar Sätze, und wir melden uns mit einem Vorschlag für das weitere Vorgehen."
+      "maObdobnyLead": "Schreiben Sie uns ein paar Sätze, und wir melden uns mit einem Vorschlag für das weitere Vorgehen.",
+      "fotky": "Fotos"
     },
     "kategorie": {
       "vse": "Alle Bereiche",
@@ -1323,7 +1324,28 @@
       "upravena": "Bearbeitete",
       "prazdne": "Noch keine eigenen Projekte vorhanden. Fügen Sie das erste hinzu.",
       "vetev": "Für wen",
-      "vsechnyVetve": "Beide Website-Bereiche"
+      "vsechnyVetve": "Beide Website-Bereiche",
+      "fotky": "Fotos und Bilder",
+      "fotkyVybrat": "Vom Computer auswählen",
+      "fotkyNapoveda": "Ziehen Sie Fotos hierher oder wählen Sie diese aus. JPG, PNG oder WebP, maximal 8 Fotos. Große Bilder werden automatisch verkleinert.",
+      "fotkyPrazdno": "Noch kein Foto vorhanden. Ohne Foto wird beim Projekt eine Zeichnung angezeigt.",
+      "fotkyNacitam": "Fotos werden verarbeitet…",
+      "fotkySouhrn": "{pocet} von 8 Fotos · {velikost}",
+      "fotkyTitulni": "Titelbild",
+      "fotkyNastavTitulni": "Als Titelbild festlegen",
+      "fotkyOdebrat": "Foto entfernen",
+      "fotkyDoleva": "Nach links verschieben",
+      "fotkyDoprava": "Nach rechts verschieben",
+      "fotkyChyba": {
+        "typ": "{soubor}: Dieses Format wird nicht unterstützt. Bitte verwenden Sie JPG, PNG oder WebP.",
+        "velikost": "{soubor}: Die Datei ist zu groß (maximal 12 MB).",
+        "pocet": "{soubor}: Pro ein Projekt sind maximal acht Fotos möglich.",
+        "misto": "{soubor}: Dieses Foto würde nicht mehr in die Demo passen.",
+        "duplikat": "{soubor}: Dieses Foto ist bereits vorhanden.",
+        "neplatny": "{soubor}: Die Datei konnte nicht geladen werden.",
+        "nacteni": "{soubor}: Das Bild konnte nicht geöffnet werden."
+      },
+      "fotkyPlno": "Der Browser verfügt über keinen ausreichenden Speicherplatz für weitere Daten. Bitte entfernen Sie einige Fotos oder sichern Sie die Änderungen in einem Backup und beginnen Sie von Grund auf neu."
     },
     "data": {
       "titulek": "Backup und Wiederherstellung",

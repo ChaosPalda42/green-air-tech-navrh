@@ -26,7 +26,7 @@ function kartaRealizace(ctx, r) {
     .map((k) => `<span class="odznak">${t(`realizace.kategorie.${k}`)}</span>`)
     .join("");
   return `<a class="karta-realizace" href="${odkaz("realizace", r.id)}">
-    <span class="karta-nahled" data-motiv="${r.motiv}">${motivRealizace(r.motiv)}<span class="stitky">${stitky}</span></span>
+    <span class="karta-nahled" data-motiv="${r.motiv}" data-realizace-nahled="${r.id}">${motivRealizace(r.motiv)}<span class="stitky">${stitky}</span></span>
     <span class="telo">
       <h3${dc(`realizace.polozky.${r.id}.nazev`)}>${nazev}</h3>
       <span class="karta-meta">
@@ -526,7 +526,7 @@ export function realizaceDetail(ctx, r) {
   <div class="obal">
     <div class="dvojsloupec">
       <div class="text-blok">
-        <div style="border-radius:var(--r-l);overflow:hidden;aspect-ratio:16/10;margin-bottom:2rem">${motivRealizace(r.motiv, { popis: t(`${p}.nazev`) })}</div>
+        <div class="detail-nahled" data-realizace-galerie="${r.id}">${motivRealizace(r.motiv, { popis: t(`${p}.nazev`) })}</div>
         <h2>${t("realizace.detail.rozsah")}</h2>
         <p${dc(`${p}.zadani`)}>${ctx.zk(t(`${p}.zadani`))}</p>
         ${seznamOdskrtnuty(ctx, `${p}.rozsah`)}

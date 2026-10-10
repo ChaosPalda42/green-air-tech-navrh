@@ -52,6 +52,15 @@ Zapracovali jsme, na čem jsme se domluvili 9. října:
 7) SITEMAPA
    Připravená pro Google Search Console (soubor web/sitemap.xml).
 
+8) FOTKY U REALIZACÍ
+   V administraci u každé realizace nahrajete až osm fotek — přetažením
+   do rámečku, nebo přes Vybrat z počítače. Velké snímky z foťáku nebo
+   z telefonu se samy zmenší, takže nemusíte nic připravovat. První fotka
+   je titulní (jde přehodit hvězdičkou), pořadí se mění šipkami.
+   Kde se fotky projeví: na kartě ve výpisu realizací a nahoře na detailu
+   zakázky, kde se z nich udělá malá galerie. Dokud fotku nenahrajete,
+   zůstane u realizace kreslené technické schéma.
+
 Zůstalo beze změny to, co jste chválili: tečky na pozadí a vysvětlivky
 zkratek po najetí myší.
 
@@ -70,7 +79,8 @@ CO SI URČITĚ ZKUSTE
   Přihlášení nic nekontroluje, klikněte rovnou na Vstoupit. Uvnitř najdete:
     – Nástěnka: statistiky návštěvnosti (ukázková data)
     – Texty webu: přepište jakýkoli text, hned se projeví
-    – Realizace: přidejte vlastní, zvlášť pro domácnosti a pro firmy
+    – Realizace: přidejte vlastní, zvlášť pro domácnosti a pro firmy,
+      a nahrajte k nim fotky
     – Uživatelé: přidejte člověka a nastavte mu roli
     – Záloha: stáhněte si změny jako soubor nebo je vraťte zpátky
   Změny se ukládají jen do vašeho prohlížeče, takže nemůžete nic
@@ -107,7 +117,13 @@ a všechny novinky.
 
 Fotky jsou vaše vlastní z dnešního webu. Náhledy u realizací NEJSOU
 fotky — jsou to kreslená technická schémata, právě proto, aby nevznikl
-dojem, že ty stavby už proběhly.
+dojem, že ty stavby už proběhly. Jakmile k realizaci nahrajete vlastní
+fotku, schéma ustoupí jí.
+
+Pozor, v ukázce se fotky ukládají do vašeho prohlížeče, ne na server.
+Je tam na ně místo řádově pro pár desítek snímků a na jiném počítači je
+neuvidíte. Na ostré verzi půjdou na server a žádný takový strop mít
+nebudou.
 
 Anglická a německá verze je strojový překlad. Před spuštěním ji
 doporučujeme nechat projít rodilým mluvčím.

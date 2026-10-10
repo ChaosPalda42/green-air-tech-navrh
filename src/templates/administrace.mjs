@@ -202,6 +202,19 @@ export function administrace(ctx, data = { klice: [], slovniky: {}, realizace: [
       <div class="pole"><label for="r-rozsah">${t("admin.realizace.rozsah")}</label><textarea id="r-rozsah" name="rozsah" style="min-height:110px"></textarea></div>
       <div class="pole"><label for="r-technologie">${t("admin.realizace.technologie")}</label><input type="text" id="r-technologie" name="technologie"></div>
       <div class="pole"><label for="r-vysledek">${t("admin.realizace.vysledek")}</label><textarea id="r-vysledek" name="vysledek" style="min-height:90px"></textarea></div>
+      <div class="pole">
+        <label>${t("admin.realizace.fotky")}</label>
+        <div class="admin-fotky-zona" data-fotky-zona>
+          <input type="file" accept="image/jpeg,image/png,image/webp" multiple hidden data-fotky-vstup>
+          <button type="button" class="tl tl-obrys tl-mala" data-fotky-vybrat>${ikona("obrazek")}${t(
+            "admin.realizace.fotkyVybrat"
+          )}</button>
+          <p class="napoveda">${t("admin.realizace.fotkyNapoveda")}</p>
+        </div>
+        <div class="admin-fotky" data-fotky-seznam></div>
+        <p class="napoveda" data-fotky-souhrn></p>
+        <div class="admin-fotky-chyby" data-fotky-chyby hidden></div>
+      </div>
       <input type="hidden" name="id">
       <div class="tlacitka" style="justify-content:flex-end;margin-top:1rem">
         <button type="button" class="tl tl-obrys tl-mala" data-zavrit-dialog>${t("admin.realizace.zrusit")}</button>
@@ -269,6 +282,20 @@ export function administrace(ctx, data = { klice: [], slovniky: {}, realizace: [
       uzivateleprazdne: t("admin.uzivatele.prazdne"),
       role: t("admin.uzivatele.role"),
       pravaSloupec: t("admin.uzivatele.pravaSloupec"),
+      fotkyPrazdno: t("admin.realizace.fotkyPrazdno"),
+      fotkySouhrn: t("admin.realizace.fotkySouhrn"),
+      fotkyTitulni: t("admin.realizace.fotkyTitulni"),
+      fotkyNastavTitulni: t("admin.realizace.fotkyNastavTitulni"),
+      fotkyOdebrat: t("admin.realizace.fotkyOdebrat"),
+      fotkyDoleva: t("admin.realizace.fotkyDoleva"),
+      fotkyDoprava: t("admin.realizace.fotkyDoprava"),
+      fotkyPlno: t("admin.realizace.fotkyPlno"),
+      fotkyChyba: Object.fromEntries(
+        ["typ", "velikost", "pocet", "misto", "duplikat", "neplatny", "nacteni"].map((k) => [
+          k,
+          t(`admin.realizace.fotkyChyba.${k}`),
+        ])
+      ),
     },
   })}</script>
 <script>

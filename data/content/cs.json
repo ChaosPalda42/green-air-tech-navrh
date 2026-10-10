@@ -631,7 +631,8 @@
       "dokonceno": "Dokončeno",
       "dalsiRealizace": "Další realizace",
       "maObdobny": "Máte podobný objekt?",
-      "maObdobnyLead": "Napište nám pár vět a ozveme se s návrhem postupu."
+      "maObdobnyLead": "Napište nám pár vět a ozveme se s návrhem postupu.",
+      "fotky": "Fotografie"
     },
     "kategorie": {
       "vse": "Všechny obory",
@@ -1323,7 +1324,28 @@
       "upravena": "Upravená",
       "prazdne": "Zatím žádná vlastní realizace. Přidejte první.",
       "vetev": "Pro koho",
-      "vsechnyVetve": "Obě části webu"
+      "vsechnyVetve": "Obě části webu",
+      "fotky": "Fotky a obrázky",
+      "fotkyVybrat": "Vybrat z počítače",
+      "fotkyNapoveda": "Přetáhněte sem fotky, nebo je vyberte. JPG, PNG nebo WebP, nejvýš 8 fotek. Velké snímky se samy zmenší.",
+      "fotkyPrazdno": "Zatím žádná fotka. Bez ní se u realizace ukáže kreslené schéma.",
+      "fotkyNacitam": "Zpracovávám fotky…",
+      "fotkySouhrn": "{pocet} z 8 fotek · {velikost}",
+      "fotkyTitulni": "Titulní",
+      "fotkyNastavTitulni": "Dát jako titulní",
+      "fotkyOdebrat": "Odebrat fotku",
+      "fotkyDoleva": "Posunout doleva",
+      "fotkyDoprava": "Posunout doprava",
+      "fotkyChyba": {
+        "typ": "{soubor}: tenhle formát neumíme, použijte JPG, PNG nebo WebP.",
+        "velikost": "{soubor}: soubor je moc velký (nejvýš 12 MB).",
+        "pocet": "{soubor}: u jedné realizace je místo na osm fotek.",
+        "misto": "{soubor}: tahle fotka by se už do ukázky nevešla.",
+        "duplikat": "{soubor}: stejnou fotku už tu máte.",
+        "neplatny": "{soubor}: soubor se nepodařilo načíst.",
+        "nacteni": "{soubor}: obrázek se nepodařilo otevřít."
+      },
+      "fotkyPlno": "Prohlížeč už nemá místo na další data. Nějaké fotky odeberte, nebo si změny stáhněte do zálohy a začněte načisto."
     },
     "data": {
       "titulek": "Záloha a obnovení",
