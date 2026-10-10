@@ -32,8 +32,8 @@
   /* Velké plochy webu — hero, podhlaví, zvýrazněné sekce, výzvy, patička.
      Klient je ze schůzky chtěl „pocitově zelené, barvu jako voda". Dřív to
      byla tmavá zeleň, teď světlá vodní; text na nich proto ztmavl. */
-  --plocha: #dcefe7;
-  --plocha-2: #c7e4d8;
+  --plocha: #ecf7f1;
+  --plocha-2: #daefe4;
   --plocha-text: #1d4536;
   --plocha-text-tlumený: #46685a;
   --plocha-nadpis: #0f2b20;
@@ -227,6 +227,8 @@ a:hover { color: var(--zelena-hluboká); }
 .sekce-tesna { padding-block: clamp(2.5rem, 5vw, 4rem); }
 .sekce-papir { background: var(--papír-2); }
 .sekce-tmava {
+  /* plocha je teď skoro bílá, takže pruh drží vlasová linka */
+  border-block: 1px solid var(--plocha-obrys);
   background: var(--plocha);
   color: var(--plocha-text);
   position: relative;
@@ -308,7 +310,7 @@ a:hover { color: var(--zelena-hluboká); }
 .lista {
   /* Světlý režim: bledě zelená lišta — klient chtěl zesvětlit a logo
      tak nepotřebuje podložku. Tmavý režim níž ji překlopí do hluboké zelené. */
-  --lista-pozadi: #e7f3df;
+  --lista-pozadi: #f2f9ec;
   --lista-text: #18271c;
   --lista-text-tlumeny: #4c5f4f;
   --lista-linka: rgba(47, 106, 18, 0.18);

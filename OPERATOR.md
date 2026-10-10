@@ -237,3 +237,10 @@ jsem kontrakt a test a pustil Factory znovu, aby zdrojem pravdy zůstal harness.
   pozadím. Nový sken dohledává nejbližší neprůhledné pozadí v předcích.
 
 Po změně neprojde na 21 stránkách ve světlém ani tmavém režimu nic pod 4,3 : 1.
+
+26. **Ještě o stupeň světleji** (druhé kolo téhož dne): klient chtěl blíž k bílé
+    podložce loga. `--plocha` #dcefe7 -> **#ecf7f1**, `--plocha-2` -> #daefe4,
+    lišta #e7f3df -> #f2f9ec. Při prvním pokusu (#f1f9f4) plocha splynula se
+    sekcí na `--papír-2` (#f5f8f3) a zmizel rytmus pruhů; `.sekce-tmava` proto
+    dostala vlasovou linku `border-block` a plocha se vrátila o chlup zpět.
+    Ponaučení: u skoro bílých ploch nedrží pruh barva, ale linka.

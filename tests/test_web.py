@@ -529,7 +529,7 @@ def test_velke_plochy_jsou_svetle():
     zvýrazněné sekce a výzvy proto nesmí sahat po tmavém --inkoust."""
     css = (ROOT / "src" / "assets" / "style.css").read_text(encoding="utf-8")
     svetly = css.split("@media (prefers-color-scheme: dark)")[0]
-    for token, ocekavano in (("--plocha:", "#dcefe7"), ("--plocha-2:", "#c7e4d8")):
+    for token, ocekavano in (("--plocha:", "#ecf7f1"), ("--plocha-2:", "#daefe4")):
         radek = [r.strip() for r in svetly.splitlines() if r.strip().startswith(token)]
         assert radek and ocekavano in radek[0], f"{token} není světlá vodní zeleň"
 
