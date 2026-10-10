@@ -40,8 +40,8 @@ export function vygenerujData(seminko, dnu) {
   const zaklad = 260 + Math.floor(nahoda() * 120); // 260–380
   const rust = 0.004 + nahoda() * 0.006; // ~0,4–1,0 % denně
 
-  let cas = 150 + nahondaKrok(nahoda, 40); // 150–190, pak procházka
-  let opusteni = 38 + nahondaKrok(nahoda, 8); // 38–46, pak procházka
+  let cas = 150 + nahodaKrok(nahoda, 40); // 150–190, pak procházka
+  let opusteni = 38 + nahodaKrok(nahoda, 8); // 38–46, pak procházka
 
   const data = [];
   for (let i = n - 1; i >= 0; i--) {
@@ -70,11 +70,11 @@ export function vygenerujData(seminko, dnu) {
     const poptavky = Math.floor(nahoda() * Math.ceil(navstevy * 0.015));
 
     // Čas na stránce: malý krok od předchozího dne, držen v pásmu 100–260.
-    cas = Math.min(260, Math.max(100, cas + nahondaKrok(nahoda, 12)));
+    cas = Math.min(260, Math.max(100, cas + nahodaKrok(nahoda, 12)));
     cas = Math.round(cas);
 
     // Míra okamžitého opuštění: malý krok, držená v pásmu 30–55.
-    opusteni = Math.min(55, Math.max(30, opusteni + nahondaKrok(nahoda, 2.5)));
+    opusteni = Math.min(55, Math.max(30, opusteni + nahodaKrok(nahoda, 2.5)));
     opusteni = Math.round(opusteni);
 
     data.push({
@@ -91,8 +91,8 @@ export function vygenerujData(seminko, dnu) {
 }
 
 // Náhodný krok v rozmezí [-amplituda, +amplituda].
-function nahondaKrok(nahonda, amplituda) {
-  return (nahonda() * 2 - 1) * amplituda;
+function nahodaKrok(nahoda, amplituda) {
+  return (nahoda() * 2 - 1) * amplituda;
 }
 
 // ------------------------------------------------------------- výběr období
@@ -141,8 +141,8 @@ export function zmenaProti(aktualni, predchozi) {
 export function rozdeleni(seminko, polozky) {
   if (!Array.isArray(polozky) || polozky.length === 0) return [];
   if (polozky.length === 1) return [{ nazev: polozky[0], podil: 100 }];
-  const nahonda = vytvorLcg(hashRetezce(String(seminko)));
-  const vahy = polozky.map(() => 0.2 + nahonda() * 0.8);
+  const nahoda = vytvorLcg(hashRetezce(String(seminko)));
+  const vahy = polozky.map(() => 0.2 + nahoda() * 0.8);
   const soucetVah = vahy.reduce((a, b) => a + b, 0);
   const podily = vahy.map((v) => Math.floor((v / soucetVah) * 100));
   let zbytek = 100 - podily.reduce((a, b) => a + b, 0);
