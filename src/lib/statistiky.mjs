@@ -21,10 +21,6 @@ function vytvorLcg(seed) {
   };
 }
 
-function celoe(v, min, max) {
-  return min + Math.floor(v * (max - min + 1));
-}
-
 // ------------------------------------------------------------------ data
 
 function formatDatum(d) {
@@ -39,17 +35,48 @@ export function vygenerujData(seminko, dnu) {
   if (!Number.isFinite(n) || n <= 0) return [];
   const nahoda = vytvorLcg(hashRetezce(String(seminko)));
   const dnes = new Date();
+
+  // Základní úroveň návštěvnosti a plynulý mírný růst (ne skok).
+  const zaklad = 260 + Math.floor(nahoda() * 120); // 260–380
+  const rust = 0.004 + nahoda() * 0.006; // ~0,4–1,0 % denně
+
+  let cas = 150 + nahondaKrok(nahoda, 40); // 150–190, pak procházka
+  let opusteni = 38 + nahondaKrok(nahoda, 8); // 38–46, pak procházka
+
   const data = [];
   for (let i = n - 1; i >= 0; i--) {
     const den = new Date(dnes.getFullYear(), dnes.getMonth(), dnes.getDate() - i);
     const vikend = den.getDay() === 0 || den.getDay() === 6;
-    const zaklad = vikend ? 120 : 400;
-    const navstevy = celoe(nahoda(), Math.round(zaklad * 0.7), Math.round(zaklad * 1.3));
-    const uzivatele = celoe(nahoda(), Math.round(navstevy * 0.5), navstevy);
-    const zobrazeni = navstevy + celoe(nahoda(), Math.round(navstevy * 0.5), Math.round(navstevy * 2));
-    const poptavky = celoe(nahoda(), 0, Math.max(1, Math.round(navstevy / 100)));
-    const cas = celoe(nahoda(), 60, 300);
-    const opusteni = celoe(nahoda(), 15, 70);
+
+    // Plynulá trendová hladina všedního dne.
+    const hladina = zaklad * Math.pow(1 + rust, n - 1 - i);
+    // Víkendový rytmus: 45–55 % všední hladiny.
+    const vikendFaktor = 0.45 + nahoda() * 0.1;
+    const cil = vikend ? hladina * vikendFaktor : hladina;
+
+    // Klidné kolísání kolem hladiny (±12 %).
+    const navstevy = Math.max(1, Math.round(cil * (0.88 + nahoda() * 0.24)));
+
+    // Uživatelé 60–85 % návštěv.
+    const uzivatele = Math.min(
+      navstevy,
+      Math.round(navstevy * (0.6 + nahoda() * 0.25))
+    );
+
+    // Zobrazení 2,0–4,0násobek návštěv.
+    const zobrazeni = Math.round(navstevy * (2 + nahoda() * 2));
+
+    // Poptávky: konverze nejvýš 1,5 % návštěv.
+    const poptavky = Math.floor(nahoda() * Math.ceil(navstevy * 0.015));
+
+    // Čas na stránce: malý krok od předchozího dne, držen v pásmu 100–260.
+    cas = Math.min(260, Math.max(100, cas + nahondaKrok(nahoda, 12)));
+    cas = Math.round(cas);
+
+    // Míra okamžitého opuštění: malý krok, držená v pásmu 30–55.
+    opusteni = Math.min(55, Math.max(30, opusteni + nahondaKrok(nahoda, 2.5)));
+    opusteni = Math.round(opusteni);
+
     data.push({
       datum: formatDatum(den),
       navstevy,
@@ -61,6 +88,11 @@ export function vygenerujData(seminko, dnu) {
     });
   }
   return data;
+}
+
+// Náhodný krok v rozmezí [-amplituda, +amplituda].
+function nahondaKrok(nahonda, amplituda) {
+  return (nahonda() * 2 - 1) * amplituda;
 }
 
 // ------------------------------------------------------------- výběr období
@@ -109,12 +141,12 @@ export function zmenaProti(aktualni, predchozi) {
 export function rozdeleni(seminko, polozky) {
   if (!Array.isArray(polozky) || polozky.length === 0) return [];
   if (polozky.length === 1) return [{ nazev: polozky[0], podil: 100 }];
-  const nahoda = vytvorLcg(hashRetezce(String(seminko)));
-  const vahy = polozky.map(() => nahonda(nahoda));
+  const nahonda = vytvorLcg(hashRetezce(String(seminko)));
+  const vahy = polozky.map(() => 0.2 + nahonda() * 0.8);
   const soucetVah = vahy.reduce((a, b) => a + b, 0);
   const podily = vahy.map((v) => Math.floor((v / soucetVah) * 100));
   let zbytek = 100 - podily.reduce((a, b) => a + b, 0);
-  // Každá položka musí mít podíl > 0; zbytek doplníme k první položce.
+  // Každá položka musí mít podíl > 0; doplníme nuly a zbytek jde k první.
   for (let i = 0; i < podily.length && zbytek > 0; i++) {
     if (podily[i] === 0) {
       podily[i] = 1;
@@ -123,14 +155,6 @@ export function rozdeleni(seminko, polozky) {
   }
   podily[0] += zbytek;
   return polozky.map((nazev, i) => ({ nazev, podil: podily[i] }));
-}
-
-function nahonda(nahoda) {
-  return 0.2 + nahonda2(nahoda);
-}
-
-function nahonda2(nahoda) {
-  return nahoda() * 0.8;
 }
 
 // ------------------------------------------------------------- formátování
