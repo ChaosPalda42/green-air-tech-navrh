@@ -127,7 +127,7 @@ body.je-administrace { background: var(--papír-2); }
 }
 .admin-metrika-zmena { font-weight: 600; font-size: 0.92rem; font-variant-numeric: tabular-nums; }
 .admin-metrika-zmena[data-smer="nahoru"] { color: var(--zelena-tmavá); }
-.admin-metrika-zmena[data-smer="dolu"] { color: #b7472f; }
+.admin-metrika-zmena[data-smer="dolu"] { color: var(--cihla); }
 .admin-metrika-zmena[data-smer="nic"] { color: var(--břidlice); }
 .admin-metrika-popis { font-size: 0.78rem; color: var(--břidlice); }
 
@@ -172,3 +172,7 @@ body.je-administrace { background: var(--papír-2); }
   padding: 0.1rem 0.45rem; border-radius: 999px;
   background: var(--zelena-závoj); color: var(--zelena-tmavá); margin-right: 0.4rem;
 }
+
+/* Pokles je ve tmě na tmavém papíře nečitelný, proto vlastní odstín. */
+:root { --cihla: #b7472f; }
+@media (prefers-color-scheme: dark) { :root { --cihla: #f08a72; } }

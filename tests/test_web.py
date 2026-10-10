@@ -429,3 +429,25 @@ def test_mobilni_panel_ma_dlouhe_offsety(web):
     blok = css[css.index(".panel {") : css.index(".panel {") + 600]
     for vlastnost in ("top:", "right:", "bottom:", "left:", "max-height:"):
         assert vlastnost in blok, f".panel nemá {vlastnost}"
+
+
+def test_paticka_odkazuje_do_administrace(web):
+    """Klient se do ukázkové administrace musí dostat z webu, ne jen přes URL."""
+    uvod = (web / "index.html").read_text(encoding="utf-8")
+    assert 'class="paticka-admin"' in uvod
+    assert 'href="administrace.html"' in uvod
+
+    # z jazykového podadresáře vede odkaz o patro výš
+    en = (web / "en" / "index.html").read_text(encoding="utf-8")
+    assert 'href="../administrace.html"' in en
+
+
+def test_ukazkova_hlaska_neni_natvrdo_svetla():
+    """Fialový závoj u ukázkových hlášek měl pevnou světlou barvu a v tmavém
+    režimu z něj byl bílý obdélník s nečitelným textem."""
+    css = (ROOT / "src" / "assets" / "style.css").read_text(encoding="utf-8")
+    radek = [r for r in css.splitlines() if r.startswith(".hlaska-info {")]
+    assert radek, "pravidlo .hlaska-info zmizelo"
+    assert "var(--fialová-závoj)" in radek[0]
+    tmavy = css.split("@media (prefers-color-scheme: dark)")[1]
+    assert "--fialová-závoj" in tmavy, "tmavý režim musí závoj přebít"

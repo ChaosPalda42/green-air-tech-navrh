@@ -1265,7 +1265,8 @@
     "provozovna": "Betriebsstätte",
     "dispecink": "24/7 Notdienst",
     "prava": "Alle Rechte vorbehalten.",
-    "ukazka": "Website-Entwurf – inoffiziell, nicht indiziert."
+    "ukazka": "Website-Entwurf – inoffiziell, nicht indiziert.",
+    "administrace": "Demo-Administration"
   },
   "admin": {
     "titulek": "Administration",

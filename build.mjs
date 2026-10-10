@@ -96,6 +96,8 @@ function vytvorKontext({ lang, site, slovnik, zaskok, aktualniSoubor, obrazky, v
   // nesahal po staré verzi z mezipaměti (GitHub Pages cachuje 10 minut)
   const asset = (p) => `${prefix}assets/${p}${verze[p] ? `?v=${verze[p]}` : ""}`;
   const odkaz = (druh, id) => soubor(druh, id, vetev, site);
+  // administrace je jen v kořeni, z jazykových podadresářů se na ni musí o patro výš
+  const odkazKoren = (jmeno) => `${prefix}${jmeno}`;
   const odkazVetve = (vetevId, druh = "vetev") => {
     if (druh === "vetev") return soubor("vetev", vetevId, null, site);
     if (druh === "sluzby") return `${vetevId}-sluzby.html`;
@@ -135,6 +137,7 @@ function vytvorKontext({ lang, site, slovnik, zaskok, aktualniSoubor, obrazky, v
 
   return {
     lang, site, t, existuje, klice, datum, asset, odkaz, jazykOdkaz, zk, skupinyZkratek, obrazek, terminy,
+    odkazKoren,
     chybyFormulare, maObrazek,
     vetev, odkazVetve, sluzbyVetve, realizaceVetve,
     realizaceSeznam: vetev ? realizaceVetve(vetev) : site.realizace,

@@ -145,7 +145,7 @@ function spodniLista(ctx) {
 
 /** Patička: obě větve vedle sebe, pak firma a kontakt. */
 function paticka(ctx) {
-  const { t, site, odkaz, odkazVetve, asset } = ctx;
+  const { t, site, odkaz, odkazVetve, asset, odkazKoren } = ctx;
 
   const sloupecVetve = (v) => {
     const sluzby = site.sluzby
@@ -189,6 +189,7 @@ function paticka(ctx) {
     <div class="paticka-dole">
       <span>© ${new Date().getFullYear()} ${site.firma.nazev}. ${t("footer.prava")}</span>
       <span class="paticka-ukazka">${t("footer.ukazka")}</span>
+      <a href="${odkazKoren("administrace.html")}" class="paticka-admin">${t("footer.administrace")}</a>
     </div>
   </div>
 </footer>`;

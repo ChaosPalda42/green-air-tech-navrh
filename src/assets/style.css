@@ -25,6 +25,9 @@
   --zelena-svetlá: #7bd13f;   /* na tmavém pozadí */
   --fialová: #584a95;
   --fialová-svetlá: #8a7ecd;
+  --fialová-závoj: #f1f0f8;
+  --fialová-čára: rgba(88,74,149,0.3);
+  --fialová-ikona: #584a95;
 
   /* --- plochy a text; v tmavém režimu se přepisují níž --- */
   --zelena-závoj: #eaf5e2;
@@ -92,6 +95,11 @@
     --stín-1: 0 1px 2px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.28);
     --stín-2: 0 2px 6px rgba(0, 0, 0, 0.45), 0 12px 28px rgba(0, 0, 0, 0.4);
     --stín-3: 0 18px 50px rgba(0, 0, 0, 0.55);
+
+    /* ukázkové hlášky: ve tmě nesmí zůstat světlý obdélník */
+    --fialová-závoj: #222036;
+    --fialová-čára: rgba(138,126,205,0.38);
+    --fialová-ikona: #a99ce4;
   }
 }
 
@@ -682,8 +690,8 @@ input:focus, select:focus, textarea:focus {
   font-size: 0.95rem; margin-bottom: 1.2rem;
 }
 .hlaska svg { width: 20px; height: 20px; flex: none; color: var(--zelena-tmavá); margin-top: 2px; }
-.hlaska-info { background: #f1f0f8; border-color: rgba(88,74,149,0.3); }
-.hlaska-info svg { color: var(--fialová); }
+.hlaska-info { background: var(--fialová-závoj); border-color: var(--fialová-čára); color: var(--text); }
+.hlaska-info svg { color: var(--fialová-ikona); }
 .medovy { position: absolute; left: -9999px; opacity: 0; height: 0; }
 
 /* ---------------------------------------------------------------- zkratky */
@@ -1294,3 +1302,12 @@ abbr.zkratka:hover, abbr.zkratka:focus-visible { background: var(--zelena-závoj
 /* aktivní větev v mobilním panelu */
 .panel-skupina[data-aktivni="1"] .panel-nadpis { color: var(--zelena-tmavá); }
 .panel-skupina[data-aktivni="1"] { background: var(--zelena-závoj); border-radius: var(--r-m); padding: 0 0.6rem 0.4rem; }
+
+/* Odkaz do ukázkové administrace v patičce — pro klienta, ať ji nemusí hledat.
+   Vpravo dole sedí tlačítko „nahoru", proto má řádek odsazení. */
+.paticka-dole { padding-right: 3.6rem; }
+.paticka-dole .paticka-admin {
+  color: var(--fialová-svetlá); white-space: nowrap;
+  border-bottom: 1px dotted currentColor;
+}
+.paticka-dole .paticka-admin:hover, .paticka-dole .paticka-admin:focus-visible { color: #fff; border-bottom-style: solid; }

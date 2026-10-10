@@ -1265,7 +1265,8 @@
     "provozovna": "Branch office",
     "dispecink": "24/7 dispatch",
     "prava": "All rights reserved.",
-    "ukazka": "Sample website design — unofficial, not indexed."
+    "ukazka": "Sample website design — unofficial, not indexed.",
+    "administrace": "Demo administration"
   },
   "admin": {
     "titulek": "Administration",

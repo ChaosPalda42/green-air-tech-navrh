@@ -1265,7 +1265,8 @@
     "provozovna": "Provozovna",
     "dispecink": "Nonstop dispečink",
     "prava": "Všechna práva vyhrazena.",
-    "ukazka": "Ukázkový návrh webu — neoficiální, neindexováno."
+    "ukazka": "Ukázkový návrh webu — neoficiální, neindexováno.",
+    "administrace": "Administrace ukázky"
   },
   "admin": {
     "titulek": "Administrace",
