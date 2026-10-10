@@ -207,3 +207,33 @@ nejbližší neprůhledné pozadí v předcích a spočítá se kontrast. Gradie
 Dvě drobnosti (položka, která není objekt, se odmítala jako „duplikát"; soubor bez
 použitelné velikosti prošel kontrolou). Obojí jsem **nedopisoval ručně** — doplnil
 jsem kontrakt a test a pustil Factory znovu, aby zdrojem pravdy zůstal harness.
+
+## Rozhodnutí (10. 10. 2026, zesvětlení webu)
+
+23. **Velké plochy jsou světlé.** Ze schůzky: tmavě zelená je „fakt tmavá, hodně
+    tmavá", klient chce „pocitově zelenou, barvu jako voda". První oprava jen
+    zesvětlila `--inkoust`, to nestačilo. Teď mají hero, podhlaví, zvýrazněné sekce,
+    výzvy a zvýrazněná kontaktní karta vlastní rodinu tokenů:
+    `--plocha` (#dcefe7), `--plocha-2`, `--plocha-text`, `--plocha-text-tlumený`,
+    `--plocha-nadpis`, `--plocha-akcent`, `--plocha-obrys`, `--plocha-obrys-plocha`,
+    `--plocha-kresba`. V tmavém režimu se celá rodina přebíjí zpět na tmavou.
+24. **`--inkoust` zůstal tmavý** a slouží dál tomu, co tmavé zůstat má: bublina
+    s vysvětlivkou, náhledy karet s technickými schématy, tlačítko „nahoru".
+    Rozdělení ploch a inkoustu je to, co celou výměnu udrželo v mezích.
+25. **Patička je o stupeň lehčí** (`--paticka-pozadi: #2d6b55`, „hluboká voda").
+    Tmavá zůstala schválně — ukončuje stránku. Text v ní musel zesvětlit
+    (`--text-na-tmavém-tlumený` z #b4c9b7 na #d2e4d4), jinak spadl na 3,58 : 1.
+
+### Co se při tom našlo
+
+- `hero-schema` kreslilo bílými tahy (`rgba(255,255,255,.22)`) — na světlé ploše
+  zmizelo. Teď kreslí `var(--plocha-kresba)`.
+- V šabloně zůstal inline `style="color:var(--zelena-svetlá)"` u servisního e-mailu.
+  Inline styl přebije všechno, žádné pravidlo v CSS ho nenajde — hledal jsem ho
+  procházkou `document.styleSheets` a našel až v `outerHTML`. Test to teď hlídá.
+- `.slovnik-karta dt` mělo `color: var(--inkoust)`, tedy barvu plochy jako barvu
+  textu; v tmavém režimu z toho byl tmavý text na tmavé kartě (1,10 : 1). Stará
+  chyba, kterou předchozí sken minul, protože se díval jen na prvky s vlastním
+  pozadím. Nový sken dohledává nejbližší neprůhledné pozadí v předcích.
+
+Po změně neprojde na 21 stránkách ve světlém ani tmavém režimu nic pod 4,3 : 1.

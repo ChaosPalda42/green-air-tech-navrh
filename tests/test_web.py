@@ -522,3 +522,34 @@ def test_administrace_umi_nahrat_fotky(web):
     # texty pro hlášky musí projít do slovníku pro admin.js
     assert "fotkyChyba" in html
     assert "fotkyPlno" in html
+
+
+def test_velke_plochy_jsou_svetle():
+    """Klient chtěl web „pocitově zelený, barvu jako voda". Hero, podhlaví,
+    zvýrazněné sekce a výzvy proto nesmí sahat po tmavém --inkoust."""
+    css = (ROOT / "src" / "assets" / "style.css").read_text(encoding="utf-8")
+    svetly = css.split("@media (prefers-color-scheme: dark)")[0]
+    for token, ocekavano in (("--plocha:", "#dcefe7"), ("--plocha-2:", "#c7e4d8")):
+        radek = [r.strip() for r in svetly.splitlines() if r.strip().startswith(token)]
+        assert radek and ocekavano in radek[0], f"{token} není světlá vodní zeleň"
+
+    for selektor in (".hero {", ".podhlavi {", ".sekce-tmava {"):
+        blok = css.split(selektor)[1].split("}")[0]
+        assert "var(--inkoust)" not in blok, f"{selektor} je pořád na tmavém inkoustu"
+        assert "var(--plocha)" in blok
+
+    # text na plochách musí zároveň ztmavnout
+    hero = css.split(".hero h1 {")[1].split("}")[0]
+    assert "#fff" not in hero and "var(--plocha-nadpis)" in hero
+
+    tmavy = css.split("@media (prefers-color-scheme: dark)")[1]
+    for token in ("--plocha:", "--plocha-text:", "--plocha-nadpis:", "--paticka-pozadi:"):
+        assert token in tmavy, f"tmavý režim nepřebíjí {token}"
+
+
+def test_v_sablonach_nezustaly_barvy_pro_tmave_plochy():
+    """Inline styl color:var(--zelena-svetlá) na světlé ploše zmizel."""
+    for soubor in ("stranky.mjs", "layout.mjs", "grafika.mjs"):
+        zdroj = (ROOT / "src" / "templates" / soubor).read_text(encoding="utf-8")
+        assert "color:var(--zelena-svetlá)" not in zdroj, soubor
+        assert "rgba(255,255,255,.22)" not in zdroj, soubor

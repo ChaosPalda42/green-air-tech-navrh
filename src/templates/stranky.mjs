@@ -815,7 +815,7 @@ export function kontakt(ctx) {
         <h3${dc("kontakt.rychle.dispecink.titulek")}>${t("kontakt.rychle.dispecink.titulek")}</h3>
         <span class="velky">${site.firma.dispecinkTelefon}</span>
         <p${dc("kontakt.rychle.dispecink.popis")}>${t("kontakt.rychle.dispecink.popis")}</p>
-        <span class="odkaz-sip" style="color:var(--zelena-svetlá)">${site.firma.dispecinkEmail}</span>
+        <span class="odkaz-sip" style="color:var(--plocha-akcent)">${site.firma.dispecinkEmail}</span>
       </a>
       <a class="karta-kontakt" href="#formular">
         <h3${dc("kontakt.rychle.poptavka.titulek")}>${t("kontakt.rychle.poptavka.titulek")}</h3>

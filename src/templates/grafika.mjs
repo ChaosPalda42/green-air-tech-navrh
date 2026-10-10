@@ -16,7 +16,7 @@ export function heroSchema() {
       <stop offset="100%" stop-color="${ZELENA_SV}" stop-opacity="0"/>
     </linearGradient>
   </defs>
-  <g stroke="rgba(255,255,255,.22)" stroke-width="1.4">
+  <g stroke="var(--plocha-kresba)" stroke-width="1.4">
     <rect x="94" y="34" width="150" height="82" rx="8"/>
     <path d="M94 56h150M94 94h150"/>
     <path d="M124 34v82M154 34v82M184 34v82M214 34v82"/>
