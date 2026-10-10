@@ -166,7 +166,7 @@ export function administrace(ctx, data = { klice: [], slovniky: {}, realizace: [
             ${ikona("nahrat")}${t("admin.data.nahrat")}
             <input type="file" accept="application/json" data-import hidden>
           </label>
-          <button type="button" class="tl tl-obrys" data-reset style="border-color:#e0b4b0;color:#b32b22">${ikona("kos")}${t("admin.data.vymazat")}</button>
+          <button type="button" class="tl tl-obrys" data-reset style="border-color:var(--cihlová-obrys);color:var(--cihlová)">${ikona("kos")}${t("admin.data.vymazat")}</button>
         </div>
       </div>
     </div>

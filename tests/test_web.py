@@ -471,3 +471,29 @@ def test_odkazy_v_paticce_maji_na_mobilu_dotykovou_plochu():
     assert mobil, "mobilní blok s patičkou chybí"
     assert "padding: 0.5rem 0" in mobil[0]
     assert ".drobecky a" in mobil[0]
+
+
+def test_rozbalovaci_nabidky_nejsou_natvrdo_bile():
+    """Přepínač jazyků a rozbalovací menu měly pevně bílé pozadí, takže ve
+    tmavém režimu na nich zůstal světlý text — nečitelné."""
+    css = (ROOT / "src" / "assets" / "style.css").read_text(encoding="utf-8")
+    for selektor in (".jazyky-seznam {", ".menu-panel {"):
+        blok = css.split(selektor)[1].split("}")[0]
+        assert "#fff" not in blok, f"{selektor} má natvrdo bílé pozadí"
+        assert "var(--papír)" in blok
+
+
+def test_barvy_na_zelene_a_spodni_lista_jsou_tokeny():
+    """Ve tmavém režimu zelená zesvětlá; bílý text na ní pak není vidět.
+    Stejně tak spodní lišta nesmí zůstat bílá."""
+    css = (ROOT / "src" / "assets" / "style.css").read_text(encoding="utf-8")
+    for selektor in (".tl-hlavni {", ".odznak-zeleny {", ".spodni-lista a.zvyrazneno {"):
+        blok = css.split(selektor)[1].split("}")[0]
+        assert "#fff" not in blok, f"{selektor} má natvrdo bílý text na zelené"
+        assert "var(--na-zelené)" in blok
+    lista = css.split(".spodni-lista {")[1].split("}")[0]
+    assert "rgba(255,255,255" not in lista
+    assert "var(--lišta-spodní)" in lista
+    tmavy = css.split("@media (prefers-color-scheme: dark)")[1]
+    for token in ("--na-zelené", "--lišta-spodní", "--jantar-závoj", "--cihlová"):
+        assert token in tmavy, f"tmavý režim nepřebíjí {token}"
