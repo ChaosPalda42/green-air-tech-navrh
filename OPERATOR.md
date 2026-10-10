@@ -150,3 +150,33 @@ výsledek je v `dokumenty/doplneni-zadani-2026-10-09.md`. Z něj plynou rozhodnu
 139 stránek ve třech jazycích, 9/9 kontraktů zelených, 179 akceptačních testů prochází.
 Překlad EN/DE běžel nadvakrát: 47 německých hodnot se v prvním průchodu vrátilo
 v češtině (vypadl jeden chunk), doplněno druhým během po menších dávkách.
+
+## Rozhodnutí (10. 10. 2026, večer)
+
+13. **Odkaz do administrace je v patičce** (`footer.administrace`). Klient si ji jinak
+    musí pamatovat jako URL. Z jazykových podadresářů vede o patro výš přes nový
+    `odkazKoren()` v kontextu.
+14. **Barvy jen přes tokeny.** Projetí všech 22 typů stránek v tmavém režimu našlo pět
+    ploch, které zůstaly světlé pod světlým textem (spodní lišta, přepínač jazyků,
+    rozbalovací menu, jantarový panel, chybové hlášky), a zelená se ve tmě zesvětluje,
+    takže bílý text na tlačítkách měl kontrast 1,9 : 1. Nové tokeny: `--na-zelené`,
+    `--lišta-spodní`, `--jantar-závoj`, `--cihlová`, `--fialová-závoj`,
+    `--fialová-na-tmavém`. Pravidlo do příště: **v šabloně ani v CSS žádná pevná barva
+    na ploše, která se v tmavém režimu mění.**
+15. **Dotykové plochy na mobilu min. 30 px.** Odkazy v patičce a drobečky měly výšku
+    řádku; zvětšuje se klikací plocha, ne písmo.
+16. **Záložky administrace se na mobilu posouvají do strany** i s popisky. Dřív se
+    názvy schovávaly a zbylo pět ikon. `scroll-snap` se nesnáší s dopočítaným posunem,
+    takže je pryč.
+17. **Tlačítko „nahoru" je na mobilu schované** — překrývalo čísla v pravém sloupci
+    a rychlé akce má spodní lišta.
+18. **Čísla na nástěnce musí vypadat jako z Analytics** (kontrakt C-009 novelizován):
+    týdenní rytmus, mírný růst, klidné kolísání, čas a míra opuštění jako náhodná
+    procházka v pásmu. Čistě náhodná čísla poznal člověk na první pohled.
+
+### Jak se ověřuje (10. 10. 2026)
+
+Kontrast a přetékání se neodhaduje ze snímků. V prohlížeči běží sken: každá stránka se
+načte do iframu 375 × 812, projdou se všechny prvky s vlastním textem, dohledá se
+nejbližší neprůhledné pozadí v předcích a spočítá se kontrast. Gradienty (`.vyzva`,
+`.avatar`) jsou falešné nálezy — pozadí nemají jako barvu.

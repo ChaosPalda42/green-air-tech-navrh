@@ -65,8 +65,9 @@ CO SI URČITĚ ZKUSTE
 · ZKRATKY — kdekoli uvidíte podtrženou zkratku (TZB, PENB, VZT, EAC,
   BMS …), najeďte na ni myší. Na mobilu na ni ťukněte.
 
-· ADMINISTRACE — otevřete soubor web/administrace.html. Přihlášení nic
-  nekontroluje, klikněte rovnou na Vstoupit. Uvnitř najdete:
+· ADMINISTRACE — úplně dole v patičce kterékoli stránky je odkaz
+  "Administrace ukázky" (nebo otevřete soubor web/administrace.html).
+  Přihlášení nic nekontroluje, klikněte rovnou na Vstoupit. Uvnitř najdete:
     – Nástěnka: statistiky návštěvnosti (ukázková data)
     – Texty webu: přepište jakýkoli text, hned se projeví
     – Realizace: přidejte vlastní, zvlášť pro domácnosti a pro firmy
@@ -79,6 +80,9 @@ CO SI URČITĚ ZKUSTE
   Zavolat, Dispečink 24/7 a Napsat nám.
 
 · JAZYKY — vpravo nahoře přepínáte češtinu, angličtinu a němčinu.
+
+· TMAVÝ REŽIM — přepněte si telefon nebo počítač do tmavého vzhledu
+  a projděte web znovu. Má být čitelný úplně všude.
 
 
 CO JE V UKÁZCE SMYŠLENÉ
