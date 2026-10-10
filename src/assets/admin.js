@@ -46,6 +46,19 @@
       $$("[data-panel]", korenAdmin).forEach(function (p) {
         p.hidden = p.getAttribute("data-panel") !== id;
       });
+      // Na mobilu se lišta záložek posouvá do strany; vybraná musí být
+      // vidět celá. scrollIntoView({inline:"nearest"}) tu nestačí — nechával
+      // ji o pár pixelů za hranou, tak si posun spočítáme sami.
+      var lista = tl.parentNode;
+      if (lista && lista.scrollWidth > lista.clientWidth) {
+        // offsetLeft tu neposlouží — lišta není pozicovaná, takže se počítá
+        // od jiného předka. Rozdíly obdélníků jsou spolehlivější.
+        var rezerva = 12;
+        var oL = lista.getBoundingClientRect();
+        var oT = tl.getBoundingClientRect();
+        if (oT.left < oL.left + rezerva) lista.scrollLeft -= oL.left + rezerva - oT.left;
+        else if (oT.right > oL.right - rezerva) lista.scrollLeft += oT.right - oL.right + rezerva;
+      }
     });
   });
   $$("[data-zalozka]")[0].setAttribute("aria-selected", "true");

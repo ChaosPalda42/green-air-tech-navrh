@@ -1325,4 +1325,8 @@ abbr.zkratka:hover, abbr.zkratka:focus-visible { background: var(--zelena-závoj
   .paticka-dole .paticka-admin { display: inline-block; padding: 0.4rem 0; }
   .odkaz-sip { padding: 0.35rem 0; }
   .odznak { font-size: 0.8rem; }
+  /* Tlačítko „nahoru" sedělo nad spodní lištou přesně tam, kde na mobilu
+     končí čísla v pravém sloupci (procenta na nástěnce) — a zakrývalo je.
+     Rychlé akce má na telefonu spodní lišta, takže ho tam nepotřebujeme. */
+  .nahoru { display: none; }
 }

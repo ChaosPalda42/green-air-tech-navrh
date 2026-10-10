@@ -451,3 +451,23 @@ def test_ukazkova_hlaska_neni_natvrdo_svetla():
     assert "var(--fialová-závoj)" in radek[0]
     tmavy = css.split("@media (prefers-color-scheme: dark)")[1]
     assert "--fialová-závoj" in tmavy, "tmavý režim musí závoj přebít"
+
+
+def test_zalozky_administrace_nejsou_na_mobilu_jen_ikony():
+    """Na telefonu se dřív schovávaly názvy záložek a zbylo pět ikon vedle
+    sebe — nikdo nepoznal, kam klikat. Lišta se místo toho posouvá."""
+    css = (ROOT / "src" / "assets" / "admin.css").read_text(encoding="utf-8")
+    assert ".admin-zalozka span { display: none; }" not in css
+    mobil = css.split("@media (max-width: 620px)")[1]
+    assert "overflow-x: auto" in mobil
+    # přichytávání přepisovalo dopočítaný posun lišty
+    assert "scroll-snap-type" not in mobil
+    assert "scroll-snap-align" not in mobil
+
+
+def test_odkazy_v_paticce_maji_na_mobilu_dotykovou_plochu():
+    css = (ROOT / "src" / "assets" / "style.css").read_text(encoding="utf-8")
+    mobil = [b for b in css.split("@media (max-width: 720px)") if ".paticka ul a" in b]
+    assert mobil, "mobilní blok s patičkou chybí"
+    assert "padding: 0.5rem 0" in mobil[0]
+    assert ".drobecky a" in mobil[0]

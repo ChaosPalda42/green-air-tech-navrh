@@ -105,11 +105,12 @@ body.je-administrace { background: var(--papír-2); }
   .admin-zalozky {
     flex-wrap: nowrap; overflow-x: auto; overscroll-behavior-x: contain;
     scrollbar-width: none; -ms-overflow-style: none;
-    scroll-snap-type: x proximity;
   }
   .admin-zalozky::-webkit-scrollbar { display: none; }
   .admin-zalozka {
-    flex: 0 0 auto; scroll-snap-align: start;
+    /* bez scroll-snapu: přichytávání přepisovalo dopočítaný posun lišty,
+       takže vybraná záložka zůstávala za hranou */
+    flex: 0 0 auto;
     font-size: 0.94rem; padding: 0.75rem 0.8rem; gap: 0.4rem;
   }
 }
