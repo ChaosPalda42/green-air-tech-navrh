@@ -1311,3 +1311,18 @@ abbr.zkratka:hover, abbr.zkratka:focus-visible { background: var(--zelena-závoj
   border-bottom: 1px dotted currentColor;
 }
 .paticka-dole .paticka-admin:hover, .paticka-dole .paticka-admin:focus-visible { color: #fff; border-bottom-style: solid; }
+
+/* ------------------------------------------------------ mobil: dotyk
+   Na telefonu je patička hlavní rozcestník a drobečky nejčastější cesta
+   zpátky — odkazy v nich měly výšku řádku (16–19 px), což se palcem
+   trefuje špatně. Zvětšujeme klikací plochu, ne písmo. */
+@media (max-width: 720px) {
+  .paticka ul { gap: 0.1rem; }
+  .paticka ul a { display: block; padding: 0.5rem 0; }
+  .paticka address { line-height: 1.9; }
+  .drobecky ol { gap: 0 0.5rem; }
+  .drobecky a { display: inline-block; padding: 0.35rem 0; }
+  .paticka-dole .paticka-admin { display: inline-block; padding: 0.4rem 0; }
+  .odkaz-sip { padding: 0.35rem 0; }
+  .odznak { font-size: 0.8rem; }
+}
