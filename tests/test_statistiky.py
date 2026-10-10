@@ -202,3 +202,90 @@ def test_osa_grafu_pri_stejnych_hodnotach(js):
 
 def test_osa_grafu_prazdna_data(js):
     assert js('out(m.osaGrafu([], "navstevy"));') == {"body": [], "min": 0, "max": 0}
+
+
+# ------------------------------------------- křivka musí vypadat věrohodně
+#
+# Klient se na nástěnku dívá jako na Analytics. Čistě náhodná čísla poznal
+# na první pohled — křivka skákala ze dne na den o desítky procent a čas na
+# stránce se měnil z minuty na pět. Tahle skupina testů hlídá tvar řady.
+
+
+@pytest.fixture()
+def rada(js):
+    return js('out(m.vygenerujData("green-air-tech", 56));')
+
+
+def _vsedni(rada):
+    import datetime
+
+    return [
+        d for d in rada
+        if datetime.date.fromisoformat(d["datum"]).weekday() < 5
+    ]
+
+
+def _vikend(rada):
+    import datetime
+
+    return [
+        d for d in rada
+        if datetime.date.fromisoformat(d["datum"]).weekday() >= 5
+    ]
+
+
+def test_navstevnost_mirne_roste(rada):
+    """Nový web nabíhá — konec řady má být nad začátkem, ale ne skokově."""
+    prvni = sum(d["navstevy"] for d in rada[:7]) / 7
+    posledni = sum(d["navstevy"] for d in rada[-7:]) / 7
+    pomer = posledni / prvni
+    assert 1.05 <= pomer <= 1.45, f"poměr konec/začátek je {pomer:.2f}"
+
+
+def test_vikend_je_nizsi_ale_ne_propad(rada):
+    vsedni = sum(d["navstevy"] for d in _vsedni(rada)) / len(_vsedni(rada))
+    vikend = sum(d["navstevy"] for d in _vikend(rada)) / len(_vikend(rada))
+    pomer = vikend / vsedni
+    assert 0.35 <= pomer <= 0.65, f"víkend je {pomer:.2f} všedního dne"
+
+
+def test_vsedni_dny_neskacou(rada):
+    """Mezi dvěma sousedními všedními dny se návštěvnost nemění o víc než 25 %."""
+    import datetime
+
+    for a, b in zip(rada, rada[1:]):
+        da = datetime.date.fromisoformat(a["datum"])
+        db = datetime.date.fromisoformat(b["datum"])
+        if da.weekday() < 5 and db.weekday() < 5:
+            zmena = abs(b["navstevy"] - a["navstevy"]) / a["navstevy"]
+            assert zmena <= 0.25, f"{a['datum']} -> {b['datum']}: skok {zmena:.0%}"
+
+
+def test_cas_na_strance_je_v_rozumnem_pasmu(rada):
+    for d in rada:
+        assert 100 <= d["cas"] <= 260, f"{d['datum']}: {d['cas']} s"
+    for a, b in zip(rada, rada[1:]):
+        assert abs(b["cas"] - a["cas"]) <= 25, f"{a['datum']} -> {b['datum']}"
+
+
+def test_mira_opusteni_je_v_rozumnem_pasmu(rada):
+    for d in rada:
+        assert 30 <= d["opusteni"] <= 55, f"{d['datum']}: {d['opusteni']} %"
+    for a, b in zip(rada, rada[1:]):
+        assert abs(b["opusteni"] - a["opusteni"]) <= 6, f"{a['datum']} -> {b['datum']}"
+
+
+def test_pomery_uzivatelu_a_zobrazeni_sedi(rada):
+    for d in rada:
+        podil = d["uzivatele"] / d["navstevy"]
+        assert 0.6 <= podil <= 0.85, f"{d['datum']}: uživatelé {podil:.2f} návštěv"
+        nasobek = d["zobrazeni"] / d["navstevy"]
+        assert 2.0 <= nasobek <= 4.0, f"{d['datum']}: zobrazení {nasobek:.2f}×"
+
+
+def test_poptavky_odpovidaji_konverzi(rada):
+    import math
+
+    for d in rada:
+        assert d["poptavky"] <= math.ceil(d["navstevy"] * 0.015), d["datum"]
+    assert sum(d["poptavky"] for d in rada) > 0
