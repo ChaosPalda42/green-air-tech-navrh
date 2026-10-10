@@ -270,3 +270,20 @@ def test_format_velikosti(js):
 
 def test_format_velikosti_nesmysly(js):
     assert js('out([-5, NaN, null, "x"].map(m.formatVelikost));') == ["0 kB"] * 4
+
+
+# ------------------------------------------------- nálezy z review C-010
+
+
+def test_kontrola_odmitne_chybejici_velikost(js):
+    """Soubor bez použitelné velikosti nesmí limit obejít."""
+    for velikost in ("undefined", "0", "-1", "NaN", '"x"'):
+        chyba = js(f'out(m.zkontrolujSoubor({{ typ: "image/jpeg", velikost: {velikost} }}).chyba);')
+        assert chyba == "velikost", f"velikost {velikost} prošla"
+
+
+def test_pridani_oznaci_nesmysl_jako_neplatny(js):
+    davka = [None, "text", {"nazev": "bez-url.jpg"}]
+    vysledek = js("out(m.pridejFotky([], A.davka));", davka=davka)
+    assert vysledek["pridano"] == 0
+    assert [o["duvod"] for o in vysledek["odmitnuto"]] == ["neplatny"] * 3
