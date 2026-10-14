@@ -244,3 +244,12 @@ Po změně neprojde na 21 stránkách ve světlém ani tmavém režimu nic pod 4
     sekcí na `--papír-2` (#f5f8f3) a zmizel rytmus pruhů; `.sekce-tmava` proto
     dostala vlasovou linku `border-block` a plocha se vrátila o chlup zpět.
     Ponaučení: u skoro bílých ploch nedrží pruh barva, ale linka.
+
+## Rozhodnutí (15. 10. 2026)
+
+27. **Rozcestník má dva sloupce na každé šířce.** Na telefonu se dlaždice skládaly
+    pod sebe a druhá volba byla pod ohybem — u rozcestníku je to chyba, obě
+    možnosti musí být vidět najednou. Dvousloupcovost už nevisí na `min-width`.
+    Dlaždice má pro úzký sloupec kompaktní variantu: menší ikona (42 px), menší
+    písmo, perex zkrácený na tři řádky přes `-webkit-line-clamp`, pod 380 px na
+    dva. Ověřeno na 320, 360, 375, 768 px — nikde nepřetéká a názvy se vejdou.

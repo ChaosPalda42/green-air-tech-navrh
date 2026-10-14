@@ -148,7 +148,7 @@ function dlazdiceVetve(ctx, v) {
   const { t, odkazVetve, obrazek } = ctx;
   return `<a class="dlazdice" href="${odkazVetve(v.id, "vetev")}">
     <span class="dlazdice-obraz">
-      ${obrazek(v.foto, { alt: "", sirky: "(min-width: 900px) 46vw, 92vw" })}
+      ${obrazek(v.foto, { alt: "", sirky: "46vw" })}
       <span class="dlazdice-ikona">${ikona(v.ikona, { velikost: 30 })}</span>
     </span>
     <span class="dlazdice-telo">

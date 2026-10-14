@@ -553,3 +553,18 @@ def test_v_sablonach_nezustaly_barvy_pro_tmave_plochy():
         zdroj = (ROOT / "src" / "templates" / soubor).read_text(encoding="utf-8")
         assert "color:var(--zelena-svetlá)" not in zdroj, soubor
         assert "rgba(255,255,255,.22)" not in zdroj, soubor
+
+
+def test_rozcestnik_ma_dve_volby_vedle_sebe_i_na_mobilu():
+    """Na telefonu se dlaždice skládaly pod sebe, takže druhá volba byla
+    pod ohybem. Rozcestník má dva sloupce na každé šířce."""
+    css = (ROOT / "src" / "assets" / "style.css").read_text(encoding="utf-8")
+    blok = css.split(".rozcestnik {")[1].split("}")[0]
+    assert "grid-template-columns: 1fr 1fr" in blok, "rozcestník není dvousloupcový"
+    # dvousloupcovost nesmí viset na min-width dotazu
+    for radek in css.splitlines():
+        if ".rozcestnik {" in radek and "grid-template-columns" in radek:
+            assert "min-width" not in radek
+    # a dlaždice musí mít pro úzký sloupec kompaktní variantu
+    assert ".dlazdice-nazev { font-size: 1.18rem" in css
+    assert "-webkit-line-clamp: 3" in css
