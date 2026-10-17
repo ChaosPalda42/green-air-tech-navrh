@@ -568,3 +568,15 @@ def test_rozcestnik_ma_dve_volby_vedle_sebe_i_na_mobilu():
     # a dlaždice musí mít pro úzký sloupec kompaktní variantu
     assert ".dlazdice-nazev { font-size: 1.18rem" in css
     assert "-webkit-line-clamp: 3" in css
+
+
+def test_na_zelenych_koleckach_se_text_ridi_rezimem():
+    """Ve tmavém režimu zelená zesvětlá, takže bílý text na ní spadne na 1,9.
+    Kolečka s iniciálami a ikonami proto berou barvu z --na-zelené."""
+    css = (ROOT / "src" / "assets" / "style.css").read_text(encoding="utf-8")
+    for selektor in (".avatar {", ".dlazdice-ikona {"):
+        blok = css.split(selektor)[1].split("}")[0]
+        assert "color: #fff" not in blok, f"{selektor} má natvrdo bílý text na zelené"
+        assert "var(--na-zelené)" in blok
+    # světlejší konec přechodu u iniciál musí držet práh 3,0 pro velký text
+    assert "--zelena-avatar: #52a022" in css

@@ -253,3 +253,22 @@ Po změně neprojde na 21 stránkách ve světlém ani tmavém režimu nic pod 4
     Dlaždice má pro úzký sloupec kompaktní variantu: menší ikona (42 px), menší
     písmo, perex zkrácený na tři řádky přes `-webkit-line-clamp`, pod 380 px na
     dva. Ověřeno na 320, 360, 375, 768 px — nikde nepřetéká a názvy se vejdou.
+
+## Rozhodnutí (17. 10. 2026)
+
+28. **Text na zelených kolečkách se řídí režimem.** `factory prohlizec zmer` změřil
+    u iniciál v kolečku kontrast 2,86 — bílá na `--zelena` (#58ac25), zatímco velký
+    tučný text potřebuje 3,0. Světlejší konec přechodu ztmavl na `--zelena-avatar`
+    (#52a022, tedy 3,28) a barva textu jde přes `--na-zelené`.
+    Při tom vyšla najevo horší věc: v **tmavém** režimu je `--zelena-tmavá` světlá
+    (#7bd13f), takže bílé iniciály na ní měly **1,9**. Stejně na tom byla ikona
+    v dlaždici rozcestníku a ikona služby při najetí. Po opravě: světlý režim
+    3,28 / 6,58, tmavý 5,15 / 8,87.
+
+### Proč to předchozí sken nenašel
+
+Můj průchod kontrastem bral text nad gradientem jako falešný nález a `.avatar` jsem
+z něj ručně vyřadil (`el.closest('.avatar')`). Ten filtr schovával skutečnou vadu.
+Ponaučení: **falešný nález se nemá filtrovat selektorem, ale správným dopočtem
+podkladu** — u gradientu nejhorší zastávkou. To dnes umí `zmer` a je to i důvod,
+proč u něj nestačí „vypadá to dobře".
