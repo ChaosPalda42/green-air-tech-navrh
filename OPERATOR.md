@@ -272,3 +272,19 @@ z něj ručně vyřadil (`el.closest('.avatar')`). Ten filtr schovával skutečn
 Ponaučení: **falešný nález se nemá filtrovat selektorem, ale správným dopočtem
 podkladu** — u gradientu nejhorší zastávkou. To dnes umí `zmer` a je to i důvod,
 proč u něj nestačí „vypadá to dobře".
+
+### Jak se od 17. 10. 2026 ověřuje kontrast
+
+Místo vlastního skriptu stačí `factory prohlizec <url> --kroky kontrast/tma/kontrast`.
+Projede všechny prvky s textem, dohledá podklad (včetně gradientů a poloprůhledných
+vrstev) a vrátí nálezy pod prahem i s cestou k prvku. Projeto na 16 typech stránek
+v obou režimech: nula nálezů, a shodně s mým dřívějším ručním průchodem.
+
+Dvě vady, které jsem u toho nástroje cestou nahlásil a které jsou opravené, stojí za
+zapamatování, protože se můžou vrátit jinde:
+- Měřil barvu textu ze světlého režimu proti pozadí z tmavého. Vypadalo to jako
+  nemožná kombinace; ve skutečnosti to byl **mezistav uprostřed CSS přechodu** —
+  pozadí už dojelo, text ještě ne. „To nemůže nastat" většinou znamená jen to, že
+  jsem nenašel jak.
+- Fotil dřív, než se stránka po `scroll` dokreslila, a vracel bílý obrázek. Po
+  nahlášení z toho nedělá verdikt, ale vrátí „nevím" — což je správně.
