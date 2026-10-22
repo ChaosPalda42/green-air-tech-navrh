@@ -12,7 +12,118 @@
   var slovnikUI = JSON.parse($("[data-admin-texty-slovnik]").textContent);
   var P = slovnikUI.popisky;
 
-  var uloziste = window.GAT_ULOZISTE ? window.GAT_ULOZISTE() : window.localStorage;
+  /* ------------------------------------------------- ukázka / ostrý web
+     V ukázce je pravda v localStorage prohlížeče. Na ostrém webu je na
+     serveru: PHP vloží do stránky window.GAT_STAV a window.GAT_UZIVATELE,
+     každý zápis jde do /api/*. Rozhraní je schválně stejné jako Storage,
+     aby zbytek téhle administrace nemusel vědět, kam vlastně ukládá. */
+  var SERVER = !!window.GAT_SERVER;
+  var HLASKY = {
+    ulozeni: "Změnu se nepovedlo uložit na server. Stránku raději obnovte.",
+    prava: "Na tuhle změnu nemáte právo.",
+    odhlasen: "Přihlášení vypršelo. Přihlaste se znovu.",
+    fotka: "Fotku se nepovedlo nahrát na server.",
+    statistiky: "Statistiky se nepovedlo načíst, ukazuje se ukázkový náhled.",
+  };
+
+  function api(metoda, cil, telo, soubor) {
+    var volby = {
+      method: metoda,
+      credentials: "same-origin",
+      headers: { "X-CSRF": window.GAT_CSRF || "" },
+    };
+    if (soubor) {
+      var fd = new FormData();
+      fd.append("fotka", soubor);
+      volby.body = fd;
+    } else if (telo !== undefined) {
+      volby.headers["Content-Type"] = "application/json";
+      volby.body = JSON.stringify(telo);
+    }
+    return fetch((window.GAT_API || "api/") + cil, volby).then(function (r) {
+      return r
+        .json()
+        .catch(function () { return {}; })
+        .then(function (d) {
+          if (r.ok) return d;
+          var e = new Error(d.chyba || "http-" + r.status);
+          e.stav = r.status;
+          e.data = d;
+          throw e;
+        });
+    });
+  }
+
+  function hlaskaChyby(e) {
+    if (e && e.stav === 401) return HLASKY.odhlasen;
+    if (e && e.stav === 403) return HLASKY.prava;
+    return HLASKY.ulozeni;
+  }
+
+  /** Storage nad serverem: čte z toho, co vložilo PHP, zapisuje do API. */
+  function serverUloziste() {
+    var pamet = {};
+    pamet["gat-cms-v1"] = JSON.stringify(window.GAT_STAV || GAT.cmsStore.emptyState());
+    pamet["gat-admin-uzivatele"] = JSON.stringify(window.GAT_UZIVATELE || []);
+    function nestaraSe(e) {
+      window.alert(hlaskaChyby(e));
+      if (e && (e.stav === 401 || e.stav === 403)) return;
+      window.location.reload();
+    }
+    return {
+      getItem: function (k) {
+        return Object.prototype.hasOwnProperty.call(pamet, k) ? pamet[k] : null;
+      },
+      setItem: function (k, v) {
+        var drive = pamet[k];
+        pamet[k] = v;
+        if (k === "gat-cms-v1") {
+          api("PUT", "stav", JSON.parse(v)).catch(function (e) {
+            pamet[k] = drive;
+            nestaraSe(e);
+          });
+          return;
+        }
+        if (k === "gat-admin-uzivatele") {
+          var stari = JSON.parse(drive || "[]");
+          var novi = JSON.parse(v);
+          var ids = novi.map(function (u) { return u.id; });
+          var prace = stari
+            .filter(function (u) { return u.id != null && ids.indexOf(u.id) === -1; })
+            .map(function (u) { return function () { return api("DELETE", "uzivatele?id=" + encodeURIComponent(u.id)); }; })
+            .concat(
+              novi
+                .filter(function (u) { return u.id == null; })
+                .map(function (u) {
+                  return function () {
+                    return api("POST", "uzivatele", { jmeno: u.jmeno, email: u.email, role: u.role });
+                  };
+                })
+            );
+          prace
+            .reduce(function (retez, krok) { return retez.then(krok); }, Promise.resolve())
+            .then(function () { return api("GET", "uzivatele"); })
+            .then(function (d) { pamet[k] = JSON.stringify(d.uzivatele || []); vykresliUzivatele(); })
+            .catch(function (e) { pamet[k] = drive; nestaraSe(e); });
+        }
+      },
+      removeItem: function (k) {
+        if (k === "gat-cms-v1") {
+          var prazdny = GAT.cmsStore.emptyState();
+          pamet[k] = JSON.stringify(prazdny);
+          api("PUT", "stav", prazdny).catch(nestaraSe);
+          return;
+        }
+        delete pamet[k];
+      },
+    };
+  }
+
+  var uloziste = SERVER
+    ? serverUloziste()
+    : window.GAT_ULOZISTE
+      ? window.GAT_ULOZISTE()
+      : window.localStorage;
   var stav = GAT.cmsStore.loadState(uloziste);
   var jazyk = "cs";
 
@@ -43,8 +154,23 @@
     $("[data-app]").hidden = !ano;
     if (ano) { vykresliNastenku(); vykresliTexty(); vykresliRealizace(); vykresliUzivatele(); obnovCas(); }
   }
-  $("[data-vstoupit]").addEventListener("click", function () { prihlasit(true); });
-  $("[data-odhlasit]").addEventListener("click", function () { prihlasit(false); });
+  if (SERVER) {
+    // tlačítko „Vstoupit" je na ostrém webu submit skutečného formuláře,
+    // odhlášení musí projít serverem, aby zanikla session
+    $("[data-odhlasit]").addEventListener("click", function () {
+      var f = document.createElement("form");
+      f.method = "post";
+      f.action = window.location.pathname;
+      f.innerHTML =
+        '<input type="hidden" name="akce" value="odhlasit">' +
+        '<input type="hidden" name="csrf" value="' + uklid(window.GAT_CSRF || "") + '">';
+      document.body.appendChild(f);
+      f.submit();
+    });
+  } else {
+    $("[data-vstoupit]").addEventListener("click", function () { prihlasit(true); });
+    $("[data-odhlasit]").addEventListener("click", function () { prihlasit(false); });
+  }
 
   /* ------------------------------------------------------------ záložky */
   $$("[data-zalozka]").forEach(function (tl) {
@@ -274,6 +400,22 @@
 
   /** Načte soubor, zmenší ho přes canvas a vrátí záznam fotky. */
   function zpracujSoubor(soubor) {
+    // Na ostrém webu fotku zmenší a uloží server (webp v public/media),
+    // v prohlížeči zůstane jen odkaz. V ukázce se nese jako data URL.
+    if (SERVER) {
+      return api("POST", "fotka", undefined, soubor).then(function (d) {
+        var f = d.fotka || {};
+        return {
+          id: f.id || "f" + Date.now().toString(36),
+          nazev: soubor.name,
+          typ: f.typ || "image/webp",
+          sirka: f.sirka || 0,
+          vyska: f.vyska || 0,
+          bajty: f.bajty || soubor.size,
+          dataUrl: (window.GAT_KOREN || "") + (f.soubor || ""),
+        };
+      });
+    }
     return new Promise(function (hotovo, chyba) {
       var ctecka = new FileReader();
       ctecka.onerror = function () { chyba(new Error("cteni")); };
@@ -468,10 +610,29 @@
      náhled vypadal pokaždé stejně — na ostrém webu je nahradí Analytics. */
   var obdobi = 30;
 
+  // na ostrém webu sem teče Google Analytics: data z /api/statistiky se
+  // uloží sem a nástěnka se překreslí. Formátování a graf zůstávají stejné.
+  var zeServeru = null;
+
+  function nactiStatistiky() {
+    api("GET", "statistiky?dni=" + obdobi * 2)
+      .then(function (d) {
+        zeServeru = { dny: d.dny || [], rozpady: d.rozpady || {} };
+        vykresliNastenku();
+      })
+      .catch(function () {
+        zeServeru = null;
+        vykresliNastenku();
+      });
+  }
+
   function vykresliNastenku() {
     if (!window.GAT || !GAT.statistiky) return;
     var S = GAT.statistiky;
-    var vsechna = S.vygenerujData("green-air-tech", obdobi * 2);
+    if (SERVER && zeServeru === null) { nactiStatistiky(); return; }
+    var vsechna = SERVER && zeServeru
+      ? zeServeru.dny
+      : S.vygenerujData("green-air-tech", obdobi * 2);
     var ted = S.filtrujObdobi(vsechna, obdobi);
     var drive = vsechna.slice(0, vsechna.length - ted.length);
     var a = S.souhrn(ted);
@@ -519,7 +680,9 @@
     Object.keys(slovnikUI.rozpady || {}).forEach(function (klic) {
       var cil = $('[data-rozpad="' + klic + '"]');
       if (!cil) return;
-      var radky = S.rozdeleni("gat-" + klic + "-" + obdobi, slovnikUI.rozpady[klic]);
+      var radky = SERVER && zeServeru && zeServeru.rozpady[klic]
+        ? zeServeru.rozpady[klic]
+        : S.rozdeleni("gat-" + klic + "-" + obdobi, slovnikUI.rozpady[klic]);
       cil.innerHTML = radky
         .map(function (r) {
           return '<div class="admin-radek"><span>' + uklid(r.nazev) + "</span>" +
@@ -534,6 +697,7 @@
     chip.addEventListener("click", function () {
       obdobi = Number(chip.getAttribute("data-obdobi"));
       $$("[data-obdobi]").forEach(function (c) { c.setAttribute("aria-pressed", String(c === chip)); });
+      if (SERVER) zeServeru = null;
       vykresliNastenku();
     });
   });
@@ -601,6 +765,39 @@
     vykresliUzivatele();
   });
 
+  /* ------------------------------------------------------- práva rolí
+     Matice je stejná jako na serveru (App\Auth\Uzivatele::MATICE) —
+     tady jen zhasíná záložky, aby se uživatel nedobýval do něčeho, co mu
+     API stejně odmítne. Rozhoduje server, tohle je slušnost k uživateli. */
+  var PANELY = {
+    nastenka: "statistiky",
+    texty: "texty",
+    realizace: "realizace",
+    uzivatele: "uzivatele",
+    data: "uzivatele",
+  };
+  var MATICE = {
+    spravce: ["texty", "realizace", "novinky", "uzivatele", "statistiky"],
+    editor: ["texty", "realizace", "novinky"],
+    autor: ["novinky"],
+  };
+
+  function omezPodleRole(role) {
+    var smi = MATICE[role] || [];
+    var prvni = null;
+    $$("[data-zalozka]").forEach(function (tl) {
+      var panel = tl.getAttribute("data-zalozka");
+      var oblast = PANELY[panel] || panel;
+      // „novinky" se v téhle administraci upravují mezi texty
+      var povoleno = smi.indexOf(oblast) !== -1 || (panel === "texty" && smi.indexOf("novinky") !== -1);
+      tl.hidden = !povoleno;
+      var cil = $('[data-panel="' + panel + '"]', korenAdmin);
+      if (!povoleno && cil) cil.hidden = true;
+      if (povoleno && !prvni) prvni = tl;
+    });
+    if (prvni && prvni.getAttribute("aria-selected") !== "true") prvni.click();
+  }
+
   /* -------------------------------------------------------------- data */
   function obnovCas() {
     var el = $("[data-admin-cas]");
@@ -648,6 +845,11 @@
   /* Až úplně na konec: do téhle chvíle musí existovat všechny proměnné,
      které vykreslovací funkce používají (jinak to padá na hledani.value). */
   var jePrihlasen = false;
-  try { jePrihlasen = sessionStorage.getItem(PRIHLASEN) === "1"; } catch (e) {}
+  if (SERVER) {
+    jePrihlasen = !!window.GAT_UZIVATEL;
+    if (jePrihlasen) omezPodleRole(window.GAT_UZIVATEL.role);
+  } else {
+    try { jePrihlasen = sessionStorage.getItem(PRIHLASEN) === "1"; } catch (e) {}
+  }
   prihlasit(jePrihlasen);
 })();

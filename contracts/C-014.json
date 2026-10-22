@@ -7,12 +7,20 @@
   "uses": {
     "web/app/Obsah/RazeniCs.php": "App\\Obsah\\RazeniCs::porovnej($a, $b): int — české řazení, -1/0/1"
   },
+  "database": "",
   "acceptance": "tests/test_php_realizace_filtr.py",
-  "notes": "Čisté PHP 8.5, žádné composer závislosti, žádná rozšíření nad rámec jádra (bez intl, bez mbstring — na UTF-8 stačí preg_* s modifikátorem /u). Soubor začíná `<?php`, pak `declare(strict_types=1);`, pak `namespace …;`. Jen statické metody, žádný stav, žádný echo, žádný výstup. Pole se nemutují — vstup se nikdy nemění, vrací se nové pole.\n\nJMÉNO TŘÍDY i jmenný prostor musí přesně odpovídat cestě souboru, jinak se autoloader třídu nedovolá a akceptace spadne na „Class not found“.\n\nZDROJ PRAVDY je src/lib/realizace-filter.mjs — přečti si ho a přepiš ho do PHP tak, aby se na stejných vstupech chovalo stejně. Asociativní pole v PHP zastupují objekty v JS; `null` zastupuje `undefined` i `null`.\n\nlocaleCompare('cs') NEPIŠ znovu — je hotové v App\\Obsah\\RazeniCs (viz uses).\n\nPředchozí pokus spadl na tom, že třída se jmenovala RealizeFiltr místo RealizaceFiltr: soubor se načetl, ale hledaná třída v něm nebyla.",
+  "dobehly": "",
+  "forbidden": [],
+  "depends_on": [
+    "C-023"
+  ],
   "budget": {
     "iterations": 16
   },
-  "depends_on": [
-    "C-023"
-  ]
+  "metamorfni_funkce": "",
+  "neutralni_upravy": [],
+  "neutralni_predpony": [],
+  "differential": false,
+  "differential_compare": "exact",
+  "notes": "Čisté PHP 8.5, žádné composer závislosti, žádná rozšíření nad rámec jádra (bez intl, bez mbstring — na UTF-8 stačí preg_* s modifikátorem /u). Soubor začíná `<?php`, pak `declare(strict_types=1);`, pak `namespace …;`. Jen statické metody, žádný stav, žádný echo, žádný výstup. Pole se nemutují — vstup se nikdy nemění, vrací se nové pole.\n\nJMÉNO TŘÍDY i jmenný prostor musí přesně odpovídat cestě souboru, jinak se autoloader třídu nedovolá a akceptace spadne na „Class not found“.\n\nZDROJ PRAVDY je src/lib/realizace-filter.mjs — přečti si ho a přepiš ho do PHP tak, aby se na stejných vstupech chovalo stejně. Asociativní pole v PHP zastupují objekty v JS; `null` zastupuje `undefined` i `null`.\n\nlocaleCompare('cs') NEPIŠ znovu — je hotové v App\\Obsah\\RazeniCs (viz uses).\n\nPředchozí pokus spadl na tom, že třída se jmenovala RealizeFiltr místo RealizaceFiltr: soubor se načetl, ale hledaná třída v něm nebyla."
 }

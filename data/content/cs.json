@@ -1069,6 +1069,7 @@
       "souhlas": "Souhlasím se zpracováním osobních údajů pro vyřízení poptávky.",
       "souhlasOdkaz": "Ochrana osobních údajů",
       "odeslano": "Děkujeme, zpráva je na cestě. Ozveme se vám.",
+      "chybaOdeslani": "Zprávu se nepovedlo odeslat. Zkuste to prosím znovu, nebo nám zavolejte.",
       "odeslanoDemo": "V téhle ukázce se zpráva nikam neodesílá — na ostrém webu dorazí na info@greenairtech.cz.",
       "typy": {
         "havarie": "Havárie — nefunguje topení nebo chlazení",

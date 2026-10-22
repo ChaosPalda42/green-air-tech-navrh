@@ -1627,15 +1627,52 @@ return { vygenerujData, filtrujObdobi, souhrn, zmenaProti, rozdeleni, formatCisl
           return;
         }
 
-        var hotovo = document.createElement("div");
-        hotovo.className = "hlaska";
-        hotovo.setAttribute("role", "status");
-        hotovo.innerHTML =
-          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.4l2.7 2.6L16 9.6"/></svg><span>' +
-          (window.GAT_TEXTY ? window.GAT_TEXTY.odeslano : "Děkujeme.") + "</span>";
-        form.innerHTML = "";
-        form.appendChild(hotovo);
-        hotovo.scrollIntoView({ block: "center", behavior: mene.matches ? "auto" : "smooth" });
+        function podekuj() {
+          var hotovo = document.createElement("div");
+          hotovo.className = "hlaska";
+          hotovo.setAttribute("role", "status");
+          hotovo.innerHTML =
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.4l2.7 2.6L16 9.6"/></svg><span>' +
+            (window.GAT_TEXTY ? window.GAT_TEXTY.odeslano : "Děkujeme.") + "</span>";
+          form.innerHTML = "";
+          form.appendChild(hotovo);
+          hotovo.scrollIntoView({ block: "center", behavior: mene.matches ? "auto" : "smooth" });
+        }
+
+        if (!window.GAT_SERVER) {
+          // ukázka: nic se nikam neposílá, jen se poděkuje
+          podekuj();
+          return;
+        }
+
+        var tlacitko = form.querySelector('[type="submit"]');
+        if (tlacitko) tlacitko.disabled = true;
+        hodnoty.jazyk = document.documentElement.lang || "cs";
+        hodnoty.vetev = document.documentElement.getAttribute("data-vetev") || "";
+        fetch((window.GAT_API || "api/") + "poptavka", {
+          method: "POST",
+          credentials: "same-origin",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(hodnoty),
+        })
+          .then(function (r) { return r.json().catch(function () { return {}; }).then(function (d) { return { r: r, d: d }; }); })
+          .then(function (o) {
+            if (o.r.ok && o.d.ok) { podekuj(); return; }
+            throw new Error(o.d.chyba || "odeslani");
+          })
+          .catch(function () {
+            if (tlacitko) tlacitko.disabled = false;
+            var chyba = document.createElement("div");
+            chyba.className = "hlaska hlaska-chyba";
+            chyba.setAttribute("role", "alert");
+            chyba.innerHTML =
+              '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 16.5h.01"/></svg><span>' +
+              uklid((window.GAT_TEXTY_SERVER || {}).chybaOdeslani || "Zprávu se nepovedlo odeslat.") +
+              "</span>";
+            var drive = form.querySelector(".hlaska-chyba");
+            if (drive) drive.remove();
+            form.appendChild(chyba);
+          });
       });
     });
   }
@@ -2172,6 +2209,16 @@ return { vygenerujData, filtrujObdobi, souhrn, zmenaProti, rozdeleni, formatCisl
   }
 
   function bezpecneUloziste() {
+    // Na ostrém webu drží stav server a PHP ho vložilo do stránky. Veřejné
+    // stránky z něj jen čtou (fotky realizací, přepisy textů) a nikdy nepíšou.
+    if (window.GAT_SERVER) {
+      var jen = { "gat-cms-v1": JSON.stringify(window.GAT_STAV || {}) };
+      return {
+        getItem: function (k) { return Object.prototype.hasOwnProperty.call(jen, k) ? jen[k] : null; },
+        setItem: function () {},
+        removeItem: function () {},
+      };
+    }
     try {
       window.localStorage.setItem("gat-test", "1");
       window.localStorage.removeItem("gat-test");

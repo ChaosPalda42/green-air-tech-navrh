@@ -1069,6 +1069,7 @@
       "souhlas": "I consent to the processing of personal data for the purpose of handling my inquiry.",
       "souhlasOdkaz": "Data Protection",
       "odeslano": "Thank you, your message is on its way. We'll be in touch.",
+      "chybaOdeslani": "The message could not be sent. Please try again or give us a call.",
       "odeslanoDemo": "In this demo, the message is not sent anywhere — on the live site it will be delivered to info@greenairtech.cz.",
       "typy": {
         "havarie": "Emergency — heating or cooling not working",
