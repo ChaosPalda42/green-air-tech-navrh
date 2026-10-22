@@ -22,7 +22,8 @@ sudo a2enmod rewrite headers expires
 
 ```bash
 sudo mkdir -p /var/www/greenairtech
-sudo tar -xzf green-air-tech.tar.gz -C /var/www/greenairtech
+sudo unzip greenairtech-<datum>.zip -d /tmp/gat
+sudo cp -R /tmp/gat/greenairtech/. /var/www/greenairtech/
 sudo chown -R www-data:www-data /var/www/greenairtech
 ```
 
@@ -136,8 +137,12 @@ sudo apt install msmtp-mta
 ```
 
 a nastavit `/etc/msmtprc` na firemní SMTP. Dokud pošta nejede, poptávky se
-**neztrácejí** — ukládají se do databáze (tabulka `poptavky`) a jsou vidět
-v administraci.
+**neztrácejí** — ukládají se do databáze (tabulka `poptavky`). Administrace
+je zatím jen počítá na nástěnce; vypsat je umí databáze:
+
+```sql
+SELECT prijato, jmeno, email, telefon, vetev FROM poptavky ORDER BY prijato DESC LIMIT 20;
+```
 
 ## 8. Mapa webu a Search Console
 
