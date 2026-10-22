@@ -72,8 +72,24 @@ $pozadavek = static function (array $p) use ($spravce): array {
 
 $stavSTextem = $prazdnyStav;
 $stavSTextem['texts']['cs'] = ['nav.sluzby' => 'Co umíme'];
+
+// Pozor: všechny požadavky jdou přes JEDNO úložiště a v řadě za sebou, takže
+// úspěšný zápis zůstane dalšímu požadavku pod rukama. Každý další zápis proto
+// musí být SKUTEČNÁ změna proti tomu, co tam zbylo — jinak by se z otázky
+// „smí autor měnit texty?" stalo „co se stane, když autor nepošle změnu?"
+// a brána by měřila něco jiného, než co tvrdí.
+$stavAutorem = $prazdnyStav;
+$stavAutorem['texts']['cs'] = ['nav.sluzby' => 'Co umíme (autor)'];
 $stavSNovinkou = $prazdnyStav;
-$stavSNovinkou['texts']['cs'] = ['novinky.polozky.prvni.titulek' => 'Titulek'];
+$stavSNovinkou['texts']['cs'] = [
+    'nav.sluzby' => 'Co umíme',
+    'novinky.polozky.prvni.titulek' => 'Titulek',
+];
+$stavEditorem = $prazdnyStav;
+$stavEditorem['texts']['cs'] = [
+    'nav.sluzby' => 'Co umíme (editor)',
+    'novinky.polozky.prvni.titulek' => 'Titulek',
+];
 
 $sady = [
     'stav_cteni' => ['metoda' => 'GET', 'cesta' => 'stav'],
@@ -81,9 +97,9 @@ $sady = [
     'stav_zapis' => ['metoda' => 'PUT', 'cesta' => 'stav', 'telo' => json_encode($stavSTextem)],
     'stav_zapis_bez_csrf' => ['metoda' => 'PUT', 'cesta' => 'stav', 'telo' => json_encode($stavSTextem), 'csrf_ok' => false],
     'stav_zapis_neprihlaseny' => ['metoda' => 'PUT', 'cesta' => 'stav', 'telo' => json_encode($stavSTextem), 'uzivatel' => null],
-    'stav_zapis_autorem' => ['metoda' => 'PUT', 'cesta' => 'stav', 'telo' => json_encode($stavSTextem), 'uzivatel' => $autor],
+    'stav_zapis_autorem' => ['metoda' => 'PUT', 'cesta' => 'stav', 'telo' => json_encode($stavAutorem), 'uzivatel' => $autor],
     'stav_zapis_autorem_novinka' => ['metoda' => 'PUT', 'cesta' => 'stav', 'telo' => json_encode($stavSNovinkou), 'uzivatel' => $autor],
-    'stav_zapis_editorem' => ['metoda' => 'PUT', 'cesta' => 'stav', 'telo' => json_encode($stavSTextem), 'uzivatel' => $editor],
+    'stav_zapis_editorem' => ['metoda' => 'PUT', 'cesta' => 'stav', 'telo' => json_encode($stavEditorem), 'uzivatel' => $editor],
     'stav_zapis_nesmysl' => ['metoda' => 'PUT', 'cesta' => 'stav', 'telo' => 'tohle neni json'],
     'stav_zapis_pole' => ['metoda' => 'PUT', 'cesta' => 'stav', 'telo' => '[1,2,3]'],
     'stav_zapis_prazdne_telo' => ['metoda' => 'PUT', 'cesta' => 'stav', 'telo' => ''],
