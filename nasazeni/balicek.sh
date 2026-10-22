@@ -18,7 +18,10 @@ mkdir -p "$cil/web/public" "$cil/web/config" "$cil/web/cache" "$cil/tools"
 
 # --- aplikace -------------------------------------------------------------
 cp -R web/app "$cil/web/app"
+cp -R web/databaze "$cil/web/databaze"   # schema.sql — bez něj instalátor nezaloží tabulky
 cp -R web/data "$cil/web/data"
+# logy z testovacího provozu (poptávky!) do balíčku nepatří
+find "$cil/web/data" -name '*.log' -delete
 cp -R web/public/assets "$cil/web/public/assets"
 cp web/public/index.php web/public/.htaccess "$cil/web/public/"
 mkdir -p "$cil/web/public/media"
@@ -43,6 +46,15 @@ while IFS= read -r nalez; do
 done < <(find "$cil" \( \
     -name 'config.php' -o -name 'seed-uzivatele*' -o -name '*.sqlite' -o \
     -name '.env' -o -name '*.log' -o -name 'ga4.json' -o -name '.git' \) -print)
+
+# ...a naopak: co tam BÝT MUSÍ, jinak se web u klienta nerozběhne
+for musi in web/databaze/schema.sql web/public/index.php web/public/install.php \
+            web/config/config.vzor.php web/data/admin-klice.json; do
+  if [ ! -f "$cil/$musi" ]; then
+    echo "V BALÍČKU CHYBÍ: $musi"
+    spatne=1
+  fi
+done
 
 if [ "$spatne" -ne 0 ]; then
   echo "Balíček se nesestavil." >&2

@@ -53,6 +53,11 @@ final class Spojeni
     public static function migruj(?string $soubor = null): void
     {
         $soubor ??= dirname(__DIR__, 2) . '/databaze/schema.sql';
+        if (!is_file($soubor)) {
+            // Tiché nic by se projevilo až jako „tabulka uzivatele neexistuje“
+            // kdesi dál — a hledalo by se to špatně.
+            throw new \RuntimeException('Chybí schéma databáze: ' . $soubor);
+        }
         $radky = explode("\n", (string) file_get_contents($soubor));
         // poznámky pryč nejdřív, jinak by zakomentovaný řádek spolkl příkaz za sebou
         $cisty = implode("\n", array_filter(

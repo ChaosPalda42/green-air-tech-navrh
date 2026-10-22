@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace App\Db;
 
 use App\Api\Uloziste;
+use App\Obsah\Stav;
 
 final class UlozisteDb implements Uloziste
 {
@@ -22,11 +23,14 @@ final class UlozisteDb implements Uloziste
         $radek = $this->pdo
             ->query('SELECT dokument FROM stav WHERE id = ' . self::STAV_ID)
             ->fetch();
+        // Vždycky plný tvar: z prázdného POLE by si administrace vzala
+        // stav.texts === undefined a spadla by hned po instalaci.
         if ($radek === false) {
-            return [];
+            return Stav::prazdny();
         }
         $data = json_decode((string) $radek['dokument'], true);
-        return is_array($data) ? $data : [];
+
+        return is_array($data) && $data !== [] ? $data : Stav::prazdny();
     }
 
     public function ulozStav(array $stav, string $kdo): void
