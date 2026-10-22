@@ -239,7 +239,7 @@ final class Layout
     <div class="paticka-dole">
       <span>© ' . date('Y') . ' ' . $f['nazev'] . '. ' . $ctx->t('footer.prava') . '</span>
       ' . $ukazka . '
-      <a href="' . $ctx->odkazKoren('administrace.html') . '" class="paticka-admin">' . $ctx->t('footer.administrace') . '</a>
+      <a href="' . $ctx->odkazKoren('administrace.html') . '" class="paticka-admin">' . $ctx->tServer('footer.administrace') . '</a>
     </div>
   </div>
 </footer>';

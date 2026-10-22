@@ -144,9 +144,16 @@ final class Router
             }
             $id = (int) $id;
 
-            $jmeno = (string) ($uzivatel['jmeno'] ?? '');
-            $soucasny = $jmeno !== '' ? $uloziste->uzivatelPodleJmena($jmeno) : null;
-            if ($soucasny !== null && (int) ($soucasny['id'] ?? -1) === $id) {
+            // Sám sebe nikdo nesmaže. Id ze sezení je jistota; hledání podle
+            // jména je záloha, když ho sezení nenese — dva lidé se můžou
+            // jmenovat stejně, a to by zámek obešlo.
+            $sveId = (int) ($uzivatel['id'] ?? 0);
+            if ($sveId === 0) {
+                $jmeno = (string) ($uzivatel['jmeno'] ?? '');
+                $soucasny = $jmeno !== '' ? $uloziste->uzivatelPodleJmena($jmeno) : null;
+                $sveId = (int) ($soucasny['id'] ?? 0);
+            }
+            if ($sveId !== 0 && $sveId === $id) {
                 return self::chyba(409, 'nelze-sam-sebe');
             }
 

@@ -1269,7 +1269,8 @@
     "dispecink": "24/7 dispatch",
     "prava": "All rights reserved.",
     "ukazka": "Sample website design — unofficial, not indexed.",
-    "administrace": "Demo administration"
+    "administrace": "Demo administration",
+    "administrace_server": "Administration"
   },
   "admin": {
     "titulek": "Administration",

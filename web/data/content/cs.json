@@ -1269,7 +1269,8 @@
     "dispecink": "Nonstop dispečink",
     "prava": "Všechna práva vyhrazena.",
     "ukazka": "Ukázkový návrh webu — neoficiální, neindexováno.",
-    "administrace": "Administrace ukázky"
+    "administrace": "Administrace ukázky",
+    "administrace_server": "Administrace"
   },
   "admin": {
     "titulek": "Administrace",

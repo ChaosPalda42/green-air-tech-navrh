@@ -1269,7 +1269,8 @@
     "dispecink": "24/7 Notdienst",
     "prava": "Alle Rechte vorbehalten.",
     "ukazka": "Website-Entwurf – inoffiziell, nicht indiziert.",
-    "administrace": "Demo-Administration"
+    "administrace": "Demo-Administration",
+    "administrace_server": "Administration"
   },
   "admin": {
     "titulek": "Administration",

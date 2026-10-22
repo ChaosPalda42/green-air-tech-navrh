@@ -72,6 +72,17 @@ final class Kontext
         return I18n::t($this->dict, $klic, $vars, $this->zaskok);
     }
 
+    /* Ostrý web mluví jinak než ukázka: kde existuje klíč s příponou _server,
+       použije se on. V ukázce se nic takového nehledá. */
+    public function tServer(string $klic, array $vars = []): string
+    {
+        if (!$this->ukazka && $this->existuje($klic . '_server')) {
+            return $this->t($klic . '_server', $vars);
+        }
+
+        return $this->t($klic, $vars);
+    }
+
     public function existuje(string $klic): bool
     {
         $v = I18n::get($this->dict, $klic) ?? I18n::get($this->zaskok, $klic);

@@ -129,13 +129,11 @@ final class Stranka
             $skripty = self::serverove($k, $uloziste) . $skripty;
         }
 
-        // Ukázka má v titulku „Administrace ukázky"; ostrý web ne.
-        $serverovaAdministrace = !$ukazka && $druh === 'administrace';
-
         return Layout::stranka($k, [
             'telo' => $telo,
-            'titulek' => $k->t("meta.{$meta}.titulek" . ($serverovaAdministrace ? '_server' : '')),
-            'popis' => $k->t("meta.{$meta}.popis" . ($serverovaAdministrace ? '_server' : '')),
+            // Ukázka má v titulku „Administrace ukázky"; ostrý web ne.
+            'titulek' => $k->tServer("meta.{$meta}.titulek"),
+            'popis' => $k->tServer("meta.{$meta}.popis"),
             'trida' => $trida,
             'skripty' => $skripty,
         ]);
@@ -152,7 +150,7 @@ final class Stranka
             . 'window.GAT_SERVER = true;'
             . 'window.GAT_API = ' . self::js($k->odkazKoren('api/')) . ';'
             . 'window.GAT_KOREN = ' . self::js($k->odkazKoren('')) . ';'
-            . 'window.GAT_STAV = ' . self::js($stav === [] ? null : $stav) . ';'
+            . 'window.GAT_STAV = ' . self::js($stav === [] ? null : \App\Obsah\Stav::proJs($stav)) . ';'
             . 'window.GAT_TEXTY_SERVER = ' . self::js([
                 'chybaOdeslani' => $k->t('kontakt.formular.chybaOdeslani'),
             ]) . ';'
@@ -204,7 +202,17 @@ final class Stranka
                     'email' => $uzivatel['email'],
                     'role' => $uzivatel['role'],
                 ]) . ';'
-                . 'window.GAT_STAV = ' . self::js($stav === [] ? null : $stav) . ';'
+                . 'window.GAT_STAV = ' . self::js($stav === [] ? null : \App\Obsah\Stav::proJs($stav)) . ';'
+                // Seznam lidí čte admin.js ze stránky; bez něj je záložka
+                // Uživatelé na ostrém webu vždycky prázdná. Kdo na ni nesmí,
+                // ten ho ani nedostane — stejné pravidlo jako v API.
+                . 'window.GAT_UZIVATELE = ' . self::js(
+                    $uzivatel !== null
+                    && \App\Auth\Uzivatele::smi((string) ($uzivatel['role'] ?? ''), 'uzivatele')
+                    && $uloziste !== null
+                        ? array_values($uloziste->uzivatele())
+                        : []
+                ) . ';'
                 . '</script>';
         }
 

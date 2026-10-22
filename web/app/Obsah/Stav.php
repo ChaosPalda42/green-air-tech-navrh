@@ -34,6 +34,27 @@ final class Stav
         'ž' => 'z', 'ź' => 'z', 'ż' => 'z', 'Ž' => 'z', 'Ź' => 'z', 'Ż' => 'z',
     ];
 
+    /* Stav pro JSON do stránky: mapy musí zůstat objekty. PHP prázdné pole
+       zakóduje jako [], prohlížeč z toho udělá pole a první zápis textu se
+       při JSON.stringify ztratí — uloží se prázdný stav. Seznamy (added,
+       removed) poli zůstávají. */
+    public static function proJs(array $stav): array
+    {
+        $texts = [];
+        foreach ((array) ($stav['texts'] ?? []) as $jazyk => $dvojice) {
+            $texts[$jazyk] = (object) (array) $dvojice;
+        }
+        $stav['texts'] = (object) $texts;
+
+        $realizace = (array) ($stav['realizace'] ?? []);
+        $realizace['added'] = array_values((array) ($realizace['added'] ?? []));
+        $realizace['removed'] = array_values((array) ($realizace['removed'] ?? []));
+        $realizace['edited'] = (object) (array) ($realizace['edited'] ?? []);
+        $stav['realizace'] = $realizace;
+
+        return $stav;
+    }
+
     /** @return array{texts: array, realizace: array{added: list, edited: array, removed: list}, updatedAt: null} */
     public static function prazdny(): array
     {
