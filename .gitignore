@@ -10,3 +10,6 @@ node_modules/
 .DS_Store
 packets/
 nasazeni/greenairtech-*.zip
+
+# Log odeslané pošty — obsahuje jména a adresy z poptávek, do gitu nikdy
+web/data/posta.log
