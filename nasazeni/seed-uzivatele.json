@@ -1,0 +1,8 @@
+{
+  "_comment": "Testovací přihlášení pro zkušební nasazení (Docker na localhostu). Do balíčku pro klienta tenhle soubor NEPATŘÍ — tam si první účet založí instalátor.",
+  "uzivatele": [
+    { "jmeno": "Pavel Janda", "email": "pavel.janda@greenairtech.test", "role": "spravce", "heslo": "Zkouska-Spravce-2026" },
+    { "jmeno": "Martina Mašindová", "email": "martina.masindova@greenairtech.test", "role": "editor", "heslo": "Zkouska-Editor-2026" },
+    { "jmeno": "Honza Autor", "email": "honza.autor@greenairtech.test", "role": "autor", "heslo": "Zkouska-Autor-2026" }
+  ]
+}
