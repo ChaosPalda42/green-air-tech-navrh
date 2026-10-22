@@ -1,0 +1,4 @@
+# Mezipaměť statistik (odpovědi Google Analytics na 10 minut). Složka musí
+# existovat a být zapisovatelná pro www-data; obsah do gitu nepatří.
+*
+!.gitignore

@@ -9,6 +9,9 @@ declare(strict_types=1);
 
 require dirname(__DIR__) . '/app/Jadro/Autoload.php';
 
+// Dřív než se cokoli vytiskne: žádná hláska PHP nesmí odejít do odpovědi.
+App\Jadro\Chyby::nastav();
+
 use App\Api\Router;
 use App\Auth\Sezeni;
 use App\Auth\Uzivatele;

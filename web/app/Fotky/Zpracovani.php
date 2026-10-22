@@ -70,7 +70,9 @@ final class Zpracovani implements Ulozny
         $cestaNaDisk = rtrim($this->kamNaDisk, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . $souborJmeno;
 
         // Převod na WebP
-        if (!imagewebp($obraz, $cestaNaDisk, 85)) {
+        // Selhání (třeba nezapisovatelná složka) hlásí výjimka níž; varování by
+        // se vytisklo do těla odpovědi a rozbilo JSON i hlavičky.
+        if (!@imagewebp($obraz, $cestaNaDisk, 85)) {
             @imagedestroy($obraz);
             throw new RuntimeException('Nepodařilo se uložit WebP.');
         }

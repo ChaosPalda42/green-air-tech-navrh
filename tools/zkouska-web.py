@@ -162,6 +162,10 @@ def main() -> int:
 
     stav, telo, _ = verejny.posli("POST", "/api/poptavka", telo={"jmeno": "", "email": "neplatny", "souhlas": False})
     kontrola("vadná poptávka se odmítne s poli", stav == 422 and bool(jsonu(telo).get("chyby")), f"HTTP {stav}")
+    # Hláska PHP v těle rozbije JSON i hlavičky a prozradí cesty na serveru.
+    # Hlídá se počet nalezených stop, obsah odpovědi se netiskne.
+    stopy = sum(1 for z in (b"<b>Warning", b"Fatal error", b"Stack trace", b"<br />") if z in telo)
+    kontrola("odmítnutá poptávka neprozradí nic z PHP", stopy == 0, f"{stopy} stop po hlášení PHP")
 
     stav, telo, _ = verejny.posli("POST", "/api/poptavka", telo={
         "jmeno": "Robot", "email": "robot@example.com", "telefon": "+420601123456",
@@ -179,7 +183,11 @@ def main() -> int:
     autor = Klient()
     autor.prihlas("autor")
     t = autor.csrf()
-    stav, telo, _ = autor.posli("PUT", "/api/stav", telo=novy, hlavicky={"X-CSRF": t})
+    # Pozor: stav už v databázi JE, takže poslat ho znovu není změna textu a
+    # právem by to prošlo. Autor proto musí poslat jinou hodnotu.
+    autoruv = {"texts": {"cs": {"nav.sluzby": "Co děláme (autor)"}},
+               "realizace": {"added": [], "edited": {}, "removed": []}}
+    stav, telo, _ = autor.posli("PUT", "/api/stav", telo=autoruv, hlavicky={"X-CSRF": t})
     kontrola("autor nesmí přepsat texty", stav == 403, f"HTTP {stav}")
 
     # uklidit: stav zpátky na prázdno

@@ -39,8 +39,11 @@ final class Poptavka
             return;
         }
 
-        $jazyk = in_array((string) ($telo['jazyk'] ?? 'cs'), ['cs', 'en', 'de'], true)
-            ? (string) $telo['jazyk'] : 'cs';
+        // Pozor: `?? 'cs'` v podmínce nekryje přístup v kladné větvi — bez klíče
+        // 'jazyk' projde in_array s výchozím 'cs', ale $telo['jazyk'] už neexistuje
+        // a dict('') pak shodí celou poptávku.
+        $pozadovany = (string) ($telo['jazyk'] ?? 'cs');
+        $jazyk = in_array($pozadovany, ['cs', 'en', 'de'], true) ? $pozadovany : 'cs';
         $dict = $zdroj->dict($jazyk);
         $zpravy = I18n::get($dict, 'kontakt.formular.chyby');
 
