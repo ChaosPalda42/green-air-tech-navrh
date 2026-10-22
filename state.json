@@ -89,6 +89,123 @@
       "last_finding": "",
       "packet": "",
       "updated_at": "2026-10-10T11:26:09+00:00"
+    },
+    "C-011": {
+      "status": "green",
+      "attempts": 1,
+      "iterations": 5,
+      "commit": "a3a4a09",
+      "last_finding": "",
+      "packet": "",
+      "updated_at": "2026-10-22T13:02:13+00:00"
+    },
+    "C-012": {
+      "status": "green",
+      "attempts": 1,
+      "iterations": 11,
+      "commit": "742cbbc",
+      "last_finding": "",
+      "packet": "",
+      "updated_at": "2026-10-22T13:05:52+00:00"
+    },
+    "C-013": {
+      "status": "pending",
+      "attempts": 1,
+      "iterations": 24,
+      "commit": "",
+      "last_finding": "contract replaced by operator",
+      "packet": "P-001",
+      "updated_at": "2026-10-22T14:03:11+00:00"
+    },
+    "C-014": {
+      "status": "pending",
+      "attempts": 1,
+      "iterations": 24,
+      "commit": "",
+      "last_finding": "contract replaced by operator",
+      "packet": "P-002",
+      "updated_at": "2026-10-22T14:03:11+00:00"
+    },
+    "C-015": {
+      "status": "green",
+      "attempts": 1,
+      "iterations": 5,
+      "commit": "a4e0f6b",
+      "last_finding": "",
+      "packet": "",
+      "updated_at": "2026-10-22T13:53:10+00:00"
+    },
+    "C-016": {
+      "status": "escalated",
+      "attempts": 1,
+      "iterations": 20,
+      "commit": "",
+      "last_finding": "acceptance failed (1 failed); [SUSPECT_ACCEPTANCE] tests/test_php_stav.py: suspect: acceptance — dva různé modely skončily na téže množině padajících uzlů (1): tests/test_php_stav.py::test_php_se_chova_jako_ukazka. Nehnuté dno napříč rodinami modelů bývá nesplnitelná akceptace, ne chyba implementace",
+      "packet": "P-004",
+      "updated_at": "2026-10-22T14:37:53+00:00"
+    },
+    "C-017": {
+      "status": "pending",
+      "attempts": 0,
+      "iterations": 0,
+      "commit": "",
+      "last_finding": "",
+      "packet": "",
+      "updated_at": ""
+    },
+    "C-018": {
+      "status": "green",
+      "attempts": 1,
+      "iterations": 4,
+      "commit": "8e12b70",
+      "last_finding": "",
+      "packet": "",
+      "updated_at": "2026-10-22T14:40:31+00:00"
+    },
+    "C-019": {
+      "status": "green",
+      "attempts": 1,
+      "iterations": 4,
+      "commit": "91eb5fa",
+      "last_finding": "",
+      "packet": "",
+      "updated_at": "2026-10-22T14:51:43+00:00"
+    },
+    "C-020": {
+      "status": "pending",
+      "attempts": 0,
+      "iterations": 0,
+      "commit": "",
+      "last_finding": "",
+      "packet": "",
+      "updated_at": ""
+    },
+    "C-021": {
+      "status": "green",
+      "attempts": 1,
+      "iterations": 16,
+      "commit": "772a1e4",
+      "last_finding": "",
+      "packet": "",
+      "updated_at": "2026-10-22T14:46:10+00:00"
+    },
+    "C-022": {
+      "status": "green",
+      "attempts": 1,
+      "iterations": 4,
+      "commit": "91e11ae",
+      "last_finding": "",
+      "packet": "",
+      "updated_at": "2026-10-22T14:49:25+00:00"
+    },
+    "C-023": {
+      "status": "escalated",
+      "attempts": 1,
+      "iterations": 16,
+      "commit": "",
+      "last_finding": "acceptance failed (1 failed); [SUSPECT_ACCEPTANCE] tests/test_php_razeni_cs.py: suspect: acceptance — dva různé modely skončily na téže množině padajících uzlů (1): tests/test_php_razeni_cs.py::test_php_se_chova_jako_ukazka. Nehnuté dno napříč rodinami modelů bývá nesplnitelná akceptace, ne chyba im",
+      "packet": "P-003",
+      "updated_at": "2026-10-22T14:12:19+00:00"
     }
   },
   "runs": [
@@ -161,6 +278,26 @@
       "red": 0,
       "escalated": 0,
       "note": "test_command passed (226 tests)"
+    },
+    {
+      "started_at": "2026-10-22T13:00:01+00:00",
+      "finished_at": "2026-10-22T13:53:10+00:00",
+      "outcome": "needs-operator",
+      "iterations": 69,
+      "green": 13,
+      "red": 0,
+      "escalated": 2,
+      "note": "2 packet(s) waiting"
+    },
+    {
+      "started_at": "2026-10-22T14:03:11+00:00",
+      "finished_at": "2026-10-22T14:51:43+00:00",
+      "outcome": "needs-operator",
+      "iterations": 64,
+      "green": 17,
+      "red": 0,
+      "escalated": 2,
+      "note": "2 packet(s) waiting"
     }
   ],
   "open_packets": []
