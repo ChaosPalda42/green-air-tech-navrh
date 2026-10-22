@@ -108,7 +108,9 @@
     },
     "administrace": {
       "titulek": "Administrace ukázky | Green Air Tech",
-      "popis": "Demo administrace — úprava textů a realizací."
+      "popis": "Demo administrace — úprava textů a realizací.",
+      "titulek_server": "Administrace | Green Air Tech",
+      "popis_server": "Správa textů, realizací a poptávek."
     },
     "vetve": {
       "domacnosti": {
@@ -1279,7 +1281,10 @@
       "jmeno": "Uživatel",
       "heslo": "Heslo",
       "vstoupit": "Vstoupit",
-      "poznamka": "Demo: přihlášení nic neověřuje."
+      "poznamka": "Demo: přihlášení nic neověřuje.",
+      "lead_server": "Zadejte e-mail a heslo, které jste dostali v pozvánce.",
+      "chyba": "Nesprávný e-mail nebo heslo. Zkuste to prosím znovu.",
+      "poznamka_server": "Zapomenuté heslo vám obnoví správce webu."
     },
     "zalozky": {
       "nastenka": "Nástěnka",
@@ -1356,7 +1361,8 @@
       "vymazatPotvrzeni": "Opravdu zahodit všechny provedené změny?",
       "posledniZmena": "Poslední změna",
       "zadnaZmena": "Zatím nic neupraveno.",
-      "chybaImportu": "Soubor se nepodařilo načíst."
+      "chybaImportu": "Soubor se nepodařilo načíst.",
+      "lead_server": "Změny jsou uložené na serveru. Tady si je můžete stáhnout jako soubor, nahrát zpět nebo všechno vrátit do výchozího stavu."
     },
     "odhlasit": "Odhlásit",
     "zpetNaWeb": "Zpět na web",
@@ -1410,7 +1416,9 @@
         "mobil": "Mobil",
         "pocitac": "Počítač",
         "tablet": "Tablet"
-      }
+      },
+      "lead_server": "Návštěvnost webu a odeslané poptávky. Čísla se berou z Google Analytics.",
+      "upozorneni_server": "Čísla z Google Analytics se zatím nenačetla. Po spuštění měření se první objeví zhruba po týdnu provozu."
     },
     "uzivatele": {
       "titulek": "Uživatelé a oprávnění",
@@ -1431,8 +1439,10 @@
       "role_autor": "Autor článků",
       "prava_spravce": "Všechno včetně uživatelů a statistik",
       "prava_editor": "Texty, realizace a novinky",
-      "prava_autor": "Jen novinky a články"
-    }
+      "prava_autor": "Jen novinky a články",
+      "poznamka_server": "Každému novému člověku se pošle pozvánka a heslo si nastaví sám. Role určuje, co smí měnit."
+    },
+    "uvod_server": "Tady se spravuje obsah webu. Všechno, co tu změníte a uložíte, se hned projeví na veřejných stránkách."
   },
   "rozcestnik": {
     "stitek": "Technická zařízení budov",

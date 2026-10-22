@@ -39,6 +39,20 @@ final class Administrace
 
     public const METRIKY = ['navstevy', 'uzivatele', 'zobrazeni', 'poptavky', 'cas', 'opusteni'];
 
+    /* Ostrý web mluví jinak než ukázka ("změny se ukládají do vašeho
+       prohlížeče"). Když ke klíči existuje varianta se suffixem _server,
+       použije se na serveru ona; jinak zůstane původní text. */
+    private static function text(\App\Jadro\Kontext $ctx, string $klic): string
+    {
+        if ($ctx->ukazka) {
+            return $ctx->t($klic);
+        }
+        $serverovy = $klic . '_server';
+        $hodnota = $ctx->t($serverovy);
+
+        return $hodnota === $serverovy ? $ctx->t($klic) : $hodnota;
+    }
+
     private static function ikona(string $n, array $volby = []): string
     {
         return Ikony::ikona($n, $volby);
@@ -114,8 +128,12 @@ final class Administrace
         } else {
             $prihlaseni = '<form class="formular" method="post" action="' . $ctx->odkazKoren('administrace.html') . '" style="max-width:26rem;margin-inline:auto">
         <p class="admin-login-nadpis">' . $ctx->t('admin.prihlaseni.titulek') . '</p>
-        <p class="lead" style="font-size:.98rem;margin-bottom:1.4rem">' . $ctx->t('admin.prihlaseni.lead') . '</p>
-        <div class="hlaska hlaska-chyba" data-chyba-prihlaseni' . (($data['chybaPrihlaseni'] ?? false) ? '' : ' hidden') . '>' . self::ikona('info') . '<span>' . $ctx->t('admin.prihlaseni.chyba') . '</span></div>
+        <p class="lead" style="font-size:.98rem;margin-bottom:1.4rem">' . $ctx->t('admin.prihlaseni.lead_server') . '</p>
+        ' . (($data['chybaPrihlaseni'] ?? false)
+            // Pozor na `hidden`: .hlaska má v CSS display:flex, který atribut
+            // přebije, a hláška by svítila i bez chyby. Proto se nevykresluje.
+            ? '<div class="hlaska hlaska-chyba" data-chyba-prihlaseni>' . self::ikona('info') . '<span>' . $ctx->t('admin.prihlaseni.chyba') . '</span></div>'
+            : '') . '
         <div class="pole">
           <label for="admin-jmeno">' . $ctx->t('admin.prihlaseni.jmeno') . '</label>
           <input type="text" id="admin-jmeno" name="jmeno" autocomplete="username" required>
@@ -127,6 +145,7 @@ final class Administrace
         <input type="hidden" name="akce" value="prihlasit">
         <input type="hidden" name="csrf" value="' . Layout::a((string) ($data['csrf'] ?? '')) . '">
         <button type="submit" class="tl tl-hlavni" style="width:100%" data-vstoupit>' . self::ikona('sip') . $ctx->t('admin.prihlaseni.vstoupit') . '</button>
+        <p class="napoveda" style="margin-top:1rem;text-align:center">' . $ctx->t('admin.prihlaseni.poznamka_server') . '</p>
       </form>';
             $upozorneni = '';
         }
@@ -185,7 +204,7 @@ final class Administrace
       <div class="admin-hlavicka">
         <div>
           <h1>' . $ctx->t('admin.titulek') . '</h1>
-          <p class="lead" style="font-size:.98rem">' . $ctx->t('admin.uvod') . '</p>
+          <p class="lead" style="font-size:.98rem">' . self::text($ctx, 'admin.uvod') . '</p>
         </div>
         <div class="admin-akce">
           <a class="tl tl-obrys tl-mala" href="' . $ctx->odkaz('index') . '">' . self::ikona('externi') . $ctx->t('admin.zpetNaWeb') . '</a>
@@ -204,14 +223,14 @@ final class Administrace
       <!-- ------------------------------------------------- nástěnka -->
       <div class="admin-panel" data-panel="nastenka">
         <div class="admin-nastroje">
-          <p class="lead" style="font-size:.95rem;flex:1;min-width:16rem">' . $ctx->t('admin.nastenka.lead') . '</p>
+          <p class="lead" style="font-size:.95rem;flex:1;min-width:16rem">' . self::text($ctx, 'admin.nastenka.lead') . '</p>
           <div class="admin-obdobi" role="group" aria-label="' . Layout::a($ctx->t('admin.nastenka.obdobi')) . '">
             <button type="button" class="chip" data-obdobi="7">' . $ctx->t('admin.nastenka.obdobi7') . '</button>
             <button type="button" class="chip" data-obdobi="30" aria-pressed="true">' . $ctx->t('admin.nastenka.obdobi30') . '</button>
             <button type="button" class="chip" data-obdobi="90">' . $ctx->t('admin.nastenka.obdobi90') . '</button>
           </div>
         </div>
-        <div class="hlaska hlaska-info">' . self::ikona('varovani') . '<span>' . $ctx->t('admin.nastenka.upozorneni') . '</span></div>
+        <div class="hlaska hlaska-info" data-nastenka-upozorneni>' . self::ikona('varovani') . '<span>' . self::text($ctx, 'admin.nastenka.upozorneni') . '</span></div>
         <div class="admin-metriky">' . $dlazdiceMetrik . '</div>
         <div class="admin-graf">
           <h3>' . $ctx->t('admin.nastenka.grafTitulek') . '</h3>
@@ -264,12 +283,12 @@ final class Administrace
           <button type="button" class="tl tl-hlavni tl-mala" data-pridat-uzivatele>' . self::ikona('plus') . $ctx->t('admin.uzivatele.pridat') . '</button>
         </div>
         <div data-admin-uzivatele></div>
-        <p class="napoveda" style="margin-top:1rem">' . $ctx->t('admin.uzivatele.poznamka') . '</p>
+        <p class="napoveda" style="margin-top:1rem">' . self::text($ctx, 'admin.uzivatele.poznamka') . '</p>
       </div>
 
       <!-- ----------------------------------------------------- data -->
       <div class="admin-panel" data-panel="data" hidden>
-        <p class="lead" style="font-size:.95rem">' . $ctx->t('admin.data.lead') . '</p>
+        <p class="lead" style="font-size:.95rem">' . self::text($ctx, 'admin.data.lead') . '</p>
         <p class="admin-cas" data-admin-cas></p>
         <div class="tlacitka" style="margin-top:1.4rem">
           <button type="button" class="tl tl-obrys" data-export>' . self::ikona('stahnout') . $ctx->t('admin.data.stahnout') . '</button>

@@ -108,7 +108,9 @@
     },
     "administrace": {
       "titulek": "Demo-Administration | Green Air Tech",
-      "popis": "Demo-Administration — Bearbeitung von Texten und Projekten."
+      "popis": "Demo-Administration — Bearbeitung von Texten und Projekten.",
+      "titulek_server": "Administration | Green Air Tech",
+      "popis_server": "Verwaltung von Texten, Projekten und Anfragen."
     },
     "vetve": {
       "domacnosti": {
@@ -1279,7 +1281,10 @@
       "jmeno": "Benutzer",
       "heslo": "Passwort",
       "vstoupit": "Anmelden",
-      "poznamka": "Demo: Die Anmeldung führt keine Prüfung durch."
+      "poznamka": "Demo: Die Anmeldung führt keine Prüfung durch.",
+      "lead_server": "Geben Sie die E-Mail-Adresse und das Passwort aus Ihrer Einladung ein.",
+      "chyba": "E-Mail-Adresse oder Passwort ist falsch. Bitte versuchen Sie es erneut.",
+      "poznamka_server": "Ein vergessenes Passwort setzt Ihr Administrator zurück."
     },
     "zalozky": {
       "nastenka": "Dashboard",
@@ -1356,7 +1361,8 @@
       "vymazatPotvrzeni": "Wirklich alle vorgenommenen Änderungen verwerfen?",
       "posledniZmena": "Letzte Änderung",
       "zadnaZmena": "Bisher nichts geändert.",
-      "chybaImportu": "Datei konnte nicht geladen werden."
+      "chybaImportu": "Datei konnte nicht geladen werden.",
+      "lead_server": "Die Änderungen liegen auf dem Server. Hier können Sie sie als Datei herunterladen, wieder hochladen oder alles zurücksetzen."
     },
     "odhlasit": "Abmelden",
     "zpetNaWeb": "Zurück zur Website",
@@ -1410,7 +1416,9 @@
         "mobil": "Mobilgerät",
         "pocitac": "Computer",
         "tablet": "Tablet"
-      }
+      },
+      "lead_server": "Besuche der Website und gesendete Anfragen. Die Zahlen stammen aus Google Analytics.",
+      "upozorneni_server": "Noch keine Zahlen aus Google Analytics. Nach dem Start der Messung erscheinen die ersten nach etwa einer Woche."
     },
     "uzivatele": {
       "titulek": "Nutzer und Berechtigungen",
@@ -1431,8 +1439,10 @@
       "role_autor": "Autor",
       "prava_spravce": "Alles, einschließlich Nutzer und Statistiken",
       "prava_editor": "Texte, Projekte und Neuigkeiten",
-      "prava_autor": "Nur Neuigkeiten und Artikel"
-    }
+      "prava_autor": "Nur Neuigkeiten und Artikel",
+      "poznamka_server": "Jede neue Person erhält eine Einladung und legt ihr Passwort selbst fest. Die Rolle bestimmt, was sie ändern darf."
+    },
+    "uvod_server": "Hier wird der Inhalt der Website verwaltet. Alles, was Sie hier ändern und speichern, erscheint sofort auf den öffentlichen Seiten."
   },
   "rozcestnik": {
     "stitek": "Technische Gebäudeausrüstung (TGA)",

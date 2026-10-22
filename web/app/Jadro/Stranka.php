@@ -129,10 +129,13 @@ final class Stranka
             $skripty = self::serverove($k, $uloziste) . $skripty;
         }
 
+        // Ukázka má v titulku „Administrace ukázky"; ostrý web ne.
+        $serverovaAdministrace = !$ukazka && $druh === 'administrace';
+
         return Layout::stranka($k, [
             'telo' => $telo,
-            'titulek' => $k->t("meta.{$meta}.titulek"),
-            'popis' => $k->t("meta.{$meta}.popis"),
+            'titulek' => $k->t("meta.{$meta}.titulek" . ($serverovaAdministrace ? '_server' : '')),
+            'popis' => $k->t("meta.{$meta}.popis" . ($serverovaAdministrace ? '_server' : '')),
             'trida' => $trida,
             'skripty' => $skripty,
         ]);

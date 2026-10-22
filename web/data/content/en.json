@@ -108,7 +108,9 @@
     },
     "administrace": {
       "titulek": "Demo Administration | Green Air Tech",
-      "popis": "Demo administration — editing texts and projects."
+      "popis": "Demo administration — editing texts and projects.",
+      "titulek_server": "Administration | Green Air Tech",
+      "popis_server": "Managing texts, projects and enquiries."
     },
     "vetve": {
       "domacnosti": {
@@ -1279,7 +1281,10 @@
       "jmeno": "Username",
       "heslo": "Password",
       "vstoupit": "Enter",
-      "poznamka": "Demo: login does not verify credentials."
+      "poznamka": "Demo: login does not verify credentials.",
+      "lead_server": "Enter the e-mail and password from your invitation.",
+      "chyba": "Wrong e-mail or password. Please try again.",
+      "poznamka_server": "Your administrator can reset a forgotten password."
     },
     "zalozky": {
       "nastenka": "Dashboard",
@@ -1356,7 +1361,8 @@
       "vymazatPotvrzeni": "Are you sure you want to discard all changes?",
       "posledniZmena": "Last change",
       "zadnaZmena": "Nothing has been modified yet.",
-      "chybaImportu": "The file could not be loaded."
+      "chybaImportu": "The file could not be loaded.",
+      "lead_server": "Changes are stored on the server. Here you can download them as a file, upload them back, or reset everything to the default."
     },
     "odhlasit": "Log out",
     "zpetNaWeb": "Back to website",
@@ -1410,7 +1416,9 @@
         "mobil": "Mobile",
         "pocitac": "Desktop",
         "tablet": "Tablet"
-      }
+      },
+      "lead_server": "Website traffic and submitted enquiries. The numbers come from Google Analytics.",
+      "upozorneni_server": "No numbers from Google Analytics yet. Once measurement starts, the first ones appear after about a week."
     },
     "uzivatele": {
       "titulek": "Users and permissions",
@@ -1431,8 +1439,10 @@
       "role_autor": "Article author",
       "prava_spravce": "Everything, including users and statistics",
       "prava_editor": "Texts, projects, and news",
-      "prava_autor": "News and articles only"
-    }
+      "prava_autor": "News and articles only",
+      "poznamka_server": "Everyone new gets an invitation and chooses their own password. The role decides what they may change."
+    },
+    "uvod_server": "This is where the website content is managed. Anything you change and save here appears on the public pages right away."
   },
   "rozcestnik": {
     "stitek": "Building technical systems",

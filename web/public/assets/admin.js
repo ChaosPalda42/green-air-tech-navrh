@@ -636,6 +636,12 @@
     var vsechna = SERVER
       ? zeServeru.dny
       : S.vygenerujData("green-air-tech", obdobi * 2);
+
+    // Upozornění "čísla se zatím nenačetla" patří jen k prázdné nástěnce.
+    // Pozor: .hlaska má display:flex, který atribut hidden přebije — schovává
+    // se proto stylem, ne atributem.
+    var upozorneni = document.querySelector("[data-nastenka-upozorneni]");
+    if (upozorneni && SERVER) upozorneni.style.display = vsechna.length > 0 ? "none" : "";
     var ted = S.filtrujObdobi(vsechna, obdobi);
     var drive = vsechna.slice(0, vsechna.length - ted.length);
     var a = S.souhrn(ted);

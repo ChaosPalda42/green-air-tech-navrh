@@ -109,22 +109,22 @@
       "updated_at": "2026-10-22T13:05:52+00:00"
     },
     "C-013": {
-      "status": "pending",
-      "attempts": 1,
-      "iterations": 24,
+      "status": "green",
+      "attempts": 2,
+      "iterations": 47,
       "commit": "",
-      "last_finding": "contract replaced by operator",
-      "packet": "P-001",
-      "updated_at": "2026-10-22T14:03:11+00:00"
+      "last_finding": "skipped by operator: Dopsáno ručně (pravidlo #476). Modely strhávaly značky v annotate a groupTerms vůbec nenapsaly; brána nedotčená, prošla na první měření. Opraveny dvě chyby v mém zadání: findTerm je case-insensitive a zkratka uvnitř <a> se obaluje — orákulum to tak má, zadání tvrdilo opak.",
+      "packet": "P-007",
+      "updated_at": "2026-10-22T17:46:06+00:00"
     },
     "C-014": {
-      "status": "pending",
-      "attempts": 1,
-      "iterations": 24,
+      "status": "green",
+      "attempts": 2,
+      "iterations": 42,
       "commit": "",
-      "last_finding": "contract replaced by operator",
-      "packet": "P-002",
-      "updated_at": "2026-10-22T14:03:11+00:00"
+      "last_finding": "skipped by operator: Dopsáno ručně (pravidlo #476). Modely čekaly kategorii jako pole; v ukázce je to jeden řetězec, 'vse' nefiltruje, rok se porovnává začátkem datumu a dotaz se trhá na slova (všechna musí padnout, hledá se i v perexu). Brána nedotčená.",
+      "packet": "P-008",
+      "updated_at": "2026-10-22T17:46:06+00:00"
     },
     "C-015": {
       "status": "green",
@@ -136,22 +136,22 @@
       "updated_at": "2026-10-22T13:53:10+00:00"
     },
     "C-016": {
-      "status": "escalated",
+      "status": "green",
       "attempts": 2,
       "iterations": 37,
       "commit": "",
-      "last_finding": "acceptance failed (1 failed); [SUSPECT_ACCEPTANCE] tests/test_php_stav.py: suspect: acceptance — dva různé modely skončily na téže množině padajících uzlů (1): tests/test_php_stav.py::test_php_se_chova_jako_ukazka. Nehnuté dno napříč rodinami modelů bývá nesplnitelná akceptace, ne chyba implementace",
+      "last_finding": "skipped by operator: C-016 dotáhl Claude ručně z pokusu č. 2 (factory/failed/C-016-2); brána tests/test_php_stav.py je zelená. Zbývalo: prázdná hodnota maže klíč, zJson nepřidává updatedAt a odmítá JSON, který není objekt.",
       "packet": "P-006",
-      "updated_at": "2026-10-22T15:48:40+00:00"
+      "updated_at": "2026-10-22T15:58:58+00:00"
     },
     "C-017": {
-      "status": "pending",
-      "attempts": 0,
-      "iterations": 0,
-      "commit": "",
+      "status": "green",
+      "attempts": 1,
+      "iterations": 7,
+      "commit": "e90a491",
       "last_finding": "",
       "packet": "",
-      "updated_at": ""
+      "updated_at": "2026-10-22T17:33:16+00:00"
     },
     "C-018": {
       "status": "green",
@@ -172,13 +172,13 @@
       "updated_at": "2026-10-22T14:51:43+00:00"
     },
     "C-020": {
-      "status": "pending",
-      "attempts": 0,
-      "iterations": 0,
+      "status": "green",
+      "attempts": 1,
+      "iterations": 24,
       "commit": "",
-      "last_finding": "",
-      "packet": "",
-      "updated_at": ""
+      "last_finding": "skipped by operator: Router rozhodoval správně — proměřeno, že Stav::zJson -> Zmeny::oblasti -> matice práv dává u autora i editora správný výsledek. Vadná byla moje brána: požadavky jdou přes jedno úložiště v řadě, takže po správcově zápisu nebyl autorův zápis stejného textu vůbec změnou. Brána mezi běhy opravena, aby posílala skutečné změny, a ověřena červeně na routeru bez kontroly práv.",
+      "packet": "P-009",
+      "updated_at": "2026-10-22T17:46:06+00:00"
     },
     "C-021": {
       "status": "green",
@@ -199,13 +199,13 @@
       "updated_at": "2026-10-22T14:49:25+00:00"
     },
     "C-023": {
-      "status": "escalated",
+      "status": "green",
       "attempts": 2,
       "iterations": 37,
       "commit": "",
-      "last_finding": "acceptance failed (1 failed); [SUSPECT_ACCEPTANCE] tests/test_php_razeni_cs.py: suspect: acceptance — dva různé modely skončily na téže množině padajících uzlů (1): tests/test_php_razeni_cs.py::test_php_se_chova_jako_ukazka. Nehnuté dno napříč rodinami modelů bývá nesplnitelná akceptace, ne chyba im",
+      "last_finding": "skipped by operator: C-023 napsal Claude ručně z proměřené referenční implementace; brána tests/test_php_razeni_cs.py (4 624 zaznamenaných párů + 4 řazení) je zelená. Tři pokusy dvou rodin modelů minuly stejně: slily tři váhy do jednoho klíče.",
       "packet": "P-005",
-      "updated_at": "2026-10-22T15:30:38+00:00"
+      "updated_at": "2026-10-22T15:58:58+00:00"
     },
     "C-024": {
       "status": "green",
@@ -217,13 +217,22 @@
       "updated_at": "2026-10-22T15:50:38+00:00"
     },
     "C-025": {
-      "status": "pending",
-      "attempts": 0,
-      "iterations": 0,
-      "commit": "",
+      "status": "green",
+      "attempts": 1,
+      "iterations": 11,
+      "commit": "430c479",
       "last_finding": "",
       "packet": "",
-      "updated_at": ""
+      "updated_at": "2026-10-22T16:40:39+00:00"
+    },
+    "C-026": {
+      "status": "green",
+      "attempts": 1,
+      "iterations": 20,
+      "commit": "bcbf3b8",
+      "last_finding": "",
+      "packet": "",
+      "updated_at": "2026-10-22T17:30:24+00:00"
     }
   },
   "runs": [
@@ -326,6 +335,26 @@
       "red": 0,
       "escalated": 2,
       "note": "2 packet(s) waiting"
+    },
+    {
+      "started_at": "2026-10-22T15:58:59+00:00",
+      "finished_at": "2026-10-22T17:33:16+00:00",
+      "outcome": "needs-operator",
+      "iterations": 103,
+      "green": 23,
+      "red": 0,
+      "escalated": 3,
+      "note": "3 packet(s) waiting"
+    },
+    {
+      "started_at": "2026-10-22T17:46:07+00:00",
+      "finished_at": "2026-10-22T17:46:31+00:00",
+      "outcome": "green",
+      "iterations": 0,
+      "green": 26,
+      "red": 0,
+      "escalated": 0,
+      "note": "test_command passed (308 tests)"
     }
   ],
   "open_packets": []
