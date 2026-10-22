@@ -5,16 +5,18 @@
   "title": "Obsah s přepisy z administrace nad výchozími soubory",
   "interface": "namespace App\\Obsah; class ZdrojDb extends ZdrojJson\n\npublic function __construct(string $dataDir, string $assetsDir, array $stav = [])\npublic function stav(): array        // vrátí stav tak, jak přišel\npublic function dict(string $jazyk): array\npublic function site(): array\n\nZdědí a NEMĚNÍ: slovnik(), obrazky(), verzeAktiv().",
   "uses": {
-    "App\\Obsah\\Stav": "spojTexty(array $stav, string $jazyk, array $vychoziPlocha): array, spojRealizace(array $stav, array $zaklad): array",
+    "App\\Obsah\\Stav": "spojTexty(array $stav, string $jazyk, array $vychoziPlocha): array",
+    "App\\Obsah\\StavRealizace": "spojRealizace(array $stav, array $zaklad): array",
     "App\\Obsah\\I18n": "flatten(array $dict): array, unflatten(array $plochy): array"
   },
   "acceptance": "tests/test_php_zdroj_db.py",
-  "notes": "Čisté PHP 8.5, žádné composer závislosti. Soubor začíná `<?php`, pak `declare(strict_types=1);`, pak `namespace …;`. Žádný echo, žádný výstup, žádné sahání na databázi — stav přijde hotový v konstruktoru (načte ho jiná vrstva).\n\nCo to má dělat:\n- `dict($jazyk)`: vzít dict ze souborů (rodičovská metoda), zploštit přes I18n::flatten, přepsat klíče ze stavu přes Stav::spojTexty a vrátit zpátky vnořené přes I18n::unflatten. Když stav pro ten jazyk nic nemá, musí se vrátit TOTÉŽ pole, co dává ZdrojJson — na tom stojí bajtová shoda s ukázkou.\n- `site()`: vzít site ze souborů a položku 'realizace' nahradit Stav::spojRealizace(stav, puvodni). Všechny ostatní položky (firma, jazyky, vetve, sluzby, novinky, …) zůstávají beze změny.\n- `stav()`: vrátí stav tak, jak přišel.\n- Výsledky se smí cachovat v objektu, ale ZdrojJson se nesmí měnit.\n\nPozor: slovnik() se nepřepisuje, protože čte dict() — přepsané zkratky tedy prosáknou samy. Když se stav tváří jinak, než má (chybí 'texts' nebo 'realizace'), chová se jako prázdný; nic nevyhazuj.",
+  "notes": "Čisté PHP 8.5, žádné composer závislosti. Soubor začíná `<?php`, pak `declare(strict_types=1);`, pak `namespace …;`. Žádný echo, žádný výstup, žádné sahání na databázi — stav přijde hotový v konstruktoru (načte ho jiná vrstva).\n\nCo to má dělat:\n- `dict($jazyk)`: vzít dict ze souborů (rodičovská metoda), zploštit přes I18n::flatten, přepsat klíče ze stavu přes Stav::spojTexty a vrátit zpátky vnořené přes I18n::unflatten. Když stav pro ten jazyk nic nemá, musí se vrátit TOTÉŽ pole, co dává ZdrojJson — na tom stojí bajtová shoda s ukázkou.\n- `site()`: vzít site ze souborů a položku 'realizace' nahradit Stav::spojRealizace(stav, puvodni). Všechny ostatní položky (firma, jazyky, vetve, sluzby, novinky, …) zůstávají beze změny.\n- `stav()`: vrátí stav tak, jak přišel.\n- Výsledky se smí cachovat v objektu, ale ZdrojJson se nesmí měnit.\n\nPozor: slovnik() se nepřepisuje, protože čte dict() — přepsané zkratky tedy prosáknou samy. Když se stav tváří jinak, než má (chybí 'texts' nebo 'realizace'), chová se jako prázdný; nic nevyhazuj.\n\nPOZOR na rozdělení tříd: texty spojuje App\\Obsah\\Stav::spojTexty, ale realizace spojuje App\\Obsah\\StavRealizace::spojRealizace — jsou to dvě různé třídy.",
   "budget": {
     "iterations": 15
   },
   "depends_on": [
     "C-016",
+    "C-025",
     "C-012"
   ]
 }

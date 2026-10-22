@@ -125,6 +125,10 @@ final class Stranka
             default => throw new \RuntimeException("Neznámý druh stránky: {$druh}"),
         };
 
+        if (!$ukazka && $druh !== 'administrace') {
+            $skripty = self::serverove($k, $uloziste) . $skripty;
+        }
+
         return Layout::stranka($k, [
             'telo' => $telo,
             'titulek' => $k->t("meta.{$meta}.titulek"),
@@ -132,6 +136,37 @@ final class Stranka
             'trida' => $trida,
             'skripty' => $skripty,
         ]);
+    }
+
+    /* Co veřejná stránka ostrého webu potřebuje navíc proti ukázce: adresu API,
+       stav z administrace (v ukázce ho prohlížeč bere z localStorage) a měřicí
+       kód Analytics. V ukázce se nic z toho nevypisuje, aby zůstala bajt po
+       bajtu stejná. */
+    private static function serverove(Kontext $k, ?\App\Api\Uloziste $uloziste): string
+    {
+        $stav = $uloziste?->stav() ?? [];
+        $ven = '<script>'
+            . 'window.GAT_SERVER = true;'
+            . 'window.GAT_API = ' . self::js($k->odkazKoren('api/')) . ';'
+            . 'window.GAT_KOREN = ' . self::js($k->odkazKoren('')) . ';'
+            . 'window.GAT_STAV = ' . self::js($stav === [] ? null : $stav) . ';'
+            . 'window.GAT_TEXTY_SERVER = ' . self::js([
+                'chybaOdeslani' => $k->t('kontakt.formular.chybaOdeslani'),
+            ]) . ';'
+            . '</script>' . "\n";
+
+        $mereni = (string) Config::dej('analytics.mereni', '');
+        if (preg_match('/^G-[A-Z0-9]{6,}$/', $mereni) === 1) {
+            $ven .= '<script async src="https://www.googletagmanager.com/gtag/js?id='
+                . rawurlencode($mereni) . '"></script>' . "\n"
+                . '<script>window.dataLayer=window.dataLayer||[];'
+                . 'function gtag(){dataLayer.push(arguments);}'
+                . 'gtag("js", new Date());'
+                . 'gtag("config", ' . self::js($mereni) . ');'
+                . '</script>' . "\n";
+        }
+
+        return $ven;
     }
 
     /** @return array{0:Kontext,1:string,2:string,3:string,4:string} */

@@ -63,12 +63,17 @@ def zkratka(hodnota, limit: int = 220) -> str:
     return text if len(text) <= limit else text[:limit] + "…"
 
 
-def rozdily(jmeno: str, vysledky: dict[str, list]) -> list[str]:
-    """Seznam neshod proti zaznamenanému orákulu, v pořadí vzorků."""
+def rozdily(jmeno: str, vysledky: dict[str, list], jen: set[str] | None = None) -> list[str]:
+    """Seznam neshod proti zaznamenanému orákulu, v pořadí vzorků.
+
+    `jen` zúží srovnání na vyjmenované funkce — jedno orákulum pak může sloužit
+    dvěma branám, každá za svůj kus (viz Stav a StavRealizace)."""
     ocek = ocekavane(jmeno)
     args = vstupy(jmeno)
     out: list[str] = []
     for funkce, cekane in ocek.items():
+        if jen is not None and funkce not in jen:
+            continue
         mam = vysledky.get(funkce)
         if mam is None:
             out.append(f"{funkce}: PHP nevrátilo nic")

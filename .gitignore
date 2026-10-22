@@ -8,3 +8,5 @@ out/
 _balicek/
 node_modules/
 .DS_Store
+packets/
+nasazeni/greenairtech-*.zip

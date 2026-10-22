@@ -1,0 +1,88 @@
+{
+  "base64url": [
+    {
+      "args": [
+        ""
+      ],
+      "out": ""
+    },
+    {
+      "args": [
+        "a"
+      ],
+      "out": "YQ"
+    },
+    {
+      "args": [
+        "ab"
+      ],
+      "out": "YWI"
+    },
+    {
+      "args": [
+        "abc"
+      ],
+      "out": "YWJj"
+    },
+    {
+      "args": [
+        "abcd"
+      ],
+      "out": "YWJjZA"
+    },
+    {
+      "args": [
+        "abcde"
+      ],
+      "out": "YWJjZGU"
+    },
+    {
+      "args": [
+        "{\"alg\":\"RS256\",\"typ\":\"JWT\"}"
+      ],
+      "out": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9"
+    },
+    {
+      "args": [
+        "{\"iss\":\"web@greenairtech.iam.gserviceaccount.com\"}"
+      ],
+      "out": "eyJpc3MiOiJ3ZWJAZ3JlZW5haXJ0ZWNoLmlhbS5nc2VydmljZWFjY291bnQuY29tIn0"
+    },
+    {
+      "args": [
+        "ěščřžýáíé"
+      ],
+      "out": "xJvFocSNxZnFvsO9w6HDrcOp"
+    },
+    {
+      "args": [
+        "ÿþý"
+      ],
+      "out": "w7_DvsO9"
+    },
+    {
+      "args": [
+        "\u0000\u0001\u0002\u0003"
+      ],
+      "out": "AAECAw"
+    },
+    {
+      "args": [
+        "PM2,5 — jemné částice"
+      ],
+      "out": "UE0yLDUg4oCUIGplbW7DqSDEjcOhc3RpY2U"
+    },
+    {
+      "args": [
+        "subjects?_d=1"
+      ],
+      "out": "c3ViamVjdHM_X2Q9MQ"
+    },
+    {
+      "args": [
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      ],
+      "out": "YWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYQ"
+    }
+  ]
+}

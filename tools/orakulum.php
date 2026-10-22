@@ -56,9 +56,9 @@ const CILE = [
         'setText' => ['App\\Obsah\\Stav', 'nastavText'],
         'getText' => ['App\\Obsah\\Stav', 'text'],
         'mergeTexts' => ['App\\Obsah\\Stav', 'spojTexty'],
-        'upsertRealizace' => ['App\\Obsah\\Stav', 'ulozRealizaci'],
-        'removeRealizace' => ['App\\Obsah\\Stav', 'smazRealizaci'],
-        'mergeRealizace' => ['App\\Obsah\\Stav', 'spojRealizace'],
+        'upsertRealizace' => ['App\\Obsah\\StavRealizace', 'ulozRealizaci'],
+        'removeRealizace' => ['App\\Obsah\\StavRealizace', 'smazRealizaci'],
+        'mergeRealizace' => ['App\\Obsah\\StavRealizace', 'spojRealizace'],
         'importJson' => ['App\\Obsah\\Stav', 'zJson'],
     ],
     'grafika' => [

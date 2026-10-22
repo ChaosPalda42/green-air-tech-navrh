@@ -121,7 +121,7 @@ def main() -> int:
     stav, telo, _ = host.posli("PUT", "/api/stav", telo=novy, hlavicky={"X-CSRF": token})
     kontrola("zápis stavu s CSRF projde", stav == 200, f"HTTP {stav}")
 
-    stav, telo, _ = Klient().posli("GET", "/sluzby.html")
+    stav, telo, _ = Klient().posli("GET", "/domacnosti.html")
     kontrola("změna je vidět na veřejné stránce", stav == 200 and "Co děláme (zkouška)".encode() in telo, f"HTTP {stav}")
 
     # fotka: malý skutečný jpeg vyrobený v PHP leží v nasazeni/zkouska.jpg
