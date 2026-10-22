@@ -137,12 +137,12 @@
     },
     "C-016": {
       "status": "escalated",
-      "attempts": 1,
-      "iterations": 20,
+      "attempts": 2,
+      "iterations": 37,
       "commit": "",
       "last_finding": "acceptance failed (1 failed); [SUSPECT_ACCEPTANCE] tests/test_php_stav.py: suspect: acceptance — dva různé modely skončily na téže množině padajících uzlů (1): tests/test_php_stav.py::test_php_se_chova_jako_ukazka. Nehnuté dno napříč rodinami modelů bývá nesplnitelná akceptace, ne chyba implementace",
-      "packet": "P-004",
-      "updated_at": "2026-10-22T14:37:53+00:00"
+      "packet": "P-006",
+      "updated_at": "2026-10-22T15:48:40+00:00"
     },
     "C-017": {
       "status": "pending",
@@ -200,12 +200,30 @@
     },
     "C-023": {
       "status": "escalated",
-      "attempts": 1,
-      "iterations": 16,
+      "attempts": 2,
+      "iterations": 37,
       "commit": "",
       "last_finding": "acceptance failed (1 failed); [SUSPECT_ACCEPTANCE] tests/test_php_razeni_cs.py: suspect: acceptance — dva různé modely skončily na téže množině padajících uzlů (1): tests/test_php_razeni_cs.py::test_php_se_chova_jako_ukazka. Nehnuté dno napříč rodinami modelů bývá nesplnitelná akceptace, ne chyba im",
-      "packet": "P-003",
-      "updated_at": "2026-10-22T14:12:19+00:00"
+      "packet": "P-005",
+      "updated_at": "2026-10-22T15:30:38+00:00"
+    },
+    "C-024": {
+      "status": "green",
+      "attempts": 1,
+      "iterations": 4,
+      "commit": "6a6dd64",
+      "last_finding": "",
+      "packet": "",
+      "updated_at": "2026-10-22T15:50:38+00:00"
+    },
+    "C-025": {
+      "status": "pending",
+      "attempts": 0,
+      "iterations": 0,
+      "commit": "",
+      "last_finding": "",
+      "packet": "",
+      "updated_at": ""
     }
   },
   "runs": [
@@ -298,7 +316,20 @@
       "red": 0,
       "escalated": 2,
       "note": "2 packet(s) waiting"
+    },
+    {
+      "started_at": "2026-10-22T15:04:07+00:00",
+      "finished_at": "2026-10-22T15:50:38+00:00",
+      "outcome": "needs-operator",
+      "iterations": 42,
+      "green": 18,
+      "red": 0,
+      "escalated": 2,
+      "note": "2 packet(s) waiting"
     }
   ],
-  "open_packets": []
+  "open_packets": [
+    "P-005",
+    "P-006"
+  ]
 }
