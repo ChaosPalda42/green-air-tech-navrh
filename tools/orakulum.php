@@ -61,6 +61,10 @@ const CILE = [
         'mergeRealizace' => ['App\\Obsah\\StavRealizace', 'spojRealizace'],
         'importJson' => ['App\\Obsah\\Stav', 'zJson'],
     ],
+    'ga4' => [
+        'dny' => ['App\\Statistiky\\Ga4Prevod', 'dny'],
+        'rozpad' => ['App\\Statistiky\\Ga4Prevod', 'rozpad'],
+    ],
     'grafika' => [
         'ikona' => ['App\\Sablony\\Ikony', 'ikona'],
         'motivRealizace' => ['App\\Sablony\\Grafika', 'motivRealizace'],

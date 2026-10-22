@@ -14,7 +14,7 @@ stavba="$(mktemp -d)"
 cil="$stavba/greenairtech"
 trap 'rm -rf "$stavba"' EXIT
 
-mkdir -p "$cil/web/public" "$cil/web/config" "$cil/tools"
+mkdir -p "$cil/web/public" "$cil/web/config" "$cil/web/cache" "$cil/tools"
 
 # --- aplikace -------------------------------------------------------------
 cp -R web/app "$cil/web/app"
@@ -24,6 +24,8 @@ cp web/public/index.php web/public/.htaccess "$cil/web/public/"
 mkdir -p "$cil/web/public/media"
 printf '%s\n' "Nahrané fotky z administrace. Musí být zapisovatelná pro www-data." \
   > "$cil/web/public/media/README.txt"
+printf '%s\n' "Krátká mezipaměť statistik z Google Analytics. Musí být zapisovatelná pro www-data." \
+  > "$cil/web/cache/README.txt"
 
 # --- nastavení: jen vzor, nikdy vlastní config.php ------------------------
 cp web/config/config.vzor.php "$cil/web/config/"

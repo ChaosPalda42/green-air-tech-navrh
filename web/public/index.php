@@ -66,6 +66,22 @@ if (str_starts_with($cesta, 'api/')) {
     }
 
     Sezeni::zacni();
+
+    /* Statistiky na nástěnku: jen když je v nastavení vlastnost GA4 i klíč
+       servisního účtu. Bez nich dostane Router null a nástěnka zůstane prázdná
+       — vymyšlená čísla se na ostrém webu nekreslí. */
+    $statistiky = null;
+    $vlastnost = (string) Config::dej('analytics.property', '');
+    $klicGa4 = (string) Config::dej('analytics.klic', '');
+    if ($vlastnost !== '' && $klicGa4 !== '' && is_file($klicGa4) && class_exists(App\Statistiky\Ga4Prevod::class)) {
+        $statistiky = new App\Statistiky\Ga4(
+            $vlastnost,
+            $klicGa4,
+            $koren . '/cache',
+            Spojeni::pripraveno() ? Spojeni::dej() : null
+        );
+    }
+
     $vysledek = Router::obsluz([
         'metoda' => $metoda,
         'cesta' => $cil,
@@ -76,7 +92,7 @@ if (str_starts_with($cesta, 'api/')) {
         'soubor' => isset($_FILES['fotka']) && is_uploaded_file((string) $_FILES['fotka']['tmp_name'])
             ? ['tmp_name' => (string) $_FILES['fotka']['tmp_name'], 'name' => (string) $_FILES['fotka']['name']]
             : null,
-    ], $uloziste, null, new Zpracovani(__DIR__ . '/media', 'media'));
+    ], $uloziste, $statistiky, new Zpracovani(__DIR__ . '/media', 'media'));
 
     $odpoved((int) $vysledek['stav'], (array) $vysledek['telo']);
     return;

@@ -1,0 +1,2244 @@
+{
+ "dny": [
+  {
+   "args": [
+    {
+     "dimensionHeaders": [
+      {
+       "name": "date"
+      }
+     ],
+     "metricHeaders": [
+      {
+       "name": "sessions",
+       "type": "TYPE_INTEGER"
+      },
+      {
+       "name": "totalUsers",
+       "type": "TYPE_INTEGER"
+      },
+      {
+       "name": "screenPageViews",
+       "type": "TYPE_INTEGER"
+      },
+      {
+       "name": "averageSessionDuration",
+       "type": "TYPE_INTEGER"
+      },
+      {
+       "name": "bounceRate",
+       "type": "TYPE_INTEGER"
+      }
+     ],
+     "rows": [
+      {
+       "dimensionValues": [
+        {
+         "value": "20261016"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "412"
+        },
+        {
+         "value": "301"
+        },
+        {
+         "value": "1180"
+        },
+        {
+         "value": "182.4211"
+        },
+        {
+         "value": "0.4231"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "20261017"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "398"
+        },
+        {
+         "value": "290"
+        },
+        {
+         "value": "1102"
+        },
+        {
+         "value": "175.5"
+        },
+        {
+         "value": "0.4402"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "20261018"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "201"
+        },
+        {
+         "value": "150"
+        },
+        {
+         "value": "540"
+        },
+        {
+         "value": "160.25"
+        },
+        {
+         "value": "0.51"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "20261019"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "188"
+        },
+        {
+         "value": "141"
+        },
+        {
+         "value": "497"
+        },
+        {
+         "value": "151.75"
+        },
+        {
+         "value": "0.5299"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "20261020"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "430"
+        },
+        {
+         "value": "318"
+        },
+        {
+         "value": "1240"
+        },
+        {
+         "value": "190.0"
+        },
+        {
+         "value": "0.4005"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "20261021"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "445"
+        },
+        {
+         "value": "330"
+        },
+        {
+         "value": "1301"
+        },
+        {
+         "value": "188.125"
+        },
+        {
+         "value": "0.3999"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "20261022"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "460"
+        },
+        {
+         "value": "341"
+        },
+        {
+         "value": "1355"
+        },
+        {
+         "value": "193.6667"
+        },
+        {
+         "value": "0.3875"
+        }
+       ]
+      }
+     ],
+     "rowCount": 7,
+     "kind": "analyticsData#runReport"
+    },
+    7,
+    "2026-10-22",
+    {}
+   ],
+   "out": [
+    {
+     "datum": "2026-10-16",
+     "navstevy": 412,
+     "uzivatele": 301,
+     "zobrazeni": 1180,
+     "poptavky": 0,
+     "cas": 182.4,
+     "opusteni": 42.31
+    },
+    {
+     "datum": "2026-10-17",
+     "navstevy": 398,
+     "uzivatele": 290,
+     "zobrazeni": 1102,
+     "poptavky": 0,
+     "cas": 175.5,
+     "opusteni": 44.02
+    },
+    {
+     "datum": "2026-10-18",
+     "navstevy": 201,
+     "uzivatele": 150,
+     "zobrazeni": 540,
+     "poptavky": 0,
+     "cas": 160.3,
+     "opusteni": 51.0
+    },
+    {
+     "datum": "2026-10-19",
+     "navstevy": 188,
+     "uzivatele": 141,
+     "zobrazeni": 497,
+     "poptavky": 0,
+     "cas": 151.8,
+     "opusteni": 52.99
+    },
+    {
+     "datum": "2026-10-20",
+     "navstevy": 430,
+     "uzivatele": 318,
+     "zobrazeni": 1240,
+     "poptavky": 0,
+     "cas": 190.0,
+     "opusteni": 40.05
+    },
+    {
+     "datum": "2026-10-21",
+     "navstevy": 445,
+     "uzivatele": 330,
+     "zobrazeni": 1301,
+     "poptavky": 0,
+     "cas": 188.1,
+     "opusteni": 39.99
+    },
+    {
+     "datum": "2026-10-22",
+     "navstevy": 460,
+     "uzivatele": 341,
+     "zobrazeni": 1355,
+     "poptavky": 0,
+     "cas": 193.7,
+     "opusteni": 38.75
+    }
+   ]
+  },
+  {
+   "args": [
+    {
+     "dimensionHeaders": [
+      {
+       "name": "date"
+      }
+     ],
+     "metricHeaders": [
+      {
+       "name": "sessions",
+       "type": "TYPE_INTEGER"
+      },
+      {
+       "name": "totalUsers",
+       "type": "TYPE_INTEGER"
+      },
+      {
+       "name": "screenPageViews",
+       "type": "TYPE_INTEGER"
+      },
+      {
+       "name": "averageSessionDuration",
+       "type": "TYPE_INTEGER"
+      },
+      {
+       "name": "bounceRate",
+       "type": "TYPE_INTEGER"
+      }
+     ],
+     "rows": [
+      {
+       "dimensionValues": [
+        {
+         "value": "20261016"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "412"
+        },
+        {
+         "value": "301"
+        },
+        {
+         "value": "1180"
+        },
+        {
+         "value": "182.4211"
+        },
+        {
+         "value": "0.4231"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "20261017"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "398"
+        },
+        {
+         "value": "290"
+        },
+        {
+         "value": "1102"
+        },
+        {
+         "value": "175.5"
+        },
+        {
+         "value": "0.4402"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "20261018"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "201"
+        },
+        {
+         "value": "150"
+        },
+        {
+         "value": "540"
+        },
+        {
+         "value": "160.25"
+        },
+        {
+         "value": "0.51"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "20261019"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "188"
+        },
+        {
+         "value": "141"
+        },
+        {
+         "value": "497"
+        },
+        {
+         "value": "151.75"
+        },
+        {
+         "value": "0.5299"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "20261020"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "430"
+        },
+        {
+         "value": "318"
+        },
+        {
+         "value": "1240"
+        },
+        {
+         "value": "190.0"
+        },
+        {
+         "value": "0.4005"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "20261021"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "445"
+        },
+        {
+         "value": "330"
+        },
+        {
+         "value": "1301"
+        },
+        {
+         "value": "188.125"
+        },
+        {
+         "value": "0.3999"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "20261022"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "460"
+        },
+        {
+         "value": "341"
+        },
+        {
+         "value": "1355"
+        },
+        {
+         "value": "193.6667"
+        },
+        {
+         "value": "0.3875"
+        }
+       ]
+      }
+     ],
+     "rowCount": 7,
+     "kind": "analyticsData#runReport"
+    },
+    7,
+    "2026-10-22",
+    {
+     "2026-10-20": 3,
+     "2026-10-22": 1
+    }
+   ],
+   "out": [
+    {
+     "datum": "2026-10-16",
+     "navstevy": 412,
+     "uzivatele": 301,
+     "zobrazeni": 1180,
+     "poptavky": 0,
+     "cas": 182.4,
+     "opusteni": 42.31
+    },
+    {
+     "datum": "2026-10-17",
+     "navstevy": 398,
+     "uzivatele": 290,
+     "zobrazeni": 1102,
+     "poptavky": 0,
+     "cas": 175.5,
+     "opusteni": 44.02
+    },
+    {
+     "datum": "2026-10-18",
+     "navstevy": 201,
+     "uzivatele": 150,
+     "zobrazeni": 540,
+     "poptavky": 0,
+     "cas": 160.3,
+     "opusteni": 51.0
+    },
+    {
+     "datum": "2026-10-19",
+     "navstevy": 188,
+     "uzivatele": 141,
+     "zobrazeni": 497,
+     "poptavky": 0,
+     "cas": 151.8,
+     "opusteni": 52.99
+    },
+    {
+     "datum": "2026-10-20",
+     "navstevy": 430,
+     "uzivatele": 318,
+     "zobrazeni": 1240,
+     "poptavky": 3,
+     "cas": 190.0,
+     "opusteni": 40.05
+    },
+    {
+     "datum": "2026-10-21",
+     "navstevy": 445,
+     "uzivatele": 330,
+     "zobrazeni": 1301,
+     "poptavky": 0,
+     "cas": 188.1,
+     "opusteni": 39.99
+    },
+    {
+     "datum": "2026-10-22",
+     "navstevy": 460,
+     "uzivatele": 341,
+     "zobrazeni": 1355,
+     "poptavky": 1,
+     "cas": 193.7,
+     "opusteni": 38.75
+    }
+   ]
+  },
+  {
+   "args": [
+    {
+     "dimensionHeaders": [
+      {
+       "name": "date"
+      }
+     ],
+     "metricHeaders": [
+      {
+       "name": "sessions",
+       "type": "TYPE_INTEGER"
+      },
+      {
+       "name": "totalUsers",
+       "type": "TYPE_INTEGER"
+      },
+      {
+       "name": "screenPageViews",
+       "type": "TYPE_INTEGER"
+      },
+      {
+       "name": "averageSessionDuration",
+       "type": "TYPE_INTEGER"
+      },
+      {
+       "name": "bounceRate",
+       "type": "TYPE_INTEGER"
+      }
+     ],
+     "rows": [
+      {
+       "dimensionValues": [
+        {
+         "value": "20261018"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "201"
+        },
+        {
+         "value": "150"
+        },
+        {
+         "value": "540"
+        },
+        {
+         "value": "160.25"
+        },
+        {
+         "value": "0.51"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "20261021"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "445"
+        },
+        {
+         "value": "330"
+        },
+        {
+         "value": "1301"
+        },
+        {
+         "value": "188.125"
+        },
+        {
+         "value": "0.3999"
+        }
+       ]
+      }
+     ],
+     "rowCount": 2,
+     "kind": "analyticsData#runReport"
+    },
+    7,
+    "2026-10-22",
+    {}
+   ],
+   "out": [
+    {
+     "datum": "2026-10-16",
+     "navstevy": 0,
+     "uzivatele": 0,
+     "zobrazeni": 0,
+     "poptavky": 0,
+     "cas": 0.0,
+     "opusteni": 0.0
+    },
+    {
+     "datum": "2026-10-17",
+     "navstevy": 0,
+     "uzivatele": 0,
+     "zobrazeni": 0,
+     "poptavky": 0,
+     "cas": 0.0,
+     "opusteni": 0.0
+    },
+    {
+     "datum": "2026-10-18",
+     "navstevy": 201,
+     "uzivatele": 150,
+     "zobrazeni": 540,
+     "poptavky": 0,
+     "cas": 160.3,
+     "opusteni": 51.0
+    },
+    {
+     "datum": "2026-10-19",
+     "navstevy": 0,
+     "uzivatele": 0,
+     "zobrazeni": 0,
+     "poptavky": 0,
+     "cas": 0.0,
+     "opusteni": 0.0
+    },
+    {
+     "datum": "2026-10-20",
+     "navstevy": 0,
+     "uzivatele": 0,
+     "zobrazeni": 0,
+     "poptavky": 0,
+     "cas": 0.0,
+     "opusteni": 0.0
+    },
+    {
+     "datum": "2026-10-21",
+     "navstevy": 445,
+     "uzivatele": 330,
+     "zobrazeni": 1301,
+     "poptavky": 0,
+     "cas": 188.1,
+     "opusteni": 39.99
+    },
+    {
+     "datum": "2026-10-22",
+     "navstevy": 0,
+     "uzivatele": 0,
+     "zobrazeni": 0,
+     "poptavky": 0,
+     "cas": 0.0,
+     "opusteni": 0.0
+    }
+   ]
+  },
+  {
+   "args": [
+    {
+     "dimensionHeaders": [
+      {
+       "name": "date"
+      }
+     ],
+     "metricHeaders": [
+      {
+       "name": "sessions"
+      },
+      {
+       "name": "totalUsers"
+      },
+      {
+       "name": "screenPageViews"
+      },
+      {
+       "name": "averageSessionDuration"
+      },
+      {
+       "name": "bounceRate"
+      }
+     ],
+     "rowCount": 0
+    },
+    3,
+    "2026-10-22",
+    {}
+   ],
+   "out": [
+    {
+     "datum": "2026-10-20",
+     "navstevy": 0,
+     "uzivatele": 0,
+     "zobrazeni": 0,
+     "poptavky": 0,
+     "cas": 0.0,
+     "opusteni": 0.0
+    },
+    {
+     "datum": "2026-10-21",
+     "navstevy": 0,
+     "uzivatele": 0,
+     "zobrazeni": 0,
+     "poptavky": 0,
+     "cas": 0.0,
+     "opusteni": 0.0
+    },
+    {
+     "datum": "2026-10-22",
+     "navstevy": 0,
+     "uzivatele": 0,
+     "zobrazeni": 0,
+     "poptavky": 0,
+     "cas": 0.0,
+     "opusteni": 0.0
+    }
+   ]
+  },
+  {
+   "args": [
+    {
+     "dimensionHeaders": [
+      {
+       "name": "date"
+      }
+     ],
+     "metricHeaders": [
+      {
+       "name": "bounceRate"
+      },
+      {
+       "name": "sessions"
+      },
+      {
+       "name": "totalUsers"
+      }
+     ],
+     "rows": [
+      {
+       "dimensionValues": [
+        {
+         "value": "20261022"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "0.625"
+        },
+        {
+         "value": "80"
+        },
+        {
+         "value": "64"
+        }
+       ]
+      }
+     ],
+     "rowCount": 1
+    },
+    1,
+    "2026-10-22",
+    {}
+   ],
+   "out": [
+    {
+     "datum": "2026-10-22",
+     "navstevy": 80,
+     "uzivatele": 64,
+     "zobrazeni": 0,
+     "poptavky": 0,
+     "cas": 0.0,
+     "opusteni": 62.5
+    }
+   ]
+  },
+  {
+   "args": [
+    {
+     "dimensionHeaders": [
+      {
+       "name": "date"
+      }
+     ],
+     "metricHeaders": [
+      {
+       "name": "sessions",
+       "type": "TYPE_INTEGER"
+      },
+      {
+       "name": "totalUsers",
+       "type": "TYPE_INTEGER"
+      },
+      {
+       "name": "screenPageViews",
+       "type": "TYPE_INTEGER"
+      },
+      {
+       "name": "averageSessionDuration",
+       "type": "TYPE_INTEGER"
+      },
+      {
+       "name": "bounceRate",
+       "type": "TYPE_INTEGER"
+      }
+     ],
+     "rows": [
+      {
+       "dimensionValues": [
+        {
+         "value": "2026-10-22"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "10"
+        },
+        {
+         "value": "10"
+        },
+        {
+         "value": "10"
+        },
+        {
+         "value": "1"
+        },
+        {
+         "value": "0.5"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "20261022"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "7"
+        },
+        {
+         "value": "5"
+        },
+        {
+         "value": "20"
+        },
+        {
+         "value": "120.5"
+        },
+        {
+         "value": "0.4"
+        }
+       ]
+      }
+     ],
+     "rowCount": 2,
+     "kind": "analyticsData#runReport"
+    },
+    1,
+    "2026-10-22",
+    {}
+   ],
+   "out": [
+    {
+     "datum": "2026-10-22",
+     "navstevy": 7,
+     "uzivatele": 5,
+     "zobrazeni": 20,
+     "poptavky": 0,
+     "cas": 120.5,
+     "opusteni": 40.0
+    }
+   ]
+  },
+  {
+   "args": [
+    {
+     "dimensionHeaders": [
+      {
+       "name": "date"
+      }
+     ],
+     "metricHeaders": [
+      {
+       "name": "sessions",
+       "type": "TYPE_INTEGER"
+      },
+      {
+       "name": "totalUsers",
+       "type": "TYPE_INTEGER"
+      },
+      {
+       "name": "screenPageViews",
+       "type": "TYPE_INTEGER"
+      },
+      {
+       "name": "averageSessionDuration",
+       "type": "TYPE_INTEGER"
+      },
+      {
+       "name": "bounceRate",
+       "type": "TYPE_INTEGER"
+      }
+     ],
+     "rows": [
+      {
+       "dimensionValues": [
+        {
+         "value": "20261016"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "412"
+        },
+        {
+         "value": "301"
+        },
+        {
+         "value": "1180"
+        },
+        {
+         "value": "182.4211"
+        },
+        {
+         "value": "0.4231"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "20261017"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "398"
+        },
+        {
+         "value": "290"
+        },
+        {
+         "value": "1102"
+        },
+        {
+         "value": "175.5"
+        },
+        {
+         "value": "0.4402"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "20261018"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "201"
+        },
+        {
+         "value": "150"
+        },
+        {
+         "value": "540"
+        },
+        {
+         "value": "160.25"
+        },
+        {
+         "value": "0.51"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "20261019"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "188"
+        },
+        {
+         "value": "141"
+        },
+        {
+         "value": "497"
+        },
+        {
+         "value": "151.75"
+        },
+        {
+         "value": "0.5299"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "20261020"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "430"
+        },
+        {
+         "value": "318"
+        },
+        {
+         "value": "1240"
+        },
+        {
+         "value": "190.0"
+        },
+        {
+         "value": "0.4005"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "20261021"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "445"
+        },
+        {
+         "value": "330"
+        },
+        {
+         "value": "1301"
+        },
+        {
+         "value": "188.125"
+        },
+        {
+         "value": "0.3999"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "20261022"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "460"
+        },
+        {
+         "value": "341"
+        },
+        {
+         "value": "1355"
+        },
+        {
+         "value": "193.6667"
+        },
+        {
+         "value": "0.3875"
+        }
+       ]
+      }
+     ],
+     "rowCount": 7,
+     "kind": "analyticsData#runReport"
+    },
+    10,
+    "2026-10-22",
+    {
+     "2026-10-15": 2
+    }
+   ],
+   "out": [
+    {
+     "datum": "2026-10-13",
+     "navstevy": 0,
+     "uzivatele": 0,
+     "zobrazeni": 0,
+     "poptavky": 0,
+     "cas": 0.0,
+     "opusteni": 0.0
+    },
+    {
+     "datum": "2026-10-14",
+     "navstevy": 0,
+     "uzivatele": 0,
+     "zobrazeni": 0,
+     "poptavky": 0,
+     "cas": 0.0,
+     "opusteni": 0.0
+    },
+    {
+     "datum": "2026-10-15",
+     "navstevy": 0,
+     "uzivatele": 0,
+     "zobrazeni": 0,
+     "poptavky": 2,
+     "cas": 0.0,
+     "opusteni": 0.0
+    },
+    {
+     "datum": "2026-10-16",
+     "navstevy": 412,
+     "uzivatele": 301,
+     "zobrazeni": 1180,
+     "poptavky": 0,
+     "cas": 182.4,
+     "opusteni": 42.31
+    },
+    {
+     "datum": "2026-10-17",
+     "navstevy": 398,
+     "uzivatele": 290,
+     "zobrazeni": 1102,
+     "poptavky": 0,
+     "cas": 175.5,
+     "opusteni": 44.02
+    },
+    {
+     "datum": "2026-10-18",
+     "navstevy": 201,
+     "uzivatele": 150,
+     "zobrazeni": 540,
+     "poptavky": 0,
+     "cas": 160.3,
+     "opusteni": 51.0
+    },
+    {
+     "datum": "2026-10-19",
+     "navstevy": 188,
+     "uzivatele": 141,
+     "zobrazeni": 497,
+     "poptavky": 0,
+     "cas": 151.8,
+     "opusteni": 52.99
+    },
+    {
+     "datum": "2026-10-20",
+     "navstevy": 430,
+     "uzivatele": 318,
+     "zobrazeni": 1240,
+     "poptavky": 0,
+     "cas": 190.0,
+     "opusteni": 40.05
+    },
+    {
+     "datum": "2026-10-21",
+     "navstevy": 445,
+     "uzivatele": 330,
+     "zobrazeni": 1301,
+     "poptavky": 0,
+     "cas": 188.1,
+     "opusteni": 39.99
+    },
+    {
+     "datum": "2026-10-22",
+     "navstevy": 460,
+     "uzivatele": 341,
+     "zobrazeni": 1355,
+     "poptavky": 0,
+     "cas": 193.7,
+     "opusteni": 38.75
+    }
+   ]
+  },
+  {
+   "args": [
+    {
+     "dimensionHeaders": [
+      {
+       "name": "date"
+      }
+     ],
+     "metricHeaders": [
+      {
+       "name": "sessions",
+       "type": "TYPE_INTEGER"
+      },
+      {
+       "name": "totalUsers",
+       "type": "TYPE_INTEGER"
+      },
+      {
+       "name": "screenPageViews",
+       "type": "TYPE_INTEGER"
+      },
+      {
+       "name": "averageSessionDuration",
+       "type": "TYPE_INTEGER"
+      },
+      {
+       "name": "bounceRate",
+       "type": "TYPE_INTEGER"
+      }
+     ],
+     "rows": [
+      {
+       "dimensionValues": [
+        {
+         "value": "20261016"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "412"
+        },
+        {
+         "value": "301"
+        },
+        {
+         "value": "1180"
+        },
+        {
+         "value": "182.4211"
+        },
+        {
+         "value": "0.4231"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "20261017"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "398"
+        },
+        {
+         "value": "290"
+        },
+        {
+         "value": "1102"
+        },
+        {
+         "value": "175.5"
+        },
+        {
+         "value": "0.4402"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "20261018"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "201"
+        },
+        {
+         "value": "150"
+        },
+        {
+         "value": "540"
+        },
+        {
+         "value": "160.25"
+        },
+        {
+         "value": "0.51"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "20261019"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "188"
+        },
+        {
+         "value": "141"
+        },
+        {
+         "value": "497"
+        },
+        {
+         "value": "151.75"
+        },
+        {
+         "value": "0.5299"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "20261020"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "430"
+        },
+        {
+         "value": "318"
+        },
+        {
+         "value": "1240"
+        },
+        {
+         "value": "190.0"
+        },
+        {
+         "value": "0.4005"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "20261021"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "445"
+        },
+        {
+         "value": "330"
+        },
+        {
+         "value": "1301"
+        },
+        {
+         "value": "188.125"
+        },
+        {
+         "value": "0.3999"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "20261022"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "460"
+        },
+        {
+         "value": "341"
+        },
+        {
+         "value": "1355"
+        },
+        {
+         "value": "193.6667"
+        },
+        {
+         "value": "0.3875"
+        }
+       ]
+      }
+     ],
+     "rowCount": 7,
+     "kind": "analyticsData#runReport"
+    },
+    2,
+    "2026-10-31",
+    {}
+   ],
+   "out": [
+    {
+     "datum": "2026-10-30",
+     "navstevy": 0,
+     "uzivatele": 0,
+     "zobrazeni": 0,
+     "poptavky": 0,
+     "cas": 0.0,
+     "opusteni": 0.0
+    },
+    {
+     "datum": "2026-10-31",
+     "navstevy": 0,
+     "uzivatele": 0,
+     "zobrazeni": 0,
+     "poptavky": 0,
+     "cas": 0.0,
+     "opusteni": 0.0
+    }
+   ]
+  }
+ ],
+ "rozpad": [
+  {
+   "args": [
+    {
+     "dimensionHeaders": [
+      {
+       "name": "x"
+      }
+     ],
+     "metricHeaders": [
+      {
+       "name": "sessions",
+       "type": "TYPE_INTEGER"
+      }
+     ],
+     "rows": [
+      {
+       "dimensionValues": [
+        {
+         "value": "Organic Search"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "1204"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "Direct"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "612"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "Referral"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "241"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "Organic Social"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "133"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "Unassigned"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "44"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "Email"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "12"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "Paid Search"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "3"
+        }
+       ]
+      }
+     ],
+     "rowCount": 7
+    },
+    {
+     "Organic Search": "Vyhledávání Google",
+     "Direct": "Přímý přístup",
+     "Organic Social": "Sociální sítě",
+     "Referral": "Ostatní odkazy",
+     "Unassigned": "Nezařazeno"
+    },
+    6
+   ],
+   "out": [
+    {
+     "nazev": "Vyhledávání Google",
+     "podil": 54
+    },
+    {
+     "nazev": "Přímý přístup",
+     "podil": 27
+    },
+    {
+     "nazev": "Ostatní odkazy",
+     "podil": 11
+    },
+    {
+     "nazev": "Sociální sítě",
+     "podil": 6
+    },
+    {
+     "nazev": "Nezařazeno",
+     "podil": 2
+    }
+   ]
+  },
+  {
+   "args": [
+    {
+     "dimensionHeaders": [
+      {
+       "name": "x"
+      }
+     ],
+     "metricHeaders": [
+      {
+       "name": "sessions",
+       "type": "TYPE_INTEGER"
+      }
+     ],
+     "rows": [
+      {
+       "dimensionValues": [
+        {
+         "value": "mobile"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "1402"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "desktop"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "731"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "tablet"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "118"
+        }
+       ]
+      }
+     ],
+     "rowCount": 3
+    },
+    {
+     "mobile": "Mobil",
+     "desktop": "Počítač",
+     "tablet": "Tablet"
+    },
+    3
+   ],
+   "out": [
+    {
+     "nazev": "Mobil",
+     "podil": 62
+    },
+    {
+     "nazev": "Počítač",
+     "podil": 33
+    },
+    {
+     "nazev": "Tablet",
+     "podil": 5
+    }
+   ]
+  },
+  {
+   "args": [
+    {
+     "dimensionHeaders": [
+      {
+       "name": "x"
+      }
+     ],
+     "metricHeaders": [
+      {
+       "name": "sessions",
+       "type": "TYPE_INTEGER"
+      }
+     ],
+     "rows": [
+      {
+       "dimensionValues": [
+        {
+         "value": "/"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "820"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "/index.html"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "180"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "/domacnosti.html"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "420"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "/firmy.html"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "260"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "/kontakt.html"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "95"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "/en/contact.html"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "40"
+        }
+       ]
+      }
+     ],
+     "rowCount": 6
+    },
+    {
+     "/": "Úvodní rozcestník",
+     "/index.html": "Úvodní rozcestník",
+     "/domacnosti.html": "Domácnosti",
+     "/firmy.html": "Firemní zákazníci",
+     "/kontakt.html": "Kontakt"
+    },
+    5
+   ],
+   "out": [
+    {
+     "nazev": "Úvodní rozcestník",
+     "podil": 55
+    },
+    {
+     "nazev": "Domácnosti",
+     "podil": 23
+    },
+    {
+     "nazev": "Firemní zákazníci",
+     "podil": 15
+    },
+    {
+     "nazev": "Kontakt",
+     "podil": 5
+    },
+    {
+     "nazev": "/en/contact.html",
+     "podil": 2
+    }
+   ]
+  },
+  {
+   "args": [
+    {
+     "dimensionHeaders": [
+      {
+       "name": "x"
+      }
+     ],
+     "metricHeaders": [
+      {
+       "name": "sessions",
+       "type": "TYPE_INTEGER"
+      }
+     ],
+     "rows": [
+      {
+       "dimensionValues": [
+        {
+         "value": "Direct"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "7"
+        }
+       ]
+      }
+     ],
+     "rowCount": 1
+    },
+    {
+     "Organic Search": "Vyhledávání Google",
+     "Direct": "Přímý přístup",
+     "Organic Social": "Sociální sítě",
+     "Referral": "Ostatní odkazy",
+     "Unassigned": "Nezařazeno"
+    },
+    6
+   ],
+   "out": [
+    {
+     "nazev": "Přímý přístup",
+     "podil": 100
+    }
+   ]
+  },
+  {
+   "args": [
+    {
+     "dimensionHeaders": [
+      {
+       "name": "x"
+      }
+     ],
+     "metricHeaders": [
+      {
+       "name": "sessions",
+       "type": "TYPE_INTEGER"
+      }
+     ],
+     "rows": [],
+     "rowCount": 0
+    },
+    {
+     "Organic Search": "Vyhledávání Google",
+     "Direct": "Přímý přístup",
+     "Organic Social": "Sociální sítě",
+     "Referral": "Ostatní odkazy",
+     "Unassigned": "Nezařazeno"
+    },
+    6
+   ],
+   "out": []
+  },
+  {
+   "args": [
+    {
+     "dimensionHeaders": [
+      {
+       "name": "x"
+      }
+     ],
+     "metricHeaders": [
+      {
+       "name": "sessions",
+       "type": "TYPE_INTEGER"
+      }
+     ],
+     "rows": [
+      {
+       "dimensionValues": [
+        {
+         "value": "a"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "0"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "b"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "0"
+        }
+       ]
+      }
+     ],
+     "rowCount": 2
+    },
+    {},
+    6
+   ],
+   "out": [
+    {
+     "nazev": "a",
+     "podil": 0
+    },
+    {
+     "nazev": "b",
+     "podil": 0
+    }
+   ]
+  },
+  {
+   "args": [
+    {
+     "dimensionHeaders": [
+      {
+       "name": "x"
+      }
+     ],
+     "metricHeaders": [
+      {
+       "name": "sessions",
+       "type": "TYPE_INTEGER"
+      }
+     ],
+     "rows": [
+      {
+       "dimensionValues": [
+        {
+         "value": "a"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "1"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "b"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "1"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "c"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "1"
+        }
+       ]
+      }
+     ],
+     "rowCount": 3
+    },
+    {},
+    3
+   ],
+   "out": [
+    {
+     "nazev": "a",
+     "podil": 34
+    },
+    {
+     "nazev": "b",
+     "podil": 33
+    },
+    {
+     "nazev": "c",
+     "podil": 33
+    }
+   ]
+  },
+  {
+   "args": [
+    {
+     "dimensionHeaders": [
+      {
+       "name": "x"
+      }
+     ],
+     "metricHeaders": [
+      {
+       "name": "sessions",
+       "type": "TYPE_INTEGER"
+      }
+     ],
+     "rows": [
+      {
+       "dimensionValues": [
+        {
+         "value": "a"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "1"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "b"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "1"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "c"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "1"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "d"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "1"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "e"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "1"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "f"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "1"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "g"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "1"
+        }
+       ]
+      }
+     ],
+     "rowCount": 7
+    },
+    {},
+    7
+   ],
+   "out": [
+    {
+     "nazev": "a",
+     "podil": 15
+    },
+    {
+     "nazev": "b",
+     "podil": 15
+    },
+    {
+     "nazev": "c",
+     "podil": 14
+    },
+    {
+     "nazev": "d",
+     "podil": 14
+    },
+    {
+     "nazev": "e",
+     "podil": 14
+    },
+    {
+     "nazev": "f",
+     "podil": 14
+    },
+    {
+     "nazev": "g",
+     "podil": 14
+    }
+   ]
+  },
+  {
+   "args": [
+    {
+     "dimensionHeaders": [
+      {
+       "name": "x"
+      }
+     ],
+     "metricHeaders": [
+      {
+       "name": "sessions",
+       "type": "TYPE_INTEGER"
+      }
+     ],
+     "rows": [
+      {
+       "dimensionValues": [
+        {
+         "value": "a"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "5"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "b"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "5"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "c"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "1"
+        }
+       ]
+      }
+     ],
+     "rowCount": 3
+    },
+    {},
+    2
+   ],
+   "out": [
+    {
+     "nazev": "a",
+     "podil": 50
+    },
+    {
+     "nazev": "b",
+     "podil": 50
+    }
+   ]
+  },
+  {
+   "args": [
+    {
+     "dimensionHeaders": [
+      {
+       "name": "x"
+      }
+     ],
+     "metricHeaders": [
+      {
+       "name": "sessions",
+       "type": "TYPE_INTEGER"
+      }
+     ],
+     "rows": [
+      {
+       "dimensionValues": [
+        {
+         "value": "mobile"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "10"
+        }
+       ]
+      },
+      {
+       "dimensionValues": [
+        {
+         "value": "desktop"
+        }
+       ],
+       "metricValues": [
+        {
+         "value": "10"
+        }
+       ]
+      }
+     ],
+     "rowCount": 2
+    },
+    {
+     "mobile": "Mobil",
+     "desktop": "Počítač",
+     "tablet": "Tablet"
+    },
+    0
+   ],
+   "out": []
+  }
+ ]
+}

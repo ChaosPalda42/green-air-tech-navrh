@@ -621,7 +621,10 @@
         vykresliNastenku();
       })
       .catch(function () {
-        zeServeru = null;
+        // Na ostrém webu se čísla nedotáhla. Prázdná nástěnka je poctivější než
+        // vygenerovaná — a kdyby tu zůstalo null, vykresliNastenku by si o data
+        // řekla znovu a pořád dokola.
+        zeServeru = { dny: [], rozpady: {} };
         vykresliNastenku();
       });
   }
@@ -630,7 +633,7 @@
     if (!window.GAT || !GAT.statistiky) return;
     var S = GAT.statistiky;
     if (SERVER && zeServeru === null) { nactiStatistiky(); return; }
-    var vsechna = SERVER && zeServeru
+    var vsechna = SERVER
       ? zeServeru.dny
       : S.vygenerujData("green-air-tech", obdobi * 2);
     var ted = S.filtrujObdobi(vsechna, obdobi);
@@ -680,8 +683,8 @@
     Object.keys(slovnikUI.rozpady || {}).forEach(function (klic) {
       var cil = $('[data-rozpad="' + klic + '"]');
       if (!cil) return;
-      var radky = SERVER && zeServeru && zeServeru.rozpady[klic]
-        ? zeServeru.rozpady[klic]
+      var radky = SERVER
+        ? zeServeru.rozpady[klic] || []
         : S.rozdeleni("gat-" + klic + "-" + obdobi, slovnikUI.rozpady[klic]);
       cil.innerHTML = radky
         .map(function (r) {

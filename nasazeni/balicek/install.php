@@ -28,6 +28,7 @@ $kontroly[] = ['rozšíření pdo_mysql', extension_loaded('pdo_mysql'), 'apt in
 $kontroly[] = ['rozšíření gd (zmenšování fotek)', extension_loaded('gd'), 'apt install php8.5-gd'];
 $kontroly[] = ['složka config je zapisovatelná', is_dir($koren . '/config') && is_writable($koren . '/config'), 'chown www-data ' . $koren . '/config'];
 $kontroly[] = ['složka media je zapisovatelná', is_dir(__DIR__ . '/media') ? is_writable(__DIR__ . '/media') : is_writable(__DIR__), 'chown -R www-data:www-data ' . __DIR__ . '/media'];
+$kontroly[] = ['složka cache je zapisovatelná (statistiky)', is_dir($koren . '/cache') ? is_writable($koren . '/cache') : is_writable($koren), 'chown -R www-data:www-data ' . $koren . '/cache'];
 $kontroly[] = ['přepisy adres (mod_rewrite)', !function_exists('apache_get_modules') || in_array('mod_rewrite', apache_get_modules(), true), 'a2enmod rewrite'];
 $prostrediOk = array_reduce($kontroly, static fn (bool $n, array $k): bool => $n && $k[1], true);
 

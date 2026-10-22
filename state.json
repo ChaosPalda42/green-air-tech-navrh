@@ -328,8 +328,5 @@
       "note": "2 packet(s) waiting"
     }
   ],
-  "open_packets": [
-    "P-005",
-    "P-006"
-  ]
+  "open_packets": []
 }
