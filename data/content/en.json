@@ -1279,6 +1279,7 @@
       "jmeno": "Username",
       "heslo": "Password",
       "vstoupit": "Enter",
+      "chyba": "Sign-in failed. Check your name and password.",
       "poznamka": "Demo: login does not verify credentials."
     },
     "zalozky": {

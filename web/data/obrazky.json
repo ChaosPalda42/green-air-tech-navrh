@@ -1,0 +1,278 @@
+{
+ "foto-audit": {
+  "name": "foto-audit",
+  "zdroj": "foto-audit.jpg",
+  "zaloha": "jpg",
+  "pomer": 1.5,
+  "varianty": [
+   {
+    "w": 480,
+    "h": 320,
+    "webp": "foto-audit-480.webp",
+    "zaloha": "foto-audit-480.jpg"
+   },
+   {
+    "w": 612,
+    "h": 408,
+    "webp": "foto-audit-612.webp",
+    "zaloha": "foto-audit-612.jpg"
+   }
+  ]
+ },
+ "foto-cerpadla": {
+  "name": "foto-cerpadla",
+  "zdroj": "foto-cerpadla.jpg",
+  "zaloha": "jpg",
+  "pomer": 1.40045766590389,
+  "varianty": [
+   {
+    "w": 480,
+    "h": 343,
+    "webp": "foto-cerpadla-480.webp",
+    "zaloha": "foto-cerpadla-480.jpg"
+   },
+   {
+    "w": 612,
+    "h": 437,
+    "webp": "foto-cerpadla-612.webp",
+    "zaloha": "foto-cerpadla-612.jpg"
+   }
+  ]
+ },
+ "foto-filtry": {
+  "name": "foto-filtry",
+  "zdroj": "foto-filtry.jpg",
+  "zaloha": "jpg",
+  "pomer": 1.3333333333333333,
+  "varianty": [
+   {
+    "w": 480,
+    "h": 360,
+    "webp": "foto-filtry-480.webp",
+    "zaloha": "foto-filtry-480.jpg"
+   },
+   {
+    "w": 960,
+    "h": 720,
+    "webp": "foto-filtry-960.webp",
+    "zaloha": "foto-filtry-960.jpg"
+   },
+   {
+    "w": 1000,
+    "h": 750,
+    "webp": "foto-filtry-1000.webp",
+    "zaloha": "foto-filtry-1000.jpg"
+   }
+  ]
+ },
+ "foto-projekce": {
+  "name": "foto-projekce",
+  "zdroj": "foto-projekce.jpg",
+  "zaloha": "jpg",
+  "pomer": 1.4977443609022556,
+  "varianty": [
+   {
+    "w": 480,
+    "h": 320,
+    "webp": "foto-projekce-480.webp",
+    "zaloha": "foto-projekce-480.jpg"
+   },
+   {
+    "w": 960,
+    "h": 641,
+    "webp": "foto-projekce-960.webp",
+    "zaloha": "foto-projekce-960.jpg"
+   },
+   {
+    "w": 996,
+    "h": 665,
+    "webp": "foto-projekce-996.webp",
+    "zaloha": "foto-projekce-996.jpg"
+   }
+  ]
+ },
+ "foto-servis": {
+  "name": "foto-servis",
+  "zdroj": "foto-servis.jpg",
+  "zaloha": "jpg",
+  "pomer": 1.5,
+  "varianty": [
+   {
+    "w": 480,
+    "h": 320,
+    "webp": "foto-servis-480.webp",
+    "zaloha": "foto-servis-480.jpg"
+   },
+   {
+    "w": 612,
+    "h": 408,
+    "webp": "foto-servis-612.webp",
+    "zaloha": "foto-servis-612.jpg"
+   }
+  ]
+ },
+ "foto-strojovna": {
+  "name": "foto-strojovna",
+  "zdroj": "foto-strojovna.jpg",
+  "zaloha": "jpg",
+  "pomer": 3.2,
+  "varianty": [
+   {
+    "w": 480,
+    "h": 150,
+    "webp": "foto-strojovna-480.webp",
+    "zaloha": "foto-strojovna-480.jpg"
+   },
+   {
+    "w": 960,
+    "h": 300,
+    "webp": "foto-strojovna-960.webp",
+    "zaloha": "foto-strojovna-960.jpg"
+   },
+   {
+    "w": 1440,
+    "h": 450,
+    "webp": "foto-strojovna-1440.webp",
+    "zaloha": "foto-strojovna-1440.jpg"
+   },
+   {
+    "w": 1920,
+    "h": 600,
+    "webp": "foto-strojovna-1920.webp",
+    "zaloha": "foto-strojovna-1920.jpg"
+   }
+  ]
+ },
+ "logo": {
+  "name": "logo",
+  "zdroj": "logo.png",
+  "zaloha": "png",
+  "pomer": 2.2099447513812156,
+  "varianty": [
+   {
+    "w": 400,
+    "h": 181,
+    "webp": "logo-400.webp",
+    "zaloha": "logo-400.png"
+   }
+  ]
+ },
+ "odznak-spolehliva-firma": {
+  "name": "odznak-spolehliva-firma",
+  "zdroj": "odznak-spolehliva-firma.png",
+  "zaloha": "png",
+  "pomer": 1,
+  "varianty": [
+   {
+    "w": 480,
+    "h": 480,
+    "webp": "odznak-spolehliva-firma-480.webp",
+    "zaloha": "odznak-spolehliva-firma-480.png"
+   },
+   {
+    "w": 500,
+    "h": 500,
+    "webp": "odznak-spolehliva-firma-500.webp",
+    "zaloha": "odznak-spolehliva-firma-500.png"
+   }
+  ]
+ },
+ "portret-denisa-jandova": {
+  "name": "portret-denisa-jandova",
+  "zdroj": "portret-denisa-jandova.jpg",
+  "zaloha": "jpg",
+  "pomer": 1,
+  "varianty": [
+   {
+    "w": 240,
+    "h": 240,
+    "webp": "portret-denisa-jandova-240.webp",
+    "zaloha": "portret-denisa-jandova-240.jpg"
+   }
+  ]
+ },
+ "portret-jan-rezac": {
+  "name": "portret-jan-rezac",
+  "zdroj": "portret-jan-rezac.jpg",
+  "zaloha": "jpg",
+  "pomer": 1,
+  "varianty": [
+   {
+    "w": 240,
+    "h": 240,
+    "webp": "portret-jan-rezac-240.webp",
+    "zaloha": "portret-jan-rezac-240.jpg"
+   }
+  ]
+ },
+ "portret-jonas-benak": {
+  "name": "portret-jonas-benak",
+  "zdroj": "portret-jonas-benak.jpg",
+  "zaloha": "jpg",
+  "pomer": 1,
+  "varianty": [
+   {
+    "w": 240,
+    "h": 240,
+    "webp": "portret-jonas-benak-240.webp",
+    "zaloha": "portret-jonas-benak-240.jpg"
+   }
+  ]
+ },
+ "portret-martina-masindova": {
+  "name": "portret-martina-masindova",
+  "zdroj": "portret-martina-masindova.jpg",
+  "zaloha": "jpg",
+  "pomer": 1,
+  "varianty": [
+   {
+    "w": 240,
+    "h": 240,
+    "webp": "portret-martina-masindova-240.webp",
+    "zaloha": "portret-martina-masindova-240.jpg"
+   }
+  ]
+ },
+ "portret-pavel-janda": {
+  "name": "portret-pavel-janda",
+  "zdroj": "portret-pavel-janda.jpg",
+  "zaloha": "jpg",
+  "pomer": 1,
+  "varianty": [
+   {
+    "w": 240,
+    "h": 240,
+    "webp": "portret-pavel-janda-240.webp",
+    "zaloha": "portret-pavel-janda-240.jpg"
+   }
+  ]
+ },
+ "portret-radek-tyla": {
+  "name": "portret-radek-tyla",
+  "zdroj": "portret-radek-tyla.jpg",
+  "zaloha": "jpg",
+  "pomer": 1,
+  "varianty": [
+   {
+    "w": 240,
+    "h": 240,
+    "webp": "portret-radek-tyla-240.webp",
+    "zaloha": "portret-radek-tyla-240.jpg"
+   }
+  ]
+ },
+ "portret-zdenek-bauska": {
+  "name": "portret-zdenek-bauska",
+  "zdroj": "portret-zdenek-bauska.jpg",
+  "zaloha": "jpg",
+  "pomer": 1,
+  "varianty": [
+   {
+    "w": 240,
+    "h": 240,
+    "webp": "portret-zdenek-bauska-240.webp",
+    "zaloha": "portret-zdenek-bauska-240.jpg"
+   }
+  ]
+ }
+}

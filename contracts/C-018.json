@@ -1,0 +1,18 @@
+{
+  "id": "C-018",
+  "file": "web/app/Auth/Uzivatele.php",
+  "role": "coder",
+  "title": "Uživatelé administrace: role, oprávnění, hesla a pozvánky",
+  "interface": "namespace App\\Auth; final class Uzivatele\n\npublic const OBLASTI = ['texty', 'realizace', 'novinky', 'uzivatele', 'statistiky'];\npublic const ROLE = ['spravce' => [...oblasti...], 'editor' => [...], 'autor' => [...]];\n\npublic static function smi(string $role, string $oblast): bool\npublic static function hash(string $heslo): string\npublic static function overHeslo(array $uzivatel, string $heslo): bool\npublic static function zkontrolujHeslo(string $heslo): ?string\n   null = v pořádku, jinak krátký důvod ('kratke')\npublic static function zkontroluj(array $uzivatel): array\n   seznam jmen vadných polí: 'jmeno', 'email', 'role'; prázdné pole = v pořádku\npublic static function pozvanka(): array   // ['token' => 64 hex, 'do' => 'YYYY-MM-DD HH:MM:SS']\npublic static function pozvankaPlati(array $pozvanka): bool",
+  "uses": {
+    "App\\Formular\\Validace": "isEmail(string $email): bool"
+  },
+  "acceptance": "tests/test_php_uzivatele.py",
+  "notes": "Čisté PHP 8.5, žádné composer závislosti, žádná rozšíření nad rámec jádra. Soubor začíná `<?php`, pak `declare(strict_types=1);`, pak `namespace …;`. Jen statické metody, žádný stav, žádný echo, žádná databáze — ukládání dělá jiná vrstva.\n\nMatice práv je daná tím, co ukázka slibuje klientovi (data/content/cs.json → admin.uzivatele.prava_*):\n- spravce: „Všechno včetně uživatelů a statistik“ → všech pět oblastí\n- editor: „Texty, realizace a novinky“ → texty, realizace, novinky\n- autor: „Jen novinky a články“ → novinky\nNeznámá role ani neznámá oblast nesmí projít.\n\nHesla: `hash` používá password_hash s PASSWORD_DEFAULT (sůl se generuje sama, dvakrát totéž heslo musí dát jiný hash). `overHeslo` bere pole uživatele ['heslo_hash' => …, 'aktivni' => …]: prázdné heslo, chybějící hash i nepravdivé 'aktivni' znamenají false (klíč 'aktivni', když chybí, se bere jako pravda). `zkontrolujHeslo` hlídá JEN délku po otrimování (aspoň 10 znaků) — žádné nucené číslice a velká písmena, to lidi vede k horším heslům; delší heslo se nikdy neodmítá.\n\nPozvánka: token je 32 náhodných bajtů z random_bytes v hexu (64 znaků malými písmeny), 'do' je datum a čas za sedm dní v tvaru 'Y-m-d H:i:s'. `pozvankaPlati` vrací true jen tehdy, když je token správného tvaru a 'do' je v budoucnosti.",
+  "budget": {
+    "iterations": 15
+  },
+  "depends_on": [
+    "C-015"
+  ]
+}

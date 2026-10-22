@@ -1,0 +1,33 @@
+# Green Air Tech — pravidla pro Apache (Debian 13, mod_rewrite + mod_headers)
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # existující soubor (CSS, obrázky, fonty) obslouží Apache sám
+  RewriteCond %{REQUEST_FILENAME} -f
+  RewriteRule ^ - [L]
+
+  # všechno ostatní jde do PHP
+  RewriteRule ^ index.php [L]
+</IfModule>
+
+# vlastní stránka 404 i pro případ, že by se PHP nespustilo
+ErrorDocument 404 /index.php
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # aktiva mají v adrese ?v=hash, můžou se cachovat natrvalo
+  <FilesMatch "\.(css|js|woff2|png|jpe?g|webp|avif|svg)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>
+
+# nahrané fotky se nikdy nesmí spustit jako skript
+<IfModule mod_rewrite.c>
+  RewriteRule ^media/.*\.(php|phtml|phar|html?)$ - [F,L]
+</IfModule>
+
+Options -Indexes

@@ -1,0 +1,25 @@
+{
+  "id": "C-020",
+  "file": "web/app/Api/Router.php",
+  "role": "coder",
+  "title": "API administrace: jediná cesta, kterou se změny z prohlížeče dostanou do webu",
+  "interface": "namespace App\\Api; final class Router\n\npublic static function obsluz(array $pozadavek, Uloziste $uloziste, ?\\App\\Statistiky\\Poskytovatel $statistiky = null, ?\\App\\Fotky\\Ulozny $fotky = null): array\n\nPožadavek (všechny klíče vždy přijdou):\n  'metoda'   => 'GET'|'POST'|'PUT'|'DELETE'\n  'cesta'    => 'stav'|'uzivatele'|'statistiky'|'fotka' (bez /api/)\n  'telo'     => string, JSON od prohlížeče (může být prázdný)\n  'dotaz'    => array, parametry z adresy (vždy řetězce)\n  'uzivatel' => ?array ['jmeno' => string, 'role' => string], null = nepřihlášený\n  'csrf_ok'  => bool, ověřil už vstupní bod webu\n  'soubor'   => ?array ['tmp_name' => string, 'name' => string]\n\nOdpověď: ['stav' => int (HTTP), 'telo' => array]. Nic se netiskne, nenastavují se hlavičky — to dělá vstupní bod.",
+  "uses": {
+    "App\\Api\\Uloziste": "stav(): array, ulozStav(array $stav, string $kdo): void, uzivatele(): array, ulozUzivatele(array $u): array, smazUzivatele(int $id): void, uzivatelPodleJmena(string $jmeno): ?array",
+    "App\\Api\\Zmeny": "smiZmenit(string $role, array $stary, array $novy): bool",
+    "App\\Auth\\Uzivatele": "smi(string $role, string $oblast): bool, zkontroluj(array $uzivatel): array, pozvanka(): array",
+    "App\\Obsah\\Stav": "zJson(array $stav, string $json): array",
+    "App\\Statistiky\\Poskytovatel": "prehled(int $dni): array",
+    "App\\Fotky\\Ulozny": "uloz(string $docasnySoubor, string $puvodniJmeno): array"
+  },
+  "acceptance": "tests/test_php_api.py",
+  "notes": "Čisté PHP 8.5, žádné composer závislosti. Soubor začíná `<?php`, pak `declare(strict_types=1);`, pak `namespace …;`. Jen statické metody, žádný echo, žádné header(), žádné sahání na $_GET/$_POST/$_SESSION — všechno přijde v $pozadavek. Žádná výjimka nesmí uniknout.\n\nPořadí kontrol (na tom brána stojí):\n1. neznámá nebo prázdná cesta → 404 ['chyba' => 'neznamy-cil']\n2. nepřihlášený → 401 ['chyba' => 'neprihlaseno']\n3. měnící metoda (POST, PUT, DELETE) bez 'csrf_ok' → 403 ['chyba' => 'csrf']\n4. metoda, kterou ten cíl nezná → 405 ['chyba' => 'spatna-metoda']\n5. chybějící práva → 403 ['chyba' => 'nesmis']\n6. vadná data → 400 s příslušným klíčem\n7. jinak se teprve sahá na úložiště\n\nCíle:\n- GET stav → 200 ['stav' => uloziste->stav()]\n- PUT stav: tělo projde Stav::zJson. Když to není platný stav (nerozluštitelný JSON, prázdné tělo, pole, číslo) → 400 ['chyba' => 'nesmyslny-stav']. Práva se ptají Zmeny::smiZmenit(role, uloziste->stav(), novy) → 403 ['chyba' => 'nesmis']. Pak ulozStav(novy, jmeno uzivatele) a 200 ['stav' => novy].\n- GET uzivatele (právo 'uzivatele') → 200 ['uzivatele' => …]\n- POST uzivatele (právo 'uzivatele'): tělo je JSON s jmeno/email/role. Uzivatele::zkontroluj; když něco vrátí → 400 ['chyba' => 'vadna-data', 'pole' => ten seznam]. Jinak se přidá pozvánka (Uzivatele::pozvanka(), klíče 'pozvanka_token' a 'pozvanka_do'), 'aktivni' => 1, uloží se a vrátí 200 ['uzivatel' => uložený]. Heslo se přes API NIKDY neposílá ani nevrací.\n- DELETE uzivatele: id z 'dotaz'; chybí nebo není číslo → 400 ['chyba' => 'chybi-id']. Když je to tentýž člověk, co je přihlášený (uzivatelPodleJmena podle jména přihlášeného má stejné id) → 409 ['chyba' => 'nelze-sam-sebe']. Jinak smazUzivatele a 200 ['ok' => true].\n- GET statistiky (právo 'statistiky'): 'dni' z dotazu, výchozí 30, povolené jen 7, 30 a 90 → jinak 400 ['chyba' => 'spatne-dni']. Když $statistiky je null → 503 ['chyba' => 'statistiky-nejsou']. Jinak 200 s klíči 'dny' a 'rozpady' přímo z prehled().\n- POST fotka (právo 'realizace'): bez 'soubor' → 400 ['chyba' => 'chybi-soubor']; $fotky null → 503 ['chyba' => 'fotky-nejsou']; když uloz() vyhodí výjimku → 400 ['chyba' => 'fotka-nesla']; jinak 200 ['fotka' => …].\n\nOdmítnutý požadavek nesmí na úložiště vůbec sáhnout — ani se zeptat poskytovatele statistik.",
+  "budget": {
+    "iterations": 20
+  },
+  "depends_on": [
+    "C-016",
+    "C-018",
+    "C-019"
+  ]
+}

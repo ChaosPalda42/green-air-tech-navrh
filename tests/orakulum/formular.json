@@ -1,0 +1,336 @@
+{
+ "isEmail": [
+  {
+   "args": [
+    "a@b.cz"
+   ],
+   "out": true
+  },
+  {
+   "args": [
+    "jan.novak@green-air.cz"
+   ],
+   "out": true
+  },
+  {
+   "args": [
+    "bez-zavinace"
+   ],
+   "out": false
+  },
+  {
+   "args": [
+    "a@b"
+   ],
+   "out": false
+  },
+  {
+   "args": [
+    "a@@b.cz"
+   ],
+   "out": false
+  },
+  {
+   "args": [
+    " a@b.cz "
+   ],
+   "out": false
+  },
+  {
+   "args": [
+    ""
+   ],
+   "out": false
+  },
+  {
+   "args": [
+    null
+   ],
+   "out": false
+  },
+  {
+   "args": [
+    "a@b.c"
+   ],
+   "out": false
+  },
+  {
+   "args": [
+    "velmi.dlouhy+tag@sub.domena.co.uk"
+   ],
+   "out": true
+  }
+ ],
+ "normalizePhone": [
+  {
+   "args": [
+    "+420 601 123 456"
+   ],
+   "out": "+420601123456"
+  },
+  {
+   "args": [
+    "601123456"
+   ],
+   "out": "+420601123456"
+  },
+  {
+   "args": [
+    "00420601123456"
+   ],
+   "out": "+420601123456"
+  },
+  {
+   "args": [
+    "601-123-456"
+   ],
+   "out": "+420601123456"
+  },
+  {
+   "args": [
+    ""
+   ],
+   "out": ""
+  },
+  {
+   "args": [
+    null
+   ],
+   "out": ""
+  },
+  {
+   "args": [
+    "abc"
+   ],
+   "out": "abc"
+  },
+  {
+   "args": [
+    " 601 123 456 "
+   ],
+   "out": "+420601123456"
+  }
+ ],
+ "isPhoneCz": [
+  {
+   "args": [
+    "+420 601 123 456"
+   ],
+   "out": true
+  },
+  {
+   "args": [
+    "601123456"
+   ],
+   "out": true
+  },
+  {
+   "args": [
+    "123"
+   ],
+   "out": false
+  },
+  {
+   "args": [
+    ""
+   ],
+   "out": false
+  },
+  {
+   "args": [
+    null
+   ],
+   "out": false
+  },
+  {
+   "args": [
+    "00420601123456"
+   ],
+   "out": true
+  },
+  {
+   "args": [
+    "+421601123456"
+   ],
+   "out": false
+  }
+ ],
+ "validateContact": [
+  {
+   "args": [
+    {
+     "jmeno": "Jan",
+     "email": "a@b.cz",
+     "zprava": "Dobrý den, mám dotaz."
+    },
+    {
+     "required": "Tohle pole prosím vyplňte.",
+     "email": "Zkontrolujte prosím tvar e‑mailu.",
+     "telefon": "Zkontrolujte prosím telefonní číslo.",
+     "zprava-kratka": "Napište prosím alespoň větu, ať víme, o co jde.",
+     "souhlas": "Bez souhlasu bohužel nemůžeme poptávku zpracovat.",
+     "kontakt": "Nechte nám prosím telefon nebo e‑mail, ať se máme kam ozvat.",
+     "typ": "Vyberte prosím, co řešíte."
+    }
+   ],
+   "out": {
+    "ok": false,
+    "errors": {
+     "typ": "required",
+     "souhlas": "souhlas"
+    },
+    "messages": {
+     "typ": "Vyberte prosím, co řešíte.",
+     "souhlas": "Bez souhlasu bohužel nemůžeme poptávku zpracovat."
+    }
+   }
+  },
+  {
+   "args": [
+    {},
+    {
+     "required": "Tohle pole prosím vyplňte.",
+     "email": "Zkontrolujte prosím tvar e‑mailu.",
+     "telefon": "Zkontrolujte prosím telefonní číslo.",
+     "zprava-kratka": "Napište prosím alespoň větu, ať víme, o co jde.",
+     "souhlas": "Bez souhlasu bohužel nemůžeme poptávku zpracovat.",
+     "kontakt": "Nechte nám prosím telefon nebo e‑mail, ať se máme kam ozvat.",
+     "typ": "Vyberte prosím, co řešíte."
+    }
+   ],
+   "out": {
+    "ok": false,
+    "errors": {
+     "typ": "required",
+     "jmeno": "required",
+     "kontakt": "kontakt",
+     "souhlas": "souhlas"
+    },
+    "messages": {
+     "typ": "Vyberte prosím, co řešíte.",
+     "jmeno": "Tohle pole prosím vyplňte.",
+     "kontakt": "Nechte nám prosím telefon nebo e‑mail, ať se máme kam ozvat.",
+     "souhlas": "Bez souhlasu bohužel nemůžeme poptávku zpracovat."
+    }
+   }
+  },
+  {
+   "args": [
+    {
+     "jmeno": " ",
+     "email": "spatny",
+     "zprava": ""
+    },
+    {
+     "required": "Tohle pole prosím vyplňte.",
+     "email": "Zkontrolujte prosím tvar e‑mailu.",
+     "telefon": "Zkontrolujte prosím telefonní číslo.",
+     "zprava-kratka": "Napište prosím alespoň větu, ať víme, o co jde.",
+     "souhlas": "Bez souhlasu bohužel nemůžeme poptávku zpracovat.",
+     "kontakt": "Nechte nám prosím telefon nebo e‑mail, ať se máme kam ozvat.",
+     "typ": "Vyberte prosím, co řešíte."
+    }
+   ],
+   "out": {
+    "ok": false,
+    "errors": {
+     "typ": "required",
+     "jmeno": "required",
+     "email": "email",
+     "souhlas": "souhlas"
+    },
+    "messages": {
+     "typ": "Vyberte prosím, co řešíte.",
+     "jmeno": "Tohle pole prosím vyplňte.",
+     "email": "Zkontrolujte prosím tvar e‑mailu.",
+     "souhlas": "Bez souhlasu bohužel nemůžeme poptávku zpracovat."
+    }
+   }
+  },
+  {
+   "args": [
+    {
+     "jmeno": "Jan",
+     "email": "a@b.cz",
+     "zprava": "krátká",
+     "telefon": "123"
+    },
+    {
+     "required": "Tohle pole prosím vyplňte.",
+     "email": "Zkontrolujte prosím tvar e‑mailu.",
+     "telefon": "Zkontrolujte prosím telefonní číslo.",
+     "zprava-kratka": "Napište prosím alespoň větu, ať víme, o co jde.",
+     "souhlas": "Bez souhlasu bohužel nemůžeme poptávku zpracovat.",
+     "kontakt": "Nechte nám prosím telefon nebo e‑mail, ať se máme kam ozvat.",
+     "typ": "Vyberte prosím, co řešíte."
+    }
+   ],
+   "out": {
+    "ok": false,
+    "errors": {
+     "typ": "required",
+     "telefon": "telefon",
+     "zprava": "zprava-kratka",
+     "souhlas": "souhlas"
+    },
+    "messages": {
+     "typ": "Vyberte prosím, co řešíte.",
+     "telefon": "Zkontrolujte prosím telefonní číslo.",
+     "zprava": "Napište prosím alespoň větu, ať víme, o co jde.",
+     "souhlas": "Bez souhlasu bohužel nemůžeme poptávku zpracovat."
+    }
+   }
+  },
+  {
+   "args": [
+    {
+     "jmeno": "Jan",
+     "email": "a@b.cz",
+     "zprava": "Dobrý den, mám dotaz.",
+     "telefon": "+420 601 123 456"
+    },
+    {
+     "required": "Tohle pole prosím vyplňte.",
+     "email": "Zkontrolujte prosím tvar e‑mailu.",
+     "telefon": "Zkontrolujte prosím telefonní číslo.",
+     "zprava-kratka": "Napište prosím alespoň větu, ať víme, o co jde.",
+     "souhlas": "Bez souhlasu bohužel nemůžeme poptávku zpracovat.",
+     "kontakt": "Nechte nám prosím telefon nebo e‑mail, ať se máme kam ozvat.",
+     "typ": "Vyberte prosím, co řešíte."
+    }
+   ],
+   "out": {
+    "ok": false,
+    "errors": {
+     "typ": "required",
+     "souhlas": "souhlas"
+    },
+    "messages": {
+     "typ": "Vyberte prosím, co řešíte.",
+     "souhlas": "Bez souhlasu bohužel nemůžeme poptávku zpracovat."
+    }
+   }
+  },
+  {
+   "args": [
+    {
+     "jmeno": "Jan",
+     "email": "a@b.cz",
+     "zprava": "Dobrý den, mám dotaz."
+    },
+    {}
+   ],
+   "out": {
+    "ok": false,
+    "errors": {
+     "typ": "required",
+     "souhlas": "souhlas"
+    },
+    "messages": {
+     "typ": "required",
+     "souhlas": "souhlas"
+    }
+   }
+  }
+ ]
+}

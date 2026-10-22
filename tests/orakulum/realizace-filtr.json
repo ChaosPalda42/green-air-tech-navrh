@@ -1,0 +1,5530 @@
+{
+ "normalizeText": [
+  {
+   "args": [
+    "Příšerně žluťoučký kůň"
+   ],
+   "out": "priserne zlutoucky kun"
+  },
+  {
+   "args": [
+    "  MEZERY  "
+   ],
+   "out": "  mezery  "
+  },
+  {
+   "args": [
+    ""
+   ],
+   "out": ""
+  },
+  {
+   "args": [
+    null
+   ],
+   "out": "null"
+  },
+  {
+   "args": [
+    123
+   ],
+   "out": "123"
+  },
+  {
+   "args": [
+    "ČESKÁ ULICE 5"
+   ],
+   "out": "ceska ulice 5"
+  }
+ ],
+ "filterItems": [
+  {
+   "args": [
+    [
+     {
+      "id": "logisticke-centrum-d1",
+      "datum": "2026-07-15",
+      "kategorie": [
+       "energetika",
+       "vytapeni"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "18 400 m²",
+      "doba": "9 měsíců",
+      "motiv": 1,
+      "vetev": "firmy",
+      "nazev": "Refit vytápění logistického centra u D1",
+      "misto": "Středočeský kraj",
+      "perex": "Energetický audit ukázal, že se vyplatí zachovat rozvody a vyměnit jen zdroje a regulaci. Spotřeba plynu klesla o třetinu."
+     },
+     {
+      "id": "administrativni-budova-karlin",
+      "datum": "2026-05-20",
+      "kategorie": [
+       "vzt",
+       "chlazeni"
+      ],
+      "kraj": "Praha",
+      "plocha": "6 200 m²",
+      "doba": "7 měsíců",
+      "motiv": 2,
+      "vetev": "firmy",
+      "nazev": "Vzduchotechnika a chlazení administrativní budovy v Karlíně",
+      "misto": "Praha 8",
+      "perex": "Výměna dvou VZT jednotek a rekonstrukce rozvodů chladu v šestipodlažní budově — za plného provozu nájemců."
+     },
+     {
+      "id": "poliklinika-pisek",
+      "datum": "2026-02-10",
+      "kategorie": [
+       "chlazeni",
+       "vzt"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "3 100 m²",
+      "doba": "5 měsíců",
+      "motiv": 3,
+      "vetev": "firmy",
+      "nazev": "Klimatizace a větrání polikliniky v Písku",
+      "misto": "Písek",
+      "perex": "Ordinace, čekárny a laboratoř. Všude jiné požadavky na čistotu vzduchu i hlučnost — a nikde nesmělo být slyšet."
+     },
+     {
+      "id": "vyrobni-hala-milevsko",
+      "datum": "2025-09-08",
+      "kategorie": [
+       "vzt",
+       "chlazeni"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "9 800 m²",
+      "doba": "6 měsíců",
+      "motiv": 4,
+      "vetev": "firmy",
+      "nazev": "Chlazení a větrání výrobní haly v Milevsku",
+      "misto": "Milevsko",
+      "perex": "Lisovna, kde v létě teplota u strojů přesahovala 38 °C. Řešení muselo zvládnout teplo z technologie i odsávání."
+     },
+     {
+      "id": "depozitar-galerie-tabor",
+      "datum": "2025-06-12",
+      "kategorie": [
+       "vzt",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "1 450 m²",
+      "doba": "4 měsíce",
+      "motiv": 5,
+      "vetev": "firmy",
+      "nazev": "Klima depozitáře galerie v Táboře",
+      "misto": "Tábor",
+      "perex": "Sbírkové předměty nepotřebují chlad, ale stabilitu. Vlhkost tu musí držet v úzkém pásmu po celý rok."
+     },
+     {
+      "id": "obchodni-centrum-budejovice",
+      "datum": "2025-03-18",
+      "kategorie": [
+       "vzt",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "24 000 m²",
+      "doba": "3 měsíce",
+      "motiv": 6,
+      "vetev": "firmy",
+      "nazev": "EAC filtry v obchodním centru v Českých Budějovicích",
+      "misto": "České Budějovice",
+      "perex": "Výměna klasických filtrů za elektronické čističe vzduchu ve vzduchotechnických jednotkách. Nižší tlaková ztráta, méně odpadu."
+     },
+     {
+      "id": "zakladni-skola-pribram",
+      "datum": "2024-11-05",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "vzt"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "4 600 m²",
+      "doba": "8 měsíců",
+      "motiv": 7,
+      "vetev": "firmy",
+      "nazev": "Tepelná čerpadla a rekuperace základní školy v Příbrami",
+      "misto": "Příbram",
+      "perex": "Škola vyměnila plynovou kotelnu za tepelná čerpadla a získala řízené větrání tříd. Dotaci jsme vyřídili za zřizovatele."
+     },
+     {
+      "id": "hotel-na-sumave",
+      "datum": "2024-06-24",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "chlazeni"
+      ],
+      "kraj": "Plzeňský kraj",
+      "plocha": "2 700 m²",
+      "doba": "5 měsíců",
+      "motiv": 8,
+      "vetev": "firmy",
+      "nazev": "Tepelná čerpadla a klimatizace hotelu na Šumavě",
+      "misto": "Plzeňský kraj",
+      "perex": "Horský hotel, kde se topí osm měsíců v roce a v létě je potřeba chladit pokoje pod střechou. Vše muselo být slyšet co nejméně."
+     },
+     {
+      "id": "d-bungalov-klimatizace",
+      "datum": "2026-07-03",
+      "kategorie": [
+       "chlazeni"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "140 m²",
+      "doba": "3 výjezdy",
+      "motiv": 3,
+      "vetev": "domacnosti",
+      "skutecna": true,
+      "nazev": "Klimatizace rodinného bungalovu bez jediné lišty",
+      "misto": "Jižní Čechy",
+      "perex": "Zákazník chtěl designové vnitřní jednotky a čistý interiér — bez viditelných lišt pro chladivové potrubí."
+     },
+     {
+      "id": "d-rodinny-dum-cerpadlo",
+      "datum": "2026-04-18",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "vytapeni"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "180 m²",
+      "doba": "6 týdnů",
+      "motiv": 6,
+      "vetev": "domacnosti",
+      "nazev": "Tepelné čerpadlo místo plynového kotle",
+      "misto": "Středočeský kraj",
+      "perex": "Starší dům s radiátory. Místo rychlé výměny zdroje jsme nejdřív spočítali ztráty a upravili soustavu — jinak by čerpadlo jelo draho."
+     },
+     {
+      "id": "d-byt-rekuperace",
+      "datum": "2025-11-12",
+      "kategorie": [
+       "vzt"
+      ],
+      "kraj": "Praha",
+      "plocha": "92 m²",
+      "doba": "2 týdny",
+      "motiv": 1,
+      "vetev": "domacnosti",
+      "nazev": "Rekuperace do bytu po rekonstrukci",
+      "misto": "Praha",
+      "perex": "Byt v cihlovém domě po kompletní rekonstrukci. Rozvody se musely vejít do podhledů, které už byly navržené."
+     },
+     {
+      "id": "d-vymena-kotle",
+      "datum": "2025-02-04",
+      "kategorie": [
+       "vytapeni",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "rodinný dům",
+      "doba": "2 dny",
+      "motiv": 4,
+      "vetev": "domacnosti",
+      "nazev": "Havarijní výměna kotle v topné sezóně",
+      "misto": "Jižní Čechy",
+      "perex": "Volání na dispečink v lednu: netopí. Starý kotel už nešlo opravit, nový jel za dva dny."
+     }
+    ],
+    {}
+   ],
+   "out": [
+    {
+     "id": "logisticke-centrum-d1",
+     "datum": "2026-07-15",
+     "kategorie": [
+      "energetika",
+      "vytapeni"
+     ],
+     "kraj": "Středočeský kraj",
+     "plocha": "18 400 m²",
+     "doba": "9 měsíců",
+     "motiv": 1,
+     "vetev": "firmy",
+     "nazev": "Refit vytápění logistického centra u D1",
+     "misto": "Středočeský kraj",
+     "perex": "Energetický audit ukázal, že se vyplatí zachovat rozvody a vyměnit jen zdroje a regulaci. Spotřeba plynu klesla o třetinu."
+    },
+    {
+     "id": "administrativni-budova-karlin",
+     "datum": "2026-05-20",
+     "kategorie": [
+      "vzt",
+      "chlazeni"
+     ],
+     "kraj": "Praha",
+     "plocha": "6 200 m²",
+     "doba": "7 měsíců",
+     "motiv": 2,
+     "vetev": "firmy",
+     "nazev": "Vzduchotechnika a chlazení administrativní budovy v Karlíně",
+     "misto": "Praha 8",
+     "perex": "Výměna dvou VZT jednotek a rekonstrukce rozvodů chladu v šestipodlažní budově — za plného provozu nájemců."
+    },
+    {
+     "id": "poliklinika-pisek",
+     "datum": "2026-02-10",
+     "kategorie": [
+      "chlazeni",
+      "vzt"
+     ],
+     "kraj": "Jihočeský kraj",
+     "plocha": "3 100 m²",
+     "doba": "5 měsíců",
+     "motiv": 3,
+     "vetev": "firmy",
+     "nazev": "Klimatizace a větrání polikliniky v Písku",
+     "misto": "Písek",
+     "perex": "Ordinace, čekárny a laboratoř. Všude jiné požadavky na čistotu vzduchu i hlučnost — a nikde nesmělo být slyšet."
+    },
+    {
+     "id": "vyrobni-hala-milevsko",
+     "datum": "2025-09-08",
+     "kategorie": [
+      "vzt",
+      "chlazeni"
+     ],
+     "kraj": "Jihočeský kraj",
+     "plocha": "9 800 m²",
+     "doba": "6 měsíců",
+     "motiv": 4,
+     "vetev": "firmy",
+     "nazev": "Chlazení a větrání výrobní haly v Milevsku",
+     "misto": "Milevsko",
+     "perex": "Lisovna, kde v létě teplota u strojů přesahovala 38 °C. Řešení muselo zvládnout teplo z technologie i odsávání."
+    },
+    {
+     "id": "depozitar-galerie-tabor",
+     "datum": "2025-06-12",
+     "kategorie": [
+      "vzt",
+      "servis"
+     ],
+     "kraj": "Jihočeský kraj",
+     "plocha": "1 450 m²",
+     "doba": "4 měsíce",
+     "motiv": 5,
+     "vetev": "firmy",
+     "nazev": "Klima depozitáře galerie v Táboře",
+     "misto": "Tábor",
+     "perex": "Sbírkové předměty nepotřebují chlad, ale stabilitu. Vlhkost tu musí držet v úzkém pásmu po celý rok."
+    },
+    {
+     "id": "obchodni-centrum-budejovice",
+     "datum": "2025-03-18",
+     "kategorie": [
+      "vzt",
+      "servis"
+     ],
+     "kraj": "Jihočeský kraj",
+     "plocha": "24 000 m²",
+     "doba": "3 měsíce",
+     "motiv": 6,
+     "vetev": "firmy",
+     "nazev": "EAC filtry v obchodním centru v Českých Budějovicích",
+     "misto": "České Budějovice",
+     "perex": "Výměna klasických filtrů za elektronické čističe vzduchu ve vzduchotechnických jednotkách. Nižší tlaková ztráta, méně odpadu."
+    },
+    {
+     "id": "zakladni-skola-pribram",
+     "datum": "2024-11-05",
+     "kategorie": [
+      "tepelna-cerpadla",
+      "vzt"
+     ],
+     "kraj": "Středočeský kraj",
+     "plocha": "4 600 m²",
+     "doba": "8 měsíců",
+     "motiv": 7,
+     "vetev": "firmy",
+     "nazev": "Tepelná čerpadla a rekuperace základní školy v Příbrami",
+     "misto": "Příbram",
+     "perex": "Škola vyměnila plynovou kotelnu za tepelná čerpadla a získala řízené větrání tříd. Dotaci jsme vyřídili za zřizovatele."
+    },
+    {
+     "id": "hotel-na-sumave",
+     "datum": "2024-06-24",
+     "kategorie": [
+      "tepelna-cerpadla",
+      "chlazeni"
+     ],
+     "kraj": "Plzeňský kraj",
+     "plocha": "2 700 m²",
+     "doba": "5 měsíců",
+     "motiv": 8,
+     "vetev": "firmy",
+     "nazev": "Tepelná čerpadla a klimatizace hotelu na Šumavě",
+     "misto": "Plzeňský kraj",
+     "perex": "Horský hotel, kde se topí osm měsíců v roce a v létě je potřeba chladit pokoje pod střechou. Vše muselo být slyšet co nejméně."
+    },
+    {
+     "id": "d-bungalov-klimatizace",
+     "datum": "2026-07-03",
+     "kategorie": [
+      "chlazeni"
+     ],
+     "kraj": "Jihočeský kraj",
+     "plocha": "140 m²",
+     "doba": "3 výjezdy",
+     "motiv": 3,
+     "vetev": "domacnosti",
+     "skutecna": true,
+     "nazev": "Klimatizace rodinného bungalovu bez jediné lišty",
+     "misto": "Jižní Čechy",
+     "perex": "Zákazník chtěl designové vnitřní jednotky a čistý interiér — bez viditelných lišt pro chladivové potrubí."
+    },
+    {
+     "id": "d-rodinny-dum-cerpadlo",
+     "datum": "2026-04-18",
+     "kategorie": [
+      "tepelna-cerpadla",
+      "vytapeni"
+     ],
+     "kraj": "Středočeský kraj",
+     "plocha": "180 m²",
+     "doba": "6 týdnů",
+     "motiv": 6,
+     "vetev": "domacnosti",
+     "nazev": "Tepelné čerpadlo místo plynového kotle",
+     "misto": "Středočeský kraj",
+     "perex": "Starší dům s radiátory. Místo rychlé výměny zdroje jsme nejdřív spočítali ztráty a upravili soustavu — jinak by čerpadlo jelo draho."
+    },
+    {
+     "id": "d-byt-rekuperace",
+     "datum": "2025-11-12",
+     "kategorie": [
+      "vzt"
+     ],
+     "kraj": "Praha",
+     "plocha": "92 m²",
+     "doba": "2 týdny",
+     "motiv": 1,
+     "vetev": "domacnosti",
+     "nazev": "Rekuperace do bytu po rekonstrukci",
+     "misto": "Praha",
+     "perex": "Byt v cihlovém domě po kompletní rekonstrukci. Rozvody se musely vejít do podhledů, které už byly navržené."
+    },
+    {
+     "id": "d-vymena-kotle",
+     "datum": "2025-02-04",
+     "kategorie": [
+      "vytapeni",
+      "servis"
+     ],
+     "kraj": "Jihočeský kraj",
+     "plocha": "rodinný dům",
+     "doba": "2 dny",
+     "motiv": 4,
+     "vetev": "domacnosti",
+     "nazev": "Havarijní výměna kotle v topné sezóně",
+     "misto": "Jižní Čechy",
+     "perex": "Volání na dispečink v lednu: netopí. Starý kotel už nešlo opravit, nový jel za dva dny."
+    }
+   ]
+  },
+  {
+   "args": [
+    [
+     {
+      "id": "logisticke-centrum-d1",
+      "datum": "2026-07-15",
+      "kategorie": [
+       "energetika",
+       "vytapeni"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "18 400 m²",
+      "doba": "9 měsíců",
+      "motiv": 1,
+      "vetev": "firmy",
+      "nazev": "Refit vytápění logistického centra u D1",
+      "misto": "Středočeský kraj",
+      "perex": "Energetický audit ukázal, že se vyplatí zachovat rozvody a vyměnit jen zdroje a regulaci. Spotřeba plynu klesla o třetinu."
+     },
+     {
+      "id": "administrativni-budova-karlin",
+      "datum": "2026-05-20",
+      "kategorie": [
+       "vzt",
+       "chlazeni"
+      ],
+      "kraj": "Praha",
+      "plocha": "6 200 m²",
+      "doba": "7 měsíců",
+      "motiv": 2,
+      "vetev": "firmy",
+      "nazev": "Vzduchotechnika a chlazení administrativní budovy v Karlíně",
+      "misto": "Praha 8",
+      "perex": "Výměna dvou VZT jednotek a rekonstrukce rozvodů chladu v šestipodlažní budově — za plného provozu nájemců."
+     },
+     {
+      "id": "poliklinika-pisek",
+      "datum": "2026-02-10",
+      "kategorie": [
+       "chlazeni",
+       "vzt"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "3 100 m²",
+      "doba": "5 měsíců",
+      "motiv": 3,
+      "vetev": "firmy",
+      "nazev": "Klimatizace a větrání polikliniky v Písku",
+      "misto": "Písek",
+      "perex": "Ordinace, čekárny a laboratoř. Všude jiné požadavky na čistotu vzduchu i hlučnost — a nikde nesmělo být slyšet."
+     },
+     {
+      "id": "vyrobni-hala-milevsko",
+      "datum": "2025-09-08",
+      "kategorie": [
+       "vzt",
+       "chlazeni"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "9 800 m²",
+      "doba": "6 měsíců",
+      "motiv": 4,
+      "vetev": "firmy",
+      "nazev": "Chlazení a větrání výrobní haly v Milevsku",
+      "misto": "Milevsko",
+      "perex": "Lisovna, kde v létě teplota u strojů přesahovala 38 °C. Řešení muselo zvládnout teplo z technologie i odsávání."
+     },
+     {
+      "id": "depozitar-galerie-tabor",
+      "datum": "2025-06-12",
+      "kategorie": [
+       "vzt",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "1 450 m²",
+      "doba": "4 měsíce",
+      "motiv": 5,
+      "vetev": "firmy",
+      "nazev": "Klima depozitáře galerie v Táboře",
+      "misto": "Tábor",
+      "perex": "Sbírkové předměty nepotřebují chlad, ale stabilitu. Vlhkost tu musí držet v úzkém pásmu po celý rok."
+     },
+     {
+      "id": "obchodni-centrum-budejovice",
+      "datum": "2025-03-18",
+      "kategorie": [
+       "vzt",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "24 000 m²",
+      "doba": "3 měsíce",
+      "motiv": 6,
+      "vetev": "firmy",
+      "nazev": "EAC filtry v obchodním centru v Českých Budějovicích",
+      "misto": "České Budějovice",
+      "perex": "Výměna klasických filtrů za elektronické čističe vzduchu ve vzduchotechnických jednotkách. Nižší tlaková ztráta, méně odpadu."
+     },
+     {
+      "id": "zakladni-skola-pribram",
+      "datum": "2024-11-05",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "vzt"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "4 600 m²",
+      "doba": "8 měsíců",
+      "motiv": 7,
+      "vetev": "firmy",
+      "nazev": "Tepelná čerpadla a rekuperace základní školy v Příbrami",
+      "misto": "Příbram",
+      "perex": "Škola vyměnila plynovou kotelnu za tepelná čerpadla a získala řízené větrání tříd. Dotaci jsme vyřídili za zřizovatele."
+     },
+     {
+      "id": "hotel-na-sumave",
+      "datum": "2024-06-24",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "chlazeni"
+      ],
+      "kraj": "Plzeňský kraj",
+      "plocha": "2 700 m²",
+      "doba": "5 měsíců",
+      "motiv": 8,
+      "vetev": "firmy",
+      "nazev": "Tepelná čerpadla a klimatizace hotelu na Šumavě",
+      "misto": "Plzeňský kraj",
+      "perex": "Horský hotel, kde se topí osm měsíců v roce a v létě je potřeba chladit pokoje pod střechou. Vše muselo být slyšet co nejméně."
+     },
+     {
+      "id": "d-bungalov-klimatizace",
+      "datum": "2026-07-03",
+      "kategorie": [
+       "chlazeni"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "140 m²",
+      "doba": "3 výjezdy",
+      "motiv": 3,
+      "vetev": "domacnosti",
+      "skutecna": true,
+      "nazev": "Klimatizace rodinného bungalovu bez jediné lišty",
+      "misto": "Jižní Čechy",
+      "perex": "Zákazník chtěl designové vnitřní jednotky a čistý interiér — bez viditelných lišt pro chladivové potrubí."
+     },
+     {
+      "id": "d-rodinny-dum-cerpadlo",
+      "datum": "2026-04-18",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "vytapeni"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "180 m²",
+      "doba": "6 týdnů",
+      "motiv": 6,
+      "vetev": "domacnosti",
+      "nazev": "Tepelné čerpadlo místo plynového kotle",
+      "misto": "Středočeský kraj",
+      "perex": "Starší dům s radiátory. Místo rychlé výměny zdroje jsme nejdřív spočítali ztráty a upravili soustavu — jinak by čerpadlo jelo draho."
+     },
+     {
+      "id": "d-byt-rekuperace",
+      "datum": "2025-11-12",
+      "kategorie": [
+       "vzt"
+      ],
+      "kraj": "Praha",
+      "plocha": "92 m²",
+      "doba": "2 týdny",
+      "motiv": 1,
+      "vetev": "domacnosti",
+      "nazev": "Rekuperace do bytu po rekonstrukci",
+      "misto": "Praha",
+      "perex": "Byt v cihlovém domě po kompletní rekonstrukci. Rozvody se musely vejít do podhledů, které už byly navržené."
+     },
+     {
+      "id": "d-vymena-kotle",
+      "datum": "2025-02-04",
+      "kategorie": [
+       "vytapeni",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "rodinný dům",
+      "doba": "2 dny",
+      "motiv": 4,
+      "vetev": "domacnosti",
+      "nazev": "Havarijní výměna kotle v topné sezóně",
+      "misto": "Jižní Čechy",
+      "perex": "Volání na dispečink v lednu: netopí. Starý kotel už nešlo opravit, nový jel za dva dny."
+     }
+    ],
+    {
+     "kategorie": "vzt"
+    }
+   ],
+   "out": [
+    {
+     "id": "administrativni-budova-karlin",
+     "datum": "2026-05-20",
+     "kategorie": [
+      "vzt",
+      "chlazeni"
+     ],
+     "kraj": "Praha",
+     "plocha": "6 200 m²",
+     "doba": "7 měsíců",
+     "motiv": 2,
+     "vetev": "firmy",
+     "nazev": "Vzduchotechnika a chlazení administrativní budovy v Karlíně",
+     "misto": "Praha 8",
+     "perex": "Výměna dvou VZT jednotek a rekonstrukce rozvodů chladu v šestipodlažní budově — za plného provozu nájemců."
+    },
+    {
+     "id": "poliklinika-pisek",
+     "datum": "2026-02-10",
+     "kategorie": [
+      "chlazeni",
+      "vzt"
+     ],
+     "kraj": "Jihočeský kraj",
+     "plocha": "3 100 m²",
+     "doba": "5 měsíců",
+     "motiv": 3,
+     "vetev": "firmy",
+     "nazev": "Klimatizace a větrání polikliniky v Písku",
+     "misto": "Písek",
+     "perex": "Ordinace, čekárny a laboratoř. Všude jiné požadavky na čistotu vzduchu i hlučnost — a nikde nesmělo být slyšet."
+    },
+    {
+     "id": "vyrobni-hala-milevsko",
+     "datum": "2025-09-08",
+     "kategorie": [
+      "vzt",
+      "chlazeni"
+     ],
+     "kraj": "Jihočeský kraj",
+     "plocha": "9 800 m²",
+     "doba": "6 měsíců",
+     "motiv": 4,
+     "vetev": "firmy",
+     "nazev": "Chlazení a větrání výrobní haly v Milevsku",
+     "misto": "Milevsko",
+     "perex": "Lisovna, kde v létě teplota u strojů přesahovala 38 °C. Řešení muselo zvládnout teplo z technologie i odsávání."
+    },
+    {
+     "id": "depozitar-galerie-tabor",
+     "datum": "2025-06-12",
+     "kategorie": [
+      "vzt",
+      "servis"
+     ],
+     "kraj": "Jihočeský kraj",
+     "plocha": "1 450 m²",
+     "doba": "4 měsíce",
+     "motiv": 5,
+     "vetev": "firmy",
+     "nazev": "Klima depozitáře galerie v Táboře",
+     "misto": "Tábor",
+     "perex": "Sbírkové předměty nepotřebují chlad, ale stabilitu. Vlhkost tu musí držet v úzkém pásmu po celý rok."
+    },
+    {
+     "id": "obchodni-centrum-budejovice",
+     "datum": "2025-03-18",
+     "kategorie": [
+      "vzt",
+      "servis"
+     ],
+     "kraj": "Jihočeský kraj",
+     "plocha": "24 000 m²",
+     "doba": "3 měsíce",
+     "motiv": 6,
+     "vetev": "firmy",
+     "nazev": "EAC filtry v obchodním centru v Českých Budějovicích",
+     "misto": "České Budějovice",
+     "perex": "Výměna klasických filtrů za elektronické čističe vzduchu ve vzduchotechnických jednotkách. Nižší tlaková ztráta, méně odpadu."
+    },
+    {
+     "id": "zakladni-skola-pribram",
+     "datum": "2024-11-05",
+     "kategorie": [
+      "tepelna-cerpadla",
+      "vzt"
+     ],
+     "kraj": "Středočeský kraj",
+     "plocha": "4 600 m²",
+     "doba": "8 měsíců",
+     "motiv": 7,
+     "vetev": "firmy",
+     "nazev": "Tepelná čerpadla a rekuperace základní školy v Příbrami",
+     "misto": "Příbram",
+     "perex": "Škola vyměnila plynovou kotelnu za tepelná čerpadla a získala řízené větrání tříd. Dotaci jsme vyřídili za zřizovatele."
+    },
+    {
+     "id": "d-byt-rekuperace",
+     "datum": "2025-11-12",
+     "kategorie": [
+      "vzt"
+     ],
+     "kraj": "Praha",
+     "plocha": "92 m²",
+     "doba": "2 týdny",
+     "motiv": 1,
+     "vetev": "domacnosti",
+     "nazev": "Rekuperace do bytu po rekonstrukci",
+     "misto": "Praha",
+     "perex": "Byt v cihlovém domě po kompletní rekonstrukci. Rozvody se musely vejít do podhledů, které už byly navržené."
+    }
+   ]
+  },
+  {
+   "args": [
+    [
+     {
+      "id": "logisticke-centrum-d1",
+      "datum": "2026-07-15",
+      "kategorie": [
+       "energetika",
+       "vytapeni"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "18 400 m²",
+      "doba": "9 měsíců",
+      "motiv": 1,
+      "vetev": "firmy",
+      "nazev": "Refit vytápění logistického centra u D1",
+      "misto": "Středočeský kraj",
+      "perex": "Energetický audit ukázal, že se vyplatí zachovat rozvody a vyměnit jen zdroje a regulaci. Spotřeba plynu klesla o třetinu."
+     },
+     {
+      "id": "administrativni-budova-karlin",
+      "datum": "2026-05-20",
+      "kategorie": [
+       "vzt",
+       "chlazeni"
+      ],
+      "kraj": "Praha",
+      "plocha": "6 200 m²",
+      "doba": "7 měsíců",
+      "motiv": 2,
+      "vetev": "firmy",
+      "nazev": "Vzduchotechnika a chlazení administrativní budovy v Karlíně",
+      "misto": "Praha 8",
+      "perex": "Výměna dvou VZT jednotek a rekonstrukce rozvodů chladu v šestipodlažní budově — za plného provozu nájemců."
+     },
+     {
+      "id": "poliklinika-pisek",
+      "datum": "2026-02-10",
+      "kategorie": [
+       "chlazeni",
+       "vzt"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "3 100 m²",
+      "doba": "5 měsíců",
+      "motiv": 3,
+      "vetev": "firmy",
+      "nazev": "Klimatizace a větrání polikliniky v Písku",
+      "misto": "Písek",
+      "perex": "Ordinace, čekárny a laboratoř. Všude jiné požadavky na čistotu vzduchu i hlučnost — a nikde nesmělo být slyšet."
+     },
+     {
+      "id": "vyrobni-hala-milevsko",
+      "datum": "2025-09-08",
+      "kategorie": [
+       "vzt",
+       "chlazeni"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "9 800 m²",
+      "doba": "6 měsíců",
+      "motiv": 4,
+      "vetev": "firmy",
+      "nazev": "Chlazení a větrání výrobní haly v Milevsku",
+      "misto": "Milevsko",
+      "perex": "Lisovna, kde v létě teplota u strojů přesahovala 38 °C. Řešení muselo zvládnout teplo z technologie i odsávání."
+     },
+     {
+      "id": "depozitar-galerie-tabor",
+      "datum": "2025-06-12",
+      "kategorie": [
+       "vzt",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "1 450 m²",
+      "doba": "4 měsíce",
+      "motiv": 5,
+      "vetev": "firmy",
+      "nazev": "Klima depozitáře galerie v Táboře",
+      "misto": "Tábor",
+      "perex": "Sbírkové předměty nepotřebují chlad, ale stabilitu. Vlhkost tu musí držet v úzkém pásmu po celý rok."
+     },
+     {
+      "id": "obchodni-centrum-budejovice",
+      "datum": "2025-03-18",
+      "kategorie": [
+       "vzt",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "24 000 m²",
+      "doba": "3 měsíce",
+      "motiv": 6,
+      "vetev": "firmy",
+      "nazev": "EAC filtry v obchodním centru v Českých Budějovicích",
+      "misto": "České Budějovice",
+      "perex": "Výměna klasických filtrů za elektronické čističe vzduchu ve vzduchotechnických jednotkách. Nižší tlaková ztráta, méně odpadu."
+     },
+     {
+      "id": "zakladni-skola-pribram",
+      "datum": "2024-11-05",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "vzt"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "4 600 m²",
+      "doba": "8 měsíců",
+      "motiv": 7,
+      "vetev": "firmy",
+      "nazev": "Tepelná čerpadla a rekuperace základní školy v Příbrami",
+      "misto": "Příbram",
+      "perex": "Škola vyměnila plynovou kotelnu za tepelná čerpadla a získala řízené větrání tříd. Dotaci jsme vyřídili za zřizovatele."
+     },
+     {
+      "id": "hotel-na-sumave",
+      "datum": "2024-06-24",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "chlazeni"
+      ],
+      "kraj": "Plzeňský kraj",
+      "plocha": "2 700 m²",
+      "doba": "5 měsíců",
+      "motiv": 8,
+      "vetev": "firmy",
+      "nazev": "Tepelná čerpadla a klimatizace hotelu na Šumavě",
+      "misto": "Plzeňský kraj",
+      "perex": "Horský hotel, kde se topí osm měsíců v roce a v létě je potřeba chladit pokoje pod střechou. Vše muselo být slyšet co nejméně."
+     },
+     {
+      "id": "d-bungalov-klimatizace",
+      "datum": "2026-07-03",
+      "kategorie": [
+       "chlazeni"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "140 m²",
+      "doba": "3 výjezdy",
+      "motiv": 3,
+      "vetev": "domacnosti",
+      "skutecna": true,
+      "nazev": "Klimatizace rodinného bungalovu bez jediné lišty",
+      "misto": "Jižní Čechy",
+      "perex": "Zákazník chtěl designové vnitřní jednotky a čistý interiér — bez viditelných lišt pro chladivové potrubí."
+     },
+     {
+      "id": "d-rodinny-dum-cerpadlo",
+      "datum": "2026-04-18",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "vytapeni"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "180 m²",
+      "doba": "6 týdnů",
+      "motiv": 6,
+      "vetev": "domacnosti",
+      "nazev": "Tepelné čerpadlo místo plynového kotle",
+      "misto": "Středočeský kraj",
+      "perex": "Starší dům s radiátory. Místo rychlé výměny zdroje jsme nejdřív spočítali ztráty a upravili soustavu — jinak by čerpadlo jelo draho."
+     },
+     {
+      "id": "d-byt-rekuperace",
+      "datum": "2025-11-12",
+      "kategorie": [
+       "vzt"
+      ],
+      "kraj": "Praha",
+      "plocha": "92 m²",
+      "doba": "2 týdny",
+      "motiv": 1,
+      "vetev": "domacnosti",
+      "nazev": "Rekuperace do bytu po rekonstrukci",
+      "misto": "Praha",
+      "perex": "Byt v cihlovém domě po kompletní rekonstrukci. Rozvody se musely vejít do podhledů, které už byly navržené."
+     },
+     {
+      "id": "d-vymena-kotle",
+      "datum": "2025-02-04",
+      "kategorie": [
+       "vytapeni",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "rodinný dům",
+      "doba": "2 dny",
+      "motiv": 4,
+      "vetev": "domacnosti",
+      "nazev": "Havarijní výměna kotle v topné sezóně",
+      "misto": "Jižní Čechy",
+      "perex": "Volání na dispečink v lednu: netopí. Starý kotel už nešlo opravit, nový jel za dva dny."
+     }
+    ],
+    {
+     "dotaz": "praha"
+    }
+   ],
+   "out": [
+    {
+     "id": "administrativni-budova-karlin",
+     "datum": "2026-05-20",
+     "kategorie": [
+      "vzt",
+      "chlazeni"
+     ],
+     "kraj": "Praha",
+     "plocha": "6 200 m²",
+     "doba": "7 měsíců",
+     "motiv": 2,
+     "vetev": "firmy",
+     "nazev": "Vzduchotechnika a chlazení administrativní budovy v Karlíně",
+     "misto": "Praha 8",
+     "perex": "Výměna dvou VZT jednotek a rekonstrukce rozvodů chladu v šestipodlažní budově — za plného provozu nájemců."
+    },
+    {
+     "id": "d-byt-rekuperace",
+     "datum": "2025-11-12",
+     "kategorie": [
+      "vzt"
+     ],
+     "kraj": "Praha",
+     "plocha": "92 m²",
+     "doba": "2 týdny",
+     "motiv": 1,
+     "vetev": "domacnosti",
+     "nazev": "Rekuperace do bytu po rekonstrukci",
+     "misto": "Praha",
+     "perex": "Byt v cihlovém domě po kompletní rekonstrukci. Rozvody se musely vejít do podhledů, které už byly navržené."
+    }
+   ]
+  },
+  {
+   "args": [
+    [
+     {
+      "id": "logisticke-centrum-d1",
+      "datum": "2026-07-15",
+      "kategorie": [
+       "energetika",
+       "vytapeni"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "18 400 m²",
+      "doba": "9 měsíců",
+      "motiv": 1,
+      "vetev": "firmy",
+      "nazev": "Refit vytápění logistického centra u D1",
+      "misto": "Středočeský kraj",
+      "perex": "Energetický audit ukázal, že se vyplatí zachovat rozvody a vyměnit jen zdroje a regulaci. Spotřeba plynu klesla o třetinu."
+     },
+     {
+      "id": "administrativni-budova-karlin",
+      "datum": "2026-05-20",
+      "kategorie": [
+       "vzt",
+       "chlazeni"
+      ],
+      "kraj": "Praha",
+      "plocha": "6 200 m²",
+      "doba": "7 měsíců",
+      "motiv": 2,
+      "vetev": "firmy",
+      "nazev": "Vzduchotechnika a chlazení administrativní budovy v Karlíně",
+      "misto": "Praha 8",
+      "perex": "Výměna dvou VZT jednotek a rekonstrukce rozvodů chladu v šestipodlažní budově — za plného provozu nájemců."
+     },
+     {
+      "id": "poliklinika-pisek",
+      "datum": "2026-02-10",
+      "kategorie": [
+       "chlazeni",
+       "vzt"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "3 100 m²",
+      "doba": "5 měsíců",
+      "motiv": 3,
+      "vetev": "firmy",
+      "nazev": "Klimatizace a větrání polikliniky v Písku",
+      "misto": "Písek",
+      "perex": "Ordinace, čekárny a laboratoř. Všude jiné požadavky na čistotu vzduchu i hlučnost — a nikde nesmělo být slyšet."
+     },
+     {
+      "id": "vyrobni-hala-milevsko",
+      "datum": "2025-09-08",
+      "kategorie": [
+       "vzt",
+       "chlazeni"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "9 800 m²",
+      "doba": "6 měsíců",
+      "motiv": 4,
+      "vetev": "firmy",
+      "nazev": "Chlazení a větrání výrobní haly v Milevsku",
+      "misto": "Milevsko",
+      "perex": "Lisovna, kde v létě teplota u strojů přesahovala 38 °C. Řešení muselo zvládnout teplo z technologie i odsávání."
+     },
+     {
+      "id": "depozitar-galerie-tabor",
+      "datum": "2025-06-12",
+      "kategorie": [
+       "vzt",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "1 450 m²",
+      "doba": "4 měsíce",
+      "motiv": 5,
+      "vetev": "firmy",
+      "nazev": "Klima depozitáře galerie v Táboře",
+      "misto": "Tábor",
+      "perex": "Sbírkové předměty nepotřebují chlad, ale stabilitu. Vlhkost tu musí držet v úzkém pásmu po celý rok."
+     },
+     {
+      "id": "obchodni-centrum-budejovice",
+      "datum": "2025-03-18",
+      "kategorie": [
+       "vzt",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "24 000 m²",
+      "doba": "3 měsíce",
+      "motiv": 6,
+      "vetev": "firmy",
+      "nazev": "EAC filtry v obchodním centru v Českých Budějovicích",
+      "misto": "České Budějovice",
+      "perex": "Výměna klasických filtrů za elektronické čističe vzduchu ve vzduchotechnických jednotkách. Nižší tlaková ztráta, méně odpadu."
+     },
+     {
+      "id": "zakladni-skola-pribram",
+      "datum": "2024-11-05",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "vzt"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "4 600 m²",
+      "doba": "8 měsíců",
+      "motiv": 7,
+      "vetev": "firmy",
+      "nazev": "Tepelná čerpadla a rekuperace základní školy v Příbrami",
+      "misto": "Příbram",
+      "perex": "Škola vyměnila plynovou kotelnu za tepelná čerpadla a získala řízené větrání tříd. Dotaci jsme vyřídili za zřizovatele."
+     },
+     {
+      "id": "hotel-na-sumave",
+      "datum": "2024-06-24",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "chlazeni"
+      ],
+      "kraj": "Plzeňský kraj",
+      "plocha": "2 700 m²",
+      "doba": "5 měsíců",
+      "motiv": 8,
+      "vetev": "firmy",
+      "nazev": "Tepelná čerpadla a klimatizace hotelu na Šumavě",
+      "misto": "Plzeňský kraj",
+      "perex": "Horský hotel, kde se topí osm měsíců v roce a v létě je potřeba chladit pokoje pod střechou. Vše muselo být slyšet co nejméně."
+     },
+     {
+      "id": "d-bungalov-klimatizace",
+      "datum": "2026-07-03",
+      "kategorie": [
+       "chlazeni"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "140 m²",
+      "doba": "3 výjezdy",
+      "motiv": 3,
+      "vetev": "domacnosti",
+      "skutecna": true,
+      "nazev": "Klimatizace rodinného bungalovu bez jediné lišty",
+      "misto": "Jižní Čechy",
+      "perex": "Zákazník chtěl designové vnitřní jednotky a čistý interiér — bez viditelných lišt pro chladivové potrubí."
+     },
+     {
+      "id": "d-rodinny-dum-cerpadlo",
+      "datum": "2026-04-18",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "vytapeni"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "180 m²",
+      "doba": "6 týdnů",
+      "motiv": 6,
+      "vetev": "domacnosti",
+      "nazev": "Tepelné čerpadlo místo plynového kotle",
+      "misto": "Středočeský kraj",
+      "perex": "Starší dům s radiátory. Místo rychlé výměny zdroje jsme nejdřív spočítali ztráty a upravili soustavu — jinak by čerpadlo jelo draho."
+     },
+     {
+      "id": "d-byt-rekuperace",
+      "datum": "2025-11-12",
+      "kategorie": [
+       "vzt"
+      ],
+      "kraj": "Praha",
+      "plocha": "92 m²",
+      "doba": "2 týdny",
+      "motiv": 1,
+      "vetev": "domacnosti",
+      "nazev": "Rekuperace do bytu po rekonstrukci",
+      "misto": "Praha",
+      "perex": "Byt v cihlovém domě po kompletní rekonstrukci. Rozvody se musely vejít do podhledů, které už byly navržené."
+     },
+     {
+      "id": "d-vymena-kotle",
+      "datum": "2025-02-04",
+      "kategorie": [
+       "vytapeni",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "rodinný dům",
+      "doba": "2 dny",
+      "motiv": 4,
+      "vetev": "domacnosti",
+      "nazev": "Havarijní výměna kotle v topné sezóně",
+      "misto": "Jižní Čechy",
+      "perex": "Volání na dispečink v lednu: netopí. Starý kotel už nešlo opravit, nový jel za dva dny."
+     }
+    ],
+    {
+     "dotaz": "PÍSEK"
+    }
+   ],
+   "out": [
+    {
+     "id": "poliklinika-pisek",
+     "datum": "2026-02-10",
+     "kategorie": [
+      "chlazeni",
+      "vzt"
+     ],
+     "kraj": "Jihočeský kraj",
+     "plocha": "3 100 m²",
+     "doba": "5 měsíců",
+     "motiv": 3,
+     "vetev": "firmy",
+     "nazev": "Klimatizace a větrání polikliniky v Písku",
+     "misto": "Písek",
+     "perex": "Ordinace, čekárny a laboratoř. Všude jiné požadavky na čistotu vzduchu i hlučnost — a nikde nesmělo být slyšet."
+    }
+   ]
+  },
+  {
+   "args": [
+    [
+     {
+      "id": "logisticke-centrum-d1",
+      "datum": "2026-07-15",
+      "kategorie": [
+       "energetika",
+       "vytapeni"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "18 400 m²",
+      "doba": "9 měsíců",
+      "motiv": 1,
+      "vetev": "firmy",
+      "nazev": "Refit vytápění logistického centra u D1",
+      "misto": "Středočeský kraj",
+      "perex": "Energetický audit ukázal, že se vyplatí zachovat rozvody a vyměnit jen zdroje a regulaci. Spotřeba plynu klesla o třetinu."
+     },
+     {
+      "id": "administrativni-budova-karlin",
+      "datum": "2026-05-20",
+      "kategorie": [
+       "vzt",
+       "chlazeni"
+      ],
+      "kraj": "Praha",
+      "plocha": "6 200 m²",
+      "doba": "7 měsíců",
+      "motiv": 2,
+      "vetev": "firmy",
+      "nazev": "Vzduchotechnika a chlazení administrativní budovy v Karlíně",
+      "misto": "Praha 8",
+      "perex": "Výměna dvou VZT jednotek a rekonstrukce rozvodů chladu v šestipodlažní budově — za plného provozu nájemců."
+     },
+     {
+      "id": "poliklinika-pisek",
+      "datum": "2026-02-10",
+      "kategorie": [
+       "chlazeni",
+       "vzt"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "3 100 m²",
+      "doba": "5 měsíců",
+      "motiv": 3,
+      "vetev": "firmy",
+      "nazev": "Klimatizace a větrání polikliniky v Písku",
+      "misto": "Písek",
+      "perex": "Ordinace, čekárny a laboratoř. Všude jiné požadavky na čistotu vzduchu i hlučnost — a nikde nesmělo být slyšet."
+     },
+     {
+      "id": "vyrobni-hala-milevsko",
+      "datum": "2025-09-08",
+      "kategorie": [
+       "vzt",
+       "chlazeni"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "9 800 m²",
+      "doba": "6 měsíců",
+      "motiv": 4,
+      "vetev": "firmy",
+      "nazev": "Chlazení a větrání výrobní haly v Milevsku",
+      "misto": "Milevsko",
+      "perex": "Lisovna, kde v létě teplota u strojů přesahovala 38 °C. Řešení muselo zvládnout teplo z technologie i odsávání."
+     },
+     {
+      "id": "depozitar-galerie-tabor",
+      "datum": "2025-06-12",
+      "kategorie": [
+       "vzt",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "1 450 m²",
+      "doba": "4 měsíce",
+      "motiv": 5,
+      "vetev": "firmy",
+      "nazev": "Klima depozitáře galerie v Táboře",
+      "misto": "Tábor",
+      "perex": "Sbírkové předměty nepotřebují chlad, ale stabilitu. Vlhkost tu musí držet v úzkém pásmu po celý rok."
+     },
+     {
+      "id": "obchodni-centrum-budejovice",
+      "datum": "2025-03-18",
+      "kategorie": [
+       "vzt",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "24 000 m²",
+      "doba": "3 měsíce",
+      "motiv": 6,
+      "vetev": "firmy",
+      "nazev": "EAC filtry v obchodním centru v Českých Budějovicích",
+      "misto": "České Budějovice",
+      "perex": "Výměna klasických filtrů za elektronické čističe vzduchu ve vzduchotechnických jednotkách. Nižší tlaková ztráta, méně odpadu."
+     },
+     {
+      "id": "zakladni-skola-pribram",
+      "datum": "2024-11-05",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "vzt"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "4 600 m²",
+      "doba": "8 měsíců",
+      "motiv": 7,
+      "vetev": "firmy",
+      "nazev": "Tepelná čerpadla a rekuperace základní školy v Příbrami",
+      "misto": "Příbram",
+      "perex": "Škola vyměnila plynovou kotelnu za tepelná čerpadla a získala řízené větrání tříd. Dotaci jsme vyřídili za zřizovatele."
+     },
+     {
+      "id": "hotel-na-sumave",
+      "datum": "2024-06-24",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "chlazeni"
+      ],
+      "kraj": "Plzeňský kraj",
+      "plocha": "2 700 m²",
+      "doba": "5 měsíců",
+      "motiv": 8,
+      "vetev": "firmy",
+      "nazev": "Tepelná čerpadla a klimatizace hotelu na Šumavě",
+      "misto": "Plzeňský kraj",
+      "perex": "Horský hotel, kde se topí osm měsíců v roce a v létě je potřeba chladit pokoje pod střechou. Vše muselo být slyšet co nejméně."
+     },
+     {
+      "id": "d-bungalov-klimatizace",
+      "datum": "2026-07-03",
+      "kategorie": [
+       "chlazeni"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "140 m²",
+      "doba": "3 výjezdy",
+      "motiv": 3,
+      "vetev": "domacnosti",
+      "skutecna": true,
+      "nazev": "Klimatizace rodinného bungalovu bez jediné lišty",
+      "misto": "Jižní Čechy",
+      "perex": "Zákazník chtěl designové vnitřní jednotky a čistý interiér — bez viditelných lišt pro chladivové potrubí."
+     },
+     {
+      "id": "d-rodinny-dum-cerpadlo",
+      "datum": "2026-04-18",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "vytapeni"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "180 m²",
+      "doba": "6 týdnů",
+      "motiv": 6,
+      "vetev": "domacnosti",
+      "nazev": "Tepelné čerpadlo místo plynového kotle",
+      "misto": "Středočeský kraj",
+      "perex": "Starší dům s radiátory. Místo rychlé výměny zdroje jsme nejdřív spočítali ztráty a upravili soustavu — jinak by čerpadlo jelo draho."
+     },
+     {
+      "id": "d-byt-rekuperace",
+      "datum": "2025-11-12",
+      "kategorie": [
+       "vzt"
+      ],
+      "kraj": "Praha",
+      "plocha": "92 m²",
+      "doba": "2 týdny",
+      "motiv": 1,
+      "vetev": "domacnosti",
+      "nazev": "Rekuperace do bytu po rekonstrukci",
+      "misto": "Praha",
+      "perex": "Byt v cihlovém domě po kompletní rekonstrukci. Rozvody se musely vejít do podhledů, které už byly navržené."
+     },
+     {
+      "id": "d-vymena-kotle",
+      "datum": "2025-02-04",
+      "kategorie": [
+       "vytapeni",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "rodinný dům",
+      "doba": "2 dny",
+      "motiv": 4,
+      "vetev": "domacnosti",
+      "nazev": "Havarijní výměna kotle v topné sezóně",
+      "misto": "Jižní Čechy",
+      "perex": "Volání na dispečink v lednu: netopí. Starý kotel už nešlo opravit, nový jel za dva dny."
+     }
+    ],
+    {
+     "rok": 2025
+    }
+   ],
+   "out": [
+    {
+     "id": "vyrobni-hala-milevsko",
+     "datum": "2025-09-08",
+     "kategorie": [
+      "vzt",
+      "chlazeni"
+     ],
+     "kraj": "Jihočeský kraj",
+     "plocha": "9 800 m²",
+     "doba": "6 měsíců",
+     "motiv": 4,
+     "vetev": "firmy",
+     "nazev": "Chlazení a větrání výrobní haly v Milevsku",
+     "misto": "Milevsko",
+     "perex": "Lisovna, kde v létě teplota u strojů přesahovala 38 °C. Řešení muselo zvládnout teplo z technologie i odsávání."
+    },
+    {
+     "id": "depozitar-galerie-tabor",
+     "datum": "2025-06-12",
+     "kategorie": [
+      "vzt",
+      "servis"
+     ],
+     "kraj": "Jihočeský kraj",
+     "plocha": "1 450 m²",
+     "doba": "4 měsíce",
+     "motiv": 5,
+     "vetev": "firmy",
+     "nazev": "Klima depozitáře galerie v Táboře",
+     "misto": "Tábor",
+     "perex": "Sbírkové předměty nepotřebují chlad, ale stabilitu. Vlhkost tu musí držet v úzkém pásmu po celý rok."
+    },
+    {
+     "id": "obchodni-centrum-budejovice",
+     "datum": "2025-03-18",
+     "kategorie": [
+      "vzt",
+      "servis"
+     ],
+     "kraj": "Jihočeský kraj",
+     "plocha": "24 000 m²",
+     "doba": "3 měsíce",
+     "motiv": 6,
+     "vetev": "firmy",
+     "nazev": "EAC filtry v obchodním centru v Českých Budějovicích",
+     "misto": "České Budějovice",
+     "perex": "Výměna klasických filtrů za elektronické čističe vzduchu ve vzduchotechnických jednotkách. Nižší tlaková ztráta, méně odpadu."
+    },
+    {
+     "id": "d-byt-rekuperace",
+     "datum": "2025-11-12",
+     "kategorie": [
+      "vzt"
+     ],
+     "kraj": "Praha",
+     "plocha": "92 m²",
+     "doba": "2 týdny",
+     "motiv": 1,
+     "vetev": "domacnosti",
+     "nazev": "Rekuperace do bytu po rekonstrukci",
+     "misto": "Praha",
+     "perex": "Byt v cihlovém domě po kompletní rekonstrukci. Rozvody se musely vejít do podhledů, které už byly navržené."
+    },
+    {
+     "id": "d-vymena-kotle",
+     "datum": "2025-02-04",
+     "kategorie": [
+      "vytapeni",
+      "servis"
+     ],
+     "kraj": "Jihočeský kraj",
+     "plocha": "rodinný dům",
+     "doba": "2 dny",
+     "motiv": 4,
+     "vetev": "domacnosti",
+     "nazev": "Havarijní výměna kotle v topné sezóně",
+     "misto": "Jižní Čechy",
+     "perex": "Volání na dispečink v lednu: netopí. Starý kotel už nešlo opravit, nový jel za dva dny."
+    }
+   ]
+  },
+  {
+   "args": [
+    [
+     {
+      "id": "logisticke-centrum-d1",
+      "datum": "2026-07-15",
+      "kategorie": [
+       "energetika",
+       "vytapeni"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "18 400 m²",
+      "doba": "9 měsíců",
+      "motiv": 1,
+      "vetev": "firmy",
+      "nazev": "Refit vytápění logistického centra u D1",
+      "misto": "Středočeský kraj",
+      "perex": "Energetický audit ukázal, že se vyplatí zachovat rozvody a vyměnit jen zdroje a regulaci. Spotřeba plynu klesla o třetinu."
+     },
+     {
+      "id": "administrativni-budova-karlin",
+      "datum": "2026-05-20",
+      "kategorie": [
+       "vzt",
+       "chlazeni"
+      ],
+      "kraj": "Praha",
+      "plocha": "6 200 m²",
+      "doba": "7 měsíců",
+      "motiv": 2,
+      "vetev": "firmy",
+      "nazev": "Vzduchotechnika a chlazení administrativní budovy v Karlíně",
+      "misto": "Praha 8",
+      "perex": "Výměna dvou VZT jednotek a rekonstrukce rozvodů chladu v šestipodlažní budově — za plného provozu nájemců."
+     },
+     {
+      "id": "poliklinika-pisek",
+      "datum": "2026-02-10",
+      "kategorie": [
+       "chlazeni",
+       "vzt"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "3 100 m²",
+      "doba": "5 měsíců",
+      "motiv": 3,
+      "vetev": "firmy",
+      "nazev": "Klimatizace a větrání polikliniky v Písku",
+      "misto": "Písek",
+      "perex": "Ordinace, čekárny a laboratoř. Všude jiné požadavky na čistotu vzduchu i hlučnost — a nikde nesmělo být slyšet."
+     },
+     {
+      "id": "vyrobni-hala-milevsko",
+      "datum": "2025-09-08",
+      "kategorie": [
+       "vzt",
+       "chlazeni"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "9 800 m²",
+      "doba": "6 měsíců",
+      "motiv": 4,
+      "vetev": "firmy",
+      "nazev": "Chlazení a větrání výrobní haly v Milevsku",
+      "misto": "Milevsko",
+      "perex": "Lisovna, kde v létě teplota u strojů přesahovala 38 °C. Řešení muselo zvládnout teplo z technologie i odsávání."
+     },
+     {
+      "id": "depozitar-galerie-tabor",
+      "datum": "2025-06-12",
+      "kategorie": [
+       "vzt",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "1 450 m²",
+      "doba": "4 měsíce",
+      "motiv": 5,
+      "vetev": "firmy",
+      "nazev": "Klima depozitáře galerie v Táboře",
+      "misto": "Tábor",
+      "perex": "Sbírkové předměty nepotřebují chlad, ale stabilitu. Vlhkost tu musí držet v úzkém pásmu po celý rok."
+     },
+     {
+      "id": "obchodni-centrum-budejovice",
+      "datum": "2025-03-18",
+      "kategorie": [
+       "vzt",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "24 000 m²",
+      "doba": "3 měsíce",
+      "motiv": 6,
+      "vetev": "firmy",
+      "nazev": "EAC filtry v obchodním centru v Českých Budějovicích",
+      "misto": "České Budějovice",
+      "perex": "Výměna klasických filtrů za elektronické čističe vzduchu ve vzduchotechnických jednotkách. Nižší tlaková ztráta, méně odpadu."
+     },
+     {
+      "id": "zakladni-skola-pribram",
+      "datum": "2024-11-05",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "vzt"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "4 600 m²",
+      "doba": "8 měsíců",
+      "motiv": 7,
+      "vetev": "firmy",
+      "nazev": "Tepelná čerpadla a rekuperace základní školy v Příbrami",
+      "misto": "Příbram",
+      "perex": "Škola vyměnila plynovou kotelnu za tepelná čerpadla a získala řízené větrání tříd. Dotaci jsme vyřídili za zřizovatele."
+     },
+     {
+      "id": "hotel-na-sumave",
+      "datum": "2024-06-24",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "chlazeni"
+      ],
+      "kraj": "Plzeňský kraj",
+      "plocha": "2 700 m²",
+      "doba": "5 měsíců",
+      "motiv": 8,
+      "vetev": "firmy",
+      "nazev": "Tepelná čerpadla a klimatizace hotelu na Šumavě",
+      "misto": "Plzeňský kraj",
+      "perex": "Horský hotel, kde se topí osm měsíců v roce a v létě je potřeba chladit pokoje pod střechou. Vše muselo být slyšet co nejméně."
+     },
+     {
+      "id": "d-bungalov-klimatizace",
+      "datum": "2026-07-03",
+      "kategorie": [
+       "chlazeni"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "140 m²",
+      "doba": "3 výjezdy",
+      "motiv": 3,
+      "vetev": "domacnosti",
+      "skutecna": true,
+      "nazev": "Klimatizace rodinného bungalovu bez jediné lišty",
+      "misto": "Jižní Čechy",
+      "perex": "Zákazník chtěl designové vnitřní jednotky a čistý interiér — bez viditelných lišt pro chladivové potrubí."
+     },
+     {
+      "id": "d-rodinny-dum-cerpadlo",
+      "datum": "2026-04-18",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "vytapeni"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "180 m²",
+      "doba": "6 týdnů",
+      "motiv": 6,
+      "vetev": "domacnosti",
+      "nazev": "Tepelné čerpadlo místo plynového kotle",
+      "misto": "Středočeský kraj",
+      "perex": "Starší dům s radiátory. Místo rychlé výměny zdroje jsme nejdřív spočítali ztráty a upravili soustavu — jinak by čerpadlo jelo draho."
+     },
+     {
+      "id": "d-byt-rekuperace",
+      "datum": "2025-11-12",
+      "kategorie": [
+       "vzt"
+      ],
+      "kraj": "Praha",
+      "plocha": "92 m²",
+      "doba": "2 týdny",
+      "motiv": 1,
+      "vetev": "domacnosti",
+      "nazev": "Rekuperace do bytu po rekonstrukci",
+      "misto": "Praha",
+      "perex": "Byt v cihlovém domě po kompletní rekonstrukci. Rozvody se musely vejít do podhledů, které už byly navržené."
+     },
+     {
+      "id": "d-vymena-kotle",
+      "datum": "2025-02-04",
+      "kategorie": [
+       "vytapeni",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "rodinný dům",
+      "doba": "2 dny",
+      "motiv": 4,
+      "vetev": "domacnosti",
+      "nazev": "Havarijní výměna kotle v topné sezóně",
+      "misto": "Jižní Čechy",
+      "perex": "Volání na dispečink v lednu: netopí. Starý kotel už nešlo opravit, nový jel za dva dny."
+     }
+    ],
+    {
+     "rok": "2025"
+    }
+   ],
+   "out": [
+    {
+     "id": "vyrobni-hala-milevsko",
+     "datum": "2025-09-08",
+     "kategorie": [
+      "vzt",
+      "chlazeni"
+     ],
+     "kraj": "Jihočeský kraj",
+     "plocha": "9 800 m²",
+     "doba": "6 měsíců",
+     "motiv": 4,
+     "vetev": "firmy",
+     "nazev": "Chlazení a větrání výrobní haly v Milevsku",
+     "misto": "Milevsko",
+     "perex": "Lisovna, kde v létě teplota u strojů přesahovala 38 °C. Řešení muselo zvládnout teplo z technologie i odsávání."
+    },
+    {
+     "id": "depozitar-galerie-tabor",
+     "datum": "2025-06-12",
+     "kategorie": [
+      "vzt",
+      "servis"
+     ],
+     "kraj": "Jihočeský kraj",
+     "plocha": "1 450 m²",
+     "doba": "4 měsíce",
+     "motiv": 5,
+     "vetev": "firmy",
+     "nazev": "Klima depozitáře galerie v Táboře",
+     "misto": "Tábor",
+     "perex": "Sbírkové předměty nepotřebují chlad, ale stabilitu. Vlhkost tu musí držet v úzkém pásmu po celý rok."
+    },
+    {
+     "id": "obchodni-centrum-budejovice",
+     "datum": "2025-03-18",
+     "kategorie": [
+      "vzt",
+      "servis"
+     ],
+     "kraj": "Jihočeský kraj",
+     "plocha": "24 000 m²",
+     "doba": "3 měsíce",
+     "motiv": 6,
+     "vetev": "firmy",
+     "nazev": "EAC filtry v obchodním centru v Českých Budějovicích",
+     "misto": "České Budějovice",
+     "perex": "Výměna klasických filtrů za elektronické čističe vzduchu ve vzduchotechnických jednotkách. Nižší tlaková ztráta, méně odpadu."
+    },
+    {
+     "id": "d-byt-rekuperace",
+     "datum": "2025-11-12",
+     "kategorie": [
+      "vzt"
+     ],
+     "kraj": "Praha",
+     "plocha": "92 m²",
+     "doba": "2 týdny",
+     "motiv": 1,
+     "vetev": "domacnosti",
+     "nazev": "Rekuperace do bytu po rekonstrukci",
+     "misto": "Praha",
+     "perex": "Byt v cihlovém domě po kompletní rekonstrukci. Rozvody se musely vejít do podhledů, které už byly navržené."
+    },
+    {
+     "id": "d-vymena-kotle",
+     "datum": "2025-02-04",
+     "kategorie": [
+      "vytapeni",
+      "servis"
+     ],
+     "kraj": "Jihočeský kraj",
+     "plocha": "rodinný dům",
+     "doba": "2 dny",
+     "motiv": 4,
+     "vetev": "domacnosti",
+     "nazev": "Havarijní výměna kotle v topné sezóně",
+     "misto": "Jižní Čechy",
+     "perex": "Volání na dispečink v lednu: netopí. Starý kotel už nešlo opravit, nový jel za dva dny."
+    }
+   ]
+  },
+  {
+   "args": [
+    [
+     {
+      "id": "logisticke-centrum-d1",
+      "datum": "2026-07-15",
+      "kategorie": [
+       "energetika",
+       "vytapeni"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "18 400 m²",
+      "doba": "9 měsíců",
+      "motiv": 1,
+      "vetev": "firmy",
+      "nazev": "Refit vytápění logistického centra u D1",
+      "misto": "Středočeský kraj",
+      "perex": "Energetický audit ukázal, že se vyplatí zachovat rozvody a vyměnit jen zdroje a regulaci. Spotřeba plynu klesla o třetinu."
+     },
+     {
+      "id": "administrativni-budova-karlin",
+      "datum": "2026-05-20",
+      "kategorie": [
+       "vzt",
+       "chlazeni"
+      ],
+      "kraj": "Praha",
+      "plocha": "6 200 m²",
+      "doba": "7 měsíců",
+      "motiv": 2,
+      "vetev": "firmy",
+      "nazev": "Vzduchotechnika a chlazení administrativní budovy v Karlíně",
+      "misto": "Praha 8",
+      "perex": "Výměna dvou VZT jednotek a rekonstrukce rozvodů chladu v šestipodlažní budově — za plného provozu nájemců."
+     },
+     {
+      "id": "poliklinika-pisek",
+      "datum": "2026-02-10",
+      "kategorie": [
+       "chlazeni",
+       "vzt"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "3 100 m²",
+      "doba": "5 měsíců",
+      "motiv": 3,
+      "vetev": "firmy",
+      "nazev": "Klimatizace a větrání polikliniky v Písku",
+      "misto": "Písek",
+      "perex": "Ordinace, čekárny a laboratoř. Všude jiné požadavky na čistotu vzduchu i hlučnost — a nikde nesmělo být slyšet."
+     },
+     {
+      "id": "vyrobni-hala-milevsko",
+      "datum": "2025-09-08",
+      "kategorie": [
+       "vzt",
+       "chlazeni"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "9 800 m²",
+      "doba": "6 měsíců",
+      "motiv": 4,
+      "vetev": "firmy",
+      "nazev": "Chlazení a větrání výrobní haly v Milevsku",
+      "misto": "Milevsko",
+      "perex": "Lisovna, kde v létě teplota u strojů přesahovala 38 °C. Řešení muselo zvládnout teplo z technologie i odsávání."
+     },
+     {
+      "id": "depozitar-galerie-tabor",
+      "datum": "2025-06-12",
+      "kategorie": [
+       "vzt",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "1 450 m²",
+      "doba": "4 měsíce",
+      "motiv": 5,
+      "vetev": "firmy",
+      "nazev": "Klima depozitáře galerie v Táboře",
+      "misto": "Tábor",
+      "perex": "Sbírkové předměty nepotřebují chlad, ale stabilitu. Vlhkost tu musí držet v úzkém pásmu po celý rok."
+     },
+     {
+      "id": "obchodni-centrum-budejovice",
+      "datum": "2025-03-18",
+      "kategorie": [
+       "vzt",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "24 000 m²",
+      "doba": "3 měsíce",
+      "motiv": 6,
+      "vetev": "firmy",
+      "nazev": "EAC filtry v obchodním centru v Českých Budějovicích",
+      "misto": "České Budějovice",
+      "perex": "Výměna klasických filtrů za elektronické čističe vzduchu ve vzduchotechnických jednotkách. Nižší tlaková ztráta, méně odpadu."
+     },
+     {
+      "id": "zakladni-skola-pribram",
+      "datum": "2024-11-05",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "vzt"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "4 600 m²",
+      "doba": "8 měsíců",
+      "motiv": 7,
+      "vetev": "firmy",
+      "nazev": "Tepelná čerpadla a rekuperace základní školy v Příbrami",
+      "misto": "Příbram",
+      "perex": "Škola vyměnila plynovou kotelnu za tepelná čerpadla a získala řízené větrání tříd. Dotaci jsme vyřídili za zřizovatele."
+     },
+     {
+      "id": "hotel-na-sumave",
+      "datum": "2024-06-24",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "chlazeni"
+      ],
+      "kraj": "Plzeňský kraj",
+      "plocha": "2 700 m²",
+      "doba": "5 měsíců",
+      "motiv": 8,
+      "vetev": "firmy",
+      "nazev": "Tepelná čerpadla a klimatizace hotelu na Šumavě",
+      "misto": "Plzeňský kraj",
+      "perex": "Horský hotel, kde se topí osm měsíců v roce a v létě je potřeba chladit pokoje pod střechou. Vše muselo být slyšet co nejméně."
+     },
+     {
+      "id": "d-bungalov-klimatizace",
+      "datum": "2026-07-03",
+      "kategorie": [
+       "chlazeni"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "140 m²",
+      "doba": "3 výjezdy",
+      "motiv": 3,
+      "vetev": "domacnosti",
+      "skutecna": true,
+      "nazev": "Klimatizace rodinného bungalovu bez jediné lišty",
+      "misto": "Jižní Čechy",
+      "perex": "Zákazník chtěl designové vnitřní jednotky a čistý interiér — bez viditelných lišt pro chladivové potrubí."
+     },
+     {
+      "id": "d-rodinny-dum-cerpadlo",
+      "datum": "2026-04-18",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "vytapeni"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "180 m²",
+      "doba": "6 týdnů",
+      "motiv": 6,
+      "vetev": "domacnosti",
+      "nazev": "Tepelné čerpadlo místo plynového kotle",
+      "misto": "Středočeský kraj",
+      "perex": "Starší dům s radiátory. Místo rychlé výměny zdroje jsme nejdřív spočítali ztráty a upravili soustavu — jinak by čerpadlo jelo draho."
+     },
+     {
+      "id": "d-byt-rekuperace",
+      "datum": "2025-11-12",
+      "kategorie": [
+       "vzt"
+      ],
+      "kraj": "Praha",
+      "plocha": "92 m²",
+      "doba": "2 týdny",
+      "motiv": 1,
+      "vetev": "domacnosti",
+      "nazev": "Rekuperace do bytu po rekonstrukci",
+      "misto": "Praha",
+      "perex": "Byt v cihlovém domě po kompletní rekonstrukci. Rozvody se musely vejít do podhledů, které už byly navržené."
+     },
+     {
+      "id": "d-vymena-kotle",
+      "datum": "2025-02-04",
+      "kategorie": [
+       "vytapeni",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "rodinný dům",
+      "doba": "2 dny",
+      "motiv": 4,
+      "vetev": "domacnosti",
+      "nazev": "Havarijní výměna kotle v topné sezóně",
+      "misto": "Jižní Čechy",
+      "perex": "Volání na dispečink v lednu: netopí. Starý kotel už nešlo opravit, nový jel za dva dny."
+     }
+    ],
+    {
+     "kategorie": "vzt",
+     "dotaz": "a"
+    }
+   ],
+   "out": [
+    {
+     "id": "administrativni-budova-karlin",
+     "datum": "2026-05-20",
+     "kategorie": [
+      "vzt",
+      "chlazeni"
+     ],
+     "kraj": "Praha",
+     "plocha": "6 200 m²",
+     "doba": "7 měsíců",
+     "motiv": 2,
+     "vetev": "firmy",
+     "nazev": "Vzduchotechnika a chlazení administrativní budovy v Karlíně",
+     "misto": "Praha 8",
+     "perex": "Výměna dvou VZT jednotek a rekonstrukce rozvodů chladu v šestipodlažní budově — za plného provozu nájemců."
+    },
+    {
+     "id": "poliklinika-pisek",
+     "datum": "2026-02-10",
+     "kategorie": [
+      "chlazeni",
+      "vzt"
+     ],
+     "kraj": "Jihočeský kraj",
+     "plocha": "3 100 m²",
+     "doba": "5 měsíců",
+     "motiv": 3,
+     "vetev": "firmy",
+     "nazev": "Klimatizace a větrání polikliniky v Písku",
+     "misto": "Písek",
+     "perex": "Ordinace, čekárny a laboratoř. Všude jiné požadavky na čistotu vzduchu i hlučnost — a nikde nesmělo být slyšet."
+    },
+    {
+     "id": "vyrobni-hala-milevsko",
+     "datum": "2025-09-08",
+     "kategorie": [
+      "vzt",
+      "chlazeni"
+     ],
+     "kraj": "Jihočeský kraj",
+     "plocha": "9 800 m²",
+     "doba": "6 měsíců",
+     "motiv": 4,
+     "vetev": "firmy",
+     "nazev": "Chlazení a větrání výrobní haly v Milevsku",
+     "misto": "Milevsko",
+     "perex": "Lisovna, kde v létě teplota u strojů přesahovala 38 °C. Řešení muselo zvládnout teplo z technologie i odsávání."
+    },
+    {
+     "id": "depozitar-galerie-tabor",
+     "datum": "2025-06-12",
+     "kategorie": [
+      "vzt",
+      "servis"
+     ],
+     "kraj": "Jihočeský kraj",
+     "plocha": "1 450 m²",
+     "doba": "4 měsíce",
+     "motiv": 5,
+     "vetev": "firmy",
+     "nazev": "Klima depozitáře galerie v Táboře",
+     "misto": "Tábor",
+     "perex": "Sbírkové předměty nepotřebují chlad, ale stabilitu. Vlhkost tu musí držet v úzkém pásmu po celý rok."
+    },
+    {
+     "id": "obchodni-centrum-budejovice",
+     "datum": "2025-03-18",
+     "kategorie": [
+      "vzt",
+      "servis"
+     ],
+     "kraj": "Jihočeský kraj",
+     "plocha": "24 000 m²",
+     "doba": "3 měsíce",
+     "motiv": 6,
+     "vetev": "firmy",
+     "nazev": "EAC filtry v obchodním centru v Českých Budějovicích",
+     "misto": "České Budějovice",
+     "perex": "Výměna klasických filtrů za elektronické čističe vzduchu ve vzduchotechnických jednotkách. Nižší tlaková ztráta, méně odpadu."
+    },
+    {
+     "id": "zakladni-skola-pribram",
+     "datum": "2024-11-05",
+     "kategorie": [
+      "tepelna-cerpadla",
+      "vzt"
+     ],
+     "kraj": "Středočeský kraj",
+     "plocha": "4 600 m²",
+     "doba": "8 měsíců",
+     "motiv": 7,
+     "vetev": "firmy",
+     "nazev": "Tepelná čerpadla a rekuperace základní školy v Příbrami",
+     "misto": "Příbram",
+     "perex": "Škola vyměnila plynovou kotelnu za tepelná čerpadla a získala řízené větrání tříd. Dotaci jsme vyřídili za zřizovatele."
+    },
+    {
+     "id": "d-byt-rekuperace",
+     "datum": "2025-11-12",
+     "kategorie": [
+      "vzt"
+     ],
+     "kraj": "Praha",
+     "plocha": "92 m²",
+     "doba": "2 týdny",
+     "motiv": 1,
+     "vetev": "domacnosti",
+     "nazev": "Rekuperace do bytu po rekonstrukci",
+     "misto": "Praha",
+     "perex": "Byt v cihlovém domě po kompletní rekonstrukci. Rozvody se musely vejít do podhledů, které už byly navržené."
+    }
+   ]
+  },
+  {
+   "args": [
+    [
+     {
+      "id": "logisticke-centrum-d1",
+      "datum": "2026-07-15",
+      "kategorie": [
+       "energetika",
+       "vytapeni"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "18 400 m²",
+      "doba": "9 měsíců",
+      "motiv": 1,
+      "vetev": "firmy",
+      "nazev": "Refit vytápění logistického centra u D1",
+      "misto": "Středočeský kraj",
+      "perex": "Energetický audit ukázal, že se vyplatí zachovat rozvody a vyměnit jen zdroje a regulaci. Spotřeba plynu klesla o třetinu."
+     },
+     {
+      "id": "administrativni-budova-karlin",
+      "datum": "2026-05-20",
+      "kategorie": [
+       "vzt",
+       "chlazeni"
+      ],
+      "kraj": "Praha",
+      "plocha": "6 200 m²",
+      "doba": "7 měsíců",
+      "motiv": 2,
+      "vetev": "firmy",
+      "nazev": "Vzduchotechnika a chlazení administrativní budovy v Karlíně",
+      "misto": "Praha 8",
+      "perex": "Výměna dvou VZT jednotek a rekonstrukce rozvodů chladu v šestipodlažní budově — za plného provozu nájemců."
+     },
+     {
+      "id": "poliklinika-pisek",
+      "datum": "2026-02-10",
+      "kategorie": [
+       "chlazeni",
+       "vzt"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "3 100 m²",
+      "doba": "5 měsíců",
+      "motiv": 3,
+      "vetev": "firmy",
+      "nazev": "Klimatizace a větrání polikliniky v Písku",
+      "misto": "Písek",
+      "perex": "Ordinace, čekárny a laboratoř. Všude jiné požadavky na čistotu vzduchu i hlučnost — a nikde nesmělo být slyšet."
+     },
+     {
+      "id": "vyrobni-hala-milevsko",
+      "datum": "2025-09-08",
+      "kategorie": [
+       "vzt",
+       "chlazeni"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "9 800 m²",
+      "doba": "6 měsíců",
+      "motiv": 4,
+      "vetev": "firmy",
+      "nazev": "Chlazení a větrání výrobní haly v Milevsku",
+      "misto": "Milevsko",
+      "perex": "Lisovna, kde v létě teplota u strojů přesahovala 38 °C. Řešení muselo zvládnout teplo z technologie i odsávání."
+     },
+     {
+      "id": "depozitar-galerie-tabor",
+      "datum": "2025-06-12",
+      "kategorie": [
+       "vzt",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "1 450 m²",
+      "doba": "4 měsíce",
+      "motiv": 5,
+      "vetev": "firmy",
+      "nazev": "Klima depozitáře galerie v Táboře",
+      "misto": "Tábor",
+      "perex": "Sbírkové předměty nepotřebují chlad, ale stabilitu. Vlhkost tu musí držet v úzkém pásmu po celý rok."
+     },
+     {
+      "id": "obchodni-centrum-budejovice",
+      "datum": "2025-03-18",
+      "kategorie": [
+       "vzt",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "24 000 m²",
+      "doba": "3 měsíce",
+      "motiv": 6,
+      "vetev": "firmy",
+      "nazev": "EAC filtry v obchodním centru v Českých Budějovicích",
+      "misto": "České Budějovice",
+      "perex": "Výměna klasických filtrů za elektronické čističe vzduchu ve vzduchotechnických jednotkách. Nižší tlaková ztráta, méně odpadu."
+     },
+     {
+      "id": "zakladni-skola-pribram",
+      "datum": "2024-11-05",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "vzt"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "4 600 m²",
+      "doba": "8 měsíců",
+      "motiv": 7,
+      "vetev": "firmy",
+      "nazev": "Tepelná čerpadla a rekuperace základní školy v Příbrami",
+      "misto": "Příbram",
+      "perex": "Škola vyměnila plynovou kotelnu za tepelná čerpadla a získala řízené větrání tříd. Dotaci jsme vyřídili za zřizovatele."
+     },
+     {
+      "id": "hotel-na-sumave",
+      "datum": "2024-06-24",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "chlazeni"
+      ],
+      "kraj": "Plzeňský kraj",
+      "plocha": "2 700 m²",
+      "doba": "5 měsíců",
+      "motiv": 8,
+      "vetev": "firmy",
+      "nazev": "Tepelná čerpadla a klimatizace hotelu na Šumavě",
+      "misto": "Plzeňský kraj",
+      "perex": "Horský hotel, kde se topí osm měsíců v roce a v létě je potřeba chladit pokoje pod střechou. Vše muselo být slyšet co nejméně."
+     },
+     {
+      "id": "d-bungalov-klimatizace",
+      "datum": "2026-07-03",
+      "kategorie": [
+       "chlazeni"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "140 m²",
+      "doba": "3 výjezdy",
+      "motiv": 3,
+      "vetev": "domacnosti",
+      "skutecna": true,
+      "nazev": "Klimatizace rodinného bungalovu bez jediné lišty",
+      "misto": "Jižní Čechy",
+      "perex": "Zákazník chtěl designové vnitřní jednotky a čistý interiér — bez viditelných lišt pro chladivové potrubí."
+     },
+     {
+      "id": "d-rodinny-dum-cerpadlo",
+      "datum": "2026-04-18",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "vytapeni"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "180 m²",
+      "doba": "6 týdnů",
+      "motiv": 6,
+      "vetev": "domacnosti",
+      "nazev": "Tepelné čerpadlo místo plynového kotle",
+      "misto": "Středočeský kraj",
+      "perex": "Starší dům s radiátory. Místo rychlé výměny zdroje jsme nejdřív spočítali ztráty a upravili soustavu — jinak by čerpadlo jelo draho."
+     },
+     {
+      "id": "d-byt-rekuperace",
+      "datum": "2025-11-12",
+      "kategorie": [
+       "vzt"
+      ],
+      "kraj": "Praha",
+      "plocha": "92 m²",
+      "doba": "2 týdny",
+      "motiv": 1,
+      "vetev": "domacnosti",
+      "nazev": "Rekuperace do bytu po rekonstrukci",
+      "misto": "Praha",
+      "perex": "Byt v cihlovém domě po kompletní rekonstrukci. Rozvody se musely vejít do podhledů, které už byly navržené."
+     },
+     {
+      "id": "d-vymena-kotle",
+      "datum": "2025-02-04",
+      "kategorie": [
+       "vytapeni",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "rodinný dům",
+      "doba": "2 dny",
+      "motiv": 4,
+      "vetev": "domacnosti",
+      "nazev": "Havarijní výměna kotle v topné sezóně",
+      "misto": "Jižní Čechy",
+      "perex": "Volání na dispečink v lednu: netopí. Starý kotel už nešlo opravit, nový jel za dva dny."
+     }
+    ],
+    {
+     "dotaz": "nic-takoveho-neni"
+    }
+   ],
+   "out": []
+  },
+  {
+   "args": [
+    [],
+    {}
+   ],
+   "out": []
+  }
+ ],
+ "collectKategorie": [
+  {
+   "args": [
+    [
+     {
+      "id": "logisticke-centrum-d1",
+      "datum": "2026-07-15",
+      "kategorie": [
+       "energetika",
+       "vytapeni"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "18 400 m²",
+      "doba": "9 měsíců",
+      "motiv": 1,
+      "vetev": "firmy",
+      "nazev": "Refit vytápění logistického centra u D1",
+      "misto": "Středočeský kraj",
+      "perex": "Energetický audit ukázal, že se vyplatí zachovat rozvody a vyměnit jen zdroje a regulaci. Spotřeba plynu klesla o třetinu."
+     },
+     {
+      "id": "administrativni-budova-karlin",
+      "datum": "2026-05-20",
+      "kategorie": [
+       "vzt",
+       "chlazeni"
+      ],
+      "kraj": "Praha",
+      "plocha": "6 200 m²",
+      "doba": "7 měsíců",
+      "motiv": 2,
+      "vetev": "firmy",
+      "nazev": "Vzduchotechnika a chlazení administrativní budovy v Karlíně",
+      "misto": "Praha 8",
+      "perex": "Výměna dvou VZT jednotek a rekonstrukce rozvodů chladu v šestipodlažní budově — za plného provozu nájemců."
+     },
+     {
+      "id": "poliklinika-pisek",
+      "datum": "2026-02-10",
+      "kategorie": [
+       "chlazeni",
+       "vzt"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "3 100 m²",
+      "doba": "5 měsíců",
+      "motiv": 3,
+      "vetev": "firmy",
+      "nazev": "Klimatizace a větrání polikliniky v Písku",
+      "misto": "Písek",
+      "perex": "Ordinace, čekárny a laboratoř. Všude jiné požadavky na čistotu vzduchu i hlučnost — a nikde nesmělo být slyšet."
+     },
+     {
+      "id": "vyrobni-hala-milevsko",
+      "datum": "2025-09-08",
+      "kategorie": [
+       "vzt",
+       "chlazeni"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "9 800 m²",
+      "doba": "6 měsíců",
+      "motiv": 4,
+      "vetev": "firmy",
+      "nazev": "Chlazení a větrání výrobní haly v Milevsku",
+      "misto": "Milevsko",
+      "perex": "Lisovna, kde v létě teplota u strojů přesahovala 38 °C. Řešení muselo zvládnout teplo z technologie i odsávání."
+     },
+     {
+      "id": "depozitar-galerie-tabor",
+      "datum": "2025-06-12",
+      "kategorie": [
+       "vzt",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "1 450 m²",
+      "doba": "4 měsíce",
+      "motiv": 5,
+      "vetev": "firmy",
+      "nazev": "Klima depozitáře galerie v Táboře",
+      "misto": "Tábor",
+      "perex": "Sbírkové předměty nepotřebují chlad, ale stabilitu. Vlhkost tu musí držet v úzkém pásmu po celý rok."
+     },
+     {
+      "id": "obchodni-centrum-budejovice",
+      "datum": "2025-03-18",
+      "kategorie": [
+       "vzt",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "24 000 m²",
+      "doba": "3 měsíce",
+      "motiv": 6,
+      "vetev": "firmy",
+      "nazev": "EAC filtry v obchodním centru v Českých Budějovicích",
+      "misto": "České Budějovice",
+      "perex": "Výměna klasických filtrů za elektronické čističe vzduchu ve vzduchotechnických jednotkách. Nižší tlaková ztráta, méně odpadu."
+     },
+     {
+      "id": "zakladni-skola-pribram",
+      "datum": "2024-11-05",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "vzt"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "4 600 m²",
+      "doba": "8 měsíců",
+      "motiv": 7,
+      "vetev": "firmy",
+      "nazev": "Tepelná čerpadla a rekuperace základní školy v Příbrami",
+      "misto": "Příbram",
+      "perex": "Škola vyměnila plynovou kotelnu za tepelná čerpadla a získala řízené větrání tříd. Dotaci jsme vyřídili za zřizovatele."
+     },
+     {
+      "id": "hotel-na-sumave",
+      "datum": "2024-06-24",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "chlazeni"
+      ],
+      "kraj": "Plzeňský kraj",
+      "plocha": "2 700 m²",
+      "doba": "5 měsíců",
+      "motiv": 8,
+      "vetev": "firmy",
+      "nazev": "Tepelná čerpadla a klimatizace hotelu na Šumavě",
+      "misto": "Plzeňský kraj",
+      "perex": "Horský hotel, kde se topí osm měsíců v roce a v létě je potřeba chladit pokoje pod střechou. Vše muselo být slyšet co nejméně."
+     },
+     {
+      "id": "d-bungalov-klimatizace",
+      "datum": "2026-07-03",
+      "kategorie": [
+       "chlazeni"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "140 m²",
+      "doba": "3 výjezdy",
+      "motiv": 3,
+      "vetev": "domacnosti",
+      "skutecna": true,
+      "nazev": "Klimatizace rodinného bungalovu bez jediné lišty",
+      "misto": "Jižní Čechy",
+      "perex": "Zákazník chtěl designové vnitřní jednotky a čistý interiér — bez viditelných lišt pro chladivové potrubí."
+     },
+     {
+      "id": "d-rodinny-dum-cerpadlo",
+      "datum": "2026-04-18",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "vytapeni"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "180 m²",
+      "doba": "6 týdnů",
+      "motiv": 6,
+      "vetev": "domacnosti",
+      "nazev": "Tepelné čerpadlo místo plynového kotle",
+      "misto": "Středočeský kraj",
+      "perex": "Starší dům s radiátory. Místo rychlé výměny zdroje jsme nejdřív spočítali ztráty a upravili soustavu — jinak by čerpadlo jelo draho."
+     },
+     {
+      "id": "d-byt-rekuperace",
+      "datum": "2025-11-12",
+      "kategorie": [
+       "vzt"
+      ],
+      "kraj": "Praha",
+      "plocha": "92 m²",
+      "doba": "2 týdny",
+      "motiv": 1,
+      "vetev": "domacnosti",
+      "nazev": "Rekuperace do bytu po rekonstrukci",
+      "misto": "Praha",
+      "perex": "Byt v cihlovém domě po kompletní rekonstrukci. Rozvody se musely vejít do podhledů, které už byly navržené."
+     },
+     {
+      "id": "d-vymena-kotle",
+      "datum": "2025-02-04",
+      "kategorie": [
+       "vytapeni",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "rodinný dům",
+      "doba": "2 dny",
+      "motiv": 4,
+      "vetev": "domacnosti",
+      "nazev": "Havarijní výměna kotle v topné sezóně",
+      "misto": "Jižní Čechy",
+      "perex": "Volání na dispečink v lednu: netopí. Starý kotel už nešlo opravit, nový jel za dva dny."
+     }
+    ]
+   ],
+   "out": [
+    {
+     "id": "vzt",
+     "count": 7
+    },
+    {
+     "id": "chlazeni",
+     "count": 5
+    },
+    {
+     "id": "servis",
+     "count": 3
+    },
+    {
+     "id": "tepelna-cerpadla",
+     "count": 3
+    },
+    {
+     "id": "vytapeni",
+     "count": 3
+    },
+    {
+     "id": "energetika",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "args": [
+    []
+   ],
+   "out": []
+  }
+ ],
+ "collectRoky": [
+  {
+   "args": [
+    [
+     {
+      "id": "logisticke-centrum-d1",
+      "datum": "2026-07-15",
+      "kategorie": [
+       "energetika",
+       "vytapeni"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "18 400 m²",
+      "doba": "9 měsíců",
+      "motiv": 1,
+      "vetev": "firmy",
+      "nazev": "Refit vytápění logistického centra u D1",
+      "misto": "Středočeský kraj",
+      "perex": "Energetický audit ukázal, že se vyplatí zachovat rozvody a vyměnit jen zdroje a regulaci. Spotřeba plynu klesla o třetinu."
+     },
+     {
+      "id": "administrativni-budova-karlin",
+      "datum": "2026-05-20",
+      "kategorie": [
+       "vzt",
+       "chlazeni"
+      ],
+      "kraj": "Praha",
+      "plocha": "6 200 m²",
+      "doba": "7 měsíců",
+      "motiv": 2,
+      "vetev": "firmy",
+      "nazev": "Vzduchotechnika a chlazení administrativní budovy v Karlíně",
+      "misto": "Praha 8",
+      "perex": "Výměna dvou VZT jednotek a rekonstrukce rozvodů chladu v šestipodlažní budově — za plného provozu nájemců."
+     },
+     {
+      "id": "poliklinika-pisek",
+      "datum": "2026-02-10",
+      "kategorie": [
+       "chlazeni",
+       "vzt"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "3 100 m²",
+      "doba": "5 měsíců",
+      "motiv": 3,
+      "vetev": "firmy",
+      "nazev": "Klimatizace a větrání polikliniky v Písku",
+      "misto": "Písek",
+      "perex": "Ordinace, čekárny a laboratoř. Všude jiné požadavky na čistotu vzduchu i hlučnost — a nikde nesmělo být slyšet."
+     },
+     {
+      "id": "vyrobni-hala-milevsko",
+      "datum": "2025-09-08",
+      "kategorie": [
+       "vzt",
+       "chlazeni"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "9 800 m²",
+      "doba": "6 měsíců",
+      "motiv": 4,
+      "vetev": "firmy",
+      "nazev": "Chlazení a větrání výrobní haly v Milevsku",
+      "misto": "Milevsko",
+      "perex": "Lisovna, kde v létě teplota u strojů přesahovala 38 °C. Řešení muselo zvládnout teplo z technologie i odsávání."
+     },
+     {
+      "id": "depozitar-galerie-tabor",
+      "datum": "2025-06-12",
+      "kategorie": [
+       "vzt",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "1 450 m²",
+      "doba": "4 měsíce",
+      "motiv": 5,
+      "vetev": "firmy",
+      "nazev": "Klima depozitáře galerie v Táboře",
+      "misto": "Tábor",
+      "perex": "Sbírkové předměty nepotřebují chlad, ale stabilitu. Vlhkost tu musí držet v úzkém pásmu po celý rok."
+     },
+     {
+      "id": "obchodni-centrum-budejovice",
+      "datum": "2025-03-18",
+      "kategorie": [
+       "vzt",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "24 000 m²",
+      "doba": "3 měsíce",
+      "motiv": 6,
+      "vetev": "firmy",
+      "nazev": "EAC filtry v obchodním centru v Českých Budějovicích",
+      "misto": "České Budějovice",
+      "perex": "Výměna klasických filtrů za elektronické čističe vzduchu ve vzduchotechnických jednotkách. Nižší tlaková ztráta, méně odpadu."
+     },
+     {
+      "id": "zakladni-skola-pribram",
+      "datum": "2024-11-05",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "vzt"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "4 600 m²",
+      "doba": "8 měsíců",
+      "motiv": 7,
+      "vetev": "firmy",
+      "nazev": "Tepelná čerpadla a rekuperace základní školy v Příbrami",
+      "misto": "Příbram",
+      "perex": "Škola vyměnila plynovou kotelnu za tepelná čerpadla a získala řízené větrání tříd. Dotaci jsme vyřídili za zřizovatele."
+     },
+     {
+      "id": "hotel-na-sumave",
+      "datum": "2024-06-24",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "chlazeni"
+      ],
+      "kraj": "Plzeňský kraj",
+      "plocha": "2 700 m²",
+      "doba": "5 měsíců",
+      "motiv": 8,
+      "vetev": "firmy",
+      "nazev": "Tepelná čerpadla a klimatizace hotelu na Šumavě",
+      "misto": "Plzeňský kraj",
+      "perex": "Horský hotel, kde se topí osm měsíců v roce a v létě je potřeba chladit pokoje pod střechou. Vše muselo být slyšet co nejméně."
+     },
+     {
+      "id": "d-bungalov-klimatizace",
+      "datum": "2026-07-03",
+      "kategorie": [
+       "chlazeni"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "140 m²",
+      "doba": "3 výjezdy",
+      "motiv": 3,
+      "vetev": "domacnosti",
+      "skutecna": true,
+      "nazev": "Klimatizace rodinného bungalovu bez jediné lišty",
+      "misto": "Jižní Čechy",
+      "perex": "Zákazník chtěl designové vnitřní jednotky a čistý interiér — bez viditelných lišt pro chladivové potrubí."
+     },
+     {
+      "id": "d-rodinny-dum-cerpadlo",
+      "datum": "2026-04-18",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "vytapeni"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "180 m²",
+      "doba": "6 týdnů",
+      "motiv": 6,
+      "vetev": "domacnosti",
+      "nazev": "Tepelné čerpadlo místo plynového kotle",
+      "misto": "Středočeský kraj",
+      "perex": "Starší dům s radiátory. Místo rychlé výměny zdroje jsme nejdřív spočítali ztráty a upravili soustavu — jinak by čerpadlo jelo draho."
+     },
+     {
+      "id": "d-byt-rekuperace",
+      "datum": "2025-11-12",
+      "kategorie": [
+       "vzt"
+      ],
+      "kraj": "Praha",
+      "plocha": "92 m²",
+      "doba": "2 týdny",
+      "motiv": 1,
+      "vetev": "domacnosti",
+      "nazev": "Rekuperace do bytu po rekonstrukci",
+      "misto": "Praha",
+      "perex": "Byt v cihlovém domě po kompletní rekonstrukci. Rozvody se musely vejít do podhledů, které už byly navržené."
+     },
+     {
+      "id": "d-vymena-kotle",
+      "datum": "2025-02-04",
+      "kategorie": [
+       "vytapeni",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "rodinný dům",
+      "doba": "2 dny",
+      "motiv": 4,
+      "vetev": "domacnosti",
+      "nazev": "Havarijní výměna kotle v topné sezóně",
+      "misto": "Jižní Čechy",
+      "perex": "Volání na dispečink v lednu: netopí. Starý kotel už nešlo opravit, nový jel za dva dny."
+     }
+    ]
+   ],
+   "out": [
+    2026,
+    2025,
+    2024
+   ]
+  },
+  {
+   "args": [
+    []
+   ],
+   "out": []
+  }
+ ],
+ "sortItems": [
+  {
+   "args": [
+    [
+     {
+      "id": "logisticke-centrum-d1",
+      "datum": "2026-07-15",
+      "kategorie": [
+       "energetika",
+       "vytapeni"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "18 400 m²",
+      "doba": "9 měsíců",
+      "motiv": 1,
+      "vetev": "firmy",
+      "nazev": "Refit vytápění logistického centra u D1",
+      "misto": "Středočeský kraj",
+      "perex": "Energetický audit ukázal, že se vyplatí zachovat rozvody a vyměnit jen zdroje a regulaci. Spotřeba plynu klesla o třetinu."
+     },
+     {
+      "id": "administrativni-budova-karlin",
+      "datum": "2026-05-20",
+      "kategorie": [
+       "vzt",
+       "chlazeni"
+      ],
+      "kraj": "Praha",
+      "plocha": "6 200 m²",
+      "doba": "7 měsíců",
+      "motiv": 2,
+      "vetev": "firmy",
+      "nazev": "Vzduchotechnika a chlazení administrativní budovy v Karlíně",
+      "misto": "Praha 8",
+      "perex": "Výměna dvou VZT jednotek a rekonstrukce rozvodů chladu v šestipodlažní budově — za plného provozu nájemců."
+     },
+     {
+      "id": "poliklinika-pisek",
+      "datum": "2026-02-10",
+      "kategorie": [
+       "chlazeni",
+       "vzt"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "3 100 m²",
+      "doba": "5 měsíců",
+      "motiv": 3,
+      "vetev": "firmy",
+      "nazev": "Klimatizace a větrání polikliniky v Písku",
+      "misto": "Písek",
+      "perex": "Ordinace, čekárny a laboratoř. Všude jiné požadavky na čistotu vzduchu i hlučnost — a nikde nesmělo být slyšet."
+     },
+     {
+      "id": "vyrobni-hala-milevsko",
+      "datum": "2025-09-08",
+      "kategorie": [
+       "vzt",
+       "chlazeni"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "9 800 m²",
+      "doba": "6 měsíců",
+      "motiv": 4,
+      "vetev": "firmy",
+      "nazev": "Chlazení a větrání výrobní haly v Milevsku",
+      "misto": "Milevsko",
+      "perex": "Lisovna, kde v létě teplota u strojů přesahovala 38 °C. Řešení muselo zvládnout teplo z technologie i odsávání."
+     },
+     {
+      "id": "depozitar-galerie-tabor",
+      "datum": "2025-06-12",
+      "kategorie": [
+       "vzt",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "1 450 m²",
+      "doba": "4 měsíce",
+      "motiv": 5,
+      "vetev": "firmy",
+      "nazev": "Klima depozitáře galerie v Táboře",
+      "misto": "Tábor",
+      "perex": "Sbírkové předměty nepotřebují chlad, ale stabilitu. Vlhkost tu musí držet v úzkém pásmu po celý rok."
+     },
+     {
+      "id": "obchodni-centrum-budejovice",
+      "datum": "2025-03-18",
+      "kategorie": [
+       "vzt",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "24 000 m²",
+      "doba": "3 měsíce",
+      "motiv": 6,
+      "vetev": "firmy",
+      "nazev": "EAC filtry v obchodním centru v Českých Budějovicích",
+      "misto": "České Budějovice",
+      "perex": "Výměna klasických filtrů za elektronické čističe vzduchu ve vzduchotechnických jednotkách. Nižší tlaková ztráta, méně odpadu."
+     },
+     {
+      "id": "zakladni-skola-pribram",
+      "datum": "2024-11-05",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "vzt"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "4 600 m²",
+      "doba": "8 měsíců",
+      "motiv": 7,
+      "vetev": "firmy",
+      "nazev": "Tepelná čerpadla a rekuperace základní školy v Příbrami",
+      "misto": "Příbram",
+      "perex": "Škola vyměnila plynovou kotelnu za tepelná čerpadla a získala řízené větrání tříd. Dotaci jsme vyřídili za zřizovatele."
+     },
+     {
+      "id": "hotel-na-sumave",
+      "datum": "2024-06-24",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "chlazeni"
+      ],
+      "kraj": "Plzeňský kraj",
+      "plocha": "2 700 m²",
+      "doba": "5 měsíců",
+      "motiv": 8,
+      "vetev": "firmy",
+      "nazev": "Tepelná čerpadla a klimatizace hotelu na Šumavě",
+      "misto": "Plzeňský kraj",
+      "perex": "Horský hotel, kde se topí osm měsíců v roce a v létě je potřeba chladit pokoje pod střechou. Vše muselo být slyšet co nejméně."
+     },
+     {
+      "id": "d-bungalov-klimatizace",
+      "datum": "2026-07-03",
+      "kategorie": [
+       "chlazeni"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "140 m²",
+      "doba": "3 výjezdy",
+      "motiv": 3,
+      "vetev": "domacnosti",
+      "skutecna": true,
+      "nazev": "Klimatizace rodinného bungalovu bez jediné lišty",
+      "misto": "Jižní Čechy",
+      "perex": "Zákazník chtěl designové vnitřní jednotky a čistý interiér — bez viditelných lišt pro chladivové potrubí."
+     },
+     {
+      "id": "d-rodinny-dum-cerpadlo",
+      "datum": "2026-04-18",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "vytapeni"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "180 m²",
+      "doba": "6 týdnů",
+      "motiv": 6,
+      "vetev": "domacnosti",
+      "nazev": "Tepelné čerpadlo místo plynového kotle",
+      "misto": "Středočeský kraj",
+      "perex": "Starší dům s radiátory. Místo rychlé výměny zdroje jsme nejdřív spočítali ztráty a upravili soustavu — jinak by čerpadlo jelo draho."
+     },
+     {
+      "id": "d-byt-rekuperace",
+      "datum": "2025-11-12",
+      "kategorie": [
+       "vzt"
+      ],
+      "kraj": "Praha",
+      "plocha": "92 m²",
+      "doba": "2 týdny",
+      "motiv": 1,
+      "vetev": "domacnosti",
+      "nazev": "Rekuperace do bytu po rekonstrukci",
+      "misto": "Praha",
+      "perex": "Byt v cihlovém domě po kompletní rekonstrukci. Rozvody se musely vejít do podhledů, které už byly navržené."
+     },
+     {
+      "id": "d-vymena-kotle",
+      "datum": "2025-02-04",
+      "kategorie": [
+       "vytapeni",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "rodinný dům",
+      "doba": "2 dny",
+      "motiv": 4,
+      "vetev": "domacnosti",
+      "nazev": "Havarijní výměna kotle v topné sezóně",
+      "misto": "Jižní Čechy",
+      "perex": "Volání na dispečink v lednu: netopí. Starý kotel už nešlo opravit, nový jel za dva dny."
+     }
+    ],
+    "datum"
+   ],
+   "out": [
+    {
+     "id": "logisticke-centrum-d1",
+     "datum": "2026-07-15",
+     "kategorie": [
+      "energetika",
+      "vytapeni"
+     ],
+     "kraj": "Středočeský kraj",
+     "plocha": "18 400 m²",
+     "doba": "9 měsíců",
+     "motiv": 1,
+     "vetev": "firmy",
+     "nazev": "Refit vytápění logistického centra u D1",
+     "misto": "Středočeský kraj",
+     "perex": "Energetický audit ukázal, že se vyplatí zachovat rozvody a vyměnit jen zdroje a regulaci. Spotřeba plynu klesla o třetinu."
+    },
+    {
+     "id": "d-bungalov-klimatizace",
+     "datum": "2026-07-03",
+     "kategorie": [
+      "chlazeni"
+     ],
+     "kraj": "Jihočeský kraj",
+     "plocha": "140 m²",
+     "doba": "3 výjezdy",
+     "motiv": 3,
+     "vetev": "domacnosti",
+     "skutecna": true,
+     "nazev": "Klimatizace rodinného bungalovu bez jediné lišty",
+     "misto": "Jižní Čechy",
+     "perex": "Zákazník chtěl designové vnitřní jednotky a čistý interiér — bez viditelných lišt pro chladivové potrubí."
+    },
+    {
+     "id": "administrativni-budova-karlin",
+     "datum": "2026-05-20",
+     "kategorie": [
+      "vzt",
+      "chlazeni"
+     ],
+     "kraj": "Praha",
+     "plocha": "6 200 m²",
+     "doba": "7 měsíců",
+     "motiv": 2,
+     "vetev": "firmy",
+     "nazev": "Vzduchotechnika a chlazení administrativní budovy v Karlíně",
+     "misto": "Praha 8",
+     "perex": "Výměna dvou VZT jednotek a rekonstrukce rozvodů chladu v šestipodlažní budově — za plného provozu nájemců."
+    },
+    {
+     "id": "d-rodinny-dum-cerpadlo",
+     "datum": "2026-04-18",
+     "kategorie": [
+      "tepelna-cerpadla",
+      "vytapeni"
+     ],
+     "kraj": "Středočeský kraj",
+     "plocha": "180 m²",
+     "doba": "6 týdnů",
+     "motiv": 6,
+     "vetev": "domacnosti",
+     "nazev": "Tepelné čerpadlo místo plynového kotle",
+     "misto": "Středočeský kraj",
+     "perex": "Starší dům s radiátory. Místo rychlé výměny zdroje jsme nejdřív spočítali ztráty a upravili soustavu — jinak by čerpadlo jelo draho."
+    },
+    {
+     "id": "poliklinika-pisek",
+     "datum": "2026-02-10",
+     "kategorie": [
+      "chlazeni",
+      "vzt"
+     ],
+     "kraj": "Jihočeský kraj",
+     "plocha": "3 100 m²",
+     "doba": "5 měsíců",
+     "motiv": 3,
+     "vetev": "firmy",
+     "nazev": "Klimatizace a větrání polikliniky v Písku",
+     "misto": "Písek",
+     "perex": "Ordinace, čekárny a laboratoř. Všude jiné požadavky na čistotu vzduchu i hlučnost — a nikde nesmělo být slyšet."
+    },
+    {
+     "id": "d-byt-rekuperace",
+     "datum": "2025-11-12",
+     "kategorie": [
+      "vzt"
+     ],
+     "kraj": "Praha",
+     "plocha": "92 m²",
+     "doba": "2 týdny",
+     "motiv": 1,
+     "vetev": "domacnosti",
+     "nazev": "Rekuperace do bytu po rekonstrukci",
+     "misto": "Praha",
+     "perex": "Byt v cihlovém domě po kompletní rekonstrukci. Rozvody se musely vejít do podhledů, které už byly navržené."
+    },
+    {
+     "id": "vyrobni-hala-milevsko",
+     "datum": "2025-09-08",
+     "kategorie": [
+      "vzt",
+      "chlazeni"
+     ],
+     "kraj": "Jihočeský kraj",
+     "plocha": "9 800 m²",
+     "doba": "6 měsíců",
+     "motiv": 4,
+     "vetev": "firmy",
+     "nazev": "Chlazení a větrání výrobní haly v Milevsku",
+     "misto": "Milevsko",
+     "perex": "Lisovna, kde v létě teplota u strojů přesahovala 38 °C. Řešení muselo zvládnout teplo z technologie i odsávání."
+    },
+    {
+     "id": "depozitar-galerie-tabor",
+     "datum": "2025-06-12",
+     "kategorie": [
+      "vzt",
+      "servis"
+     ],
+     "kraj": "Jihočeský kraj",
+     "plocha": "1 450 m²",
+     "doba": "4 měsíce",
+     "motiv": 5,
+     "vetev": "firmy",
+     "nazev": "Klima depozitáře galerie v Táboře",
+     "misto": "Tábor",
+     "perex": "Sbírkové předměty nepotřebují chlad, ale stabilitu. Vlhkost tu musí držet v úzkém pásmu po celý rok."
+    },
+    {
+     "id": "obchodni-centrum-budejovice",
+     "datum": "2025-03-18",
+     "kategorie": [
+      "vzt",
+      "servis"
+     ],
+     "kraj": "Jihočeský kraj",
+     "plocha": "24 000 m²",
+     "doba": "3 měsíce",
+     "motiv": 6,
+     "vetev": "firmy",
+     "nazev": "EAC filtry v obchodním centru v Českých Budějovicích",
+     "misto": "České Budějovice",
+     "perex": "Výměna klasických filtrů za elektronické čističe vzduchu ve vzduchotechnických jednotkách. Nižší tlaková ztráta, méně odpadu."
+    },
+    {
+     "id": "d-vymena-kotle",
+     "datum": "2025-02-04",
+     "kategorie": [
+      "vytapeni",
+      "servis"
+     ],
+     "kraj": "Jihočeský kraj",
+     "plocha": "rodinný dům",
+     "doba": "2 dny",
+     "motiv": 4,
+     "vetev": "domacnosti",
+     "nazev": "Havarijní výměna kotle v topné sezóně",
+     "misto": "Jižní Čechy",
+     "perex": "Volání na dispečink v lednu: netopí. Starý kotel už nešlo opravit, nový jel za dva dny."
+    },
+    {
+     "id": "zakladni-skola-pribram",
+     "datum": "2024-11-05",
+     "kategorie": [
+      "tepelna-cerpadla",
+      "vzt"
+     ],
+     "kraj": "Středočeský kraj",
+     "plocha": "4 600 m²",
+     "doba": "8 měsíců",
+     "motiv": 7,
+     "vetev": "firmy",
+     "nazev": "Tepelná čerpadla a rekuperace základní školy v Příbrami",
+     "misto": "Příbram",
+     "perex": "Škola vyměnila plynovou kotelnu za tepelná čerpadla a získala řízené větrání tříd. Dotaci jsme vyřídili za zřizovatele."
+    },
+    {
+     "id": "hotel-na-sumave",
+     "datum": "2024-06-24",
+     "kategorie": [
+      "tepelna-cerpadla",
+      "chlazeni"
+     ],
+     "kraj": "Plzeňský kraj",
+     "plocha": "2 700 m²",
+     "doba": "5 měsíců",
+     "motiv": 8,
+     "vetev": "firmy",
+     "nazev": "Tepelná čerpadla a klimatizace hotelu na Šumavě",
+     "misto": "Plzeňský kraj",
+     "perex": "Horský hotel, kde se topí osm měsíců v roce a v létě je potřeba chladit pokoje pod střechou. Vše muselo být slyšet co nejméně."
+    }
+   ]
+  },
+  {
+   "args": [
+    [
+     {
+      "id": "logisticke-centrum-d1",
+      "datum": "2026-07-15",
+      "kategorie": [
+       "energetika",
+       "vytapeni"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "18 400 m²",
+      "doba": "9 měsíců",
+      "motiv": 1,
+      "vetev": "firmy",
+      "nazev": "Refit vytápění logistického centra u D1",
+      "misto": "Středočeský kraj",
+      "perex": "Energetický audit ukázal, že se vyplatí zachovat rozvody a vyměnit jen zdroje a regulaci. Spotřeba plynu klesla o třetinu."
+     },
+     {
+      "id": "administrativni-budova-karlin",
+      "datum": "2026-05-20",
+      "kategorie": [
+       "vzt",
+       "chlazeni"
+      ],
+      "kraj": "Praha",
+      "plocha": "6 200 m²",
+      "doba": "7 měsíců",
+      "motiv": 2,
+      "vetev": "firmy",
+      "nazev": "Vzduchotechnika a chlazení administrativní budovy v Karlíně",
+      "misto": "Praha 8",
+      "perex": "Výměna dvou VZT jednotek a rekonstrukce rozvodů chladu v šestipodlažní budově — za plného provozu nájemců."
+     },
+     {
+      "id": "poliklinika-pisek",
+      "datum": "2026-02-10",
+      "kategorie": [
+       "chlazeni",
+       "vzt"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "3 100 m²",
+      "doba": "5 měsíců",
+      "motiv": 3,
+      "vetev": "firmy",
+      "nazev": "Klimatizace a větrání polikliniky v Písku",
+      "misto": "Písek",
+      "perex": "Ordinace, čekárny a laboratoř. Všude jiné požadavky na čistotu vzduchu i hlučnost — a nikde nesmělo být slyšet."
+     },
+     {
+      "id": "vyrobni-hala-milevsko",
+      "datum": "2025-09-08",
+      "kategorie": [
+       "vzt",
+       "chlazeni"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "9 800 m²",
+      "doba": "6 měsíců",
+      "motiv": 4,
+      "vetev": "firmy",
+      "nazev": "Chlazení a větrání výrobní haly v Milevsku",
+      "misto": "Milevsko",
+      "perex": "Lisovna, kde v létě teplota u strojů přesahovala 38 °C. Řešení muselo zvládnout teplo z technologie i odsávání."
+     },
+     {
+      "id": "depozitar-galerie-tabor",
+      "datum": "2025-06-12",
+      "kategorie": [
+       "vzt",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "1 450 m²",
+      "doba": "4 měsíce",
+      "motiv": 5,
+      "vetev": "firmy",
+      "nazev": "Klima depozitáře galerie v Táboře",
+      "misto": "Tábor",
+      "perex": "Sbírkové předměty nepotřebují chlad, ale stabilitu. Vlhkost tu musí držet v úzkém pásmu po celý rok."
+     },
+     {
+      "id": "obchodni-centrum-budejovice",
+      "datum": "2025-03-18",
+      "kategorie": [
+       "vzt",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "24 000 m²",
+      "doba": "3 měsíce",
+      "motiv": 6,
+      "vetev": "firmy",
+      "nazev": "EAC filtry v obchodním centru v Českých Budějovicích",
+      "misto": "České Budějovice",
+      "perex": "Výměna klasických filtrů za elektronické čističe vzduchu ve vzduchotechnických jednotkách. Nižší tlaková ztráta, méně odpadu."
+     },
+     {
+      "id": "zakladni-skola-pribram",
+      "datum": "2024-11-05",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "vzt"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "4 600 m²",
+      "doba": "8 měsíců",
+      "motiv": 7,
+      "vetev": "firmy",
+      "nazev": "Tepelná čerpadla a rekuperace základní školy v Příbrami",
+      "misto": "Příbram",
+      "perex": "Škola vyměnila plynovou kotelnu za tepelná čerpadla a získala řízené větrání tříd. Dotaci jsme vyřídili za zřizovatele."
+     },
+     {
+      "id": "hotel-na-sumave",
+      "datum": "2024-06-24",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "chlazeni"
+      ],
+      "kraj": "Plzeňský kraj",
+      "plocha": "2 700 m²",
+      "doba": "5 měsíců",
+      "motiv": 8,
+      "vetev": "firmy",
+      "nazev": "Tepelná čerpadla a klimatizace hotelu na Šumavě",
+      "misto": "Plzeňský kraj",
+      "perex": "Horský hotel, kde se topí osm měsíců v roce a v létě je potřeba chladit pokoje pod střechou. Vše muselo být slyšet co nejméně."
+     },
+     {
+      "id": "d-bungalov-klimatizace",
+      "datum": "2026-07-03",
+      "kategorie": [
+       "chlazeni"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "140 m²",
+      "doba": "3 výjezdy",
+      "motiv": 3,
+      "vetev": "domacnosti",
+      "skutecna": true,
+      "nazev": "Klimatizace rodinného bungalovu bez jediné lišty",
+      "misto": "Jižní Čechy",
+      "perex": "Zákazník chtěl designové vnitřní jednotky a čistý interiér — bez viditelných lišt pro chladivové potrubí."
+     },
+     {
+      "id": "d-rodinny-dum-cerpadlo",
+      "datum": "2026-04-18",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "vytapeni"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "180 m²",
+      "doba": "6 týdnů",
+      "motiv": 6,
+      "vetev": "domacnosti",
+      "nazev": "Tepelné čerpadlo místo plynového kotle",
+      "misto": "Středočeský kraj",
+      "perex": "Starší dům s radiátory. Místo rychlé výměny zdroje jsme nejdřív spočítali ztráty a upravili soustavu — jinak by čerpadlo jelo draho."
+     },
+     {
+      "id": "d-byt-rekuperace",
+      "datum": "2025-11-12",
+      "kategorie": [
+       "vzt"
+      ],
+      "kraj": "Praha",
+      "plocha": "92 m²",
+      "doba": "2 týdny",
+      "motiv": 1,
+      "vetev": "domacnosti",
+      "nazev": "Rekuperace do bytu po rekonstrukci",
+      "misto": "Praha",
+      "perex": "Byt v cihlovém domě po kompletní rekonstrukci. Rozvody se musely vejít do podhledů, které už byly navržené."
+     },
+     {
+      "id": "d-vymena-kotle",
+      "datum": "2025-02-04",
+      "kategorie": [
+       "vytapeni",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "rodinný dům",
+      "doba": "2 dny",
+      "motiv": 4,
+      "vetev": "domacnosti",
+      "nazev": "Havarijní výměna kotle v topné sezóně",
+      "misto": "Jižní Čechy",
+      "perex": "Volání na dispečink v lednu: netopí. Starý kotel už nešlo opravit, nový jel za dva dny."
+     }
+    ],
+    "datum-vzestupne"
+   ],
+   "out": [
+    {
+     "id": "logisticke-centrum-d1",
+     "datum": "2026-07-15",
+     "kategorie": [
+      "energetika",
+      "vytapeni"
+     ],
+     "kraj": "Středočeský kraj",
+     "plocha": "18 400 m²",
+     "doba": "9 měsíců",
+     "motiv": 1,
+     "vetev": "firmy",
+     "nazev": "Refit vytápění logistického centra u D1",
+     "misto": "Středočeský kraj",
+     "perex": "Energetický audit ukázal, že se vyplatí zachovat rozvody a vyměnit jen zdroje a regulaci. Spotřeba plynu klesla o třetinu."
+    },
+    {
+     "id": "d-bungalov-klimatizace",
+     "datum": "2026-07-03",
+     "kategorie": [
+      "chlazeni"
+     ],
+     "kraj": "Jihočeský kraj",
+     "plocha": "140 m²",
+     "doba": "3 výjezdy",
+     "motiv": 3,
+     "vetev": "domacnosti",
+     "skutecna": true,
+     "nazev": "Klimatizace rodinného bungalovu bez jediné lišty",
+     "misto": "Jižní Čechy",
+     "perex": "Zákazník chtěl designové vnitřní jednotky a čistý interiér — bez viditelných lišt pro chladivové potrubí."
+    },
+    {
+     "id": "administrativni-budova-karlin",
+     "datum": "2026-05-20",
+     "kategorie": [
+      "vzt",
+      "chlazeni"
+     ],
+     "kraj": "Praha",
+     "plocha": "6 200 m²",
+     "doba": "7 měsíců",
+     "motiv": 2,
+     "vetev": "firmy",
+     "nazev": "Vzduchotechnika a chlazení administrativní budovy v Karlíně",
+     "misto": "Praha 8",
+     "perex": "Výměna dvou VZT jednotek a rekonstrukce rozvodů chladu v šestipodlažní budově — za plného provozu nájemců."
+    },
+    {
+     "id": "d-rodinny-dum-cerpadlo",
+     "datum": "2026-04-18",
+     "kategorie": [
+      "tepelna-cerpadla",
+      "vytapeni"
+     ],
+     "kraj": "Středočeský kraj",
+     "plocha": "180 m²",
+     "doba": "6 týdnů",
+     "motiv": 6,
+     "vetev": "domacnosti",
+     "nazev": "Tepelné čerpadlo místo plynového kotle",
+     "misto": "Středočeský kraj",
+     "perex": "Starší dům s radiátory. Místo rychlé výměny zdroje jsme nejdřív spočítali ztráty a upravili soustavu — jinak by čerpadlo jelo draho."
+    },
+    {
+     "id": "poliklinika-pisek",
+     "datum": "2026-02-10",
+     "kategorie": [
+      "chlazeni",
+      "vzt"
+     ],
+     "kraj": "Jihočeský kraj",
+     "plocha": "3 100 m²",
+     "doba": "5 měsíců",
+     "motiv": 3,
+     "vetev": "firmy",
+     "nazev": "Klimatizace a větrání polikliniky v Písku",
+     "misto": "Písek",
+     "perex": "Ordinace, čekárny a laboratoř. Všude jiné požadavky na čistotu vzduchu i hlučnost — a nikde nesmělo být slyšet."
+    },
+    {
+     "id": "d-byt-rekuperace",
+     "datum": "2025-11-12",
+     "kategorie": [
+      "vzt"
+     ],
+     "kraj": "Praha",
+     "plocha": "92 m²",
+     "doba": "2 týdny",
+     "motiv": 1,
+     "vetev": "domacnosti",
+     "nazev": "Rekuperace do bytu po rekonstrukci",
+     "misto": "Praha",
+     "perex": "Byt v cihlovém domě po kompletní rekonstrukci. Rozvody se musely vejít do podhledů, které už byly navržené."
+    },
+    {
+     "id": "vyrobni-hala-milevsko",
+     "datum": "2025-09-08",
+     "kategorie": [
+      "vzt",
+      "chlazeni"
+     ],
+     "kraj": "Jihočeský kraj",
+     "plocha": "9 800 m²",
+     "doba": "6 měsíců",
+     "motiv": 4,
+     "vetev": "firmy",
+     "nazev": "Chlazení a větrání výrobní haly v Milevsku",
+     "misto": "Milevsko",
+     "perex": "Lisovna, kde v létě teplota u strojů přesahovala 38 °C. Řešení muselo zvládnout teplo z technologie i odsávání."
+    },
+    {
+     "id": "depozitar-galerie-tabor",
+     "datum": "2025-06-12",
+     "kategorie": [
+      "vzt",
+      "servis"
+     ],
+     "kraj": "Jihočeský kraj",
+     "plocha": "1 450 m²",
+     "doba": "4 měsíce",
+     "motiv": 5,
+     "vetev": "firmy",
+     "nazev": "Klima depozitáře galerie v Táboře",
+     "misto": "Tábor",
+     "perex": "Sbírkové předměty nepotřebují chlad, ale stabilitu. Vlhkost tu musí držet v úzkém pásmu po celý rok."
+    },
+    {
+     "id": "obchodni-centrum-budejovice",
+     "datum": "2025-03-18",
+     "kategorie": [
+      "vzt",
+      "servis"
+     ],
+     "kraj": "Jihočeský kraj",
+     "plocha": "24 000 m²",
+     "doba": "3 měsíce",
+     "motiv": 6,
+     "vetev": "firmy",
+     "nazev": "EAC filtry v obchodním centru v Českých Budějovicích",
+     "misto": "České Budějovice",
+     "perex": "Výměna klasických filtrů za elektronické čističe vzduchu ve vzduchotechnických jednotkách. Nižší tlaková ztráta, méně odpadu."
+    },
+    {
+     "id": "d-vymena-kotle",
+     "datum": "2025-02-04",
+     "kategorie": [
+      "vytapeni",
+      "servis"
+     ],
+     "kraj": "Jihočeský kraj",
+     "plocha": "rodinný dům",
+     "doba": "2 dny",
+     "motiv": 4,
+     "vetev": "domacnosti",
+     "nazev": "Havarijní výměna kotle v topné sezóně",
+     "misto": "Jižní Čechy",
+     "perex": "Volání na dispečink v lednu: netopí. Starý kotel už nešlo opravit, nový jel za dva dny."
+    },
+    {
+     "id": "zakladni-skola-pribram",
+     "datum": "2024-11-05",
+     "kategorie": [
+      "tepelna-cerpadla",
+      "vzt"
+     ],
+     "kraj": "Středočeský kraj",
+     "plocha": "4 600 m²",
+     "doba": "8 měsíců",
+     "motiv": 7,
+     "vetev": "firmy",
+     "nazev": "Tepelná čerpadla a rekuperace základní školy v Příbrami",
+     "misto": "Příbram",
+     "perex": "Škola vyměnila plynovou kotelnu za tepelná čerpadla a získala řízené větrání tříd. Dotaci jsme vyřídili za zřizovatele."
+    },
+    {
+     "id": "hotel-na-sumave",
+     "datum": "2024-06-24",
+     "kategorie": [
+      "tepelna-cerpadla",
+      "chlazeni"
+     ],
+     "kraj": "Plzeňský kraj",
+     "plocha": "2 700 m²",
+     "doba": "5 měsíců",
+     "motiv": 8,
+     "vetev": "firmy",
+     "nazev": "Tepelná čerpadla a klimatizace hotelu na Šumavě",
+     "misto": "Plzeňský kraj",
+     "perex": "Horský hotel, kde se topí osm měsíců v roce a v létě je potřeba chladit pokoje pod střechou. Vše muselo být slyšet co nejméně."
+    }
+   ]
+  },
+  {
+   "args": [
+    [
+     {
+      "id": "logisticke-centrum-d1",
+      "datum": "2026-07-15",
+      "kategorie": [
+       "energetika",
+       "vytapeni"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "18 400 m²",
+      "doba": "9 měsíců",
+      "motiv": 1,
+      "vetev": "firmy",
+      "nazev": "Refit vytápění logistického centra u D1",
+      "misto": "Středočeský kraj",
+      "perex": "Energetický audit ukázal, že se vyplatí zachovat rozvody a vyměnit jen zdroje a regulaci. Spotřeba plynu klesla o třetinu."
+     },
+     {
+      "id": "administrativni-budova-karlin",
+      "datum": "2026-05-20",
+      "kategorie": [
+       "vzt",
+       "chlazeni"
+      ],
+      "kraj": "Praha",
+      "plocha": "6 200 m²",
+      "doba": "7 měsíců",
+      "motiv": 2,
+      "vetev": "firmy",
+      "nazev": "Vzduchotechnika a chlazení administrativní budovy v Karlíně",
+      "misto": "Praha 8",
+      "perex": "Výměna dvou VZT jednotek a rekonstrukce rozvodů chladu v šestipodlažní budově — za plného provozu nájemců."
+     },
+     {
+      "id": "poliklinika-pisek",
+      "datum": "2026-02-10",
+      "kategorie": [
+       "chlazeni",
+       "vzt"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "3 100 m²",
+      "doba": "5 měsíců",
+      "motiv": 3,
+      "vetev": "firmy",
+      "nazev": "Klimatizace a větrání polikliniky v Písku",
+      "misto": "Písek",
+      "perex": "Ordinace, čekárny a laboratoř. Všude jiné požadavky na čistotu vzduchu i hlučnost — a nikde nesmělo být slyšet."
+     },
+     {
+      "id": "vyrobni-hala-milevsko",
+      "datum": "2025-09-08",
+      "kategorie": [
+       "vzt",
+       "chlazeni"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "9 800 m²",
+      "doba": "6 měsíců",
+      "motiv": 4,
+      "vetev": "firmy",
+      "nazev": "Chlazení a větrání výrobní haly v Milevsku",
+      "misto": "Milevsko",
+      "perex": "Lisovna, kde v létě teplota u strojů přesahovala 38 °C. Řešení muselo zvládnout teplo z technologie i odsávání."
+     },
+     {
+      "id": "depozitar-galerie-tabor",
+      "datum": "2025-06-12",
+      "kategorie": [
+       "vzt",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "1 450 m²",
+      "doba": "4 měsíce",
+      "motiv": 5,
+      "vetev": "firmy",
+      "nazev": "Klima depozitáře galerie v Táboře",
+      "misto": "Tábor",
+      "perex": "Sbírkové předměty nepotřebují chlad, ale stabilitu. Vlhkost tu musí držet v úzkém pásmu po celý rok."
+     },
+     {
+      "id": "obchodni-centrum-budejovice",
+      "datum": "2025-03-18",
+      "kategorie": [
+       "vzt",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "24 000 m²",
+      "doba": "3 měsíce",
+      "motiv": 6,
+      "vetev": "firmy",
+      "nazev": "EAC filtry v obchodním centru v Českých Budějovicích",
+      "misto": "České Budějovice",
+      "perex": "Výměna klasických filtrů za elektronické čističe vzduchu ve vzduchotechnických jednotkách. Nižší tlaková ztráta, méně odpadu."
+     },
+     {
+      "id": "zakladni-skola-pribram",
+      "datum": "2024-11-05",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "vzt"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "4 600 m²",
+      "doba": "8 měsíců",
+      "motiv": 7,
+      "vetev": "firmy",
+      "nazev": "Tepelná čerpadla a rekuperace základní školy v Příbrami",
+      "misto": "Příbram",
+      "perex": "Škola vyměnila plynovou kotelnu za tepelná čerpadla a získala řízené větrání tříd. Dotaci jsme vyřídili za zřizovatele."
+     },
+     {
+      "id": "hotel-na-sumave",
+      "datum": "2024-06-24",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "chlazeni"
+      ],
+      "kraj": "Plzeňský kraj",
+      "plocha": "2 700 m²",
+      "doba": "5 měsíců",
+      "motiv": 8,
+      "vetev": "firmy",
+      "nazev": "Tepelná čerpadla a klimatizace hotelu na Šumavě",
+      "misto": "Plzeňský kraj",
+      "perex": "Horský hotel, kde se topí osm měsíců v roce a v létě je potřeba chladit pokoje pod střechou. Vše muselo být slyšet co nejméně."
+     },
+     {
+      "id": "d-bungalov-klimatizace",
+      "datum": "2026-07-03",
+      "kategorie": [
+       "chlazeni"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "140 m²",
+      "doba": "3 výjezdy",
+      "motiv": 3,
+      "vetev": "domacnosti",
+      "skutecna": true,
+      "nazev": "Klimatizace rodinného bungalovu bez jediné lišty",
+      "misto": "Jižní Čechy",
+      "perex": "Zákazník chtěl designové vnitřní jednotky a čistý interiér — bez viditelných lišt pro chladivové potrubí."
+     },
+     {
+      "id": "d-rodinny-dum-cerpadlo",
+      "datum": "2026-04-18",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "vytapeni"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "180 m²",
+      "doba": "6 týdnů",
+      "motiv": 6,
+      "vetev": "domacnosti",
+      "nazev": "Tepelné čerpadlo místo plynového kotle",
+      "misto": "Středočeský kraj",
+      "perex": "Starší dům s radiátory. Místo rychlé výměny zdroje jsme nejdřív spočítali ztráty a upravili soustavu — jinak by čerpadlo jelo draho."
+     },
+     {
+      "id": "d-byt-rekuperace",
+      "datum": "2025-11-12",
+      "kategorie": [
+       "vzt"
+      ],
+      "kraj": "Praha",
+      "plocha": "92 m²",
+      "doba": "2 týdny",
+      "motiv": 1,
+      "vetev": "domacnosti",
+      "nazev": "Rekuperace do bytu po rekonstrukci",
+      "misto": "Praha",
+      "perex": "Byt v cihlovém domě po kompletní rekonstrukci. Rozvody se musely vejít do podhledů, které už byly navržené."
+     },
+     {
+      "id": "d-vymena-kotle",
+      "datum": "2025-02-04",
+      "kategorie": [
+       "vytapeni",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "rodinný dům",
+      "doba": "2 dny",
+      "motiv": 4,
+      "vetev": "domacnosti",
+      "nazev": "Havarijní výměna kotle v topné sezóně",
+      "misto": "Jižní Čechy",
+      "perex": "Volání na dispečink v lednu: netopí. Starý kotel už nešlo opravit, nový jel za dva dny."
+     }
+    ],
+    "nazev"
+   ],
+   "out": [
+    {
+     "id": "obchodni-centrum-budejovice",
+     "datum": "2025-03-18",
+     "kategorie": [
+      "vzt",
+      "servis"
+     ],
+     "kraj": "Jihočeský kraj",
+     "plocha": "24 000 m²",
+     "doba": "3 měsíce",
+     "motiv": 6,
+     "vetev": "firmy",
+     "nazev": "EAC filtry v obchodním centru v Českých Budějovicích",
+     "misto": "České Budějovice",
+     "perex": "Výměna klasických filtrů za elektronické čističe vzduchu ve vzduchotechnických jednotkách. Nižší tlaková ztráta, méně odpadu."
+    },
+    {
+     "id": "d-vymena-kotle",
+     "datum": "2025-02-04",
+     "kategorie": [
+      "vytapeni",
+      "servis"
+     ],
+     "kraj": "Jihočeský kraj",
+     "plocha": "rodinný dům",
+     "doba": "2 dny",
+     "motiv": 4,
+     "vetev": "domacnosti",
+     "nazev": "Havarijní výměna kotle v topné sezóně",
+     "misto": "Jižní Čechy",
+     "perex": "Volání na dispečink v lednu: netopí. Starý kotel už nešlo opravit, nový jel za dva dny."
+    },
+    {
+     "id": "vyrobni-hala-milevsko",
+     "datum": "2025-09-08",
+     "kategorie": [
+      "vzt",
+      "chlazeni"
+     ],
+     "kraj": "Jihočeský kraj",
+     "plocha": "9 800 m²",
+     "doba": "6 měsíců",
+     "motiv": 4,
+     "vetev": "firmy",
+     "nazev": "Chlazení a větrání výrobní haly v Milevsku",
+     "misto": "Milevsko",
+     "perex": "Lisovna, kde v létě teplota u strojů přesahovala 38 °C. Řešení muselo zvládnout teplo z technologie i odsávání."
+    },
+    {
+     "id": "depozitar-galerie-tabor",
+     "datum": "2025-06-12",
+     "kategorie": [
+      "vzt",
+      "servis"
+     ],
+     "kraj": "Jihočeský kraj",
+     "plocha": "1 450 m²",
+     "doba": "4 měsíce",
+     "motiv": 5,
+     "vetev": "firmy",
+     "nazev": "Klima depozitáře galerie v Táboře",
+     "misto": "Tábor",
+     "perex": "Sbírkové předměty nepotřebují chlad, ale stabilitu. Vlhkost tu musí držet v úzkém pásmu po celý rok."
+    },
+    {
+     "id": "poliklinika-pisek",
+     "datum": "2026-02-10",
+     "kategorie": [
+      "chlazeni",
+      "vzt"
+     ],
+     "kraj": "Jihočeský kraj",
+     "plocha": "3 100 m²",
+     "doba": "5 měsíců",
+     "motiv": 3,
+     "vetev": "firmy",
+     "nazev": "Klimatizace a větrání polikliniky v Písku",
+     "misto": "Písek",
+     "perex": "Ordinace, čekárny a laboratoř. Všude jiné požadavky na čistotu vzduchu i hlučnost — a nikde nesmělo být slyšet."
+    },
+    {
+     "id": "d-bungalov-klimatizace",
+     "datum": "2026-07-03",
+     "kategorie": [
+      "chlazeni"
+     ],
+     "kraj": "Jihočeský kraj",
+     "plocha": "140 m²",
+     "doba": "3 výjezdy",
+     "motiv": 3,
+     "vetev": "domacnosti",
+     "skutecna": true,
+     "nazev": "Klimatizace rodinného bungalovu bez jediné lišty",
+     "misto": "Jižní Čechy",
+     "perex": "Zákazník chtěl designové vnitřní jednotky a čistý interiér — bez viditelných lišt pro chladivové potrubí."
+    },
+    {
+     "id": "logisticke-centrum-d1",
+     "datum": "2026-07-15",
+     "kategorie": [
+      "energetika",
+      "vytapeni"
+     ],
+     "kraj": "Středočeský kraj",
+     "plocha": "18 400 m²",
+     "doba": "9 měsíců",
+     "motiv": 1,
+     "vetev": "firmy",
+     "nazev": "Refit vytápění logistického centra u D1",
+     "misto": "Středočeský kraj",
+     "perex": "Energetický audit ukázal, že se vyplatí zachovat rozvody a vyměnit jen zdroje a regulaci. Spotřeba plynu klesla o třetinu."
+    },
+    {
+     "id": "d-byt-rekuperace",
+     "datum": "2025-11-12",
+     "kategorie": [
+      "vzt"
+     ],
+     "kraj": "Praha",
+     "plocha": "92 m²",
+     "doba": "2 týdny",
+     "motiv": 1,
+     "vetev": "domacnosti",
+     "nazev": "Rekuperace do bytu po rekonstrukci",
+     "misto": "Praha",
+     "perex": "Byt v cihlovém domě po kompletní rekonstrukci. Rozvody se musely vejít do podhledů, které už byly navržené."
+    },
+    {
+     "id": "hotel-na-sumave",
+     "datum": "2024-06-24",
+     "kategorie": [
+      "tepelna-cerpadla",
+      "chlazeni"
+     ],
+     "kraj": "Plzeňský kraj",
+     "plocha": "2 700 m²",
+     "doba": "5 měsíců",
+     "motiv": 8,
+     "vetev": "firmy",
+     "nazev": "Tepelná čerpadla a klimatizace hotelu na Šumavě",
+     "misto": "Plzeňský kraj",
+     "perex": "Horský hotel, kde se topí osm měsíců v roce a v létě je potřeba chladit pokoje pod střechou. Vše muselo být slyšet co nejméně."
+    },
+    {
+     "id": "zakladni-skola-pribram",
+     "datum": "2024-11-05",
+     "kategorie": [
+      "tepelna-cerpadla",
+      "vzt"
+     ],
+     "kraj": "Středočeský kraj",
+     "plocha": "4 600 m²",
+     "doba": "8 měsíců",
+     "motiv": 7,
+     "vetev": "firmy",
+     "nazev": "Tepelná čerpadla a rekuperace základní školy v Příbrami",
+     "misto": "Příbram",
+     "perex": "Škola vyměnila plynovou kotelnu za tepelná čerpadla a získala řízené větrání tříd. Dotaci jsme vyřídili za zřizovatele."
+    },
+    {
+     "id": "d-rodinny-dum-cerpadlo",
+     "datum": "2026-04-18",
+     "kategorie": [
+      "tepelna-cerpadla",
+      "vytapeni"
+     ],
+     "kraj": "Středočeský kraj",
+     "plocha": "180 m²",
+     "doba": "6 týdnů",
+     "motiv": 6,
+     "vetev": "domacnosti",
+     "nazev": "Tepelné čerpadlo místo plynového kotle",
+     "misto": "Středočeský kraj",
+     "perex": "Starší dům s radiátory. Místo rychlé výměny zdroje jsme nejdřív spočítali ztráty a upravili soustavu — jinak by čerpadlo jelo draho."
+    },
+    {
+     "id": "administrativni-budova-karlin",
+     "datum": "2026-05-20",
+     "kategorie": [
+      "vzt",
+      "chlazeni"
+     ],
+     "kraj": "Praha",
+     "plocha": "6 200 m²",
+     "doba": "7 měsíců",
+     "motiv": 2,
+     "vetev": "firmy",
+     "nazev": "Vzduchotechnika a chlazení administrativní budovy v Karlíně",
+     "misto": "Praha 8",
+     "perex": "Výměna dvou VZT jednotek a rekonstrukce rozvodů chladu v šestipodlažní budově — za plného provozu nájemců."
+    }
+   ]
+  },
+  {
+   "args": [
+    [
+     {
+      "id": "logisticke-centrum-d1",
+      "datum": "2026-07-15",
+      "kategorie": [
+       "energetika",
+       "vytapeni"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "18 400 m²",
+      "doba": "9 měsíců",
+      "motiv": 1,
+      "vetev": "firmy",
+      "nazev": "Refit vytápění logistického centra u D1",
+      "misto": "Středočeský kraj",
+      "perex": "Energetický audit ukázal, že se vyplatí zachovat rozvody a vyměnit jen zdroje a regulaci. Spotřeba plynu klesla o třetinu."
+     },
+     {
+      "id": "administrativni-budova-karlin",
+      "datum": "2026-05-20",
+      "kategorie": [
+       "vzt",
+       "chlazeni"
+      ],
+      "kraj": "Praha",
+      "plocha": "6 200 m²",
+      "doba": "7 měsíců",
+      "motiv": 2,
+      "vetev": "firmy",
+      "nazev": "Vzduchotechnika a chlazení administrativní budovy v Karlíně",
+      "misto": "Praha 8",
+      "perex": "Výměna dvou VZT jednotek a rekonstrukce rozvodů chladu v šestipodlažní budově — za plného provozu nájemců."
+     },
+     {
+      "id": "poliklinika-pisek",
+      "datum": "2026-02-10",
+      "kategorie": [
+       "chlazeni",
+       "vzt"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "3 100 m²",
+      "doba": "5 měsíců",
+      "motiv": 3,
+      "vetev": "firmy",
+      "nazev": "Klimatizace a větrání polikliniky v Písku",
+      "misto": "Písek",
+      "perex": "Ordinace, čekárny a laboratoř. Všude jiné požadavky na čistotu vzduchu i hlučnost — a nikde nesmělo být slyšet."
+     },
+     {
+      "id": "vyrobni-hala-milevsko",
+      "datum": "2025-09-08",
+      "kategorie": [
+       "vzt",
+       "chlazeni"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "9 800 m²",
+      "doba": "6 měsíců",
+      "motiv": 4,
+      "vetev": "firmy",
+      "nazev": "Chlazení a větrání výrobní haly v Milevsku",
+      "misto": "Milevsko",
+      "perex": "Lisovna, kde v létě teplota u strojů přesahovala 38 °C. Řešení muselo zvládnout teplo z technologie i odsávání."
+     },
+     {
+      "id": "depozitar-galerie-tabor",
+      "datum": "2025-06-12",
+      "kategorie": [
+       "vzt",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "1 450 m²",
+      "doba": "4 měsíce",
+      "motiv": 5,
+      "vetev": "firmy",
+      "nazev": "Klima depozitáře galerie v Táboře",
+      "misto": "Tábor",
+      "perex": "Sbírkové předměty nepotřebují chlad, ale stabilitu. Vlhkost tu musí držet v úzkém pásmu po celý rok."
+     },
+     {
+      "id": "obchodni-centrum-budejovice",
+      "datum": "2025-03-18",
+      "kategorie": [
+       "vzt",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "24 000 m²",
+      "doba": "3 měsíce",
+      "motiv": 6,
+      "vetev": "firmy",
+      "nazev": "EAC filtry v obchodním centru v Českých Budějovicích",
+      "misto": "České Budějovice",
+      "perex": "Výměna klasických filtrů za elektronické čističe vzduchu ve vzduchotechnických jednotkách. Nižší tlaková ztráta, méně odpadu."
+     },
+     {
+      "id": "zakladni-skola-pribram",
+      "datum": "2024-11-05",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "vzt"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "4 600 m²",
+      "doba": "8 měsíců",
+      "motiv": 7,
+      "vetev": "firmy",
+      "nazev": "Tepelná čerpadla a rekuperace základní školy v Příbrami",
+      "misto": "Příbram",
+      "perex": "Škola vyměnila plynovou kotelnu za tepelná čerpadla a získala řízené větrání tříd. Dotaci jsme vyřídili za zřizovatele."
+     },
+     {
+      "id": "hotel-na-sumave",
+      "datum": "2024-06-24",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "chlazeni"
+      ],
+      "kraj": "Plzeňský kraj",
+      "plocha": "2 700 m²",
+      "doba": "5 měsíců",
+      "motiv": 8,
+      "vetev": "firmy",
+      "nazev": "Tepelná čerpadla a klimatizace hotelu na Šumavě",
+      "misto": "Plzeňský kraj",
+      "perex": "Horský hotel, kde se topí osm měsíců v roce a v létě je potřeba chladit pokoje pod střechou. Vše muselo být slyšet co nejméně."
+     },
+     {
+      "id": "d-bungalov-klimatizace",
+      "datum": "2026-07-03",
+      "kategorie": [
+       "chlazeni"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "140 m²",
+      "doba": "3 výjezdy",
+      "motiv": 3,
+      "vetev": "domacnosti",
+      "skutecna": true,
+      "nazev": "Klimatizace rodinného bungalovu bez jediné lišty",
+      "misto": "Jižní Čechy",
+      "perex": "Zákazník chtěl designové vnitřní jednotky a čistý interiér — bez viditelných lišt pro chladivové potrubí."
+     },
+     {
+      "id": "d-rodinny-dum-cerpadlo",
+      "datum": "2026-04-18",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "vytapeni"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "180 m²",
+      "doba": "6 týdnů",
+      "motiv": 6,
+      "vetev": "domacnosti",
+      "nazev": "Tepelné čerpadlo místo plynového kotle",
+      "misto": "Středočeský kraj",
+      "perex": "Starší dům s radiátory. Místo rychlé výměny zdroje jsme nejdřív spočítali ztráty a upravili soustavu — jinak by čerpadlo jelo draho."
+     },
+     {
+      "id": "d-byt-rekuperace",
+      "datum": "2025-11-12",
+      "kategorie": [
+       "vzt"
+      ],
+      "kraj": "Praha",
+      "plocha": "92 m²",
+      "doba": "2 týdny",
+      "motiv": 1,
+      "vetev": "domacnosti",
+      "nazev": "Rekuperace do bytu po rekonstrukci",
+      "misto": "Praha",
+      "perex": "Byt v cihlovém domě po kompletní rekonstrukci. Rozvody se musely vejít do podhledů, které už byly navržené."
+     },
+     {
+      "id": "d-vymena-kotle",
+      "datum": "2025-02-04",
+      "kategorie": [
+       "vytapeni",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "rodinný dům",
+      "doba": "2 dny",
+      "motiv": 4,
+      "vetev": "domacnosti",
+      "nazev": "Havarijní výměna kotle v topné sezóně",
+      "misto": "Jižní Čechy",
+      "perex": "Volání na dispečink v lednu: netopí. Starý kotel už nešlo opravit, nový jel za dva dny."
+     }
+    ],
+    "neznamy"
+   ],
+   "out": [
+    {
+     "id": "logisticke-centrum-d1",
+     "datum": "2026-07-15",
+     "kategorie": [
+      "energetika",
+      "vytapeni"
+     ],
+     "kraj": "Středočeský kraj",
+     "plocha": "18 400 m²",
+     "doba": "9 měsíců",
+     "motiv": 1,
+     "vetev": "firmy",
+     "nazev": "Refit vytápění logistického centra u D1",
+     "misto": "Středočeský kraj",
+     "perex": "Energetický audit ukázal, že se vyplatí zachovat rozvody a vyměnit jen zdroje a regulaci. Spotřeba plynu klesla o třetinu."
+    },
+    {
+     "id": "d-bungalov-klimatizace",
+     "datum": "2026-07-03",
+     "kategorie": [
+      "chlazeni"
+     ],
+     "kraj": "Jihočeský kraj",
+     "plocha": "140 m²",
+     "doba": "3 výjezdy",
+     "motiv": 3,
+     "vetev": "domacnosti",
+     "skutecna": true,
+     "nazev": "Klimatizace rodinného bungalovu bez jediné lišty",
+     "misto": "Jižní Čechy",
+     "perex": "Zákazník chtěl designové vnitřní jednotky a čistý interiér — bez viditelných lišt pro chladivové potrubí."
+    },
+    {
+     "id": "administrativni-budova-karlin",
+     "datum": "2026-05-20",
+     "kategorie": [
+      "vzt",
+      "chlazeni"
+     ],
+     "kraj": "Praha",
+     "plocha": "6 200 m²",
+     "doba": "7 měsíců",
+     "motiv": 2,
+     "vetev": "firmy",
+     "nazev": "Vzduchotechnika a chlazení administrativní budovy v Karlíně",
+     "misto": "Praha 8",
+     "perex": "Výměna dvou VZT jednotek a rekonstrukce rozvodů chladu v šestipodlažní budově — za plného provozu nájemců."
+    },
+    {
+     "id": "d-rodinny-dum-cerpadlo",
+     "datum": "2026-04-18",
+     "kategorie": [
+      "tepelna-cerpadla",
+      "vytapeni"
+     ],
+     "kraj": "Středočeský kraj",
+     "plocha": "180 m²",
+     "doba": "6 týdnů",
+     "motiv": 6,
+     "vetev": "domacnosti",
+     "nazev": "Tepelné čerpadlo místo plynového kotle",
+     "misto": "Středočeský kraj",
+     "perex": "Starší dům s radiátory. Místo rychlé výměny zdroje jsme nejdřív spočítali ztráty a upravili soustavu — jinak by čerpadlo jelo draho."
+    },
+    {
+     "id": "poliklinika-pisek",
+     "datum": "2026-02-10",
+     "kategorie": [
+      "chlazeni",
+      "vzt"
+     ],
+     "kraj": "Jihočeský kraj",
+     "plocha": "3 100 m²",
+     "doba": "5 měsíců",
+     "motiv": 3,
+     "vetev": "firmy",
+     "nazev": "Klimatizace a větrání polikliniky v Písku",
+     "misto": "Písek",
+     "perex": "Ordinace, čekárny a laboratoř. Všude jiné požadavky na čistotu vzduchu i hlučnost — a nikde nesmělo být slyšet."
+    },
+    {
+     "id": "d-byt-rekuperace",
+     "datum": "2025-11-12",
+     "kategorie": [
+      "vzt"
+     ],
+     "kraj": "Praha",
+     "plocha": "92 m²",
+     "doba": "2 týdny",
+     "motiv": 1,
+     "vetev": "domacnosti",
+     "nazev": "Rekuperace do bytu po rekonstrukci",
+     "misto": "Praha",
+     "perex": "Byt v cihlovém domě po kompletní rekonstrukci. Rozvody se musely vejít do podhledů, které už byly navržené."
+    },
+    {
+     "id": "vyrobni-hala-milevsko",
+     "datum": "2025-09-08",
+     "kategorie": [
+      "vzt",
+      "chlazeni"
+     ],
+     "kraj": "Jihočeský kraj",
+     "plocha": "9 800 m²",
+     "doba": "6 měsíců",
+     "motiv": 4,
+     "vetev": "firmy",
+     "nazev": "Chlazení a větrání výrobní haly v Milevsku",
+     "misto": "Milevsko",
+     "perex": "Lisovna, kde v létě teplota u strojů přesahovala 38 °C. Řešení muselo zvládnout teplo z technologie i odsávání."
+    },
+    {
+     "id": "depozitar-galerie-tabor",
+     "datum": "2025-06-12",
+     "kategorie": [
+      "vzt",
+      "servis"
+     ],
+     "kraj": "Jihočeský kraj",
+     "plocha": "1 450 m²",
+     "doba": "4 měsíce",
+     "motiv": 5,
+     "vetev": "firmy",
+     "nazev": "Klima depozitáře galerie v Táboře",
+     "misto": "Tábor",
+     "perex": "Sbírkové předměty nepotřebují chlad, ale stabilitu. Vlhkost tu musí držet v úzkém pásmu po celý rok."
+    },
+    {
+     "id": "obchodni-centrum-budejovice",
+     "datum": "2025-03-18",
+     "kategorie": [
+      "vzt",
+      "servis"
+     ],
+     "kraj": "Jihočeský kraj",
+     "plocha": "24 000 m²",
+     "doba": "3 měsíce",
+     "motiv": 6,
+     "vetev": "firmy",
+     "nazev": "EAC filtry v obchodním centru v Českých Budějovicích",
+     "misto": "České Budějovice",
+     "perex": "Výměna klasických filtrů za elektronické čističe vzduchu ve vzduchotechnických jednotkách. Nižší tlaková ztráta, méně odpadu."
+    },
+    {
+     "id": "d-vymena-kotle",
+     "datum": "2025-02-04",
+     "kategorie": [
+      "vytapeni",
+      "servis"
+     ],
+     "kraj": "Jihočeský kraj",
+     "plocha": "rodinný dům",
+     "doba": "2 dny",
+     "motiv": 4,
+     "vetev": "domacnosti",
+     "nazev": "Havarijní výměna kotle v topné sezóně",
+     "misto": "Jižní Čechy",
+     "perex": "Volání na dispečink v lednu: netopí. Starý kotel už nešlo opravit, nový jel za dva dny."
+    },
+    {
+     "id": "zakladni-skola-pribram",
+     "datum": "2024-11-05",
+     "kategorie": [
+      "tepelna-cerpadla",
+      "vzt"
+     ],
+     "kraj": "Středočeský kraj",
+     "plocha": "4 600 m²",
+     "doba": "8 měsíců",
+     "motiv": 7,
+     "vetev": "firmy",
+     "nazev": "Tepelná čerpadla a rekuperace základní školy v Příbrami",
+     "misto": "Příbram",
+     "perex": "Škola vyměnila plynovou kotelnu za tepelná čerpadla a získala řízené větrání tříd. Dotaci jsme vyřídili za zřizovatele."
+    },
+    {
+     "id": "hotel-na-sumave",
+     "datum": "2024-06-24",
+     "kategorie": [
+      "tepelna-cerpadla",
+      "chlazeni"
+     ],
+     "kraj": "Plzeňský kraj",
+     "plocha": "2 700 m²",
+     "doba": "5 měsíců",
+     "motiv": 8,
+     "vetev": "firmy",
+     "nazev": "Tepelná čerpadla a klimatizace hotelu na Šumavě",
+     "misto": "Plzeňský kraj",
+     "perex": "Horský hotel, kde se topí osm měsíců v roce a v létě je potřeba chladit pokoje pod střechou. Vše muselo být slyšet co nejméně."
+    }
+   ]
+  },
+  {
+   "args": [
+    [],
+    "datum"
+   ],
+   "out": []
+  }
+ ],
+ "paginate": [
+  {
+   "args": [
+    [
+     {
+      "id": "logisticke-centrum-d1",
+      "datum": "2026-07-15",
+      "kategorie": [
+       "energetika",
+       "vytapeni"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "18 400 m²",
+      "doba": "9 měsíců",
+      "motiv": 1,
+      "vetev": "firmy",
+      "nazev": "Refit vytápění logistického centra u D1",
+      "misto": "Středočeský kraj",
+      "perex": "Energetický audit ukázal, že se vyplatí zachovat rozvody a vyměnit jen zdroje a regulaci. Spotřeba plynu klesla o třetinu."
+     },
+     {
+      "id": "administrativni-budova-karlin",
+      "datum": "2026-05-20",
+      "kategorie": [
+       "vzt",
+       "chlazeni"
+      ],
+      "kraj": "Praha",
+      "plocha": "6 200 m²",
+      "doba": "7 měsíců",
+      "motiv": 2,
+      "vetev": "firmy",
+      "nazev": "Vzduchotechnika a chlazení administrativní budovy v Karlíně",
+      "misto": "Praha 8",
+      "perex": "Výměna dvou VZT jednotek a rekonstrukce rozvodů chladu v šestipodlažní budově — za plného provozu nájemců."
+     },
+     {
+      "id": "poliklinika-pisek",
+      "datum": "2026-02-10",
+      "kategorie": [
+       "chlazeni",
+       "vzt"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "3 100 m²",
+      "doba": "5 měsíců",
+      "motiv": 3,
+      "vetev": "firmy",
+      "nazev": "Klimatizace a větrání polikliniky v Písku",
+      "misto": "Písek",
+      "perex": "Ordinace, čekárny a laboratoř. Všude jiné požadavky na čistotu vzduchu i hlučnost — a nikde nesmělo být slyšet."
+     },
+     {
+      "id": "vyrobni-hala-milevsko",
+      "datum": "2025-09-08",
+      "kategorie": [
+       "vzt",
+       "chlazeni"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "9 800 m²",
+      "doba": "6 měsíců",
+      "motiv": 4,
+      "vetev": "firmy",
+      "nazev": "Chlazení a větrání výrobní haly v Milevsku",
+      "misto": "Milevsko",
+      "perex": "Lisovna, kde v létě teplota u strojů přesahovala 38 °C. Řešení muselo zvládnout teplo z technologie i odsávání."
+     },
+     {
+      "id": "depozitar-galerie-tabor",
+      "datum": "2025-06-12",
+      "kategorie": [
+       "vzt",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "1 450 m²",
+      "doba": "4 měsíce",
+      "motiv": 5,
+      "vetev": "firmy",
+      "nazev": "Klima depozitáře galerie v Táboře",
+      "misto": "Tábor",
+      "perex": "Sbírkové předměty nepotřebují chlad, ale stabilitu. Vlhkost tu musí držet v úzkém pásmu po celý rok."
+     },
+     {
+      "id": "obchodni-centrum-budejovice",
+      "datum": "2025-03-18",
+      "kategorie": [
+       "vzt",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "24 000 m²",
+      "doba": "3 měsíce",
+      "motiv": 6,
+      "vetev": "firmy",
+      "nazev": "EAC filtry v obchodním centru v Českých Budějovicích",
+      "misto": "České Budějovice",
+      "perex": "Výměna klasických filtrů za elektronické čističe vzduchu ve vzduchotechnických jednotkách. Nižší tlaková ztráta, méně odpadu."
+     },
+     {
+      "id": "zakladni-skola-pribram",
+      "datum": "2024-11-05",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "vzt"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "4 600 m²",
+      "doba": "8 měsíců",
+      "motiv": 7,
+      "vetev": "firmy",
+      "nazev": "Tepelná čerpadla a rekuperace základní školy v Příbrami",
+      "misto": "Příbram",
+      "perex": "Škola vyměnila plynovou kotelnu za tepelná čerpadla a získala řízené větrání tříd. Dotaci jsme vyřídili za zřizovatele."
+     },
+     {
+      "id": "hotel-na-sumave",
+      "datum": "2024-06-24",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "chlazeni"
+      ],
+      "kraj": "Plzeňský kraj",
+      "plocha": "2 700 m²",
+      "doba": "5 měsíců",
+      "motiv": 8,
+      "vetev": "firmy",
+      "nazev": "Tepelná čerpadla a klimatizace hotelu na Šumavě",
+      "misto": "Plzeňský kraj",
+      "perex": "Horský hotel, kde se topí osm měsíců v roce a v létě je potřeba chladit pokoje pod střechou. Vše muselo být slyšet co nejméně."
+     },
+     {
+      "id": "d-bungalov-klimatizace",
+      "datum": "2026-07-03",
+      "kategorie": [
+       "chlazeni"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "140 m²",
+      "doba": "3 výjezdy",
+      "motiv": 3,
+      "vetev": "domacnosti",
+      "skutecna": true,
+      "nazev": "Klimatizace rodinného bungalovu bez jediné lišty",
+      "misto": "Jižní Čechy",
+      "perex": "Zákazník chtěl designové vnitřní jednotky a čistý interiér — bez viditelných lišt pro chladivové potrubí."
+     },
+     {
+      "id": "d-rodinny-dum-cerpadlo",
+      "datum": "2026-04-18",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "vytapeni"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "180 m²",
+      "doba": "6 týdnů",
+      "motiv": 6,
+      "vetev": "domacnosti",
+      "nazev": "Tepelné čerpadlo místo plynového kotle",
+      "misto": "Středočeský kraj",
+      "perex": "Starší dům s radiátory. Místo rychlé výměny zdroje jsme nejdřív spočítali ztráty a upravili soustavu — jinak by čerpadlo jelo draho."
+     },
+     {
+      "id": "d-byt-rekuperace",
+      "datum": "2025-11-12",
+      "kategorie": [
+       "vzt"
+      ],
+      "kraj": "Praha",
+      "plocha": "92 m²",
+      "doba": "2 týdny",
+      "motiv": 1,
+      "vetev": "domacnosti",
+      "nazev": "Rekuperace do bytu po rekonstrukci",
+      "misto": "Praha",
+      "perex": "Byt v cihlovém domě po kompletní rekonstrukci. Rozvody se musely vejít do podhledů, které už byly navržené."
+     },
+     {
+      "id": "d-vymena-kotle",
+      "datum": "2025-02-04",
+      "kategorie": [
+       "vytapeni",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "rodinný dům",
+      "doba": "2 dny",
+      "motiv": 4,
+      "vetev": "domacnosti",
+      "nazev": "Havarijní výměna kotle v topné sezóně",
+      "misto": "Jižní Čechy",
+      "perex": "Volání na dispečink v lednu: netopí. Starý kotel už nešlo opravit, nový jel za dva dny."
+     }
+    ],
+    1,
+    3
+   ],
+   "out": {
+    "items": [
+     {
+      "id": "logisticke-centrum-d1",
+      "datum": "2026-07-15",
+      "kategorie": [
+       "energetika",
+       "vytapeni"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "18 400 m²",
+      "doba": "9 měsíců",
+      "motiv": 1,
+      "vetev": "firmy",
+      "nazev": "Refit vytápění logistického centra u D1",
+      "misto": "Středočeský kraj",
+      "perex": "Energetický audit ukázal, že se vyplatí zachovat rozvody a vyměnit jen zdroje a regulaci. Spotřeba plynu klesla o třetinu."
+     },
+     {
+      "id": "administrativni-budova-karlin",
+      "datum": "2026-05-20",
+      "kategorie": [
+       "vzt",
+       "chlazeni"
+      ],
+      "kraj": "Praha",
+      "plocha": "6 200 m²",
+      "doba": "7 měsíců",
+      "motiv": 2,
+      "vetev": "firmy",
+      "nazev": "Vzduchotechnika a chlazení administrativní budovy v Karlíně",
+      "misto": "Praha 8",
+      "perex": "Výměna dvou VZT jednotek a rekonstrukce rozvodů chladu v šestipodlažní budově — za plného provozu nájemců."
+     },
+     {
+      "id": "poliklinika-pisek",
+      "datum": "2026-02-10",
+      "kategorie": [
+       "chlazeni",
+       "vzt"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "3 100 m²",
+      "doba": "5 měsíců",
+      "motiv": 3,
+      "vetev": "firmy",
+      "nazev": "Klimatizace a větrání polikliniky v Písku",
+      "misto": "Písek",
+      "perex": "Ordinace, čekárny a laboratoř. Všude jiné požadavky na čistotu vzduchu i hlučnost — a nikde nesmělo být slyšet."
+     }
+    ],
+    "page": 1,
+    "pages": 4,
+    "total": 12
+   }
+  },
+  {
+   "args": [
+    [
+     {
+      "id": "logisticke-centrum-d1",
+      "datum": "2026-07-15",
+      "kategorie": [
+       "energetika",
+       "vytapeni"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "18 400 m²",
+      "doba": "9 měsíců",
+      "motiv": 1,
+      "vetev": "firmy",
+      "nazev": "Refit vytápění logistického centra u D1",
+      "misto": "Středočeský kraj",
+      "perex": "Energetický audit ukázal, že se vyplatí zachovat rozvody a vyměnit jen zdroje a regulaci. Spotřeba plynu klesla o třetinu."
+     },
+     {
+      "id": "administrativni-budova-karlin",
+      "datum": "2026-05-20",
+      "kategorie": [
+       "vzt",
+       "chlazeni"
+      ],
+      "kraj": "Praha",
+      "plocha": "6 200 m²",
+      "doba": "7 měsíců",
+      "motiv": 2,
+      "vetev": "firmy",
+      "nazev": "Vzduchotechnika a chlazení administrativní budovy v Karlíně",
+      "misto": "Praha 8",
+      "perex": "Výměna dvou VZT jednotek a rekonstrukce rozvodů chladu v šestipodlažní budově — za plného provozu nájemců."
+     },
+     {
+      "id": "poliklinika-pisek",
+      "datum": "2026-02-10",
+      "kategorie": [
+       "chlazeni",
+       "vzt"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "3 100 m²",
+      "doba": "5 měsíců",
+      "motiv": 3,
+      "vetev": "firmy",
+      "nazev": "Klimatizace a větrání polikliniky v Písku",
+      "misto": "Písek",
+      "perex": "Ordinace, čekárny a laboratoř. Všude jiné požadavky na čistotu vzduchu i hlučnost — a nikde nesmělo být slyšet."
+     },
+     {
+      "id": "vyrobni-hala-milevsko",
+      "datum": "2025-09-08",
+      "kategorie": [
+       "vzt",
+       "chlazeni"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "9 800 m²",
+      "doba": "6 měsíců",
+      "motiv": 4,
+      "vetev": "firmy",
+      "nazev": "Chlazení a větrání výrobní haly v Milevsku",
+      "misto": "Milevsko",
+      "perex": "Lisovna, kde v létě teplota u strojů přesahovala 38 °C. Řešení muselo zvládnout teplo z technologie i odsávání."
+     },
+     {
+      "id": "depozitar-galerie-tabor",
+      "datum": "2025-06-12",
+      "kategorie": [
+       "vzt",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "1 450 m²",
+      "doba": "4 měsíce",
+      "motiv": 5,
+      "vetev": "firmy",
+      "nazev": "Klima depozitáře galerie v Táboře",
+      "misto": "Tábor",
+      "perex": "Sbírkové předměty nepotřebují chlad, ale stabilitu. Vlhkost tu musí držet v úzkém pásmu po celý rok."
+     },
+     {
+      "id": "obchodni-centrum-budejovice",
+      "datum": "2025-03-18",
+      "kategorie": [
+       "vzt",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "24 000 m²",
+      "doba": "3 měsíce",
+      "motiv": 6,
+      "vetev": "firmy",
+      "nazev": "EAC filtry v obchodním centru v Českých Budějovicích",
+      "misto": "České Budějovice",
+      "perex": "Výměna klasických filtrů za elektronické čističe vzduchu ve vzduchotechnických jednotkách. Nižší tlaková ztráta, méně odpadu."
+     },
+     {
+      "id": "zakladni-skola-pribram",
+      "datum": "2024-11-05",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "vzt"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "4 600 m²",
+      "doba": "8 měsíců",
+      "motiv": 7,
+      "vetev": "firmy",
+      "nazev": "Tepelná čerpadla a rekuperace základní školy v Příbrami",
+      "misto": "Příbram",
+      "perex": "Škola vyměnila plynovou kotelnu za tepelná čerpadla a získala řízené větrání tříd. Dotaci jsme vyřídili za zřizovatele."
+     },
+     {
+      "id": "hotel-na-sumave",
+      "datum": "2024-06-24",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "chlazeni"
+      ],
+      "kraj": "Plzeňský kraj",
+      "plocha": "2 700 m²",
+      "doba": "5 měsíců",
+      "motiv": 8,
+      "vetev": "firmy",
+      "nazev": "Tepelná čerpadla a klimatizace hotelu na Šumavě",
+      "misto": "Plzeňský kraj",
+      "perex": "Horský hotel, kde se topí osm měsíců v roce a v létě je potřeba chladit pokoje pod střechou. Vše muselo být slyšet co nejméně."
+     },
+     {
+      "id": "d-bungalov-klimatizace",
+      "datum": "2026-07-03",
+      "kategorie": [
+       "chlazeni"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "140 m²",
+      "doba": "3 výjezdy",
+      "motiv": 3,
+      "vetev": "domacnosti",
+      "skutecna": true,
+      "nazev": "Klimatizace rodinného bungalovu bez jediné lišty",
+      "misto": "Jižní Čechy",
+      "perex": "Zákazník chtěl designové vnitřní jednotky a čistý interiér — bez viditelných lišt pro chladivové potrubí."
+     },
+     {
+      "id": "d-rodinny-dum-cerpadlo",
+      "datum": "2026-04-18",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "vytapeni"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "180 m²",
+      "doba": "6 týdnů",
+      "motiv": 6,
+      "vetev": "domacnosti",
+      "nazev": "Tepelné čerpadlo místo plynového kotle",
+      "misto": "Středočeský kraj",
+      "perex": "Starší dům s radiátory. Místo rychlé výměny zdroje jsme nejdřív spočítali ztráty a upravili soustavu — jinak by čerpadlo jelo draho."
+     },
+     {
+      "id": "d-byt-rekuperace",
+      "datum": "2025-11-12",
+      "kategorie": [
+       "vzt"
+      ],
+      "kraj": "Praha",
+      "plocha": "92 m²",
+      "doba": "2 týdny",
+      "motiv": 1,
+      "vetev": "domacnosti",
+      "nazev": "Rekuperace do bytu po rekonstrukci",
+      "misto": "Praha",
+      "perex": "Byt v cihlovém domě po kompletní rekonstrukci. Rozvody se musely vejít do podhledů, které už byly navržené."
+     },
+     {
+      "id": "d-vymena-kotle",
+      "datum": "2025-02-04",
+      "kategorie": [
+       "vytapeni",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "rodinný dům",
+      "doba": "2 dny",
+      "motiv": 4,
+      "vetev": "domacnosti",
+      "nazev": "Havarijní výměna kotle v topné sezóně",
+      "misto": "Jižní Čechy",
+      "perex": "Volání na dispečink v lednu: netopí. Starý kotel už nešlo opravit, nový jel za dva dny."
+     }
+    ],
+    2,
+    3
+   ],
+   "out": {
+    "items": [
+     {
+      "id": "vyrobni-hala-milevsko",
+      "datum": "2025-09-08",
+      "kategorie": [
+       "vzt",
+       "chlazeni"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "9 800 m²",
+      "doba": "6 měsíců",
+      "motiv": 4,
+      "vetev": "firmy",
+      "nazev": "Chlazení a větrání výrobní haly v Milevsku",
+      "misto": "Milevsko",
+      "perex": "Lisovna, kde v létě teplota u strojů přesahovala 38 °C. Řešení muselo zvládnout teplo z technologie i odsávání."
+     },
+     {
+      "id": "depozitar-galerie-tabor",
+      "datum": "2025-06-12",
+      "kategorie": [
+       "vzt",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "1 450 m²",
+      "doba": "4 měsíce",
+      "motiv": 5,
+      "vetev": "firmy",
+      "nazev": "Klima depozitáře galerie v Táboře",
+      "misto": "Tábor",
+      "perex": "Sbírkové předměty nepotřebují chlad, ale stabilitu. Vlhkost tu musí držet v úzkém pásmu po celý rok."
+     },
+     {
+      "id": "obchodni-centrum-budejovice",
+      "datum": "2025-03-18",
+      "kategorie": [
+       "vzt",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "24 000 m²",
+      "doba": "3 měsíce",
+      "motiv": 6,
+      "vetev": "firmy",
+      "nazev": "EAC filtry v obchodním centru v Českých Budějovicích",
+      "misto": "České Budějovice",
+      "perex": "Výměna klasických filtrů za elektronické čističe vzduchu ve vzduchotechnických jednotkách. Nižší tlaková ztráta, méně odpadu."
+     }
+    ],
+    "page": 2,
+    "pages": 4,
+    "total": 12
+   }
+  },
+  {
+   "args": [
+    [
+     {
+      "id": "logisticke-centrum-d1",
+      "datum": "2026-07-15",
+      "kategorie": [
+       "energetika",
+       "vytapeni"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "18 400 m²",
+      "doba": "9 měsíců",
+      "motiv": 1,
+      "vetev": "firmy",
+      "nazev": "Refit vytápění logistického centra u D1",
+      "misto": "Středočeský kraj",
+      "perex": "Energetický audit ukázal, že se vyplatí zachovat rozvody a vyměnit jen zdroje a regulaci. Spotřeba plynu klesla o třetinu."
+     },
+     {
+      "id": "administrativni-budova-karlin",
+      "datum": "2026-05-20",
+      "kategorie": [
+       "vzt",
+       "chlazeni"
+      ],
+      "kraj": "Praha",
+      "plocha": "6 200 m²",
+      "doba": "7 měsíců",
+      "motiv": 2,
+      "vetev": "firmy",
+      "nazev": "Vzduchotechnika a chlazení administrativní budovy v Karlíně",
+      "misto": "Praha 8",
+      "perex": "Výměna dvou VZT jednotek a rekonstrukce rozvodů chladu v šestipodlažní budově — za plného provozu nájemců."
+     },
+     {
+      "id": "poliklinika-pisek",
+      "datum": "2026-02-10",
+      "kategorie": [
+       "chlazeni",
+       "vzt"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "3 100 m²",
+      "doba": "5 měsíců",
+      "motiv": 3,
+      "vetev": "firmy",
+      "nazev": "Klimatizace a větrání polikliniky v Písku",
+      "misto": "Písek",
+      "perex": "Ordinace, čekárny a laboratoř. Všude jiné požadavky na čistotu vzduchu i hlučnost — a nikde nesmělo být slyšet."
+     },
+     {
+      "id": "vyrobni-hala-milevsko",
+      "datum": "2025-09-08",
+      "kategorie": [
+       "vzt",
+       "chlazeni"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "9 800 m²",
+      "doba": "6 měsíců",
+      "motiv": 4,
+      "vetev": "firmy",
+      "nazev": "Chlazení a větrání výrobní haly v Milevsku",
+      "misto": "Milevsko",
+      "perex": "Lisovna, kde v létě teplota u strojů přesahovala 38 °C. Řešení muselo zvládnout teplo z technologie i odsávání."
+     },
+     {
+      "id": "depozitar-galerie-tabor",
+      "datum": "2025-06-12",
+      "kategorie": [
+       "vzt",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "1 450 m²",
+      "doba": "4 měsíce",
+      "motiv": 5,
+      "vetev": "firmy",
+      "nazev": "Klima depozitáře galerie v Táboře",
+      "misto": "Tábor",
+      "perex": "Sbírkové předměty nepotřebují chlad, ale stabilitu. Vlhkost tu musí držet v úzkém pásmu po celý rok."
+     },
+     {
+      "id": "obchodni-centrum-budejovice",
+      "datum": "2025-03-18",
+      "kategorie": [
+       "vzt",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "24 000 m²",
+      "doba": "3 měsíce",
+      "motiv": 6,
+      "vetev": "firmy",
+      "nazev": "EAC filtry v obchodním centru v Českých Budějovicích",
+      "misto": "České Budějovice",
+      "perex": "Výměna klasických filtrů za elektronické čističe vzduchu ve vzduchotechnických jednotkách. Nižší tlaková ztráta, méně odpadu."
+     },
+     {
+      "id": "zakladni-skola-pribram",
+      "datum": "2024-11-05",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "vzt"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "4 600 m²",
+      "doba": "8 měsíců",
+      "motiv": 7,
+      "vetev": "firmy",
+      "nazev": "Tepelná čerpadla a rekuperace základní školy v Příbrami",
+      "misto": "Příbram",
+      "perex": "Škola vyměnila plynovou kotelnu za tepelná čerpadla a získala řízené větrání tříd. Dotaci jsme vyřídili za zřizovatele."
+     },
+     {
+      "id": "hotel-na-sumave",
+      "datum": "2024-06-24",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "chlazeni"
+      ],
+      "kraj": "Plzeňský kraj",
+      "plocha": "2 700 m²",
+      "doba": "5 měsíců",
+      "motiv": 8,
+      "vetev": "firmy",
+      "nazev": "Tepelná čerpadla a klimatizace hotelu na Šumavě",
+      "misto": "Plzeňský kraj",
+      "perex": "Horský hotel, kde se topí osm měsíců v roce a v létě je potřeba chladit pokoje pod střechou. Vše muselo být slyšet co nejméně."
+     },
+     {
+      "id": "d-bungalov-klimatizace",
+      "datum": "2026-07-03",
+      "kategorie": [
+       "chlazeni"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "140 m²",
+      "doba": "3 výjezdy",
+      "motiv": 3,
+      "vetev": "domacnosti",
+      "skutecna": true,
+      "nazev": "Klimatizace rodinného bungalovu bez jediné lišty",
+      "misto": "Jižní Čechy",
+      "perex": "Zákazník chtěl designové vnitřní jednotky a čistý interiér — bez viditelných lišt pro chladivové potrubí."
+     },
+     {
+      "id": "d-rodinny-dum-cerpadlo",
+      "datum": "2026-04-18",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "vytapeni"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "180 m²",
+      "doba": "6 týdnů",
+      "motiv": 6,
+      "vetev": "domacnosti",
+      "nazev": "Tepelné čerpadlo místo plynového kotle",
+      "misto": "Středočeský kraj",
+      "perex": "Starší dům s radiátory. Místo rychlé výměny zdroje jsme nejdřív spočítali ztráty a upravili soustavu — jinak by čerpadlo jelo draho."
+     },
+     {
+      "id": "d-byt-rekuperace",
+      "datum": "2025-11-12",
+      "kategorie": [
+       "vzt"
+      ],
+      "kraj": "Praha",
+      "plocha": "92 m²",
+      "doba": "2 týdny",
+      "motiv": 1,
+      "vetev": "domacnosti",
+      "nazev": "Rekuperace do bytu po rekonstrukci",
+      "misto": "Praha",
+      "perex": "Byt v cihlovém domě po kompletní rekonstrukci. Rozvody se musely vejít do podhledů, které už byly navržené."
+     },
+     {
+      "id": "d-vymena-kotle",
+      "datum": "2025-02-04",
+      "kategorie": [
+       "vytapeni",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "rodinný dům",
+      "doba": "2 dny",
+      "motiv": 4,
+      "vetev": "domacnosti",
+      "nazev": "Havarijní výměna kotle v topné sezóně",
+      "misto": "Jižní Čechy",
+      "perex": "Volání na dispečink v lednu: netopí. Starý kotel už nešlo opravit, nový jel za dva dny."
+     }
+    ],
+    99,
+    3
+   ],
+   "out": {
+    "items": [
+     {
+      "id": "d-rodinny-dum-cerpadlo",
+      "datum": "2026-04-18",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "vytapeni"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "180 m²",
+      "doba": "6 týdnů",
+      "motiv": 6,
+      "vetev": "domacnosti",
+      "nazev": "Tepelné čerpadlo místo plynového kotle",
+      "misto": "Středočeský kraj",
+      "perex": "Starší dům s radiátory. Místo rychlé výměny zdroje jsme nejdřív spočítali ztráty a upravili soustavu — jinak by čerpadlo jelo draho."
+     },
+     {
+      "id": "d-byt-rekuperace",
+      "datum": "2025-11-12",
+      "kategorie": [
+       "vzt"
+      ],
+      "kraj": "Praha",
+      "plocha": "92 m²",
+      "doba": "2 týdny",
+      "motiv": 1,
+      "vetev": "domacnosti",
+      "nazev": "Rekuperace do bytu po rekonstrukci",
+      "misto": "Praha",
+      "perex": "Byt v cihlovém domě po kompletní rekonstrukci. Rozvody se musely vejít do podhledů, které už byly navržené."
+     },
+     {
+      "id": "d-vymena-kotle",
+      "datum": "2025-02-04",
+      "kategorie": [
+       "vytapeni",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "rodinný dům",
+      "doba": "2 dny",
+      "motiv": 4,
+      "vetev": "domacnosti",
+      "nazev": "Havarijní výměna kotle v topné sezóně",
+      "misto": "Jižní Čechy",
+      "perex": "Volání na dispečink v lednu: netopí. Starý kotel už nešlo opravit, nový jel za dva dny."
+     }
+    ],
+    "page": 4,
+    "pages": 4,
+    "total": 12
+   }
+  },
+  {
+   "args": [
+    [
+     {
+      "id": "logisticke-centrum-d1",
+      "datum": "2026-07-15",
+      "kategorie": [
+       "energetika",
+       "vytapeni"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "18 400 m²",
+      "doba": "9 měsíců",
+      "motiv": 1,
+      "vetev": "firmy",
+      "nazev": "Refit vytápění logistického centra u D1",
+      "misto": "Středočeský kraj",
+      "perex": "Energetický audit ukázal, že se vyplatí zachovat rozvody a vyměnit jen zdroje a regulaci. Spotřeba plynu klesla o třetinu."
+     },
+     {
+      "id": "administrativni-budova-karlin",
+      "datum": "2026-05-20",
+      "kategorie": [
+       "vzt",
+       "chlazeni"
+      ],
+      "kraj": "Praha",
+      "plocha": "6 200 m²",
+      "doba": "7 měsíců",
+      "motiv": 2,
+      "vetev": "firmy",
+      "nazev": "Vzduchotechnika a chlazení administrativní budovy v Karlíně",
+      "misto": "Praha 8",
+      "perex": "Výměna dvou VZT jednotek a rekonstrukce rozvodů chladu v šestipodlažní budově — za plného provozu nájemců."
+     },
+     {
+      "id": "poliklinika-pisek",
+      "datum": "2026-02-10",
+      "kategorie": [
+       "chlazeni",
+       "vzt"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "3 100 m²",
+      "doba": "5 měsíců",
+      "motiv": 3,
+      "vetev": "firmy",
+      "nazev": "Klimatizace a větrání polikliniky v Písku",
+      "misto": "Písek",
+      "perex": "Ordinace, čekárny a laboratoř. Všude jiné požadavky na čistotu vzduchu i hlučnost — a nikde nesmělo být slyšet."
+     },
+     {
+      "id": "vyrobni-hala-milevsko",
+      "datum": "2025-09-08",
+      "kategorie": [
+       "vzt",
+       "chlazeni"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "9 800 m²",
+      "doba": "6 měsíců",
+      "motiv": 4,
+      "vetev": "firmy",
+      "nazev": "Chlazení a větrání výrobní haly v Milevsku",
+      "misto": "Milevsko",
+      "perex": "Lisovna, kde v létě teplota u strojů přesahovala 38 °C. Řešení muselo zvládnout teplo z technologie i odsávání."
+     },
+     {
+      "id": "depozitar-galerie-tabor",
+      "datum": "2025-06-12",
+      "kategorie": [
+       "vzt",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "1 450 m²",
+      "doba": "4 měsíce",
+      "motiv": 5,
+      "vetev": "firmy",
+      "nazev": "Klima depozitáře galerie v Táboře",
+      "misto": "Tábor",
+      "perex": "Sbírkové předměty nepotřebují chlad, ale stabilitu. Vlhkost tu musí držet v úzkém pásmu po celý rok."
+     },
+     {
+      "id": "obchodni-centrum-budejovice",
+      "datum": "2025-03-18",
+      "kategorie": [
+       "vzt",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "24 000 m²",
+      "doba": "3 měsíce",
+      "motiv": 6,
+      "vetev": "firmy",
+      "nazev": "EAC filtry v obchodním centru v Českých Budějovicích",
+      "misto": "České Budějovice",
+      "perex": "Výměna klasických filtrů za elektronické čističe vzduchu ve vzduchotechnických jednotkách. Nižší tlaková ztráta, méně odpadu."
+     },
+     {
+      "id": "zakladni-skola-pribram",
+      "datum": "2024-11-05",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "vzt"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "4 600 m²",
+      "doba": "8 měsíců",
+      "motiv": 7,
+      "vetev": "firmy",
+      "nazev": "Tepelná čerpadla a rekuperace základní školy v Příbrami",
+      "misto": "Příbram",
+      "perex": "Škola vyměnila plynovou kotelnu za tepelná čerpadla a získala řízené větrání tříd. Dotaci jsme vyřídili za zřizovatele."
+     },
+     {
+      "id": "hotel-na-sumave",
+      "datum": "2024-06-24",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "chlazeni"
+      ],
+      "kraj": "Plzeňský kraj",
+      "plocha": "2 700 m²",
+      "doba": "5 měsíců",
+      "motiv": 8,
+      "vetev": "firmy",
+      "nazev": "Tepelná čerpadla a klimatizace hotelu na Šumavě",
+      "misto": "Plzeňský kraj",
+      "perex": "Horský hotel, kde se topí osm měsíců v roce a v létě je potřeba chladit pokoje pod střechou. Vše muselo být slyšet co nejméně."
+     },
+     {
+      "id": "d-bungalov-klimatizace",
+      "datum": "2026-07-03",
+      "kategorie": [
+       "chlazeni"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "140 m²",
+      "doba": "3 výjezdy",
+      "motiv": 3,
+      "vetev": "domacnosti",
+      "skutecna": true,
+      "nazev": "Klimatizace rodinného bungalovu bez jediné lišty",
+      "misto": "Jižní Čechy",
+      "perex": "Zákazník chtěl designové vnitřní jednotky a čistý interiér — bez viditelných lišt pro chladivové potrubí."
+     },
+     {
+      "id": "d-rodinny-dum-cerpadlo",
+      "datum": "2026-04-18",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "vytapeni"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "180 m²",
+      "doba": "6 týdnů",
+      "motiv": 6,
+      "vetev": "domacnosti",
+      "nazev": "Tepelné čerpadlo místo plynového kotle",
+      "misto": "Středočeský kraj",
+      "perex": "Starší dům s radiátory. Místo rychlé výměny zdroje jsme nejdřív spočítali ztráty a upravili soustavu — jinak by čerpadlo jelo draho."
+     },
+     {
+      "id": "d-byt-rekuperace",
+      "datum": "2025-11-12",
+      "kategorie": [
+       "vzt"
+      ],
+      "kraj": "Praha",
+      "plocha": "92 m²",
+      "doba": "2 týdny",
+      "motiv": 1,
+      "vetev": "domacnosti",
+      "nazev": "Rekuperace do bytu po rekonstrukci",
+      "misto": "Praha",
+      "perex": "Byt v cihlovém domě po kompletní rekonstrukci. Rozvody se musely vejít do podhledů, které už byly navržené."
+     },
+     {
+      "id": "d-vymena-kotle",
+      "datum": "2025-02-04",
+      "kategorie": [
+       "vytapeni",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "rodinný dům",
+      "doba": "2 dny",
+      "motiv": 4,
+      "vetev": "domacnosti",
+      "nazev": "Havarijní výměna kotle v topné sezóně",
+      "misto": "Jižní Čechy",
+      "perex": "Volání na dispečink v lednu: netopí. Starý kotel už nešlo opravit, nový jel za dva dny."
+     }
+    ],
+    0,
+    3
+   ],
+   "out": {
+    "items": [
+     {
+      "id": "logisticke-centrum-d1",
+      "datum": "2026-07-15",
+      "kategorie": [
+       "energetika",
+       "vytapeni"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "18 400 m²",
+      "doba": "9 měsíců",
+      "motiv": 1,
+      "vetev": "firmy",
+      "nazev": "Refit vytápění logistického centra u D1",
+      "misto": "Středočeský kraj",
+      "perex": "Energetický audit ukázal, že se vyplatí zachovat rozvody a vyměnit jen zdroje a regulaci. Spotřeba plynu klesla o třetinu."
+     },
+     {
+      "id": "administrativni-budova-karlin",
+      "datum": "2026-05-20",
+      "kategorie": [
+       "vzt",
+       "chlazeni"
+      ],
+      "kraj": "Praha",
+      "plocha": "6 200 m²",
+      "doba": "7 měsíců",
+      "motiv": 2,
+      "vetev": "firmy",
+      "nazev": "Vzduchotechnika a chlazení administrativní budovy v Karlíně",
+      "misto": "Praha 8",
+      "perex": "Výměna dvou VZT jednotek a rekonstrukce rozvodů chladu v šestipodlažní budově — za plného provozu nájemců."
+     },
+     {
+      "id": "poliklinika-pisek",
+      "datum": "2026-02-10",
+      "kategorie": [
+       "chlazeni",
+       "vzt"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "3 100 m²",
+      "doba": "5 měsíců",
+      "motiv": 3,
+      "vetev": "firmy",
+      "nazev": "Klimatizace a větrání polikliniky v Písku",
+      "misto": "Písek",
+      "perex": "Ordinace, čekárny a laboratoř. Všude jiné požadavky na čistotu vzduchu i hlučnost — a nikde nesmělo být slyšet."
+     }
+    ],
+    "page": 1,
+    "pages": 4,
+    "total": 12
+   }
+  },
+  {
+   "args": [
+    [
+     {
+      "id": "logisticke-centrum-d1",
+      "datum": "2026-07-15",
+      "kategorie": [
+       "energetika",
+       "vytapeni"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "18 400 m²",
+      "doba": "9 měsíců",
+      "motiv": 1,
+      "vetev": "firmy",
+      "nazev": "Refit vytápění logistického centra u D1",
+      "misto": "Středočeský kraj",
+      "perex": "Energetický audit ukázal, že se vyplatí zachovat rozvody a vyměnit jen zdroje a regulaci. Spotřeba plynu klesla o třetinu."
+     },
+     {
+      "id": "administrativni-budova-karlin",
+      "datum": "2026-05-20",
+      "kategorie": [
+       "vzt",
+       "chlazeni"
+      ],
+      "kraj": "Praha",
+      "plocha": "6 200 m²",
+      "doba": "7 měsíců",
+      "motiv": 2,
+      "vetev": "firmy",
+      "nazev": "Vzduchotechnika a chlazení administrativní budovy v Karlíně",
+      "misto": "Praha 8",
+      "perex": "Výměna dvou VZT jednotek a rekonstrukce rozvodů chladu v šestipodlažní budově — za plného provozu nájemců."
+     },
+     {
+      "id": "poliklinika-pisek",
+      "datum": "2026-02-10",
+      "kategorie": [
+       "chlazeni",
+       "vzt"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "3 100 m²",
+      "doba": "5 měsíců",
+      "motiv": 3,
+      "vetev": "firmy",
+      "nazev": "Klimatizace a větrání polikliniky v Písku",
+      "misto": "Písek",
+      "perex": "Ordinace, čekárny a laboratoř. Všude jiné požadavky na čistotu vzduchu i hlučnost — a nikde nesmělo být slyšet."
+     },
+     {
+      "id": "vyrobni-hala-milevsko",
+      "datum": "2025-09-08",
+      "kategorie": [
+       "vzt",
+       "chlazeni"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "9 800 m²",
+      "doba": "6 měsíců",
+      "motiv": 4,
+      "vetev": "firmy",
+      "nazev": "Chlazení a větrání výrobní haly v Milevsku",
+      "misto": "Milevsko",
+      "perex": "Lisovna, kde v létě teplota u strojů přesahovala 38 °C. Řešení muselo zvládnout teplo z technologie i odsávání."
+     },
+     {
+      "id": "depozitar-galerie-tabor",
+      "datum": "2025-06-12",
+      "kategorie": [
+       "vzt",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "1 450 m²",
+      "doba": "4 měsíce",
+      "motiv": 5,
+      "vetev": "firmy",
+      "nazev": "Klima depozitáře galerie v Táboře",
+      "misto": "Tábor",
+      "perex": "Sbírkové předměty nepotřebují chlad, ale stabilitu. Vlhkost tu musí držet v úzkém pásmu po celý rok."
+     },
+     {
+      "id": "obchodni-centrum-budejovice",
+      "datum": "2025-03-18",
+      "kategorie": [
+       "vzt",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "24 000 m²",
+      "doba": "3 měsíce",
+      "motiv": 6,
+      "vetev": "firmy",
+      "nazev": "EAC filtry v obchodním centru v Českých Budějovicích",
+      "misto": "České Budějovice",
+      "perex": "Výměna klasických filtrů za elektronické čističe vzduchu ve vzduchotechnických jednotkách. Nižší tlaková ztráta, méně odpadu."
+     },
+     {
+      "id": "zakladni-skola-pribram",
+      "datum": "2024-11-05",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "vzt"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "4 600 m²",
+      "doba": "8 měsíců",
+      "motiv": 7,
+      "vetev": "firmy",
+      "nazev": "Tepelná čerpadla a rekuperace základní školy v Příbrami",
+      "misto": "Příbram",
+      "perex": "Škola vyměnila plynovou kotelnu za tepelná čerpadla a získala řízené větrání tříd. Dotaci jsme vyřídili za zřizovatele."
+     },
+     {
+      "id": "hotel-na-sumave",
+      "datum": "2024-06-24",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "chlazeni"
+      ],
+      "kraj": "Plzeňský kraj",
+      "plocha": "2 700 m²",
+      "doba": "5 měsíců",
+      "motiv": 8,
+      "vetev": "firmy",
+      "nazev": "Tepelná čerpadla a klimatizace hotelu na Šumavě",
+      "misto": "Plzeňský kraj",
+      "perex": "Horský hotel, kde se topí osm měsíců v roce a v létě je potřeba chladit pokoje pod střechou. Vše muselo být slyšet co nejméně."
+     },
+     {
+      "id": "d-bungalov-klimatizace",
+      "datum": "2026-07-03",
+      "kategorie": [
+       "chlazeni"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "140 m²",
+      "doba": "3 výjezdy",
+      "motiv": 3,
+      "vetev": "domacnosti",
+      "skutecna": true,
+      "nazev": "Klimatizace rodinného bungalovu bez jediné lišty",
+      "misto": "Jižní Čechy",
+      "perex": "Zákazník chtěl designové vnitřní jednotky a čistý interiér — bez viditelných lišt pro chladivové potrubí."
+     },
+     {
+      "id": "d-rodinny-dum-cerpadlo",
+      "datum": "2026-04-18",
+      "kategorie": [
+       "tepelna-cerpadla",
+       "vytapeni"
+      ],
+      "kraj": "Středočeský kraj",
+      "plocha": "180 m²",
+      "doba": "6 týdnů",
+      "motiv": 6,
+      "vetev": "domacnosti",
+      "nazev": "Tepelné čerpadlo místo plynového kotle",
+      "misto": "Středočeský kraj",
+      "perex": "Starší dům s radiátory. Místo rychlé výměny zdroje jsme nejdřív spočítali ztráty a upravili soustavu — jinak by čerpadlo jelo draho."
+     },
+     {
+      "id": "d-byt-rekuperace",
+      "datum": "2025-11-12",
+      "kategorie": [
+       "vzt"
+      ],
+      "kraj": "Praha",
+      "plocha": "92 m²",
+      "doba": "2 týdny",
+      "motiv": 1,
+      "vetev": "domacnosti",
+      "nazev": "Rekuperace do bytu po rekonstrukci",
+      "misto": "Praha",
+      "perex": "Byt v cihlovém domě po kompletní rekonstrukci. Rozvody se musely vejít do podhledů, které už byly navržené."
+     },
+     {
+      "id": "d-vymena-kotle",
+      "datum": "2025-02-04",
+      "kategorie": [
+       "vytapeni",
+       "servis"
+      ],
+      "kraj": "Jihočeský kraj",
+      "plocha": "rodinný dům",
+      "doba": "2 dny",
+      "motiv": 4,
+      "vetev": "domacnosti",
+      "nazev": "Havarijní výměna kotle v topné sezóně",
+      "misto": "Jižní Čechy",
+      "perex": "Volání na dispečink v lednu: netopí. Starý kotel už nešlo opravit, nový jel za dva dny."
+     }
+    ],
+    1,
+    0
+   ],
+   "out": {
+    "items": [],
+    "page": 1,
+    "pages": null,
+    "total": 12
+   }
+  },
+  {
+   "args": [
+    [],
+    1,
+    3
+   ],
+   "out": {
+    "items": [],
+    "page": 1,
+    "pages": 1,
+    "total": 0
+   }
+  }
+ ]
+}

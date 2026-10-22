@@ -1,0 +1,13 @@
+{
+  "id": "C-021",
+  "file": "web/app/Fotky/Zpracovani.php",
+  "role": "coder",
+  "title": "Nahraná fotka: zmenšit, převést na webp a uložit pod bezpečným jménem",
+  "interface": "namespace App\\Fotky; final class Zpracovani implements Ulozny\n\npublic function __construct(private readonly string $kamNaDisk, private readonly string $verejnaCesta)\n   $kamNaDisk  … složka, do které se soubory zapisují (existuje)\n   $verejnaCesta … předpona, kterou uvidí prohlížeč (např. 'media')\n\npublic function uloz(string $docasnySoubor, string $puvodniJmeno): array\n   vrací ['id', 'nazev', 'typ', 'sirka', 'vyska', 'bajty', 'soubor']\n   vyhazuje \\RuntimeException, když to není obrázek nebo se nedá zpracovat",
+  "uses": {},
+  "acceptance": "tests/test_php_fotky_zpracovani.py",
+  "notes": "Čisté PHP 8.5 s rozšířením gd (to na serveru bude, `php8.5-gd`). Žádné composer závislosti, žádný shell, žádné ImageMagick. Soubor začíná `<?php`, pak `declare(strict_types=1);`, pak `namespace …;`. Žádný echo, žádný výstup.\n\nCo to má dělat:\n- Typ se pozná z OBSAHU (getimagesize), ne z přípony. Povolené jsou jen image/jpeg, image/png a image/webp; cokoli jiného, prázdný nebo neexistující soubor → \\RuntimeException.\n- Delší hrana se zmenší na nejvýš 1600 px (stejná mez jako v ukázce, src/lib/fotky.mjs → LIMITY.maxHrana), poměr stran se zachová, menší obrázek se nikdy nezvětšuje. Zaokrouhluje se na celé pixely (intval, dolů).\n- Výsledek se vždy uloží jako webp (imagewebp, kvalita 82).\n- Jméno souboru vychází z OBSAHU výsledku: sha1 hotových bajtů webp a přípona .webp. Tentýž obrázek nahraný dvakrát tedy skončí v jednom souboru. Jméno od uživatele se do cesty nikdy nedostane (jen do klíče 'nazev' pro člověka).\n- 'id' je tentýž hash bez přípony, 'soubor' je $verejnaCesta . '/' . jméno, 'bajty' je skutečná velikost zapsaného souboru, 'typ' je 'image/webp', 'sirka'/'vyska' jsou rozměry po zmenšení.\n- Když se zápis nepovede, nesmí po sobě nechat poloviční soubor.\n- Paměť: po práci imagedestroy. Obrázek nad 50 Mpx (sirka*vyska) odmítni výjimkou, aby velký soubor nesežral server.",
+  "budget": {
+    "iterations": 20
+  }
+}

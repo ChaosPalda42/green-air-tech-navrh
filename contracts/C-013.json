@@ -1,0 +1,18 @@
+{
+  "id": "C-013",
+  "file": "web/app/Obsah/Slovnik.php",
+  "role": "coder",
+  "title": "Vysvětlivky zkratek: anotace HTML, hledání a seskupení termínů",
+  "interface": "namespace App\\Obsah; final class Slovnik\n\nTermín je pole ['abbr' => 'TZB', 'full' => '…', 'popis' => '…'].\n\npublic static function annotate(string $html, array $terminy, array $volby = []): string\n  Do HTML obalí výskyty zkratek značkou s vysvětlivkou. Nikdy nesmí zasáhnout do\n  textu uvnitř značek (atributy), ani dovnitř <a>. Volba ['once' => true] obalí jen\n  první výskyt každé zkratky. Výstup musí být BAJTOVĚ stejný jako v ukázce.\n\npublic static function findTerm(array $terminy, string $abbr): ?array\n  Termín se shodným 'abbr', jinak null. Shoda je na přesný řetězec (velikost písmen\n  rozhoduje): findTerm($t, 'tzb') === null.\n\npublic static function sortTerms(array $terminy): array\n  Nové pole termínů (seznam, klíče 0..n-1) seřazené podle 'abbr' českým řazením:\n  RazeniCs::porovnej($a['abbr'], $b['abbr']). Vstup se nemění, řazení je stabilní.\n\npublic static function groupTerms(array $terminy): array\n  Seznam skupin, KAŽDÁ skupina je pole ['letter' => 'Č', 'items' => [termíny…]].\n  Termíny se nejdřív seřadí přes sortTerms a pak se jen krájí za sebou podle\n  prvního písmene velkým (mb-safe velké písmeno bez mbstring: první UTF-8 znak\n  a tabulka malá→velká). POZOR: seskupuje se podle SKUTEČNÉHO písmene, diakritika\n  se NESTRHÁVÁ — 'ČSN' patří do skupiny 'Č', ne 'C'. Nová skupina začne vždy, když\n  se písmeno liší od předchozího, takže se skupiny mohou opakovat ('A','Á','A','Á').",
+  "uses": {
+    "web/app/Obsah/RazeniCs.php": "App\\Obsah\\RazeniCs::porovnej($a, $b): int — české řazení, -1/0/1"
+  },
+  "acceptance": "tests/test_php_slovnik.py",
+  "notes": "Čisté PHP 8.5, žádné composer závislosti, žádná rozšíření nad rámec jádra (bez intl, bez mbstring — na UTF-8 stačí preg_* s modifikátorem /u). Soubor začíná `<?php`, pak `declare(strict_types=1);`, pak `namespace …;`. Jen statické metody, žádný stav, žádný echo, žádný výstup. Pole se nemutují — vstup se nikdy nemění, vrací se nové pole.\n\nJMÉNO TŘÍDY i jmenný prostor musí přesně odpovídat cestě souboru, jinak se autoloader třídu nedovolá a akceptace spadne na „Class not found“.\n\nZDROJ PRAVDY je src/lib/glossary.mjs — přečti si ho a přepiš ho do PHP tak, aby se na stejných vstupech chovalo stejně. Asociativní pole v PHP zastupují objekty v JS; `null` zastupuje `undefined` i `null`.\n\nČeské řazení NEPIŠ znovu — je hotové v App\\Obsah\\RazeniCs (viz uses). V orákulu jsou zaznamenané plné seznamy zkratek všech tří jazyků a navíc syntetická sada s diakritikou, kde na sebe narazí C/Č, R/Ř, S/Š, Z/Ž a A/Á.",
+  "budget": {
+    "iterations": 20
+  },
+  "depends_on": [
+    "C-023"
+  ]
+}

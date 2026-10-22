@@ -1279,6 +1279,7 @@
       "jmeno": "Uživatel",
       "heslo": "Heslo",
       "vstoupit": "Vstoupit",
+      "chyba": "Přihlášení se nepovedlo. Zkontrolujte jméno a heslo.",
       "poznamka": "Demo: přihlášení nic neověřuje."
     },
     "zalozky": {

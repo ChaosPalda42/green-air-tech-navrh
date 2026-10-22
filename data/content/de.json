@@ -1279,6 +1279,7 @@
       "jmeno": "Benutzer",
       "heslo": "Passwort",
       "vstoupit": "Anmelden",
+      "chyba": "Anmeldung fehlgeschlagen. Prüfen Sie Name und Passwort.",
       "poznamka": "Demo: Die Anmeldung führt keine Prüfung durch."
     },
     "zalozky": {

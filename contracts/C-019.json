@@ -1,0 +1,18 @@
+{
+  "id": "C-019",
+  "file": "web/app/Api/Zmeny.php",
+  "role": "coder",
+  "title": "Co se v administraci změnilo a jestli to ten uživatel smí",
+  "interface": "namespace App\\Api; final class Zmeny\n\npublic static function oblasti(array $stary, array $novy): array\n   Seznam oblastí, kterých se změna týká: 'texty', 'novinky', 'realizace'.\n   Beze změny vrací prázdné pole. Pořadí nehraje roli (brána si ho srovná),\n   ale každá oblast se smí vyskytnout jen jednou.\n\npublic static function smiZmenit(string $role, array $stary, array $novy): bool\n   true, když uživatel s touhle rolí smí VŠECHNY spočítané oblasti.",
+  "uses": {
+    "App\\Auth\\Uzivatele": "smi(string $role, string $oblast): bool"
+  },
+  "acceptance": "tests/test_php_zmeny.py",
+  "notes": "Čisté PHP 8.5, žádné composer závislosti. Soubor začíná `<?php`, pak `declare(strict_types=1);`, pak `namespace …;`. Jen statické metody, žádný echo, žádná databáze.\n\nProč to existuje: administrace posílá na server celý svůj stav (tvar z src/lib/cms-store.mjs: ['texts' => ['cs' => ['klic.s.teckami' => 'hodnota']], 'realizace' => ['added' => [...], 'edited' => ['id' => [...]], 'removed' => ['id']], 'updatedAt' => …]). Server nesmí věřit tomu, co mu přišlo, a musí si sám spočítat, čeho se změna týká.\n\nPravidla:\n- Přidaný, odebraný nebo jinou hodnotu mající textový klíč: oblast 'novinky', když klíč začíná na 'novinky.', jinak 'texty'. Jazyk nehraje roli.\n- Jakýkoli rozdíl v 'realizace' (added, edited, removed): oblast 'realizace'.\n- 'updatedAt' se nepočítá — čas uložení se mění vždy.\n- Porovnává se obsahem, ne pořadím klíčů: tentýž stav s jinak zpřeházenými klíči není změna.\n- Vstup může být nesmyslný (chybějící klíče, 'texts' jako řetězec, 'realizace' jako číslo). Nikdy nevyhazuj výjimku; co nejde přečíst, ber jako prázdné. Pole se nemutují.\n\n`smiZmenit` se na práva ptá App\\Auth\\Uzivatele::smi() — matici práv tady neopisuj.",
+  "budget": {
+    "iterations": 15
+  },
+  "depends_on": [
+    "C-018"
+  ]
+}

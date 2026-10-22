@@ -1,0 +1,18 @@
+{
+  "id": "C-014",
+  "file": "web/app/Obsah/RealizaceFiltr.php",
+  "role": "coder",
+  "title": "Filtrování, řazení a stránkování realizací",
+  "interface": "namespace App\\Obsah; final class RealizaceFiltr\n\npublic static function normalizeText(mixed $hodnota): string\n  Text pro porovnávání: malá písmena, bez diakritiky, okrajové mezery pryč.\n  Diakritiku řeš vlastní tabulkou, ne iconv ani intl.\n\npublic static function filterItems(array $polozky, array $volby = []): array\n  Volby: 'kategorie', 'dotaz', 'rok'. Prázdné nebo chybějící volby nefiltrují.\n  'rok' přijímá číslo i řetězec. Vrací seznam (klíče 0..n-1), ne řídké pole —\n  po array_filter vždy array_values.\n\npublic static function collectKategorie(array $polozky): array\n  Seznam polí ['id' => …, 'count' => N] seřazený count sestupně a při shodě\n  id vzestupně přes RazeniCs::porovnej.\n\npublic static function collectRoky(array $polozky): array\n  Seznam roků (čísla) sestupně, bez duplicit.\n\npublic static function sortItems(array $polozky, string $rezim): array\n  Režimy 'nejstarsi' (datum vzestupně), 'nazev' (RazeniCs::porovnej nad 'nazev'),\n  cokoli jiného = datum sestupně. Položka bez data jde vždy na konec.\n\npublic static function paginate(array $polozky, int $stranka, int $naStranku): array\n  Vrací ['items' => […], 'page' => N, 'pages' => N, 'total' => N]; 'pages' je\n  nejméně 1 a 'page' se zarovná do rozsahu 1..pages.",
+  "uses": {
+    "web/app/Obsah/RazeniCs.php": "App\\Obsah\\RazeniCs::porovnej($a, $b): int — české řazení, -1/0/1"
+  },
+  "acceptance": "tests/test_php_realizace_filtr.py",
+  "notes": "Čisté PHP 8.5, žádné composer závislosti, žádná rozšíření nad rámec jádra (bez intl, bez mbstring — na UTF-8 stačí preg_* s modifikátorem /u). Soubor začíná `<?php`, pak `declare(strict_types=1);`, pak `namespace …;`. Jen statické metody, žádný stav, žádný echo, žádný výstup. Pole se nemutují — vstup se nikdy nemění, vrací se nové pole.\n\nJMÉNO TŘÍDY i jmenný prostor musí přesně odpovídat cestě souboru, jinak se autoloader třídu nedovolá a akceptace spadne na „Class not found“.\n\nZDROJ PRAVDY je src/lib/realizace-filter.mjs — přečti si ho a přepiš ho do PHP tak, aby se na stejných vstupech chovalo stejně. Asociativní pole v PHP zastupují objekty v JS; `null` zastupuje `undefined` i `null`.\n\nlocaleCompare('cs') NEPIŠ znovu — je hotové v App\\Obsah\\RazeniCs (viz uses).\n\nPředchozí pokus spadl na tom, že třída se jmenovala RealizeFiltr místo RealizaceFiltr: soubor se načetl, ale hledaná třída v něm nebyla.",
+  "budget": {
+    "iterations": 16
+  },
+  "depends_on": [
+    "C-023"
+  ]
+}

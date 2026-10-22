@@ -1,0 +1,19 @@
+{
+  "id": "C-022",
+  "file": "web/app/Posta/Odeslani.php",
+  "role": "coder",
+  "title": "Poptávka z webu na e-mail firmy",
+  "interface": "namespace App\\Posta; final class Odeslani\n\npublic static function zprava(array $poptavka, array $nastaveni, array $slovnik): array\n   vrací ['komu' => string, 'predmet' => string, 'telo' => string, 'hlavicky' => array<string,string>]\n\npublic static function posli(array $poptavka, array $nastaveni, array $slovnik, Prepravka $prepravka): bool\n   složí zprávu a předá ji přepravce; vrací to, co vrátila přepravka",
+  "uses": {
+    "App\\Formular\\Validace": "isEmail(string $email): bool",
+    "App\\Posta\\Prepravka": "posli(string $komu, string $predmet, string $telo, array $hlavicky): bool"
+  },
+  "acceptance": "tests/test_php_posta.py",
+  "notes": "Čisté PHP 8.5, žádné composer závislosti. Soubor začíná `<?php`, pak `declare(strict_types=1);`, pak `namespace …;`. Jen statické metody, žádný echo, nic se neodesílá přímo (to dělá přepravka).\n\nPoptávka má klíče 'typ', 'jmeno', 'email', 'telefon', 'zprava', 'vetev', 'jazyk' — každý z nich může chybět. Nastavení má 'prijemce' a 'odesilatel'. Slovník má ['typy' => ['projekce' => 'Projekce', …], 'predmet' => 'Poptávka z webu'].\n\nZpráva:\n- 'komu' je $nastaveni['prijemce'].\n- 'predmet' je $slovnik['predmet'] . ' – ' . název typu; když typ ve slovníku není, opíše se tak, jak přišel (pomlčka je en dash U+2013).\n- 'telo' je čistý text, jedna věc na řádek, v pořadí: typ, jméno, e-mail, telefon, větev, jazyk, prázdný řádek, zpráva. Chybějící pole se vynechá. Zpráva od člověka se nechává tak, jak ji napsal (včetně zlomů řádků).\n- 'hlavicky' vždycky obsahují 'From' => odesílatel z nastavení, 'MIME-Version' => '1.0', 'Content-Type' => 'text/plain; charset=\"UTF-8\"' a 'Content-Transfer-Encoding' => '8bit'. 'Reply-To' se přidá JEN tehdy, když je e-mail z formuláře platný podle Validace::isEmail.\n\nNejdůležitější pravidlo: do hlaviček ani do předmětu se nesmí dostat nic, co člověk napsal do formuláře, bez odstranění CR a LF. Vložené hlavičky typu \"Bcc: …\" se tím musí rozpadnout. Žádnou hlavičku navíc, než co je výš, nepřidávej.\n\nPředmět může obsahovat diakritiku — nech ho v UTF-8 tak, jak je (přepravka si ho zakóduje sama), jen bez zlomů řádků.",
+  "budget": {
+    "iterations": 15
+  },
+  "depends_on": [
+    "C-015"
+  ]
+}

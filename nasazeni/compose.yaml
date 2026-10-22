@@ -1,0 +1,39 @@
+# Testovací prostředí: `docker compose -f nasazeni/compose.yaml up -d`
+# Web pak běží na http://localhost:8080 (veřejně přes cloudflared tunel).
+name: greenairtech
+
+services:
+  web:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      - ../web:/var/www/greenairtech
+      - ../tools:/var/www/tools:ro
+      - ./config.docker.php:/var/www/greenairtech/config/config.php:ro
+      - media:/var/www/greenairtech/public/media
+    depends_on:
+      databaze:
+        condition: service_healthy
+    environment:
+      APACHE_RUN_USER: www-data
+      APACHE_RUN_GROUP: www-data
+
+  databaze:
+    image: mariadb:11.8
+    environment:
+      MARIADB_ROOT_PASSWORD: korenove-heslo-jen-pro-test
+      MARIADB_DATABASE: greenairtech
+      MARIADB_USER: greenairtech
+      MARIADB_PASSWORD: heslo-jen-pro-test
+    volumes:
+      - databaze:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+volumes:
+  databaze:
+  media:

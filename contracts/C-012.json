@@ -1,0 +1,13 @@
+{
+  "id": "C-012",
+  "file": "web/app/Obsah/I18n.php",
+  "role": "coder",
+  "title": "Překlady: čtení klíčů, doplnění proměnných, plochý a vnořený tvar",
+  "interface": "namespace App\\Obsah; final class I18n\n\npublic static function get(?array $dict, string $cesta): mixed\n  Hodnota na tečkami oddělené cestě ('nav.sluzby'). Když kterýkoli krok neexistuje\n  nebo není pole, vrátí null. Prázdná cesta vrátí null.\n\npublic static function t(?array $dict, string $cesta, array $vars = [], ?array $zaskok = null): string\n  Přeložený text. Když v $dict chybí nebo není řetězec, zkusí $zaskok; když chybí\n  i tam, vrátí samotnou cestu. Zástupné {klic} nahradí hodnotou z $vars; zástupné,\n  pro které ve $vars nic není, zůstane v textu tak, jak je.\n\npublic static function flatten(array $obj, string $prefix = ''): array\n  Vnořená pole -> jedna úroveň s tečkovanými klíči. Pořadí klíčů se zachová\n  (průchod do hloubky v pořadí, v jakém klíče leží).\n\npublic static function unflatten(array $mapa): array\n  Opak flatten.\n\npublic static function missingKeys(array $vzor, array $dict): array\n  Seznam tečkovaných klíčů, které jsou ve $vzor a ve $dict chybí nebo jsou prázdný\n  řetězec. Pořadí jako ve vzoru.",
+  "uses": {},
+  "acceptance": "tests/test_php_i18n.py",
+  "notes": "Čisté PHP 8.5, žádné composer závislosti, žádná rozšíření nad rámec jádra (bez intl, bez mbstring-only funkcí, pokud to jde bez nich). Soubor začíná `<?php`, pak `declare(strict_types=1);`, pak `namespace …;`. Jen statické metody, žádný stav, žádný echo, žádný výstup. Pole se nemutují — vstup se nikdy nemění, vrací se nové pole.\n\nZDROJ PRAVDY je odpovídající JavaScript v src/lib/ — přečti si ho a přepiš ho do PHP tak, aby se na stejných vstupech chovalo stejně. Asociativní pole v PHP zastupují objekty v JS; `null` zastupuje `undefined` i `null`.\n\nPředloha: src/lib/i18n.mjs.",
+  "budget": {
+    "iterations": 16
+  }
+}

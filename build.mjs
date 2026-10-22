@@ -402,6 +402,10 @@ async function main() {
     }
   }
 
+  // aktiva pro PHP verzi: dokumentový koren ostrého webu je web/public
+  await rm(path.join(KOREN, "web", "public", "assets"), { recursive: true, force: true });
+  await cp(path.join(VEN, "assets"), path.join(KOREN, "web", "public", "assets"), { recursive: true });
+
   console.log(`Hotovo: ${pocet} stránek v ${jazyky.length} jazycích -> out/web`);
 }
 
