@@ -21,6 +21,9 @@ final class Uzivatele
 
     private const MIN_DELKA_HESLA = 12;
 
+    /** Falešný hash pro ověření, když účet (nebo hash) v databázi není. */
+    private const FALESNY_HASH = '$2y$12$abcdefghijklmnopqrstuuu0v1w2x3y4z5a6b7c8d9e0f1g2h3i';
+
     /** Smí uživatel s danou rolí do dané oblasti? Neznámá role i oblast = ne. */
     public static function smi(string $role, string $oblast): bool
     {
@@ -37,17 +40,23 @@ final class Uzivatele
         return password_hash($heslo, PASSWORD_DEFAULT);
     }
 
-    /** Ověří heslo proti uloženému hashu; neaktivní uživatel se nepřihlásí. */
-    public static function overHeslo(array $uzivatel, string $heslo): bool
+    /**
+     * Ověří heslo proti uloženému hashu; neaktivní uživatel se nepřihlásí.
+     * Účet může být i null (jméno v databázi není) — v takovém případě se
+     * heslo stejně ověří proti falešnému hashi, aby trvání odpovědi prozrazovalo
+     * jen heslo, ne existenci účtu.
+     */
+    public static function overHeslo(?array $uzivatel, string $heslo): bool
     {
-        if (($uzivatel['aktivni'] ?? 0) != 1) {
-            return false;
-        }
         $hash = $uzivatel['heslo_hash'] ?? null;
         if (!is_string($hash) || $hash === '') {
+            $hash = self::FALESNY_HASH;
+        }
+        $spravne = password_verify($heslo, $hash);
+        if (!$spravne) {
             return false;
         }
-        return password_verify($heslo, $hash);
+        return ($uzivatel['aktivni'] ?? 0) == 1;
     }
 
     /** Kontrola síly hesla: null = v pořádku, jinak krátký důvod. */
