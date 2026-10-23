@@ -1,0 +1,22 @@
+{
+  "id": "C-028",
+  "file": "web/app/Auth/Zamek.php",
+  "role": "coder",
+  "title": "Zámek administrace při hádání hesla",
+  "interface": "namespace App\\Auth; final class Zamek\n\nRozhodnutí, jestli je přihlášení do administrace zamčené kvůli hádání hesla.\nČisté PHP, žádný stav, žádná síť, žádná databáze, žádný echo. Vstupní pole\nse nemutuje.\n\npublic const OKNO = 900;   // kolik sekund dozadu se špatné pokusy počítají\npublic const LIMIT = 10;   // kolikátý špatný pokus v okně zamkne\n\npublic static function zamceno(array $casy, int $ted): bool\n  $casy jsou unixové časy špatných pokusů (v libovolném pořadí, můžou být\n  i hodně staré). Vrátí true, když je v okně aspoň LIMIT pokusů.\n\npublic static function ceka(array $casy, int $ted): int\n  Kolik sekund zbývá do odemčení. Když zamčeno není, vrátí 0.\n",
+  "uses": {},
+  "database": "",
+  "acceptance": "tests/test_php_zamek.py",
+  "dobehly": "",
+  "forbidden": [],
+  "depends_on": [],
+  "budget": {
+    "iterations": 18
+  },
+  "metamorfni_funkce": "",
+  "neutralni_upravy": [],
+  "neutralni_predpony": [],
+  "differential": false,
+  "differential_compare": "exact",
+  "notes": "Čisté PHP 8.5, žádné composer závislosti, žádná rozšíření nad rámec jádra.\nSoubor začíná `<?php`, pak `declare(strict_types=1);`, pak `namespace App\\Auth;`.\nJen statické metody, žádná vlastnost, žádný konstruktor.\n\nJMÉNO TŘÍDY i jmenný prostor musí odpovídat cestě souboru, jinak se autoloader\ntřídu nedovolá a akceptace spadne na „Class not found\".\n\nPROČ: ukázka počítala špatná hesla jen v sezení prohlížeče. Útočník zahodí\ncookie a počítadlo je na nule — osm špatných hesel za sebou prošlo za čtvrt\nsekundy. Na ostrém webu se pokusy počítají v databázi a tahle třída z jejich\nčasů rozhodne. Proto nesmí nic číst ani zapisovat: časy jí podá volající.\n\nPŘESNĚ TAKTO:\n\n1) Pokus se počítá, když platí `$cas > $ted - OKNO`. Rovnost se NEPOČÍTÁ\n   (pokus přesně na hranici okna už vypadl). Čas v budoucnosti (rozejité\n   hodiny serveru) se počítá taky.\n\n2) zamceno(): počet započítaných pokusů >= LIMIT.\n\n3) ceka(): když zamceno() vrátí false, vrať 0. Jinak:\n   - vem jen započítané pokusy,\n   - seřaď je od nejnovějšího,\n   - vezmi LIMIT-tý v tom pořadí (tedy index LIMIT - 1),\n   - vrať `$cas + OKNO - $ted`.\n   Je to okamžik, kdy z okna vypadne LIMIT-tý nejnovější pokus a započítaných\n   zbyde LIMIT - 1. Výsledek je z definice aspoň 1; kdyby přesto vyšel menší,\n   vrať 1.\n\n   POZOR na časté nedorozumění: zámek se NEPOČÍTÁ od nejnovějšího pokusu.\n   Kdyby se počítal od něj, útočník by dalšími pokusy držel správce venku, jak\n   dlouho by chtěl.\n\n4) Pole $casy se nesmí přepsat (žádné sort($casy) na vstupním poli —\n   pracuj s kopií). Hodnoty jsou celá čísla.\n"
+}
