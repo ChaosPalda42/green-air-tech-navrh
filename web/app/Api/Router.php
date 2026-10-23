@@ -1,7 +1,11 @@
 <?php
 /* C-020 — jediná cesta, kterou se změny z prohlížeče dostanou do webu.
    Vstupní bod (web/public/index.php) sem předá požadavek a dostane zpět
-   ['stav' => int, 'telo' => array]; hlavičky a tisknutí je jeho věc. */
+   ['stav' => int, 'telo' => array]; hlavičky a tisknutí je jeho věc.
+
+   Cíle: stav, uzivatele, heslo, pozvanka, statistiky, fotka.
+   Pořadí kontrol je u každého cíle stejné: CSRF, přihlášení, práva,
+   metoda, data. Odmítnutý požadavek na úložiště nesáhne. */
 
 declare(strict_types=1);
 
@@ -24,7 +28,6 @@ final class Router
         ?Poskytovatel $statistiky = null,
         ?Ulozny $fotky = null
     ): array {
-        $metoda = (string) ($pozadavek['metoda'] ?? '');
         $cesta = (string) ($pozadavek['cesta'] ?? '');
         $uzivatel = $pozadavek['uzivatel'] ?? null;
         if (!is_array($uzivatel)) {
@@ -36,6 +39,10 @@ final class Router
                 return self::stav($pozadavek, $uloziste, $uzivatel);
             case 'uzivatele':
                 return self::uzivatele($pozadavek, $uloziste, $uzivatel);
+            case 'heslo':
+                return self::heslo($pozadavek, $uloziste, $uzivatel);
+            case 'pozvanka':
+                return self::pozvanka($pozadavek, $uloziste, $uzivatel);
             case 'statistiky':
                 return self::statistiky($pozadavek, $statistiky, $uzivatel);
             case 'fotka':
@@ -123,6 +130,12 @@ final class Router
                 return self::chyba(400, 'vadna-data', ['pole' => $vady]);
             }
 
+            // Nový uživatel se do administrace dostane přes pozvánku: token
+            // a platnost se vyrobí tady, uloží se s účtem a vrátí zakládajícímu
+            // — ten ho předá kolegovi. Heslo se přes API neposílá ani nevrací
+            // nikdy; nastaví si ho nový uživatel sám při prvním přihlášení.
+            $pozvanka = Uzivatele::pozvanka();
+
             // Obsazený e-mail je konflikt, ne spadlý server: správce má vědět,
             // že takový uživatel už existuje.
             try {
@@ -130,11 +143,14 @@ final class Router
                     'jmeno' => trim((string) $novy['jmeno']),
                     'email' => trim((string) $novy['email']),
                     'role' => (string) $novy['role'],
+                    'aktivni' => 1,
+                    'pozvanka_token' => $pozvanka['token'],
+                    'pozvanka_do' => $pozvanka['do'],
                 ]);
             } catch (Konflikt $e) {
                 return self::chyba(409, $e->getMessage());
             }
-            return self::ok(['uzivatel' => $ulozeny]);
+            return self::ok(['uzivatel' => $ulozeny, 'pozvanka' => $pozvanka]);
         }
 
         if ($metoda === 'DELETE') {
@@ -172,6 +188,135 @@ final class Router
         }
 
         return self::chyba(405, 'spatna-metoda');
+    }
+
+    /* ------------------------------------------------------------- heslo */
+
+    /**
+     * Změna VLASTNÍHO hesla. Na tohle právo „uzivatele“ nežádá — to má jen
+     * správce a heslo si musí umět změnit každý. Cizí účet se tudy měnit
+     * nedá: zápis jde vždy na účet přihlášeného, tělo jen ověří staré a
+     * dá nové heslo.
+     */
+    private static function heslo(array $pozadavek, Uloziste $uloziste, ?array $uzivatel): array
+    {
+        if (!($pozadavek['csrf_ok'] ?? false)) {
+            return self::chyba(403, 'csrf');
+        }
+        if ($uzivatel === null) {
+            return self::chyba(401, 'neprihlaseno');
+        }
+        if ((string) $pozadavek['metoda'] !== 'POST') {
+            return self::chyba(405, 'spatna-metoda');
+        }
+
+        $telo = json_decode((string) $pozadavek['telo'], true);
+        if (!is_array($telo)) {
+            $telo = [];
+        }
+        $stare = $telo['stare'] ?? null;
+        $nove = $telo['nove'] ?? null;
+        if (!is_string($stare) || !is_string($nove)) {
+            return self::chyba(400, 'vadne-heslo', ['duvod' => 'prazdne']);
+        }
+
+        // Nové heslo musí projít kontrolou síly dřív, než se ptáme na staré —
+        // slabé heslo se neověřuje a neukládá.
+        $duvod = Uzivatele::zkontrolujHeslo($nove);
+        if ($duvod !== null) {
+            return self::chyba(400, 'vadne-heslo', ['duvod' => $duvod]);
+        }
+
+        // Vždy se mění účet přihlášeného: hledání podle jména vrátí řádek
+        // s hashem hesla (seznam uživatelů hash nese). Klíče id/jmeno/email
+        // v těle se ignorují.
+        $ucet = $uloziste->uzivatelPodleJmena((string) ($uzivatel['jmeno'] ?? ''));
+        if ($ucet === null) {
+            return self::chyba(401, 'neprihlaseno');
+        }
+
+        if (!Uzivatele::overHeslo($ucet, $stare)) {
+            return self::chyba(403, 'spatne-stare-heslo');
+        }
+
+        // Kdo zná heslo, nemá potřebovat pozvánku — stará se ruší, aby do
+        // účtu nevedly dvě cesty najednou.
+        $uloziste->ulozUzivatele([
+            'id' => (int) ($ucet['id'] ?? 0),
+            'heslo_hash' => Uzivatele::hash($nove),
+            'pozvanka_token' => null,
+            'pozvanka_do' => null,
+        ]);
+        return self::ok(['ok' => true]);
+    }
+
+    /* ---------------------------------------------------------- pozvanka */
+
+    /**
+     * Pozvánka znovu: ztratila se, propadla, kolega heslo zapomněl. Staré
+     * heslo se ruší — jinak by platily dvě cesty do účtu. Sám sobě ji nikdo
+     * nevystaví: zrušil by si heslo a do administrace by ho musel pustit
+     * někdo jiný.
+     */
+    private static function pozvanka(array $pozadavek, Uloziste $uloziste, ?array $uzivatel): array
+    {
+        if (!($pozadavek['csrf_ok'] ?? false)) {
+            return self::chyba(403, 'csrf');
+        }
+        if ($uzivatel === null) {
+            return self::chyba(401, 'neprihlaseno');
+        }
+        if (!Uzivatele::smi((string) ($uzivatel['role'] ?? ''), 'uzivatele')) {
+            return self::chyba(403, 'nesmis');
+        }
+        if ((string) $pozadavek['metoda'] !== 'POST') {
+            return self::chyba(405, 'spatna-metoda');
+        }
+
+        $telo = json_decode((string) $pozadavek['telo'], true);
+        if (!is_array($telo)) {
+            $telo = [];
+        }
+        $id = $telo['id'] ?? null;
+        if (!is_int($id) || $id < 1) {
+            return self::chyba(400, 'chybi-id');
+        }
+
+        $ucet = self::hledaPodleId($uloziste, $id);
+        if ($ucet === null) {
+            return self::chyba(404, 'neznamy-uzivatel');
+        }
+
+        $sveId = (int) ($uzivatel['id'] ?? 0);
+        if ($sveId === 0) {
+            $sveId = (int) ($uloziste->uzivatelPodleJmena((string) ($uzivatel['jmeno'] ?? ''))['id'] ?? 0);
+        }
+        if ($sveId !== 0 && $sveId === $id) {
+            return self::chyba(409, 'nelze-sam-sebe');
+        }
+
+        $pozvanka = Uzivatele::pozvanka();
+        $uloziste->ulozUzivatele([
+            'id' => $id,
+            'pozvanka_token' => $pozvanka['token'],
+            'pozvanka_do' => $pozvanka['do'],
+            'heslo_hash' => null,
+        ]);
+        return self::ok(['pozvanka' => $pozvanka]);
+    }
+
+    /**
+     * Účet podle id: v seznamu uživatelů, jinak podle jména (sezení zná
+     * jméno, ne vždy id). Vrátí pole s heslem jen tehdy, když ho má.
+     */
+    private static function hledaPodleId(Uloziste $uloziste, int $id): ?array
+    {
+        foreach ($uloziste->uzivatele() as $radek) {
+            if ((int) ($radek['id'] ?? 0) === $id) {
+                return $radek;
+            }
+        }
+        return null;
     }
 
     /* ------------------------------------------------------- statistiky */
