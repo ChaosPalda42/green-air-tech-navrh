@@ -66,6 +66,11 @@ echo json_encode([
         'mezery' => Uzivatele::zkontrolujHeslo('            '),
         'dlouhe_ale_jen_pismena' => Uzivatele::zkontrolujHeslo('obyceajneheslo'),
         'ohromne' => Uzivatele::zkontrolujHeslo(str_repeat('a1B', 200)),
+        /* Hranice je 12 znaků — tolik slibuje instalátor i administrace.
+           Tester našel, že kód pouštěl osmiznakové a hláska mluvila o 12. */
+        'jedenact' => Uzivatele::zkontrolujHeslo('Abcdefghij1'),
+        'dvanact' => Uzivatele::zkontrolujHeslo('Abcdefghij12'),
+        'osm' => Uzivatele::zkontrolujHeslo('Abcdefg1'),
     ],
     'zapis' => [
         'dobry' => Uzivatele::zkontroluj(['jmeno' => 'Pavel Janda', 'email' => 'pavel@greenairtech.cz', 'role' => 'editor']),
@@ -141,6 +146,9 @@ def test_sila_hesla(v):
     assert s["prazdne"], "prázdné heslo prošlo"
     assert s["mezery"], "heslo z mezer prošlo"
     assert s["dlouhe_ale_jen_pismena"] is None, "pravidlo nemá nutit číslice, jen délku"
+    assert s["dvanact"] is None, "dvanáct znaků je ta slíbená hranice a musí projít"
+    assert s["jedenact"], "jedenáct znaků prošlo, ačkoli slibujeme aspoň dvanáct"
+    assert s["osm"], "osmiznakové heslo prošlo (instalátor přitom slibuje dvanáct)"
 
 
 def test_zapis_uzivatele(v):

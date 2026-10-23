@@ -19,7 +19,7 @@ final class Uzivatele
         'autor' => ['novinky'],
     ];
 
-    private const MIN_DELKA_HESLA = 8;
+    private const MIN_DELKA_HESLA = 12;
 
     /** Smí uživatel s danou rolí do dané oblasti? Neznámá role i oblast = ne. */
     public static function smi(string $role, string $oblast): bool
