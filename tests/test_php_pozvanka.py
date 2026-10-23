@@ -142,8 +142,14 @@ foreach ($vstup['prijeti'] as $klic => [$u, $token, $heslo, $heslo2]) {
         'klice' => array_keys($vysledek),
         'zapis_klice' => is_array($zapis) ? array_keys($zapis) : null,
         'zapis_id' => is_array($zapis) ? ($zapis['id'] ?? null) : null,
-        'zapis_token' => is_array($zapis) ? ($zapis['pozvanka_token'] ?? 'chybi') : null,
-        'zapis_do' => is_array($zapis) ? ($zapis['pozvanka_do'] ?? 'chybi') : null,
+        // Pozor: `?? 'chybi'` by z poctivého null udělalo text a brána by
+        // vytýkala to, co kód udělal správně. Klíč se proto hledá zvlášť.
+        'zapis_token' => is_array($zapis)
+            ? (array_key_exists('pozvanka_token', $zapis) ? $zapis['pozvanka_token'] : 'chybi')
+            : null,
+        'zapis_do' => is_array($zapis)
+            ? (array_key_exists('pozvanka_do', $zapis) ? $zapis['pozvanka_do'] : 'chybi')
+            : null,
         'hash_sedi' => is_array($zapis) && is_string($zapis['heslo_hash'] ?? null)
             ? password_verify($heslo, (string) $zapis['heslo_hash']) : null,
         'hash_je_heslo' => is_array($zapis) ? (($zapis['heslo_hash'] ?? null) === $heslo) : null,
