@@ -1,0 +1,22 @@
+{
+  "id": "C-031",
+  "file": "web/app/Jadro/Adresa.php",
+  "role": "coder",
+  "title": "Adresa návštěvníka z hlaviček požadavku",
+  "interface": "namespace App\\Jadro; final class Adresa\n\nZjistí adresu návštěvníka z pole $_SERVER. Čisté PHP: žádný stav, žádná\nsíť, žádná databáze, žádný echo, žádné sahání na superglobály — pole podá\nvolající a nesmí se mutovat.\n\npublic static function navstevnika(array $server): string\n  Vrátí jednu adresu jako text, nebo prázdný řetězec, když žádná platná\n  není. Zdroje v tomhle pořadí: 'HTTP_CF_CONNECTING_IP', první položka\n  'HTTP_X_FORWARDED_FOR' (položky dělí čárka), 'REMOTE_ADDR'. Zdroj, ve\n  kterém platná adresa není, se přeskočí a zkusí se další.\n",
+  "uses": {},
+  "database": "",
+  "acceptance": "tests/test_php_adresa.py",
+  "dobehly": "",
+  "forbidden": [],
+  "depends_on": [],
+  "budget": {
+    "iterations": 18
+  },
+  "metamorfni_funkce": "",
+  "neutralni_upravy": [],
+  "neutralni_predpony": [],
+  "differential": false,
+  "differential_compare": "exact",
+  "notes": "Čisté PHP 8.5, žádné composer závislosti, žádná rozšíření nad rámec jádra\n(filter_var je v jádře). Soubor začíná `<?php`, pak `declare(strict_types=1);`,\npak `namespace App\\Jadro;`. Jen statické metody, žádná vlastnost, žádný\nkonstruktor.\n\nJMÉNO TŘÍDY i jmenný prostor musí odpovídat cestě souboru, jinak se\nautoloader třídu nedovolá a akceptace spadne na „Class not found\".\n\nPROČ: adresu potřebuje zámek administrace (aby jeden útočník nezamkl\nvšechny) i strop poptávek (aby jeden robot nezablokoval formulář všem).\nDosud si ji každé z těch míst luštilo samo a jen ze dvou hlaviček.\n\nPŘESNĚ TAKTO:\n\n1) Zkoušej zdroje v pořadí: $server['HTTP_CF_CONNECTING_IP'],\n   pak postupně položky z $server['HTTP_X_FORWARDED_FOR'] rozdělené\n   čárkou (zleva, tedy od návštěvníka k proxy — bere se PRVNÍ, která je\n   platná adresa), pak $server['REMOTE_ADDR']. Chybějící klíč, klíč,\n   který není text, i prázdná hodnota se berou jako „tady nic není\".\n   Vrať první platnou adresu; když žádná není, vrať ''.\n\n2) Každou hodnotu před ověřením srovnej: odřízni bílé znaky z obou stran\n   (i konce řádků), pak ODŘÍZNI PORT a hranaté závorky:\n   - '1.2.3.4:5678'   -> '1.2.3.4'   (tvar IPv4:port)\n   - '[2001:db8::1]'  -> '2001:db8::1'\n   - '[2001:db8::1]:443' -> '2001:db8::1'\n   U čisté IPv6 bez závorek se NIC neodřezává — dvojtečky v ní patří\n   k adrese ('2001:db8::1' zůstává celé).\n\n3) Platnost ověř funkcí filter_var($hodnota, FILTER_VALIDATE_IP). Platné\n   jsou i adresy z vnitřních sítí a localhost (web běží i za proxy na\n   stejném stroji) — žádné FILTER_FLAG_NO_PRIV_RANGE.\n\n4) Vrací se adresa tak, jak po srovnání vypadá; nic se nepřepisuje na malá\n   písmena ani nijak dál nenormalizuje.\n\n5) Vstupní pole se nesmí přepsat.\n"
+}
