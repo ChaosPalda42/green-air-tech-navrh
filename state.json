@@ -172,13 +172,13 @@
       "updated_at": "2026-10-22T14:51:43+00:00"
     },
     "C-020": {
-      "status": "escalated",
-      "attempts": 4,
-      "iterations": 70,
-      "commit": "35bda55",
-      "last_finding": "green",
-      "packet": "P-012",
-      "updated_at": "2026-10-23T15:41:15+00:00"
+      "status": "green",
+      "attempts": 6,
+      "iterations": 92,
+      "commit": "4306ca4",
+      "last_finding": "",
+      "packet": "",
+      "updated_at": "2026-10-23T16:04:00+00:00"
     },
     "C-021": {
       "status": "green",
@@ -560,9 +560,27 @@
       "red": 0,
       "escalated": 1,
       "note": "1 packet(s) waiting"
+    },
+    {
+      "started_at": "2026-10-23T15:43:37+00:00",
+      "finished_at": "2026-10-23T16:02:52+00:00",
+      "outcome": "needs-operator",
+      "iterations": 22,
+      "green": 30,
+      "red": 0,
+      "escalated": 1,
+      "note": "1 packet(s) waiting"
+    },
+    {
+      "started_at": "2026-10-23T16:03:57+00:00",
+      "finished_at": "2026-10-23T16:04:34+00:00",
+      "outcome": "green",
+      "iterations": 0,
+      "green": 31,
+      "red": 0,
+      "escalated": 0,
+      "note": "test_command passed (544 tests)"
     }
   ],
-  "open_packets": [
-    "P-012"
-  ]
+  "open_packets": []
 }
