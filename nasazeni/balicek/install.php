@@ -12,7 +12,6 @@ use App\Auth\Uzivatele;
 use App\Db\Spojeni;
 use App\Db\UlozisteDb;
 
-const POTREBA = ['pdo_mysql', 'gd', 'json', 'mbstring' => false];
 $configSoubor = $koren . '/config/config.php';
 
 session_start();
@@ -26,6 +25,12 @@ $kontroly = [];
 $kontroly[] = ['PHP 8.2 nebo novější (' . PHP_VERSION . ')', version_compare(PHP_VERSION, '8.2.0', '>='), 'php8.5 php8.5-mysql php8.5-gd'];
 $kontroly[] = ['rozšíření pdo_mysql', extension_loaded('pdo_mysql'), 'apt install php8.5-mysql'];
 $kontroly[] = ['rozšíření gd (zmenšování fotek)', extension_loaded('gd'), 'apt install php8.5-gd'];
+$kontroly[] = ['rozšíření mbstring (české texty)', extension_loaded('mbstring'), 'apt install php8.5-mbstring'];
+$kontroly[] = ['rozšíření curl (statistiky)', extension_loaded('curl'), 'apt install php8.5-curl'];
+/* openssl a ctype jsou na Debianu součástí php8.5-cli/php8.5-common, samostatný
+   balíček pro ně není — když chybí, je rozbitá instalace PHP. */
+$kontroly[] = ['rozšíření openssl (podpis dotazů do Analytics)', extension_loaded('openssl'), 'součást php8.5-cli'];
+$kontroly[] = ['rozšíření ctype', extension_loaded('ctype'), 'součást php8.5-common'];
 $kontroly[] = ['složka config je zapisovatelná', is_dir($koren . '/config') && is_writable($koren . '/config'), 'chown www-data ' . $koren . '/config'];
 $kontroly[] = ['složka media je zapisovatelná', is_dir(__DIR__ . '/media') ? is_writable(__DIR__ . '/media') : is_writable(__DIR__), 'chown -R www-data:www-data ' . __DIR__ . '/media'];
 $kontroly[] = ['složka cache je zapisovatelná (statistiky)', is_dir($koren . '/cache') ? is_writable($koren . '/cache') : is_writable($koren), 'chown -R www-data:www-data ' . $koren . '/cache'];

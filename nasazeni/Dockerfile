@@ -11,6 +11,12 @@ RUN set -eux; \
     docker-php-ext-install -j"$(nproc)" pdo_mysql gd; \
     rm -rf /var/lib/apt/lists/*
 
+# Oficiální obraz má mbstring, curl, openssl i ctype zakompilované, zatímco
+# na Debianu jsou v samostatných balíčcích — proto nám tady utekla instalace
+# bez php8.5-mbstring, která u klienta skončila fatální chybou. Když je obraz
+# jednou přestane nést, ať to praskne při stavbě, ne až na serveru.
+RUN php -r 'foreach (["pdo_mysql","gd","mbstring","curl","openssl","ctype"] as $r) { if (!extension_loaded($r)) { fwrite(STDERR, "chybí rozšíření $r\n"); exit(1); } }'
+
 RUN a2enmod rewrite headers
 
 COPY vhost.conf /etc/apache2/sites-available/000-default.conf

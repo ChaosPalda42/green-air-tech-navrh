@@ -9,14 +9,38 @@ Rozbalit, založit databázi, projít instalátor. Hotovo.
 |---|---|
 | Debian | 13 (trixie) |
 | PHP | 8.5 (testováno na 8.5.12) |
-| Rozšíření PHP | `php8.5-mysql` (PDO), `php8.5-gd` (fotky) |
+| Rozšíření PHP | `php8.5-mysql` (PDO), `php8.5-gd` (fotky), `php8.5-mbstring` (české texty), `php8.5-curl` (statistiky) |
 | Databáze | MariaDB 10.6+ (testováno na 11.8) |
 | Web server | Apache 2.4 s `mod_rewrite`, nebo nginx |
 
+**PHP 8.5 na Debianu 13 není ve výchozích repozitářích** — trixie má 8.4.
+Buď přidejte repozitář Sury:
+
 ```bash
-sudo apt install php8.5 php8.5-mysql php8.5-gd libapache2-mod-php8.5 mariadb-server
+sudo apt install -y apt-transport-https lsb-release ca-certificates curl
+sudo curl -sSLo /usr/share/keyrings/deb.sury.org-php.gpg https://packages.sury.org/php/apt.gpg
+echo "deb [signed-by=/usr/share/keyrings/deb.sury.org-php.gpg] https://packages.sury.org/php/ $(lsb_release -sc) main" \
+  | sudo tee /etc/apt/sources.list.d/sury-php.list
+sudo apt update
+```
+
+…nebo nechte PHP z Debianu a všude níž čtěte `php8.4` místo `php8.5`
+(web potřebuje 8.2 a novější, 8.4 mu stačí).
+
+```bash
+sudo apt install php8.5 php8.5-mysql php8.5-gd php8.5-mbstring php8.5-curl \
+  libapache2-mod-php8.5 mariadb-server
 sudo a2enmod rewrite headers expires
 ```
+
+Zkontrolujte, že rozšíření opravdu jsou (prázdný výstup = chybí):
+
+```bash
+php -m | grep -E '^(pdo_mysql|gd|mbstring|curl|openssl|ctype)$'
+```
+
+Bez `mbstring` nebo `curl` se web nerozběhne — instalátor to pozná
+a nepustí vás dál.
 
 ## 1. Rozbalit
 
