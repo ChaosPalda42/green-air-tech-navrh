@@ -104,14 +104,49 @@ def test_is_phone_cz_bere_bezne_zapisy(js):
     assert js('out(A.zapisy.map(m.isPhoneCz));', zapisy=zapisy) == [True] * 5
 
 
+def test_is_phone_cz_bere_i_pevne_linky_na_ctyrku(js):
+    """46x je Liberec, 49x Pardubicko. Bez čtyřky web odmítal skutečná čísla."""
+    zapisy = ["+420 485 100 100", "+420 466 123 456", "+420 412 123 456"]
+    assert js('out(A.zapisy.map(m.isPhoneCz));', zapisy=zapisy) == [True] * 3
+
+
 def test_is_phone_cz_odmita_nesmysly(js):
-    zapisy = ["12345", "+420 736 532 2840", "abc", "+1 555 0100"]
-    assert js('out(A.zapisy.map(m.isPhoneCz));', zapisy=zapisy) == [False] * 4
+    zapisy = ["12345", "+420 736 532 2840", "abc", "+1 555 0100",
+              "+420 136 532 284", "+420 836 532 284"]
+    assert js('out(A.zapisy.map(m.isPhoneCz));', zapisy=zapisy) == [False] * 6
+
+
+def test_is_phone_bere_zahranicni_cisla(js):
+    """Nález testera: na německé a anglické verzi webu nešel zadat telefon.
+    `+49 30 1234567` i `+421905123456` končily chybou „zkontrolujte číslo“."""
+    zapisy = ["+49 30 1234567", "+421905123456", "+43 1 234 5678",
+              "0049 30 1234567", "+44 20 7123 4567",
+              "+420 736 532 284", "736532284"]
+    assert js('out(A.zapisy.map(m.isPhone));', zapisy=zapisy) == [True] * 7
+
+
+def test_is_phone_odmita_nesmysly(js):
+    """Krátká čísla, chybějící předvolba, nuly a cokoli nad E.164."""
+    zapisy = ["+1 555 0100", "12345", "abc", "", "+0123456789",
+              "+4912345678901234", "49301234567", "+420 136 532 284"]
+    assert js('out(A.zapisy.map(m.isPhone));', zapisy=zapisy) == [False] * 8
+
+
+def test_zahranicni_telefon_projde_formularem(js):
+    vysledek = js('out(m.validateContact({ ...A.platny, telefon: "+49 30 1234567" }));')
+    assert vysledek["ok"] is True, vysledek["errors"]
 
 
 def test_normalize_phone_sjednoti_tvar(js):
     zapisy = ["736 532 284", "+420736532284", "00420 736 532 284"]
     assert js('out(A.zapisy.map(m.normalizePhone));', zapisy=zapisy) == ["+420736532284"] * 3
+
+
+def test_normalize_phone_prelozi_nuly_na_plus(js):
+    zapisy = ["0049 30 1234567", "00421905123456", "00", "0012"]
+    assert js('out(A.zapisy.map(m.normalizePhone));', zapisy=zapisy) == [
+        "+49301234567", "+421905123456", "00", "0012",
+    ]
 
 
 # -------------------------------------------------------------- hlášky

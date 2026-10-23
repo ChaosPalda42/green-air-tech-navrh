@@ -154,21 +154,22 @@ if ($kam !== null && $kam['druh'] === 'administrace' && $metoda === 'POST') {
         /* Adresa návštěvníka. Za Cloudflare nebo za proxy má REMOTE_ADDR
            každý stejnou, a protože se zamyká i podle adresy, zamkl by jeden
            útočník všechny. Proto se bere adresa z hlavičky, když přijde.
-           Podvržená hlavička nic neotevře: tvrdý strop je jméno, adresa je
-           jen přidaná pojistka. */
+           Podvržená hlavička strop na účet neotevře: ten se počítá zvlášť. */
         $ip = trim((string) ($_SERVER['HTTP_CF_CONNECTING_IP']
             ?? explode(',', (string) ($_SERVER['HTTP_X_FORWARDED_FOR'] ?? ''))[0]));
         if ($ip === '') {
             $ip = (string) ($_SERVER['REMOTE_ADDR'] ?? '');
         }
 
-        /* Hádání hesla se počítá v databázi. Zámek se ptá dřív, než se heslo
-           vůbec ověří — a zamčený pokus se už nezapisuje, jinak by útočník
-           držel správce venku, jak dlouho by chtěl. */
+        /* Hádání hesla se počítá v databázi, a to ve dvou sadách: co přišlo
+           z téhle adresy a co přišlo na tenhle účet. Každá má vlastní strop —
+           kdyby byl jeden, útočník by desetkrát hádal heslo správce z deseti
+           adres a držel ho venku. Zámek se ptá dřív, než se heslo vůbec ověří,
+           a zamčený pokus se už nezapisuje. */
         $zamek = 0;
         if ($uloziste instanceof UlozisteDb) {
             $casy = $uloziste->casyChybnychHesel($jmeno, $ip, Zamek::OKNO);
-            $zamek = Zamek::ceka($casy, time());
+            $zamek = Zamek::ceka($casy['adresa'], $casy['ucet'], time());
         }
         if ($zamek > 0) {
             header('Location: ' . $kamZpet . '?chyba=zamceno&minut=' . (int) ceil($zamek / 60), true, 303);

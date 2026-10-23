@@ -227,32 +227,67 @@ final class UlozisteDb implements Uloziste
      *
      * @return list<int> unixové časy
      */
+    /**
+     * Časy špatných hesel ve dvou sadách: `adresa` je co přišlo z té jedné
+     * adresy (na kohokoli), `ucet` co přišlo na ten jeden účet (odkudkoli).
+     * Rozhoduje App\\Auth\\Zamek, každou sadu s vlastním stropem.
+     *
+     * Sléváním obojího do jednoho seznamu se dal správce vyřadit
+     * z administrace: stačilo desetkrát hádat jeho heslo z deseti adres.
+     *
+     * Hranice okna se počítá v PHP, ne funkcí DATE_SUB — aby šlo pravidlo
+     * proměřit nad jinou databází než MariaDB.
+     *
+     * @return array{adresa: int[], ucet: int[]}
+     */
     public function casyChybnychHesel(string $jmeno, string $ip, int $sekund): array
     {
-        $dotaz = $this->pdo->prepare(
-            'SELECT kdy FROM udalosti
-              WHERE akce = ? AND kdy >= DATE_SUB(NOW(), INTERVAL ? SECOND)
-                AND (kdo = ? OR detail = ?)'
-        );
-        $dotaz->execute([self::CHYBNE_HESLO, max(1, $sekund), mb_substr($jmeno, 0, 100), $ip]);
+        $odkdy = date('Y-m-d H:i:s', time() - max(1, $sekund));
+        $ucet = $this->klicUctu($jmeno);
 
-        $casy = [];
-        foreach ($dotaz->fetchAll(\PDO::FETCH_COLUMN) ?: [] as $kdy) {
-            $cas = strtotime((string) $kdy);
-            if ($cas !== false) {
-                $casy[] = $cas;
+        $dotaz = $this->pdo->prepare(
+            'SELECT kdy, kdo, detail FROM udalosti
+              WHERE akce = ? AND kdy >= ? AND (kdo = ? OR detail = ?)'
+        );
+        $dotaz->execute([self::CHYBNE_HESLO, $odkdy, $ucet, $ip]);
+
+        $sady = ['adresa' => [], 'ucet' => []];
+        foreach ($dotaz->fetchAll() ?: [] as $radek) {
+            $cas = strtotime((string) $radek['kdy']);
+            if ($cas === false) {
+                continue;
+            }
+            if ((string) $radek['detail'] === $ip && $ip !== '') {
+                $sady['adresa'][] = $cas;
+            }
+            if ((string) $radek['kdo'] === $ucet) {
+                $sady['ucet'][] = $cas;
             }
         }
 
-        return $casy;
+        return $sady;
+    }
+
+    /**
+     * Jedno jméno pro jeden účet. Přihlásit se jde jménem i e-mailem; kdyby
+     * se pokusy počítaly na doslovný napsaný řetězec, útočník si strop zdvojí
+     * tím, že napíše tu druhou podobu. Účet, který neexistuje, se počítá pod
+     * napsaným řetězcem v malých písmenech.
+     */
+    private function klicUctu(string $jmeno): string
+    {
+        $uzivatel = $this->uzivatelPodleJmena($jmeno);
+        $klic = $uzivatel !== null ? (string) $uzivatel['jmeno'] : mb_strtolower($jmeno);
+
+        return mb_substr($klic, 0, 100);
     }
 
     /** Špatné heslo: zapíše pokus a zároveň zahodí ty starší než den. */
     public function zapisChybneHeslo(string $jmeno, string $ip): void
     {
-        $this->zapisUdalost($jmeno, self::CHYBNE_HESLO, $ip);
+        $this->zapisUdalost($this->klicUctu($jmeno), self::CHYBNE_HESLO, $ip);
         $this->pdo->prepare(
-            'DELETE FROM udalosti WHERE akce = ? AND kdy < DATE_SUB(NOW(), INTERVAL 1 DAY)'
-        )->execute([self::CHYBNE_HESLO]);
+            'DELETE FROM udalosti WHERE akce = ? AND kdy < ?'
+        )->execute([self::CHYBNE_HESLO, date('Y-m-d H:i:s', time() - 86400)]);
     }
 }
