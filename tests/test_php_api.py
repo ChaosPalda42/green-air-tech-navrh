@@ -92,6 +92,24 @@ $stavEditorem['texts']['cs'] = [
     'novinky.polozky.prvni.titulek' => 'Titulek',
 ];
 
+/* Nález K2: do stavu, který se vkládá do KAŽDÉ stránky webu, vzalo
+   /api/stav cokoli — dvě stě tisíc znaků pod vymyšleným klíčem i fotku
+   poslanou jako data URL. Meze hlídá App\Obsah\Meze, router se jí musí
+   zeptat a odmítnutí přeložit na 400 s jejím kódem. */
+$stavDlouhy = $prazdnyStav;
+$stavDlouhy['texts']['cs'] = ['nav.sluzby' => str_repeat('a', 20001)];
+$stavVymysleny = $prazdnyStav;
+$stavVymysleny['texts']['cs'] = ['vymyslene.pole' => 'cokoli'];
+$stavSeznamKlicu = $prazdnyStav;
+$stavSeznamKlicu['texts']['cs'] = ['nav.sluzby' => 'Co umíme (se seznamem klíčů)'];
+$stavFotkaDataUrl = $prazdnyStav;
+$stavFotkaDataUrl['realizace'] = ['added' => [[
+    'id' => 'nova-kotelna', 'nazev' => 'Nová kotelna',
+    'fotky' => [['id' => 'f1', 'nazev' => 'k.jpg', 'typ' => 'image/jpeg',
+        'sirka' => 1600, 'vyska' => 900, 'bajty' => 1234,
+        'dataUrl' => 'data:image/jpeg;base64,/9j/4AAQSkZJRg==']],
+]], 'edited' => [], 'removed' => []];
+
 $sady = [
     'stav_cteni' => ['metoda' => 'GET', 'cesta' => 'stav'],
     'stav_cteni_neprihlaseny' => ['metoda' => 'GET', 'cesta' => 'stav', 'uzivatel' => null],
@@ -104,6 +122,16 @@ $sady = [
     'stav_zapis_nesmysl' => ['metoda' => 'PUT', 'cesta' => 'stav', 'telo' => 'tohle neni json'],
     'stav_zapis_pole' => ['metoda' => 'PUT', 'cesta' => 'stav', 'telo' => '[1,2,3]'],
     'stav_zapis_prazdne_telo' => ['metoda' => 'PUT', 'cesta' => 'stav', 'telo' => ''],
+    /* Meze stavu (K2). 'klice' je seznam povolených klíčů textů, který
+       index.php čte z web/data/admin-klice.json; bez něj se jména klíčů
+       nehlídají, ale velikosti ano. */
+    'stav_zapis_dlouhy_text' => ['metoda' => 'PUT', 'cesta' => 'stav', 'telo' => json_encode($stavDlouhy)],
+    'stav_zapis_neznamy_klic' => ['metoda' => 'PUT', 'cesta' => 'stav',
+        'telo' => json_encode($stavVymysleny), 'klice' => ['nav.sluzby', 'nav.kontakt']],
+    'stav_zapis_se_seznamem_klicu' => ['metoda' => 'PUT', 'cesta' => 'stav',
+        'telo' => json_encode($stavSeznamKlicu), 'klice' => ['nav.sluzby', 'nav.kontakt']],
+    'stav_zapis_fotka_data_url' => ['metoda' => 'PUT', 'cesta' => 'stav',
+        'telo' => json_encode($stavFotkaDataUrl)],
     'stav_spatna_metoda' => ['metoda' => 'DELETE', 'cesta' => 'stav'],
     'uzivatele_cteni' => ['metoda' => 'GET', 'cesta' => 'uzivatele'],
     'uzivatele_cteni_editorem' => ['metoda' => 'GET', 'cesta' => 'uzivatele', 'uzivatel' => $editor],
@@ -181,6 +209,10 @@ CEKANO = {
     "stav_zapis_nesmysl": (400, "nesmyslny-stav"),
     "stav_zapis_pole": (400, "nesmyslny-stav"),
     "stav_zapis_prazdne_telo": (400, "nesmyslny-stav"),
+    "stav_zapis_dlouhy_text": (400, "dlouhy-text"),
+    "stav_zapis_neznamy_klic": (400, "neznamy-klic"),
+    "stav_zapis_se_seznamem_klicu": (200, None),
+    "stav_zapis_fotka_data_url": (400, "vadna-fotka"),
     "stav_spatna_metoda": (405, "spatna-metoda"),
     "uzivatele_cteni": (200, None),
     "uzivatele_cteni_editorem": (403, "nesmis"),
@@ -251,8 +283,10 @@ def test_odpovedi_nesou_data(v):
 
 
 def test_odmitnuty_pozadavek_nic_neulozi(v):
-    # uložit se smělo jen při třech úspěšných zápisech stavu a jednom uživateli
-    assert v["zapsano"] == ["pavel", "honza", "martina", "uzivatel"], v["zapsano"]
+    # uložit se smělo jen při čtyřech úspěšných zápisech stavu a jednom
+    # uživateli — čtvrtý je zápis se seznamem povolených klíčů (K2), ten
+    # projít MUSÍ, jinak by meze zavřely administraci i pro běžný text
+    assert v["zapsano"] == ["pavel", "honza", "martina", "pavel", "uzivatel"], v["zapsano"]
     assert v["smazano"] == [2], "smazal se někdo jiný, než se mělo"
 
 

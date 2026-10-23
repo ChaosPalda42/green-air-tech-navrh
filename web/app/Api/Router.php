@@ -14,6 +14,7 @@ namespace App\Api;
 use App\Auth\Uzivatele;
 use App\Fotky\MocVelka;
 use App\Fotky\Ulozny;
+use App\Obsah\Meze;
 use App\Obsah\Ocista;
 use App\Obsah\Stav;
 use App\Statistiky\Poskytovatel;
@@ -86,6 +87,20 @@ final class Router
         // tak se tady očistí — jinak by si kdokoli s právem psát texty vložil
         // do webu vlastní skript.
         $novy = Ocista::stav($vysledek['state']);
+
+        /* Meze (nález K2): stav se vkládá do KAŽDÉ stránky webu, takže dvě
+           stě tisíc znaků pod vymyšleným klíčem zpomalí celý web a fotka
+           poslaná jako data URL ho nafoukne o celé obrázky. Seznam povolených
+           klíčů textů podá volající (web/data/admin-klice.json); prázdný
+           seznam znamená „seznam nemám" a jména klíčů se nehlídají, meze
+           velikostí platí dál. */
+        $meze = Meze::stav($novy, array_values(array_filter(
+            (array) ($pozadavek['klice'] ?? []),
+            static fn (mixed $k): bool => is_string($k),
+        )));
+        if (($meze['ok'] ?? false) !== true) {
+            return self::chyba(400, (string) ($meze['chyba'] ?? 'vadna-hodnota'));
+        }
 
         if (!Zmeny::smiZmenit((string) ($uzivatel['role'] ?? ''), $stary, $novy)) {
             return self::chyba(403, 'nesmis');

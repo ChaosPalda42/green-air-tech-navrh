@@ -110,6 +110,17 @@ if (str_starts_with($cesta, 'api/')) {
            $_POST. Zbyde jen délka těla — ta tedy rozhoduje. */
         'telo_velke' => $metoda === 'POST' && $_FILES === [] && $_POST === []
             && (int) ($_SERVER['CONTENT_LENGTH'] ?? 0) > 0,
+        /* Povolené klíče textů pro meze stavu (nález K2). Když soubor chybí
+           nebo je rozbitý, jde dál prázdný seznam: jména klíčů se nehlídají,
+           ale meze velikostí platí — administrace se kvůli jednomu
+           chybějícímu souboru nesmí zaseknout. */
+        'klice' => (static function (string $soubor): array {
+            $json = is_file($soubor) ? (string) @file_get_contents($soubor) : '';
+            $klice = $json !== '' ? json_decode($json, true) : null;
+            return is_array($klice)
+                ? array_values(array_filter($klice, static fn (mixed $k): bool => is_string($k)))
+                : [];
+        })($koren . '/data/admin-klice.json'),
     ], $uloziste, $statistiky, new Zpracovani(__DIR__ . '/media', 'media'));
 
     $odpoved((int) $vysledek['stav'], (array) $vysledek['telo']);

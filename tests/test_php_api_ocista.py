@@ -59,7 +59,11 @@ def vysledek(tmp_path_factory):
     telo.write_text(json.dumps({
         "texts": {"cs": {"rozcestnik.titulek": ZLY}},
         "realizace": {
-            "added": [{"id": "nova", "kraj": ZLY, "datum": "2026-10-01", "motiv": 1, "vetev": "firmy"}],
+            # `misto` je skutečné pole realizace — od nálezu K2 hlídá
+            # App\Obsah\MezeRealizaci, že nic jiného do stavu nepřijde,
+            # takže vymyšlené pole už by neprošlo přes meze a očista by
+            # se vůbec nedostala ke slovu.
+            "added": [{"id": "nova", "misto": ZLY, "datum": "2026-10-01", "motiv": 1, "vetev": "firmy"}],
             "edited": {},
             "removed": [],
         },
@@ -81,7 +85,7 @@ def test_do_uloziste_dojde_ocisteny_text(vysledek):
     assert len(vysledek["ulozeno"]) == 1, "stav se neuložil (nebo víckrát)"
     ulozeno = vysledek["ulozeno"][0]
     assert ulozeno["texts"]["cs"]["rozcestnik.titulek"] == CISTY
-    assert ulozeno["realizace"]["added"][0]["kraj"] == CISTY
+    assert ulozeno["realizace"]["added"][0]["misto"] == CISTY
 
 
 def test_prohlizec_dostane_zpatky_totez(vysledek):
