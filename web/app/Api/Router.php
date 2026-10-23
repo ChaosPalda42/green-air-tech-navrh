@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace App\Api;
 
 use App\Auth\Uzivatele;
+use App\Fotky\MocVelka;
 use App\Fotky\Ulozny;
 use App\Obsah\Ocista;
 use App\Obsah\Stav;
@@ -368,10 +369,29 @@ final class Router
         }
 
         $soubor = $pozadavek['soubor'] ?? null;
-        if (!is_array($soubor)
-            || !isset($soubor['tmp_name'], $soubor['name'])
-            || !is_string($soubor['tmp_name']) || $soubor['tmp_name'] === ''
-            || !is_string($soubor['name']) || $soubor['name'] === '') {
+        $maSoubor = is_array($soubor)
+            && isset($soubor['tmp_name'], $soubor['name'])
+            && is_string($soubor['tmp_name']) && $soubor['tmp_name'] !== ''
+            && is_string($soubor['name']) && $soubor['name'] !== '';
+
+        if (!$maSoubor) {
+            /* Soubor nad upload_max_filesize PHP zahodí a nechá jen číslo
+               chyby — proto se ptáme na ně DŘÍV než na chybějící soubor.
+               Odpověď „chybi-soubor" by správce posílala vybrat soubor, který
+               právě vybral. */
+            $duvod = $pozadavek['soubor_chyba'] ?? null;
+            if (($pozadavek['telo_velke'] ?? false)
+                || $duvod === UPLOAD_ERR_INI_SIZE
+                || $duvod === UPLOAD_ERR_FORM_SIZE) {
+                return self::chyba(413, 'soubor-moc-velky');
+            }
+            if ($duvod === UPLOAD_ERR_PARTIAL) {
+                return self::chyba(400, 'nahrani-preruseno');
+            }
+            if ($duvod === UPLOAD_ERR_NO_TMP_DIR || $duvod === UPLOAD_ERR_CANT_WRITE) {
+                // Vada serveru, ne souboru: na fotce není co opravovat.
+                return self::chyba(503, 'fotky-nejsou');
+            }
             return self::chyba(400, 'chybi-soubor');
         }
 
@@ -381,6 +401,10 @@ final class Router
 
         try {
             $fotka = $fotky->uloz($soubor['tmp_name'], $soubor['name']);
+        } catch (MocVelka) {
+            // Obrázek to je, jen se nerozbalí do paměti. Chytá se dřív než
+            // RuntimeException — je to jeho potomek.
+            return self::chyba(413, 'fotka-moc-velka');
         } catch (\RuntimeException) {
             return self::chyba(400, 'fotka-nesla');
         }
