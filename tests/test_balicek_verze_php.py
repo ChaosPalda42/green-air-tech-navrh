@@ -140,3 +140,34 @@ def test_instalator_rekne_kdyz_limity_nestaci() -> None:
     assert "Fotky se do administrace nenahrají" not in dost, (
         "instalátor straší i na serveru, kde jsou limity v pořádku"
     )
+
+
+def test_readme_rika_co_s_proxy_a_cloudflare() -> None:
+    """Nález K7 (kolo 3): instalátor se na proxy ptá a config.vzor.php tu
+    volbu vysvětluje, ale v README nebylo slovo proxy ani Cloudflare. Klient,
+    který web dá za Cloudflare až po nasazení, by se o `'verit' => true`
+    nedozvěděl — a zámek přihlašování by mu zamykal všechny návštěvníky
+    najednou, protože by všichni měli adresu té proxy."""
+    text = README.read_text()
+    for slovo in ("proxy", "Cloudflare"):
+        assert slovo.lower() in text.lower(), (
+            f"README nezmiňuje {slovo} — zaškrtávátko instalátoru a volba "
+            "v config.php tak nemají v návodu oporu"
+        )
+    assert "'verit' => true" in text, (
+        "README neukáže, jak se důvěra hlavičkám zapne v config.php"
+    )
+    assert "X-Forwarded-For" in text or "CF-Connecting-IP" in text, (
+        "README neřekne, ze které hlavičky se adresa bere"
+    )
+
+
+def test_readme_rika_zkontrolovat_i_balicky_php() -> None:
+    """Pozorování P1 (kolo 3): Sury vydal metabalíček php8.5 8.5.12-1,
+    zatímco php8.5-cli a libapache2-mod-php8.5 zůstaly na 8.5.11. `php -v`
+    to ukáže, ale klient potřebuje vědět, že se má podívat i na balíčky."""
+    text = README.read_text()
+    assert re.search(r"dpkg\s+-l\s+'php", text), (
+        "README neukáže `dpkg -l 'php8.5*'` — klient pozná starší binárky "
+        "jen náhodou"
+    )

@@ -198,7 +198,16 @@ if ($kam !== null && $kam['druh'] === 'administrace' && $metoda === 'POST') {
         }
 
         $uzivatel = $uloziste->uzivatelPodleJmena($jmeno);
-        if ($uzivatel !== null && Uzivatele::overHeslo($uzivatel, (string) ($_POST['heslo'] ?? ''))) {
+
+        /* Heslo se ověřuje VŽDY, i když takový účet není (nález K3).
+           `overHeslo` si na null dopočítá falešný hash, takže bcrypt stojí
+           stejně dlouho jako u existujícího účtu. Kdyby se tu zkrátilo na
+           `$uzivatel !== null && overHeslo(…)`, odpověď u neznámého jména
+           přijde za jednotky milisekund místo dvou set — a kdo si projede
+           seznam jmen, pozná z časů, která v administraci existují.
+           Zkratka `&&` se proto musí rozdělit na dva kroky. */
+        $hesloPlati = Uzivatele::overHeslo($uzivatel, (string) ($_POST['heslo'] ?? ''));
+        if ($uzivatel !== null && $hesloPlati) {
             Sezeni::prihlas($uzivatel);
             $uloziste->zapisPrihlaseni((int) $uzivatel['id']);
             $uloziste->zapisUdalost((string) $uzivatel['jmeno'], 'prihlaseni');

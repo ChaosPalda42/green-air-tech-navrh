@@ -67,6 +67,19 @@ Když je nižší, doinstalujte aktualizace (u Sury i u Debianu stačí obojí):
 sudo apt update && sudo apt upgrade
 ```
 
+A ještě jedna věc, která se nám stala při zkušební instalaci: repozitář může
+mít novou verzi hotovou jen jako „metabalíček", zatímco samotné binárky
+(`php8.5-cli`, `php8.5-common`, `libapache2-mod-php8.5`) jsou ještě o verzi
+pozadu. `php -v` to ukáže, ale pro jistotu se po instalaci podívejte i na
+seznam balíčků — vypsat by se nemělo nic:
+
+```bash
+dpkg -l 'php8.5*' | grep -v 8.5.12
+```
+
+Když se něco vypíše, zkuste `sudo apt update && sudo apt upgrade` znovu za
+den či dva; než balíčky vyjdou, web běží, jen s tou starší verzí.
+
 Instalátor verzi porovná sám a na starší to napíše červeně. **Aktualizace
 PHP si pak nechte instalovat dál** — bezpečnostní opravy vycházejí každý
 měsíc a server, který je nedostává, je otevřené okno:
@@ -294,6 +307,35 @@ Co ještě web hlídá sám:
   důvodu zůstal (`web/public/install.php`), smažte ho — podruhé se už
   nespustí, protože existuje `config/config.php`, ale nemá tam co dělat.
 - **Chyby se nikdy nevypisují do stránky**, jde všechno do logu Apache.
+
+### Když web stojí za Cloudflare nebo za proxy
+
+Zámek přihlašování i strop poptávek se počítají podle IP adresy
+návštěvníka. Když před webem stojí Cloudflare, load balancer nebo reverzní
+proxy, vidí Apache jako adresu jen tu proxy — tedy všichni návštěvníci mají
+adresu stejnou. Pak by jeden útočník zamkl přihlášení všem a strop poptávek
+by spotřeboval za ostatní.
+
+Instalátor se proto ptá **„Web stojí za proxy nebo za Cloudflare"**. Když to
+zaškrtnete, web bere adresu z hlavičky `CF-Connecting-IP`, případně z první
+položky `X-Forwarded-For`. V `config/config.php` to vypadá takto:
+
+```php
+'proxy' => ['verit' => true, 'adresy' => []],
+```
+
+Pokud web za proxy **nestojí**, nechte `'verit' => false`. Hlavičku si totiž
+dokáže poslat kdokoli sám, takže na webu bez proxy by se jí věřit nesmělo —
+útočník by zámkem i stropem prošel jedním řádkem v požadavku.
+
+Přidali jste Cloudflare až později? Stačí `'verit'` v `config/config.php`
+přepnout na `true`, nic dalšího se nepřekresluje. A když proxy znáte adresou,
+vypište ji — hlavičky se pak čtou jen z ní, odjinud ne (adresa i síť
+s maskou, IPv4 i IPv6):
+
+```php
+'proxy' => ['verit' => true, 'adresy' => ['10.0.0.0/8', '203.0.113.7']],
+```
 
 ## Co kde je
 

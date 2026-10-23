@@ -64,7 +64,10 @@ final class Router
             if ($uzivatel === null) {
                 return self::chyba(401, 'neprihlaseno');
             }
-            return self::ok(['stav' => $uloziste->stav()]);
+            /* proJs: prázdná mapa je v JSONu {}, ne [] — stav z téhle
+               odpovědi se v prohlížeči slučuje s tím, co stránka dostala
+               v GAT_STAV, a ten {} posílá taky (nález P2). */
+            return self::ok(['stav' => Stav::proJs($uloziste->stav())]);
         }
 
         if ($metoda !== 'PUT') {
@@ -107,7 +110,7 @@ final class Router
         }
 
         $uloziste->ulozStav($novy, (string) ($uzivatel['jmeno'] ?? ''));
-        return self::ok(['stav' => $novy]);
+        return self::ok(['stav' => Stav::proJs($novy)]);
     }
 
     /* -------------------------------------------------------- uzivatele */
