@@ -10,18 +10,22 @@ final class Validace
 {
     public static function isEmail(mixed $hodnota): bool
     {
-        if (!is_string($hodnota)) {
+        if (!is_string($hodnota) || $hodnota === '') {
             return false;
         }
-        $v = $hodnota;
-        if ($v === '' || str_contains($v, ' ')) {
+        if (preg_match('/\s/u', $hodnota) === 1) {
             return false;
         }
-        if (substr_count($v, '@') !== 1) {
+        if (str_contains($hodnota, '..')) {
             return false;
         }
-        [$local, $domena] = explode('@', $v);
-        if ($local === '') {
+        $at = strpos($hodnota, '@');
+        if ($at === false || $at !== strrpos($hodnota, '@')) {
+            return false;
+        }
+        $local = substr($hodnota, 0, $at);
+        $domena = substr($hodnota, $at + 1);
+        if ($local === '' || $domena === '') {
             return false;
         }
         $casti = explode('.', $domena);
@@ -33,7 +37,8 @@ final class Validace
                 return false;
             }
         }
-        if (!preg_match('/^[A-Za-z]{2,}$/', end($casti))) {
+        $tld = end($casti);
+        if (strlen($tld) < 2 || preg_match('/^[A-Za-z]{2,}$/', $tld) !== 1) {
             return false;
         }
         return true;
@@ -44,15 +49,17 @@ final class Validace
         if (!is_string($hodnota)) {
             return '';
         }
-        $v = preg_replace('/[\s()\-\x{00A0}\x{2010}\x{2011}\x{2012}\x{2013}\x{2014}\x{2015}\x{2212}]/u', '', $hodnota) ?? '';
-        if (str_starts_with($v, '00420') && strlen($v) === 14) {
-            $v = '+420' . substr($v, 5);
-        } elseif (str_starts_with($v, '420') && strlen($v) === 12) {
-            $v = '+420' . substr($v, 3);
-        } elseif (preg_match('/^\d{9}$/', $v)) {
-            $v = '+420' . $v;
+        $cist = preg_replace('/[\s()\-\x{00A0}\x{2010}\x{2011}\x{2012}\x{2013}\x{2014}\x{2015}\x{2212}]/u', '', $hodnota) ?? '';
+        if (preg_match('/^00\d{9,15}$/', $cist) === 1) {
+            return '+' . substr($cist, 2);
         }
-        return $v;
+        if (preg_match('/^420\d{9}$/', $cist) === 1) {
+            return '+' . $cist;
+        }
+        if (preg_match('/^\d{9}$/', $cist) === 1) {
+            return '+420' . $cist;
+        }
+        return $cist;
     }
 
     public static function isPhoneCz(mixed $hodnota): bool
@@ -60,40 +67,51 @@ final class Validace
         if (!is_string($hodnota) || $hodnota === '') {
             return false;
         }
-        $v = self::normalizePhone($hodnota);
-        if (!preg_match('/^\+420(\d{9})$/', $v, $m)) {
+        return preg_match('/^\+420[2-79]\d{8}$/', self::normalizePhone($hodnota)) === 1;
+    }
+
+    public static function isPhone(mixed $hodnota): bool
+    {
+        if (!is_string($hodnota) || $hodnota === '') {
             return false;
         }
-        return in_array($m[1][0], ['6', '7', '2', '3', '5', '9'], true);
+        $v = self::normalizePhone($hodnota);
+        if (str_starts_with($v, '+420')) {
+            return self::isPhoneCz($hodnota);
+        }
+        return preg_match('/^\+[1-9]\d{8,14}$/', $v) === 1;
     }
 
     public static function validateContact(array $hodnoty, array $zpravy = []): array
     {
         $chyby = [];
 
-        if (!is_string($hodnoty['typ'] ?? null) || trim($hodnoty['typ']) === '') {
+        $typ = is_string($hodnoty['typ'] ?? null) ? trim($hodnoty['typ']) : '';
+        if ($typ === '') {
             $chyby['typ'] = 'required';
         }
-        if (!is_string($hodnoty['jmeno'] ?? null) || trim($hodnoty['jmeno']) === '') {
+
+        $jmeno = is_string($hodnoty['jmeno'] ?? null) ? trim($hodnoty['jmeno']) : '';
+        if ($jmeno === '') {
             $chyby['jmeno'] = 'required';
         }
 
-        $email = is_string($hodnoty['email'] ?? null) ? $hodnoty['email'] : '';
-        $telefon = is_string($hodnoty['telefon'] ?? null) ? $hodnoty['telefon'] : '';
-
+        $email = is_string($hodnoty['email'] ?? null) ? trim($hodnoty['email']) : '';
         if ($email !== '' && !self::isEmail($email)) {
             $chyby['email'] = 'email';
         }
-        if ($telefon !== '' && !self::isPhoneCz($telefon)) {
+
+        $telefon = is_string($hodnoty['telefon'] ?? null) ? trim($hodnoty['telefon']) : '';
+        if ($telefon !== '' && !self::isPhone($telefon)) {
             $chyby['telefon'] = 'telefon';
         }
-        if (trim($email) === '' && trim($telefon) === '') {
+
+        if ($telefon === '' && $email === '') {
             $chyby['kontakt'] = 'kontakt';
         }
 
-        $zprava = is_string($hodnoty['zprava'] ?? null) ? $hodnoty['zprava'] : '';
-        $zpravaTrim = trim($zprava);
-        if ($zpravaTrim !== '' && mb_strlen($zpravaTrim) < 10) {
+        $zprava = is_string($hodnoty['zprava'] ?? null) ? trim($hodnoty['zprava']) : '';
+        if ($zprava !== '' && mb_strlen($zprava) < 10) {
             $chyby['zprava'] = 'zprava-kratka';
         }
 
@@ -104,7 +122,13 @@ final class Validace
         $texty = [];
         foreach (array_keys($chyby) as $pole) {
             $kod = $chyby[$pole];
-            $texty[$pole] = $zpravy[$pole] ?? $zpravy[$kod] ?? $kod;
+            if (array_key_exists($pole, $zpravy)) {
+                $texty[$pole] = $zpravy[$pole];
+            } elseif (array_key_exists($kod, $zpravy)) {
+                $texty[$pole] = $zpravy[$kod];
+            } else {
+                $texty[$pole] = $kod;
+            }
         }
 
         return [
