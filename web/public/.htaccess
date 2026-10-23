@@ -3,6 +3,12 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
+  # Nahrané fotky se nikdy nesmí spustit jako skript. Musí to stát PŘED
+  # zkratkou na existující soubory — ta končí [L] a tohle by se za ní
+  # nikdy nevyhodnotilo. (Navíc je to v media/.htaccess, kdyby se přepisy
+  # adres nečetly.)
+  RewriteRule ^media/.*\.(php[0-9s]?|phtml|phar|pht|html?|cgi|pl|py|sh)$ - [F,L]
+
   # existující soubor (CSS, obrázky, fonty) obslouží Apache sám
   RewriteCond %{REQUEST_FILENAME} -f
   RewriteRule ^ - [L]
@@ -24,11 +30,6 @@ ErrorDocument 404 /index.php
     Header always set X-Frame-Options "SAMEORIGIN"
     Header set Cache-Control "public, max-age=31536000, immutable"
   </FilesMatch>
-</IfModule>
-
-# nahrané fotky se nikdy nesmí spustit jako skript
-<IfModule mod_rewrite.c>
-  RewriteRule ^media/.*\.(php|phtml|phar|html?)$ - [F,L]
 </IfModule>
 
 Options -Indexes

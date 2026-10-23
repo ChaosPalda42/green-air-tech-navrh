@@ -27,6 +27,8 @@ cp web/public/index.php web/public/.htaccess "$cil/web/public/"
 mkdir -p "$cil/web/public/media"
 printf '%s\n' "Nahrané fotky z administrace. Musí být zapisovatelná pro www-data." \
   > "$cil/web/public/media/README.txt"
+# .htaccess v media vypíná interpret — druhá závora k pravidlu v public/.htaccess
+cp web/public/media/.htaccess "$cil/web/public/media/.htaccess"
 printf '%s\n' "Krátká mezipaměť statistik z Google Analytics. Musí být zapisovatelná pro www-data." \
   > "$cil/web/cache/README.txt"
 
@@ -68,7 +70,8 @@ done < <(find "$cil" -name 'ga4.json' -print)
 
 # ...a naopak: co tam BÝT MUSÍ, jinak se web u klienta nerozběhne
 for musi in web/databaze/schema.sql web/public/index.php web/public/install.php \
-            web/config/config.vzor.php web/data/admin-klice.json; do
+            web/config/config.vzor.php web/data/admin-klice.json \
+            web/public/media/.htaccess; do
   if [ ! -f "$cil/$musi" ]; then
     echo "V BALÍČKU CHYBÍ: $musi"
     spatne=1

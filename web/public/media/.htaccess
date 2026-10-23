@@ -1,0 +1,19 @@
+# Ve složce s nahranými fotkami se nic nespouští. Druhá závora k pravidlu
+# v ../.htaccess — tohle platí i tam, kde se přepisy adres nepoužívají.
+
+# mod_php
+<IfModule mod_php.c>
+  php_flag engine off
+</IfModule>
+<IfModule mod_php8.c>
+  php_flag engine off
+</IfModule>
+
+# php-fpm a jakýkoli jiný interpret: soubor se pošle jako obyčejná data
+<FilesMatch "\.(php[0-9s]?|phtml|phar|pht|html?|cgi|pl|py|sh)$">
+  SetHandler None
+  Require all denied
+</FilesMatch>
+
+Options -ExecCGI -Indexes
+AddType text/plain .php .phtml .phar .pht .cgi .pl .py .sh

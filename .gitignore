@@ -16,3 +16,8 @@ web/data/posta.log
 
 # Klíč servisního účtu ke GA4 — přístup k Michaelovu Analytics, do gitu nikdy
 nasazeni/klice/
+
+# Fotky nahrané v administraci jsou data klienta, do gitu nepatří; .htaccess
+# v té složce ano — je to závora proti spuštění skriptu a balíček ji rozváží.
+web/public/media/*
+!web/public/media/.htaccess
