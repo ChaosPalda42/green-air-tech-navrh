@@ -186,9 +186,17 @@ const formVzorky = {
   normalizePhone: vzorek(form.normalizePhone, [
     ["+420 601 123 456"], ["601123456"], ["00420601123456"], ["601-123-456"],
     [""], [null], ["abc"], [" 601 123 456 "],
+    ["0049 30 1234567"], ["00421905123456"], ["00"], ["0012"], ["+49 30 1234567"],
   ]),
   isPhoneCz: vzorek(form.isPhoneCz, [
     ["+420 601 123 456"], ["601123456"], ["123"], [""], [null], ["00420601123456"], ["+421601123456"],
+    ["+420 485 100 100"], ["+420 466 123 456"], ["+420 136 532 284"], ["+420 836 532 284"],
+  ]),
+  isPhone: vzorek(form.isPhone, [
+    ["+49 30 1234567"], ["+421905123456"], ["+43 1 234 5678"], ["0049 30 1234567"],
+    ["+44 20 7123 4567"], ["+420 736 532 284"], ["736532284"], ["+420 485 100 100"],
+    ["+1 555 0100"], ["12345"], ["abc"], [""], [null], ["+0123456789"],
+    ["+4912345678901234"], ["49301234567"], ["+420 136 532 284"],
   ]),
   validateContact: pripady([
     [[{ jmeno: "Jan", email: "a@b.cz", zprava: "Dobrý den, mám dotaz." }, zpravy],
@@ -200,6 +208,10 @@ const formVzorky = {
       form.validateContact({ jmeno: "Jan", email: "a@b.cz", zprava: "krátká", telefon: "123" }, zpravy)],
     [[{ jmeno: "Jan", email: "a@b.cz", zprava: "Dobrý den, mám dotaz.", telefon: "+420 601 123 456" }, zpravy],
       form.validateContact({ jmeno: "Jan", email: "a@b.cz", zprava: "Dobrý den, mám dotaz.", telefon: "+420 601 123 456" }, zpravy)],
+    [[{ jmeno: "Hans", typ: "servis", souhlas: true, telefon: "+49 30 1234567" }, zpravy],
+      form.validateContact({ jmeno: "Hans", typ: "servis", souhlas: true, telefon: "+49 30 1234567" }, zpravy)],
+    [[{ jmeno: "Hans", typ: "servis", souhlas: true, telefon: "+1 555 0100" }, zpravy],
+      form.validateContact({ jmeno: "Hans", typ: "servis", souhlas: true, telefon: "+1 555 0100" }, zpravy)],
     [[{ jmeno: "Jan", email: "a@b.cz", zprava: "Dobrý den, mám dotaz." }, {}],
       form.validateContact({ jmeno: "Jan", email: "a@b.cz", zprava: "Dobrý den, mám dotaz." }, {})],
   ]),

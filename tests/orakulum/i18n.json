@@ -1073,6 +1073,7 @@
        "souhlas": "Souhlasím se zpracováním osobních údajů pro vyřízení poptávky.",
        "souhlasOdkaz": "Ochrana osobních údajů",
        "odeslano": "Děkujeme, zpráva je na cestě. Ozveme se vám.",
+       "chybaOdeslani": "Zprávu se nepovedlo odeslat. Zkuste to prosím znovu, nebo nám zavolejte.",
        "odeslanoDemo": "V téhle ukázce se zpráva nikam neodesílá — na ostrém webu dorazí na info@greenairtech.cz.",
        "typy": {
         "havarie": "Havárie — nefunguje topení nebo chlazení",
@@ -1283,6 +1284,7 @@
        "jmeno": "Uživatel",
        "heslo": "Heslo",
        "vstoupit": "Vstoupit",
+       "chyba": "Přihlášení se nepovedlo. Zkontrolujte jméno a heslo.",
        "poznamka": "Demo: přihlášení nic neověřuje."
       },
       "zalozky": {
@@ -2554,6 +2556,7 @@
        "souhlas": "Souhlasím se zpracováním osobních údajů pro vyřízení poptávky.",
        "souhlasOdkaz": "Ochrana osobních údajů",
        "odeslano": "Děkujeme, zpráva je na cestě. Ozveme se vám.",
+       "chybaOdeslani": "Zprávu se nepovedlo odeslat. Zkuste to prosím znovu, nebo nám zavolejte.",
        "odeslanoDemo": "V téhle ukázce se zpráva nikam neodesílá — na ostrém webu dorazí na info@greenairtech.cz.",
        "typy": {
         "havarie": "Havárie — nefunguje topení nebo chlazení",
@@ -2764,6 +2767,7 @@
        "jmeno": "Uživatel",
        "heslo": "Heslo",
        "vstoupit": "Vstoupit",
+       "chyba": "Přihlášení se nepovedlo. Zkontrolujte jméno a heslo.",
        "poznamka": "Demo: přihlášení nic neověřuje."
       },
       "zalozky": {
@@ -4035,6 +4039,7 @@
        "souhlas": "Souhlasím se zpracováním osobních údajů pro vyřízení poptávky.",
        "souhlasOdkaz": "Ochrana osobních údajů",
        "odeslano": "Děkujeme, zpráva je na cestě. Ozveme se vám.",
+       "chybaOdeslani": "Zprávu se nepovedlo odeslat. Zkuste to prosím znovu, nebo nám zavolejte.",
        "odeslanoDemo": "V téhle ukázce se zpráva nikam neodesílá — na ostrém webu dorazí na info@greenairtech.cz.",
        "typy": {
         "havarie": "Havárie — nefunguje topení nebo chlazení",
@@ -4245,6 +4250,7 @@
        "jmeno": "Uživatel",
        "heslo": "Heslo",
        "vstoupit": "Vstoupit",
+       "chyba": "Přihlášení se nepovedlo. Zkontrolujte jméno a heslo.",
        "poznamka": "Demo: přihlášení nic neověřuje."
       },
       "zalozky": {
@@ -5629,6 +5635,7 @@
        "souhlas": "Souhlasím se zpracováním osobních údajů pro vyřízení poptávky.",
        "souhlasOdkaz": "Ochrana osobních údajů",
        "odeslano": "Děkujeme, zpráva je na cestě. Ozveme se vám.",
+       "chybaOdeslani": "Zprávu se nepovedlo odeslat. Zkuste to prosím znovu, nebo nám zavolejte.",
        "odeslanoDemo": "V téhle ukázce se zpráva nikam neodesílá — na ostrém webu dorazí na info@greenairtech.cz.",
        "typy": {
         "havarie": "Havárie — nefunguje topení nebo chlazení",
@@ -5839,6 +5846,7 @@
        "jmeno": "Uživatel",
        "heslo": "Heslo",
        "vstoupit": "Vstoupit",
+       "chyba": "Přihlášení se nepovedlo. Zkontrolujte jméno a heslo.",
        "poznamka": "Demo: přihlášení nic neověřuje."
       },
       "zalozky": {
@@ -7110,6 +7118,7 @@
        "souhlas": "Souhlasím se zpracováním osobních údajů pro vyřízení poptávky.",
        "souhlasOdkaz": "Ochrana osobních údajů",
        "odeslano": "Děkujeme, zpráva je na cestě. Ozveme se vám.",
+       "chybaOdeslani": "Zprávu se nepovedlo odeslat. Zkuste to prosím znovu, nebo nám zavolejte.",
        "odeslanoDemo": "V téhle ukázce se zpráva nikam neodesílá — na ostrém webu dorazí na info@greenairtech.cz.",
        "typy": {
         "havarie": "Havárie — nefunguje topení nebo chlazení",
@@ -7320,6 +7329,7 @@
        "jmeno": "Uživatel",
        "heslo": "Heslo",
        "vstoupit": "Vstoupit",
+       "chyba": "Přihlášení se nepovedlo. Zkontrolujte jméno a heslo.",
        "poznamka": "Demo: přihlášení nic neověřuje."
       },
       "zalozky": {
@@ -8601,6 +8611,7 @@
        "souhlas": "Souhlasím se zpracováním osobních údajů pro vyřízení poptávky.",
        "souhlasOdkaz": "Ochrana osobních údajů",
        "odeslano": "Děkujeme, zpráva je na cestě. Ozveme se vám.",
+       "chybaOdeslani": "Zprávu se nepovedlo odeslat. Zkuste to prosím znovu, nebo nám zavolejte.",
        "odeslanoDemo": "V téhle ukázce se zpráva nikam neodesílá — na ostrém webu dorazí na info@greenairtech.cz.",
        "typy": {
         "havarie": "Havárie — nefunguje topení nebo chlazení",
@@ -8811,6 +8822,7 @@
        "jmeno": "Uživatel",
        "heslo": "Heslo",
        "vstoupit": "Vstoupit",
+       "chyba": "Přihlášení se nepovedlo. Zkontrolujte jméno a heslo.",
        "poznamka": "Demo: přihlášení nic neověřuje."
       },
       "zalozky": {
@@ -10082,6 +10094,7 @@
        "souhlas": "Souhlasím se zpracováním osobních údajů pro vyřízení poptávky.",
        "souhlasOdkaz": "Ochrana osobních údajů",
        "odeslano": "Děkujeme, zpráva je na cestě. Ozveme se vám.",
+       "chybaOdeslani": "Zprávu se nepovedlo odeslat. Zkuste to prosím znovu, nebo nám zavolejte.",
        "odeslanoDemo": "V téhle ukázce se zpráva nikam neodesílá — na ostrém webu dorazí na info@greenairtech.cz.",
        "typy": {
         "havarie": "Havárie — nefunguje topení nebo chlazení",
@@ -10292,6 +10305,7 @@
        "jmeno": "Uživatel",
        "heslo": "Heslo",
        "vstoupit": "Vstoupit",
+       "chyba": "Přihlášení se nepovedlo. Zkontrolujte jméno a heslo.",
        "poznamka": "Demo: přihlášení nic neověřuje."
       },
       "zalozky": {
@@ -11572,6 +11586,7 @@
        "souhlas": "Souhlasím se zpracováním osobních údajů pro vyřízení poptávky.",
        "souhlasOdkaz": "Ochrana osobních údajů",
        "odeslano": "Děkujeme, zpráva je na cestě. Ozveme se vám.",
+       "chybaOdeslani": "Zprávu se nepovedlo odeslat. Zkuste to prosím znovu, nebo nám zavolejte.",
        "odeslanoDemo": "V téhle ukázce se zpráva nikam neodesílá — na ostrém webu dorazí na info@greenairtech.cz.",
        "typy": {
         "havarie": "Havárie — nefunguje topení nebo chlazení",
@@ -11782,6 +11797,7 @@
        "jmeno": "Uživatel",
        "heslo": "Heslo",
        "vstoupit": "Vstoupit",
+       "chyba": "Přihlášení se nepovedlo. Zkontrolujte jméno a heslo.",
        "poznamka": "Demo: přihlášení nic neověřuje."
       },
       "zalozky": {
@@ -13055,6 +13071,7 @@
        "souhlas": "Souhlasím se zpracováním osobních údajů pro vyřízení poptávky.",
        "souhlasOdkaz": "Ochrana osobních údajů",
        "odeslano": "Děkujeme, zpráva je na cestě. Ozveme se vám.",
+       "chybaOdeslani": "Zprávu se nepovedlo odeslat. Zkuste to prosím znovu, nebo nám zavolejte.",
        "odeslanoDemo": "V téhle ukázce se zpráva nikam neodesílá — na ostrém webu dorazí na info@greenairtech.cz.",
        "typy": {
         "havarie": "Havárie — nefunguje topení nebo chlazení",
@@ -13265,6 +13282,7 @@
        "jmeno": "Uživatel",
        "heslo": "Heslo",
        "vstoupit": "Vstoupit",
+       "chyba": "Přihlášení se nepovedlo. Zkontrolujte jméno a heslo.",
        "poznamka": "Demo: přihlášení nic neověřuje."
       },
       "zalozky": {
@@ -14538,6 +14556,7 @@
        "souhlas": "I consent to the processing of personal data for the purpose of handling my inquiry.",
        "souhlasOdkaz": "Data Protection",
        "odeslano": "Thank you, your message is on its way. We'll be in touch.",
+       "chybaOdeslani": "The message could not be sent. Please try again or give us a call.",
        "odeslanoDemo": "In this demo, the message is not sent anywhere — on the live site it will be delivered to info@greenairtech.cz.",
        "typy": {
         "havarie": "Emergency — heating or cooling not working",
@@ -14748,6 +14767,7 @@
        "jmeno": "Username",
        "heslo": "Password",
        "vstoupit": "Enter",
+       "chyba": "Sign-in failed. Check your name and password.",
        "poznamka": "Demo: login does not verify credentials."
       },
       "zalozky": {
@@ -16015,6 +16035,7 @@
        "souhlas": "Souhlasím se zpracováním osobních údajů pro vyřízení poptávky.",
        "souhlasOdkaz": "Ochrana osobních údajů",
        "odeslano": "Děkujeme, zpráva je na cestě. Ozveme se vám.",
+       "chybaOdeslani": "Zprávu se nepovedlo odeslat. Zkuste to prosím znovu, nebo nám zavolejte.",
        "odeslanoDemo": "V téhle ukázce se zpráva nikam neodesílá — na ostrém webu dorazí na info@greenairtech.cz.",
        "typy": {
         "havarie": "Havárie — nefunguje topení nebo chlazení",
@@ -16225,6 +16246,7 @@
        "jmeno": "Uživatel",
        "heslo": "Heslo",
        "vstoupit": "Vstoupit",
+       "chyba": "Přihlášení se nepovedlo. Zkontrolujte jméno a heslo.",
        "poznamka": "Demo: přihlášení nic neověřuje."
       },
       "zalozky": {
@@ -17495,6 +17517,7 @@
        "souhlas": "I consent to the processing of personal data for the purpose of handling my inquiry.",
        "souhlasOdkaz": "Data Protection",
        "odeslano": "Thank you, your message is on its way. We'll be in touch.",
+       "chybaOdeslani": "The message could not be sent. Please try again or give us a call.",
        "odeslanoDemo": "In this demo, the message is not sent anywhere — on the live site it will be delivered to info@greenairtech.cz.",
        "typy": {
         "havarie": "Emergency — heating or cooling not working",
@@ -17705,6 +17728,7 @@
        "jmeno": "Username",
        "heslo": "Password",
        "vstoupit": "Enter",
+       "chyba": "Sign-in failed. Check your name and password.",
        "poznamka": "Demo: login does not verify credentials."
       },
       "zalozky": {
@@ -18972,6 +18996,7 @@
        "souhlas": "Souhlasím se zpracováním osobních údajů pro vyřízení poptávky.",
        "souhlasOdkaz": "Ochrana osobních údajů",
        "odeslano": "Děkujeme, zpráva je na cestě. Ozveme se vám.",
+       "chybaOdeslani": "Zprávu se nepovedlo odeslat. Zkuste to prosím znovu, nebo nám zavolejte.",
        "odeslanoDemo": "V téhle ukázce se zpráva nikam neodesílá — na ostrém webu dorazí na info@greenairtech.cz.",
        "typy": {
         "havarie": "Havárie — nefunguje topení nebo chlazení",
@@ -19182,6 +19207,7 @@
        "jmeno": "Uživatel",
        "heslo": "Heslo",
        "vstoupit": "Vstoupit",
+       "chyba": "Přihlášení se nepovedlo. Zkontrolujte jméno a heslo.",
        "poznamka": "Demo: přihlášení nic neověřuje."
       },
       "zalozky": {
@@ -20452,6 +20478,7 @@
        "souhlas": "Souhlasím se zpracováním osobních údajů pro vyřízení poptávky.",
        "souhlasOdkaz": "Ochrana osobních údajů",
        "odeslano": "Děkujeme, zpráva je na cestě. Ozveme se vám.",
+       "chybaOdeslani": "Zprávu se nepovedlo odeslat. Zkuste to prosím znovu, nebo nám zavolejte.",
        "odeslanoDemo": "V téhle ukázce se zpráva nikam neodesílá — na ostrém webu dorazí na info@greenairtech.cz.",
        "typy": {
         "havarie": "Havárie — nefunguje topení nebo chlazení",
@@ -20662,6 +20689,7 @@
        "jmeno": "Uživatel",
        "heslo": "Heslo",
        "vstoupit": "Vstoupit",
+       "chyba": "Přihlášení se nepovedlo. Zkontrolujte jméno a heslo.",
        "poznamka": "Demo: přihlášení nic neověřuje."
       },
       "zalozky": {
@@ -21935,6 +21963,7 @@
        "souhlas": "Souhlasím se zpracováním osobních údajů pro vyřízení poptávky.",
        "souhlasOdkaz": "Ochrana osobních údajů",
        "odeslano": "Děkujeme, zpráva je na cestě. Ozveme se vám.",
+       "chybaOdeslani": "Zprávu se nepovedlo odeslat. Zkuste to prosím znovu, nebo nám zavolejte.",
        "odeslanoDemo": "V téhle ukázce se zpráva nikam neodesílá — na ostrém webu dorazí na info@greenairtech.cz.",
        "typy": {
         "havarie": "Havárie — nefunguje topení nebo chlazení",
@@ -22145,6 +22174,7 @@
        "jmeno": "Uživatel",
        "heslo": "Heslo",
        "vstoupit": "Vstoupit",
+       "chyba": "Přihlášení se nepovedlo. Zkontrolujte jméno a heslo.",
        "poznamka": "Demo: přihlášení nic neověřuje."
       },
       "zalozky": {
@@ -23421,6 +23451,7 @@
        "souhlas": "Souhlasím se zpracováním osobních údajů pro vyřízení poptávky.",
        "souhlasOdkaz": "Ochrana osobních údajů",
        "odeslano": "Děkujeme, zpráva je na cestě. Ozveme se vám.",
+       "chybaOdeslani": "Zprávu se nepovedlo odeslat. Zkuste to prosím znovu, nebo nám zavolejte.",
        "odeslanoDemo": "V téhle ukázce se zpráva nikam neodesílá — na ostrém webu dorazí na info@greenairtech.cz.",
        "typy": {
         "havarie": "Havárie — nefunguje topení nebo chlazení",
@@ -23631,6 +23662,7 @@
        "jmeno": "Uživatel",
        "heslo": "Heslo",
        "vstoupit": "Vstoupit",
+       "chyba": "Přihlášení se nepovedlo. Zkontrolujte jméno a heslo.",
        "poznamka": "Demo: přihlášení nic neověřuje."
       },
       "zalozky": {
@@ -24904,6 +24936,7 @@
        "souhlas": "Souhlasím se zpracováním osobních údajů pro vyřízení poptávky.",
        "souhlasOdkaz": "Ochrana osobních údajů",
        "odeslano": "Děkujeme, zpráva je na cestě. Ozveme se vám.",
+       "chybaOdeslani": "Zprávu se nepovedlo odeslat. Zkuste to prosím znovu, nebo nám zavolejte.",
        "odeslanoDemo": "V téhle ukázce se zpráva nikam neodesílá — na ostrém webu dorazí na info@greenairtech.cz.",
        "typy": {
         "havarie": "Havárie — nefunguje topení nebo chlazení",
@@ -25114,6 +25147,7 @@
        "jmeno": "Uživatel",
        "heslo": "Heslo",
        "vstoupit": "Vstoupit",
+       "chyba": "Přihlášení se nepovedlo. Zkontrolujte jméno a heslo.",
        "poznamka": "Demo: přihlášení nic neověřuje."
       },
       "zalozky": {
@@ -26389,6 +26423,7 @@
        "souhlas": "Souhlasím se zpracováním osobních údajů pro vyřízení poptávky.",
        "souhlasOdkaz": "Ochrana osobních údajů",
        "odeslano": "Děkujeme, zpráva je na cestě. Ozveme se vám.",
+       "chybaOdeslani": "Zprávu se nepovedlo odeslat. Zkuste to prosím znovu, nebo nám zavolejte.",
        "odeslanoDemo": "V téhle ukázce se zpráva nikam neodesílá — na ostrém webu dorazí na info@greenairtech.cz.",
        "typy": {
         "havarie": "Havárie — nefunguje topení nebo chlazení",
@@ -26599,6 +26634,7 @@
        "jmeno": "Uživatel",
        "heslo": "Heslo",
        "vstoupit": "Vstoupit",
+       "chyba": "Přihlášení se nepovedlo. Zkontrolujte jméno a heslo.",
        "poznamka": "Demo: přihlášení nic neověřuje."
       },
       "zalozky": {
@@ -27457,6 +27493,7 @@
     "kontakt.formular.souhlas": "Souhlasím se zpracováním osobních údajů pro vyřízení poptávky.",
     "kontakt.formular.souhlasOdkaz": "Ochrana osobních údajů",
     "kontakt.formular.odeslano": "Děkujeme, zpráva je na cestě. Ozveme se vám.",
+    "kontakt.formular.chybaOdeslani": "Zprávu se nepovedlo odeslat. Zkuste to prosím znovu, nebo nám zavolejte.",
     "kontakt.formular.odeslanoDemo": "V téhle ukázce se zpráva nikam neodesílá — na ostrém webu dorazí na info@greenairtech.cz.",
     "kontakt.formular.typy.havarie": "Havárie — nefunguje topení nebo chlazení",
     "kontakt.formular.typy.klimatizace": "Klimatizace — nová instalace",
@@ -27577,6 +27614,7 @@
     "admin.prihlaseni.jmeno": "Uživatel",
     "admin.prihlaseni.heslo": "Heslo",
     "admin.prihlaseni.vstoupit": "Vstoupit",
+    "admin.prihlaseni.chyba": "Přihlášení se nepovedlo. Zkontrolujte jméno a heslo.",
     "admin.prihlaseni.poznamka": "Demo: přihlášení nic neověřuje.",
     "admin.zalozky.nastenka": "Nástěnka",
     "admin.zalozky.texty": "Texty webu",
@@ -28833,6 +28871,7 @@
        "souhlas": "Souhlasím se zpracováním osobních údajů pro vyřízení poptávky.",
        "souhlasOdkaz": "Ochrana osobních údajů",
        "odeslano": "Děkujeme, zpráva je na cestě. Ozveme se vám.",
+       "chybaOdeslani": "Zprávu se nepovedlo odeslat. Zkuste to prosím znovu, nebo nám zavolejte.",
        "odeslanoDemo": "V téhle ukázce se zpráva nikam neodesílá — na ostrém webu dorazí na info@greenairtech.cz.",
        "typy": {
         "havarie": "Havárie — nefunguje topení nebo chlazení",
@@ -29043,6 +29082,7 @@
        "jmeno": "Uživatel",
        "heslo": "Heslo",
        "vstoupit": "Vstoupit",
+       "chyba": "Přihlášení se nepovedlo. Zkontrolujte jméno a heslo.",
        "poznamka": "Demo: přihlášení nic neověřuje."
       },
       "zalozky": {
@@ -30308,6 +30348,7 @@
        "souhlas": "I consent to the processing of personal data for the purpose of handling my inquiry.",
        "souhlasOdkaz": "Data Protection",
        "odeslano": "Thank you, your message is on its way. We'll be in touch.",
+       "chybaOdeslani": "The message could not be sent. Please try again or give us a call.",
        "odeslanoDemo": "In this demo, the message is not sent anywhere — on the live site it will be delivered to info@greenairtech.cz.",
        "typy": {
         "havarie": "Emergency — heating or cooling not working",
@@ -30518,6 +30559,7 @@
        "jmeno": "Username",
        "heslo": "Password",
        "vstoupit": "Enter",
+       "chyba": "Sign-in failed. Check your name and password.",
        "poznamka": "Demo: login does not verify credentials."
       },
       "zalozky": {
@@ -31788,6 +31830,7 @@
        "souhlas": "Souhlasím se zpracováním osobních údajů pro vyřízení poptávky.",
        "souhlasOdkaz": "Ochrana osobních údajů",
        "odeslano": "Děkujeme, zpráva je na cestě. Ozveme se vám.",
+       "chybaOdeslani": "Zprávu se nepovedlo odeslat. Zkuste to prosím znovu, nebo nám zavolejte.",
        "odeslanoDemo": "V téhle ukázce se zpráva nikam neodesílá — na ostrém webu dorazí na info@greenairtech.cz.",
        "typy": {
         "havarie": "Havárie — nefunguje topení nebo chlazení",
@@ -31998,6 +32041,7 @@
        "jmeno": "Uživatel",
        "heslo": "Heslo",
        "vstoupit": "Vstoupit",
+       "chyba": "Přihlášení se nepovedlo. Zkontrolujte jméno a heslo.",
        "poznamka": "Demo: přihlášení nic neověřuje."
       },
       "zalozky": {
@@ -32857,6 +32901,7 @@
     "kontakt.formular.souhlas",
     "kontakt.formular.souhlasOdkaz",
     "kontakt.formular.odeslano",
+    "kontakt.formular.chybaOdeslani",
     "kontakt.formular.odeslanoDemo",
     "kontakt.formular.typy.havarie",
     "kontakt.formular.typy.klimatizace",
@@ -32977,6 +33022,7 @@
     "admin.prihlaseni.jmeno",
     "admin.prihlaseni.heslo",
     "admin.prihlaseni.vstoupit",
+    "admin.prihlaseni.chyba",
     "admin.prihlaseni.poznamka",
     "admin.zalozky.nastenka",
     "admin.zalozky.texty",

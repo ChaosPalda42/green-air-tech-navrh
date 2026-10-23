@@ -109,6 +109,36 @@
     " 601 123 456 "
    ],
    "out": "+420601123456"
+  },
+  {
+   "args": [
+    "0049 30 1234567"
+   ],
+   "out": "+49301234567"
+  },
+  {
+   "args": [
+    "00421905123456"
+   ],
+   "out": "+421905123456"
+  },
+  {
+   "args": [
+    "00"
+   ],
+   "out": "00"
+  },
+  {
+   "args": [
+    "0012"
+   ],
+   "out": "0012"
+  },
+  {
+   "args": [
+    "+49 30 1234567"
+   ],
+   "out": "+49301234567"
   }
  ],
  "isPhoneCz": [
@@ -151,6 +181,134 @@
   {
    "args": [
     "+421601123456"
+   ],
+   "out": false
+  },
+  {
+   "args": [
+    "+420 485 100 100"
+   ],
+   "out": true
+  },
+  {
+   "args": [
+    "+420 466 123 456"
+   ],
+   "out": true
+  },
+  {
+   "args": [
+    "+420 136 532 284"
+   ],
+   "out": false
+  },
+  {
+   "args": [
+    "+420 836 532 284"
+   ],
+   "out": false
+  }
+ ],
+ "isPhone": [
+  {
+   "args": [
+    "+49 30 1234567"
+   ],
+   "out": true
+  },
+  {
+   "args": [
+    "+421905123456"
+   ],
+   "out": true
+  },
+  {
+   "args": [
+    "+43 1 234 5678"
+   ],
+   "out": true
+  },
+  {
+   "args": [
+    "0049 30 1234567"
+   ],
+   "out": true
+  },
+  {
+   "args": [
+    "+44 20 7123 4567"
+   ],
+   "out": true
+  },
+  {
+   "args": [
+    "+420 736 532 284"
+   ],
+   "out": true
+  },
+  {
+   "args": [
+    "736532284"
+   ],
+   "out": true
+  },
+  {
+   "args": [
+    "+420 485 100 100"
+   ],
+   "out": true
+  },
+  {
+   "args": [
+    "+1 555 0100"
+   ],
+   "out": false
+  },
+  {
+   "args": [
+    "12345"
+   ],
+   "out": false
+  },
+  {
+   "args": [
+    "abc"
+   ],
+   "out": false
+  },
+  {
+   "args": [
+    ""
+   ],
+   "out": false
+  },
+  {
+   "args": [
+    null
+   ],
+   "out": false
+  },
+  {
+   "args": [
+    "+0123456789"
+   ],
+   "out": false
+  },
+  {
+   "args": [
+    "+4912345678901234"
+   ],
+   "out": false
+  },
+  {
+   "args": [
+    "49301234567"
+   ],
+   "out": false
+  },
+  {
+   "args": [
+    "+420 136 532 284"
    ],
    "out": false
   }
@@ -308,6 +466,58 @@
     "messages": {
      "typ": "Vyberte prosím, co řešíte.",
      "souhlas": "Bez souhlasu bohužel nemůžeme poptávku zpracovat."
+    }
+   }
+  },
+  {
+   "args": [
+    {
+     "jmeno": "Hans",
+     "typ": "servis",
+     "souhlas": true,
+     "telefon": "+49 30 1234567"
+    },
+    {
+     "required": "Tohle pole prosím vyplňte.",
+     "email": "Zkontrolujte prosím tvar e‑mailu.",
+     "telefon": "Zkontrolujte prosím telefonní číslo.",
+     "zprava-kratka": "Napište prosím alespoň větu, ať víme, o co jde.",
+     "souhlas": "Bez souhlasu bohužel nemůžeme poptávku zpracovat.",
+     "kontakt": "Nechte nám prosím telefon nebo e‑mail, ať se máme kam ozvat.",
+     "typ": "Vyberte prosím, co řešíte."
+    }
+   ],
+   "out": {
+    "ok": true,
+    "errors": {},
+    "messages": {}
+   }
+  },
+  {
+   "args": [
+    {
+     "jmeno": "Hans",
+     "typ": "servis",
+     "souhlas": true,
+     "telefon": "+1 555 0100"
+    },
+    {
+     "required": "Tohle pole prosím vyplňte.",
+     "email": "Zkontrolujte prosím tvar e‑mailu.",
+     "telefon": "Zkontrolujte prosím telefonní číslo.",
+     "zprava-kratka": "Napište prosím alespoň větu, ať víme, o co jde.",
+     "souhlas": "Bez souhlasu bohužel nemůžeme poptávku zpracovat.",
+     "kontakt": "Nechte nám prosím telefon nebo e‑mail, ať se máme kam ozvat.",
+     "typ": "Vyberte prosím, co řešíte."
+    }
+   ],
+   "out": {
+    "ok": false,
+    "errors": {
+     "telefon": "telefon"
+    },
+    "messages": {
+     "telefon": "Zkontrolujte prosím telefonní číslo."
     }
    }
   },

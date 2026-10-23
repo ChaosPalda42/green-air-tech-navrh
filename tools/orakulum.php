@@ -45,6 +45,7 @@ const CILE = [
         'isEmail' => ['App\\Formular\\Validace', 'isEmail'],
         'normalizePhone' => ['App\\Formular\\Validace', 'normalizePhone'],
         'isPhoneCz' => ['App\\Formular\\Validace', 'isPhoneCz'],
+        'isPhone' => ['App\\Formular\\Validace', 'isPhone'],
         'validateContact' => ['App\\Formular\\Validace', 'validateContact'],
     ],
     'datum' => [
