@@ -41,13 +41,22 @@ def test_pamet_staci_na_fotku_z_mobilu() -> None:
     )
 
 
-def test_limity_nahrani_jsou_vzajemne_konzistentni() -> None:
+def test_server_prijme_vsechno_co_administrace_pusti() -> None:
+    """Dvě hranice na dvou stranách drátu: administrace odmítne soubor sama
+    (src/lib/fotky.mjs) a php.ini ho odmítne na serveru. Kdyby byla serverová
+    nižší, správce by dostal chybu na soubor, který mu administrace pustila."""
+    mjs = (KOREN / "src" / "lib" / "fotky.mjs").read_text()
+    nalez = re.search(r"velikost\s*>\s*(\d+)\s*\*\s*1024\s*\*\s*1024", mjs)
+    assert nalez, "v src/lib/fotky.mjs se nenašel limit velikosti souboru"
+    v_prohlizeci = int(nalez.group(1)) * 1024 ** 2
+
     text = PHP_INI.read_text()
     soubor = velikost(text, "upload_max_filesize")
     telo = velikost(text, "post_max_size")
-    assert soubor >= 24 * 1024 ** 2, (
-        f"upload_max_filesize {soubor // 1024 ** 2}M: fotka přímo z telefonu "
-        "se nenahraje vůbec"
+    assert soubor >= v_prohlizeci, (
+        f"upload_max_filesize {soubor // 1024 ** 2}M je pod limitem "
+        f"administrace ({v_prohlizeci // 1024 ** 2}M): soubor, který "
+        "administrace pustí, server odmítne"
     )
     assert telo > soubor, (
         "post_max_size není větší než upload_max_filesize — PHP pak zahodí celý "

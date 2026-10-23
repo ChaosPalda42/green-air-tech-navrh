@@ -23,6 +23,9 @@
     prava: "Na tuhle změnu nemáte právo.",
     odhlasen: "Přihlášení vypršelo. Přihlaste se znovu.",
     fotka: "Fotku se nepovedlo nahrát na server.",
+    fotkaVelka: "Fotka má moc pixelů, než aby ji server rozbalil. Zmenšete ji a nahrajte znovu.",
+    souborVelky: "Soubor je větší, než server přijímá. Zmenšete fotku a nahrajte znovu.",
+    nahraniPreruseno: "Nahrávání se přerušilo. Zkuste to prosím ještě jednou.",
     statistiky: "Statistiky se nepovedlo načíst, ukazuje se ukázkový náhled.",
   };
 
@@ -57,6 +60,12 @@
   function hlaskaChyby(e) {
     if (e && e.stav === 401) return HLASKY.odhlasen;
     if (e && e.stav === 403) return HLASKY.prava;
+    /* Odpovědi od nahrávání fotek: obecné „Změnu se nepovedlo uložit" by
+       správce poslalo obnovovat stránku, místo aby fotku zmenšil. */
+    var kod = e && e.data ? e.data.chyba : "";
+    if (kod === "fotka-moc-velka") return HLASKY.fotkaVelka;
+    if (kod === "soubor-moc-velky") return HLASKY.souborVelky;
+    if (kod === "nahrani-preruseno") return HLASKY.nahraniPreruseno;
     return HLASKY.ulozeni;
   }
 
@@ -476,7 +485,17 @@
         }
         return zpracujSoubor(soubor).then(
           function (f) { pripravene.push(f); },
-          function () { chyby.push(hlaskaOdmitnuti({ nazev: soubor.name, duvod: "nacteni" })); }
+          function (e) {
+            /* Server umí říct, CO bylo špatně. Dosud se to zahodilo a správce
+               se dozvěděl jen „obrázek se nepodařilo otevřít". */
+            var kod = e && e.data ? e.data.chyba : "";
+            if (kod === "fotka-moc-velka" || kod === "soubor-moc-velky"
+                || kod === "nahrani-preruseno") {
+              chyby.push(soubor.name + ": " + hlaskaChyby(e));
+              return;
+            }
+            chyby.push(hlaskaOdmitnuti({ nazev: soubor.name, duvod: "nacteni" }));
+          }
         );
       });
     }, Promise.resolve());

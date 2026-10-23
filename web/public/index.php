@@ -101,6 +101,15 @@ if (str_starts_with($cesta, 'api/')) {
         'soubor' => isset($_FILES['fotka']) && is_uploaded_file((string) $_FILES['fotka']['tmp_name'])
             ? ['tmp_name' => (string) $_FILES['fotka']['tmp_name'], 'name' => (string) $_FILES['fotka']['name']]
             : null,
+        /* Soubor nad upload_max_filesize PHP zahodí a nechá jen číslo chyby.
+           Bez něj Router nemá jak poznat „moc velký" od „žádný" a říkal
+           správci, ať soubor vybere — přitom ho vybral. */
+        'soubor_chyba' => isset($_FILES['fotka']['error'])
+            ? (int) $_FILES['fotka']['error'] : null,
+        /* A když požadavek přeteče post_max_size, PHP zahodí i $_FILES a
+           $_POST. Zbyde jen délka těla — ta tedy rozhoduje. */
+        'telo_velke' => $metoda === 'POST' && $_FILES === [] && $_POST === []
+            && (int) ($_SERVER['CONTENT_LENGTH'] ?? 0) > 0,
     ], $uloziste, $statistiky, new Zpracovani(__DIR__ . '/media', 'media'));
 
     $odpoved((int) $vysledek['stav'], (array) $vysledek['telo']);
