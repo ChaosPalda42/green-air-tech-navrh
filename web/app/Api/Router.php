@@ -123,11 +123,17 @@ final class Router
                 return self::chyba(400, 'vadna-data', ['pole' => $vady]);
             }
 
-            $ulozeny = $uloziste->ulozUzivatele([
-                'jmeno' => trim((string) $novy['jmeno']),
-                'email' => trim((string) $novy['email']),
-                'role' => (string) $novy['role'],
-            ]);
+            // Obsazený e-mail je konflikt, ne spadlý server: správce má vědět,
+            // že takový uživatel už existuje.
+            try {
+                $ulozeny = $uloziste->ulozUzivatele([
+                    'jmeno' => trim((string) $novy['jmeno']),
+                    'email' => trim((string) $novy['email']),
+                    'role' => (string) $novy['role'],
+                ]);
+            } catch (Konflikt $e) {
+                return self::chyba(409, $e->getMessage());
+            }
             return self::ok(['uzivatel' => $ulozeny]);
         }
 

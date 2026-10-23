@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace App\Db;
 
+use App\Api\Konflikt;
 use App\Api\Uloziste;
 use App\Obsah\Stav;
 
@@ -79,28 +80,53 @@ final class UlozisteDb implements Uloziste
             }
             if ($nastav !== []) {
                 $hodnoty[] = $id;
-                $this->pdo->prepare('UPDATE uzivatele SET ' . implode(', ', $nastav) . ' WHERE id = ?')
-                    ->execute($hodnoty);
+                try {
+                    $this->pdo->prepare('UPDATE uzivatele SET ' . implode(', ', $nastav) . ' WHERE id = ?')
+                        ->execute($hodnoty);
+                } catch (\PDOException $e) {
+                    throw self::prelozChybu($e);
+                }
             }
         } else {
-            $this->pdo->prepare(
-                'INSERT INTO uzivatele (jmeno, email, role, aktivni, heslo_hash, pozvanka_token, pozvanka_do, vytvoreno)
-                 VALUES (?, ?, ?, ?, ?, ?, ?, ?)'
-            )->execute([
-                (string) ($u['jmeno'] ?? ''),
-                (string) ($u['email'] ?? ''),
-                (string) ($u['role'] ?? 'autor'),
-                (int) ($u['aktivni'] ?? 1),
-                $u['heslo_hash'] ?? null,
-                $u['pozvanka_token'] ?? null,
-                $u['pozvanka_do'] ?? null,
-                date('Y-m-d H:i:s'),
-            ]);
+            try {
+                $this->pdo->prepare(
+                    'INSERT INTO uzivatele (jmeno, email, role, aktivni, heslo_hash, pozvanka_token, pozvanka_do, vytvoreno)
+                     VALUES (?, ?, ?, ?, ?, ?, ?, ?)'
+                )->execute([
+                    (string) ($u['jmeno'] ?? ''),
+                    (string) ($u['email'] ?? ''),
+                    (string) ($u['role'] ?? 'autor'),
+                    (int) ($u['aktivni'] ?? 1),
+                    $u['heslo_hash'] ?? null,
+                    $u['pozvanka_token'] ?? null,
+                    $u['pozvanka_do'] ?? null,
+                    date('Y-m-d H:i:s'),
+                ]);
+            } catch (\PDOException $e) {
+                throw self::prelozChybu($e);
+            }
             $id = (int) $this->pdo->lastInsertId();
         }
 
         $radek = $this->podleId($id);
         return $radek ?? ($u + ['id' => $id]);
+    }
+
+    /* Porušení jednoznačnosti (UNIQUE KEY email) není chyba serveru — je to
+       konflikt dat a správce ho má dostat jako hlášku, ne jako 500. SQLSTATE
+       23000 hlásí MariaDB i SQLite; cokoli jiného (chybějící tabulka, mrtvé
+       spojení) musí zůstat výjimkou, ať se to nezamaskuje za „obsazený
+       e-mail". */
+    private static function prelozChybu(\PDOException $e): \Throwable
+    {
+        $sqlstate = (string) ($e->errorInfo[0] ?? $e->getCode());
+        if ($sqlstate !== '23000') {
+            return $e;
+        }
+
+        return new Konflikt(
+            stripos($e->getMessage(), 'email') !== false ? 'email-obsazeny' : 'konflikt-dat'
+        );
     }
 
     public function smazUzivatele(int $id): void
