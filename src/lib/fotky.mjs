@@ -34,6 +34,27 @@ function jePlatneCislo(hodnota) {
   return typeof hodnota === "number" && Number.isFinite(hodnota);
 }
 
+// ---------------------------------------------------------------- platnost dataUrl
+// Platné jsou jen dvě podoby:
+//   a) data URL: "data:image/…" (ukázka v prohlížeči, obrázek nese sám),
+//   b) cesta k fotce uložené na serveru: PŘESNĚ "media/<jméno>.<přípona>",
+//      kde jméno začíná písmenem/číslicí a dál smí mít jen A-Z a-z 0-9 . _ -,
+//      a přípona je webp, jpg, jpeg, png (malými písmeny).
+// Nic jiného — ne vedoucí "/", "../", "//", žádné schéma, nic za "?" nebo "#".
+// `dataUrl` jde přímo do atributu src, takže cizí adresa je dírou.
+
+const RE_MEDIA = /^media\/[A-Za-z0-9][A-Za-z0-9._-]*\.(webp|jpg|jpeg|png)$/;
+
+function jePlatnyDataUrl(hodnota) {
+  if (typeof hodnota !== "string" || hodnota.length === 0) return false;
+  if (hodnota.startsWith("data:image/")) return true;
+  return RE_MEDIA.test(hodnota);
+}
+
+function jePlatnaCestaMedia(hodnota) {
+  return typeof hodnota === "string" && RE_MEDIA.test(hodnota);
+}
+
 // ---------------------------------------------------------------- normalizace
 
 export function normalizujGalerie(cokoli) {
@@ -43,7 +64,7 @@ export function normalizujGalerie(cokoli) {
   for (const z of cokoli) {
     if (z === null || typeof z !== "object" || Array.isArray(z)) continue;
     if (!jePlatnyText(z.id)) continue;
-    if (!jePlatnyText(z.dataUrl) || !z.dataUrl.startsWith("data:image/")) continue;
+    if (!jePlatnyDataUrl(z.dataUrl)) continue;
     if (videne.has(z.id)) continue;
     videne.add(z.id);
     vysledek.push({
@@ -125,13 +146,7 @@ export function pridejFotky(galerie, nove, limity) {
       f && typeof f === "object" && !Array.isArray(f) && jePlatnyText(f.nazev)
         ? f.nazev
         : "";
-    if (
-      f === null ||
-      typeof f !== "object" ||
-      Array.isArray(f) ||
-      !jePlatnyText(f.dataUrl) ||
-      !f.dataUrl.startsWith("data:image/")
-    ) {
+    if (!jePlatnyDataUrl(f && f.dataUrl)) {
       odmitnuto.push({ nazev, duvod: "neplatny" });
       continue;
     }
@@ -159,7 +174,7 @@ export function pridejFotky(galerie, nove, limity) {
       } while (pouzitaId.has(id));
     }
     pouzitaId.add(id);
-    if (typeof f.dataUrl === "string") dataUrls.add(f.dataUrl);
+    dataUrls.add(f.dataUrl);
     bajty += fBajty;
     vysledek.push({ ...f, id });
     pridano += 1;
@@ -225,4 +240,23 @@ export function formatVelikost(bajty) {
   const desetiny = Math.round((mb - cel) * 10);
   const cislo = desetiny === 10 ? `${cel + 1},0` : `${cel},${desetiny}`;
   return `${cislo} MB`;
+}
+
+// ---------------------------------------------------------------- zdroj do src
+
+// Adresa do atributu src. Data URL vrátí beze změny (kořen se nepřidává).
+// Cestu "media/…" vrátí s předřazeným `koren` (stránka v podadresáři jazyka
+// má kořen "../"); `koren` chybí nebo není text -> "". Neplatná fotka,
+// neplatný dataUrl, null nebo cokoli jiného -> "" (nikdy null, nikdy cizí adresa).
+export function zdrojFotky(fotka, koren) {
+  if (fotka === null || typeof fotka !== "object" || Array.isArray(fotka)) {
+    return "";
+  }
+  const url = fotka.dataUrl;
+  if (typeof url !== "string") return "";
+  if (url.startsWith("data:image/")) return url;
+  if (jePlatnaCestaMedia(url)) {
+    return (typeof koren === "string" ? koren : "") + url;
+  }
+  return "";
 }
