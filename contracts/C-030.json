@@ -1,0 +1,24 @@
+{
+  "id": "C-030",
+  "file": "web/app/Auth/Pozvanka.php",
+  "role": "coder",
+  "title": "První heslo z pozvánky do administrace",
+  "interface": "namespace App\\Auth; final class Pozvanka\n\nRozhoduje, co se smí stát, když někdo přijde na administraci s tokenem\npozvánky. Čisté PHP: žádný stav, žádná síť, žádná databáze, žádný echo,\nžádné $_GET ani $_POST. Účet i token podá volající, zápis do databáze\nudělá volající. Vstupní pole se nemutují.\n\n`$ucet` je řádek z tabulky `uzivatele` tak, jak ho vrátí PDO — tedy null,\nkdyž se účet nenašel, a jinak pole, ve kterém mohou být čísla jako TEXTY\n('7', '1'). Zajímají nás klíče id, jmeno, email, aktivni, pozvanka_token,\npozvanka_do; další klíče (role, heslo_hash, vytvoreno…) tam být mohou a\nnesmí nic ovlivnit.\n\npublic static function proStranku(?array $ucet, string $token): array\n  Co dostane stránka s formulářem na nastavení hesla. Když pozvánka\n  neplatí (viz PŘESNĚ TAKTO bod 1), vrátí PRÁZDNÉ pole. Když platí, vrátí\n  přesně ['token' => $token, 'jmeno' => (string) $ucet['jmeno'],\n  'email' => (string) $ucet['email']] a nic víc.\n\npublic static function prijmi(?array $ucet, string $token, string $heslo, string $heslo2): array\n  Rozhodnutí o uplatnění pozvánky. Vrací jeden z těchto tvarů:\n    ['stav' => 'propadla']\n    ['stav' => 'vadne-heslo', 'duvod' => 'prazdne'|'kratke']\n    ['stav' => 'nesouhlasi']\n    ['stav' => 'ok', 'zapis' => ['id' => int, 'heslo_hash' => string,\n                                 'pozvanka_token' => null, 'pozvanka_do' => null]]\n  Klíč 'zapis' je JEN u stavu 'ok', klíč 'duvod' JEN u 'vadne-heslo'.\n",
+  "uses": {
+    "App\\Auth\\Uzivatele": "hash(string $heslo): string, zkontrolujHeslo(string $heslo): ?string, pozvankaPlati(array $pozvanka): bool"
+  },
+  "database": "",
+  "acceptance": "tests/test_php_pozvanka.py",
+  "dobehly": "",
+  "forbidden": [],
+  "depends_on": [],
+  "budget": {
+    "iterations": 18
+  },
+  "metamorfni_funkce": "",
+  "neutralni_upravy": [],
+  "neutralni_predpony": [],
+  "differential": false,
+  "differential_compare": "exact",
+  "notes": "Čisté PHP 8.5, žádné composer závislosti, žádná rozšíření nad rámec jádra.\nSoubor začíná `<?php`, pak `declare(strict_types=1);`, pak `namespace App\\Auth;`.\nJen statické metody, žádná vlastnost, žádný konstruktor.\n\nJMÉNO TŘÍDY i jmenný prostor musí odpovídat cestě souboru, jinak se\nautoloader třídu nedovolá a akceptace spadne na „Class not found\".\n\nPROČ: nezávislý test balíčku našel, že uživatel založený v administraci se\nnikdy nepřihlásí — v databázi má heslo_hash NULL a nikde nebyla cesta, jak\nsi heslo nastavit. API už pozvánku vystaví a vrátí 64znakový token; tahle\ntřída rozhoduje, co se smí stát, když s tím tokenem někdo přijde.\n\nPŘESNĚ TAKTO:\n\n1) POZVÁNKA PLATÍ, jen když platí VŠECHNO z tohohle:\n   - $token není prázdný řetězec;\n   - $ucet není null;\n   - $ucet['pozvanka_token'] je neprázdný text a DOSLOVA se rovná $token\n     (porovnej hash_equals, ne ==);\n   - Uzivatele::pozvankaPlati(['token' => $token, 'do' => $ucet['pozvanka_do']])\n     vrátí true (ta funkce sama ohlídá chybějící i propadlé datum);\n   - účet je aktivní: (int) ($ucet['aktivni'] ?? 0) === 1. Vypnutý účet\n     pozvánku neuplatní, i kdyby token byl v pořádku.\n   Když cokoli z toho neplatí, je pozvánka propadlá — a MLČÍ: proStranku()\n   vrátí prázdné pole a prijmi() ['stav' => 'propadla'], vždycky stejně.\n   Z odpovědi se nesmí dát vyčíst, který token v databázi existuje.\n\n2) prijmi() se ptá v tomhle POŘADÍ:\n   a) neplatná pozvánka → 'propadla' (heslo se ani nekontroluje);\n   b) Uzivatele::zkontrolujHeslo($heslo) vrátí důvod → ['stav' =>\n      'vadne-heslo', 'duvod' => ten důvod];\n   c) $heslo2 !== $heslo → ['stav' => 'nesouhlasi'];\n   d) jinak 'ok'. Síla hesla se ptá DŘÍV než shoda, ať krátké heslo\n      napsané dvakrát jinak řekne „krátké\" a ne „nesouhlasí\".\n\n3) ZÁPIS je úzký a má přesně čtyři klíče: 'id' => (int) $ucet['id'],\n   'heslo_hash' => Uzivatele::hash($heslo), 'pozvanka_token' => null,\n   'pozvanka_do' => null. Žádné jmeno, email, role ani aktivni — kdo\n   pozvánku uplatní, nesmí si tím změnit účet. Heslo se nikdy neukládá\n   jinak než hashem a hash si nedělej sám: vem Uzivatele::hash().\n\n4) Nic nemutuj: $ucet ber jen pro čtení, nepřepisuj mu klíče.\n"
+}

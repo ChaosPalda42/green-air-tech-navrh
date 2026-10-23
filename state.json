@@ -128,12 +128,12 @@
     },
     "C-015": {
       "status": "green",
-      "attempts": 1,
-      "iterations": 5,
-      "commit": "a4e0f6b",
+      "attempts": 2,
+      "iterations": 11,
+      "commit": "f0bc3f6",
       "last_finding": "",
       "packet": "",
-      "updated_at": "2026-10-22T13:53:10+00:00"
+      "updated_at": "2026-10-23T13:38:08+00:00"
     },
     "C-016": {
       "status": "green",
@@ -173,12 +173,12 @@
     },
     "C-020": {
       "status": "green",
-      "attempts": 1,
-      "iterations": 24,
-      "commit": "",
-      "last_finding": "skipped by operator: Router rozhodoval správně — proměřeno, že Stav::zJson -> Zmeny::oblasti -> matice práv dává u autora i editora správný výsledek. Vadná byla moje brána: požadavky jdou přes jedno úložiště v řadě, takže po správcově zápisu nebyl autorův zápis stejného textu vůbec změnou. Brána mezi běhy opravena, aby posílala skutečné změny, a ověřena červeně na routeru bez kontroly práv.",
-      "packet": "P-009",
-      "updated_at": "2026-10-22T17:46:06+00:00"
+      "attempts": 2,
+      "iterations": 31,
+      "commit": "35bda55",
+      "last_finding": "",
+      "packet": "",
+      "updated_at": "2026-10-23T13:53:00+00:00"
     },
     "C-021": {
       "status": "green",
@@ -432,6 +432,56 @@
       "red": 0,
       "escalated": 0,
       "note": "test_command passed (429 tests)"
+    },
+    {
+      "started_at": "2026-10-23T13:32:32+00:00",
+      "finished_at": "2026-10-23T13:33:00+00:00",
+      "outcome": "failed",
+      "iterations": 0,
+      "green": 29,
+      "red": 0,
+      "escalated": 0,
+      "note": "full suite failed (1 failed) after all contracts were green"
+    },
+    {
+      "started_at": "2026-10-23T13:33:33+00:00",
+      "finished_at": "2026-10-23T13:34:01+00:00",
+      "outcome": "failed",
+      "iterations": 0,
+      "green": 29,
+      "red": 0,
+      "escalated": 0,
+      "note": "full suite failed (1 failed) after all contracts were green"
+    },
+    {
+      "started_at": "2026-10-23T13:34:28+00:00",
+      "finished_at": "2026-10-23T13:38:37+00:00",
+      "outcome": "green",
+      "iterations": 6,
+      "green": 29,
+      "red": 0,
+      "escalated": 0,
+      "note": "test_command passed (429 tests)"
+    },
+    {
+      "started_at": "2026-10-23T13:42:49+00:00",
+      "finished_at": "2026-10-23T13:43:18+00:00",
+      "outcome": "failed",
+      "iterations": 0,
+      "green": 29,
+      "red": 0,
+      "escalated": 0,
+      "note": "full suite failed (13 failed) after all contracts were green"
+    },
+    {
+      "started_at": "2026-10-23T13:43:49+00:00",
+      "finished_at": "2026-10-23T13:53:32+00:00",
+      "outcome": "green",
+      "iterations": 7,
+      "green": 29,
+      "red": 0,
+      "escalated": 0,
+      "note": "test_command passed (444 tests)"
     }
   ],
   "open_packets": []
