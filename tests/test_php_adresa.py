@@ -46,6 +46,11 @@ PRIPADY: dict[str, tuple[dict[str, str], str]] = {
         {CF: "nic", XFF: "203.0.113.9", REMOTE: "10.0.0.1"}, "203.0.113.9"),
     "nesmysl v X-Forwarded-For se přeskočí": (
         {XFF: "neco-divneho", REMOTE: "10.0.0.1"}, "10.0.0.1"),
+    # Z X-Forwarded-For platí jen PRVNÍ položka — ta je od návštěvníka.
+    # Když je nesmyslná, jde se na REMOTE_ADDR, ne na druhou položku: tu už
+    # psala proxy a adresa návštěvníka v ní není.
+    "nesmysl v první položce nepustí druhou": (
+        {XFF: "neco-divneho, 203.0.113.9", REMOTE: "10.0.0.1"}, "10.0.0.1"),
     "prázdná hlavička se přeskočí": ({XFF: "", REMOTE: "10.0.0.1"}, "10.0.0.1"),
     "čárky bez obsahu": ({XFF: " , , ", REMOTE: "10.0.0.1"}, "10.0.0.1"),
     "nesmysl všude": ({CF: "x", XFF: "y", REMOTE: "z"}, ""),

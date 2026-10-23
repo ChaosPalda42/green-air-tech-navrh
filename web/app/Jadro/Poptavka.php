@@ -18,8 +18,18 @@ use App\Posta\PrepravkaMail;
 
 final class Poptavka
 {
-    /** Víc zpráv za deset minut už není zákazník, ale stroj. */
-    private const STROP = 20;
+    /** Okno, ve kterém se odeslané zprávy počítají. */
+    private const OKNO = 600;
+
+    /** Z jedné adresy: víc zpráv za okno už není zákazník, ale stroj. */
+    private const STROP_ADRESA = 8;
+
+    /**
+     * Záchranná síť pro robota rozprostřeného po adresách. Schválně mnohem
+     * vyšší než strop na adresu: globální strop je zároveň vypínač formuláře
+     * pro všechny zákazníky, a ten se nesmí dát přepnout dvaceti zprávami.
+     */
+    private const STROP_CELKEM = 60;
 
     public static function obsluz(string $metoda, Zdroj $zdroj, ?Uloziste $uloziste, callable $odpoved): void
     {
@@ -62,7 +72,13 @@ final class Poptavka
             return;
         }
 
-        if ($uloziste instanceof UlozisteDb && $uloziste->pocetPoptavekZa(600) >= self::STROP) {
+        /* Strop se počítá až tady, za kontrolou polí: medová past ani
+           nevyplněný formulář kvótu neujídají, protože se nikam neukládají —
+           jinak by robot vypnul formulář nesmysly. */
+        $ip = Adresa::navstevnika($_SERVER);
+        if ($uloziste instanceof UlozisteDb
+            && ($uloziste->pocetPoptavekZAdresy($ip, self::OKNO) >= self::STROP_ADRESA
+                || $uloziste->pocetPoptavekZa(self::OKNO) >= self::STROP_CELKEM)) {
             $odpoved(429, ['ok' => false, 'chyba' => 'prilis-mnoho']);
             return;
         }
@@ -92,6 +108,7 @@ final class Poptavka
 
         if ($uloziste instanceof UlozisteDb) {
             $uloziste->ulozPoptavku($poptavka, $odeslano);
+            $uloziste->zapisPoptavkuZAdresy($ip);
         }
 
         // Zákazníkovi se nikdy neříká „nepovedlo se": zpráva je uložená a firma

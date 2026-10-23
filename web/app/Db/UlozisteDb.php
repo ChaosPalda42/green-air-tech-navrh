@@ -189,14 +189,52 @@ final class UlozisteDb implements Uloziste
         return (int) $this->pdo->lastInsertId();
     }
 
-    /** Kolik poptávek přišlo za posledních $sekund sekund. */
+    /**
+     * Kolik poptávek přišlo za posledních $sekund sekund — ze všech adres.
+     * Hranice okna se počítá v PHP, ne funkcí DATE_SUB, aby šlo pravidlo
+     * proměřit nad jinou databází než MariaDB.
+     */
     public function pocetPoptavekZa(int $sekund): int
     {
-        $dotaz = $this->pdo->prepare(
-            'SELECT COUNT(*) FROM poptavky WHERE prijato >= DATE_SUB(NOW(), INTERVAL ? SECOND)'
-        );
-        $dotaz->execute([max(1, $sekund)]);
+        $dotaz = $this->pdo->prepare('SELECT COUNT(*) FROM poptavky WHERE prijato >= ?');
+        $dotaz->execute([date('Y-m-d H:i:s', time() - max(1, $sekund))]);
         return (int) $dotaz->fetchColumn();
+    }
+
+    public const POPTAVKA = 'poptavka';
+
+    /**
+     * Kolik poptávek přišlo za posledních $sekund z JEDNÉ adresy. Bez toho je
+     * strop globální a kdokoli jím vypne formulář všem zákazníkům.
+     *
+     * Adresa se nevede u poptávky, ale v udalosti — poptávka zůstává firmě
+     * natrvalo a adresa návštěvníka v ní nemá co dělat.
+     */
+    public function pocetPoptavekZAdresy(string $ip, int $sekund): int
+    {
+        if ($ip === '') {
+            return 0;
+        }
+        $dotaz = $this->pdo->prepare(
+            'SELECT COUNT(*) FROM udalosti WHERE akce = ? AND detail = ? AND kdy >= ?'
+        );
+        $dotaz->execute([self::POPTAVKA, $ip, date('Y-m-d H:i:s', time() - max(1, $sekund))]);
+        return (int) $dotaz->fetchColumn();
+    }
+
+    /**
+     * Zapíše, že z té adresy přišla poptávka, a zahodí zápisy starší než
+     * hodina. Adresa je osobní údaj: v databázi nemá ležet dýl, než je
+     * potřeba na rozhodnutí o stropu (okno je deset minut).
+     */
+    public function zapisPoptavkuZAdresy(string $ip): void
+    {
+        if ($ip === '') {
+            return;
+        }
+        $this->zapisUdalost('', self::POPTAVKA, $ip);
+        $this->pdo->prepare('DELETE FROM udalosti WHERE akce = ? AND kdy < ?')
+            ->execute([self::POPTAVKA, date('Y-m-d H:i:s', time() - 3600)]);
     }
 
     public function zapisUdalost(string $kdo, string $akce, string $detail = ''): void

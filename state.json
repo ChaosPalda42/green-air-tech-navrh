@@ -271,13 +271,13 @@
       "updated_at": "2026-10-23T14:12:16+00:00"
     },
     "C-031": {
-      "status": "pending",
-      "attempts": 0,
-      "iterations": 0,
-      "commit": "",
-      "last_finding": "reset by operator",
+      "status": "green",
+      "attempts": 1,
+      "iterations": 5,
+      "commit": "e99c2f2",
+      "last_finding": "",
       "packet": "",
-      "updated_at": "2026-10-23T14:24:50+00:00"
+      "updated_at": "2026-10-23T14:26:44+00:00"
     }
   },
   "runs": [
@@ -520,6 +520,16 @@
       "red": 0,
       "escalated": 0,
       "note": "test_command passed (492 tests)"
+    },
+    {
+      "started_at": "2026-10-23T14:24:57+00:00",
+      "finished_at": "2026-10-23T14:27:19+00:00",
+      "outcome": "green",
+      "iterations": 5,
+      "green": 31,
+      "red": 0,
+      "escalated": 0,
+      "note": "test_command passed (525 tests)"
     }
   ],
   "open_packets": []

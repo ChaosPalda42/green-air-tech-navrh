@@ -23,6 +23,7 @@ use App\Auth\Zamek;
 use App\Db\Spojeni;
 use App\Db\UlozisteDb;
 use App\Fotky\Zpracovani;
+use App\Jadro\Adresa;
 use App\Jadro\Config;
 use App\Jadro\Odkazy;
 use App\Jadro\Stranka;
@@ -155,12 +156,9 @@ if ($kam !== null && $kam['druh'] === 'administrace' && $metoda === 'POST') {
         /* Adresa návštěvníka. Za Cloudflare nebo za proxy má REMOTE_ADDR
            každý stejnou, a protože se zamyká i podle adresy, zamkl by jeden
            útočník všechny. Proto se bere adresa z hlavičky, když přijde.
-           Podvržená hlavička strop na účet neotevře: ten se počítá zvlášť. */
-        $ip = trim((string) ($_SERVER['HTTP_CF_CONNECTING_IP']
-            ?? explode(',', (string) ($_SERVER['HTTP_X_FORWARDED_FOR'] ?? ''))[0]));
-        if ($ip === '') {
-            $ip = (string) ($_SERVER['REMOTE_ADDR'] ?? '');
-        }
+           Podvržená hlavička strop na účet neotevře: ten se počítá zvlášť.
+           Luští to App\Jadro\Adresa — stejně jako u stropu poptávek. */
+        $ip = Adresa::navstevnika($_SERVER);
 
         /* Hádání hesla se počítá v databázi, a to ve dvou sadách: co přišlo
            z téhle adresy a co přišlo na tenhle účet. Každá má vlastní strop —
