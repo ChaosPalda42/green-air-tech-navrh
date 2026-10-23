@@ -269,6 +269,15 @@
       "last_finding": "",
       "packet": "",
       "updated_at": "2026-10-23T14:12:16+00:00"
+    },
+    "C-031": {
+      "status": "pending",
+      "attempts": 0,
+      "iterations": 0,
+      "commit": "",
+      "last_finding": "reset by operator",
+      "packet": "",
+      "updated_at": "2026-10-23T14:24:50+00:00"
     }
   },
   "runs": [
