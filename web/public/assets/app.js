@@ -327,6 +327,27 @@ function jePlatneCislo(hodnota) {
   return typeof hodnota === "number" && Number.isFinite(hodnota);
 }
 
+// ---------------------------------------------------------------- platnost dataUrl
+// Platné jsou jen dvě podoby:
+//   a) data URL: "data:image/…" (ukázka v prohlížeči, obrázek nese sám),
+//   b) cesta k fotce uložené na serveru: PŘESNĚ "media/<jméno>.<přípona>",
+//      kde jméno začíná písmenem/číslicí a dál smí mít jen A-Z a-z 0-9 . _ -,
+//      a přípona je webp, jpg, jpeg, png (malými písmeny).
+// Nic jiného — ne vedoucí "/", "../", "//", žádné schéma, nic za "?" nebo "#".
+// `dataUrl` jde přímo do atributu src, takže cizí adresa je dírou.
+
+const RE_MEDIA = /^media\/[A-Za-z0-9][A-Za-z0-9._-]*\.(webp|jpg|jpeg|png)$/;
+
+function jePlatnyDataUrl(hodnota) {
+  if (typeof hodnota !== "string" || hodnota.length === 0) return false;
+  if (hodnota.startsWith("data:image/")) return true;
+  return RE_MEDIA.test(hodnota);
+}
+
+function jePlatnaCestaMedia(hodnota) {
+  return typeof hodnota === "string" && RE_MEDIA.test(hodnota);
+}
+
 // ---------------------------------------------------------------- normalizace
 
 function normalizujGalerie(cokoli) {
@@ -336,7 +357,7 @@ function normalizujGalerie(cokoli) {
   for (const z of cokoli) {
     if (z === null || typeof z !== "object" || Array.isArray(z)) continue;
     if (!jePlatnyText(z.id)) continue;
-    if (!jePlatnyText(z.dataUrl) || !z.dataUrl.startsWith("data:image/")) continue;
+    if (!jePlatnyDataUrl(z.dataUrl)) continue;
     if (videne.has(z.id)) continue;
     videne.add(z.id);
     vysledek.push({
@@ -418,13 +439,7 @@ function pridejFotky(galerie, nove, limity) {
       f && typeof f === "object" && !Array.isArray(f) && jePlatnyText(f.nazev)
         ? f.nazev
         : "";
-    if (
-      f === null ||
-      typeof f !== "object" ||
-      Array.isArray(f) ||
-      !jePlatnyText(f.dataUrl) ||
-      !f.dataUrl.startsWith("data:image/")
-    ) {
+    if (!jePlatnyDataUrl(f && f.dataUrl)) {
       odmitnuto.push({ nazev, duvod: "neplatny" });
       continue;
     }
@@ -452,7 +467,7 @@ function pridejFotky(galerie, nove, limity) {
       } while (pouzitaId.has(id));
     }
     pouzitaId.add(id);
-    if (typeof f.dataUrl === "string") dataUrls.add(f.dataUrl);
+    dataUrls.add(f.dataUrl);
     bajty += fBajty;
     vysledek.push({ ...f, id });
     pridano += 1;
@@ -520,7 +535,26 @@ function formatVelikost(bajty) {
   return `${cislo} MB`;
 }
 
-return { LIMITY, normalizujGalerie, zkontrolujSoubor, cilovyRozmer, odhadniBajty, pridejFotky, odeberFotku, presunFotku, nastavTitulni, titulni, souhrn, formatVelikost };
+// ---------------------------------------------------------------- zdroj do src
+
+// Adresa do atributu src. Data URL vrátí beze změny (kořen se nepřidává).
+// Cestu "media/…" vrátí s předřazeným `koren` (stránka v podadresáři jazyka
+// má kořen "../"); `koren` chybí nebo není text -> "". Neplatná fotka,
+// neplatný dataUrl, null nebo cokoli jiného -> "" (nikdy null, nikdy cizí adresa).
+function zdrojFotky(fotka, koren) {
+  if (fotka === null || typeof fotka !== "object" || Array.isArray(fotka)) {
+    return "";
+  }
+  const url = fotka.dataUrl;
+  if (typeof url !== "string") return "";
+  if (url.startsWith("data:image/")) return url;
+  if (jePlatnaCestaMedia(url)) {
+    return (typeof koren === "string" ? koren : "") + url;
+  }
+  return "";
+}
+
+return { LIMITY, normalizujGalerie, zkontrolujSoubor, cilovyRozmer, odhadniBajty, pridejFotky, odeberFotku, presunFotku, nastavTitulni, titulni, souhrn, formatVelikost, zdrojFotky };
 })();
 
 GAT.glossary = (function () {
@@ -1698,7 +1732,7 @@ return { vygenerujData, filtrujObdobi, souhrn, zmenaProti, rozdeleni, formatCisl
       var svg = nahled.querySelector("svg");
       if (!svg) return;
       var obr = document.createElement("img");
-      obr.src = fotky[0].dataUrl;
+      obr.src = GAT.fotky.zdrojFotky(fotky[0], window.GAT_KOREN);
       obr.alt = "";
       obr.loading = "lazy";
       nahled.replaceChild(obr, svg);
@@ -1711,15 +1745,17 @@ return { vygenerujData, filtrujObdobi, souhrn, zmenaProti, rozdeleni, formatCisl
     var mini = fotky.length < 2 ? "" :
       '<div class="galerie-pasek">' + fotky.map(function (f, i) {
         return '<button type="button" class="galerie-mini" data-index="' + i + '"' +
-          (i === 0 ? ' aria-current="true"' : "") + '><img src="' + f.dataUrl + '" alt=""></button>';
+          (i === 0 ? ' aria-current="true"' : "") + '><img src="' +
+          GAT.fotky.zdrojFotky(f, window.GAT_KOREN) + '" alt=""></button>';
       }).join("") + "</div>";
-    cil.innerHTML = '<div class="galerie-hlavni"><img src="' + fotky[0].dataUrl +
+    cil.innerHTML = '<div class="galerie-hlavni"><img src="' +
+      GAT.fotky.zdrojFotky(fotky[0], window.GAT_KOREN) +
       '" alt="' + uklid(popis || "") + '"></div>' + mini;
 
     var hlavni = cil.querySelector(".galerie-hlavni img");
     $$(".galerie-mini", cil).forEach(function (tl) {
       tl.addEventListener("click", function () {
-        hlavni.src = fotky[Number(tl.getAttribute("data-index"))].dataUrl;
+        hlavni.src = GAT.fotky.zdrojFotky(fotky[Number(tl.getAttribute("data-index"))], window.GAT_KOREN);
         $$(".galerie-mini", cil).forEach(function (x) {
           if (x === tl) x.setAttribute("aria-current", "true");
           else x.removeAttribute("aria-current");
@@ -1779,7 +1815,7 @@ return { vygenerujData, filtrujObdobi, souhrn, zmenaProti, rozdeleni, formatCisl
       var datum = formatDatum(r.datum);
       var fotky = GAT.fotky ? GAT.fotky.normalizujGalerie(r.fotky) : [];
       var nahled = fotky.length
-        ? '<img src="' + fotky[0].dataUrl + '" alt="" loading="lazy">'
+        ? '<img src="' + GAT.fotky.zdrojFotky(fotky[0], window.GAT_KOREN) + '" alt="" loading="lazy">'
         : motiv(r.motiv != null ? r.motiv : r.id);
       return '<a class="karta-realizace" href="' + href + '">' +
         '<span class="karta-nahled">' + nahled + '<span class="stitky">' + stitky + "</span></span>" +

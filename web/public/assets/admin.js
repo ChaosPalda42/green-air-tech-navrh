@@ -310,7 +310,7 @@
   function nahledRealizace(r) {
     var fotky = F ? F.normalizujGalerie(r.fotky) : [];
     if (!fotky.length) return '<span class="admin-nahled admin-nahled-prazdny" aria-hidden="true"></span>';
-    return '<span class="admin-nahled"><img src="' + fotky[0].dataUrl + '" alt=""></span>' +
+    return '<span class="admin-nahled"><img src="' + F.zdrojFotky(fotky[0], window.GAT_KOREN) + '" alt=""></span>' +
       (fotky.length > 1 ? '<span class="admin-nahled-pocet">+' + (fotky.length - 1) + "</span>" : "");
   }
 
@@ -412,7 +412,9 @@
           sirka: f.sirka || 0,
           vyska: f.vyska || 0,
           bajty: f.bajty || soubor.size,
-          dataUrl: (window.GAT_KOREN || "") + (f.soubor || ""),
+          /* Ve stavu je jen cesta do media — kořen si při kreslení doplní
+              každá stránka sama (v /en/ je o adresář výš). */
+          dataUrl: f.soubor || "",
         };
       });
     }
@@ -486,7 +488,7 @@
       cil.innerHTML = galerieVDialogu
         .map(function (f, i) {
           return '<figure class="admin-fotka" data-fotka="' + uklid(f.id) + '">' +
-            '<img src="' + f.dataUrl + '" alt="' + uklid(f.nazev) + '" loading="lazy">' +
+            '<img src="' + F.zdrojFotky(f, window.GAT_KOREN) + '" alt="' + uklid(f.nazev) + '" loading="lazy">' +
             (i === 0 ? '<span class="admin-fotka-titulni">' + uklid(P.fotkyTitulni) + "</span>" : "") +
             '<figcaption>' + uklid(F.formatVelikost(f.bajty)) + " · " + f.sirka + "×" + f.vyska + "</figcaption>" +
             '<div class="admin-fotka-akce">' +

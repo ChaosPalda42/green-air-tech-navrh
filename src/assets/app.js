@@ -423,7 +423,7 @@
       var svg = nahled.querySelector("svg");
       if (!svg) return;
       var obr = document.createElement("img");
-      obr.src = fotky[0].dataUrl;
+      obr.src = GAT.fotky.zdrojFotky(fotky[0], window.GAT_KOREN);
       obr.alt = "";
       obr.loading = "lazy";
       nahled.replaceChild(obr, svg);
@@ -436,15 +436,17 @@
     var mini = fotky.length < 2 ? "" :
       '<div class="galerie-pasek">' + fotky.map(function (f, i) {
         return '<button type="button" class="galerie-mini" data-index="' + i + '"' +
-          (i === 0 ? ' aria-current="true"' : "") + '><img src="' + f.dataUrl + '" alt=""></button>';
+          (i === 0 ? ' aria-current="true"' : "") + '><img src="' +
+          GAT.fotky.zdrojFotky(f, window.GAT_KOREN) + '" alt=""></button>';
       }).join("") + "</div>";
-    cil.innerHTML = '<div class="galerie-hlavni"><img src="' + fotky[0].dataUrl +
+    cil.innerHTML = '<div class="galerie-hlavni"><img src="' +
+      GAT.fotky.zdrojFotky(fotky[0], window.GAT_KOREN) +
       '" alt="' + uklid(popis || "") + '"></div>' + mini;
 
     var hlavni = cil.querySelector(".galerie-hlavni img");
     $$(".galerie-mini", cil).forEach(function (tl) {
       tl.addEventListener("click", function () {
-        hlavni.src = fotky[Number(tl.getAttribute("data-index"))].dataUrl;
+        hlavni.src = GAT.fotky.zdrojFotky(fotky[Number(tl.getAttribute("data-index"))], window.GAT_KOREN);
         $$(".galerie-mini", cil).forEach(function (x) {
           if (x === tl) x.setAttribute("aria-current", "true");
           else x.removeAttribute("aria-current");
@@ -504,7 +506,7 @@
       var datum = formatDatum(r.datum);
       var fotky = GAT.fotky ? GAT.fotky.normalizujGalerie(r.fotky) : [];
       var nahled = fotky.length
-        ? '<img src="' + fotky[0].dataUrl + '" alt="" loading="lazy">'
+        ? '<img src="' + GAT.fotky.zdrojFotky(fotky[0], window.GAT_KOREN) + '" alt="" loading="lazy">'
         : motiv(r.motiv != null ? r.motiv : r.id);
       return '<a class="karta-realizace" href="' + href + '">' +
         '<span class="karta-nahled">' + nahled + '<span class="stitky">' + stitky + "</span></span>" +
