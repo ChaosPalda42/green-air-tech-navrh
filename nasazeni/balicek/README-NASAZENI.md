@@ -112,20 +112,36 @@ sudo chown www-data:www-data /var/www/greenairtech/web/config
 
 ## 6. Statistiky (Google Analytics)
 
-Měření na webu a nástěnka v administraci jsou dvě různé věci. Všechno se
-vkládá v instalátoru nebo později do `web/config/config.php` (sekce `analytics`):
+**Nemusíte nic zařizovat — měření je připravené.** Vlastnost v Google
+Analytics je pro Green Air Tech založená a klíč k ní je v balíčku jako
+`web/config/ga4.json`. Instalátor má obě pole předvyplněná, takže stačí
+projít formulářem a nástěnka začne po pár hodinách ukazovat návštěvnost.
+
+Jen jedna věc po rozbalení — klíč patří mimo dokumentový kořen (v balíčku
+už tam je) a nikomu jinému než webu do něj nic není:
+
+```bash
+sudo chown www-data:www-data /var/www/greenairtech/web/config/ga4.json
+sudo chmod 640 /var/www/greenairtech/web/config/ga4.json
+```
+
+Měření na webu a nástěnka v administraci jsou dvě různé věci; obojí se
+nastavuje v instalátoru nebo později v `web/config/config.php` (sekce
+`analytics`):
 
 - **ID měření** (`analytics.mereni`, tvar `G-XXXXXXXXXX`, v Analytics →
   Správce → Datové streamy) — vkládá do stránek měřicí kód. Bez něj se
   návštěvnost vůbec nesbírá.
 - **číslo property** (`analytics.property`, jen číslice, Analytics → Správce →
   Podrobnosti o vlastnictví) — odtud nástěnka čte hotová čísla.
-- **servisní účet** (`analytics.klic`) — soubor JSON s klíčem; uložte ho jako
-  `web/config/ga4.json` (mimo dokumentový koren, práva `640`, vlastník `www-data`).
+- **servisní účet** (`analytics.klic`) — cesta ke klíči, standardně
+  `web/config/ga4.json`.
 
-Servisní účet musí být v Analytics přidaný jako čtenář daného vlastnictví.
-Bez těchhle údajů web funguje normálně, jen nástěnka řekne, že statistiky
-nejsou nastavené.
+Chcete-li měřit do vlastního účtu Google Analytics, založte si vlastnost
+a servisní účet, jeho klíč uložte pod stejným jménem místo dodaného,
+v Analytics ho přidejte jako **čtenáře** vlastnosti a v `config.php`
+přepište `mereni` a `property`. Když se `analytics` vyprázdní, web běží
+normálně dál, jen nástěnka řekne, že statistiky nejsou nastavené.
 
 ## 7. Pošta
 
@@ -165,7 +181,7 @@ web/
   app/           kód webu (šablony, obsah, API, databáze)
   data/          výchozí texty a obsah ve třech jazycích
   databaze/      schema.sql
-  config/        config.php (vytvoří instalátor), ga4.json
+  config/        config.php (vytvoří instalátor), ga4.json (klíč ke statistikám)
 ```
 
 Aktualizace webu = rozbalit nový balíček přes starý. Složky `config`,

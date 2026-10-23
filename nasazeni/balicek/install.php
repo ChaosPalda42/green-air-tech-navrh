@@ -54,7 +54,10 @@ $udaje = [
     'db_jmeno' => 'greenairtech', 'db_uzivatel' => 'greenairtech',
     'web' => 'https://' . ($_SERVER['HTTP_HOST'] ?? 'www.greenairtech.cz'),
     'posta_prijemce' => '', 'posta_odesilatel' => '',
-    'ga_mereni' => '', 'ga_property' => '',
+    /* Statistiky chodí z vlastnosti Green Air Tech v Analytics, klíč
+       servisního účtu je v balíčku (config/ga4.json). Kdo chce měřit do
+       svého, přepíše obě pole a klíč vymění. */
+    'ga_mereni' => 'G-WJG99S0K3V', 'ga_property' => '560454014',
     'spravce_jmeno' => '', 'spravce_email' => '',
 ];
 
@@ -106,6 +109,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$hotovo) {
 
             if ($chyby === [] && $pdo !== null) {
                 $v = static fn (mixed $x): string => var_export($x, true);
+                /* Klíč se do nastavení zapíše, jen když tam opravdu leží —
+                   cesta k souboru, který není, by nástěnku tiše vypnula. */
+                $klicGa4 = is_file($koren . '/config/ga4.json') ? $koren . '/config/ga4.json' : '';
+                if ($klicGa4 !== '') {
+                    @chmod($klicGa4, 0o640);
+                }
                 $odesilatel = $udaje['posta_odesilatel'] !== ''
                     ? $udaje['posta_odesilatel']
                     : 'web@' . (parse_url($udaje['web'], PHP_URL_HOST) ?? 'localhost');
@@ -130,7 +139,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$hotovo) {
                     . "    'analytics' => [\n"
                     . "        'mereni' => " . $v($udaje['ga_mereni']) . ",\n"
                     . "        'property' => " . $v($udaje['ga_property']) . ",\n"
-                    . "        'klic' => " . $v($udaje['ga_property'] !== '' ? dirname(__DIR__) . '/config/ga4.json' : '') . ",\n"
+                    . "        'klic' => " . $v($klicGa4 !== '' ? $klicGa4 : '') . ",\n"
                     . "    ],\n"
                     . "];\n";
 
@@ -283,16 +292,19 @@ $a = static fn (string $t): string => htmlspecialchars($t, ENT_QUOTES, 'UTF-8');
     <input id="spravce_heslo" name="spravce_heslo" type="password" autocomplete="new-password" required>
     <p class="napoveda">Dalším lidem pak pošlete pozvánku z administrace, heslo si zvolí sami.</p>
 
-    <h2>Statistiky (nepovinné, dá se doplnit později)</h2>
+    <h2>Statistiky</h2>
     <div class="dvojice">
       <div><label for="ga_mereni">ID měření (G-…)</label>
         <input id="ga_mereni" name="ga_mereni" value="<?= $a($udaje['ga_mereni']) ?>"></div>
       <div><label for="ga_property">Číslo property</label>
         <input id="ga_property" name="ga_property" value="<?= $a($udaje['ga_property']) ?>" inputmode="numeric"></div>
     </div>
-    <p class="napoveda">ID měření vkládá do stránek měřicí kód. Číslo property je potřeba
-    pro nástěnku v administraci — k němu ještě klíč servisního účtu uložte jako
-    <code><?= $a(dirname(__DIR__)) ?>/config/ga4.json</code>. Bez toho web funguje, jen nástěnka zůstane prázdná.</p>
+    <p class="napoveda">Předvyplněné je měření, které pro vás máme založené v Google Analytics;
+    klíč k němu je v balíčku jako <code><?= $a(dirname(__DIR__)) ?>/config/ga4.json</code>
+    <?= is_file(dirname(__DIR__) . '/config/ga4.json') ? '(našel jsem ho)' : '(nenašel jsem ho — nástěnka zůstane prázdná)' ?>.
+    ID měření vkládá do stránek měřicí kód, číslo property potřebuje nástěnka v administraci.
+    Chcete-li měřit do vlastního účtu, obě pole přepište a vyměňte klíč; prázdná pole
+    statistiky vypnou a web běží dál.</p>
 
     <button type="submit"<?= $prostrediOk ? '' : ' disabled' ?>>Nastavit web</button>
     <?php if (!$prostrediOk): ?>

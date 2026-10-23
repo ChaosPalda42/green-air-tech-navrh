@@ -13,3 +13,6 @@ nasazeni/greenairtech-*.zip
 
 # Log odeslané pošty — obsahuje jména a adresy z poptávek, do gitu nikdy
 web/data/posta.log
+
+# Klíč servisního účtu ke GA4 — přístup k Michaelovu Analytics, do gitu nikdy
+nasazeni/klice/

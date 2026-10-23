@@ -33,6 +33,18 @@ printf '%s\n' "Krátká mezipaměť statistik z Google Analytics. Musí být zap
 # --- nastavení: jen vzor, nikdy vlastní config.php ------------------------
 cp web/config/config.vzor.php "$cil/web/config/"
 
+# Klíč ke statistikám (čte vlastnost Green Air Tech v Analytics). Leží mimo
+# git v nasazeni/klice/; bez něj se balíček sestaví taky, jen nástěnka
+# zůstane u klienta prázdná.
+klic="$koren/nasazeni/klice/ga4.json"
+if [ -f "$klic" ]; then
+  cp "$klic" "$cil/web/config/ga4.json"
+  chmod 640 "$cil/web/config/ga4.json"
+  klic_v_balicku="ano"
+else
+  klic_v_balicku="NE — nástěnka zůstane prázdná"
+fi
+
 # --- instalátor a nástroje ------------------------------------------------
 cp nasazeni/balicek/install.php "$cil/web/public/install.php"
 cp tools/sitemap.php "$cil/tools/"
@@ -45,7 +57,15 @@ while IFS= read -r nalez; do
   spatne=1
 done < <(find "$cil" \( \
     -name 'config.php' -o -name 'seed-uzivatele*' -o -name '*.sqlite' -o \
-    -name '.env' -o -name '*.log' -o -name 'ga4.json' -o -name '.git' \) -print)
+    -name '.env' -o -name '*.log' -o -name '.git' \) -print)
+
+# Klíč smí být jedině ve web/config — v dokumentovém kořeni by si ho stáhl kdokoli
+while IFS= read -r nalez; do
+  if [ "${nalez#$cil/}" != "web/config/ga4.json" ]; then
+    echo "KLÍČ NA ŠPATNÉM MÍSTĚ: ${nalez#$cil/}"
+    spatne=1
+  fi
+done < <(find "$cil" -name 'ga4.json' -print)
 
 # ...a naopak: co tam BÝT MUSÍ, jinak se web u klienta nerozběhne
 for musi in web/databaze/schema.sql web/public/index.php web/public/install.php \
@@ -71,3 +91,4 @@ velikost="$(du -h "$zip" | cut -f1 | tr -d ' ')"
 php -l "$cil/web/public/install.php" > /dev/null
 echo "balíček: $zip"
 echo "souborů: $souboru, velikost: $velikost"
+echo "klíč ke statistikám uvnitř: $klic_v_balicku"
