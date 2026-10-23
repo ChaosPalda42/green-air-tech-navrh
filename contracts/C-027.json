@@ -1,0 +1,22 @@
+{
+  "id": "C-027",
+  "file": "web/app/Obsah/Ocista.php",
+  "role": "coder",
+  "title": "Očista textů z administrace (povolené HTML značky)",
+  "interface": "namespace App\\Obsah; final class Ocista\n\nOčista textů, které přišly z administrace. Čisté PHP, žádný stav, žádná síť,\nžádný echo. Vstupní pole se nemutují.\n\npublic static function text(string $text): string\n  Vrátí text, ve kterém zůstaly jen povolené HTML značky; ostatní `<` a `>`\n  jsou zapsané jako `&lt;` a `&gt;`.\n\npublic static function stav(array $stav): array\n  Projde dokument rekurzivně a na KAŽDÝ řetězec (klíče i hodnoty) použije\n  text(). Čísla, logické hodnoty a null zůstávají, jak přišly; struktura\n  (pole/mapa, pořadí klíčů) se nemění.\n",
+  "uses": {},
+  "database": "",
+  "acceptance": "tests/test_php_ocista.py",
+  "dobehly": "",
+  "forbidden": [],
+  "depends_on": [],
+  "budget": {
+    "iterations": 22
+  },
+  "metamorfni_funkce": "",
+  "neutralni_upravy": [],
+  "neutralni_predpony": [],
+  "differential": false,
+  "differential_compare": "exact",
+  "notes": "Čisté PHP 8.5, žádné composer závislosti, žádná rozšíření nad rámec jádra\n(bez mbstring, bez intl, bez DOM). Soubor začíná `<?php`, pak\n`declare(strict_types=1);`, pak `namespace App\\Obsah;`. Jen statické metody.\n\nJMÉNO TŘÍDY i jmenný prostor musí odpovídat cestě souboru, jinak se autoloader\ntřídu nedovolá a akceptace spadne na „Class not found\".\n\nPROČ: texty z administrace se na webu vypisují jako HTML (server i prohlížeč —\napp.js dělá `el.innerHTML = prepisy[klic]`), aby v nich fungovalo `<br>`.\nBez očisty si kdokoli s právem měnit texty vloží do webu `<img src=x\nonerror=…>` nebo `</script>` a web rozseká, případně ukradne sezení správce.\n\ntext() — PŘESNĚ TAKTO:\n1) Nejdřív escapuj VŠECHNY `<` na `&lt;` a `>` na `&gt;`.\n   Ampersand `&` se NEPŘEPISUJE. To je schválně: funkce pak nekóduje podruhé\n   a text uložený dvakrát zůstane stejný (viz test idempotence).\n2) Pak vrať zpět JEN povolené značky. Povolené jsou:\n     br, b, strong, i, em\n   bez jakéhokoli atributu. Velká a malá písmena se neberou v potaz, ale ven\n   se vždycky píše malými.\n   Konkrétně se na značku uzná PŘESNĚ tohle (po escapování):\n     `&lt;jmeno&gt;`        → `<jmeno>`\n     `&lt;jmeno/&gt;`       → `<jmeno>`\n     `&lt;jmeno /&gt;`      → `<jmeno>`   (jedna nebo víc mezer před lomítkem)\n     `&lt;/jmeno&gt;`       → `</jmeno>`\n   Mezery jinde, atributy ani cokoli dalšího uvnitř značky se NEUZNÁVAJÍ —\n   `&lt;br class=\"x\"&gt;` zůstane escapované. U `br` se zavírací značka\n   `</br>` uznává taky (HTML ji ignoruje, nic nerozbije).\n3) Nic jiného se nemění: žádné trimování, žádné sjednocování mezer,\n   žádné odstraňování textu. Prázdný řetězec vrací prázdný řetězec.\n\nNeřeš, jestli jsou značky správně spárované — to HTML snese a očista o tom\nnerozhoduje.\n\nstav() — rekurzivní průchod:\n- řetězec → text()\n- pole/mapa → projdi, klíče, které jsou řetězce, taky přes text()\n  (klíč z administrace se v administraci vypisuje do HTML);\n  číselné klíče zůstávají čísly, pořadí se zachová\n- int, float, bool, null → beze změny\n"
+}

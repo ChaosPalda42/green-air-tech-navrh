@@ -49,7 +49,7 @@ final class Administrace
 
     private static function js(mixed $data): string
     {
-        return json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR);
+        return \App\Jadro\Json::doSkriptu($data);
     }
 
     public static function administrace(Kontext $ctx, array $data): string

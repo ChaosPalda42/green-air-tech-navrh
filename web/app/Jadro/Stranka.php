@@ -225,10 +225,10 @@ final class Stranka
         ];
     }
 
-    /** Totéž co JSON.stringify v prohlížeči. */
+    /** JSON do stránky; `</` se escapuje, aby text z administrace neukončil skript. */
     private static function js(mixed $data): string
     {
-        return json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR);
+        return \App\Jadro\Json::doSkriptu($data);
     }
 
     /** @param list<array<string,mixed>> $seznam */
