@@ -21,8 +21,13 @@ final class Uzivatele
 
     private const MIN_DELKA_HESLA = 12;
 
-    /** Falešný hash pro ověření, když účet (nebo hash) v databázi není. */
-    private const FALESNY_HASH = '$2y$12$abcdefghijklmnopqrstuuu0v1w2x3y4z5a6b7c8d9e0f1g2h3i';
+    /* Falešný hash pro ověření, když účet (nebo hash) v databázi není.
+       Je to SKUTEČNÝ bcrypt (cost 12) k heslu, které nikdo nezná — ne
+       vymyšlený řetězec: ten by mohl příští verze PHP odmítnout dřív, než
+       začne počítat, a časový rozdíl mezi známým a neznámým jménem by se
+       tiše vrátil. Konstanta je v JEDNODUCHÝCH uvozovkách ($2y by se v
+       dvojitých bral jako proměnná) a nikdy se nepočítá za běhu. */
+    private const FALESNY_HASH = '$2y$12$iUDAfChDSBNMmZf4pEaHeec/jmwAtEkhxCZVfSCelxUv7hFd2A3VS';
 
     /** Smí uživatel s danou rolí do dané oblasti? Neznámá role i oblast = ne. */
     public static function smi(string $role, string $oblast): bool
