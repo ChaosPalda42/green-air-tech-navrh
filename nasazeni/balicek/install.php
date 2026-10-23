@@ -33,21 +33,16 @@ $kontroly[] = ['přepisy adres (mod_rewrite)', !function_exists('apache_get_modu
 $prostrediOk = array_reduce($kontroly, static fn (bool $n, array $k): bool => $n && $k[1], true);
 
 /* ------------------------------------------------- už je nainstalováno? */
-$hotovo = false;
-if (is_file($configSoubor)) {
-    try {
-        if (Spojeni::pripraveno()) {
-            $pocet = (int) Spojeni::dej()->query('SELECT COUNT(*) FROM uzivatele')->fetchColumn();
-            $hotovo = $pocet > 0;
-        }
-    } catch (\Throwable) {
-        $hotovo = false;
-    }
-}
+/* Rozhoduje JEN existence config.php. Ptát se na to databáze by znamenalo,
+   že při spadlé databázi (restart, plný disk) instalátor zase nabídne
+   formulář — a kdokoli zvenčí by si tím přepsal nastavení a založil si
+   vlastního správce. */
+$hotovo = is_file($configSoubor);
 
 /* ------------------------------------------------------------- zápis */
 $chyby = [];
 $uspech = false;
+$smazano = false;
 $sitemap = '';
 $udaje = [
     'db_host' => 'localhost', 'db_port' => '3306',
@@ -172,6 +167,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$hotovo) {
                                     . '<code>php tools/sitemap.php</code>.';
                             }
                         }
+                        /* Smazat se musí, ne jen připomenout: v kořeni by
+                           dál stál soubor, který umí přepsat nastavení. */
+                        $smazano = @unlink(__FILE__);
                     } catch (\Throwable $e) {
                         $chyby[] = 'Tabulky se nepovedlo založit: ' . $e->getMessage();
                     }
@@ -233,8 +231,12 @@ $a = static fn (string $t): string => htmlspecialchars($t, ENT_QUOTES, 'UTF-8');
   <div class="hlaska">
     <b>Hotovo.</b> Tabulky jsou založené a účet správce vytvořený.
     <?php if ($sitemap !== ''): ?><p><?= $sitemap ?></p><?php endif; ?>
-    <p>Teď smažte instalátor:</p>
-    <p><code>sudo rm <?= $a(__FILE__) ?></code></p>
+    <?php if ($smazano): ?>
+      <p>Instalátor se sám smazal, není co dodělávat.</p>
+    <?php else: ?>
+      <p><b>Smažte instalátor</b> — sám se smazat nedokázal:</p>
+      <p><code>sudo rm <?= $a(__FILE__) ?></code></p>
+    <?php endif; ?>
     <p>A přihlaste se do administrace: <a href="administrace.html">administrace.html</a></p>
   </div>
 <?php else: ?>

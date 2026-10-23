@@ -94,7 +94,11 @@ a první účet správce. Instalátor:
 2. zapíše `web/config/config.php` (mimo dokumentový koren),
 3. založí tabulky,
 4. vytvoří prvního správce,
-5. řekne vám, že se má `install.php` smazat — **smažte ho**.
+5. smaže se sám.
+
+Jakmile `web/config/config.php` existuje, instalátor už nic nemění — i kdyby
+databáze zrovna neběžela. Kdyby se mu sebesmazání nepovedlo (práva na složku),
+napíše to a smažete ho ručně:
 
 ```bash
 sudo rm /var/www/greenairtech/web/public/install.php
