@@ -62,6 +62,14 @@ final class Zpracovani implements Ulozny
             if ($obraz === false) {
                 throw new RuntimeException('Nepodařilo se načíst obrázek.');
             }
+
+            // Úsporné PNG a skeny přijdou s paletou. imagewebp() takový obrázek
+            // „uloží" jako nula bajtů a vrátí true — převod na truecolor je
+            // jediné, co tomu zabrání. (Zmenšená cesta výš kreslí do
+            // imagecreatetruecolor, té se to netýká.)
+            if (!imageistruecolor($obraz)) {
+                imagepalettetotruecolor($obraz);
+            }
         }
 
         // Bezpečné jméno (hash obsahu původního souboru pro deterministické jméno)
@@ -76,8 +84,17 @@ final class Zpracovani implements Ulozny
             @imagedestroy($obraz);
             throw new RuntimeException('Nepodařilo se uložit WebP.');
         }
-        
+
         @imagedestroy($obraz);
+
+        // imagewebp() umí vrátit true a zapsat nic. Prázdný soubor by se na
+        // webu ukázal jako rozbitý obrázek, tak ho rovnou smažeme a řekneme to.
+        clearstatcache(true, $cestaNaDisk);
+        $bajty = (int) @filesize($cestaNaDisk);
+        if ($bajty <= 0) {
+            @unlink($cestaNaDisk);
+            throw new RuntimeException('Nepodařilo se uložit WebP.');
+        }
 
         return [
             'id' => $id,
@@ -85,7 +102,7 @@ final class Zpracovani implements Ulozny
             'typ' => 'image/webp',
             'sirka' => $sirka,
             'vyska' => $vyska,
-            'bajty' => filesize($cestaNaDisk),
+            'bajty' => $bajty,
             'soubor' => rtrim($this->verejnaCesta, '/') . '/' . $souborJmeno,
         ];
     }

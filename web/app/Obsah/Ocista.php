@@ -27,7 +27,9 @@ final class Ocista
         $parts = preg_split(self::VZOR, $text, -1, PREG_SPLIT_DELIM_CAPTURE);
 
         if ($parts === false) {
-            return '';
+            // Stát by se to nemělo (vzor je pevný), ale kdyby ano, je lepší
+            // vrátit text celý escapovaný než o něj přijít.
+            return str_replace(['<', '>'], ['&lt;', '&gt;'], $text);
         }
 
         $ven = '';

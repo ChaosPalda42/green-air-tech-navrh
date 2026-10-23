@@ -9,6 +9,7 @@ namespace App\Api;
 
 use App\Auth\Uzivatele;
 use App\Fotky\Ulozny;
+use App\Obsah\Ocista;
 use App\Obsah\Stav;
 use App\Statistiky\Poskytovatel;
 
@@ -73,7 +74,10 @@ final class Router
         if (($vysledek['ok'] ?? false) !== true || !isset($vysledek['state']) || !is_array($vysledek['state'])) {
             return self::chyba(400, 'nesmyslny-stav');
         }
-        $novy = $vysledek['state'];
+        // Texty z administrace se na webu vypisují jako HTML (kvůli <br>),
+        // tak se tady očistí — jinak by si kdokoli s právem psát texty vložil
+        // do webu vlastní skript.
+        $novy = Ocista::stav($vysledek['state']);
 
         if (!Zmeny::smiZmenit((string) ($uzivatel['role'] ?? ''), $stary, $novy)) {
             return self::chyba(403, 'nesmis');

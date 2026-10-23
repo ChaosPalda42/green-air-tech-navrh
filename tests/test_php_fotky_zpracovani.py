@@ -37,6 +37,13 @@ $vysoky = imagecreatetruecolor(500, 2000);
 imagefill($vysoky, 0, 0, imagecolorallocate($vysoky, 10, 10, 200));
 imagepng($vysoky, $tmp . '/vysoky.png');
 
+/* Obrázek s paletou (ne truecolor) — takový vyleze z úsporného PNG i ze
+   skenu. imagewebp() ho bez převodu „uloží" jako nula bajtů a vrátí true. */
+$seda = imagecreate(900, 700);
+imagecolorallocate($seda, 255, 255, 255);
+imagefill($seda, 0, 0, imagecolorallocate($seda, 90, 90, 90));
+imagepng($seda, $tmp . '/seda.png');
+
 file_put_contents($tmp . '/podvrh.jpg', "tohle je text, ne obrazek\n");
 file_put_contents($tmp . '/prazdny.jpg', '');
 
@@ -54,6 +61,7 @@ $vysledek = [
     'velky' => $zkus(static fn () => $zpracovani->uloz($tmp . '/velky.jpg', 'Hala Říčany.JPG')),
     'maly' => $zkus(static fn () => $zpracovani->uloz($tmp . '/maly.png', 'maly.png')),
     'vysoky' => $zkus(static fn () => $zpracovani->uloz($tmp . '/vysoky.png', 'vysoky.png')),
+    'seda' => $zkus(static fn () => $zpracovani->uloz($tmp . '/seda.png', 'seda.png')),
     'podvrh' => $zkus(static fn () => $zpracovani->uloz($tmp . '/podvrh.jpg', 'podvrh.jpg')),
     'prazdny' => $zkus(static fn () => $zpracovani->uloz($tmp . '/prazdny.jpg', 'prazdny.jpg')),
     'chybi' => $zkus(static fn () => $zpracovani->uloz($tmp . '/neexistuje.jpg', 'x.jpg')),
@@ -126,7 +134,18 @@ def test_jmeno_souboru_vychazi_z_obsahu(v):
     assert all(c in "0123456789abcdef" for c in jmeno.split(".")[0]), jmeno
     assert v["vysledek"]["velky_znovu"]["v"]["soubor"].split("/")[-1] == jmeno, \
         "tentýž obrázek podruhé dal jiné jméno"
-    assert len(v["soubory"]) == 3, f"na disku je {len(v['soubory'])} souborů místo tří: {list(v['soubory'])}"
+    assert len(v["soubory"]) == 4, f"na disku je {len(v['soubory'])} souborů místo čtyř: {list(v['soubory'])}"
+
+
+def test_obrazek_s_paletou_skonci_na_disku_neprazdny(v):
+    o = v["vysledek"]["seda"]
+    assert o["ok"], f"obrázek s paletou neprošel: {o}"
+    f = o["v"]
+    assert f["bajty"] > 0, "fotka se uložila jako prázdný soubor"
+    disk = v["soubory"][f["soubor"].split("/")[-1]]
+    assert disk["bajtu"] == f["bajty"], "bajty v popisu nesouhlasí se souborem na disku"
+    assert disk["typ"] == "image/webp", f"čekán webp, na disku je {disk['typ']}"
+    assert (disk["sirka"], disk["vyska"]) == (900, 700), disk
 
 
 def test_cizi_soubor_se_odmitne_a_nic_neulozi(v):
