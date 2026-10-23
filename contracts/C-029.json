@@ -1,0 +1,24 @@
+{
+  "id": "C-029",
+  "file": "web/app/Jadro/Sitemapa.php",
+  "role": "coder",
+  "title": "Sitemap.xml a robots.txt ze živého seznamu stránek",
+  "interface": "namespace App\\Jadro; final class Sitemapa\n\nSitemap.xml a robots.txt ostrého webu. Čisté PHP, žádný stav, žádná síť,\nžádný soubor, žádný echo — vrací řetězce. Vstupní pole se nemutují.\n\npublic static function xml(array $site, string $domena, string $dnes): string\n  Celý obsah sitemap.xml pro adresy, které web umí poslat.\n  $site    … dokument site (jazyky, větve, služby, realizace, novinky)\n  $domena  … adresa webu, třeba https://www.greenairtech.cz (i s lomítkem na konci)\n  $dnes    … datum do <lastmod> ve tvaru RRRR-MM-DD\n\npublic static function robots(string $domena): string\n  Celý obsah robots.txt.\n",
+  "uses": {
+    "web/app/Jadro/Stranka.php": "App\\Jadro\\Stranka::seznam(array $site): array — seznam adres, které web umí poslat (list<string>, třeba 'index.html', 'en/kontakt.html')"
+  },
+  "database": "",
+  "acceptance": "tests/test_php_sitemapa.py",
+  "dobehly": "",
+  "forbidden": [],
+  "depends_on": [],
+  "budget": {
+    "iterations": 18
+  },
+  "metamorfni_funkce": "",
+  "neutralni_upravy": [],
+  "neutralni_predpony": [],
+  "differential": false,
+  "differential_compare": "exact",
+  "notes": "Čisté PHP 8.5, žádné composer závislosti, žádná rozšíření nad rámec jádra\n(bez DOM, bez SimpleXML — XML se skládá z řetězců). Soubor začíná `<?php`, pak\n`declare(strict_types=1);`, pak `namespace App\\Jadro;`. Jen statické metody.\n\nJMÉNO TŘÍDY i jmenný prostor musí odpovídat cestě souboru, jinak se autoloader\ntřídu nedovolá a akceptace spadne na „Class not found\".\n\nPROČ: sitemapa se dřív zapsala jednou při instalaci, a to ze souborů v data/.\nJakmile klient přidal realizaci v administraci, vznikla nová stránka, o které\nsitemapa nevěděla — a nikdo ji nepřepíše, protože ten nástroj se pouští\nz příkazové řádky. Proto se teď skládá při každém dotazu z TOHO SAMÉHO\nseznamu adres, jaký web umí poslat.\n\nxml() — PŘESNĚ TAKTO:\n\n1) Seznam adres je `App\\Jadro\\Stranka::seznam($site)`. Nic si nedopočítávej\n   sám: kdyby se seznam stránek změnil, sitemapa se musí změnit s ním.\n2) Vynech adresu, která končí na `404.html`, a adresu, která končí na\n   `administrace.html`. Nic jiného se nevynechává.\n3) Zbytek seřaď `sort($stranky, SORT_STRING)`.\n4) $domena: odřízni lomítka na konci (`rtrim($domena, '/')`).\n5) Výsledek složený přesně takto (pozor na odsazení dvěma mezerami a na\n   konce řádků \\n):\n\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n  <url>\n    <loc>DOMENA/CESTA</loc>\n    <lastmod>DNES</lastmod>\n    <priority>PRIORITA</priority>\n  </url>\n… (jednotlivé <url> oddělené \\n) …\n</urlset>\n\n   a na konci jeden \\n.\n6) PRIORITA: `1.0` pro `index.html`, jinak `0.6` pro cestu, která obsahuje\n   `/` (stránky v cizích jazycích), jinak `0.8`.\n7) Adresa v <loc> se escapuje `htmlspecialchars($adresa, ENT_XML1 | ENT_QUOTES, 'UTF-8')`.\n\nrobots() — přesně tyhle řádky (a nic víc):\n\nUser-agent: *\nAllow: /\nDisallow: /administrace.html\nDisallow: /api/\n\nSitemap: DOMENA/sitemap.xml\n\n(Mezi `Disallow: /api/` a `Sitemap:` je jeden prázdný řádek, na konci \\n.\nDOMENA je zas bez lomítka na konci.)\n"
+}
