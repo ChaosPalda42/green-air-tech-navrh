@@ -16,6 +16,7 @@ App\Jadro\Chyby::nastav();
 App\Jadro\Hlavicky::posli();
 
 use App\Api\Router;
+use App\Auth\Pozvanka;
 use App\Auth\Sezeni;
 use App\Auth\Uzivatele;
 use App\Auth\Zamek;
@@ -189,6 +190,49 @@ if ($kam !== null && $kam['druh'] === 'administrace' && $metoda === 'POST') {
             $uloziste->zapisChybneHeslo($jmeno, $ip);
         }
     }
+    /* Pozvánka: nový uživatel z administrace zatím heslo nemá a nastaví si ho
+       z odkazu administrace.html?pozvanka=<token>. O tom, co se smí stát,
+       rozhoduje App\Auth\Pozvanka — tady se jen najde účet podle tokenu,
+       zapíše hash a člověk se hned přihlásí, ať nemusí heslo psát dvakrát. */
+    if ($akce === 'pozvanka' && $uloziste instanceof UlozisteDb
+        && Sezeni::csrfPlati((string) ($_POST['csrf'] ?? ''))) {
+        $token = trim((string) ($_POST['token'] ?? ''));
+        $ucet = $token !== '' ? $uloziste->podleTokenu($token) : null;
+        $vysledek = Pozvanka::prijmi(
+            $ucet,
+            $token,
+            (string) ($_POST['heslo'] ?? ''),
+            (string) ($_POST['heslo2'] ?? ''),
+        );
+        $sTokenem = $kamZpet . '?pozvanka=' . rawurlencode($token);
+
+        // Propadlý i neznámý token skončí stejně — stránka u sebe řekne, že
+        // pozvánka neplatí, a nic nenapoví o tom, který token existuje.
+        if ($vysledek['stav'] === 'propadla') {
+            header('Location: ' . $sTokenem, true, 303);
+            return;
+        }
+        if ($vysledek['stav'] !== 'ok') {
+            $duvod = $vysledek['stav'] === 'vadne-heslo'
+                ? (string) ($vysledek['duvod'] ?? 'jinak')
+                : $vysledek['stav'];
+            header('Location: ' . $sTokenem . '&chyba=' . rawurlencode($duvod), true, 303);
+            return;
+        }
+
+        $uloziste->ulozUzivatele($vysledek['zapis']);
+        // Načte se znovu, a to bez hesla: do sezení patří role a aktivní
+        // příznak z databáze, ne nic z formuláře.
+        $novy = $uloziste->podleId((int) $vysledek['zapis']['id']);
+        if ($novy !== null) {
+            Sezeni::prihlas($novy);
+            $uloziste->zapisPrihlaseni((int) $novy['id']);
+            $uloziste->zapisUdalost((string) $novy['jmeno'], 'pozvanka');
+        }
+        header('Location: ' . $kamZpet, true, 303);
+        return;
+    }
+
     header('Location: ' . $kamZpet . '?chyba=1', true, 303);
     return;
 }

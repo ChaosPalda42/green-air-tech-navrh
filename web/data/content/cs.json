@@ -1283,7 +1283,7 @@
       "heslo": "Heslo",
       "vstoupit": "Vstoupit",
       "poznamka": "Demo: přihlášení nic neověřuje.",
-      "lead_server": "Zadejte e-mail a heslo, které jste dostali v pozvánce.",
+      "lead_server": "Zadejte jméno a heslo. Nové heslo si nastavíte z odkazu v pozvánce.",
       "chyba": "Nesprávný e-mail nebo heslo. Zkuste to prosím znovu.",
       "zamceno": "Příliš mnoho pokusů o přihlášení. Zkuste to znovu za {minut} min.",
       "poznamka_server": "Zapomenuté heslo vám obnoví správce webu."
@@ -1444,7 +1444,40 @@
       "prava_autor": "Jen novinky a články",
       "poznamka_server": "Každému novému člověku se pošle pozvánka a heslo si nastaví sám. Role určuje, co smí měnit."
     },
-    "uvod_server": "Tady se spravuje obsah webu. Všechno, co tu změníte a uložíte, se hned projeví na veřejných stránkách."
+    "uvod_server": "Tady se spravuje obsah webu. Všechno, co tu změníte a uložíte, se hned projeví na veřejných stránkách.",
+    "pozvanka": {
+      "titulek": "Nastavení hesla",
+      "lead": "Pozvánka pro {jmeno} ({email}). Vyberte si heslo, kterým se budete do administrace přihlašovat.",
+      "heslo": "Nové heslo",
+      "heslo2": "Heslo ještě jednou",
+      "nastavit": "Nastavit heslo a vstoupit",
+      "napoveda": "Heslo musí mít aspoň 12 znaků. Přihlašovat se budete jménem {jmeno}.",
+      "propadla": "Tahle pozvánka už neplatí. Požádejte správce webu, aby vám vystavil novou.",
+      "chyba": {
+        "prazdne": "Heslo nemůže být prázdné.",
+        "kratke": "Heslo musí mít aspoň 12 znaků.",
+        "nesouhlasi": "Hesla se neshodují. Napište je prosím ještě jednou.",
+        "jinak": "Heslo se nepovedlo nastavit. Zkuste to prosím znovu."
+      }
+    },
+    "heslo": {
+      "zmenit": "Změnit heslo",
+      "titulek": "Změna hesla",
+      "stare": "Současné heslo",
+      "nove": "Nové heslo",
+      "nove2": "Nové heslo ještě jednou",
+      "napoveda": "Nové heslo musí mít aspoň 12 znaků.",
+      "ulozit": "Změnit heslo",
+      "zrusit": "Zrušit"
+    },
+    "pozvankaOdkaz": {
+      "titulek": "Pozvánka do administrace",
+      "odkaz": "Odkaz pro nastavení hesla",
+      "napoveda": "Odkaz platí 7 dní a jde použít jednou. Pošlete ho tomu, koho zvete — heslo si zvolí sám, vy ho znát nepotřebujete.",
+      "kopirovat": "Zkopírovat odkaz",
+      "hotovo": "Hotovo",
+      "vystavit": "Vystavit pozvánku"
+    }
   },
   "rozcestnik": {
     "stitek": "Technická zařízení budov",

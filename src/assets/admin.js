@@ -96,14 +96,27 @@
                 .filter(function (u) { return u.id == null; })
                 .map(function (u) {
                   return function () {
-                    return api("POST", "uzivatele", { jmeno: u.jmeno, email: u.email, role: u.role });
+                    return api("POST", "uzivatele", { jmeno: u.jmeno, email: u.email, role: u.role })
+                      .then(function (d) {
+                        /* Server vrátí pozvánku s tokenem; bez ní by nový
+                           uživatel neměl jak heslo nastavit, tak si ji
+                           schováme a po překreslení ukážeme odkaz. */
+                        if (d && d.pozvanka && d.pozvanka.token) {
+                          cekaPozvanka = { jmeno: u.jmeno, email: u.email, token: d.pozvanka.token };
+                        }
+                        return d;
+                      });
                   };
                 })
             );
           prace
             .reduce(function (retez, krok) { return retez.then(krok); }, Promise.resolve())
             .then(function () { return api("GET", "uzivatele"); })
-            .then(function (d) { pamet[k] = JSON.stringify(d.uzivatele || []); vykresliUzivatele(); })
+            .then(function (d) {
+              pamet[k] = JSON.stringify(d.uzivatele || []);
+              vykresliUzivatele();
+              if (cekaPozvanka) { ukazPozvanku(cekaPozvanka); cekaPozvanka = null; }
+            })
             .catch(function (e) { pamet[k] = drive; nestaraSe(e); });
         }
       },
@@ -743,10 +756,31 @@
           '<div class="meta">' + uklid(u.email || "") + "</div></div>" +
           '<div class="info"><div class="nazev">' + uklid(role.nazev) + "</div>" +
           '<div class="meta">' + uklid(role.prava) + "</div></div>" +
-          '<div class="tlacitka"><button type="button" class="tl tl-obrys tl-mala" data-odebrat-uzivatele>' +
+          '<div class="tlacitka">' +
+          (SERVER && u.id != null
+            ? '<button type="button" class="tl tl-obrys tl-mala" data-pozvat-uzivatele>' +
+              POZVANKY.vystavit + "</button>"
+            : "") +
+          '<button type="button" class="tl tl-obrys tl-mala" data-odebrat-uzivatele>' +
           P.odebrat + "</button></div></div>";
       })
       .join("");
+    $$("[data-pozvat-uzivatele]", cil).forEach(function (tl) {
+      tl.addEventListener("click", function () {
+        var u = seznam[Number(tl.closest("[data-uzivatel]").getAttribute("data-uzivatel"))];
+        if (!u || u.id == null) return;
+        if (!window.confirm(POZVANKY.potvrzeni.replace("{jmeno}", u.jmeno))) return;
+        api("POST", "pozvanka", { id: Number(u.id) })
+          .then(function (d) {
+            ukazPozvanku({ jmeno: u.jmeno, email: u.email, token: (d.pozvanka || {}).token });
+          })
+          .catch(function (e) {
+            window.alert(e && e.data && e.data.chyba === "nelze-sam-sebe"
+              ? POZVANKY.sobe
+              : hlaskaChyby(e));
+          });
+      });
+    });
     $$("[data-odebrat-uzivatele]", cil).forEach(function (tl) {
       tl.addEventListener("click", function () {
         if (!window.confirm(P.odebratPotvrzeni)) return;
@@ -775,6 +809,98 @@
     ulozUzivatele(seznam);
     vykresliUzivatele();
   });
+
+  /* ------------------------------------- pozvánky a vlastní heslo
+     Jen na ostrém webu. Nový uživatel nemá heslo — dostane odkaz
+     administrace.html?pozvanka=<token>, kterým si ho nastaví. Vlastní heslo
+     si mění každý sám přes POST /api/heslo; správce cizí heslo nezadává,
+     jen vystaví novou pozvánku. */
+  var POZVANKY = {
+    vystavit: "Pozvánka",
+    potvrzeni: "Vystavit novou pozvánku pro {jmeno}? Dosavadní heslo tím přestane platit.",
+    sobe: "Pozvánku si sám sobě nevystavíte — zrušila by vám heslo. Použijte Změnit heslo.",
+    zkopirovano: "Odkaz je zkopírovaný.",
+    nezkopirovano: "Odkaz se nepovedlo zkopírovat, vyberte ho prosím ručně.",
+    komu: "Pozvánka pro {jmeno} ({email}).",
+    hesloHotovo: "Heslo je změněné.",
+    hesloStare: "Současné heslo nesouhlasí.",
+    hesloNesouhlasi: "Nová hesla se neshodují.",
+    hesloKratke: "Nové heslo musí mít aspoň 12 znaků.",
+    hesloPrazdne: "Heslo nemůže být prázdné.",
+  };
+  var cekaPozvanka = null;
+
+  function otevri(dialog) {
+    if (!dialog) return;
+    if (typeof dialog.showModal === "function") dialog.showModal();
+    else dialog.setAttribute("open", "");
+  }
+
+  function odkazPozvanky(token) {
+    return window.location.origin + window.location.pathname +
+      "?pozvanka=" + encodeURIComponent(token);
+  }
+
+  var dialogPozvanka = $("[data-dialog-pozvanka]");
+
+  function ukazPozvanku(kdo) {
+    if (!kdo || !kdo.token) return;
+    var odkaz = odkazPozvanky(kdo.token);
+    if (!dialogPozvanka) { window.prompt(POZVANKY.komu, odkaz); return; }
+    $("[data-pozvanka-komu]", dialogPozvanka).textContent = POZVANKY.komu
+      .replace("{jmeno}", kdo.jmeno || "")
+      .replace("{email}", kdo.email || "");
+    var pole = $("[data-pozvanka-odkaz]", dialogPozvanka);
+    pole.value = odkaz;
+    otevri(dialogPozvanka);
+    pole.select();
+  }
+
+  if (dialogPozvanka) {
+    $("[data-kopirovat-pozvanku]", dialogPozvanka).addEventListener("click", function () {
+      var pole = $("[data-pozvanka-odkaz]", dialogPozvanka);
+      pole.select();
+      var hotovo = function () { window.alert(POZVANKY.zkopirovano); };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(pole.value).then(hotovo, function () {
+          window.alert(POZVANKY.nezkopirovano);
+        });
+        return;
+      }
+      try { document.execCommand("copy"); hotovo(); }
+      catch (e) { window.alert(POZVANKY.nezkopirovano); }
+    });
+  }
+
+  var dialogHeslo = $("[data-dialog-heslo]");
+  var tlacitkoHeslo = $("[data-moje-heslo]");
+  if (dialogHeslo && tlacitkoHeslo) {
+    var formHeslo = $("[data-heslo-form]", dialogHeslo);
+    tlacitkoHeslo.addEventListener("click", function () {
+      formHeslo.reset();
+      otevri(dialogHeslo);
+    });
+    $("[data-zavrit-heslo]", dialogHeslo).addEventListener("click", function () {
+      dialogHeslo.close();
+    });
+    formHeslo.addEventListener("submit", function () {
+      var f = formHeslo.elements;
+      var stare = f.stare.value;
+      var nove = f.nove.value;
+      if (nove !== f.nove2.value) { window.alert(POZVANKY.hesloNesouhlasi); return; }
+      api("POST", "heslo", { stare: stare, nove: nove })
+        .then(function () { window.alert(POZVANKY.hesloHotovo); })
+        .catch(function (e) {
+          var chyba = e && e.data ? e.data.chyba : "";
+          if (chyba === "spatne-stare-heslo") { window.alert(POZVANKY.hesloStare); return; }
+          if (chyba === "vadne-heslo") {
+            window.alert(e.data.duvod === "prazdne" ? POZVANKY.hesloPrazdne : POZVANKY.hesloKratke);
+            return;
+          }
+          window.alert(hlaskaChyby(e));
+        });
+    });
+  }
 
   /* ------------------------------------------------------- práva rolí
      Matice je stejná jako na serveru (App\Auth\Uzivatele::MATICE) —

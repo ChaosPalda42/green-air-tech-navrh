@@ -192,7 +192,28 @@ final class Stranka
         if (!$ukazka) {
             $uzivatel = \App\Auth\Sezeni::uzivatel();
             $data['csrf'] = \App\Auth\Sezeni::csrf();
-            $data['chybaPrihlaseni'] = isset($_GET['chyba']);
+
+            /* Pozvánka v adrese: administrace.html?pozvanka=<token>. Účet
+               podle tokenu umí najít UlozisteDb; rozhraní Uloziste se kvůli
+               tomu nerozšiřuje, proto method_exists. O platnosti rozhoduje
+               App\Auth\Pozvanka, ne tahle stránka. */
+            $token = trim((string) ($_GET['pozvanka'] ?? ''));
+            $ucetPozvanky = $token !== '' && $uloziste !== null
+                && method_exists($uloziste, 'podleTokenu')
+                ? $uloziste->podleTokenu($token)
+                : null;
+            $data['pozvanka'] = \App\Auth\Pozvanka::proStranku($ucetPozvanky, $token);
+            $data['pozvankaPropadla'] = $token !== '' && $data['pozvanka'] === [];
+            // Důvod, proč se heslo z pozvánky neuznalo (kratke, prazdne,
+            // nesouhlasi). Jen u platné pozvánky — jinak by se hláška o hesle
+            // ukázala tomu, kdo se jen neúspěšně přihlašoval.
+            $data['chybaPozvanky'] = $data['pozvanka'] !== []
+                ? (string) ($_GET['chyba'] ?? '')
+                : '';
+            // „Přihlášení se nepovedlo" patří jen k přihlašovacímu formuláři;
+            // chyba od pozvánky by posílala člověka opravovat jméno a heslo,
+            // které ještě nemá.
+            $data['chybaPrihlaseni'] = isset($_GET['chyba']) && $token === '';
             // Zamčeno kvůli hádání hesla: jiná hláška, ať člověk ví, že
             // nemá smysl zkoušet další heslo.
             $data['zamceno'] = ($_GET['chyba'] ?? '') === 'zamceno'

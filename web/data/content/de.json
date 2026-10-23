@@ -1283,7 +1283,7 @@
       "heslo": "Passwort",
       "vstoupit": "Anmelden",
       "poznamka": "Demo: Die Anmeldung führt keine Prüfung durch.",
-      "lead_server": "Geben Sie die E-Mail-Adresse und das Passwort aus Ihrer Einladung ein.",
+      "lead_server": "Geben Sie Name und Passwort ein. Ein neues Passwort legen Sie über den Link in Ihrer Einladung fest.",
       "chyba": "E-Mail-Adresse oder Passwort ist falsch. Bitte versuchen Sie es erneut.",
       "zamceno": "Zu viele Anmeldeversuche. Bitte versuchen Sie es in {minut} Min. erneut.",
       "poznamka_server": "Ein vergessenes Passwort setzt Ihr Administrator zurück."
@@ -1444,7 +1444,40 @@
       "prava_autor": "Nur Neuigkeiten und Artikel",
       "poznamka_server": "Jede neue Person erhält eine Einladung und legt ihr Passwort selbst fest. Die Rolle bestimmt, was sie ändern darf."
     },
-    "uvod_server": "Hier wird der Inhalt der Website verwaltet. Alles, was Sie hier ändern und speichern, erscheint sofort auf den öffentlichen Seiten."
+    "uvod_server": "Hier wird der Inhalt der Website verwaltet. Alles, was Sie hier ändern und speichern, erscheint sofort auf den öffentlichen Seiten.",
+    "pozvanka": {
+      "titulek": "Passwort festlegen",
+      "lead": "Einladung für {jmeno} ({email}). Wählen Sie das Passwort, mit dem Sie sich anmelden werden.",
+      "heslo": "Neues Passwort",
+      "heslo2": "Passwort wiederholen",
+      "nastavit": "Passwort festlegen und anmelden",
+      "napoveda": "Das Passwort muss mindestens 12 Zeichen haben. Sie melden sich als {jmeno} an.",
+      "propadla": "Diese Einladung ist nicht mehr gültig. Bitten Sie den Administrator um eine neue.",
+      "chyba": {
+        "prazdne": "Das Passwort darf nicht leer sein.",
+        "kratke": "Das Passwort muss mindestens 12 Zeichen haben.",
+        "nesouhlasi": "Die Passwörter stimmen nicht überein. Bitte noch einmal eingeben.",
+        "jinak": "Das Passwort konnte nicht festgelegt werden. Bitte versuchen Sie es erneut."
+      }
+    },
+    "heslo": {
+      "zmenit": "Passwort ändern",
+      "titulek": "Passwort ändern",
+      "stare": "Aktuelles Passwort",
+      "nove": "Neues Passwort",
+      "nove2": "Neues Passwort wiederholen",
+      "napoveda": "Das neue Passwort muss mindestens 12 Zeichen haben.",
+      "ulozit": "Passwort ändern",
+      "zrusit": "Abbrechen"
+    },
+    "pozvankaOdkaz": {
+      "titulek": "Einladung zur Verwaltung",
+      "odkaz": "Link zum Festlegen des Passworts",
+      "napoveda": "Der Link ist 7 Tage gültig und lässt sich einmal verwenden. Schicken Sie ihn der eingeladenen Person — das Passwort wählt sie selbst.",
+      "kopirovat": "Link kopieren",
+      "hotovo": "Fertig",
+      "vystavit": "Einladung ausstellen"
+    }
   },
   "rozcestnik": {
     "stitek": "Technische Gebäudeausrüstung (TGA)",

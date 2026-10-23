@@ -140,6 +140,52 @@ final class Administrace
         <p class="napoveda" style="margin-top:1rem;text-align:center">' . $ctx->t('admin.prihlaseni.poznamka_server') . '</p>
       </form>';
             $upozorneni = '';
+
+            /* Pozvánka: kdo přijde s platným tokenem, nevidí přihlášení
+               (heslo ještě nemá), ale formulář na jeho nastavení. Propadlá
+               pozvánka to naopak řekne a nechá přihlášení. */
+            $pozvanka = (array) ($data['pozvanka'] ?? []);
+            if ($pozvanka !== []) {
+                $chyba = (string) ($data['chybaPozvanky'] ?? '');
+                $hlaska = '';
+                if ($chyba !== '') {
+                    $klic = in_array($chyba, ['prazdne', 'kratke', 'nesouhlasi'], true)
+                        ? $chyba : 'jinak';
+                    $hlaska = '<div class="hlaska hlaska-chyba" data-chyba-pozvanky>'
+                        . self::ikona('info') . '<span>'
+                        . $ctx->t('admin.pozvanka.chyba.' . $klic) . '</span></div>';
+                }
+                $prihlaseni = '<form class="formular" method="post" action="'
+        . $ctx->odkazKoren('administrace.html') . '" style="max-width:26rem;margin-inline:auto">
+        <p class="admin-login-nadpis">' . $ctx->t('admin.pozvanka.titulek') . '</p>
+        <p class="lead" style="font-size:.98rem;margin-bottom:1.4rem">'
+                    . $ctx->t('admin.pozvanka.lead', [
+                        'jmeno' => Layout::a((string) ($pozvanka['jmeno'] ?? '')),
+                        'email' => Layout::a((string) ($pozvanka['email'] ?? '')),
+                    ]) . '</p>
+        ' . $hlaska . '
+        <div class="pole">
+          <label for="pozvanka-heslo">' . $ctx->t('admin.pozvanka.heslo') . '</label>
+          <input type="password" id="pozvanka-heslo" name="heslo" autocomplete="new-password" required>
+        </div>
+        <div class="pole">
+          <label for="pozvanka-heslo2">' . $ctx->t('admin.pozvanka.heslo2') . '</label>
+          <input type="password" id="pozvanka-heslo2" name="heslo2" autocomplete="new-password" required>
+        </div>
+        <input type="hidden" name="akce" value="pozvanka">
+        <input type="hidden" name="token" value="' . Layout::a((string) ($pozvanka['token'] ?? '')) . '">
+        <input type="hidden" name="csrf" value="' . Layout::a((string) ($data['csrf'] ?? '')) . '">
+        <button type="submit" class="tl tl-hlavni" style="width:100%" data-nastavit-heslo>'
+                    . self::ikona('sip') . $ctx->t('admin.pozvanka.nastavit') . '</button>
+        <p class="napoveda" style="margin-top:1rem;text-align:center">'
+                    . $ctx->t('admin.pozvanka.napoveda') . '</p>
+      </form>';
+            } elseif (($data['pozvankaPropadla'] ?? false) === true) {
+                $prihlaseni = '<div class="hlaska hlaska-chyba" data-pozvanka-propadla'
+                    . ' style="max-width:26rem;margin:0 auto 1.4rem">' . self::ikona('info')
+                    . '<span>' . $ctx->t('admin.pozvanka.propadla') . '</span></div>'
+                    . $prihlaseni;
+            }
         }
 
         $metrikyNazvy = [];
@@ -200,6 +246,8 @@ final class Administrace
         </div>
         <div class="admin-akce">
           <a class="tl tl-obrys tl-mala" href="' . $ctx->odkaz('index') . '">' . self::ikona('externi') . $ctx->t('admin.zpetNaWeb') . '</a>
+          ' . ($ctx->ukazka ? '' : '<button type="button" class="tl tl-obrys tl-mala" data-moje-heslo>'
+            . $ctx->t('admin.heslo.zmenit') . '</button>') . '
           <button type="button" class="tl tl-obrys tl-mala" data-odhlasit>' . $ctx->t('admin.odhlasit') . '</button>
         </div>
       </div>
@@ -338,6 +386,37 @@ final class Administrace
     </form>
   </dialog>
 
+' . ($ctx->ukazka ? '' : '
+  <dialog class="admin-dialog" data-dialog-heslo>
+    <form method="dialog" data-heslo-form>
+      <h2>' . $ctx->t('admin.heslo.titulek') . '</h2>
+      <div class="pole"><label for="h-stare">' . $ctx->t('admin.heslo.stare') . '</label><input type="password" id="h-stare" name="stare" autocomplete="current-password" required></div>
+      <div class="pole"><label for="h-nove">' . $ctx->t('admin.heslo.nove') . '</label><input type="password" id="h-nove" name="nove" autocomplete="new-password" required></div>
+      <div class="pole"><label for="h-nove2">' . $ctx->t('admin.heslo.nove2') . '</label><input type="password" id="h-nove2" name="nove2" autocomplete="new-password" required></div>
+      <p class="napoveda">' . $ctx->t('admin.heslo.napoveda') . '</p>
+      <div class="tlacitka" style="justify-content:flex-end;margin-top:1rem">
+        <button type="button" class="tl tl-obrys tl-mala" data-zavrit-heslo>' . $ctx->t('admin.heslo.zrusit') . '</button>
+        <button type="submit" class="tl tl-hlavni tl-mala">' . self::ikona('ulozit') . $ctx->t('admin.heslo.ulozit') . '</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog class="admin-dialog" data-dialog-pozvanka>
+    <form method="dialog" data-pozvanka-form>
+      <h2>' . $ctx->t('admin.pozvankaOdkaz.titulek') . '</h2>
+      <p class="lead" style="font-size:.95rem" data-pozvanka-komu></p>
+      <div class="pole">
+        <label for="p-odkaz">' . $ctx->t('admin.pozvankaOdkaz.odkaz') . '</label>
+        <input type="text" id="p-odkaz" data-pozvanka-odkaz readonly>
+      </div>
+      <p class="napoveda">' . $ctx->t('admin.pozvankaOdkaz.napoveda') . '</p>
+      <div class="tlacitka" style="justify-content:flex-end;margin-top:1rem">
+        <button type="button" class="tl tl-obrys tl-mala" data-kopirovat-pozvanku>' . $ctx->t('admin.pozvankaOdkaz.kopirovat') . '</button>
+        <button type="submit" class="tl tl-hlavni tl-mala">' . $ctx->t('admin.pozvankaOdkaz.hotovo') . '</button>
+      </div>
+    </form>
+  </dialog>
+') . '
   <dialog class="admin-dialog" data-dialog-uzivatel>
     <form method="dialog" data-uzivatel-form>
       <h2>' . $ctx->t('admin.uzivatele.pridat') . '</h2>
