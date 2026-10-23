@@ -112,18 +112,10 @@ def test_balicek_vozi_ini_pro_klienta() -> None:
     )
 
 
-def test_instalator_rekne_kdyz_limity_nestaci() -> None:
-    """Instalátor svítil zeleně a fotky se přitom nahrát nedaly. Limity
-    nejsou důvod instalaci zastavit (web běží), ale člověk to musí vědět."""
-    text = INSTALATOR.read_text()
-    for klic in ("memory_limit", "upload_max_filesize", "post_max_size"):
-        assert f"'{klic}'" in text or f'"{klic}"' in text, (
-            f"instalátor nekontroluje {klic} — zeleně svítí server, na kterém "
-            "se fotka nenahraje"
-        )
-    assert "greenairtech.ini" in text, (
-        "instalátor neporadí, co s tím: v balíčku je hotový greenairtech.ini"
-    )
+# Jak instalátor mluví o limitech, hlídá tests/test_balicek_verze_php.py —
+# tam se stránka opravdu vykreslí (s limity čistého Debianu i s dostatečnými).
+# Čtení zdrojáku, které tu stálo dřív, projde i podmínce, co se nikdy
+# nevykreslí (nález K4 od testovací session).
 
 
 def test_readme_mluvi_o_limitech_php() -> None:

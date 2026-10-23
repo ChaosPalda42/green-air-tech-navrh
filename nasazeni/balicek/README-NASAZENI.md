@@ -8,7 +8,7 @@ Rozbalit, založit databázi, projít instalátor. Hotovo.
 | | |
 |---|---|
 | Debian | 13 (trixie) |
-| PHP | 8.5 (testováno na 8.5.12) |
+| PHP | 8.5.12 a novější (testováno na 8.5.12), nebo 8.4.27 a novější |
 | Rozšíření PHP | `php8.5-mysql` (PDO), `php8.5-gd` (fotky), `php8.5-mbstring` (české texty), `php8.5-curl` (statistiky) |
 | Databáze | MariaDB 10.6+ (testováno na 11.8) |
 | Web server | Apache 2.4 s `mod_rewrite`, nebo nginx |
@@ -41,6 +41,44 @@ php -m | grep -E '^(pdo_mysql|gd|mbstring|curl|openssl|ctype)$'
 
 Bez `mbstring` nebo `curl` se web nerozběhne — instalátor to pozná
 a nepustí vás dál.
+
+### Minimální verze PHP (tohle prosím nepřeskočte)
+
+PHP vydalo 21. 10. 2026 mimořádné opravy dvou kritických chyb, které
+dovolovaly spustit na serveru cizí kód bez přihlášení. **Nasazujte jen na
+opravenou verzi:**
+
+| Řada PHP | První opravená |
+|---|---|
+| 8.5 | **8.5.12** |
+| 8.4 | **8.4.27** |
+| 8.3 | 8.3.36 |
+| 8.2 | 8.2.35 |
+
+Ověříte si to takto — číslo musí být stejné nebo vyšší:
+
+```bash
+php -v
+```
+
+Když je nižší, doinstalujte aktualizace (u Sury i u Debianu stačí obojí):
+
+```bash
+sudo apt update && sudo apt upgrade
+```
+
+Instalátor verzi porovná sám a na starší to napíše červeně. **Aktualizace
+PHP si pak nechte instalovat dál** — bezpečnostní opravy vycházejí každý
+měsíc a server, který je nedostává, je otevřené okno:
+
+```bash
+sudo apt install -y unattended-upgrades
+sudo dpkg-reconfigure -plow unattended-upgrades
+```
+
+Soubor `greenairtech.ini` (sekce 4) k tomu vypíná `session.upload_progress`
+— tam je od 23. 10. 2026 další chyba, na kterou oprava zatím není. Web ho
+nepoužívá, takže o nic nepřijdete.
 
 ## 1. Rozbalit
 

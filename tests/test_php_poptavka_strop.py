@@ -183,6 +183,30 @@ for ($i = 0; $i < 3; $i++) {
 }
 $ven['bez_adresy'] = array_values(array_unique($bez));
 
+/* ---- K1: bez nastavení proxy se hlavičce nevěří ----
+   Dokud se X-Forwarded-For věřilo vždycky, stačilo ke každé zprávě poslat
+   jinou hodnotu a strop neexistoval. Teď bez ['proxy' => ['verit' => true]]
+   rozhoduje REMOTE_ADDR, takže devět zpráv z jednoho stroje sdílí JEDNU
+   kvótu — a pro srovnání se totéž pošle s důvěrou zapnutou, kde má každá
+   hlavička kvótu svou. Tahle druhá polovina je ta, která by u staré
+   Adresy platila pořád, takže brána má zuby i bez starého kódu. */
+Config::nastav(['posta' => ['zpusob' => 'log'], 'ukazka' => false]);
+$db = cistaDb();
+$bezProxy = [];
+for ($i = 0; $i <= {STROP_ADRESA}; $i++) {
+    $bezProxy[] = posli($db, $zdroj, '203.0.113.' . (100 + $i));
+}
+$ven['bez_proxy_podvrzene'] = $bezProxy;
+
+Config::nastav(['posta' => ['zpusob' => 'log'], 'ukazka' => false,
+    'proxy' => ['verit' => true]]);
+$db = cistaDb();
+$sProxy = [];
+for ($i = 0; $i <= {STROP_ADRESA}; $i++) {
+    $sProxy[] = posli($db, $zdroj, '203.0.113.' . (100 + $i));
+}
+$ven['s_proxy_podvrzene'] = $sProxy;
+
 @unlink($logPosty);
 echo json_encode($ven, JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR);
 """
@@ -205,6 +229,26 @@ def v(tmp_path_factory):
     if hotovo.returncode != 0:
         raise AssertionError("PHP spadlo: " + (hotovo.stderr or hotovo.stdout).strip()[-800:])
     return json.loads(hotovo.stdout)
+
+
+def test_bez_proxy_se_podvrzene_hlavicce_neveri(v):
+    """Nález K1: hlavičkám se smí věřit jen tam, kde je před webem proxy.
+    Jinak si kdokoli ke každé zprávě vymyslí jinou X-Forwarded-For a strop
+    poptávek je jen ozdoba."""
+    bez = v["bez_proxy_podvrzene"]
+    assert bez[:STROP_ADRESA] == [200] * STROP_ADRESA, (
+        f"bez nastavení proxy musí projít prvních {STROP_ADRESA} zpráv, "
+        f"dostal jsem {bez}"
+    )
+    assert bez[STROP_ADRESA] == 429, (
+        "devátá zpráva z jednoho stroje prošla jen proto, že měla jinou "
+        f"X-Forwarded-For — strop se dá obejít jednou hlavičkou: {bez}"
+    )
+    s_proxy = v["s_proxy_podvrzene"]
+    assert s_proxy == [200] * (STROP_ADRESA + 1), (
+        "se zapnutou důvěrou má každá adresa z hlavičky kvótu svou; kdyby "
+        f"ne, neměří se tady nic: {s_proxy}"
+    )
 
 
 def test_na_jednu_adresu_plati_strop(v):

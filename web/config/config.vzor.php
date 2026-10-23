@@ -27,6 +27,20 @@ return [
         'smtp' => ['host' => '', 'port' => 587, 'uzivatel' => '', 'heslo' => '', 'zabezpeceni' => 'tls'],
     ],
 
+    /* Adresa návštěvníka. Strop poptávek a zámek administrace potřebují
+       vědět, odkud požadavek přišel. Hlavičkám (X-Forwarded-For,
+       CF-Connecting-IP) se věří JEN tehdy, když to tady povolíte — jinak by
+       si kdokoli ke každé zprávě vymyslel jinou adresu a strop obešel.
+         'verit'  => true jen když před webem opravdu stojí proxy nebo
+                     Cloudflare; při přímém běhu na Apache nechte false.
+         'adresy' => (nepovinné) adresy nebo sítě té proxy, například
+                     ['10.0.0.5', '172.16.0.0/12', '2001:db8::/32'].
+                     Prázdný seznam = věřit hlavičce od kohokoli. */
+    'proxy' => [
+        'verit' => false,
+        'adresy' => [],
+    ],
+
     'analytics' => [
         // ID měřicího streamu GA4, např. G-XXXXXXXXXX — vkládá se do stránek
         'mereni' => '',

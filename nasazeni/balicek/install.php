@@ -21,6 +21,15 @@ if (empty($_SESSION['instalator_csrf'])) {
 $csrf = $_SESSION['instalator_csrf'];
 
 /* ---------------------------------------------------------- prostředí */
+/* Řada PHP -> první verze bez známých kritických děr (php.net, mimořádné
+   vydání 21. 10. 2026: CVE-2026-109618 a CVE-2026-109619 dovolovaly spustit
+   cizí kód bez přihlášení). Web poběží i na starší, ale server s dírou
+   nikdo nehlídá za vás — proto o tom instalátor řekne nahlas. */
+$opravenePhp = ['8.5' => '8.5.12', '8.4' => '8.4.27', '8.3' => '8.3.36', '8.2' => '8.2.35'];
+$radaPhp = PHP_MAJOR_VERSION . '.' . PHP_MINOR_VERSION;
+$opravenaPhp = $opravenePhp[$radaPhp] ?? null;
+$starePhp = $opravenaPhp !== null && version_compare(PHP_VERSION, $opravenaPhp, '<');
+
 $kontroly = [];
 $kontroly[] = ['PHP 8.2 nebo novější (' . PHP_VERSION . ')', version_compare(PHP_VERSION, '8.2.0', '>='), 'php8.5 php8.5-mysql php8.5-gd'];
 $kontroly[] = ['rozšíření pdo_mysql', extension_loaded('pdo_mysql'), 'apt install php8.5-mysql'];
@@ -90,6 +99,11 @@ $udaje = [
        svého, přepíše obě pole a klíč vymění. */
     'ga_mereni' => 'G-WJG99S0K3V', 'ga_property' => '560454014',
     'spravce_jmeno' => '', 'spravce_email' => '',
+    /* Stojí před webem proxy nebo Cloudflare? Rozhoduje to, jestli se smí
+       věřit hlavičce s adresou návštěvníka. Výchozí je NE: na přímém
+       Apache by podvržená X-Forwarded-For obešla strop poptávek i zámek
+       administrace. */
+    'proxy' => '',
 ];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$hotovo) {
@@ -166,6 +180,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$hotovo) {
                     . "        'odesilatel' => " . $v($odesilatel) . ",\n"
                     . "        'zpusob' => 'mail',\n"
                     . "        'smtp' => ['host' => '', 'port' => 587, 'uzivatel' => '', 'heslo' => '', 'zabezpeceni' => 'tls'],\n"
+                    . "    ],\n\n"
+                    . "    'proxy' => [\n"
+                    . "        'verit' => " . ($udaje['proxy'] !== '' ? 'true' : 'false') . ",\n"
+                    . "        'adresy' => [],\n"
                     . "    ],\n\n"
                     . "    'analytics' => [\n"
                     . "        'mereni' => " . $v($udaje['ga_mereni']) . ",\n"
@@ -277,6 +295,22 @@ $a = static fn (string $t): string => htmlspecialchars($t, ENT_QUOTES, 'UTF-8');
   <?php endforeach; ?>
   </ul>
 
+  <?php if ($starePhp): ?>
+    <div class="hlaska hlaska-chyba">
+      <p><b>PHP <?= $a(PHP_VERSION) ?> má známé kritické chyby.</b>
+         V řadě <?= $a($radaPhp) ?> je opravená <code><?= $a($opravenaPhp) ?></code>
+         a novější — dokud ji nenasadíte, může cizí člověk spustit na serveru
+         vlastní kód bez přihlášení.</p>
+      <p><code>sudo apt update &amp;&amp; sudo apt upgrade</code><br>
+         <code>php -v</code></p>
+      <p class="napoveda">Instalaci to nebrání, ale nasazení na takový server
+         nedoporučujeme. Aktualizace PHP si pak nechte instalovat automaticky.</p>
+    </div>
+  <?php elseif ($opravenaPhp !== null): ?>
+    <p class="napoveda">PHP <?= $a(PHP_VERSION) ?> je v řadě <?= $a($radaPhp) ?>
+       opravené (<?= $a($opravenaPhp) ?> a novější).</p>
+  <?php endif; ?>
+
   <?php if ($varovani !== []): ?>
     <div class="hlaska hlaska-chyba">
       <p><b>Fotky se do administrace nenahrají</b> — PHP má moc malé limity:</p>
@@ -320,6 +354,15 @@ $a = static fn (string $t): string => htmlspecialchars($t, ENT_QUOTES, 'UTF-8');
         <input id="posta_odesilatel" name="posta_odesilatel" value="<?= $a($udaje['posta_odesilatel']) ?>"></div>
     </div>
     <p class="napoveda">Odesílatel musí být na vaší doméně, jinak pošta skončí ve spamu.</p>
+
+    <p><label><input type="checkbox" name="proxy" value="1"<?= $udaje['proxy'] !== '' ? ' checked' : '' ?>>
+      Web stojí za proxy nebo za Cloudflare</label></p>
+    <p class="napoveda">Zaškrtněte jen tehdy, když požadavky k Apache chodí přes
+    něco dalšího (Cloudflare, nginx, load balancer). Web pak bere adresu
+    návštěvníka z hlavičky <code>X-Forwarded-For</code> nebo
+    <code>CF-Connecting-IP</code> — na to se spoléhá strop poptávek i zámek
+    administrace. Při přímém běhu nechte prázdné: jinak by si kdokoli
+    vymyšlenou hlavičkou obě ochrany obešel.</p>
 
     <h2>První účet správce</h2>
     <div class="dvojice">
