@@ -155,12 +155,12 @@
     },
     "C-018": {
       "status": "green",
-      "attempts": 2,
-      "iterations": 4,
-      "commit": "53b2639",
+      "attempts": 3,
+      "iterations": 8,
+      "commit": "a6bc10b",
       "last_finding": "",
       "packet": "",
-      "updated_at": "2026-10-23T13:03:10+00:00"
+      "updated_at": "2026-10-23T17:12:24+00:00"
     },
     "C-019": {
       "status": "green",
@@ -272,12 +272,30 @@
     },
     "C-031": {
       "status": "green",
-      "attempts": 2,
-      "iterations": 25,
-      "commit": "b62cf0d",
+      "attempts": 4,
+      "iterations": 47,
+      "commit": "0ee4ca8",
       "last_finding": "",
       "packet": "",
-      "updated_at": "2026-10-23T14:38:04+00:00"
+      "updated_at": "2026-10-23T17:52:23+00:00"
+    },
+    "C-032": {
+      "status": "pending",
+      "attempts": 1,
+      "iterations": 20,
+      "commit": "",
+      "last_finding": "contract replaced by operator",
+      "packet": "P-015",
+      "updated_at": "2026-10-23T17:52:22+00:00"
+    },
+    "C-033": {
+      "status": "escalated",
+      "attempts": 1,
+      "iterations": 19,
+      "commit": "",
+      "last_finding": "acceptance failed (1 failed); [SUSPECT_ACCEPTANCE] tests/test_php_meze_realizaci.py: suspect: acceptance — dva různé modely skončily na téže množině padajících uzlů (1): tests/test_php_meze_realizaci.py::test_meze_realizaci[dlouh\\xfd. Nehnuté dno napříč rodinami modelů bývá nesplnitelná akceptace, n",
+      "packet": "P-016",
+      "updated_at": "2026-10-23T18:07:59+00:00"
     }
   },
   "runs": [
@@ -580,7 +598,29 @@
       "red": 0,
       "escalated": 0,
       "note": "test_command passed (544 tests)"
+    },
+    {
+      "started_at": "2026-10-23T17:09:35+00:00",
+      "finished_at": "2026-10-23T17:41:33+00:00",
+      "outcome": "needs-operator",
+      "iterations": 46,
+      "green": 30,
+      "red": 0,
+      "escalated": 2,
+      "note": "2 packet(s) waiting"
+    },
+    {
+      "started_at": "2026-10-23T17:52:23+00:00",
+      "finished_at": "2026-10-23T18:07:59+00:00",
+      "outcome": "needs-operator",
+      "iterations": 19,
+      "green": 31,
+      "red": 0,
+      "escalated": 1,
+      "note": "1 packet(s) waiting"
     }
   ],
-  "open_packets": []
+  "open_packets": [
+    "P-016"
+  ]
 }
