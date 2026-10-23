@@ -176,6 +176,39 @@ Kdyby v dokumentovém korenu zůstal starý `sitemap.xml` nebo `robots.txt`
 (třeba z ručního nasazení), Apache by poslal ten soubor a sitemapa by
 přestala stárnout — smažte je.
 
+## 9. Zabezpečení — co web dělá sám
+
+Bezpečnostní hlavičky posílá PHP, ne `.htaccess`. Platí proto i za nginxem
+a nedá se je omylem vypnout přepsáním souboru:
+
+| Hlavička | Co dělá |
+| --- | --- |
+| `Content-Security-Policy` | skripty jen z webu a z Google Tag Manageru (měření), stránku nelze vložit do cizího rámu, formulář nelze odeslat jinam |
+| `X-Frame-Options: SAMEORIGIN` | totéž pro starší prohlížeče |
+| `X-Content-Type-Options: nosniff` | prohlížeč nehádá typ souboru |
+| `Referrer-Policy` | na cizí web neposílá celou adresu |
+| `Permissions-Policy` | web si nesmí říct o polohu, mikrofon, kameru ani platby |
+| `Strict-Transport-Security` | **jen po HTTPS**, 180 dní, i pro subdomény |
+
+HSTS se po HTTP záměrně neposílá — na webu bez certifikátu by se tím dal
+web zamknout. Certifikát tedy nasaďte dřív, než pustíte lidi na adresu.
+
+Co ještě web hlídá sám:
+
+- **Přihlašování**: 10 chybných hesel během 15 minut a přihlášení se na
+  15 minut zamkne (počítá se podle jména i podle IP, takže nová cookie
+  ani nový prohlížeč nepomůžou). Hesla se ukládají jen jako hash.
+- **Administrace se neindexuje**: stránka má `noindex` a `robots.txt` ji
+  zakazuje.
+- **Poptávkový formulář** má skrytou past na roboty a strop 20 odeslání
+  za 10 minut.
+- **Nahrané fotky** se vždy převedou na WebP a ve složce `media` se nic
+  nespustí jako PHP.
+- **Instalátor se po nasazení sám smaže.** Kdyby na serveru z nějakého
+  důvodu zůstal (`web/public/install.php`), smažte ho — podruhé se už
+  nespustí, protože existuje `config/config.php`, ale nemá tam co dělat.
+- **Chyby se nikdy nevypisují do stránky**, jde všechno do logu Apache.
+
 ## Co kde je
 
 ```
