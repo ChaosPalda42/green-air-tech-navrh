@@ -75,7 +75,7 @@ final class Poptavka
         /* Strop se počítá až tady, za kontrolou polí: medová past ani
            nevyplněný formulář kvótu neujídají, protože se nikam neukládají —
            jinak by robot vypnul formulář nesmysly. */
-        $ip = Adresa::navstevnika($_SERVER);
+        $ip = Adresa::navstevnika($_SERVER, Config::dej('proxy', []));
         if ($uloziste instanceof UlozisteDb
             && ($uloziste->pocetPoptavekZAdresy($ip, self::OKNO) >= self::STROP_ADRESA
                 || $uloziste->pocetPoptavekZa(self::OKNO) >= self::STROP_CELKEM)) {

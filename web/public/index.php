@@ -164,10 +164,12 @@ if ($kam !== null && $kam['druh'] === 'administrace' && $metoda === 'POST') {
 
         /* Adresa návštěvníka. Za Cloudflare nebo za proxy má REMOTE_ADDR
            každý stejnou, a protože se zamyká i podle adresy, zamkl by jeden
-           útočník všechny. Proto se bere adresa z hlavičky, když přijde.
-           Podvržená hlavička strop na účet neotevře: ten se počítá zvlášť.
+           útočník všechny. Proto se bere adresa z hlavičky — ale JEN když
+           nastavení webu řekne, že web za proxy opravdu stojí ('proxy' =>
+           ['verit' => true]). Bez toho by si hlavičku poslal sám útočník a
+           zámek podle adresy by obešel jedním řádkem v požadavku.
            Luští to App\Jadro\Adresa — stejně jako u stropu poptávek. */
-        $ip = Adresa::navstevnika($_SERVER);
+        $ip = Adresa::navstevnika($_SERVER, Config::dej('proxy', []));
 
         /* Hádání hesla se počítá v databázi, a to ve dvou sadách: co přišlo
            z téhle adresy a co přišlo na tenhle účet. Každá má vlastní strop —

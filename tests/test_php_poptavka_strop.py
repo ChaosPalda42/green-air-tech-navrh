@@ -45,7 +45,10 @@ use App\Jadro\Config;
 use App\Jadro\Poptavka;
 use App\Obsah\ZdrojJson;
 
-Config::nastav(['posta' => ['zpusob' => 'log'], 'ukazka' => false]);
+/* Hlavičkám se věří jen za proxy (nález K1) — tenhle test adresy rozlišuje
+   přes X-Forwarded-For, takže si tu proxy zapne. */
+Config::nastav(['posta' => ['zpusob' => 'log'], 'ukazka' => false,
+    'proxy' => ['verit' => true]]);
 $logPosty = '{KOREN}/web/data/posta.log';
 @unlink($logPosty);
 

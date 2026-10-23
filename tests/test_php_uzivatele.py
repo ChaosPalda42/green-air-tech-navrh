@@ -85,6 +85,33 @@ echo json_encode([
         'token2' => $poz2['token'],
         'do1' => $poz1['do'],
     ],
+    'odmitne_neznamy_ucet' => Uzivatele::overHeslo(null, 'Tajne-Heslo-123'),
+    /* Časy ověření hesla. Měří se střední hodnota z několika pokusů, aby
+       jedno zdržení stroje nerozhodovalo. Pravidlo je v akceptaci (Pythonu):
+       neznámý účet nesmí odpovědět výrazně rychleji než známý — jinak se dá
+       z času poznat, která jména v administraci existují. */
+    'casy' => (static function () use ($hash): array {
+        $uz = ['jmeno' => 'pavel', 'heslo_hash' => $hash, 'aktivni' => 1];
+        $pripady = [
+            'znamy_ucet_spatne_heslo' => static fn (): bool => Uzivatele::overHeslo($uz, 'spatne-heslo-123'),
+            'neznamy_ucet' => static fn (): bool => Uzivatele::overHeslo(null, 'spatne-heslo-123'),
+            'ucet_bez_hashe' => static fn (): bool => Uzivatele::overHeslo(['jmeno' => 'x'], 'spatne-heslo-123'),
+            'neaktivni_ucet' => static fn (): bool => Uzivatele::overHeslo(
+                ['heslo_hash' => $hash, 'aktivni' => 0], 'spatne-heslo-123'),
+        ];
+        $ven = [];
+        foreach ($pripady as $klic => $volani) {
+            $mereni = [];
+            for ($i = 0; $i < 5; $i++) {
+                $zacatek = hrtime(true);
+                $volani();
+                $mereni[] = (hrtime(true) - $zacatek) / 1e6;
+            }
+            sort($mereni);
+            $ven[$klic] = $mereni[2];   // prostřední z pěti
+        }
+        return $ven;
+    })(),
     'pozvanka_plati' => Uzivatele::pozvankaPlati($poz1),
     'pozvanka_propadla' => Uzivatele::pozvankaPlati(['token' => $poz1['token'], 'do' => '2020-01-01 00:00:00']),
     'pozvanka_bez_tokenu' => Uzivatele::pozvankaPlati(['do' => $poz1['do']]),
@@ -169,3 +196,22 @@ def test_pozvanka_je_nahodna_a_casove_omezena(v):
     assert v["pozvanka_plati"] is True
     assert v["pozvanka_propadla"] is False, "propadlá pozvánka pořád platí"
     assert v["pozvanka_bez_tokenu"] is False
+
+
+def test_neznamy_ucet_neodpovida_rychleji(v):
+    """Nález K3 z kola 2: existující účet ~0,20 s, neznámé jméno ~0,01 s —
+    z času jde poznat, která jména v administraci existují. Heslo se proto
+    musí ověřit i tam, kde není co ověřovat (proti falešnému hashi)."""
+    assert v["odmitne_neznamy_ucet"] is False, "neznámý účet (null) musí vrátit false"
+
+    c = v["casy"]
+    znamy = c["znamy_ucet_spatne_heslo"]
+    assert znamy > 5, (
+        f"ověření hesla u známého účtu trvalo {znamy:.2f} ms — to na bcrypt "
+        "nevypadá a měření nemá co srovnávat"
+    )
+    for klic in ("neznamy_ucet", "ucet_bez_hashe", "neaktivni_ucet"):
+        assert c[klic] >= znamy * 0.5, (
+            f"{klic} odpověděl za {c[klic]:.2f} ms, známý účet za {znamy:.2f} ms — "
+            "z rozdílu se dá vyčíst, který účet existuje"
+        )

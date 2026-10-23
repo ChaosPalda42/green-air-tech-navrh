@@ -1,18 +1,18 @@
 {
-  "id": "C-018",
-  "file": "web/app/Auth/Uzivatele.php",
-  "role": "coder",
-  "title": "Uživatelé administrace: role, oprávnění, hesla a pozvánky",
-  "interface": "namespace App\\Auth; final class Uzivatele\n\npublic const OBLASTI = ['texty', 'realizace', 'novinky', 'uzivatele', 'statistiky'];\npublic const ROLE = ['spravce' => [...oblasti...], 'editor' => [...], 'autor' => [...]];\n\npublic static function smi(string $role, string $oblast): bool\npublic static function hash(string $heslo): string\npublic static function overHeslo(array $uzivatel, string $heslo): bool\npublic static function zkontrolujHeslo(string $heslo): ?string\n   null = v pořádku, jinak krátký důvod ('kratke')\npublic static function zkontroluj(array $uzivatel): array\n   seznam jmen vadných polí: 'jmeno', 'email', 'role'; prázdné pole = v pořádku\npublic static function pozvanka(): array   // ['token' => 64 hex, 'do' => 'YYYY-MM-DD HH:MM:SS']\npublic static function pozvankaPlati(array $pozvanka): bool",
-  "uses": {
-    "App\\Formular\\Validace": "isEmail(string $email): bool"
-  },
-  "acceptance": "tests/test_php_uzivatele.py",
-  "notes": "Čisté PHP 8.5, žádné composer závislosti, žádná rozšíření nad rámec jádra. Soubor začíná `<?php`, pak `declare(strict_types=1);`, pak `namespace …;`. Jen statické metody, žádný stav, žádný echo, žádná databáze — ukládání dělá jiná vrstva.\n\nMatice práv je daná tím, co ukázka slibuje klientovi (data/content/cs.json → admin.uzivatele.prava_*):\n- spravce: „Všechno včetně uživatelů a statistik“ → všech pět oblastí\n- editor: „Texty, realizace a novinky“ → texty, realizace, novinky\n- autor: „Jen novinky a články“ → novinky\nNeznámá role ani neznámá oblast nesmí projít.\n\nHesla: `hash` používá password_hash s PASSWORD_DEFAULT (sůl se generuje sama, dvakrát totéž heslo musí dát jiný hash). `overHeslo` bere pole uživatele ['heslo_hash' => …, 'aktivni' => …]: prázdné heslo, chybějící hash i nepravdivé 'aktivni' znamenají false (klíč 'aktivni', když chybí, se bere jako pravda). `zkontrolujHeslo` hlídá JEN délku po otrimování (aspoň 10 znaků) — žádné nucené číslice a velká písmena, to lidi vede k horším heslům; delší heslo se nikdy neodmítá.\n\nPozvánka: token je 32 náhodných bajtů z random_bytes v hexu (64 znaků malými písmeny), 'do' je datum a čas za sedm dní v tvaru 'Y-m-d H:i:s'. `pozvankaPlati` vrací true jen tehdy, když je token správného tvaru a 'do' je v budoucnosti.",
-  "budget": {
-    "iterations": 15
-  },
-  "depends_on": [
-    "C-015"
-  ]
+ "id": "C-018",
+ "file": "web/app/Auth/Uzivatele.php",
+ "role": "coder",
+ "title": "Uživatelé administrace: role, oprávnění, hesla a pozvánky",
+ "interface": "namespace App\\Auth; final class Uzivatele\n\npublic const OBLASTI = ['texty', 'realizace', 'novinky', 'uzivatele', 'statistiky'];\npublic const ROLE = ['spravce' => [...oblasti...], 'editor' => [...], 'autor' => [...]];\n\npublic static function smi(string $role, string $oblast): bool\npublic static function hash(string $heslo): string\npublic static function overHeslo(?array $uzivatel, string $heslo): bool\n   Účet může být i null (jméno v databázi není). Ověření MUSÍ trvat stejně\n   dlouho jako u existujícího účtu — viz poznámky.\npublic static function zkontrolujHeslo(string $heslo): ?string\n   null = v pořádku, jinak krátký důvod ('kratke')\npublic static function zkontroluj(array $uzivatel): array\n   seznam jmen vadných polí: 'jmeno', 'email', 'role'; prázdné pole = v pořádku\npublic static function pozvanka(): array   // ['token' => 64 hex, 'do' => 'YYYY-MM-DD HH:MM:SS']\npublic static function pozvankaPlati(array $pozvanka): bool",
+ "uses": {
+  "App\\Formular\\Validace": "isEmail(string $email): bool"
+ },
+ "acceptance": "tests/test_php_uzivatele.py",
+ "notes": "Čisté PHP 8.5, žádné composer závislosti, žádná rozšíření nad rámec jádra. Soubor začíná `<?php`, pak `declare(strict_types=1);`, pak `namespace …;`. Jen statické metody, žádný stav, žádný echo, žádná databáze — ukládání dělá jiná vrstva.\n\nMatice práv je daná tím, co ukázka slibuje klientovi (data/content/cs.json → admin.uzivatele.prava_*):\n- spravce: „Všechno včetně uživatelů a statistik“ → všech pět oblastí\n- editor: „Texty, realizace a novinky“ → texty, realizace, novinky\n- autor: „Jen novinky a články“ → novinky\nNeznámá role ani neznámá oblast nesmí projít.\n\nHesla: `hash` používá password_hash s PASSWORD_DEFAULT (sůl se generuje sama, dvakrát totéž heslo musí dát jiný hash). `overHeslo` bere pole uživatele ['heslo_hash' => …, 'aktivni' => …]: prázdné heslo, chybějící hash i nepravdivé 'aktivni' znamenají false (klíč 'aktivni', když chybí, se bere jako pravda). `zkontrolujHeslo` hlídá JEN délku po otrimování (aspoň 10 znaků) — žádné nucené číslice a velká písmena, to lidi vede k horším heslům; delší heslo se nikdy neodmítá.\n\nPozvánka: token je 32 náhodných bajtů z random_bytes v hexu (64 znaků malými písmeny), 'do' je datum a čas za sedm dní v tvaru 'Y-m-d H:i:s'. `pozvankaPlati` vrací true jen tehdy, když je token správného tvaru a 'do' je v budoucnosti.\n\nNEZNÁMÝ ÚČET MUSÍ TRVAT STEJNĚ DLOUHO (nález kola 2, K3):\nNezávislý test naměřil, že přihlášení existujícího účtu trvá ~0,20 s\n(ověřuje se bcrypt hash), zatímco neznámé jméno odpoví za ~0,01 s. Z času\nse tak dá poznat, která jména v administraci existují — a útočník pak hádá\nheslo jen k nim.\n\nProto overHeslo():\n1) Přijímá i null (jméno v databázi není).\n2) Když účet chybí, je neaktivní, nebo nemá použitelný 'heslo_hash',\n   NEVRACÍ false hned: zavolá password_verify() proti PEVNÉMU FALEŠNÉMU\n   HASHI uloženému v privátní konstantě a výsledek zahodí — pak vrátí false.\n   Falešný hash je tenhle (bcrypt, cost 12, stejně jako PASSWORD_DEFAULT\n   v PHP 8.5, hash náhodného textu, který nikdo nezná):\n     $2y$12$iUDAfChDSBNMmZf4pEaHeec/jmwAtEkhxCZVfSCelxUv7hFd2A3VS\n   POZOR: v PHP se `$2y$12$…` musí napsat v JEDNODUCHÝCH uvozovkách (v\n   dvojitých by se `$12` bralo jako proměnná).\n3) Hash se NEVYRÁBÍ za běhu (password_hash by stál další 0,2 s a neznámý\n   účet by byl naopak dvakrát pomalejší než známý) a ini_set se nepoužívá.\n4) Pořadí kontrol zůstává: neaktivní účet ani účet bez hashe se nepřihlásí.\n   Jen se u nich stráví stejný čas jako u ostatních.\n",
+ "budget": {
+  "iterations": 15
+ },
+ "depends_on": [
+  "C-015"
+ ]
 }

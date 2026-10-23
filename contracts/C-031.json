@@ -1,22 +1,22 @@
 {
-  "id": "C-031",
-  "file": "web/app/Jadro/Adresa.php",
-  "role": "coder",
-  "title": "Adresa návštěvníka z hlaviček požadavku",
-  "interface": "namespace App\\Jadro; final class Adresa\n\nZjistí adresu návštěvníka z pole $_SERVER. Čisté PHP: žádný stav, žádná\nsíť, žádná databáze, žádný echo, žádné sahání na superglobály — pole podá\nvolající a nesmí se mutovat.\n\npublic static function navstevnika(array $server): string\n  Vrátí jednu adresu jako text, nebo prázdný řetězec, když žádná platná\n  není. Zdroje v tomhle pořadí: 'HTTP_CF_CONNECTING_IP', první položka\n  'HTTP_X_FORWARDED_FOR' (položky dělí čárka; platí jen ta první),\n  'REMOTE_ADDR'. Zdroj, ve\n  kterém platná adresa není, se přeskočí a zkusí se další.\n",
-  "uses": {},
-  "database": "",
-  "acceptance": "tests/test_php_adresa.py",
-  "dobehly": "",
-  "forbidden": [],
-  "depends_on": [],
-  "budget": {
-    "iterations": 18
-  },
-  "metamorfni_funkce": "",
-  "neutralni_upravy": [],
-  "neutralni_predpony": [],
-  "differential": false,
-  "differential_compare": "exact",
-  "notes": "Čisté PHP 8.5, žádné composer závislosti, žádná rozšíření nad rámec jádra\n(filter_var je v jádře). Soubor začíná `<?php`, pak `declare(strict_types=1);`,\npak `namespace App\\Jadro;`. Jen statické metody, žádná vlastnost, žádný\nkonstruktor.\n\nJMÉNO TŘÍDY i jmenný prostor musí odpovídat cestě souboru, jinak se\nautoloader třídu nedovolá a akceptace spadne na „Class not found\".\n\nPROČ: adresu potřebuje zámek administrace (aby jeden útočník nezamkl\nvšechny) i strop poptávek (aby jeden robot nezablokoval formulář všem).\nDosud si ji každé z těch míst luštilo samo a jen ze dvou hlaviček.\n\nPŘESNĚ TAKTO:\n\n1) Zkoušej zdroje v pořadí: $server['HTTP_CF_CONNECTING_IP'],\n   pak PRVNÍ položka z $server['HTTP_X_FORWARDED_FOR'] (položky dělí\n   čárka) — ta je od návštěvníka; když platná není, DALŠÍ POLOŽKY SE\n   NEZKOUŠEJÍ (psala je proxy) a jde se na $server['REMOTE_ADDR'].\n   Chybějící klíč, klíč,\n   který není text, i prázdná hodnota se berou jako „tady nic není\".\n   Vrať první platnou adresu; když žádná není, vrať ''.\n\n2) Každou hodnotu před ověřením srovnej: odřízni bílé znaky z obou stran\n   (i konce řádků), pak ODŘÍZNI PORT a hranaté závorky:\n   - '1.2.3.4:5678'   -> '1.2.3.4'   (tvar IPv4:port)\n   - '[2001:db8::1]'  -> '2001:db8::1'\n   - '[2001:db8::1]:443' -> '2001:db8::1'\n   U čisté IPv6 bez závorek se NIC neodřezává — dvojtečky v ní patří\n   k adrese ('2001:db8::1' zůstává celé).\n\n3) Platnost ověř funkcí filter_var($hodnota, FILTER_VALIDATE_IP). Platné\n   jsou i adresy z vnitřních sítí a localhost (web běží i za proxy na\n   stejném stroji) — žádné FILTER_FLAG_NO_PRIV_RANGE.\n\n4) Vrací se adresa tak, jak po srovnání vypadá; nic se nepřepisuje na malá\n   písmena ani nijak dál nenormalizuje.\n\n5) Vstupní pole se nesmí přepsat.\n"
+ "id": "C-031",
+ "file": "web/app/Jadro/Adresa.php",
+ "role": "coder",
+ "title": "Adresa návštěvníka z hlaviček požadavku (hlavičkám se věří jen za proxy)",
+ "interface": "namespace App\\Jadro; final class Adresa\n\nZjistí adresu návštěvníka z pole $_SERVER. Čisté PHP: žádný stav, žádná\nsíť, žádná databáze, žádný echo, žádné sahání na superglobály — pole podá\nvolající a nesmí se mutovat.\n\npublic static function navstevnika(array $server, array $proxy = []): string\n  Vrátí jednu adresu jako text, nebo prázdný řetězec, když žádná platná\n  není.\n  $proxy je nastavení z config.php: ['verit' => bool, 'adresy' => list<string>].\n  Když se hlavičkám věřit nesmí, platí JEN 'REMOTE_ADDR'. Když se věřit smí,\n  zdroje v tomhle pořadí: 'HTTP_CF_CONNECTING_IP', první položka\n  'HTTP_X_FORWARDED_FOR' (položky dělí čárka; platí jen ta první),\n  'REMOTE_ADDR'. Zdroj, ve kterém platná adresa není, se přeskočí a zkusí\n  se další.\n\npublic static function vSiti(string $adresa, string $sit): bool\n  Je adresa v zadané síti? 'sit' je buď jedna adresa ('10.0.0.1'), nebo\n  zápis se maskou ('10.0.0.0/8', '2001:db8::/32'). Nesmysl = false.\n",
+ "uses": {},
+ "database": "",
+ "acceptance": "tests/test_php_adresa.py",
+ "dobehly": "",
+ "forbidden": [],
+ "depends_on": [],
+ "budget": {
+  "iterations": 18
+ },
+ "metamorfni_funkce": "",
+ "neutralni_upravy": [],
+ "neutralni_predpony": [],
+ "differential": false,
+ "differential_compare": "exact",
+ "notes": "Čisté PHP 8.5, žádné composer závislosti, žádná rozšíření nad rámec jádra\n(filter_var, inet_pton a unpack jsou v jádře). Soubor začíná `<?php`, pak\n`declare(strict_types=1);`, pak `namespace App\\Jadro;`. Jen statické metody,\nžádná vlastnost, žádný konstruktor.\n\nJMÉNO TŘÍDY i jmenný prostor musí odpovídat cestě souboru, jinak se\nautoloader třídu nedovolá a akceptace spadne na „Class not found\".\n\nPROČ: adresu potřebuje zámek administrace (aby jeden útočník nezamkl\nvšechny) i strop poptávek (aby jeden robot nezablokoval formulář všem).\n\nPROČ TA DRUHÁ ÚVAHA (nález kola 2): web podle návodu stojí přímo za\nApache/nginx a žádná proxy hlavičky nepřepisuje. Hlavička\n'X-Forwarded-For' tedy dorazí taková, jakou si ji poslal sám návštěvník —\nkdyby se jí věřilo vždycky, stačí jeden řádek v požadavku a strop na\nadresu i zámek podle adresy se dají obejít. Hlavičkám se proto věří jen\ntehdy, když to volající (nastavení webu) řekne.\n\nPŘESNĚ TAKTO:\n\n1) Rozhodni, jestli se hlavičkám smí věřit:\n   - když $proxy['verit'] není pravdivé (chybí, false, 0, ''), NESMÍ;\n   - když $proxy['adresy'] je neprázdný seznam, smí se jen tehdy, když\n     $server['REMOTE_ADDR'] patří do některé z těch sítí (vSiti); jinak ne;\n   - když 'adresy' chybí nebo je prázdný seznam, smí se (volající říká\n     „jsme za proxy a seznam nemám\").\n   Pole 'adresy', které není seznam, se bere jako prázdné.\n\n2) Když se hlavičkám věřit nesmí, vrať platnou adresu z\n   $server['REMOTE_ADDR'], nebo '' — hlavičky se vůbec nečtou.\n\n3) Když se věřit smí, zkoušej zdroje v pořadí:\n   $server['HTTP_CF_CONNECTING_IP'], pak PRVNÍ položka z\n   $server['HTTP_X_FORWARDED_FOR'] (položky dělí čárka) — ta je od\n   návštěvníka; když platná není, DALŠÍ POLOŽKY SE NEZKOUŠEJÍ (psala je\n   proxy) a jde se na $server['REMOTE_ADDR']. Chybějící klíč, klíč, který\n   není text, i prázdná hodnota se berou jako „tady nic není\". Vrať první\n   platnou adresu; když žádná není, vrať ''.\n\n4) Každou hodnotu před ověřením srovnej: odřízni bílé znaky z obou stran\n   (i konce řádků), pak ODŘÍZNI PORT a hranaté závorky:\n   - '1.2.3.4:5678'   -> '1.2.3.4'   (tvar IPv4:port)\n   - '[2001:db8::1]'  -> '2001:db8::1'\n   - '[2001:db8::1]:443' -> '2001:db8::1'\n   U čisté IPv6 bez závorek se NIC neodřezává ('2001:db8::1' zůstává celé).\n\n5) Platnost ověř funkcí filter_var($hodnota, FILTER_VALIDATE_IP). Platné\n   jsou i adresy z vnitřních sítí a localhost (web běží i za proxy na\n   stejném stroji) — žádné FILTER_FLAG_NO_PRIV_RANGE.\n\n6) vSiti(adresa, sit):\n   - 'sit' bez lomítka: srovnej adresy po inet_pton (obě musí být platné\n     a ze stejné rodiny).\n   - 'sit' s lomítkem: za lomítkem je počet bitů masky; platí 0 až 32 pro\n     IPv4 a 0 až 128 pro IPv6 (jiné číslo, prázdno nebo nečíslo = false).\n     Porovnej prvních N bitů obou adres v binární podobě z inet_pton;\n     různé rodiny = false.\n   - Cokoli neplatného (prázdný text, nesmysl, adresa, která není adresa)\n     je false. Žádná výjimka, žádné varování.\n\n7) Vstupní pole se nesmí přepsat.\n"
 }
