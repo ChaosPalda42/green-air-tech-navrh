@@ -3,6 +3,13 @@
 Porovnává PHP proti ZAZNAMENANÝM vzorkům z ukázky (tests/orakulum/formular.json),
 které vznikly spuštěním src/lib nad skutečným obsahem webu. Pravidlo je ve
 vzorcích, ne v PHP kódu, na který se ptáme.
+
+Od 23. 10. 2026 jsou mezi vzorky i mezinárodní telefony: nezávislý test
+našel, že `+49 30 1234567` ani `+421905123456` neprošly, takže na německé
+a anglické verzi webu zahraniční zákazník telefon nezadal. Ukázka proto umí
+`isPhone` (tvar podle E.164) a `validateContact` se ptá jí; doma dál platí
+přísnější české pravidlo, v němž navíc chyběla čtyřka — web odmítal skutečné
+pevné linky 46x Liberec a 49x Pardubicko.
 """
 from __future__ import annotations
 
