@@ -1285,6 +1285,7 @@
       "poznamka": "Demo: přihlášení nic neověřuje.",
       "lead_server": "Zadejte e-mail a heslo, které jste dostali v pozvánce.",
       "chyba": "Nesprávný e-mail nebo heslo. Zkuste to prosím znovu.",
+      "zamceno": "Příliš mnoho pokusů o přihlášení. Zkuste to znovu za {minut} min.",
       "poznamka_server": "Zapomenuté heslo vám obnoví správce webu."
     },
     "zalozky": {

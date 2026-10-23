@@ -1285,6 +1285,7 @@
       "poznamka": "Demo: login does not verify credentials.",
       "lead_server": "Enter the e-mail and password from your invitation.",
       "chyba": "Wrong e-mail or password. Please try again.",
+      "zamceno": "Too many sign-in attempts. Please try again in {minut} min.",
       "poznamka_server": "Your administrator can reset a forgotten password."
     },
     "zalozky": {

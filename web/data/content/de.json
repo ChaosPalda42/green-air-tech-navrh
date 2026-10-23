@@ -1285,6 +1285,7 @@
       "poznamka": "Demo: Die Anmeldung führt keine Prüfung durch.",
       "lead_server": "Geben Sie die E-Mail-Adresse und das Passwort aus Ihrer Einladung ein.",
       "chyba": "E-Mail-Adresse oder Passwort ist falsch. Bitte versuchen Sie es erneut.",
+      "zamceno": "Zu viele Anmeldeversuche. Bitte versuchen Sie es in {minut} Min. erneut.",
       "poznamka_server": "Ein vergessenes Passwort setzt Ihr Administrator zurück."
     },
     "zalozky": {

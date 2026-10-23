@@ -118,11 +118,14 @@ final class Administrace
             $prihlaseni = '<form class="formular" method="post" action="' . $ctx->odkazKoren('administrace.html') . '" style="max-width:26rem;margin-inline:auto">
         <p class="admin-login-nadpis">' . $ctx->t('admin.prihlaseni.titulek') . '</p>
         <p class="lead" style="font-size:.98rem;margin-bottom:1.4rem">' . $ctx->t('admin.prihlaseni.lead_server') . '</p>
-        ' . (($data['chybaPrihlaseni'] ?? false)
+        ' . (($data['zamceno'] ?? 0) > 0
+            ? '<div class="hlaska hlaska-chyba" data-prihlaseni-zamceno>' . self::ikona('info') . '<span>'
+                . $ctx->t('admin.prihlaseni.zamceno', ['minut' => (int) $data['zamceno']]) . '</span></div>'
             // Pozor na `hidden`: .hlaska má v CSS display:flex, který atribut
             // přebije, a hláška by svítila i bez chyby. Proto se nevykresluje.
-            ? '<div class="hlaska hlaska-chyba" data-chyba-prihlaseni>' . self::ikona('info') . '<span>' . $ctx->t('admin.prihlaseni.chyba') . '</span></div>'
-            : '') . '
+            : (($data['chybaPrihlaseni'] ?? false)
+                ? '<div class="hlaska hlaska-chyba" data-chyba-prihlaseni>' . self::ikona('info') . '<span>' . $ctx->t('admin.prihlaseni.chyba') . '</span></div>'
+                : '')) . '
         <div class="pole">
           <label for="admin-jmeno">' . $ctx->t('admin.prihlaseni.jmeno') . '</label>
           <input type="text" id="admin-jmeno" name="jmeno" autocomplete="username" required>

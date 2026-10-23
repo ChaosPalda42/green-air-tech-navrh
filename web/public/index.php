@@ -18,6 +18,7 @@ App\Jadro\Hlavicky::posli();
 use App\Api\Router;
 use App\Auth\Sezeni;
 use App\Auth\Uzivatele;
+use App\Auth\Zamek;
 use App\Db\Spojeni;
 use App\Db\UlozisteDb;
 use App\Fotky\Zpracovani;
@@ -126,7 +127,23 @@ if ($kam !== null && $kam['druh'] === 'administrace' && $metoda === 'POST') {
         return;
     }
     if ($akce === 'prihlasit' && $uloziste !== null && Sezeni::csrfPlati((string) ($_POST['csrf'] ?? ''))) {
-        $uzivatel = $uloziste->uzivatelPodleJmena(trim((string) ($_POST['jmeno'] ?? '')));
+        $jmeno = trim((string) ($_POST['jmeno'] ?? ''));
+        $ip = (string) ($_SERVER['REMOTE_ADDR'] ?? '');
+
+        /* Hádání hesla se počítá v databázi. Zámek se ptá dřív, než se heslo
+           vůbec ověří — a zamčený pokus se už nezapisuje, jinak by útočník
+           držel správce venku, jak dlouho by chtěl. */
+        $zamek = 0;
+        if ($uloziste instanceof UlozisteDb) {
+            $casy = $uloziste->casyChybnychHesel($jmeno, $ip, Zamek::OKNO);
+            $zamek = Zamek::ceka($casy, time());
+        }
+        if ($zamek > 0) {
+            header('Location: ' . $kamZpet . '?chyba=zamceno&minut=' . (int) ceil($zamek / 60), true, 303);
+            return;
+        }
+
+        $uzivatel = $uloziste->uzivatelPodleJmena($jmeno);
         if ($uzivatel !== null && Uzivatele::overHeslo($uzivatel, (string) ($_POST['heslo'] ?? ''))) {
             Sezeni::prihlas($uzivatel);
             $uloziste->zapisPrihlaseni((int) $uzivatel['id']);
@@ -135,6 +152,9 @@ if ($kam !== null && $kam['druh'] === 'administrace' && $metoda === 'POST') {
             return;
         }
         Sezeni::spatneHeslo();
+        if ($uloziste instanceof UlozisteDb) {
+            $uloziste->zapisChybneHeslo($jmeno, $ip);
+        }
     }
     header('Location: ' . $kamZpet . '?chyba=1', true, 303);
     return;

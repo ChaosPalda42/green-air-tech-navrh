@@ -176,6 +176,57 @@ final class UlozisteDb implements Uloziste
     public function zapisUdalost(string $kdo, string $akce, string $detail = ''): void
     {
         $this->pdo->prepare('INSERT INTO udalosti (kdy, kdo, akce, detail) VALUES (?, ?, ?, ?)')
-            ->execute([date('Y-m-d H:i:s'), $kdo, $akce, mb_substr($detail, 0, 255)]);
+            ->execute([
+                date('Y-m-d H:i:s'),
+                // Jméno z přihlašovacího formuláře může být jakkoli dlouhé;
+                // ve sloupci je 100 znaků a delší by zápis shodil.
+                mb_substr($kdo, 0, 100),
+                $akce,
+                mb_substr($detail, 0, 255),
+            ]);
+    }
+
+    /* ----------------------------------------------- hádání hesla do administrace
+
+       Počítá se v databázi, ne v sezení prohlížeče: útočníkovi stačí zahodit
+       cookie a počítadlo v sezení je zpátky na nule. Rozhoduje App\Auth\Zamek,
+       tady se jen čtou a píšou časy. */
+
+    public const CHYBNE_HESLO = 'chybne-heslo';
+
+    /**
+     * Časy špatných hesel za posledních $sekund — pro tohle jméno NEBO z téhle
+     * adresy. Obojí schválně: jinak by útočník obešel zámek změnou jména
+     * (adresa) nebo z botnetu změnou adresy (jméno).
+     *
+     * @return list<int> unixové časy
+     */
+    public function casyChybnychHesel(string $jmeno, string $ip, int $sekund): array
+    {
+        $dotaz = $this->pdo->prepare(
+            'SELECT kdy FROM udalosti
+              WHERE akce = ? AND kdy >= DATE_SUB(NOW(), INTERVAL ? SECOND)
+                AND (kdo = ? OR detail = ?)'
+        );
+        $dotaz->execute([self::CHYBNE_HESLO, max(1, $sekund), mb_substr($jmeno, 0, 100), $ip]);
+
+        $casy = [];
+        foreach ($dotaz->fetchAll(\PDO::FETCH_COLUMN) ?: [] as $kdy) {
+            $cas = strtotime((string) $kdy);
+            if ($cas !== false) {
+                $casy[] = $cas;
+            }
+        }
+
+        return $casy;
+    }
+
+    /** Špatné heslo: zapíše pokus a zároveň zahodí ty starší než den. */
+    public function zapisChybneHeslo(string $jmeno, string $ip): void
+    {
+        $this->zapisUdalost($jmeno, self::CHYBNE_HESLO, $ip);
+        $this->pdo->prepare(
+            'DELETE FROM udalosti WHERE akce = ? AND kdy < DATE_SUB(NOW(), INTERVAL 1 DAY)'
+        )->execute([self::CHYBNE_HESLO]);
     }
 }

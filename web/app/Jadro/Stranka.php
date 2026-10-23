@@ -193,6 +193,11 @@ final class Stranka
             $uzivatel = \App\Auth\Sezeni::uzivatel();
             $data['csrf'] = \App\Auth\Sezeni::csrf();
             $data['chybaPrihlaseni'] = isset($_GET['chyba']);
+            // Zamčeno kvůli hádání hesla: jiná hláška, ať člověk ví, že
+            // nemá smysl zkoušet další heslo.
+            $data['zamceno'] = ($_GET['chyba'] ?? '') === 'zamceno'
+                ? max(1, (int) ($_GET['minut'] ?? 1))
+                : 0;
             $stav = $uloziste?->stav() ?? [];
             $skripty .= "\n" . '<script>'
                 . 'window.GAT_SERVER = true;'
