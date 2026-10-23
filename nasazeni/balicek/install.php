@@ -37,6 +37,37 @@ $kontroly[] = ['složka cache je zapisovatelná (statistiky)', is_dir($koren . '
 $kontroly[] = ['přepisy adres (mod_rewrite)', !function_exists('apache_get_modules') || in_array('mod_rewrite', apache_get_modules(), true), 'a2enmod rewrite'];
 $prostrediOk = array_reduce($kontroly, static fn (bool $n, array $k): bool => $n && $k[1], true);
 
+/* Limity PHP. Instalaci nezastavují — web poběží — ale bez nich se do
+   administrace nenahraje fotka z telefonu: čistý Debian má
+   upload_max_filesize 2M a server soubor odmítne, než se k němu PHP dostane.
+   V balíčku je hotový greenairtech.ini, tak se na něj odkážeme. */
+$vBajtech = static function (string $klic): int {
+    $hodnota = trim((string) ini_get($klic));
+    if ($hodnota === '' || $hodnota === '-1') {
+        return PHP_INT_MAX;
+    }
+    $cislo = (int) $hodnota;
+    return match (strtoupper(substr($hodnota, -1))) {
+        'G' => $cislo * 1024 * 1024 * 1024,
+        'M' => $cislo * 1024 * 1024,
+        'K' => $cislo * 1024,
+        default => $cislo,
+    };
+};
+$potrebaLimitu = [
+    'upload_max_filesize' => [12 * 1024 * 1024, 'velikost nahrávaného souboru'],
+    'post_max_size' => [16 * 1024 * 1024, 'velikost celého požadavku'],
+    'memory_limit' => [512 * 1024 * 1024, 'paměť na zmenšení velké fotky'],
+];
+$varovani = [];
+foreach ($potrebaLimitu as $klic => [$potreba, $kVycemu]) {
+    $ma = $vBajtech($klic);
+    if ($ma < $potreba) {
+        $varovani[] = $klic . ' = ' . ini_get($klic) . ' (potřeba aspoň '
+            . (int) ($potreba / 1024 / 1024) . 'M — ' . $kVycemu . ')';
+    }
+}
+
 /* ------------------------------------------------- už je nainstalováno? */
 /* Rozhoduje JEN existence config.php. Ptát se na to databáze by znamenalo,
    že při spadlé databázi (restart, plný disk) instalátor zase nabídne
@@ -245,6 +276,17 @@ $a = static fn (string $t): string => htmlspecialchars($t, ENT_QUOTES, 'UTF-8');
     </li>
   <?php endforeach; ?>
   </ul>
+
+  <?php if ($varovani !== []): ?>
+    <div class="hlaska hlaska-chyba">
+      <p><b>Fotky se do administrace nenahrají</b> — PHP má moc malé limity:</p>
+      <ul><?php foreach ($varovani as $v): ?><li><code><?= $a($v) ?></code></li><?php endforeach; ?></ul>
+      <p class="napoveda">V balíčku je hotové nastavení. Zkopírujte ho a znovu načtěte Apache:</p>
+      <p><code>sudo cp greenairtech.ini /etc/php/8.5/apache2/conf.d/99-greenairtech.ini</code><br>
+         <code>sudo systemctl reload apache2</code></p>
+      <p class="napoveda">Instalaci to nebrání — web poběží, jen nahrávání fotek ne.</p>
+    </div>
+  <?php endif; ?>
 
   <?php foreach ($chyby as $ch): ?>
     <div class="hlaska hlaska-chyba"><?= $a($ch) ?></div>

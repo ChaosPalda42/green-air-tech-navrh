@@ -109,7 +109,31 @@ server {
 }
 ```
 
-## 4. Instalátor
+## 4. Limity PHP (jinak nenahrajete fotky)
+
+Čistý Debian pouští do PHP soubory jen do 2 MB a dává mu 128 MB paměti.
+Fotka z telefonu se přes to nedostane — administrace řekne, že je moc velká.
+V balíčku je proto hotové nastavení:
+
+```bash
+sudo cp /tmp/gat/greenairtech/greenairtech.ini \
+  /etc/php/8.5/apache2/conf.d/99-greenairtech.ini
+sudo systemctl reload apache2
+```
+
+Když PHP běží přes php-fpm (typicky u nginx), patří soubor do
+`/etc/php/8.5/fpm/conf.d/` a restartuje se `sudo systemctl restart php8.5-fpm`.
+
+Jsou v něm čtyři hodnoty: `upload_max_filesize = 12M` (víc administrace
+neposílá — větší fotku odmítne už v prohlížeči), `post_max_size = 16M`,
+`memory_limit = 512M` (fotka z telefonu má 24–50 megapixelů a knihovna GD jí
+v paměti dá 4 bajty na pixel) a `max_execution_time = 60`.
+
+Instalátor na další stránce ukáže, jaké hodnoty server zrovna má, a když
+nestačí, napíše to. Instalaci to nezastaví — web poběží, jen nahrávání fotek
+ne, takže se to dá dodělat i potom.
+
+## 5. Instalátor
 
 Otevřete `https://greenairtech.cz/install.php`, vyplňte přístup k databázi
 a první účet správce. Instalátor:
@@ -128,7 +152,7 @@ napíše to a smažete ho ručně:
 sudo rm /var/www/greenairtech/web/public/install.php
 ```
 
-## 5. Práva na složky
+## 6. Práva na složky
 
 Zapisuje se jen do dvou míst:
 
@@ -138,7 +162,7 @@ sudo chmod 775 /var/www/greenairtech/web/public/media
 sudo chown www-data:www-data /var/www/greenairtech/web/config
 ```
 
-## 6. Statistiky (Google Analytics)
+## 7. Statistiky (Google Analytics)
 
 **Nemusíte nic zařizovat — měření je připravené.** Vlastnost v Google
 Analytics je pro Green Air Tech založená a klíč k ní je v balíčku jako
@@ -171,7 +195,7 @@ v Analytics ho přidejte jako **čtenáře** vlastnosti a v `config.php`
 přepište `mereni` a `property`. Když se `analytics` vyprázdní, web běží
 normálně dál, jen nástěnka řekne, že statistiky nejsou nastavené.
 
-## 7. Pošta
+## 8. Pošta
 
 Poptávky z webu chodí na adresu z `config.php` (`posta.prijemce`). Server musí
 umět `mail()` — na Debianu stačí:
@@ -188,7 +212,7 @@ je zatím jen počítá na nástěnce; vypsat je umí databáze:
 SELECT prijato, jmeno, email, telefon, vetev FROM poptavky ORDER BY prijato DESC LIMIT 20;
 ```
 
-## 8. Mapa webu a Search Console
+## 9. Mapa webu a Search Console
 
 `sitemap.xml` i `robots.txt` vydává web sám — nejsou to soubory na disku.
 Je v nich 135 adres ve třech jazycích (administrace a chybové stránky do
@@ -200,7 +224,7 @@ Kdyby v dokumentovém korenu zůstal starý `sitemap.xml` nebo `robots.txt`
 (třeba z ručního nasazení), Apache by poslal ten soubor a sitemapa by
 přestala stárnout — smažte je.
 
-## 9. Zabezpečení — co web dělá sám
+## 10. Zabezpečení — co web dělá sám
 
 Bezpečnostní hlavičky posílá PHP, ne `.htaccess`. Platí proto i za nginxem
 a nedá se je omylem vypnout přepsáním souboru:

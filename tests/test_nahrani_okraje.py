@@ -17,6 +17,10 @@ from pathlib import Path
 
 KOREN = Path(__file__).resolve().parents[1]
 PHP_INI = KOREN / "nasazeni" / "php.ini"
+INSTALATOR = KOREN / "nasazeni" / "balicek" / "install.php"
+README = KOREN / "nasazeni" / "balicek" / "README-NASAZENI.md"
+INI_PRO_KLIENTA = KOREN / "nasazeni" / "balicek" / "greenairtech.ini"
+BALICEK = KOREN / "nasazeni" / "balicek.sh"
 INDEX = KOREN / "web" / "public" / "index.php"
 ADMIN_JS = KOREN / "src" / "assets" / "admin.js"
 ADMIN_JS_WEB = KOREN / "web" / "public" / "assets" / "admin.js"
@@ -84,3 +88,48 @@ def test_administrace_umi_rict_ze_je_fotka_velka() -> None:
                 f"{cesta.name} nezná odpověď {kod} — správce uvidí obecné "
                 "„Fotku se nepovedlo nahrát\" a nedozví se, že ji má zmenšit"
             )
+
+
+# ---------------------------------------------------- co dostane klient
+
+def test_balicek_vozi_ini_pro_klienta() -> None:
+    """Náš php.ini je pro náš Docker. Klient instaluje na svůj Debian, kde
+    výchozí upload_max_filesize je 2 MB — fotku by nenahrál vůbec. V balíčku
+    proto musí být soubor, který si zkopíruje k sobě."""
+    assert INI_PRO_KLIENTA.is_file(), (
+        "nasazeni/balicek/greenairtech.ini chybí — klient nemá co zkopírovat "
+        "do /etc/php/8.5/apache2/conf.d/"
+    )
+    text = INI_PRO_KLIENTA.read_text()
+    nas = PHP_INI.read_text()
+    for klic in ("memory_limit", "upload_max_filesize", "post_max_size"):
+        assert velikost(text, klic) >= velikost(nas, klic), (
+            f"{klic} pro klienta je nižší než v našem php.ini — u klienta by "
+            "nahrávání fotek dopadlo jinak než na zkoušce"
+        )
+    assert "balicek/greenairtech.ini" in BALICEK.read_text(), (
+        "nasazeni/balicek.sh ten soubor do ZIPu nekopíruje"
+    )
+
+
+def test_instalator_rekne_kdyz_limity_nestaci() -> None:
+    """Instalátor svítil zeleně a fotky se přitom nahrát nedaly. Limity
+    nejsou důvod instalaci zastavit (web běží), ale člověk to musí vědět."""
+    text = INSTALATOR.read_text()
+    for klic in ("memory_limit", "upload_max_filesize", "post_max_size"):
+        assert f"'{klic}'" in text or f'"{klic}"' in text, (
+            f"instalátor nekontroluje {klic} — zeleně svítí server, na kterém "
+            "se fotka nenahraje"
+        )
+    assert "greenairtech.ini" in text, (
+        "instalátor neporadí, co s tím: v balíčku je hotový greenairtech.ini"
+    )
+
+
+def test_readme_mluvi_o_limitech_php() -> None:
+    text = README.read_text()
+    assert "greenairtech.ini" in text, (
+        "README neříká, že se má zkopírovat greenairtech.ini — klient nainstaluje "
+        "podle něj a fotky mu nepůjdou nahrát"
+    )
+

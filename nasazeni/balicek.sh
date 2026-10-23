@@ -50,6 +50,8 @@ fi
 # --- instalátor a nástroje ------------------------------------------------
 cp nasazeni/balicek/install.php "$cil/web/public/install.php"
 cp nasazeni/balicek/README-NASAZENI.md "$cil/README-NASAZENI.md"
+# nastavení PHP: na čistém Debianu je upload_max_filesize 2M a fotka se nenahraje
+cp nasazeni/balicek/greenairtech.ini "$cil/greenairtech.ini"
 
 # --- kontrola, že dovnitř nespadlo nic, co tam nepatří --------------------
 spatne=0
