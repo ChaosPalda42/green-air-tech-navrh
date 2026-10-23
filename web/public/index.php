@@ -150,7 +150,17 @@ if ($kam !== null && $kam['druh'] === 'administrace' && $metoda === 'POST') {
     }
     if ($akce === 'prihlasit' && $uloziste !== null && Sezeni::csrfPlati((string) ($_POST['csrf'] ?? ''))) {
         $jmeno = trim((string) ($_POST['jmeno'] ?? ''));
-        $ip = (string) ($_SERVER['REMOTE_ADDR'] ?? '');
+
+        /* Adresa návštěvníka. Za Cloudflare nebo za proxy má REMOTE_ADDR
+           každý stejnou, a protože se zamyká i podle adresy, zamkl by jeden
+           útočník všechny. Proto se bere adresa z hlavičky, když přijde.
+           Podvržená hlavička nic neotevře: tvrdý strop je jméno, adresa je
+           jen přidaná pojistka. */
+        $ip = trim((string) ($_SERVER['HTTP_CF_CONNECTING_IP']
+            ?? explode(',', (string) ($_SERVER['HTTP_X_FORWARDED_FOR'] ?? ''))[0]));
+        if ($ip === '') {
+            $ip = (string) ($_SERVER['REMOTE_ADDR'] ?? '');
+        }
 
         /* Hádání hesla se počítá v databázi. Zámek se ptá dřív, než se heslo
            vůbec ověří — a zamčený pokus se už nezapisuje, jinak by útočník

@@ -17,7 +17,15 @@ from pathlib import Path
 KOREN = Path(__file__).resolve().parents[1]
 
 # Funkce, které v PHP 8.5 nic nedělají a jen hlásí E_DEPRECATED.
-ZASTARALE = ("curl_close", "curl_multi_close", "curl_share_close")
+ZASTARALE = (
+    "curl_close", "curl_multi_close", "curl_share_close",
+    # imagedestroy() se našlo při nahrání fotky na testovací instalaci:
+    # „Function imagedestroy() is deprecated since 8.5, as it has no effect
+    # since PHP 8.0" — čtyřikrát za jedno nahrání.
+    "imagedestroy",
+    # Tytéž „zavírače", které od PHP 8.0 nic nedělají; ať se nepřidají znovu.
+    "finfo_close", "xml_parser_free", "shmop_close",
+)
 
 SLOZKY = ("web/app", "web/public", "tools", "nasazeni/balicek")
 

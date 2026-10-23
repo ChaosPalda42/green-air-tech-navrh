@@ -15,16 +15,13 @@
 ErrorDocument 404 /index.php
 
 <IfModule mod_headers.c>
-  Header always set X-Content-Type-Options "nosniff"
-  Header always set X-Frame-Options "SAMEORIGIN"
-  Header always set Referrer-Policy "strict-origin-when-cross-origin"
-  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=(), usb=()"
-  # Stránky si posílá CSP a HSTS samo PHP (App\Jadro\Hlavicky) — platí pak
-  # i na nginxu, kde se tenhle soubor vůbec nečte. Tady zůstává jen to, co
-  # Apache obsluhuje bez PHP: CSS, fonty, nahrané fotky.
-
-  # aktiva mají v adrese ?v=hash, můžou se cachovat natrvalo
-  <FilesMatch "\.(css|js|woff2|png|jpe?g|webp|avif|svg)$">
+  # Bezpečnostní hlavičky stránek posílá PHP (App\Jadro\Hlavicky) — platí pak
+  # i na nginxu, kde se tenhle soubor vůbec nečte, a nejdou dvakrát. Tady se
+  # ošetří jen soubory, které Apache posílá bez PHP: CSS, skripty, fonty,
+  # obrázky a nahrané fotky. Jména aktiv nesou hash obsahu, proto natrvalo.
+  <FilesMatch "\.(css|js|mjs|woff2?|png|jpe?g|webp|avif|svg|ico|map)$">
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
     Header set Cache-Control "public, max-age=31536000, immutable"
   </FilesMatch>
 </IfModule>

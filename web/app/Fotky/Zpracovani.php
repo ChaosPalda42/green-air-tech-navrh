@@ -51,9 +51,11 @@ final class Zpracovani implements Ulozny
             imagesavealpha($novyObraz, true);
             
             imagecopyresampled($novyObraz, $zdroj, 0, 0, 0, 0, $novaSirka, $novaVyska, $sirka, $vyska);
-            
-            @imagedestroy($zdroj);
-            
+
+            // imagedestroy() se nevolá: od PHP 8.0 nic nedělá (obrázek uklidí
+            // sběrač) a v 8.5 je zastaralé — na ostrém webu by jen plnilo log.
+            unset($zdroj);
+
             $obraz = $novyObraz;
             $sirka = $novaSirka;
             $vyska = $novaVyska;
@@ -81,11 +83,10 @@ final class Zpracovani implements Ulozny
         // Selhání (třeba nezapisovatelná složka) hlásí výjimka níž; varování by
         // se vytisklo do těla odpovědi a rozbilo JSON i hlavičky.
         if (!@imagewebp($obraz, $cestaNaDisk, 85)) {
-            @imagedestroy($obraz);
             throw new RuntimeException('Nepodařilo se uložit WebP.');
         }
 
-        @imagedestroy($obraz);
+        unset($obraz);
 
         // imagewebp() umí vrátit true a zapsat nic. Prázdný soubor by se na
         // webu ukázal jako rozbitý obrázek, tak ho rovnou smažeme a řekneme to.
