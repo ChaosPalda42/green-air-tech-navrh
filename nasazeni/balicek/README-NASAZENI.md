@@ -166,16 +166,15 @@ SELECT prijato, jmeno, email, telefon, vetev FROM poptavky ORDER BY prijato DESC
 
 ## 8. Mapa webu a Search Console
 
-`sitemap.xml` i `robots.txt` vytvoří instalátor pro vaši doménu — je v nich
-135 adres ve třech jazycích (administrace a chybové stránky do sitemapy
-nepatří). V Google Search Console sitemapu přidejte ručně
+`sitemap.xml` i `robots.txt` vydává web sám — nejsou to soubory na disku.
+Je v nich 135 adres ve třech jazycích (administrace a chybové stránky do
+sitemapy nepatří) a nová realizace z administrace se v sitemapě objeví hned,
+bez vašeho zásahu. V Google Search Console sitemapu přidejte ručně
 (Soubory sitemap → vložit adresu `sitemap.xml`).
 
-Když někdy přibude stránka, oba soubory se dají vytvořit znovu:
-
-```bash
-cd /var/www/greenairtech && sudo -u www-data php tools/sitemap.php
-```
+Kdyby v dokumentovém korenu zůstal starý `sitemap.xml` nebo `robots.txt`
+(třeba z ručního nasazení), Apache by poslal ten soubor a sitemapa by
+přestala stárnout — smažte je.
 
 ## Co kde je
 

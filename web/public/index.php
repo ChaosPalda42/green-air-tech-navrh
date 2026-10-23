@@ -105,6 +105,28 @@ if (str_starts_with($cesta, 'api/')) {
     return;
 }
 
+/* ------------------------------------------------- sitemapa a robots.txt
+
+   Vydává je PHP, ne soubor na disku: realizace přidaná v administraci je pak
+   v sitemapě hned a nikdo nemusí nic pouštět z příkazové řádky. */
+
+if ($cesta === 'sitemap.xml' || $cesta === 'robots.txt') {
+    $domena = rtrim((string) Config::dej('web', ''), '/');
+    if ($domena === '') {
+        $domena = (App\Jadro\Hlavicky::pozadavekPresHttps() ? 'https://' : 'http://')
+            . (string) ($_SERVER['HTTP_HOST'] ?? 'localhost');
+    }
+    header('Cache-Control: public, max-age=3600');
+    if ($cesta === 'robots.txt') {
+        header('Content-Type: text/plain; charset=utf-8');
+        echo App\Jadro\Sitemapa::robots($domena);
+    } else {
+        header('Content-Type: application/xml; charset=utf-8');
+        echo App\Jadro\Sitemapa::xml($site, $domena, date('Y-m-d'));
+    }
+    return;
+}
+
 /* ----------------------------------------------------------- stránky */
 
 $kam = Odkazy::rozpoznej($cesta, $site);

@@ -14,7 +14,7 @@ stavba="$(mktemp -d)"
 cil="$stavba/greenairtech"
 trap 'rm -rf "$stavba"' EXIT
 
-mkdir -p "$cil/web/public" "$cil/web/config" "$cil/web/cache" "$cil/tools"
+mkdir -p "$cil/web/public" "$cil/web/config" "$cil/web/cache"
 
 # --- aplikace -------------------------------------------------------------
 cp -R web/app "$cil/web/app"
@@ -47,7 +47,6 @@ fi
 
 # --- instalátor a nástroje ------------------------------------------------
 cp nasazeni/balicek/install.php "$cil/web/public/install.php"
-cp tools/sitemap.php "$cil/tools/"
 cp nasazeni/balicek/README-NASAZENI.md "$cil/README-NASAZENI.md"
 
 # --- kontrola, že dovnitř nespadlo nic, co tam nepatří --------------------

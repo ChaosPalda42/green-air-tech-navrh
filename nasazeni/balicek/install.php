@@ -154,19 +154,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$hotovo) {
                             'aktivni' => 1,
                         ]);
                         $uspech = true;
-
-                        // sitemapa a robots.txt pro zadanou doménu
-                        $nastroj = dirname($koren) . '/tools/sitemap.php';
-                        if (is_file($nastroj)) {
-                            try {
-                                require_once $nastroj;
-                                $pocty = sitemapZapis($koren, __DIR__, $udaje['web']);
-                                $sitemap = "sitemap.xml ({$pocty['stranek']} adres) a robots.txt jsou hotové.";
-                            } catch (\Throwable $e) {
-                                $sitemap = 'sitemap.xml se nepovedlo zapsat — pusťte potom '
-                                    . '<code>php tools/sitemap.php</code>.';
-                            }
-                        }
+                        /* sitemap.xml ani robots.txt se nezapisují: vydává je
+                           web sám, takže o nové realizaci vědí hned. */
+                        $sitemap = 'sitemap.xml a robots.txt web vydává sám pro doménu '
+                            . htmlspecialchars(rtrim($udaje['web'], '/'), ENT_QUOTES, 'UTF-8') . '.';
                         /* Smazat se musí, ne jen připomenout: v kořeni by
                            dál stál soubor, který umí přepsat nastavení. */
                         $smazano = @unlink(__FILE__);
