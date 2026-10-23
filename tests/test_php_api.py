@@ -54,6 +54,7 @@ $statistiky = new class implements Poskytovatel {
 $fotky = new class implements Ulozny {
     public function uloz(string $tmp, string $jmeno): array {
         if ($jmeno === 'spatna.txt') { throw new \RuntimeException('neni obrazek'); }
+        if ($jmeno === 'obri.png') { throw new \App\Fotky\MocVelka('nevejde se do pameti'); }
         return ['id' => 'f1', 'nazev' => $jmeno, 'typ' => 'image/webp', 'sirka' => 1600,
             'vyska' => 900, 'bajty' => 12345, 'soubor' => 'media/f1.webp'];
     }
@@ -124,6 +125,27 @@ $sady = [
     'fotka_vadna' => ['metoda' => 'POST', 'cesta' => 'fotka', 'soubor' => ['tmp_name' => '/tmp/x', 'name' => 'spatna.txt']],
     'fotka_autorem' => ['metoda' => 'POST', 'cesta' => 'fotka', 'uzivatel' => $autor,
         'soubor' => ['tmp_name' => '/tmp/x', 'name' => 'hala.jpg']],
+    /* Okraje nahrávání. Když soubor přeteče upload_max_filesize, PHP ho
+       zahodí a nechá jen číslo chyby — bez něj administrace tvrdila „vyberte
+       soubor" člověku, který soubor vybral. */
+    'fotka_moc_velka' => ['metoda' => 'POST', 'cesta' => 'fotka',
+        'soubor' => ['tmp_name' => '/tmp/x', 'name' => 'obri.png']],
+    'fotka_pres_upload_limit' => ['metoda' => 'POST', 'cesta' => 'fotka',
+        'soubor_chyba' => UPLOAD_ERR_INI_SIZE],
+    'fotka_pres_limit_formulare' => ['metoda' => 'POST', 'cesta' => 'fotka',
+        'soubor_chyba' => UPLOAD_ERR_FORM_SIZE],
+    'fotka_pres_post_limit' => ['metoda' => 'POST', 'cesta' => 'fotka', 'telo_velke' => true],
+    'fotka_preruseno' => ['metoda' => 'POST', 'cesta' => 'fotka',
+        'soubor_chyba' => UPLOAD_ERR_PARTIAL],
+    'fotka_nevybrana' => ['metoda' => 'POST', 'cesta' => 'fotka',
+        'soubor_chyba' => UPLOAD_ERR_NO_FILE],
+    'fotka_server_nema_tmp' => ['metoda' => 'POST', 'cesta' => 'fotka',
+        'soubor_chyba' => UPLOAD_ERR_NO_TMP_DIR],
+    /* Velký soubor nesmí otevřít zadní vrátka: práva se ptají dřív. */
+    'fotka_moc_velka_autorem' => ['metoda' => 'POST', 'cesta' => 'fotka', 'uzivatel' => $autor,
+        'soubor_chyba' => UPLOAD_ERR_INI_SIZE],
+    'fotka_moc_velka_bez_csrf' => ['metoda' => 'POST', 'cesta' => 'fotka', 'csrf_ok' => false,
+        'soubor_chyba' => UPLOAD_ERR_INI_SIZE],
     'neznamy_cil' => ['metoda' => 'GET', 'cesta' => 'vymyslene'],
     'prazdny_cil' => ['metoda' => 'GET', 'cesta' => ''],
 ];
@@ -176,6 +198,15 @@ CEKANO = {
     "fotka_bez_souboru": (400, "chybi-soubor"),
     "fotka_vadna": (400, "fotka-nesla"),
     "fotka_autorem": (403, "nesmis"),
+    "fotka_moc_velka": (413, "fotka-moc-velka"),
+    "fotka_pres_upload_limit": (413, "soubor-moc-velky"),
+    "fotka_pres_limit_formulare": (413, "soubor-moc-velky"),
+    "fotka_pres_post_limit": (413, "soubor-moc-velky"),
+    "fotka_preruseno": (400, "nahrani-preruseno"),
+    "fotka_nevybrana": (400, "chybi-soubor"),
+    "fotka_server_nema_tmp": (503, "fotky-nejsou"),
+    "fotka_moc_velka_autorem": (403, "nesmis"),
+    "fotka_moc_velka_bez_csrf": (403, "csrf"),
     "neznamy_cil": (404, "neznamy-cil"),
     "prazdny_cil": (404, "neznamy-cil"),
 }
@@ -575,3 +606,16 @@ def test_odmitnuty_pozadavek_na_uloziste_nesahne(h):
     assert h["sahnuto_po_odmitnutych"] == [], (
         "odmítnutý požadavek se ptal úložiště: " + json.dumps(h["sahnuto_po_odmitnutych"])
     )
+
+
+def test_velky_soubor_nemluvi_o_chybejicim_souboru(v):
+    """Tester dostal na 12MB souboru `chybi-soubor`. Správce soubor vybral a
+    hláška ho posílá vybrat ho znovu — a znovu."""
+    for jmeno in ("fotka_pres_upload_limit", "fotka_pres_post_limit",
+                  "fotka_pres_limit_formulare"):
+        o = v["odpovedi"][jmeno]
+        assert o["telo"]["chyba"] != "chybi-soubor", (
+            f"{jmeno}: odpověď tvrdí, že soubor chybí, přitom byl jen moc velký"
+        )
+        assert o["stav"] == 413, f"{jmeno}: čekán 413, přišlo {o['stav']}"
+
