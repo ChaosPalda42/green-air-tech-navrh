@@ -185,7 +185,9 @@ final class Ga4 implements Poskytovatel
         ]);
         $odpoved = curl_exec($ch);
         $stav = (int) curl_getinfo($ch, CURLINFO_RESPONSE_CODE);
-        curl_close($ch);
+        // Zavírat se nic nemusí: od PHP 8.0 spojení uklidí sběrač a v 8.5 je
+        // curl_close() zastaralé — na ostrém webu by jen plnilo log serveru.
+        unset($ch);
 
         if (!is_string($odpoved) || $stav < 200 || $stav > 299) {
             throw new \RuntimeException('ga4-nedostupne-' . $stav);
