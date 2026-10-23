@@ -287,3 +287,66 @@ def test_pridani_oznaci_nesmysl_jako_neplatny(js):
     vysledek = js("out(m.pridejFotky([], A.davka));", davka=davka)
     assert vysledek["pridano"] == 0
     assert [o["duvod"] for o in vysledek["odmitnuto"]] == ["neplatny"] * 3
+
+
+# ------------------------------------------- fotky uložené na serveru
+# Na ostrém webu se fotka nahraje do web/public/media a ve stavu zůstane
+# jen cesta k ní ("media/<sha>.webp") — data URL by do databáze poslala
+# celý obrázek znovu. Tester našel, že takový záznam celá tahle vrstva
+# zahodila jako „neplatný“, takže nahraná fotka se nikde neukázala.
+
+
+def test_normalizuj_pusti_fotku_ulozenou_na_serveru(js):
+    vstup = [
+        fotka("a"),
+        {"id": "s", "dataUrl": "media/ab12cd34.webp", "typ": "image/webp", "bajty": 3000},
+    ]
+    vysledek = js("out(m.normalizujGalerie(A.vstup));", vstup=vstup)
+    assert [f["id"] for f in vysledek] == ["a", "s"]
+    assert vysledek[1]["dataUrl"] == "media/ab12cd34.webp", "cesta se nesmí přepisovat"
+
+
+def test_normalizuj_pusti_jen_nasi_media_slozku(js):
+    """Cizí adresa ani vyskočení z media se za fotku vydávat nesmí —
+    `dataUrl` jde přímo do atributu src."""
+    zle = [
+        "/media/x.webp",
+        "../media/x.webp",
+        "//zlo.example/media/x.webp",
+        "https://zlo.example/media/x.webp",
+        "media/../config/config.php",
+        "media/x.php",
+        "media/x.svg",
+        "media/",
+        "javascript:alert(1)",
+        "MEDIA/x.webp",
+    ]
+    for url in zle:
+        vysledek = js(
+            'out(m.normalizujGalerie([{ id: "x", dataUrl: A.url }]).length);', url=url
+        )
+        assert vysledek == 0, f"{url} prošlo jako fotka"
+
+
+def test_pridani_prijme_fotku_ze_serveru(js):
+    davka = [
+        {"nazev": "hala.jpg", "dataUrl": "media/ab12cd34.webp", "typ": "image/webp", "bajty": 3000},
+        {"nazev": "cizi.jpg", "dataUrl": "https://zlo.example/x.webp"},
+    ]
+    vysledek = js("out(m.pridejFotky([], A.davka));", davka=davka)
+    assert vysledek["pridano"] == 1, vysledek["odmitnuto"]
+    assert vysledek["galerie"][0]["dataUrl"] == "media/ab12cd34.webp"
+    assert [o["duvod"] for o in vysledek["odmitnuto"]] == ["neplatny"]
+
+
+def test_zdroj_fotky_doplni_koren_jen_u_cesty(js):
+    """Stránka v /en/ leží o adresář hlouběji, takže se před cestu musí
+    dát tentýž kořen, jaký web používá pro ostatní odkazy. Data URL se
+    nesmí dotknout."""
+    data = "data:image/jpeg;base64,abc"
+    assert js('out(m.zdrojFotky({ dataUrl: A.d }, "../"));', d=data) == data
+    assert js('out(m.zdrojFotky({ dataUrl: "media/a.webp" }, "../"));') == "../media/a.webp"
+    assert js('out(m.zdrojFotky({ dataUrl: "media/a.webp" }, ""));') == "media/a.webp"
+    assert js('out(m.zdrojFotky({ dataUrl: "media/a.webp" }));') == "media/a.webp"
+    assert js('out(m.zdrojFotky(null, "../"));') == ""
+    assert js('out(m.zdrojFotky({ dataUrl: "https://zlo.example/x.webp" }, "../"));') == ""
