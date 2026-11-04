@@ -119,6 +119,15 @@ final class Casti
         $predvolenyTyp = (string) ($volby['predvolenyTyp'] ?? '');
         $id = (string) ($volby['id'] ?? 'formular');
 
+        /* Hláška „v ukázce se nic neodesílá" patří jen do nákresu. Na ostrém
+           webu formulář doopravdy odesílá, a kdyby tam ta věta zůstala, čte ji
+           návštěvník nad odesílacím tlačítkem a poptávku rovnou vzdá. */
+        $demoHlaska = $ctx->ukazka
+            ? '<div class="hlaska hlaska-info">' . self::ikona('info')
+                . '<span' . self::dc('kontakt.formular.odeslanoDemo') . '>'
+                . $ctx->t('kontakt.formular.odeslanoDemo') . '</span></div>'
+            : '';
+
         $moznosti = '';
         foreach ($ctx->klice('kontakt.formular.typy') as $k) {
             $moznosti .= '<option value="' . $k . '"' . ($k === $predvolenyTyp ? ' selected' : '') . '>'
@@ -128,7 +137,7 @@ final class Casti
         // Záměrně co nejmíň polí: čím víc toho člověk musí vyplnit, tím míň
         // formulářů odejde. Firma, adresa a podrobnosti se doberou po telefonu.
         return '<form class="formular" id="' . $id . '" data-formular novalidate>
-  <div class="hlaska hlaska-info">' . self::ikona('info') . '<span' . self::dc('kontakt.formular.odeslanoDemo') . '>' . $ctx->t('kontakt.formular.odeslanoDemo') . '</span></div>
+  ' . $demoHlaska . '
   <div class="pole">
     <label for="' . $id . '-typ">' . $ctx->t('kontakt.formular.typ') . ' <span aria-hidden="true">*</span></label>
     <select id="' . $id . '-typ" name="typ" required>

@@ -202,6 +202,14 @@ final class Spolecne
             $sekce .= '<h2' . self::dc("gdpr.sekce.{$k}.titulek") . '>' . $ctx->t("gdpr.sekce.{$k}.titulek") . '</h2>
       <p' . self::dc("gdpr.sekce.{$k}.text") . '>' . $ctx->t("gdpr.sekce.{$k}.text") . '</p>';
         }
+        /* Poznámka „tenhle text je ukázkový, nechte si ho zkontrolovat" je
+           vzkaz klientovi, ne návštěvníkovi — na ostrém webu se nevykresluje. */
+        $poznamka = $ctx->ukazka
+            ? '<div class="panel-info varovny" style="margin-top:2.5rem">
+      <p' . self::dc('gdpr.poznamka') . '>' . $ctx->t('gdpr.poznamka') . '</p>
+    </div>'
+            : '';
+
         return Layout::podhlavi($ctx, [
             'titulek' => $ctx->t('gdpr.titulek'),
             'lead' => $ctx->t('gdpr.lead'),
@@ -211,9 +219,7 @@ final class Spolecne
 <section class="sekce">
   <div class="obal obal-uzky">
     <div class="text-blok" style="max-width:none">' . $sekce . '</div>
-    <div class="panel-info varovny" style="margin-top:2.5rem">
-      <p' . self::dc('gdpr.poznamka') . '>' . $ctx->t('gdpr.poznamka') . '</p>
-    </div>
+    ' . $poznamka . '
   </div>
 </section>';
     }
