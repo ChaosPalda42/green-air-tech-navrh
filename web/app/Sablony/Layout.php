@@ -14,7 +14,9 @@ declare(strict_types=1);
 
 namespace App\Sablony;
 
+use App\Jadro\Config;
 use App\Jadro\Kontext;
+use App\Jadro\Odkazy;
 
 final class Layout
 {
@@ -255,13 +257,43 @@ final class Layout
         $skripty = (string) ($casti['skripty'] ?? '');
 
         $site = $ctx->site();
+
+        /* Adresa webu z nastavení (instalátor ji zapíše jako `web`). Ukázka ji
+           nemá — staví se jako statické soubory do podsložky na GitHub Pages a
+           je celá noindex, takže absolutní adresy by tam byly nejen zbytečné,
+           ale rovnou lživé. Chybová stránka a přihlášení do administrace se
+           neindexují, těm canonical nepatří. */
+        $bezAdresy = in_array($ctx->aktualniSoubor, [
+            Odkazy::SOUBORY['chyba404'], Odkazy::SOUBORY['administrace'],
+        ], true);
+        $zaklad = ($ctx->ukazka || $bezAdresy)
+            ? ''
+            : rtrim((string) Config::dej('web', ''), '/');
+
         $jine = [];
-        foreach ($site['jazyky'] as $j) {
-            if ($j['kod'] !== $ctx->lang) {
-                $jine[] = '<link rel="alternate" hreflang="' . $j['html'] . '" href="' . $ctx->jazykOdkaz($j['kod']) . '">';
+        if ($zaklad !== '') {
+            /* hreflang musí být plné adresy a každá jazyková verze musí uvádět
+               i sebe samu — bez odkazu na sebe Google celou skupinu zahodí. */
+            foreach ($site['jazyky'] as $j) {
+                $jine[] = '<link rel="alternate" hreflang="' . $j['html']
+                    . '" href="' . $zaklad . '/' . $ctx->cestaVJazyce($j['kod']) . '">';
+            }
+            $jine[] = '<link rel="alternate" hreflang="x-default" href="'
+                . $zaklad . '/' . $ctx->cestaVJazyce('cs') . '">';
+        } else {
+            foreach ($site['jazyky'] as $j) {
+                if ($j['kod'] !== $ctx->lang) {
+                    $jine[] = '<link rel="alternate" hreflang="' . $j['html'] . '" href="' . $ctx->jazykOdkaz($j['kod']) . '">';
+                }
             }
         }
         $jineJazyky = implode("\n  ", $jine);
+
+        /* Web odpovídá na www i bez www. Bez tohohle řádku si je vyhledávač
+           indexuje jako dva weby a sílu odkazů si rozdělí napůl. */
+        $kanonicka = $zaklad !== ''
+            ? "\n" . '<link rel="canonical" href="' . $zaklad . '/' . $ctx->cestaVJazyce($ctx->lang) . '">'
+            : '';
 
         $htmlJazyk = '';
         foreach ($site['jazyky'] as $j) {
@@ -291,7 +323,7 @@ final class Layout
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>' . $titulek . '</title>
-<meta name="description" content="' . self::a($popis) . '">' . $roboti . '
+<meta name="description" content="' . self::a($popis) . '">' . $roboti . $kanonicka . '
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#e7f3df" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#122018" media="(prefers-color-scheme: dark)">

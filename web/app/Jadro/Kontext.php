@@ -137,11 +137,19 @@ final class Kontext
 
     public function jazykOdkaz(string $kod): string
     {
+        return $this->prefix() . $this->cestaVJazyce($kod);
+    }
+
+    /* Cesta téže stránky od kořene webu, bez „../" — z ní se skládají
+       absolutní adresy pro canonical a hreflang. Ty musí být plné, relativní
+       hreflang vyhledávače ignorují. */
+    public function cestaVJazyce(string $kod): string
+    {
         $cil = $this->jazyk($kod);
         $jmeno = ($this->aktualniSoubor === Odkazy::SOUBORY['administrace'] && $kod !== 'cs')
             ? Odkazy::SOUBORY['index']
             : $this->aktualniSoubor;
-        return $this->prefix() . ($cil['adresar'] !== '' ? $cil['adresar'] . '/' : '') . $jmeno;
+        return ($cil['adresar'] !== '' ? $cil['adresar'] . '/' : '') . $jmeno;
     }
 
     /** Doplní do textu vysvětlivky zkratek (první výskyt každé). */
