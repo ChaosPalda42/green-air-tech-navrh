@@ -281,6 +281,12 @@ if ($kam === null) {
 }
 
 header('Content-Type: text/html; charset=utf-8');
+/* Chybová stránka odpovídá kódem 404, i když si o ni někdo řekne přímo
+   adresou /404.html. Jako „200 OK" by to byla běžná stránka, kterou si
+   vyhledávač zaindexuje. */
+if ($kam['druh'] === 'chyba404') {
+    http_response_code(404);
+}
 if ($kam['druh'] === 'administrace') {
     header('Cache-Control: no-store');
     Sezeni::zacni();

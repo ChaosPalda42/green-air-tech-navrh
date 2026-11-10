@@ -311,9 +311,10 @@ final class Layout
             JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR
         );
 
-        // Ukázka se neindexuje celá; na ostrém webu jen přihlášení do
-        // administrace. robots.txt ji zakazuje taky, ale ten je jen žádost.
-        $roboti = ($ctx->ukazka || $ctx->aktivni === 'administrace')
+        // Ukázka se neindexuje celá; na ostrém webu přihlášení do
+        // administrace a chybová stránka. robots.txt administraci zakazuje
+        // taky, ale ten je jen žádost.
+        $roboti = ($ctx->ukazka || $ctx->aktivni === 'administrace' || $bezAdresy)
             ? "\n" . '<meta name="robots" content="noindex, nofollow">'
             : '';
 
