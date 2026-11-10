@@ -9,6 +9,31 @@
   # adres nečetly.)
   RewriteRule ^media/.*\.(php[0-9s]?|phtml|phar|pht|html?|cgi|pl|py|sh)$ - [F,L]
 
+  # Ověření certifikátu (ACME) musí projít i po čistém HTTP, jinak by se
+  # obnova certifikátu zacyklila na našem vlastním přesměrování níž.
+  RewriteRule ^\.well-known/ - [L]
+
+  # Jedna adresa pro celý web: https://www.greenairtech.cz. Bez tohohle
+  # bloku web odpovídal na čtyřech adresách (http i https, s www i bez) a
+  # žádná z nich na druhou neukazovala — vyhledávač je indexoval jako čtyři
+  # weby a sílu odkazů si mezi ně rozdělil. Kanonická adresa v hlavě
+  # stránky je jen žádost; tohle je odpověď serveru.
+  #
+  # Obě podmínky jmenují jen tyhle dva hostitele, takže vývoj na localhostu,
+  # přístup přes IP ani případná testovací adresa se nepřesměrují. Když se
+  # web přestěhuje na jinou doménu, mění se tyhle dva řádky.
+  #
+  # „Už jsme na HTTPS" se poznává stejně jako v PHP (App\Jadro\Hlavicky):
+  # buď mod_ssl, nebo hlavička od předřazené proxy. Jinak by web za proxy,
+  # která HTTPS ukončuje u sebe, přesměrovával do nekonečna.
+  RewriteCond %{HTTP_HOST} ^(www\.)?greenairtech\.cz$ [NC]
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+  RewriteRule ^ https://www.greenairtech.cz%{REQUEST_URI} [R=301,L,QSA]
+
+  RewriteCond %{HTTP_HOST} ^greenairtech\.cz$ [NC]
+  RewriteRule ^ https://www.greenairtech.cz%{REQUEST_URI} [R=301,L,QSA]
+
   # existující soubor (CSS, obrázky, fonty) obslouží Apache sám
   RewriteCond %{REQUEST_FILENAME} -f
   RewriteRule ^ - [L]
