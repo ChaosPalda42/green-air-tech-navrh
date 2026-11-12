@@ -9,6 +9,7 @@
      "edited": {},
      "removed": []
     },
+    "portrety": {},
     "updatedAt": null
    }
   }
@@ -73,6 +74,7 @@
       "edited": {},
       "removed": []
      },
+     "portrety": {},
      "updatedAt": null
     },
     "cs",
@@ -90,6 +92,7 @@
      "edited": {},
      "removed": []
     },
+    "portrety": {},
     "updatedAt": null
    }
   },
@@ -109,6 +112,7 @@
       "edited": {},
       "removed": []
      },
+     "portrety": {},
      "updatedAt": null
     },
     "cs",
@@ -129,6 +133,7 @@
      "edited": {},
      "removed": []
     },
+    "portrety": {},
     "updatedAt": null
    }
   },
@@ -148,6 +153,7 @@
       "edited": {},
       "removed": []
      },
+     "portrety": {},
      "updatedAt": null
     },
     "cs",
@@ -166,6 +172,7 @@
      "edited": {},
      "removed": []
     },
+    "portrety": {},
     "updatedAt": null
    }
   },
@@ -185,6 +192,7 @@
       "edited": {},
       "removed": []
      },
+     "portrety": {},
      "updatedAt": null
     },
     "cs",
@@ -203,6 +211,7 @@
      "edited": {},
      "removed": []
     },
+    "portrety": {},
     "updatedAt": null
    }
   },
@@ -222,6 +231,7 @@
       "edited": {},
       "removed": []
      },
+     "portrety": {},
      "updatedAt": null
     },
     "de",
@@ -245,6 +255,7 @@
      "edited": {},
      "removed": []
     },
+    "portrety": {},
     "updatedAt": null
    }
   },
@@ -257,6 +268,7 @@
       "edited": {},
       "removed": []
      },
+     "portrety": {},
      "updatedAt": null
     },
     "cs",
@@ -274,6 +286,7 @@
      "edited": {},
      "removed": []
     },
+    "portrety": {},
     "updatedAt": null
    }
   }
@@ -295,6 +308,7 @@
       "edited": {},
       "removed": []
      },
+     "portrety": {},
      "updatedAt": null
     },
     "cs",
@@ -318,6 +332,7 @@
       "edited": {},
       "removed": []
      },
+     "portrety": {},
      "updatedAt": null
     },
     "cs",
@@ -341,6 +356,7 @@
       "edited": {},
       "removed": []
      },
+     "portrety": {},
      "updatedAt": null
     },
     "de",
@@ -357,6 +373,7 @@
       "edited": {},
       "removed": []
      },
+     "portrety": {},
      "updatedAt": null
     },
     "cs",
@@ -382,6 +399,7 @@
       "edited": {},
       "removed": []
      },
+     "portrety": {},
      "updatedAt": null
     },
     "cs",
@@ -497,7 +515,7 @@
      "home.cisla.technici.popis": "kmenoví technici s vlastním vybavením",
      "home.sluzby.stitek": "Co umíme",
      "home.sluzby.titulek": "Sedm oborů, jedna odpovědnost",
-     "home.sluzby.lead": "Nemusíte skládat dohromady projektanta, montážní firmu a servis. Vedeme celý řetězec — a když se za dva roky něco stane, voláte pořád stejné číslo.",
+     "home.sluzby.lead": "Nemusíte koordinovat projektanta, montážní firmu a servis. Vedeme celý řetězec — a když se za dva roky něco stane, voláte pořád stejné číslo.",
      "home.postup.stitek": "Jak to u nás chodí",
      "home.postup.titulek": "Od obhlídky k dlouhodobé péči",
      "home.postup.lead": "Čtyři kroky, žádná překvapení. U každého víte, co dostanete a kdo za to odpovídá.",
@@ -975,7 +993,7 @@
      "onas.odznak.titulek": "Spolehlivá firma 2026",
      "onas.odznak.popis": "Ocenění za prověřenou historii, spolehlivost a bezdlužnost.",
      "onas.tym.titulek": "Lidé, se kterými budete mluvit",
-     "onas.tym.lead": "Žádná anonymní e‑mailová schránka. Tady je celý tým i s přímými čísly.",
+     "onas.tym.lead": "Žádná anonymní e‑mailová schránka — tady je celý tým i s přímými čísly.",
      "novinky.stranka.stitek": "Novinky",
      "novinky.stranka.titulek": "Co je u nás nového",
      "novinky.stranka.lead": "Realizace, které stojí za zmínku, změny v legislativě, školení a nábor.",
@@ -1174,6 +1192,7 @@
      "admin.zalozky.nastenka": "Nástěnka",
      "admin.zalozky.texty": "Texty webu",
      "admin.zalozky.realizace": "Realizace",
+     "admin.zalozky.portrety": "Fotky lidí",
      "admin.zalozky.uzivatele": "Uživatelé",
      "admin.zalozky.data": "Záloha a obnovení",
      "admin.texty.titulek": "Texty webu",
@@ -1229,6 +1248,15 @@
      "admin.realizace.fotkyChyba.neplatny": "{soubor}: soubor se nepodařilo načíst.",
      "admin.realizace.fotkyChyba.nacteni": "{soubor}: obrázek se nepodařilo otevřít.",
      "admin.realizace.fotkyPlno": "Prohlížeč už nemá místo na další data. Nějaké fotky odeberte, nebo si změny stáhněte do zálohy a začněte načisto.",
+     "admin.portrety.titulek": "Fotky lidí",
+     "admin.portrety.lead": "Na každé fotce sedí hlava jinak. Posuňte fotku v kolečku tak, jak ji chcete mít na webu — vedle hned vidíte, jak kolečko vypadá ve skutečné velikosti.",
+     "admin.portrety.jakNa": "Chytněte fotku a posuňte ji. Klávesnicí: šipky, se Shiftem po větších krocích.",
+     "admin.portrety.priblizeni": "Přiblížení",
+     "admin.portrety.nahled": "Takhle kolečko vypadá na webu",
+     "admin.portrety.vratit": "Vrátit jak bylo",
+     "admin.portrety.posun": "Posun fotky",
+     "admin.portrety.zmeneno": "upraveno",
+     "admin.portrety.bezFotky": "Tenhle člověk zatím fotku nemá.",
      "admin.data.titulek": "Záloha a obnovení",
      "admin.data.lead": "Změny žijí ve vašem prohlížeči. Tady si je můžete stáhnout jako soubor, nahrát zpět nebo všechno vrátit do výchozího stavu.",
      "admin.data.stahnout": "Stáhnout změny (JSON)",
@@ -1323,7 +1351,7 @@
      "vetve.firmy.perex": "Projekce v BIM, realizace a montáže, servis s nonstop dispečinkem, energetické audity a refity. Kompletní TZB od první čáry po pravidelnou revizi.",
      "vetve.firmy.cta": "Vstoupit do sekce pro firmy",
      "vetve.firmy.titulek": "Technická zařízení budov od návrhu po servis",
-     "vetve.firmy.lead": "Administrativa, výroba, zdravotnictví, obchodní centra i veřejné objekty. Nemusíte skládat dohromady projektanta, montážní firmu a servis.",
+     "vetve.firmy.lead": "Administrativa, výroba, zdravotnictví, obchodní centra i veřejné objekty. Nemusíte koordinovat projektanta, montážní firmu a servis.",
      "vetve.firmy.sluzbyTitulek": "Sedm oborů, jedna odpovědnost",
      "vetve.firmy.sluzbyLead": "Vedeme celý řetězec — a když se za dva roky něco stane, voláte pořád stejné číslo.",
      "vetve.firmy.realizaceTitulek": "Zakázky, za kterými si stojíme",
@@ -1443,7 +1471,7 @@
     "home.cisla.technici.popis": "kmenoví technici s vlastním vybavením",
     "home.sluzby.stitek": "Co umíme",
     "home.sluzby.titulek": "Sedm oborů, jedna odpovědnost",
-    "home.sluzby.lead": "Nemusíte skládat dohromady projektanta, montážní firmu a servis. Vedeme celý řetězec — a když se za dva roky něco stane, voláte pořád stejné číslo.",
+    "home.sluzby.lead": "Nemusíte koordinovat projektanta, montážní firmu a servis. Vedeme celý řetězec — a když se za dva roky něco stane, voláte pořád stejné číslo.",
     "home.postup.stitek": "Jak to u nás chodí",
     "home.postup.titulek": "Od obhlídky k dlouhodobé péči",
     "home.postup.lead": "Čtyři kroky, žádná překvapení. U každého víte, co dostanete a kdo za to odpovídá.",
@@ -1921,7 +1949,7 @@
     "onas.odznak.titulek": "Spolehlivá firma 2026",
     "onas.odznak.popis": "Ocenění za prověřenou historii, spolehlivost a bezdlužnost.",
     "onas.tym.titulek": "Lidé, se kterými budete mluvit",
-    "onas.tym.lead": "Žádná anonymní e‑mailová schránka. Tady je celý tým i s přímými čísly.",
+    "onas.tym.lead": "Žádná anonymní e‑mailová schránka — tady je celý tým i s přímými čísly.",
     "novinky.stranka.stitek": "Novinky",
     "novinky.stranka.titulek": "Co je u nás nového",
     "novinky.stranka.lead": "Realizace, které stojí za zmínku, změny v legislativě, školení a nábor.",
@@ -2120,6 +2148,7 @@
     "admin.zalozky.nastenka": "Nástěnka",
     "admin.zalozky.texty": "Texty webu",
     "admin.zalozky.realizace": "Realizace",
+    "admin.zalozky.portrety": "Fotky lidí",
     "admin.zalozky.uzivatele": "Uživatelé",
     "admin.zalozky.data": "Záloha a obnovení",
     "admin.texty.titulek": "Texty webu",
@@ -2175,6 +2204,15 @@
     "admin.realizace.fotkyChyba.neplatny": "{soubor}: soubor se nepodařilo načíst.",
     "admin.realizace.fotkyChyba.nacteni": "{soubor}: obrázek se nepodařilo otevřít.",
     "admin.realizace.fotkyPlno": "Prohlížeč už nemá místo na další data. Nějaké fotky odeberte, nebo si změny stáhněte do zálohy a začněte načisto.",
+    "admin.portrety.titulek": "Fotky lidí",
+    "admin.portrety.lead": "Na každé fotce sedí hlava jinak. Posuňte fotku v kolečku tak, jak ji chcete mít na webu — vedle hned vidíte, jak kolečko vypadá ve skutečné velikosti.",
+    "admin.portrety.jakNa": "Chytněte fotku a posuňte ji. Klávesnicí: šipky, se Shiftem po větších krocích.",
+    "admin.portrety.priblizeni": "Přiblížení",
+    "admin.portrety.nahled": "Takhle kolečko vypadá na webu",
+    "admin.portrety.vratit": "Vrátit jak bylo",
+    "admin.portrety.posun": "Posun fotky",
+    "admin.portrety.zmeneno": "upraveno",
+    "admin.portrety.bezFotky": "Tenhle člověk zatím fotku nemá.",
     "admin.data.titulek": "Záloha a obnovení",
     "admin.data.lead": "Změny žijí ve vašem prohlížeči. Tady si je můžete stáhnout jako soubor, nahrát zpět nebo všechno vrátit do výchozího stavu.",
     "admin.data.stahnout": "Stáhnout změny (JSON)",
@@ -2269,7 +2307,7 @@
     "vetve.firmy.perex": "Projekce v BIM, realizace a montáže, servis s nonstop dispečinkem, energetické audity a refity. Kompletní TZB od první čáry po pravidelnou revizi.",
     "vetve.firmy.cta": "Vstoupit do sekce pro firmy",
     "vetve.firmy.titulek": "Technická zařízení budov od návrhu po servis",
-    "vetve.firmy.lead": "Administrativa, výroba, zdravotnictví, obchodní centra i veřejné objekty. Nemusíte skládat dohromady projektanta, montážní firmu a servis.",
+    "vetve.firmy.lead": "Administrativa, výroba, zdravotnictví, obchodní centra i veřejné objekty. Nemusíte koordinovat projektanta, montážní firmu a servis.",
     "vetve.firmy.sluzbyTitulek": "Sedm oborů, jedna odpovědnost",
     "vetve.firmy.sluzbyLead": "Vedeme celý řetězec — a když se za dva roky něco stane, voláte pořád stejné číslo.",
     "vetve.firmy.realizaceTitulek": "Zakázky, za kterými si stojíme",
@@ -2293,6 +2331,7 @@
       "edited": {},
       "removed": []
      },
+     "portrety": {},
      "updatedAt": null
     },
     "en",
@@ -2408,7 +2447,7 @@
      "home.cisla.technici.popis": "in-house technicians with their own equipment",
      "home.sluzby.stitek": "What we do",
      "home.sluzby.titulek": "Seven disciplines, one point of responsibility",
-     "home.sluzby.lead": "You don't have to put together a designer, an installation company, and a service provider yourself. We manage the entire chain — and when something goes wrong two years from now, you call the same number.",
+     "home.sluzby.lead": "You don't have to coordinate a designer, an installation company, and a service provider yourself. We manage the entire chain — and when something goes wrong two years from now, you call the same number.",
      "home.postup.stitek": "How it works",
      "home.postup.titulek": "From site survey to long-term care",
      "home.postup.lead": "Four steps, no surprises. At each stage you know what you get and who is responsible for it.",
@@ -2886,7 +2925,7 @@
      "onas.odznak.titulek": "Reliable Company 2026",
      "onas.odznak.popis": "An award for a verified track record, reliability, and debt-free status.",
      "onas.tym.titulek": "The People You Will Be Talking To",
-     "onas.tym.lead": "No anonymous email inbox. Here is the entire team with direct phone numbers.",
+     "onas.tym.lead": "No anonymous email inbox — here is the entire team with direct phone numbers.",
      "novinky.stranka.stitek": "News",
      "novinky.stranka.titulek": "What's New With Us",
      "novinky.stranka.lead": "Notable projects, legislative changes, training, and recruitment.",
@@ -3085,6 +3124,7 @@
      "admin.zalozky.nastenka": "Dashboard",
      "admin.zalozky.texty": "Website texts",
      "admin.zalozky.realizace": "Projects",
+     "admin.zalozky.portrety": "Team photos",
      "admin.zalozky.uzivatele": "Users",
      "admin.zalozky.data": "Backup and restore",
      "admin.texty.titulek": "Website texts",
@@ -3140,6 +3180,15 @@
      "admin.realizace.fotkyChyba.neplatny": "{soubor}: failed to load the file.",
      "admin.realizace.fotkyChyba.nacteni": "{soubor}: failed to open the image.",
      "admin.realizace.fotkyPlno": "The browser no longer has space for additional data. Remove some photos, or download the changes to a backup and start fresh.",
+     "admin.portrety.titulek": "Team photos",
+     "admin.portrety.lead": "Every photo sits differently. Drag the photo inside the circle the way you want it on the site — next to it you see the circle at its real size.",
+     "admin.portrety.jakNa": "Grab the photo and move it. With a keyboard: arrow keys, Shift for bigger steps.",
+     "admin.portrety.priblizeni": "Zoom",
+     "admin.portrety.nahled": "This is how the circle looks on the site",
+     "admin.portrety.vratit": "Back as it was",
+     "admin.portrety.posun": "Photo position",
+     "admin.portrety.zmeneno": "edited",
+     "admin.portrety.bezFotky": "This person has no photo yet.",
      "admin.data.titulek": "Backup and restore",
      "admin.data.lead": "Changes are stored in your browser. Here you can download them as a file, upload them back, or reset everything to the default state.",
      "admin.data.stahnout": "Download changes (JSON)",
@@ -3354,7 +3403,7 @@
     "home.cisla.technici.popis": "in-house technicians with their own equipment",
     "home.sluzby.stitek": "What we do",
     "home.sluzby.titulek": "Seven disciplines, one point of responsibility",
-    "home.sluzby.lead": "You don't have to put together a designer, an installation company, and a service provider yourself. We manage the entire chain — and when something goes wrong two years from now, you call the same number.",
+    "home.sluzby.lead": "You don't have to coordinate a designer, an installation company, and a service provider yourself. We manage the entire chain — and when something goes wrong two years from now, you call the same number.",
     "home.postup.stitek": "How it works",
     "home.postup.titulek": "From site survey to long-term care",
     "home.postup.lead": "Four steps, no surprises. At each stage you know what you get and who is responsible for it.",
@@ -3832,7 +3881,7 @@
     "onas.odznak.titulek": "Reliable Company 2026",
     "onas.odznak.popis": "An award for a verified track record, reliability, and debt-free status.",
     "onas.tym.titulek": "The People You Will Be Talking To",
-    "onas.tym.lead": "No anonymous email inbox. Here is the entire team with direct phone numbers.",
+    "onas.tym.lead": "No anonymous email inbox — here is the entire team with direct phone numbers.",
     "novinky.stranka.stitek": "News",
     "novinky.stranka.titulek": "What's New With Us",
     "novinky.stranka.lead": "Notable projects, legislative changes, training, and recruitment.",
@@ -4031,6 +4080,7 @@
     "admin.zalozky.nastenka": "Dashboard",
     "admin.zalozky.texty": "Website texts",
     "admin.zalozky.realizace": "Projects",
+    "admin.zalozky.portrety": "Team photos",
     "admin.zalozky.uzivatele": "Users",
     "admin.zalozky.data": "Backup and restore",
     "admin.texty.titulek": "Website texts",
@@ -4086,6 +4136,15 @@
     "admin.realizace.fotkyChyba.neplatny": "{soubor}: failed to load the file.",
     "admin.realizace.fotkyChyba.nacteni": "{soubor}: failed to open the image.",
     "admin.realizace.fotkyPlno": "The browser no longer has space for additional data. Remove some photos, or download the changes to a backup and start fresh.",
+    "admin.portrety.titulek": "Team photos",
+    "admin.portrety.lead": "Every photo sits differently. Drag the photo inside the circle the way you want it on the site — next to it you see the circle at its real size.",
+    "admin.portrety.jakNa": "Grab the photo and move it. With a keyboard: arrow keys, Shift for bigger steps.",
+    "admin.portrety.priblizeni": "Zoom",
+    "admin.portrety.nahled": "This is how the circle looks on the site",
+    "admin.portrety.vratit": "Back as it was",
+    "admin.portrety.posun": "Photo position",
+    "admin.portrety.zmeneno": "edited",
+    "admin.portrety.bezFotky": "This person has no photo yet.",
     "admin.data.titulek": "Backup and restore",
     "admin.data.lead": "Changes are stored in your browser. Here you can download them as a file, upload them back, or reset everything to the default state.",
     "admin.data.stahnout": "Download changes (JSON)",
@@ -4204,6 +4263,7 @@
       "edited": {},
       "removed": []
      },
+     "portrety": {},
      "updatedAt": null
     },
     "de",
@@ -4224,6 +4284,7 @@
       "edited": {},
       "removed": []
      },
+     "portrety": {},
      "updatedAt": null
     },
     "cs",
@@ -4251,6 +4312,7 @@
       "edited": {},
       "removed": []
      },
+     "portrety": {},
      "updatedAt": null
     },
     "cs",
@@ -4271,6 +4333,7 @@
       "edited": {},
       "removed": []
      },
+     "portrety": {},
      "updatedAt": null
     },
     {
@@ -4401,6 +4464,7 @@
      "edited": {},
      "removed": []
     },
+    "portrety": {},
     "updatedAt": null
    }
   },
@@ -4420,6 +4484,7 @@
       "edited": {},
       "removed": []
      },
+     "portrety": {},
      "updatedAt": null
     },
     {
@@ -4556,6 +4621,7 @@
      "edited": {},
      "removed": []
     },
+    "portrety": {},
     "updatedAt": null
    }
   },
@@ -4581,6 +4647,7 @@
       "edited": {},
       "removed": []
      },
+     "portrety": {},
      "updatedAt": null
     },
     {
@@ -4716,6 +4783,7 @@
      "edited": {},
      "removed": []
     },
+    "portrety": {},
     "updatedAt": null
    }
   },
@@ -4728,6 +4796,7 @@
       "edited": {},
       "removed": []
      },
+     "portrety": {},
      "updatedAt": null
     },
     {
@@ -4855,6 +4924,7 @@
      },
      "removed": []
     },
+    "portrety": {},
     "updatedAt": null
    }
   },
@@ -4874,6 +4944,7 @@
        "administrativni-budova-karlin"
       ]
      },
+     "portrety": {},
      "updatedAt": null
     },
     {
@@ -5005,6 +5076,7 @@
      },
      "removed": []
     },
+    "portrety": {},
     "updatedAt": null
    }
   },
@@ -5017,6 +5089,7 @@
       "edited": {},
       "removed": []
      },
+     "portrety": {},
      "updatedAt": null
     },
     {
@@ -5143,6 +5216,7 @@
      "edited": {},
      "removed": []
     },
+    "portrety": {},
     "updatedAt": null
    }
   },
@@ -5155,6 +5229,7 @@
       "edited": {},
       "removed": []
      },
+     "portrety": {},
      "updatedAt": null
     },
     {
@@ -5174,6 +5249,7 @@
      "edited": {},
      "removed": []
     },
+    "portrety": {},
     "updatedAt": null
    }
   }
@@ -5195,6 +5271,7 @@
       "edited": {},
       "removed": []
      },
+     "portrety": {},
      "updatedAt": null
     },
     "nova-cistirna-ricany"
@@ -5206,6 +5283,7 @@
      "edited": {},
      "removed": []
     },
+    "portrety": {},
     "updatedAt": null
    }
   },
@@ -5223,6 +5301,7 @@
       },
       "removed": []
      },
+     "portrety": {},
      "updatedAt": null
     },
     "logisticke-centrum-d1"
@@ -5236,6 +5315,7 @@
       "logisticke-centrum-d1"
      ]
     },
+    "portrety": {},
     "updatedAt": null
    }
   },
@@ -5248,6 +5328,7 @@
       "edited": {},
       "removed": []
      },
+     "portrety": {},
      "updatedAt": null
     },
     "administrativni-budova-karlin"
@@ -5261,6 +5342,7 @@
       "administrativni-budova-karlin"
      ]
     },
+    "portrety": {},
     "updatedAt": null
    }
   },
@@ -5280,6 +5362,7 @@
        "administrativni-budova-karlin"
       ]
      },
+     "portrety": {},
      "updatedAt": null
     },
     "administrativni-budova-karlin"
@@ -5298,6 +5381,7 @@
       "administrativni-budova-karlin"
      ]
     },
+    "portrety": {},
     "updatedAt": null
    }
   },
@@ -5310,6 +5394,7 @@
       "edited": {},
       "removed": []
      },
+     "portrety": {},
      "updatedAt": null
     },
     "neexistuje"
@@ -5323,6 +5408,7 @@
       "neexistuje"
      ]
     },
+    "portrety": {},
     "updatedAt": null
    }
   }
@@ -5337,6 +5423,7 @@
       "edited": {},
       "removed": []
      },
+     "portrety": {},
      "updatedAt": null
     },
     [
@@ -5573,6 +5660,7 @@
       "edited": {},
       "removed": []
      },
+     "portrety": {},
      "updatedAt": null
     },
     [
@@ -5821,6 +5909,7 @@
        "poliklinika-pisek"
       ]
      },
+     "portrety": {},
      "updatedAt": null
     },
     [
@@ -6042,6 +6131,7 @@
       },
       "removed": []
      },
+     "portrety": {},
      "updatedAt": null
     },
     [
@@ -6272,6 +6362,7 @@
       "edited": {},
       "removed": []
      },
+     "portrety": {},
      "updatedAt": null
     },
     []
@@ -6294,6 +6385,7 @@
       "edited": {},
       "removed": []
      },
+     "portrety": {},
      "updatedAt": null
     },
     []
@@ -6308,6 +6400,938 @@
    ]
   }
  ],
+ "normalizeVyrez": [
+  {
+   "args": [
+    {
+     "zoom": 160,
+     "x": -12,
+     "y": -20
+    }
+   ],
+   "out": {
+    "zoom": 160,
+    "x": -12,
+    "y": -20
+   }
+  },
+  {
+   "args": [
+    {
+     "zoom": 100,
+     "x": 0,
+     "y": 0
+    }
+   ],
+   "out": {
+    "zoom": 100,
+    "x": 0,
+    "y": 0
+   }
+  },
+  {
+   "args": [
+    {
+     "zoom": 100,
+     "x": 30,
+     "y": -30
+    }
+   ],
+   "out": {
+    "zoom": 100,
+    "x": 0,
+    "y": 0
+   }
+  },
+  {
+   "args": [
+    {
+     "zoom": 120,
+     "x": 40,
+     "y": -40
+    }
+   ],
+   "out": {
+    "zoom": 120,
+    "x": 10,
+    "y": -10
+   }
+  },
+  {
+   "args": [
+    {
+     "zoom": 90,
+     "x": 0,
+     "y": 0
+    }
+   ],
+   "out": {
+    "zoom": 100,
+    "x": 0,
+    "y": 0
+   }
+  },
+  {
+   "args": [
+    {
+     "zoom": 999,
+     "x": 0,
+     "y": 0
+    }
+   ],
+   "out": {
+    "zoom": 250,
+    "x": 0,
+    "y": 0
+   }
+  },
+  {
+   "args": [
+    {
+     "zoom": 160.4,
+     "x": -11.6,
+     "y": 20.5
+    }
+   ],
+   "out": {
+    "zoom": 160,
+    "x": -12,
+    "y": 21
+   }
+  },
+  {
+   "args": [
+    {
+     "zoom": 160.5,
+     "x": -11.5,
+     "y": 11.5
+    }
+   ],
+   "out": {
+    "zoom": 161,
+    "x": -11,
+    "y": 12
+   }
+  },
+  {
+   "args": [
+    {
+     "zoom": 160,
+     "x": -30.5,
+     "y": 30.5
+    }
+   ],
+   "out": {
+    "zoom": 160,
+    "x": -30,
+    "y": 30
+   }
+  },
+  {
+   "args": [
+    {
+     "zoom": "160",
+     "x": "-12",
+     "y": "0"
+    }
+   ],
+   "out": {
+    "zoom": 160,
+    "x": -12,
+    "y": 0
+   }
+  },
+  {
+   "args": [
+    {}
+   ],
+   "out": {
+    "zoom": 100,
+    "x": 0,
+    "y": 0
+   }
+  },
+  {
+   "args": [
+    null
+   ],
+   "out": {
+    "zoom": 100,
+    "x": 0,
+    "y": 0
+   }
+  },
+  {
+   "args": [
+    {
+     "zoom": null,
+     "x": null,
+     "y": "nic"
+    }
+   ],
+   "out": {
+    "zoom": 100,
+    "x": 0,
+    "y": 0
+   }
+  }
+ ],
+ "stylVyrezu": [
+  {
+   "args": [
+    {
+     "zoom": 115,
+     "x": 0,
+     "y": 0
+    }
+   ],
+   "out": "--vz:1.15;--vx:0%;--vy:0%"
+  },
+  {
+   "args": [
+    {
+     "zoom": 160,
+     "x": -12,
+     "y": -20
+    }
+   ],
+   "out": "--vz:1.60;--vx:-12%;--vy:-20%"
+  },
+  {
+   "args": [
+    {
+     "zoom": 100,
+     "x": 0,
+     "y": 0
+    }
+   ],
+   "out": ""
+  },
+  {
+   "args": [
+    {
+     "zoom": 200,
+     "x": 50,
+     "y": -50
+    }
+   ],
+   "out": "--vz:2.00;--vx:50%;--vy:-50%"
+  },
+  {
+   "args": [
+    null
+   ],
+   "out": ""
+  },
+  {
+   "args": [
+    {
+     "zoom": 125,
+     "x": 12,
+     "y": -12
+    }
+   ],
+   "out": "--vz:1.25;--vx:12%;--vy:-12%"
+  }
+ ],
+ "jeVychoziVyrez": [
+  {
+   "args": [
+    {
+     "zoom": 100,
+     "x": 0,
+     "y": 0
+    }
+   ],
+   "out": true
+  },
+  {
+   "args": [
+    {}
+   ],
+   "out": true
+  },
+  {
+   "args": [
+    {
+     "zoom": 160,
+     "x": 0,
+     "y": 0
+    }
+   ],
+   "out": false
+  },
+  {
+   "args": [
+    {
+     "zoom": 100,
+     "x": 20,
+     "y": 0
+    }
+   ],
+   "out": true
+  },
+  {
+   "args": [
+    null
+   ],
+   "out": true
+  }
+ ],
+ "setVyrez": [
+  {
+   "args": [
+    {
+     "texts": {},
+     "realizace": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "portrety": {},
+     "updatedAt": null
+    },
+    "pavel-janda",
+    {
+     "zoom": 160,
+     "x": -12,
+     "y": -20
+    }
+   ],
+   "out": {
+    "texts": {},
+    "realizace": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
+    "portrety": {
+     "pavel-janda": {
+      "zoom": 160,
+      "x": -12,
+      "y": -20
+     }
+    },
+    "updatedAt": null
+   }
+  },
+  {
+   "args": [
+    {
+     "texts": {},
+     "realizace": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "portrety": {
+      "pavel-janda": {
+       "zoom": 160,
+       "x": -12,
+       "y": -20
+      }
+     },
+     "updatedAt": null
+    },
+    "pavel-janda",
+    {
+     "zoom": 130,
+     "x": 0,
+     "y": 0
+    }
+   ],
+   "out": {
+    "texts": {},
+    "realizace": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
+    "portrety": {
+     "pavel-janda": {
+      "zoom": 130,
+      "x": 0,
+      "y": 0
+     }
+    },
+    "updatedAt": null
+   }
+  },
+  {
+   "args": [
+    {
+     "texts": {},
+     "realizace": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "portrety": {
+      "pavel-janda": {
+       "zoom": 160,
+       "x": -12,
+       "y": -20
+      }
+     },
+     "updatedAt": null
+    },
+    "pavel-janda",
+    {
+     "zoom": 100,
+     "x": 0,
+     "y": 0
+    }
+   ],
+   "out": {
+    "texts": {},
+    "realizace": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
+    "portrety": {
+     "pavel-janda": {
+      "zoom": 100,
+      "x": 0,
+      "y": 0
+     }
+    },
+    "updatedAt": null
+   }
+  },
+  {
+   "args": [
+    {
+     "texts": {},
+     "realizace": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "portrety": {
+      "pavel-janda": {
+       "zoom": 160,
+       "x": -12,
+       "y": -20
+      }
+     },
+     "updatedAt": null
+    },
+    "pavel-janda",
+    null
+   ],
+   "out": {
+    "texts": {},
+    "realizace": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
+    "portrety": {},
+    "updatedAt": null
+   }
+  },
+  {
+   "args": [
+    {
+     "texts": {},
+     "realizace": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "portrety": {
+      "pavel-janda": {
+       "zoom": 160,
+       "x": -12,
+       "y": -20
+      }
+     },
+     "updatedAt": null
+    },
+    "martina-masindova",
+    {
+     "zoom": 200,
+     "x": 50,
+     "y": -50
+    }
+   ],
+   "out": {
+    "texts": {},
+    "realizace": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
+    "portrety": {
+     "pavel-janda": {
+      "zoom": 160,
+      "x": -12,
+      "y": -20
+     },
+     "martina-masindova": {
+      "zoom": 200,
+      "x": 50,
+      "y": -50
+     }
+    },
+    "updatedAt": null
+   }
+  },
+  {
+   "args": [
+    {
+     "texts": {},
+     "realizace": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "portrety": {},
+     "updatedAt": null
+    },
+    "pavel-janda",
+    {
+     "zoom": 90,
+     "x": 0,
+     "y": 0
+    }
+   ],
+   "out": {
+    "texts": {},
+    "realizace": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
+    "portrety": {
+     "pavel-janda": {
+      "zoom": 100,
+      "x": 0,
+      "y": 0
+     }
+    },
+    "updatedAt": null
+   }
+  }
+ ],
+ "getVyrez": [
+  {
+   "args": [
+    {
+     "texts": {},
+     "realizace": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "portrety": {
+      "pavel-janda": {
+       "zoom": 160,
+       "x": -12,
+       "y": -20
+      }
+     },
+     "updatedAt": null
+    },
+    "pavel-janda"
+   ],
+   "out": {
+    "zoom": 160,
+    "x": -12,
+    "y": -20
+   }
+  },
+  {
+   "args": [
+    {
+     "texts": {},
+     "realizace": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "portrety": {
+      "pavel-janda": {
+       "zoom": 160,
+       "x": -12,
+       "y": -20
+      }
+     },
+     "updatedAt": null
+    },
+    "martina-masindova"
+   ],
+   "out": null
+  },
+  {
+   "args": [
+    {
+     "texts": {},
+     "realizace": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "portrety": {},
+     "updatedAt": null
+    },
+    "pavel-janda"
+   ],
+   "out": null
+  },
+  {
+   "args": [
+    {
+     "texts": {},
+     "realizace": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "portrety": {
+      "pavel-janda": {
+       "zoom": 160,
+       "x": -12,
+       "y": -20
+      },
+      "martina-masindova": {
+       "zoom": 130,
+       "x": 15,
+       "y": 0
+      }
+     },
+     "updatedAt": null
+    },
+    "martina-masindova"
+   ],
+   "out": {
+    "zoom": 130,
+    "x": 15,
+    "y": 0
+   }
+  }
+ ],
+ "mergeVyrezy": [
+  {
+   "args": [
+    {
+     "texts": {},
+     "realizace": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "portrety": {},
+     "updatedAt": null
+    },
+    [
+     {
+      "id": "pavel-janda",
+      "jmeno": "Pavel Janda",
+      "inicialy": "PJ"
+     },
+     {
+      "id": "martina-masindova",
+      "jmeno": "Martina Mašindová",
+      "inicialy": "MM"
+     },
+     {
+      "id": "zdenek-bauska",
+      "jmeno": "Zdeněk Bauška",
+      "inicialy": "ZB"
+     },
+     {
+      "id": "jan-rezac",
+      "jmeno": "Jan Řezáč",
+      "inicialy": "JŘ"
+     },
+     {
+      "id": "radek-tyla",
+      "jmeno": "Radek Týla",
+      "inicialy": "RT"
+     },
+     {
+      "id": "denisa-jandova",
+      "jmeno": "Bc. Denisa Jandová",
+      "inicialy": "DJ"
+     },
+     {
+      "id": "jonas-benak",
+      "jmeno": "Jonáš Benák",
+      "inicialy": "JB"
+     }
+    ]
+   ],
+   "out": [
+    {
+     "id": "pavel-janda",
+     "jmeno": "Pavel Janda",
+     "inicialy": "PJ"
+    },
+    {
+     "id": "martina-masindova",
+     "jmeno": "Martina Mašindová",
+     "inicialy": "MM"
+    },
+    {
+     "id": "zdenek-bauska",
+     "jmeno": "Zdeněk Bauška",
+     "inicialy": "ZB"
+    },
+    {
+     "id": "jan-rezac",
+     "jmeno": "Jan Řezáč",
+     "inicialy": "JŘ"
+    },
+    {
+     "id": "radek-tyla",
+     "jmeno": "Radek Týla",
+     "inicialy": "RT"
+    },
+    {
+     "id": "denisa-jandova",
+     "jmeno": "Bc. Denisa Jandová",
+     "inicialy": "DJ"
+    },
+    {
+     "id": "jonas-benak",
+     "jmeno": "Jonáš Benák",
+     "inicialy": "JB"
+    }
+   ]
+  },
+  {
+   "args": [
+    {
+     "texts": {},
+     "realizace": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "portrety": {
+      "pavel-janda": {
+       "zoom": 160,
+       "x": -12,
+       "y": -20
+      }
+     },
+     "updatedAt": null
+    },
+    [
+     {
+      "id": "pavel-janda",
+      "jmeno": "Pavel Janda",
+      "inicialy": "PJ"
+     },
+     {
+      "id": "martina-masindova",
+      "jmeno": "Martina Mašindová",
+      "inicialy": "MM"
+     },
+     {
+      "id": "zdenek-bauska",
+      "jmeno": "Zdeněk Bauška",
+      "inicialy": "ZB"
+     },
+     {
+      "id": "jan-rezac",
+      "jmeno": "Jan Řezáč",
+      "inicialy": "JŘ"
+     },
+     {
+      "id": "radek-tyla",
+      "jmeno": "Radek Týla",
+      "inicialy": "RT"
+     },
+     {
+      "id": "denisa-jandova",
+      "jmeno": "Bc. Denisa Jandová",
+      "inicialy": "DJ"
+     },
+     {
+      "id": "jonas-benak",
+      "jmeno": "Jonáš Benák",
+      "inicialy": "JB"
+     }
+    ]
+   ],
+   "out": [
+    {
+     "id": "pavel-janda",
+     "jmeno": "Pavel Janda",
+     "inicialy": "PJ",
+     "vyrez": {
+      "zoom": 160,
+      "x": -12,
+      "y": -20
+     }
+    },
+    {
+     "id": "martina-masindova",
+     "jmeno": "Martina Mašindová",
+     "inicialy": "MM"
+    },
+    {
+     "id": "zdenek-bauska",
+     "jmeno": "Zdeněk Bauška",
+     "inicialy": "ZB"
+    },
+    {
+     "id": "jan-rezac",
+     "jmeno": "Jan Řezáč",
+     "inicialy": "JŘ"
+    },
+    {
+     "id": "radek-tyla",
+     "jmeno": "Radek Týla",
+     "inicialy": "RT"
+    },
+    {
+     "id": "denisa-jandova",
+     "jmeno": "Bc. Denisa Jandová",
+     "inicialy": "DJ"
+    },
+    {
+     "id": "jonas-benak",
+     "jmeno": "Jonáš Benák",
+     "inicialy": "JB"
+    }
+   ]
+  },
+  {
+   "args": [
+    {
+     "texts": {},
+     "realizace": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "portrety": {
+      "pavel-janda": {
+       "zoom": 160,
+       "x": -12,
+       "y": -20
+      },
+      "martina-masindova": {
+       "zoom": 130,
+       "x": 15,
+       "y": 0
+      }
+     },
+     "updatedAt": null
+    },
+    [
+     {
+      "id": "pavel-janda",
+      "jmeno": "Pavel Janda",
+      "inicialy": "PJ"
+     },
+     {
+      "id": "martina-masindova",
+      "jmeno": "Martina Mašindová",
+      "inicialy": "MM"
+     },
+     {
+      "id": "zdenek-bauska",
+      "jmeno": "Zdeněk Bauška",
+      "inicialy": "ZB"
+     },
+     {
+      "id": "jan-rezac",
+      "jmeno": "Jan Řezáč",
+      "inicialy": "JŘ"
+     },
+     {
+      "id": "radek-tyla",
+      "jmeno": "Radek Týla",
+      "inicialy": "RT"
+     },
+     {
+      "id": "denisa-jandova",
+      "jmeno": "Bc. Denisa Jandová",
+      "inicialy": "DJ"
+     },
+     {
+      "id": "jonas-benak",
+      "jmeno": "Jonáš Benák",
+      "inicialy": "JB"
+     }
+    ]
+   ],
+   "out": [
+    {
+     "id": "pavel-janda",
+     "jmeno": "Pavel Janda",
+     "inicialy": "PJ",
+     "vyrez": {
+      "zoom": 160,
+      "x": -12,
+      "y": -20
+     }
+    },
+    {
+     "id": "martina-masindova",
+     "jmeno": "Martina Mašindová",
+     "inicialy": "MM",
+     "vyrez": {
+      "zoom": 130,
+      "x": 15,
+      "y": 0
+     }
+    },
+    {
+     "id": "zdenek-bauska",
+     "jmeno": "Zdeněk Bauška",
+     "inicialy": "ZB"
+    },
+    {
+     "id": "jan-rezac",
+     "jmeno": "Jan Řezáč",
+     "inicialy": "JŘ"
+    },
+    {
+     "id": "radek-tyla",
+     "jmeno": "Radek Týla",
+     "inicialy": "RT"
+    },
+    {
+     "id": "denisa-jandova",
+     "jmeno": "Bc. Denisa Jandová",
+     "inicialy": "DJ"
+    },
+    {
+     "id": "jonas-benak",
+     "jmeno": "Jonáš Benák",
+     "inicialy": "JB"
+    }
+   ]
+  },
+  {
+   "args": [
+    {
+     "texts": {},
+     "realizace": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "portrety": {
+      "pavel-janda": {
+       "zoom": 160,
+       "x": -12,
+       "y": -20
+      }
+     },
+     "updatedAt": null
+    },
+    []
+   ],
+   "out": []
+  }
+ ],
  "importJson": [
   {
    "args": [
@@ -6318,9 +7342,10 @@
       "edited": {},
       "removed": []
      },
+     "portrety": {},
      "updatedAt": null
     },
-    "{\"texts\":{\"cs\":{\"nav.sluzby\":\"Co umíme\"},\"en\":{\"nav.sluzby\":\"What we do\"}},\"realizace\":{\"added\":[],\"edited\":{},\"removed\":[]},\"updatedAt\":null}"
+    "{\"texts\":{\"cs\":{\"nav.sluzby\":\"Co umíme\"},\"en\":{\"nav.sluzby\":\"What we do\"}},\"realizace\":{\"added\":[],\"edited\":{},\"removed\":[]},\"portrety\":{},\"updatedAt\":null}"
    ],
    "out": {
     "ok": true,
@@ -6338,6 +7363,7 @@
       "edited": {},
       "removed": []
      },
+     "portrety": {},
      "updatedAt": null
     }
    }
@@ -6351,6 +7377,7 @@
       "edited": {},
       "removed": []
      },
+     "portrety": {},
      "updatedAt": null
     },
     "{\"texts\":{\"cs\":{\"a.b\":\"x\"}}}"
@@ -6367,7 +7394,8 @@
       "added": [],
       "edited": {},
       "removed": []
-     }
+     },
+     "portrety": {}
     }
    }
   },
@@ -6380,6 +7408,7 @@
       "edited": {},
       "removed": []
      },
+     "portrety": {},
      "updatedAt": null
     },
     "{}"
@@ -6392,7 +7421,8 @@
       "added": [],
       "edited": {},
       "removed": []
-     }
+     },
+     "portrety": {}
     }
    }
   },
@@ -6405,6 +7435,7 @@
       "edited": {},
       "removed": []
      },
+     "portrety": {},
      "updatedAt": null
     },
     "[1,2]"
@@ -6423,6 +7454,7 @@
       "edited": {},
       "removed": []
      },
+     "portrety": {},
      "updatedAt": null
     },
     "\"text\""
@@ -6441,6 +7473,7 @@
       "edited": {},
       "removed": []
      },
+     "portrety": {},
      "updatedAt": null
     },
     "null"

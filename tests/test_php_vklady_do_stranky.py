@@ -49,10 +49,16 @@ $kam = Odkazy::rozpoznej('{CESTA}', $zdroj->site());
 echo Stranka::vykresli($kam, $zdroj, false, $zdroj, $uloziste);
 """
 
-PRAZDNY = {"texts": {}, "realizace": {"added": [], "edited": {}, "removed": []}, "updatedAt": None}
+PRAZDNY = {
+    "texts": {},
+    "realizace": {"added": [], "edited": {}, "removed": []},
+    "portrety": {},
+    "updatedAt": None,
+}
 S_TEXTEM = {
     "texts": {"cs": {"rozcestnik.lead": "Nový text"}},
     "realizace": {"added": [], "edited": {}, "removed": []},
+    "portrety": {"radek-tyla": {"zoom": 140, "x": 0, "y": -15}},
     "updatedAt": "2026-10-22T18:07:39.000Z",
 }
 
@@ -81,6 +87,9 @@ def test_prazdne_mapy_jsou_objekty(cesta):
     assert '"texts":{}' in syrovy, f"texts musí být objekt, ne pole: {syrovy[:120]}"
     assert '"edited":{}' in syrovy, f"realizace.edited musí být objekt: {syrovy[:160]}"
     assert '"added":[]' in syrovy and '"removed":[]' in syrovy, "seznamy zůstávají poli"
+    # výřezy portrétů mají stejnou past: prázdné pole by prohlížeč uložil
+    # jako [] a první posun fotky by se při JSON.stringify ztratil
+    assert '"portrety":{}' in syrovy, f"portrety musí být objekt, ne pole: {syrovy[:160]}"
 
 
 @pytest.mark.parametrize("cesta", ["index.html", "administrace.html"])

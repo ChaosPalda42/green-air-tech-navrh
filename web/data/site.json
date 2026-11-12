@@ -75,7 +75,8 @@
       "telefon": "+420 736 532 311",
       "telefonHref": "+420736532311",
       "email": "zdenek.bauska@greenairtech.cz",
-      "inicialy": "ZB"
+      "inicialy": "ZB",
+      "vyrez": { "zoom": 115, "x": 0, "y": 0 }
     },
     {
       "id": "jan-rezac",
@@ -91,7 +92,8 @@
       "telefon": "+420 736 532 319",
       "telefonHref": "+420736532319",
       "email": "radek.tyla@greenairtech.cz",
-      "inicialy": "RT"
+      "inicialy": "RT",
+      "vyrez": { "zoom": 115, "x": 0, "y": 0 }
     },
     {
       "id": "denisa-jandova",

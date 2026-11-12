@@ -46,6 +46,7 @@ def stav(text: str) -> dict:
             "edited": {"logisticke-centrum-d1": {"kraj": text}},
             "removed": [],
         },
+        "portrety": {"zdenek-bauska": {"zoom": 115, "x": 0, "y": 0}},
         "updatedAt": "2026-10-23T10:00:00.000Z",
     }
 

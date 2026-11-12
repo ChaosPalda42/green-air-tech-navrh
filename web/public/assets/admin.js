@@ -174,7 +174,7 @@
     try { ano ? sessionStorage.setItem(PRIHLASEN, "1") : sessionStorage.removeItem(PRIHLASEN); } catch (e) {}
     $("[data-prihlaseni]").hidden = ano;
     $("[data-app]").hidden = !ano;
-    if (ano) { vykresliNastenku(); vykresliTexty(); vykresliRealizace(); vykresliUzivatele(); obnovCas(); }
+    if (ano) { vykresliNastenku(); vykresliTexty(); vykresliRealizace(); vykresliPortrety(); vykresliUzivatele(); obnovCas(); }
   }
   if (SERVER) {
     // tlačítko „Vstoupit" je na ostrém webu submit skutečného formuláře,
@@ -929,6 +929,7 @@
     nastenka: "statistiky",
     texty: "texty",
     realizace: "realizace",
+    portrety: "texty",
     uzivatele: "uzivatele",
     data: "uzivatele",
   };
@@ -953,6 +954,147 @@
     });
     if (prvni && prvni.getAttribute("aria-selected") !== "true") prvni.click();
   }
+
+  /* ---------------------------------------------------------- portréty
+     Hlava sedí na každé fotce jinak, tak si správce posune fotku v
+     kolečku sám a hned vidí, co se na webu ukáže. Posun se drží
+     v procentech šířky kolečka, takže platí ve velkém editoru i
+     v náhledu 72 px — a stejná čísla pak vykreslí PHP (StavVyrezu). */
+  var PORTRETY = data.portrety || [];
+  /* Co web ukazuje teď, ve chvíli otevření stránky. Tlačítko „vrátit jak
+     bylo" se vrací sem; soubor site.json u některých lidí přiblížení vozí
+     a prohlížeč ho nezná, takže „žádný výřez" by nebylo totéž. */
+  var VYREZ_PRI_OTEVRENI = {};
+  PORTRETY.forEach(function (o) {
+    VYREZ_PRI_OTEVRENI[o.id] = GAT.cmsStore.normalizeVyrez(o.vyrez);
+  });
+
+  function vyrezOsoby(id) {
+    return GAT.cmsStore.getVyrez(stav, id) || VYREZ_PRI_OTEVRENI[id] || { zoom: 100, x: 0, y: 0 };
+  }
+
+  function stejnyVyrez(a, b) {
+    return !!a && !!b && a.zoom === b.zoom && a.x === b.x && a.y === b.y;
+  }
+
+  function promenneVyrezu(prvek, v) {
+    if (!prvek) return;
+    prvek.style.setProperty("--vz", (v.zoom / 100).toFixed(2));
+    prvek.style.setProperty("--vx", v.x + "%");
+    prvek.style.setProperty("--vy", v.y + "%");
+  }
+
+  /** Překreslí jeden řádek; `jenObraz` při tahání, ať se nepřepisuje posuvník. */
+  function ukazVyrez(radek, v, jenObraz) {
+    promenneVyrezu($(".vyrez-fotka", radek), v);
+    promenneVyrezu($("[data-vyrez-nahled] .portret", radek), v);
+    var cislo = $("[data-vyrez-cislo]", radek);
+    if (cislo) cislo.textContent = v.zoom + " %";
+    if (jenObraz) return;
+    var id = radek.getAttribute("data-vyrez");
+    var posuvnik = $("[data-vyrez-zoom]", radek);
+    if (posuvnik && Number(posuvnik.value) !== v.zoom) posuvnik.value = String(v.zoom);
+    var znacka = $("[data-vyrez-zmeneno]", radek);
+    if (znacka) znacka.hidden = !GAT.cmsStore.getVyrez(stav, id);
+    var vratit = $("[data-vyrez-vratit]", radek);
+    if (vratit) vratit.disabled = stejnyVyrez(v, VYREZ_PRI_OTEVRENI[id]);
+  }
+
+  function ulozVyrez(radek, v) {
+    var id = radek.getAttribute("data-vyrez");
+    stav = GAT.cmsStore.setVyrez(stav, id, v);
+    uloz();
+    ukazVyrez(radek, vyrezOsoby(id));
+  }
+
+  function vykresliPortrety() {
+    $$("[data-vyrez]", korenAdmin).forEach(function (radek) {
+      ukazVyrez(radek, vyrezOsoby(radek.getAttribute("data-vyrez")));
+    });
+  }
+
+  $$("[data-vyrez]", korenAdmin).forEach(function (radek) {
+    var plocha = $("[data-vyrez-plocha]", radek);
+    var fotka = $(".vyrez-fotka", radek);
+    var posuvnik = $("[data-vyrez-zoom]", radek);
+    var id = radek.getAttribute("data-vyrez");
+
+    /* Posuvník: při tahání se jen ukazuje, uloží se po puštění. Posun se
+       musí zkrátit podle nového přiblížení, jinak by u menšího zoomu
+       vykoukl prázdný okraj — normalizeVyrez to udělá za nás. */
+    if (posuvnik) {
+      posuvnik.addEventListener("input", function () {
+        var v = vyrezOsoby(id);
+        ukazVyrez(radek, GAT.cmsStore.normalizeVyrez({ zoom: Number(posuvnik.value), x: v.x, y: v.y }), true);
+      });
+      posuvnik.addEventListener("change", function () {
+        var v = vyrezOsoby(id);
+        ulozVyrez(radek, { zoom: Number(posuvnik.value), x: v.x, y: v.y });
+      });
+    }
+
+    var vratit = $("[data-vyrez-vratit]", radek);
+    if (vratit) {
+      vratit.addEventListener("click", function () {
+        ulozVyrez(radek, VYREZ_PRI_OTEVRENI[id] || { zoom: 100, x: 0, y: 0 });
+      });
+    }
+
+    if (!plocha || !fotka) return;
+
+    /* Tahání fotky. Posun je v procentech šířky kolečka (fotka má box
+       přesně toho kolečka), takže se počítá z offsetWidth — ne
+       z getBoundingClientRect, do kterého se už počítá i přiblížení. */
+    var tah = null;
+    plocha.addEventListener("pointerdown", function (e) {
+      if (e.pointerType === "mouse" && e.button !== 0) return;
+      var v = vyrezOsoby(id);
+      tah = { x: e.clientX, y: e.clientY, vyrez: v, sirka: fotka.offsetWidth || 1 };
+      plocha.setPointerCapture(e.pointerId);
+      plocha.classList.add("vyrez-taham");
+      e.preventDefault();
+    });
+    plocha.addEventListener("pointermove", function (e) {
+      if (!tah) return;
+      ukazVyrez(radek, GAT.cmsStore.normalizeVyrez(posunuty(tah, e)), true);
+    });
+    function posunuty(t, e) {
+      return {
+        zoom: t.vyrez.zoom,
+        x: t.vyrez.x + ((e.clientX - t.x) / t.sirka) * 100,
+        y: t.vyrez.y + ((e.clientY - t.y) / t.sirka) * 100,
+      };
+    }
+    plocha.addEventListener("pointerup", function (e) {
+      if (!tah) return;
+      var cil = posunuty(tah, e);
+      tah = null;
+      plocha.classList.remove("vyrez-taham");
+      ulozVyrez(radek, cil);
+    });
+    plocha.addEventListener("pointercancel", function () {
+      if (!tah) return;
+      tah = null;
+      plocha.classList.remove("vyrez-taham");
+      ukazVyrez(radek, vyrezOsoby(id));
+    });
+
+    /* Klávesnicí: šipky po procentu, se Shiftem po pěti. Bez toho by se
+       fotka dala posunout jen myší. */
+    plocha.addEventListener("keydown", function (e) {
+      var sx = 0;
+      var sy = 0;
+      if (e.key === "ArrowLeft") sx = -1;
+      else if (e.key === "ArrowRight") sx = 1;
+      else if (e.key === "ArrowUp") sy = -1;
+      else if (e.key === "ArrowDown") sy = 1;
+      else return;
+      var krok = e.shiftKey ? 5 : 1;
+      var v = vyrezOsoby(id);
+      e.preventDefault();
+      ulozVyrez(radek, { zoom: v.zoom, x: v.x + sx * krok, y: v.y + sy * krok });
+    });
+  });
 
   /* -------------------------------------------------------------- data */
   function obnovCas() {
@@ -983,6 +1125,7 @@
       uloz();
       vykresliTexty();
       vykresliRealizace();
+      vykresliPortrety();
       vykresliUzivatele();
     };
     ctecka.readAsText(soubor);
@@ -995,6 +1138,7 @@
     stav = GAT.cmsStore.emptyState();
     vykresliTexty();
     vykresliRealizace();
+    vykresliPortrety();
     obnovCas();
   });
 

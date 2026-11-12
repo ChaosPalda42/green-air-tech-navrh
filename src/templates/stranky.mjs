@@ -3,6 +3,7 @@
 import { ikona } from "./ikony.mjs";
 import { podhlavi, vyzva } from "./layout.mjs";
 import { motivRealizace, heroSchema } from "./grafika.mjs";
+import { stylVyrezu } from "../lib/cms-store.mjs";
 
 const dc = (k) => ` data-cms="${k}"`;
 
@@ -54,11 +55,15 @@ function kartaNovinky(ctx, n) {
 
 function kartaClovek(ctx, osoba) {
   const { t } = ctx;
+  // Výřez fotky v kolečku — na každé fotce sedí hlava jinak (cms-store.mjs).
   const portret = ctx.maObrazek(`portret-${osoba.id}`)
-    ? ctx.obrazek(`portret-${osoba.id}`, { alt: osoba.jmeno, sirky: "72px", trida: "portret" })
+    ? ctx.obrazek(`portret-${osoba.id}`, {
+        alt: osoba.jmeno, sirky: "72px", trida: "portret",
+        styl: stylVyrezu(osoba.vyrez),
+      })
     : "";
   return `<div class="karta-clovek">
-    <span class="avatar">
+    <span class="avatar" data-cms-vyrez="${osoba.id}">
       <span class="inicialy" aria-hidden="true">${osoba.inicialy}</span>
       ${portret}
     </span>

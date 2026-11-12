@@ -116,7 +116,7 @@ function vytvorKontext({ lang, site, slovnik, zaskok, aktualniSoubor, obrazky, v
   const skupinyZkratek = () => slovnikLib.groupTerms(terminy);
 
   /** <picture> s WebP a záložním formátem podle manifestu z tools/optimize_images.py */
-  const obrazek = (jmeno, { alt = "", sirky = "100vw", trida = "", prioritni = false } = {}) => {
+  const obrazek = (jmeno, { alt = "", sirky = "100vw", trida = "", prioritni = false, styl = "" } = {}) => {
     const z = obrazky[jmeno];
     if (!z) throw new Error(`Chybí obrázek v manifestu: ${jmeno}`);
     const cesta = (f) => asset(`img/${f}`);
@@ -126,7 +126,7 @@ function vytvorKontext({ lang, site, slovnik, zaskok, aktualniSoubor, obrazky, v
       <source type="image/webp" srcset="${srcset("webp")}" sizes="${sirky}">
       <img src="${cesta(posledni.zaloha)}" srcset="${srcset("zaloha")}" sizes="${sirky}"
         width="${posledni.w}" height="${posledni.h}" alt="${alt}" class="${trida}"
-        ${prioritni ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async">
+        ${styl !== "" ? `style="${styl}" ` : ""}${prioritni ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async">
     </picture>`;
   };
 

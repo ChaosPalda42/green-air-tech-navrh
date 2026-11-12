@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace App\Sablony\Stranky;
 
 use App\Jadro\Kontext;
+use App\Obsah\StavVyrezu;
 use App\Sablony\Ikony;
 use App\Sablony\Layout;
 
@@ -204,6 +205,54 @@ final class Administrace
             }
             return $out;
         };
+        /* --- portréty: posun fotky v kolečku týmu ----------------------
+           Řádky se vykreslují tady na serveru, protože fotky zná manifest
+           obrázků, ne prohlížeč. admin.js k nim jen přiváže tahání a
+           posuvník a přepisuje vlastnosti --vz/--vx/--vy. */
+        $portretyData = [];
+        $radkyPortretu = '';
+        foreach ($site['lide'] as $osoba) {
+            $id = $osoba['id'];
+            $vyrez = StavVyrezu::normalizuj($osoba['vyrez'] ?? null);
+            $styl = StavVyrezu::styl($osoba['vyrez'] ?? null);
+            $portretyData[] = ['id' => $id, 'jmeno' => $osoba['jmeno'], 'vyrez' => $vyrez];
+            $maFotku = $ctx->maObrazek("portret-{$id}");
+            $velka = $maFotku
+                ? $ctx->obrazek("portret-{$id}", ['alt' => '', 'sirky' => '15rem', 'trida' => 'vyrez-fotka', 'styl' => $styl])
+                : '<p class="napoveda vyrez-bez-fotky">' . $ctx->t('admin.portrety.bezFotky') . '</p>';
+            $mala = $maFotku
+                ? $ctx->obrazek("portret-{$id}", ['alt' => $osoba['jmeno'], 'sirky' => '72px', 'trida' => 'portret', 'styl' => $styl])
+                : '';
+            $radkyPortretu .= '<div class="vyrez-radek" data-vyrez="' . $id . '">
+          <div class="vyrez-plocha" data-vyrez-plocha tabindex="0" role="group" aria-label="'
+                . Layout::a($ctx->t('admin.portrety.posun') . ': ' . $osoba['jmeno']) . '">
+            ' . $velka . '
+            <span class="vyrez-kruh" aria-hidden="true"></span>
+          </div>
+          <div class="vyrez-ovladani">
+            <p class="vyrez-jmeno">' . $osoba['jmeno']
+                . ' <span class="vyrez-znacka" data-vyrez-zmeneno hidden>' . $ctx->t('admin.portrety.zmeneno') . '</span></p>
+            <p class="napoveda">' . $ctx->t('admin.portrety.jakNa') . '</p>
+            <label class="vyrez-zoom">
+              <span>' . $ctx->t('admin.portrety.priblizeni') . '</span>
+              <input type="range" min="100" max="' . StavVyrezu::MAX_ZOOM . '" step="1" value="' . $vyrez['zoom'] . '" data-vyrez-zoom>
+              <output data-vyrez-cislo>' . $vyrez['zoom'] . ' %</output>
+            </label>
+            <div class="vyrez-paticka">
+              <span class="avatar vyrez-nahled" data-vyrez-nahled>
+                <span class="inicialy" aria-hidden="true">' . $osoba['inicialy'] . '</span>
+                ' . $mala . '
+              </span>
+              <div>
+                <p class="napoveda">' . $ctx->t('admin.portrety.nahled') . '</p>
+                <button type="button" class="tl tl-obrys tl-mala" data-vyrez-vratit>' . $ctx->t('admin.portrety.vratit') . '</button>
+              </div>
+            </div>
+          </div>
+        </div>';
+        }
+        $data['portrety'] = $portretyData;
+
         $popisky = [];
         foreach ([
             'puvodni' => 'admin.texty.puvodni', 'zmeneno' => 'admin.texty.zmeneno',
@@ -256,6 +305,7 @@ final class Administrace
         ' . $zalozka('nastenka', $ctx->t('admin.zalozky.nastenka'), 'graf') . '
         ' . $zalozka('texty', $ctx->t('admin.zalozky.texty'), 'upravit') . '
         ' . $zalozka('realizace', $ctx->t('admin.zalozky.realizace'), 'montaz') . '
+        ' . $zalozka('portrety', $ctx->t('admin.zalozky.portrety'), 'lide') . '
         ' . $zalozka('uzivatele', $ctx->t('admin.zalozky.uzivatele'), 'klic') . '
         ' . $zalozka('data', $ctx->t('admin.zalozky.data'), 'ulozit') . '
       </div>
@@ -314,6 +364,16 @@ final class Administrace
           <button type="button" class="tl tl-hlavni tl-mala" data-pridat-realizaci>' . self::ikona('plus') . $ctx->t('admin.realizace.pridat') . '</button>
         </div>
         <div data-admin-realizace></div>
+      </div>
+
+      <!-- -------------------------------------------------- portréty -->
+      <div class="admin-panel" data-panel="portrety" hidden>
+        <div class="admin-nastroje">
+          <p class="lead" style="font-size:.95rem;flex:1;min-width:16rem">' . $ctx->t('admin.portrety.lead') . '</p>
+        </div>
+        <div class="vyrez-mrizka">
+          ' . $radkyPortretu . '
+        </div>
       </div>
 
       <!-- ------------------------------------------------- uživatelé -->

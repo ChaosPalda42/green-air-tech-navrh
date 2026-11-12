@@ -251,6 +251,11 @@ const sZmenena = cms.upsertRealizace(prazdny, { id: zaklad[0].id, nazev: "Jiný 
 const sSmazana = cms.removeRealizace(sZmenena, zaklad[1].id);
 const sPlny = cms.removeRealizace(cms.upsertRealizace(sSmazana, { nazev: "Bez data" }, zaklad), zaklad[2].id);
 
+/* Výřez portrétu: skuteční lidé ze site.json, protože klíčem je jejich id. */
+const lide = site.lide.map((o) => ({ id: o.id, jmeno: o.jmeno, inicialy: o.inicialy }));
+const sVyrez = cms.setVyrez(prazdny, lide[0].id, { zoom: 160, x: -12, y: -20 });
+const sDvaVyrezy = cms.setVyrez(sVyrez, lide[1].id, { zoom: 130, x: 15, y: 0 });
+
 const cmsVzorky = {
   emptyState: vzorek(cms.emptyState, [[]]),
   slugify: vzorek(cms.slugify, [
@@ -299,6 +304,51 @@ const cmsVzorky = {
     [sZmenena, zaklad],
     [prazdny, []],
     [sPridana, []],
+  ]),
+  normalizeVyrez: vzorek(cms.normalizeVyrez, [
+    [{ zoom: 160, x: -12, y: -20 }],
+    [{ zoom: 100, x: 0, y: 0 }],
+    [{ zoom: 100, x: 30, y: -30 }],
+    [{ zoom: 120, x: 40, y: -40 }],
+    [{ zoom: 90, x: 0, y: 0 }],
+    [{ zoom: 999, x: 0, y: 0 }],
+    [{ zoom: 160.4, x: -11.6, y: 20.5 }],
+    [{ zoom: 160.5, x: -11.5, y: 11.5 }],
+    [{ zoom: 160, x: -30.5, y: 30.5 }],
+    [{ zoom: "160", x: "-12", y: "0" }],
+    [{}],
+    [null],
+    [{ zoom: NaN, x: Infinity, y: "nic" }],
+  ]),
+  stylVyrezu: vzorek(cms.stylVyrezu, [
+    [{ zoom: 115, x: 0, y: 0 }],
+    [{ zoom: 160, x: -12, y: -20 }],
+    [{ zoom: 100, x: 0, y: 0 }],
+    [{ zoom: 200, x: 50, y: -50 }],
+    [null],
+    [{ zoom: 125, x: 12, y: -12 }],
+  ]),
+  jeVychoziVyrez: vzorek(cms.jeVychoziVyrez, [
+    [{ zoom: 100, x: 0, y: 0 }], [{}], [{ zoom: 160, x: 0, y: 0 }],
+    [{ zoom: 100, x: 20, y: 0 }], [null],
+  ]),
+  setVyrez: vzorek(cms.setVyrez, [
+    [prazdny, lide[0].id, { zoom: 160, x: -12, y: -20 }],
+    [sVyrez, lide[0].id, { zoom: 130, x: 0, y: 0 }],
+    [sVyrez, lide[0].id, { zoom: 100, x: 0, y: 0 }],
+    [sVyrez, lide[0].id, null],
+    [sVyrez, lide[1].id, { zoom: 200, x: 50, y: -50 }],
+    [prazdny, lide[0].id, { zoom: 90, x: 0, y: 0 }],
+  ]),
+  getVyrez: vzorek(cms.getVyrez, [
+    [sVyrez, lide[0].id], [sVyrez, lide[1].id], [prazdny, lide[0].id],
+    [sDvaVyrezy, lide[1].id],
+  ]),
+  mergeVyrezy: vzorek(cms.mergeVyrezy, [
+    [prazdny, lide],
+    [sVyrez, lide],
+    [sDvaVyrezy, lide],
+    [sVyrez, []],
   ]),
   importJson: vzorek(cms.importJson, [
     [prazdny, JSON.stringify(sTexty)],

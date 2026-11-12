@@ -11,6 +11,7 @@ namespace App\Sablony\Stranky;
 use App\Jadro\Kontext;
 use App\Sablony\Grafika;
 use App\Sablony\Ikony;
+use App\Obsah\StavVyrezu;
 
 final class Casti
 {
@@ -76,11 +77,18 @@ final class Casti
     public static function kartaClovek(Kontext $ctx, array $osoba): string
     {
         $id = $osoba['id'];
+        /* Výřez fotky v kolečku: hlava sedí na každé fotce jinak, tak si
+           ho správce nastaví v administraci (App\Obsah\StavVyrezu). */
         $portret = $ctx->maObrazek("portret-{$id}")
-            ? $ctx->obrazek("portret-{$id}", ['alt' => $osoba['jmeno'], 'sirky' => '72px', 'trida' => 'portret'])
+            ? $ctx->obrazek("portret-{$id}", [
+                'alt' => $osoba['jmeno'],
+                'sirky' => '72px',
+                'trida' => 'portret',
+                'styl' => StavVyrezu::styl($osoba['vyrez'] ?? null),
+            ])
             : '';
         return '<div class="karta-clovek">
-    <span class="avatar">
+    <span class="avatar" data-cms-vyrez="' . $id . '">
       <span class="inicialy" aria-hidden="true">' . $osoba['inicialy'] . '</span>
       ' . $portret . '
     </span>

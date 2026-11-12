@@ -3,7 +3,8 @@
    src/lib/cms-store.mjs z ukázky; tady je to samé v PHP, aby se server chovat
    přesně jako prohlížeč.
 
-   Realizace (přidané, změněné, smazané) má na starost App\Obsah\StavRealizace. */
+   Realizace (přidané, změněné, smazané) má na starost App\Obsah\StavRealizace,
+   výřezy portrétů App\Obsah\StavVyrezu. */
 
 declare(strict_types=1);
 
@@ -52,15 +53,19 @@ final class Stav
         $realizace['edited'] = (object) (array) ($realizace['edited'] ?? []);
         $stav['realizace'] = $realizace;
 
+        /* portrety je mapa id => výřez; prázdná musí zůstat objektem, viz výš. */
+        $stav['portrety'] = (object) (array) ($stav['portrety'] ?? []);
+
         return $stav;
     }
 
-    /** @return array{texts: array, realizace: array{added: list, edited: array, removed: list}, updatedAt: null} */
+    /** @return array{texts: array, realizace: array{added: list, edited: array, removed: list}, portrety: array, updatedAt: null} */
     public static function prazdny(): array
     {
         return [
             'texts' => [],
             'realizace' => ['added' => [], 'edited' => [], 'removed' => []],
+            'portrety' => [],
             'updatedAt' => null,
         ];
     }
@@ -163,6 +168,9 @@ final class Stav
             if (!array_key_exists($klic, $stav['realizace'])) {
                 $stav['realizace'][$klic] = $prazdne;
             }
+        }
+        if (!isset($stav['portrety']) || !is_array($stav['portrety'])) {
+            $stav['portrety'] = [];
         }
 
         return $stav;

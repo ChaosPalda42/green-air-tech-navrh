@@ -49,6 +49,13 @@ final class Zmeny
             }
         }
 
+        /* Portréty: posun fotky v kolečku týmu je úprava vzhledu obsahu
+           stránky, takže sedí do stejného práva jako přepis textů — autor
+           novinek na ni nedosáhne, editor obsahu ano. */
+        if (($stary['portrety'] ?? null) !== ($novy['portrety'] ?? null)) {
+            $oblasti['texty'] = true;
+        }
+
         return array_keys($oblasti);
     }
 

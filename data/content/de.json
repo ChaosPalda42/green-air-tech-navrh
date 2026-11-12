@@ -1287,6 +1287,7 @@
       "nastenka": "Dashboard",
       "texty": "Website-Texte",
       "realizace": "Projekte",
+      "portrety": "Fotos des Teams",
       "uzivatele": "Benutzer",
       "data": "Backup und Wiederherstellung"
     },
@@ -1348,6 +1349,17 @@
         "nacteni": "{soubor}: Das Bild konnte nicht geöffnet werden."
       },
       "fotkyPlno": "Der Browser verfügt über keinen ausreichenden Speicherplatz für weitere Daten. Bitte entfernen Sie einige Fotos oder sichern Sie die Änderungen in einem Backup und beginnen Sie von Grund auf neu."
+    },
+    "portrety": {
+      "titulek": "Fotos des Teams",
+      "lead": "Auf jedem Foto sitzt der Kopf anders. Verschieben Sie das Foto im Kreis so, wie Sie es auf der Website haben möchten — daneben sehen Sie den Kreis in echter Größe.",
+      "jakNa": "Foto greifen und verschieben. Mit der Tastatur: Pfeiltasten, mit Shift in größeren Schritten.",
+      "priblizeni": "Vergrößerung",
+      "nahled": "So sieht der Kreis auf der Website aus",
+      "vratit": "Zurück wie es war",
+      "posun": "Fotoposition",
+      "zmeneno": "geändert",
+      "bezFotky": "Diese Person hat noch kein Foto."
     },
     "data": {
       "titulek": "Backup und Wiederherstellung",

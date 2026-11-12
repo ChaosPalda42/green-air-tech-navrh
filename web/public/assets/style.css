@@ -861,12 +861,17 @@ abbr.zkratka:hover, abbr.zkratka:focus-visible { background: var(--zelena-závoj
 .avatar picture {
   position: absolute; inset: 0; z-index: 1; display: block; border-radius: 50%; overflow: hidden;
 }
+/* --vz/--vx/--vy je výřez fotky v kolečku: přiblížení a posun, které si
+   správce nastavil v administraci (App\Obsah\StavVyrezu je píše do atributu
+   style). Na každé fotce sedí hlava jinak a posun je omezený přiblížením, aby
+   se neodkryl okraj. Bez nastavení platí 1 a 0 % — tedy celá fotka. */
 .avatar .portret {
+  --vz: 1; --vx: 0%; --vy: 0%;
   position: absolute; inset: 0; z-index: 1;
   width: 100%; height: 100%; object-fit: cover; border-radius: 50%;
   background: none;
   opacity: 0;
-  transform: scale(1.14);
+  transform: translate(var(--vx), var(--vy)) scale(calc(var(--vz) * 1.14));
   clip-path: circle(0% at 50% 50%);
   transition: opacity 320ms ease-out,
               transform 620ms cubic-bezier(0.16, 0.8, 0.24, 1),
@@ -885,13 +890,13 @@ abbr.zkratka:hover, abbr.zkratka:focus-visible { background: var(--zelena-závoj
 .karta-clovek:hover .avatar .inicialy,
 .karta-clovek:focus-within .avatar .inicialy { opacity: 0; transform: scale(0.86); }
 .karta-clovek:hover .avatar .portret,
-.karta-clovek:focus-within .avatar .portret { opacity: 1; transform: scale(1); clip-path: circle(72% at 50% 50%); }
+.karta-clovek:focus-within .avatar .portret { opacity: 1; transform: translate(var(--vx), var(--vy)) scale(var(--vz)); clip-path: circle(72% at 50% 50%); }
 .karta-clovek:hover .avatar::after,
 .karta-clovek:focus-within .avatar::after { opacity: 1; transform: scale(1); }
 
 /* bez myši (dotyk) je portrét vidět rovnou */
 @media (hover: none) {
-  .avatar .portret { opacity: 1; transform: none; clip-path: circle(72% at 50% 50%); }
+  .avatar .portret { opacity: 1; transform: translate(var(--vx), var(--vy)) scale(var(--vz)); clip-path: circle(72% at 50% 50%); }
   .avatar .inicialy { opacity: 0; }
 }
 @media (prefers-reduced-motion: reduce) {

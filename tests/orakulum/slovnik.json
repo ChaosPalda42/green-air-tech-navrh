@@ -302,7 +302,7 @@
   },
   {
    "args": [
-    "Administrativa, výroba, zdravotnictví, obchodní centra i veřejné objekty. Nemusíte skládat dohromady projektanta, montážní firmu a servis.",
+    "Administrativa, výroba, zdravotnictví, obchodní centra i veřejné objekty. Nemusíte koordinovat projektanta, montážní firmu a servis.",
     [
      {
       "abbr": "TZB",
@@ -449,11 +449,11 @@
      "once": true
     }
    ],
-   "out": "Administrativa, výroba, zdravotnictví, obchodní centra i veřejné objekty. Nemusíte skládat dohromady projektanta, montážní firmu a servis."
+   "out": "Administrativa, výroba, zdravotnictví, obchodní centra i veřejné objekty. Nemusíte koordinovat projektanta, montážní firmu a servis."
   },
   {
    "args": [
-    "Administrativa, výroba, zdravotnictví, obchodní centra i veřejné objekty. Nemusíte skládat dohromady projektanta, montážní firmu a servis.",
+    "Administrativa, výroba, zdravotnictví, obchodní centra i veřejné objekty. Nemusíte koordinovat projektanta, montážní firmu a servis.",
     [
      {
       "abbr": "TZB",
@@ -598,7 +598,7 @@
     ],
     {}
    ],
-   "out": "Administrativa, výroba, zdravotnictví, obchodní centra i veřejné objekty. Nemusíte skládat dohromady projektanta, montážní firmu a servis."
+   "out": "Administrativa, výroba, zdravotnictví, obchodní centra i veřejné objekty. Nemusíte koordinovat projektanta, montážní firmu a servis."
   },
   {
    "args": [

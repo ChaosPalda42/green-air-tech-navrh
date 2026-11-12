@@ -20,7 +20,10 @@ final class Meze
     private const JAZYKY = ['cs', 'en', 'de'];
 
     /** Pole na nejvyšší úrovni stavu. */
-    private const POLE_STAVU = ['texts', 'realizace', 'updatedAt'];
+    private const POLE_STAVU = ['texts', 'realizace', 'portrety', 'updatedAt'];
+
+    /** Nejvíc výřezů portrétů; tým má jednotky lidí, ne stovky. */
+    public const MAX_PORTRETU = 50;
 
     /** Id realizace v klíči: malá písmena, číslice a pomlčky, bez krajních pomlček. */
     private const RE_ID_REALIZACE = '/^[a-z0-9]+(?:-[a-z0-9]+)*$/';
@@ -30,6 +33,9 @@ final class Meze
         'nazev', 'misto', 'perex', 'zadani', 'vysledek',
         'rozsah', 'technologie', 'kategorie',
     ];
+
+    /** Pole jednoho výřezu portrétu; nic jiného se v něm neuznává. */
+    private const POLE_VYREZU = ['zoom', 'x', 'y'];
 
     /** Podklíč seznamu: písmeno a číslovaní (r1, t12, b3). */
     private const RE_PODKLIC_SEZNAMU = '/^[a-z][0-9]+$/';
@@ -80,6 +86,14 @@ final class Meze
             }
         }
 
+        /* Portréty: výřez fotky v kolečku týmu. */
+        if (array_key_exists('portrety', $stav)) {
+            $chyba = self::zkontrolujPortrety($stav['portrety']);
+            if ($chyba !== null) {
+                return $chyba;
+            }
+        }
+
         /* updatedAt: text do 64 znaků, nebo null. */
         if (array_key_exists('updatedAt', $stav)) {
             $cas = $stav['updatedAt'];
@@ -119,6 +133,55 @@ final class Meze
                 }
                 if ($klice !== [] && !self::jePovolenyKlic((string) $klic, $klice)) {
                     return self::chyba('neznamy-klic', (string) $klic);
+                }
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * Výřezy portrétů: mapa id člověka => ['zoom' => …, 'x' => …, 'y' => …].
+     * Hodnoty se tady NEZKRACUJÍ — prohlížeč posílá už zarovnaný výřez
+     * (src/lib/cms-store.mjs) a co se do mezí nevejde, je vada vstupu.
+     *
+     * @return array{ok: bool, chyba: ?string, detail: ?string}|null null = v pořádku
+     */
+    private static function zkontrolujPortrety(mixed $portrety): ?array
+    {
+        if (!is_array($portrety)) {
+            return self::chyba('vadna-hodnota', 'portrety');
+        }
+        if (count($portrety) > self::MAX_PORTRETU) {
+            return self::chyba('moc-dat', 'portrety');
+        }
+        foreach ($portrety as $id => $vyrez) {
+            if (!is_string($id) || preg_match(self::RE_ID_REALIZACE, $id) !== 1) {
+                return self::chyba('neznamy-klic', (string) $id);
+            }
+            if (!is_array($vyrez)) {
+                return self::chyba('vadna-hodnota', (string) $id);
+            }
+            foreach (array_keys($vyrez) as $pole) {
+                if (!in_array($pole, self::POLE_VYREZU, true)) {
+                    return self::chyba('nezname-pole', $id . '.' . (string) $pole);
+                }
+            }
+            $zoom = $vyrez['zoom'] ?? null;
+            if (!is_int($zoom) && !is_float($zoom)) {
+                return self::chyba('vadna-hodnota', $id . '.zoom');
+            }
+            if ($zoom < 100 || $zoom > StavVyrezu::MAX_ZOOM) {
+                return self::chyba('vadna-hodnota', $id . '.zoom');
+            }
+            $mez = ((float) $zoom - 100) / 2;
+            foreach (['x', 'y'] as $osa) {
+                $posun = $vyrez[$osa] ?? null;
+                if (!is_int($posun) && !is_float($posun)) {
+                    return self::chyba('vadna-hodnota', $id . '.' . $osa);
+                }
+                if (abs((float) $posun) > $mez) {
+                    return self::chyba('vadna-hodnota', $id . '.' . $osa);
                 }
             }
         }

@@ -60,6 +60,12 @@ const CILE = [
         'upsertRealizace' => ['App\\Obsah\\StavRealizace', 'ulozRealizaci'],
         'removeRealizace' => ['App\\Obsah\\StavRealizace', 'smazRealizaci'],
         'mergeRealizace' => ['App\\Obsah\\StavRealizace', 'spojRealizace'],
+        'normalizeVyrez' => ['App\\Obsah\\StavVyrezu', 'normalizuj'],
+        'jeVychoziVyrez' => ['App\\Obsah\\StavVyrezu', 'jeVychozi'],
+        'stylVyrezu' => ['App\\Obsah\\StavVyrezu', 'styl'],
+        'setVyrez' => ['App\\Obsah\\StavVyrezu', 'nastavVyrez'],
+        'getVyrez' => ['App\\Obsah\\StavVyrezu', 'vyrez'],
+        'mergeVyrezy' => ['App\\Obsah\\StavVyrezu', 'spojVyrezy'],
         'importJson' => ['App\\Obsah\\Stav', 'zJson'],
     ],
     'ga4' => [

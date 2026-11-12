@@ -203,6 +203,9 @@ final class Kontext
         $sirky = (string) ($volby['sirky'] ?? '100vw');
         $trida = (string) ($volby['trida'] ?? '');
         $prioritni = (bool) ($volby['prioritni'] ?? false);
+        /* Styl se vkládá jen tam, kde opravdu je (výřez portrétu);
+           prázdný atribut by rozhodil bajtovou shodu s ukázkou. */
+        $styl = (string) ($volby['styl'] ?? '');
 
         $cesta = fn (string $f): string => $this->asset('img/' . $f);
         $srcset = function (string $druh) use ($z, $cesta): string {
@@ -219,7 +222,7 @@ final class Kontext
       <source type="image/webp" srcset="' . $srcset('webp') . '" sizes="' . $sirky . '">
       <img src="' . $cesta($posledni['zaloha']) . '" srcset="' . $srcset('zaloha') . '" sizes="' . $sirky . '"
         width="' . $posledni['w'] . '" height="' . $posledni['h'] . '" alt="' . $e($alt) . '" class="' . $e($trida) . '"
-        ' . ($prioritni ? 'fetchpriority="high"' : 'loading="lazy"') . ' decoding="async">
+        ' . ($styl !== '' ? 'style="' . $e($styl) . '" ' : '') . ($prioritni ? 'fetchpriority="high"' : 'loading="lazy"') . ' decoding="async">
     </picture>';
     }
 

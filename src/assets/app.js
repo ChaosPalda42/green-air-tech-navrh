@@ -647,6 +647,19 @@
     });
   }
 
+  /* Posun fotky v kolečku týmu. Na ostrém webu ho vykreslí PHP (Casti.php
+     ze StavVyrezu), tohle je tam jen potvrzení téhož; v ukázce je to
+     jediná cesta, jak se změna z administrace projeví hned. */
+  function cmsVyrezy() {
+    var stav = GAT.cmsStore.loadState(bezpecneUloziste());
+    var vyrezy = stav.portrety || {};
+    Object.keys(vyrezy).forEach(function (id) {
+      $$('[data-cms-vyrez="' + id.replace(/"/g, '\\"') + '"] .portret').forEach(function (img) {
+        img.setAttribute("style", GAT.cmsStore.stylVyrezu(vyrezy[id]));
+      });
+    });
+  }
+
   /* ================================================================ pomocné */
   /* ============================================================ pás teček
      Do každé světlé sekce vložíme vrstvu s rastrem. Leží pod obsahem
@@ -966,6 +979,7 @@
     navigace();
     $$("[data-vitr]").forEach(vitr);
     cmsPrepisy();
+    cmsVyrezy();
     fotkyNaKartach();
     galerieNaDetailu();
     zkratky();

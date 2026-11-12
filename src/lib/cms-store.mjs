@@ -1,7 +1,7 @@
 export const STORAGE_KEY = "gat-cms-v1";
 
 export function emptyState() {
-  return { texts: {}, realizace: { added: [], edited: {}, removed: [] }, updatedAt: null };
+  return { texts: {}, realizace: { added: [], edited: {}, removed: [] }, portrety: {}, updatedAt: null };
 }
 
 function _deepClone(obj) {
@@ -15,6 +15,7 @@ function _ensureState(state) {
   if (s.realizace.added === undefined) s.realizace.added = [];
   if (s.realizace.edited === undefined) s.realizace.edited = {};
   if (s.realizace.removed === undefined) s.realizace.removed = [];
+  if (!s.portrety || typeof s.portrety !== "object" || Array.isArray(s.portrety)) s.portrety = {};
   return s;
 }
 
@@ -180,6 +181,82 @@ export function mergeRealizace(state, baseList) {
   return result.map(r => {
     const { _source, ...rest } = r;
     return rest;
+  });
+}
+
+/* ------------------------------------------------------------ portréty */
+/* Výřez portrétu v kolečku týmu: `zoom` je přiblížení v procentech (100 =
+   celá fotka), `x`/`y` je posun fotky v procentech šířky kolečka. Posun
+   nesmí odkrýt okraj, takže je omezený přiblížením: při zoomu 100 nejde
+   posunout nic, při 160 je po každé straně navíc 30 %. Hodnoty se zarovnají
+   na celá procenta — stejný výřez musí v PHP i v JS vyjít na stejné bajty. */
+export const VYREZ_VYCHOZI = { zoom: 100, x: 0, y: 0 };
+export const VYREZ_MAX_ZOOM = 250;
+
+function _cislo(hodnota, vychozi) {
+  const n = typeof hodnota === "number" ? hodnota : Number(hodnota);
+  return Number.isFinite(n) ? n : vychozi;
+}
+
+/** Hodnoty v mezích a na celá procenta; posun zkrácený podle přiblížení. */
+export function normalizeVyrez(vyrez) {
+  const v = vyrez && typeof vyrez === "object" && !Array.isArray(vyrez) ? vyrez : {};
+  let zoom = Math.round(_cislo(v.zoom, 100));
+  if (zoom < 100) zoom = 100;
+  if (zoom > VYREZ_MAX_ZOOM) zoom = VYREZ_MAX_ZOOM;
+  const mez = (zoom - 100) / 2;
+  const omez = (hodnota) => {
+    let n = Math.round(_cislo(hodnota, 0));
+    if (n > mez) n = Math.floor(mez);
+    if (n < -mez) n = -Math.floor(mez);
+    return n;
+  };
+  return { zoom, x: omez(v.x), y: omez(v.y) };
+}
+
+export function jeVychoziVyrez(vyrez) {
+  const v = normalizeVyrez(vyrez);
+  return v.zoom === VYREZ_VYCHOZI.zoom && v.x === VYREZ_VYCHOZI.x && v.y === VYREZ_VYCHOZI.y;
+}
+
+/** Nastaví výřez jednoho člověka; `null` záznam ze stavu SMAŽE.
+
+   Mazat i výřez 100/0/0 by se zdálo úsporné, ale vzalo by správci možnost
+   fotku vrátit na celou: soubor site.json u některých lidí přiblížení vozí
+   (ZdrojDb ho stavem jen přepisuje), takže smazaný záznam znamená „nech
+   dodané", ne „nepřibližuj". Prázdno se proto ukládá taky. */
+export function setVyrez(state, id, vyrez) {
+  const s = _ensureState(state);
+  if (vyrez === null || vyrez === undefined) {
+    delete s.portrety[id];
+  } else {
+    s.portrety[id] = normalizeVyrez(vyrez);
+  }
+  return s;
+}
+
+export function getVyrez(state, id) {
+  const ulozeny = state && state.portrety ? state.portrety[id] : undefined;
+  if (ulozeny === undefined || ulozeny === null) return null;
+  return normalizeVyrez(ulozeny);
+}
+
+/* Výřez jako hodnota atributu style. Dvě desetinná místa u přiblížení
+   proto, aby PHP a JS napsaly tytéž znaky — "1.6" proti "1.60" by rozhodilo
+   bajtovou shodu ostrého webu s ukázkou. */
+export function stylVyrezu(vyrez) {
+  if (vyrez === undefined || vyrez === null || jeVychoziVyrez(vyrez)) return "";
+  const v = normalizeVyrez(vyrez);
+  return `--vz:${(v.zoom / 100).toFixed(2)};--vx:${v.x}%;--vy:${v.y}%`;
+}
+
+/** Lidé ze souborů přelepení výřezy z administrace. */
+export function mergeVyrezy(state, baseList) {
+  const prepisy = (state && state.portrety) || {};
+  return baseList.map((osoba) => {
+    const prepis = prepisy[osoba.id];
+    if (prepis === undefined || prepis === null) return Object.assign({}, osoba);
+    return Object.assign({}, osoba, { vyrez: normalizeVyrez(prepis) });
   });
 }
 

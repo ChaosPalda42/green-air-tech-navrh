@@ -1,6 +1,7 @@
 /* Demo administrace: kostra a data. Vykreslování obstarává assets/admin.js. */
 
 import { ikona } from "./ikony.mjs";
+import { normalizeVyrez, stylVyrezu } from "../lib/cms-store.mjs";
 
 const SKUPINY = {
   rozcestnik: "Úvodní rozcestník",
@@ -40,6 +41,53 @@ export function administrace(ctx, data = { klice: [], slovniky: {}, realizace: [
       <span class="admin-metrika-popis">${t("admin.nastenka.protiMinulemu")}</span>
     </div>`
   ).join("");
+
+  /* Portréty: posun fotky v kolečku týmu. Řádky vykresluje šablona,
+     protože fotky zná manifest obrázků; admin.js k nim jen přiváže
+     tahání a posuvník (přepisuje --vz/--vx/--vy). */
+  data.portrety = site.lide.map((o) => ({
+    id: o.id,
+    jmeno: o.jmeno,
+    vyrez: normalizeVyrez(o.vyrez),
+  }));
+  const radkyPortretu = site.lide
+    .map((o) => {
+      const vyrez = normalizeVyrez(o.vyrez);
+      const styl = stylVyrezu(o.vyrez);
+      const maFotku = ctx.maObrazek(`portret-${o.id}`);
+      const velka = maFotku
+        ? ctx.obrazek(`portret-${o.id}`, { alt: "", sirky: "15rem", trida: "vyrez-fotka", styl })
+        : `<p class="napoveda vyrez-bez-fotky">${t("admin.portrety.bezFotky")}</p>`;
+      const mala = maFotku
+        ? ctx.obrazek(`portret-${o.id}`, { alt: o.jmeno, sirky: "72px", trida: "portret", styl })
+        : "";
+      return `<div class="vyrez-radek" data-vyrez="${o.id}">
+          <div class="vyrez-plocha" data-vyrez-plocha tabindex="0" role="group" aria-label="${t("admin.portrety.posun")}: ${o.jmeno}">
+            ${velka}
+            <span class="vyrez-kruh" aria-hidden="true"></span>
+          </div>
+          <div class="vyrez-ovladani">
+            <p class="vyrez-jmeno">${o.jmeno} <span class="vyrez-znacka" data-vyrez-zmeneno hidden>${t("admin.portrety.zmeneno")}</span></p>
+            <p class="napoveda">${t("admin.portrety.jakNa")}</p>
+            <label class="vyrez-zoom">
+              <span>${t("admin.portrety.priblizeni")}</span>
+              <input type="range" min="100" max="250" step="1" value="${vyrez.zoom}" data-vyrez-zoom>
+              <output data-vyrez-cislo>${vyrez.zoom} %</output>
+            </label>
+            <div class="vyrez-paticka">
+              <span class="avatar vyrez-nahled" data-vyrez-nahled>
+                <span class="inicialy" aria-hidden="true">${o.inicialy}</span>
+                ${mala}
+              </span>
+              <div>
+                <p class="napoveda">${t("admin.portrety.nahled")}</p>
+                <button type="button" class="tl tl-obrys tl-mala" data-vyrez-vratit>${t("admin.portrety.vratit")}</button>
+              </div>
+            </div>
+          </div>
+        </div>`;
+    })
+    .join("");
 
   const rozpad = (klic, nadpis) =>
     `<div class="admin-rozpad">
@@ -86,6 +134,7 @@ export function administrace(ctx, data = { klice: [], slovniky: {}, realizace: [
         ${zalozka("nastenka", t("admin.zalozky.nastenka"), "graf")}
         ${zalozka("texty", t("admin.zalozky.texty"), "upravit")}
         ${zalozka("realizace", t("admin.zalozky.realizace"), "montaz")}
+        ${zalozka("portrety", t("admin.zalozky.portrety"), "lide")}
         ${zalozka("uzivatele", t("admin.zalozky.uzivatele"), "klic")}
         ${zalozka("data", t("admin.zalozky.data"), "ulozit")}
       </div>
@@ -144,6 +193,16 @@ export function administrace(ctx, data = { klice: [], slovniky: {}, realizace: [
           <button type="button" class="tl tl-hlavni tl-mala" data-pridat-realizaci>${ikona("plus")}${t("admin.realizace.pridat")}</button>
         </div>
         <div data-admin-realizace></div>
+      </div>
+
+      <!-- -------------------------------------------------- portréty -->
+      <div class="admin-panel" data-panel="portrety" hidden>
+        <div class="admin-nastroje">
+          <p class="lead" style="font-size:.95rem;flex:1;min-width:16rem">${t("admin.portrety.lead")}</p>
+        </div>
+        <div class="vyrez-mrizka">
+          ${radkyPortretu}
+        </div>
       </div>
 
       <!-- ------------------------------------------------- uživatelé -->

@@ -246,3 +246,68 @@ body.je-administrace { background: var(--papír-2); }
   align-self: center; font-size: 0.76rem; color: var(--břidlice);
   font-variant-numeric: tabular-nums; margin-left: -0.4rem;
 }
+
+/* --- fotky lidí: posun fotky v kolečku -------------------------------
+   Velká plocha je celá fotka, kolečko v ní je přesně to, co web ukáže:
+   obrázek má box velikosti kolečka, takže procenta posunu platí stejně
+   tady i v náhledu 72 px i na webu (.avatar .portret ve style.css).
+   Okolí kolečka se nechává vidět, jen ztmavené — správce tak ví, co
+   z fotky zůstává za hranou. */
+.vyrez-mrizka { display: grid; gap: 0.9rem; grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr)); }
+@media (max-width: 30rem) {
+  .vyrez-mrizka { grid-template-columns: 1fr; }
+}
+.vyrez-radek {
+  display: flex; flex-wrap: wrap; gap: 1.1rem; align-items: flex-start;
+  background: var(--papír); border: 1px solid var(--linka); border-radius: var(--r-l);
+  padding: 1rem;
+}
+.vyrez-plocha {
+  position: relative; flex: none;
+  width: 15rem; height: 15rem; max-width: 100%;
+  border-radius: var(--r-m); overflow: hidden;
+  background: var(--papír-3);
+  cursor: grab; touch-action: none; /* tahání nesmí scrollovat stránku */
+}
+.vyrez-plocha.vyrez-taham { cursor: grabbing; }
+.vyrez-plocha:focus-visible { outline: 3px solid var(--zelena); outline-offset: 2px; }
+.vyrez-plocha picture { display: block; }
+.vyrez-plocha .vyrez-fotka {
+  position: absolute; left: 16%; top: 16%; width: 68%; height: 68%;
+  object-fit: cover; user-select: none; -webkit-user-drag: none;
+  transform: translate(var(--vx, 0%), var(--vy, 0%)) scale(var(--vz, 1));
+}
+/* kolečko: ostrá hrana a ztmavené okolí jedním vrstveným stínem */
+.vyrez-kruh {
+  position: absolute; left: 16%; top: 16%; width: 68%; height: 68%;
+  border-radius: 50%; pointer-events: none;
+  border: 2px solid rgba(255, 255, 255, 0.92);
+  box-shadow: 0 0 0 999px rgba(16, 26, 18, 0.55);
+}
+.vyrez-bez-fotky {
+  position: absolute; inset-inline: 1rem; top: 45%; text-align: center; margin: 0;
+}
+.vyrez-ovladani { flex: 1; min-width: 13rem; display: grid; gap: 0.7rem; align-content: start; }
+.vyrez-jmeno {
+  font-family: var(--font-nadpis); font-weight: 700; font-size: 1.05rem;
+  display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
+}
+.vyrez-znacka {
+  font-family: var(--font-nadpis); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em;
+  text-transform: uppercase; padding: 0.15rem 0.45rem; border-radius: 999px;
+  background: var(--zelena-tmavá); color: var(--na-zelené);
+}
+.vyrez-zoom { display: grid; grid-template-columns: auto 1fr auto; gap: 0.6rem; align-items: center; font-size: 0.9rem; }
+.vyrez-zoom input[type="range"] { width: 100%; min-height: 32px; accent-color: var(--zelena-tmavá); }
+.vyrez-zoom output { font-variant-numeric: tabular-nums; color: var(--břidlice); min-width: 3.4rem; text-align: right; }
+.vyrez-paticka { display: flex; gap: 0.9rem; align-items: center; flex-wrap: wrap; }
+.vyrez-paticka .napoveda { margin-bottom: 0.4rem; }
+/* náhled v živé velikosti: na webu je portrét vidět až po přejetí myší,
+   tady musí být vidět pořád a bez přejezdu (proto i transition: none) */
+.avatar.vyrez-nahled { margin-bottom: 0; }
+.avatar.vyrez-nahled .portret {
+  opacity: 1;
+  transform: translate(var(--vx, 0%), var(--vy, 0%)) scale(var(--vz, 1));
+  clip-path: circle(72% at 50% 50%);
+  transition: none;
+}

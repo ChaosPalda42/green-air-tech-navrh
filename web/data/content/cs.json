@@ -1292,6 +1292,7 @@
       "nastenka": "Nástěnka",
       "texty": "Texty webu",
       "realizace": "Realizace",
+      "portrety": "Fotky lidí",
       "uzivatele": "Uživatelé",
       "data": "Záloha a obnovení"
     },
@@ -1353,6 +1354,17 @@
         "nacteni": "{soubor}: obrázek se nepodařilo otevřít."
       },
       "fotkyPlno": "Prohlížeč už nemá místo na další data. Nějaké fotky odeberte, nebo si změny stáhněte do zálohy a začněte načisto."
+    },
+    "portrety": {
+      "titulek": "Fotky lidí",
+      "lead": "Na každé fotce sedí hlava jinak. Posuňte fotku v kolečku tak, jak ji chcete mít na webu — vedle hned vidíte, jak kolečko vypadá ve skutečné velikosti.",
+      "jakNa": "Chytněte fotku a posuňte ji. Klávesnicí: šipky, se Shiftem po větších krocích.",
+      "priblizeni": "Přiblížení",
+      "nahled": "Takhle kolečko vypadá na webu",
+      "vratit": "Vrátit jak bylo",
+      "posun": "Posun fotky",
+      "zmeneno": "upraveno",
+      "bezFotky": "Tenhle člověk zatím fotku nemá."
     },
     "data": {
       "titulek": "Záloha a obnovení",
