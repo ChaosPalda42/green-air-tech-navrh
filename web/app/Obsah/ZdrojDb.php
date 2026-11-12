@@ -36,7 +36,7 @@ class ZdrojDb extends ZdrojJson
         return I18n::unflatten($spojene);
     }
 
-    /** Struktura webu: realizace a výřezy portrétů se změnami administrace, zbytek ze souborů. */
+    /** Struktura webu: realizace, tým a výřezy portrétů se změnami administrace, zbytek ze souborů. */
     public function site(): array
     {
         $site = parent::site();
@@ -51,8 +51,11 @@ class ZdrojDb extends ZdrojJson
         /* Výřez portrétu si správce nastavuje v administraci, takže ho musí
            přelepit stejně jako texty — jinak by se posun fotky projevil až
            dalším nasazením dat. */
+        /* Tým se dá v administraci doplnit i zkrátit (StavLidi), takže se
+           nejdřív složí seznam a teprve na něj sedne výřez — přidaný člověk
+           má svůj výřez taky. */
         if (is_array($site['lide'] ?? null)) {
-            $site['lide'] = StavVyrezu::spojVyrezy($this->stav, $site['lide']);
+            $site['lide'] = StavVyrezu::spojVyrezy($this->stav, StavLidi::spojLide($this->stav, $site['lide']));
         }
 
         return $site;

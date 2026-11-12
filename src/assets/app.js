@@ -647,6 +647,106 @@
     });
   }
 
+  /* Kdo je v týmu. Na ostrém webu vykreslí kartu PHP (ZdrojDb spojí stav
+     se site.json), tohle je jen pro ukázku, kde je pravda v localStorage
+     prohlížeče — bez toho by se přidaný člověk na stránce neukázal.
+     Na ostrém webu je to pro návštěvníka prázdné, takže se nic nestane. */
+  function kartaCloveka(id) {
+    var kolecko = $('[data-cms-vyrez="' + String(id).replace(/"/g, '\\"') + '"]');
+    return kolecko ? kolecko.closest(".karta-clovek") : null;
+  }
+
+  function textOdkazu(odkaz, hodnota) {
+    if (!odkaz) return;
+    if (odkaz.lastChild && odkaz.lastChild.nodeType === 3) odkaz.lastChild.nodeValue = hodnota;
+    else odkaz.appendChild(document.createTextNode(hodnota));
+  }
+
+  /* Nahraná fotka nahradí celé <picture>: přepsat jen src nestačí, srcset
+     z manifestu by vyhrál a dál by svítila stará fotka. */
+  function fotkaDoKolecka(karta, cesta, popis) {
+    var kolecko = $(".avatar", karta);
+    if (!kolecko) return;
+    var obraz = $(".portret", kolecko);
+    if (obraz && obraz.parentNode.tagName === "PICTURE") {
+      obraz.parentNode.parentNode.removeChild(obraz.parentNode);
+      obraz = null;
+    }
+    if (!cesta) {
+      if (obraz) obraz.parentNode.removeChild(obraz);
+      return;
+    }
+    if (!obraz) {
+      obraz = document.createElement("img");
+      obraz.className = "portret";
+      obraz.setAttribute("width", "72");
+      obraz.setAttribute("height", "72");
+      obraz.setAttribute("loading", "lazy");
+      obraz.setAttribute("decoding", "async");
+      kolecko.appendChild(obraz);
+    }
+    obraz.setAttribute("alt", popis);
+    if (obraz.getAttribute("src") !== cesta) obraz.setAttribute("src", cesta);
+  }
+
+  function ukazCloveka(karta, osoba) {
+    var jmeno = $(".jmeno", karta);
+    if (jmeno && osoba.jmeno) jmeno.textContent = osoba.jmeno;
+    var inicialy = $(".inicialy", karta);
+    if (inicialy && (osoba.inicialy || osoba.jmeno)) {
+      inicialy.textContent = osoba.inicialy || GAT.cmsStore.inicialyZJmena(osoba.jmeno);
+    }
+    if (osoba.telefon || osoba.telefonHref) {
+      var tel = $('a[href^="tel:"]', karta);
+      if (tel) {
+        tel.setAttribute("href", "tel:" + (osoba.telefonHref || GAT.cmsStore.telefonHref(osoba.telefon || "")));
+        textOdkazu(tel, osoba.telefon || "");
+      }
+    }
+    if (osoba.email) {
+      var mail = $('a[href^="mailto:"]', karta);
+      if (mail) {
+        mail.setAttribute("href", "mailto:" + osoba.email);
+        textOdkazu(mail, osoba.email);
+      }
+    }
+    if (osoba.fotka) {
+      fotkaDoKolecka(karta, GAT.fotky.zdrojFotky({ dataUrl: osoba.fotka }, window.GAT_KOREN), osoba.jmeno || "");
+    }
+  }
+
+  function cmsLide() {
+    var stav = GAT.cmsStore.loadState(bezpecneUloziste());
+    var lide = stav.lide || {};
+    var vzor = $(".karta-clovek");
+    if (!vzor) return;
+    (lide.added || []).forEach(function (osoba) {
+      if (!osoba || !osoba.id) return;
+      var karta = kartaCloveka(osoba.id);
+      if (!karta) {
+        karta = vzor.cloneNode(true);
+        var kolecko = $(".avatar", karta);
+        if (kolecko) kolecko.setAttribute("data-cms-vyrez", osoba.id);
+        fotkaDoKolecka(karta, "", "");
+        var role = $(".role", karta);
+        if (role) {
+          role.setAttribute("data-cms", "lide." + osoba.id);
+          role.textContent = "";
+        }
+        vzor.parentNode.appendChild(karta);
+      }
+      ukazCloveka(karta, osoba);
+    });
+    Object.keys(lide.edited || {}).forEach(function (id) {
+      var karta = kartaCloveka(id);
+      if (karta) ukazCloveka(karta, lide.edited[id]);
+    });
+    (lide.removed || []).forEach(function (id) {
+      var karta = kartaCloveka(id);
+      if (karta) karta.hidden = true;
+    });
+  }
+
   /* Posun fotky v kolečku týmu. Na ostrém webu ho vykreslí PHP (Casti.php
      ze StavVyrezu), tohle je tam jen potvrzení téhož; v ukázce je to
      jediná cesta, jak se změna z administrace projeví hned. */
@@ -978,6 +1078,7 @@
   function start() {
     navigace();
     $$("[data-vitr]").forEach(vitr);
+    cmsLide();
     cmsPrepisy();
     cmsVyrezy();
     fotkyNaKartach();

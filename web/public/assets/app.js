@@ -5,7 +5,7 @@ GAT.cmsStore = (function () {
 const STORAGE_KEY = "gat-cms-v1";
 
 function emptyState() {
-  return { texts: {}, realizace: { added: [], edited: {}, removed: [] }, portrety: {}, updatedAt: null };
+  return { texts: {}, realizace: { added: [], edited: {}, removed: [] }, portrety: {}, lide: { added: [], edited: {}, removed: [] }, updatedAt: null };
 }
 
 function _deepClone(obj) {
@@ -20,6 +20,10 @@ function _ensureState(state) {
   if (s.realizace.edited === undefined) s.realizace.edited = {};
   if (s.realizace.removed === undefined) s.realizace.removed = [];
   if (!s.portrety || typeof s.portrety !== "object" || Array.isArray(s.portrety)) s.portrety = {};
+  if (!s.lide || typeof s.lide !== "object" || Array.isArray(s.lide)) s.lide = { added: [], edited: {}, removed: [] };
+  if (!Array.isArray(s.lide.added)) s.lide.added = [];
+  if (!s.lide.edited || typeof s.lide.edited !== "object" || Array.isArray(s.lide.edited)) s.lide.edited = {};
+  if (!Array.isArray(s.lide.removed)) s.lide.removed = [];
   return s;
 }
 
@@ -254,6 +258,156 @@ function stylVyrezu(vyrez) {
   return `--vz:${(v.zoom / 100).toFixed(2)};--vx:${v.x}%;--vy:${v.y}%`;
 }
 
+/* ------------------------------------------------------------------- lidé
+   Tým se dá v administraci doplnit, upravit i zkrátit. Zrcadlí
+   web/app/Obsah/StavLidi.php — co jedno složí, musí složit i druhé, jinak
+   se ostrý web rozejde s ukázkou.
+
+   Role člověka se tady neukládá: je to text jako každý jiný, klíč
+   `lide.<id>` v části texts. */
+
+/** Pole, která o člověku držíme. */
+const POLE_CLOVEKA = ["id", "jmeno", "telefon", "telefonHref", "email", "inicialy", "fotka"];
+
+/** Kolik lidí smí administrace přidat. Tým není adresář. */
+const MAX_PRIDANYCH_LIDI = 30;
+
+function _ocistiClovek(osoba) {
+  const ven = {};
+  for (const pole of POLE_CLOVEKA) {
+    if (!Object.prototype.hasOwnProperty.call(osoba, pole)) continue;
+    if (typeof osoba[pole] !== "string") continue;
+    ven[pole] = osoba[pole].trim();
+  }
+  return ven;
+}
+
+/** Zkratka ze jména: první písmena prvních dvou slov, velká. */
+function inicialyZJmena(jmeno) {
+  const slova = String(jmeno).trim().split(/\s+/);
+  let zkratka = "";
+  for (const slovo of slova) {
+    if (slovo === "") continue;
+    zkratka += slovo.slice(0, 1);
+    if (zkratka.length >= 2) break;
+  }
+  return zkratka.toUpperCase();
+}
+
+/** Telefon do odkazu tel:: jen číslice a jedno plus na začátku. */
+function telefonHref(telefon) {
+  const text = String(telefon);
+  const cisla = text.replace(/[^0-9]/g, "");
+  const plus = text.replace(/^\s+/, "").startsWith("+") ? "+" : "";
+  return cisla === "" ? "" : plus + cisla;
+}
+
+/** Doplní zkratku a telefon do odkazu, pokud chybí. */
+function doplnenyClovek(osoba) {
+  const o = Object.assign({}, osoba);
+  if (!o.inicialy) o.inicialy = inicialyZJmena(o.jmeno || "");
+  if (!o.telefonHref) o.telefonHref = telefonHref(o.telefon || "");
+  return o;
+}
+
+/**
+ * Přidá nebo změní jednoho člověka. Bez id se id vyrobí ze jména (slug);
+ * při kolizi se připojuje -2, -3, … Id ze souborů jde do edited (sloučeno
+ * s předchozí změnou) a vybere se z removed, jinak do added.
+ */
+function upsertClovek(state, osoba, baseList) {
+  if (baseList === undefined) baseList = [];
+  const s = _ensureState(state);
+  const baseIds = new Set(baseList.map((b) => String(b.id)));
+  const addedIds = new Set(s.lide.added.map((a) => String(a.id)));
+
+  let id = osoba.id;
+  if (!id) {
+    const zaklad = slugify(osoba.jmeno || "");
+    id = zaklad;
+    let suffix = 2;
+    while (baseIds.has(id) || addedIds.has(id) || Object.prototype.hasOwnProperty.call(s.lide.edited, id)) {
+      id = zaklad + "-" + suffix;
+      suffix++;
+    }
+  }
+  id = String(id);
+
+  const zapis = _ocistiClovek(osoba);
+  delete zapis.id;
+
+  // Zkratka a odkaz na telefon se odvozují ze jména a z čísla. Když se
+  // zdroj změní a odvozené pole nepřijde, přepočítá se — jinak by po
+  // opravě čísla zůstal odkaz `tel:` na to staré.
+  if ("jmeno" in zapis && !("inicialy" in zapis)) zapis.inicialy = inicialyZJmena(String(zapis.jmeno));
+  if ("telefon" in zapis && !("telefonHref" in zapis)) zapis.telefonHref = telefonHref(String(zapis.telefon));
+
+  // Nejdřív `added`: administrace na ostrém webu dostává do stránky
+  // sloučený seznam, takže `baseList` už přidané lidi obsahuje. Kdyby
+  // rozhodoval základ, oprava přidaného člověka by skončila v `edited` —
+  // a tu spojení zahodí, protože v site.json to id není.
+  const kde = s.lide.added.findIndex((p) => String(p.id) === id);
+  if (kde !== -1) {
+    s.lide.added[kde] = doplnenyClovek(Object.assign({}, s.lide.added[kde], zapis, { id }));
+  } else if (baseIds.has(id)) {
+    const drive = s.lide.edited[id] || {};
+    s.lide.edited[id] = Object.assign({}, drive, zapis);
+    s.lide.removed = s.lide.removed.filter((odebrane) => odebrane !== id);
+  } else {
+    s.lide.added.push(doplnenyClovek(Object.assign({}, zapis, { id })));
+  }
+
+  return s;
+}
+
+/**
+ * Odebere člověka. Přidaný zmizí z added (nebyl nikdy v souborech), ten ze
+ * souborů se zapíše do removed. Výřez fotky jde s ním — jinak by v datech
+ * zůstal záznam, ke kterému už nikdo nepatří.
+ */
+function removeClovek(state, id) {
+  const s = _ensureState(state);
+  const kde = s.lide.added.findIndex((p) => String(p.id) === id);
+  if (kde !== -1) {
+    s.lide.added.splice(kde, 1);
+  } else {
+    if (!s.lide.removed.includes(id)) s.lide.removed.push(id);
+    delete s.lide.edited[id];
+  }
+  delete s.portrety[id];
+  return s;
+}
+
+/**
+ * Lidé ze souborů se změnami administrace: odebraní vypadnou, změněným se
+ * přelepí pole, přidaní se připojí na konec.
+ */
+function mergeLide(state, baseList) {
+  const lide = (state && state.lide) || {};
+  const added = Array.isArray(lide.added) ? lide.added : [];
+  const edited = lide.edited && typeof lide.edited === "object" ? lide.edited : {};
+  const removed = new Set(Array.isArray(lide.removed) ? lide.removed.map(String) : []);
+
+  const vysledek = [];
+  for (const osoba of baseList) {
+    if (!osoba || typeof osoba !== "object") continue;
+    const id = String(osoba.id === undefined ? "" : osoba.id);
+    if (removed.has(id)) continue;
+    const zmena = edited[id];
+    vysledek.push(
+      zmena && typeof zmena === "object"
+        ? doplnenyClovek(Object.assign({}, osoba, _ocistiClovek(zmena), { id }))
+        : Object.assign({}, osoba)
+    );
+  }
+  for (const osoba of added) {
+    if (!osoba || typeof osoba !== "object" || !osoba.id) continue;
+    vysledek.push(doplnenyClovek(_ocistiClovek(osoba)));
+  }
+
+  return vysledek;
+}
+
 /** Lidé ze souborů přelepení výřezy z administrace. */
 function mergeVyrezy(state, baseList) {
   const prepisy = (state && state.portrety) || {};
@@ -281,7 +435,7 @@ function importJson(state, text) {
   }
 }
 
-return { STORAGE_KEY, emptyState, loadState, saveState, resetState, setText, getText, mergeTexts, slugify, upsertRealizace, removeRealizace, mergeRealizace, VYREZ_VYCHOZI, VYREZ_MAX_ZOOM, normalizeVyrez, jeVychoziVyrez, setVyrez, getVyrez, stylVyrezu, mergeVyrezy, exportJson, importJson };
+return { STORAGE_KEY, emptyState, loadState, saveState, resetState, setText, getText, mergeTexts, slugify, upsertRealizace, removeRealizace, mergeRealizace, VYREZ_VYCHOZI, VYREZ_MAX_ZOOM, normalizeVyrez, jeVychoziVyrez, setVyrez, getVyrez, stylVyrezu, POLE_CLOVEKA, MAX_PRIDANYCH_LIDI, inicialyZJmena, telefonHref, doplnenyClovek, upsertClovek, removeClovek, mergeLide, mergeVyrezy, exportJson, importJson };
 })();
 
 GAT.formValidate = (function () {
@@ -2043,6 +2197,106 @@ return { vygenerujData, filtrujObdobi, souhrn, zmenaProti, rozdeleni, formatCisl
     });
   }
 
+  /* Kdo je v týmu. Na ostrém webu vykreslí kartu PHP (ZdrojDb spojí stav
+     se site.json), tohle je jen pro ukázku, kde je pravda v localStorage
+     prohlížeče — bez toho by se přidaný člověk na stránce neukázal.
+     Na ostrém webu je to pro návštěvníka prázdné, takže se nic nestane. */
+  function kartaCloveka(id) {
+    var kolecko = $('[data-cms-vyrez="' + String(id).replace(/"/g, '\\"') + '"]');
+    return kolecko ? kolecko.closest(".karta-clovek") : null;
+  }
+
+  function textOdkazu(odkaz, hodnota) {
+    if (!odkaz) return;
+    if (odkaz.lastChild && odkaz.lastChild.nodeType === 3) odkaz.lastChild.nodeValue = hodnota;
+    else odkaz.appendChild(document.createTextNode(hodnota));
+  }
+
+  /* Nahraná fotka nahradí celé <picture>: přepsat jen src nestačí, srcset
+     z manifestu by vyhrál a dál by svítila stará fotka. */
+  function fotkaDoKolecka(karta, cesta, popis) {
+    var kolecko = $(".avatar", karta);
+    if (!kolecko) return;
+    var obraz = $(".portret", kolecko);
+    if (obraz && obraz.parentNode.tagName === "PICTURE") {
+      obraz.parentNode.parentNode.removeChild(obraz.parentNode);
+      obraz = null;
+    }
+    if (!cesta) {
+      if (obraz) obraz.parentNode.removeChild(obraz);
+      return;
+    }
+    if (!obraz) {
+      obraz = document.createElement("img");
+      obraz.className = "portret";
+      obraz.setAttribute("width", "72");
+      obraz.setAttribute("height", "72");
+      obraz.setAttribute("loading", "lazy");
+      obraz.setAttribute("decoding", "async");
+      kolecko.appendChild(obraz);
+    }
+    obraz.setAttribute("alt", popis);
+    if (obraz.getAttribute("src") !== cesta) obraz.setAttribute("src", cesta);
+  }
+
+  function ukazCloveka(karta, osoba) {
+    var jmeno = $(".jmeno", karta);
+    if (jmeno && osoba.jmeno) jmeno.textContent = osoba.jmeno;
+    var inicialy = $(".inicialy", karta);
+    if (inicialy && (osoba.inicialy || osoba.jmeno)) {
+      inicialy.textContent = osoba.inicialy || GAT.cmsStore.inicialyZJmena(osoba.jmeno);
+    }
+    if (osoba.telefon || osoba.telefonHref) {
+      var tel = $('a[href^="tel:"]', karta);
+      if (tel) {
+        tel.setAttribute("href", "tel:" + (osoba.telefonHref || GAT.cmsStore.telefonHref(osoba.telefon || "")));
+        textOdkazu(tel, osoba.telefon || "");
+      }
+    }
+    if (osoba.email) {
+      var mail = $('a[href^="mailto:"]', karta);
+      if (mail) {
+        mail.setAttribute("href", "mailto:" + osoba.email);
+        textOdkazu(mail, osoba.email);
+      }
+    }
+    if (osoba.fotka) {
+      fotkaDoKolecka(karta, GAT.fotky.zdrojFotky({ dataUrl: osoba.fotka }, window.GAT_KOREN), osoba.jmeno || "");
+    }
+  }
+
+  function cmsLide() {
+    var stav = GAT.cmsStore.loadState(bezpecneUloziste());
+    var lide = stav.lide || {};
+    var vzor = $(".karta-clovek");
+    if (!vzor) return;
+    (lide.added || []).forEach(function (osoba) {
+      if (!osoba || !osoba.id) return;
+      var karta = kartaCloveka(osoba.id);
+      if (!karta) {
+        karta = vzor.cloneNode(true);
+        var kolecko = $(".avatar", karta);
+        if (kolecko) kolecko.setAttribute("data-cms-vyrez", osoba.id);
+        fotkaDoKolecka(karta, "", "");
+        var role = $(".role", karta);
+        if (role) {
+          role.setAttribute("data-cms", "lide." + osoba.id);
+          role.textContent = "";
+        }
+        vzor.parentNode.appendChild(karta);
+      }
+      ukazCloveka(karta, osoba);
+    });
+    Object.keys(lide.edited || {}).forEach(function (id) {
+      var karta = kartaCloveka(id);
+      if (karta) ukazCloveka(karta, lide.edited[id]);
+    });
+    (lide.removed || []).forEach(function (id) {
+      var karta = kartaCloveka(id);
+      if (karta) karta.hidden = true;
+    });
+  }
+
   /* Posun fotky v kolečku týmu. Na ostrém webu ho vykreslí PHP (Casti.php
      ze StavVyrezu), tohle je tam jen potvrzení téhož; v ukázce je to
      jediná cesta, jak se změna z administrace projeví hned. */
@@ -2374,6 +2628,7 @@ return { vygenerujData, filtrujObdobi, souhrn, zmenaProti, rozdeleni, formatCisl
   function start() {
     navigace();
     $$("[data-vitr]").forEach(vitr);
+    cmsLide();
     cmsPrepisy();
     cmsVyrezy();
     fotkyNaKartach();

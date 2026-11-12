@@ -262,6 +262,10 @@ body.je-administrace { background: var(--papír-2); }
   background: var(--papír); border: 1px solid var(--linka); border-radius: var(--r-l);
   padding: 1rem;
 }
+.vyrez-radek[hidden] { display: none; }
+/* Přidat / odebrat člověka a nahrát mu fotku — pod ovládáním výřezu. */
+.vyrez-akce { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.8rem; }
+.vyrez-znacka + .vyrez-znacka { margin-left: 0.35rem; }
 .vyrez-plocha {
   position: relative; flex: none;
   width: 15rem; height: 15rem; max-width: 100%;

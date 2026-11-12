@@ -56,6 +56,23 @@ final class Zmeny
             $oblasti['texty'] = true;
         }
 
+        /* Tým: přidat, upravit nebo odebrat člověka je úprava obsahu stránky
+           stejně jako přepis textu — a jméno s rolí se píšou do textů, takže
+           dvojí právo by bylo k ničemu. */
+        foreach (['added', 'edited', 'removed'] as $cast) {
+            $stara = $stary['lide'][$cast] ?? [];
+            $nova = $novy['lide'][$cast] ?? [];
+            if (!is_array($stara)) {
+                $stara = [];
+            }
+            if (!is_array($nova)) {
+                $nova = [];
+            }
+            if ($stara !== $nova) {
+                $oblasti['texty'] = true;
+            }
+        }
+
         return array_keys($oblasti);
     }
 

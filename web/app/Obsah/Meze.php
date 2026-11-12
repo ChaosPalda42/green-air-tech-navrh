@@ -20,7 +20,7 @@ final class Meze
     private const JAZYKY = ['cs', 'en', 'de'];
 
     /** Pole na nejvyšší úrovni stavu. */
-    private const POLE_STAVU = ['texts', 'realizace', 'portrety', 'updatedAt'];
+    private const POLE_STAVU = ['texts', 'realizace', 'portrety', 'lide', 'updatedAt'];
 
     /** Nejvíc výřezů portrétů; tým má jednotky lidí, ne stovky. */
     public const MAX_PORTRETU = 50;
@@ -91,6 +91,17 @@ final class Meze
             $chyba = self::zkontrolujPortrety($stav['portrety']);
             if ($chyba !== null) {
                 return $chyba;
+            }
+        }
+
+        /* Tým: přidaní, změnění a odebraní lidé. Pravidla má MezeLidi. */
+        if (array_key_exists('lide', $stav)) {
+            if (!is_array($stav['lide'])) {
+                return self::chyba('vadna-hodnota', 'lide');
+            }
+            $vysledek = MezeLidi::zkontroluj($stav['lide']);
+            if (!$vysledek['ok']) {
+                return $vysledek;
             }
         }
 
@@ -191,7 +202,8 @@ final class Meze
 
     /**
      * Klíč je povolený, když je v seznamu, nebo když je dynamický klíč nové
-     * realizace: `realizace.polozky.<id>.<pole>[.<podklíč>]`.
+     * realizace (`realizace.polozky.<id>.<pole>[.<podklíč>]`) či nového
+     * člověka (`lide.<id>` — jeho role).
      */
     private static function jePovolenyKlic(string $klic, array $seznam): bool
     {
@@ -200,6 +212,12 @@ final class Meze
         }
 
         $casti = explode('.', $klic);
+        /* Role člověka, kterého administrace přidala: v souborech ještě není,
+           takže v seznamu klíčů být nemůže. Id se hlídá stejným vzorem jako
+           u realizací, aby se tím nedal podstrčit klíč odjinud. */
+        if (count($casti) === 2 && $casti[0] === 'lide') {
+            return preg_match(self::RE_ID_REALIZACE, $casti[1]) === 1;
+        }
         if (count($casti) < 4 || $casti[0] !== 'realizace' || $casti[1] !== 'polozky') {
             return false;
         }

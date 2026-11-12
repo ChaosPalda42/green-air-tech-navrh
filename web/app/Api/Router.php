@@ -382,7 +382,11 @@ final class Router
         if ($uzivatel === null) {
             return self::chyba(401, 'neprihlaseno');
         }
-        if (!Uzivatele::smi((string) ($uzivatel['role'] ?? ''), 'realizace')) {
+        /* Fotky se nahrávají ke dvěma věcem: do galerie realizace a do
+           kolečka člověka v týmu. Druhé patří k textům, takže stačí jedno
+           z obou práv (dnes je mají tytéž role, ale matice se může změnit). */
+        $role = (string) ($uzivatel['role'] ?? '');
+        if (!Uzivatele::smi($role, 'realizace') && !Uzivatele::smi($role, 'texty')) {
             return self::chyba(403, 'nesmis');
         }
 

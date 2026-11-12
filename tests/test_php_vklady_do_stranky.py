@@ -53,12 +53,26 @@ PRAZDNY = {
     "texts": {},
     "realizace": {"added": [], "edited": {}, "removed": []},
     "portrety": {},
+    "lide": {"added": [], "edited": {}, "removed": []},
     "updatedAt": None,
 }
 S_TEXTEM = {
     "texts": {"cs": {"rozcestnik.lead": "Nový text"}},
     "realizace": {"added": [], "edited": {}, "removed": []},
     "portrety": {"radek-tyla": {"zoom": 140, "x": 0, "y": -15}},
+    "lide": {
+        "added": [{
+            "id": "zofie-novakova",
+            "jmeno": "Žofie Nováková",
+            "telefon": "+420 777 111 222",
+            "telefonHref": "+420777111222",
+            "email": "zofie@greenairtech.cz",
+            "inicialy": "ŽN",
+            "fotka": "media/zofie.webp",
+        }],
+        "edited": {"radek-tyla": {"telefon": "+420 777 000 111"}},
+        "removed": ["zdenek-bauska"],
+    },
     "updatedAt": "2026-10-22T18:07:39.000Z",
 }
 
@@ -90,6 +104,8 @@ def test_prazdne_mapy_jsou_objekty(cesta):
     # výřezy portrétů mají stejnou past: prázdné pole by prohlížeč uložil
     # jako [] a první posun fotky by se při JSON.stringify ztratil
     assert '"portrety":{}' in syrovy, f"portrety musí být objekt, ne pole: {syrovy[:160]}"
+    # a stejně tak mapa změn u lidí
+    assert syrovy.count('"edited":{}') == 2, f"lide.edited musí být objekt: {syrovy[:200]}"
 
 
 @pytest.mark.parametrize("cesta", ["index.html", "administrace.html"])

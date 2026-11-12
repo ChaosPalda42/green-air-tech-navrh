@@ -844,6 +844,7 @@ abbr.zkratka:hover, abbr.zkratka:focus-visible { background: var(--zelena-závoj
   transition: border-color var(--rychle), box-shadow var(--plynule);
 }
 .karta-clovek:hover { border-color: rgba(88,172,37,0.5); box-shadow: var(--stín-1); }
+.karta-clovek[hidden] { display: none; }
 .avatar {
   position: relative;
   width: 72px; height: 72px; border-radius: 50%; margin-bottom: 1.05rem;

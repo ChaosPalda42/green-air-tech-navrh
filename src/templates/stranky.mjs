@@ -56,19 +56,26 @@ function kartaNovinky(ctx, n) {
 function kartaClovek(ctx, osoba) {
   const { t } = ctx;
   // Výřez fotky v kolečku — na každé fotce sedí hlava jinak (cms-store.mjs).
-  const portret = ctx.maObrazek(`portret-${osoba.id}`)
-    ? ctx.obrazek(`portret-${osoba.id}`, {
-        alt: osoba.jmeno, sirky: "72px", trida: "portret",
-        styl: stylVyrezu(osoba.vyrez),
-      })
-    : "";
+  const styl = stylVyrezu(osoba.vyrez);
+  // Fotka nahraná v administraci je cesta do media/ — v manifestu obrázků
+  // (vzniká při sestavení) není, takže jde jen jeden <img>, ne <picture>.
+  let portret = "";
+  if (osoba.fotka) {
+    portret =
+      `<img src="${ctx.odkazKoren(osoba.fotka)}" width="72" height="72" alt="${osoba.jmeno}"` +
+      ` class="portret"${styl !== "" ? ` style="${styl}"` : ""} loading="lazy" decoding="async">`;
+  } else if (ctx.maObrazek(`portret-${osoba.id}`)) {
+    portret = ctx.obrazek(`portret-${osoba.id}`, {
+      alt: osoba.jmeno, sirky: "72px", trida: "portret", styl,
+    });
+  }
   return `<div class="karta-clovek">
     <span class="avatar" data-cms-vyrez="${osoba.id}">
       <span class="inicialy" aria-hidden="true">${osoba.inicialy}</span>
       ${portret}
     </span>
     <span class="jmeno">${osoba.jmeno}</span>
-    <span class="role"${dc(`lide.${osoba.id}`)}>${t(`lide.${osoba.id}`)}</span>
+    <span class="role"${dc(`lide.${osoba.id}`)}>${ctx.existuje(`lide.${osoba.id}`) ? t(`lide.${osoba.id}`) : ""}</span>
     <a href="tel:${osoba.telefonHref}">${ikona("telefon")}${osoba.telefon}</a>
     <a href="mailto:${osoba.email}">${ikona("mail")}${osoba.email}</a>
   </div>`;

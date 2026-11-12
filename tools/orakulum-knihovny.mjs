@@ -256,6 +256,28 @@ const lide = site.lide.map((o) => ({ id: o.id, jmeno: o.jmeno, inicialy: o.inici
 const sVyrez = cms.setVyrez(prazdny, lide[0].id, { zoom: 160, x: -12, y: -20 });
 const sDvaVyrezy = cms.setVyrez(sVyrez, lide[1].id, { zoom: 130, x: 15, y: 0 });
 
+/* Tým: celé záznamy ze site.json, protože administrace je přelepuje po
+   polích. Výřez a seznam lidí se potkávají u odebraného člověka — ten si
+   svůj výřez bere s sebou. */
+const lideCeli = site.lide.map((o) => Object.assign({}, o));
+const sPridanyClovek = cms.upsertClovek(prazdny, {
+  jmeno: "Žofie Nováková", telefon: "+420 777 123 456", email: "zofie.novakova@greenairtech.cz",
+}, lideCeli);
+const sDvaStejni = cms.upsertClovek(sPridanyClovek, { jmeno: "Žofie Nováková" }, lideCeli);
+const sZmenenyClovek = cms.upsertClovek(prazdny, {
+  id: lideCeli[0].id, telefon: "+420 111 222 333",
+}, lideCeli);
+const sOdebranyClovek = cms.removeClovek(sVyrez, lideCeli[0].id);
+/* Co administrace na ostrém webu opravdu dostane do stránky: už sloučený
+   seznam, takže přidaná Žofie je i v "základu". Oprava přidaného člověka
+   přesto musí zůstat v `added` — v `edited` by ji spojení zahodilo. */
+const lideSloucene = cms.mergeLide(sPridanyClovek, lideCeli);
+const sTymPlny = cms.upsertClovek(
+  cms.removeClovek(sZmenenyClovek, lideCeli[2].id),
+  { jmeno: "Petr Hruška", telefon: "731 000 111", fotka: "media/p1.webp" },
+  lideCeli,
+);
+
 const cmsVzorky = {
   emptyState: vzorek(cms.emptyState, [[]]),
   slugify: vzorek(cms.slugify, [
@@ -349,6 +371,52 @@ const cmsVzorky = {
     [sVyrez, lide],
     [sDvaVyrezy, lide],
     [sVyrez, []],
+  ]),
+  inicialyZJmena: vzorek(cms.inicialyZJmena, [
+    ["Pavel Janda"], ["Martina Mašindová"], ["Žofie"], ["  dva   mezery  "],
+    [""], ["   "], ["Jan van Beethoven"], ["Šimon Čížek"], ["ž"],
+  ]),
+  telefonHref: vzorek(cms.telefonHref, [
+    ["+420 736 532 284"], ["736 532 284"], [" +420-736-532-284 "],
+    ["420/736 532 284"], [""], ["telefon"], ["+"], ["00420 736 532 284"],
+  ]),
+  doplnenyClovek: vzorek(cms.doplnenyClovek, [
+    [{ id: "x", jmeno: "Petr Hruška", telefon: "731 000 111" }],
+    [{ id: "x", jmeno: "Petr Hruška", telefon: "731 000 111", inicialy: "PH", telefonHref: "+420731000111" }],
+    [{ id: "x", jmeno: "" }],
+  ]),
+  upsertClovek: vzorek(cms.upsertClovek, [
+    [prazdny, { jmeno: "Žofie Nováková", telefon: "+420 777 123 456" }, lideCeli],
+    [sPridanyClovek, { jmeno: "Žofie Nováková" }, lideCeli],
+    [sDvaStejni, { jmeno: "Žofie Nováková" }, lideCeli],
+    [prazdny, { id: lideCeli[0].id, telefon: "+420 111 222 333" }, lideCeli],
+    [sZmenenyClovek, { id: lideCeli[0].id, email: "jiny@greenairtech.cz" }, lideCeli],
+    [sPridanyClovek, { id: "zofie-novakova", fotka: "media/z1.webp" }, lideCeli],
+    [sOdebranyClovek, { id: lideCeli[0].id, jmeno: "Zpátky" }, lideCeli],
+    [prazdny, { jmeno: "Bez základu" }, []],
+    [prazdny, { jmeno: "  Mezery  ", telefon: "  731 000 111  " }, lideCeli],
+    [sPridanyClovek, { id: "zofie-novakova", telefon: "+420 999 888 777" }, lideSloucene],
+    /* Zkratka a odkaz `tel:` se odvozují — po opravě zdroje se musí
+       přepočítat, ale ručně zadané odvozené pole má přednost. */
+    [prazdny, { id: lideCeli[0].id, jmeno: "Nové Jméno" }, lideCeli],
+    [prazdny, { id: lideCeli[0].id, telefon: "+420 111 000 999", telefonHref: "+420000" }, lideCeli],
+  ]),
+  removeClovek: vzorek(cms.removeClovek, [
+    [sPridanyClovek, "zofie-novakova"],
+    [sVyrez, lideCeli[0].id],
+    [sZmenenyClovek, lideCeli[0].id],
+    [sOdebranyClovek, lideCeli[0].id],
+    [prazdny, "nikdo-takovy"],
+    [sDvaVyrezy, lideCeli[1].id],
+  ]),
+  mergeLide: vzorek(cms.mergeLide, [
+    [prazdny, lideCeli],
+    [sPridanyClovek, lideCeli],
+    [sZmenenyClovek, lideCeli],
+    [sOdebranyClovek, lideCeli],
+    [sTymPlny, lideCeli],
+    [prazdny, []],
+    [sPridanyClovek, []],
   ]),
   importJson: vzorek(cms.importJson, [
     [prazdny, JSON.stringify(sTexty)],

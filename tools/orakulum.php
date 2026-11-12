@@ -66,6 +66,12 @@ const CILE = [
         'setVyrez' => ['App\\Obsah\\StavVyrezu', 'nastavVyrez'],
         'getVyrez' => ['App\\Obsah\\StavVyrezu', 'vyrez'],
         'mergeVyrezy' => ['App\\Obsah\\StavVyrezu', 'spojVyrezy'],
+        'inicialyZJmena' => ['App\\Obsah\\StavLidi', 'inicialyZJmena'],
+        'telefonHref' => ['App\\Obsah\\StavLidi', 'telefonHref'],
+        'doplnenyClovek' => ['App\\Obsah\\StavLidi', 'doplnene'],
+        'upsertClovek' => ['App\\Obsah\\StavLidi', 'ulozClovek'],
+        'removeClovek' => ['App\\Obsah\\StavLidi', 'odeberClovek'],
+        'mergeLide' => ['App\\Obsah\\StavLidi', 'spojLide'],
         'importJson' => ['App\\Obsah\\Stav', 'zJson'],
     ],
     'ga4' => [

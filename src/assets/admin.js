@@ -968,6 +968,9 @@
      v procentech šířky kolečka, takže platí ve velkém editoru i
      v náhledu 72 px — a stejná čísla pak vykreslí PHP (StavVyrezu). */
   var PORTRETY = data.portrety || [];
+  /* Co stránka vykreslila. Na ostrém webu je to UŽ SLOUČENÝ seznam (PHP
+     spojí stav se site.json), v ukázce čistý základ ze site.json. O místo
+     zápisu proto rozhoduje stav, ne tenhle seznam (cms-store.mjs). */
   /* Co web ukazuje teď, ve chvíli otevření stránky. Tlačítko „vrátit jak
      bylo" se vrací sem; soubor site.json u některých lidí přiblížení vozí
      a prohlížeč ho nezná, takže „žádný výřez" by nebylo totéž. */
@@ -1014,13 +1017,217 @@
     ukazVyrez(radek, vyrezOsoby(id));
   }
 
+  /* ----------------------------------------------------- kdo je v týmu
+     Přidaného člověka vykreslí server až po znovunačtení stránky, takže
+     do té doby musí řádek postavit prohlížeč — klonuje <template>, který
+     vykreslila šablona. Odebraný řádek se jen schová: po znovunačtení už
+     ho server nepošle. Všechno je nastavené tak, aby se to dalo pustit
+     dvakrát za sebou se stejným výsledkem. */
+  function jePridany(id) {
+    return ((stav.lide && stav.lide.added) || []).some(function (p) { return p && p.id === id; });
+  }
+
+  function jeZakladni(id) {
+    return PORTRETY.some(function (o) { return o.id === id; });
+  }
+
+  /** Jak má člověk vypadat podle stavu: přidaný, nebo základní + změny. */
+  function osobaZeStavu(id) {
+    var lide = stav.lide || {};
+    var pridani = lide.added || [];
+    for (var i = 0; i < pridani.length; i++) {
+      if (pridani[i] && pridani[i].id === id) return pridani[i];
+    }
+    var ven = { id: id };
+    PORTRETY.forEach(function (o) {
+      if (o.id !== id) return;
+      Object.keys(o).forEach(function (k) { ven[k] = o[k]; });
+    });
+    var zmena = (lide.edited || {})[id] || {};
+    Object.keys(zmena).forEach(function (k) { ven[k] = zmena[k]; });
+    return ven;
+  }
+
+  function radekOsoby(id) {
+    return $('[data-vyrez="' + String(id).replace(/"/g, '\\"') + '"]', korenAdmin);
+  }
+
+  /* Nahraná fotka nahradí <picture> z manifestu celé. Přepsat jen src by
+     nestačilo — srcset by vyhrál a dál by se ukazovala stará fotka. */
+  function vymenObrazek(kde, trida, cesta, popis) {
+    if (!kde) return;
+    var obraz = $("." + trida, kde);
+    if (obraz && obraz.parentNode && obraz.parentNode.tagName === "PICTURE") {
+      obraz.parentNode.parentNode.removeChild(obraz.parentNode);
+      obraz = null;
+    }
+    if (!obraz) {
+      var bez = $(".vyrez-bez-fotky", kde);
+      if (bez && bez.parentNode) bez.parentNode.removeChild(bez);
+      obraz = document.createElement("img");
+      obraz.className = trida;
+      obraz.setAttribute("loading", "lazy");
+      obraz.setAttribute("decoding", "async");
+      if (trida === "portret") {
+        obraz.setAttribute("width", "72");
+        obraz.setAttribute("height", "72");
+      }
+      kde.insertBefore(obraz, trida === "portret" ? null : kde.firstChild);
+    }
+    obraz.setAttribute("alt", popis);
+    if (obraz.getAttribute("src") !== cesta) obraz.setAttribute("src", cesta);
+  }
+
+  function ukazClovek(radek, osoba) {
+    var id = radek.getAttribute("data-vyrez");
+    var jmeno = $("[data-clovek-jmeno]", radek);
+    if (jmeno) jmeno.textContent = osoba.jmeno || "";
+    var plocha = $("[data-vyrez-plocha]", radek);
+    if (plocha) plocha.setAttribute("aria-label", P.clovekPosun + ": " + (osoba.jmeno || ""));
+    var inicialy = $("[data-vyrez-nahled] .inicialy", radek);
+    if (inicialy) {
+      inicialy.textContent = osoba.inicialy || GAT.cmsStore.inicialyZJmena(osoba.jmeno || "");
+    }
+    var novy = $("[data-clovek-novy]", radek);
+    if (novy) novy.hidden = !jePridany(id);
+    /* Prázdná cesta = fotku vykreslil server z manifestu, tu neberem. */
+    var cesta = osoba.fotka ? GAT.fotky.zdrojFotky({ dataUrl: osoba.fotka }, "") : "";
+    if (!cesta) return;
+    vymenObrazek(plocha, "vyrez-fotka", cesta, "");
+    vymenObrazek($("[data-vyrez-nahled]", radek), "portret", cesta, osoba.jmeno || "");
+  }
+
   function vykresliPortrety() {
+    var lide = stav.lide || {};
+    var mrizka = $("[data-vyrez-mrizka]");
+    var vzor = $("[data-vyrez-vzor]");
+    (lide.added || []).forEach(function (osoba) {
+      if (!osoba || !osoba.id || radekOsoby(osoba.id) || !mrizka || !vzor) return;
+      var radek = vzor.content.firstElementChild.cloneNode(true);
+      radek.setAttribute("data-vyrez", osoba.id);
+      mrizka.appendChild(radek);
+      pripojVyrez(radek);
+    });
     $$("[data-vyrez]", korenAdmin).forEach(function (radek) {
-      ukazVyrez(radek, vyrezOsoby(radek.getAttribute("data-vyrez")));
+      var id = radek.getAttribute("data-vyrez");
+      if (!id) return;
+      /* Řádek, který prohlížeč přidal a správce ho zase odebral, nemá
+         v základu co ukazovat — zmizí celý. */
+      if (!jeZakladni(id) && !jePridany(id)) {
+        if (radek.parentNode) radek.parentNode.removeChild(radek);
+        return;
+      }
+      radek.hidden = (lide.removed || []).indexOf(id) !== -1;
+      if (radek.hidden) return;
+      ukazClovek(radek, osobaZeStavu(id));
+      ukazVyrez(radek, vyrezOsoby(id));
     });
   }
 
-  $$("[data-vyrez]", korenAdmin).forEach(function (radek) {
+  /* ----------------------------------------------- dialog s údaji
+     „Co dělá" je text webu (klíč lide.<id>), ne pole záznamu — jinak by
+     se nedal přeložit. Zapisuje se do všech tří jazyků stejně, aby na
+     anglické stránce nesvítil místo role klíč. */
+  var dialogClovek = $("[data-dialog-clovek]");
+  var formClovek = $("[data-clovek-form]");
+  var titulekClovek = $("[data-clovek-titulek]");
+
+  function roleCloveka(id) {
+    var prepisy = (stav.texts && stav.texts.cs) || {};
+    var klic = "lide." + id;
+    if (prepisy[klic]) return prepisy[klic];
+    return (data.slovniky.cs || {})[klic] || "";
+  }
+
+  function otevriClovek(id) {
+    formClovek.reset();
+    var f = formClovek.elements;
+    f.id.value = id || "";
+    if (id) {
+      var o = osobaZeStavu(id);
+      f.jmeno.value = o.jmeno || "";
+      f.role.value = roleCloveka(id);
+      f.telefon.value = o.telefon || "";
+      f.email.value = o.email || "";
+    }
+    titulekClovek.textContent = id ? P.clovekDialogUprava : P.clovekDialogNovy;
+    if (typeof dialogClovek.showModal === "function") dialogClovek.showModal();
+    else dialogClovek.setAttribute("open", "");
+  }
+
+  $("[data-pridat-clovek]").addEventListener("click", function () { otevriClovek(""); });
+  $("[data-zavrit-clovek]").addEventListener("click", function () { dialogClovek.close(); });
+
+  formClovek.addEventListener("submit", function () {
+    var f = formClovek.elements;
+    var jmeno = f.jmeno.value.trim();
+    if (!jmeno) { window.alert(P.clovekBezJmena); return; }
+    var pridanychPred = ((stav.lide && stav.lide.added) || []).length;
+    var zadane = { jmeno: jmeno, telefon: f.telefon.value.trim(), email: f.email.value.trim() };
+    if (f.id.value) zadane.id = f.id.value;
+    stav = GAT.cmsStore.upsertClovek(stav, zadane, PORTRETY);
+    /* Id nového člověka vymyslí cms-store (umí uhnout kolizi se jmenovcem),
+       takže se vyzvedne ze stavu, ne ze jména. */
+    var id = f.id.value;
+    if (!id) {
+      var pridani = stav.lide.added;
+      id = pridani.length > pridanychPred ? pridani[pridani.length - 1].id : "";
+    }
+    var role = f.role.value.trim();
+    if (id && role !== roleCloveka(id)) {
+      ["cs", "en", "de"].forEach(function (j) {
+        var vychozi = (data.slovniky[j] || {})["lide." + id] || "";
+        stav = GAT.cmsStore.setText(stav, j, "lide." + id, role === vychozi ? "" : role);
+      });
+    }
+    if (!uloz()) return;
+    vykresliPortrety();
+    vykresliTexty();
+  });
+
+  function odeberCloveka(id) {
+    var osoba = osobaZeStavu(id);
+    var otazka = String(P.clovekOdebratPotvrzeni || "").replace("{jmeno}", osoba.jmeno || id);
+    if (!window.confirm(otazka)) return;
+    stav = GAT.cmsStore.removeClovek(stav, id);
+    if (!uloz()) return;
+    vykresliPortrety();
+  }
+
+  /* -------------------------------------------------- nová fotka
+     Stejnou cestou jako fotky realizací: na ostrém webu obrázek zmenší a
+     uloží server (/api/fotka) a ve stavu zůstane jen cesta do media/,
+     v ukázce se nese jako data URL. */
+  var vstupFotkyCloveka = $("[data-clovek-soubor]");
+  var fotkaProKoho = null;
+
+  if (vstupFotkyCloveka) {
+    vstupFotkyCloveka.addEventListener("change", function (e) {
+      var soubor = e.target.files && e.target.files[0];
+      var id = fotkaProKoho;
+      fotkaProKoho = null;
+      e.target.value = "";
+      if (!soubor || !id) return;
+      var kontrola = F.zkontrolujSoubor({ nazev: soubor.name, typ: soubor.type, velikost: soubor.size });
+      if (!kontrola.ok) {
+        window.alert(hlaskaOdmitnuti({ nazev: soubor.name, duvod: kontrola.chyba }));
+        return;
+      }
+      zpracujSoubor(soubor).then(
+        function (fotka) {
+          stav = GAT.cmsStore.upsertClovek(stav, { id: id, fotka: fotka.dataUrl }, PORTRETY);
+          if (!uloz()) return;
+          vykresliPortrety();
+        },
+        function (chyba) {
+          var kod = chyba && chyba.data ? chyba.data.chyba : "";
+          window.alert(kod ? hlaskaChyby(chyba) : P.clovekFotkaChyba);
+        }
+      );
+    });
+  }
+
+  function pripojVyrez(radek) {
     var plocha = $("[data-vyrez-plocha]", radek);
     var fotka = $(".vyrez-fotka", radek);
     var posuvnik = $("[data-vyrez-zoom]", radek);
@@ -1044,6 +1251,27 @@
     if (vratit) {
       vratit.addEventListener("click", function () {
         ulozVyrez(radek, VYREZ_PRI_OTEVRENI[id] || { zoom: 100, x: 0, y: 0 });
+      });
+    }
+
+    var upravit = $("[data-clovek-upravit]", radek);
+    if (upravit) {
+      upravit.addEventListener("click", function () {
+        otevriClovek(radek.getAttribute("data-vyrez"));
+      });
+    }
+    var jinaFotka = $("[data-clovek-fotka]", radek);
+    if (jinaFotka && vstupFotkyCloveka) {
+      jinaFotka.addEventListener("click", function () {
+        fotkaProKoho = radek.getAttribute("data-vyrez");
+        vstupFotkyCloveka.value = "";
+        vstupFotkyCloveka.click();
+      });
+    }
+    var odebrat = $("[data-clovek-odebrat]", radek);
+    if (odebrat) {
+      odebrat.addEventListener("click", function () {
+        odeberCloveka(radek.getAttribute("data-vyrez"));
       });
     }
 
@@ -1101,7 +1329,9 @@
       e.preventDefault();
       ulozVyrez(radek, { zoom: v.zoom, x: v.x + sx * krok, y: v.y + sy * krok });
     });
-  });
+  }
+
+  $$("[data-vyrez]", korenAdmin).forEach(pripojVyrez);
 
   /* -------------------------------------------------------------- data */
   function obnovCas() {

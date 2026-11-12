@@ -79,21 +79,34 @@ final class Casti
         $id = $osoba['id'];
         /* Výřez fotky v kolečku: hlava sedí na každé fotce jinak, tak si
            ho správce nastaví v administraci (App\Obsah\StavVyrezu). */
-        $portret = $ctx->maObrazek("portret-{$id}")
-            ? $ctx->obrazek("portret-{$id}", [
+        $styl = StavVyrezu::styl($osoba['vyrez'] ?? null);
+        /* Fotku nahranou v administraci nese stav jako cestu do media/.
+           V manifestu obrázků není (ten vzniká při sestavení), takže z ní
+           nejde udělat <picture> s variantami — jde jen jeden <img>. */
+        if (($osoba['fotka'] ?? '') !== '') {
+            $e = static fn (string $x): string => htmlspecialchars($x, ENT_QUOTES, 'UTF-8');
+            $portret = '<img src="' . $e($ctx->odkazKoren((string) $osoba['fotka']))
+                . '" width="72" height="72" alt="' . $e((string) $osoba['jmeno'])
+                . '" class="portret"' . ($styl !== '' ? ' style="' . $e($styl) . '"' : '')
+                . ' loading="lazy" decoding="async">';
+        } elseif ($ctx->maObrazek("portret-{$id}")) {
+            $portret = $ctx->obrazek("portret-{$id}", [
                 'alt' => $osoba['jmeno'],
                 'sirky' => '72px',
                 'trida' => 'portret',
-                'styl' => StavVyrezu::styl($osoba['vyrez'] ?? null),
-            ])
-            : '';
+                'styl' => $styl,
+            ]);
+        } else {
+            $portret = '';
+        }
         return '<div class="karta-clovek">
     <span class="avatar" data-cms-vyrez="' . $id . '">
       <span class="inicialy" aria-hidden="true">' . $osoba['inicialy'] . '</span>
       ' . $portret . '
     </span>
     <span class="jmeno">' . $osoba['jmeno'] . '</span>
-    <span class="role"' . self::dc("lide.{$id}") . '>' . $ctx->t("lide.{$id}") . '</span>
+    <span class="role"' . self::dc("lide.{$id}") . '>'
+            . ($ctx->existuje("lide.{$id}") ? $ctx->t("lide.{$id}") : '') . '</span>
     <a href="tel:' . $osoba['telefonHref'] . '">' . self::ikona('telefon') . $osoba['telefon'] . '</a>
     <a href="mailto:' . $osoba['email'] . '">' . self::ikona('mail') . $osoba['email'] . '</a>
   </div>';

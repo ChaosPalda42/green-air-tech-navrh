@@ -56,16 +56,23 @@ final class Stav
         /* portrety je mapa id => výřez; prázdná musí zůstat objektem, viz výš. */
         $stav['portrety'] = (object) (array) ($stav['portrety'] ?? []);
 
+        $lide = (array) ($stav['lide'] ?? []);
+        $lide['added'] = array_values((array) ($lide['added'] ?? []));
+        $lide['removed'] = array_values((array) ($lide['removed'] ?? []));
+        $lide['edited'] = (object) (array) ($lide['edited'] ?? []);
+        $stav['lide'] = $lide;
+
         return $stav;
     }
 
-    /** @return array{texts: array, realizace: array{added: list, edited: array, removed: list}, portrety: array, updatedAt: null} */
+    /** @return array{texts: array, realizace: array{added: list, edited: array, removed: list}, portrety: array, lide: array{added: list, edited: array, removed: list}, updatedAt: null} */
     public static function prazdny(): array
     {
         return [
             'texts' => [],
             'realizace' => ['added' => [], 'edited' => [], 'removed' => []],
             'portrety' => [],
+            'lide' => ['added' => [], 'edited' => [], 'removed' => []],
             'updatedAt' => null,
         ];
     }
@@ -171,6 +178,14 @@ final class Stav
         }
         if (!isset($stav['portrety']) || !is_array($stav['portrety'])) {
             $stav['portrety'] = [];
+        }
+        if (!isset($stav['lide']) || !is_array($stav['lide'])) {
+            $stav['lide'] = ['added' => [], 'edited' => [], 'removed' => []];
+        }
+        foreach (['added' => [], 'edited' => [], 'removed' => []] as $klic => $prazdne) {
+            if (!array_key_exists($klic, $stav['lide'])) {
+                $stav['lide'][$klic] = $prazdne;
+            }
         }
 
         return $stav;

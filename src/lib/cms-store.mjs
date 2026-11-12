@@ -1,7 +1,7 @@
 export const STORAGE_KEY = "gat-cms-v1";
 
 export function emptyState() {
-  return { texts: {}, realizace: { added: [], edited: {}, removed: [] }, portrety: {}, updatedAt: null };
+  return { texts: {}, realizace: { added: [], edited: {}, removed: [] }, portrety: {}, lide: { added: [], edited: {}, removed: [] }, updatedAt: null };
 }
 
 function _deepClone(obj) {
@@ -16,6 +16,10 @@ function _ensureState(state) {
   if (s.realizace.edited === undefined) s.realizace.edited = {};
   if (s.realizace.removed === undefined) s.realizace.removed = [];
   if (!s.portrety || typeof s.portrety !== "object" || Array.isArray(s.portrety)) s.portrety = {};
+  if (!s.lide || typeof s.lide !== "object" || Array.isArray(s.lide)) s.lide = { added: [], edited: {}, removed: [] };
+  if (!Array.isArray(s.lide.added)) s.lide.added = [];
+  if (!s.lide.edited || typeof s.lide.edited !== "object" || Array.isArray(s.lide.edited)) s.lide.edited = {};
+  if (!Array.isArray(s.lide.removed)) s.lide.removed = [];
   return s;
 }
 
@@ -248,6 +252,156 @@ export function stylVyrezu(vyrez) {
   if (vyrez === undefined || vyrez === null || jeVychoziVyrez(vyrez)) return "";
   const v = normalizeVyrez(vyrez);
   return `--vz:${(v.zoom / 100).toFixed(2)};--vx:${v.x}%;--vy:${v.y}%`;
+}
+
+/* ------------------------------------------------------------------- lidé
+   Tým se dá v administraci doplnit, upravit i zkrátit. Zrcadlí
+   web/app/Obsah/StavLidi.php — co jedno složí, musí složit i druhé, jinak
+   se ostrý web rozejde s ukázkou.
+
+   Role člověka se tady neukládá: je to text jako každý jiný, klíč
+   `lide.<id>` v části texts. */
+
+/** Pole, která o člověku držíme. */
+export const POLE_CLOVEKA = ["id", "jmeno", "telefon", "telefonHref", "email", "inicialy", "fotka"];
+
+/** Kolik lidí smí administrace přidat. Tým není adresář. */
+export const MAX_PRIDANYCH_LIDI = 30;
+
+function _ocistiClovek(osoba) {
+  const ven = {};
+  for (const pole of POLE_CLOVEKA) {
+    if (!Object.prototype.hasOwnProperty.call(osoba, pole)) continue;
+    if (typeof osoba[pole] !== "string") continue;
+    ven[pole] = osoba[pole].trim();
+  }
+  return ven;
+}
+
+/** Zkratka ze jména: první písmena prvních dvou slov, velká. */
+export function inicialyZJmena(jmeno) {
+  const slova = String(jmeno).trim().split(/\s+/);
+  let zkratka = "";
+  for (const slovo of slova) {
+    if (slovo === "") continue;
+    zkratka += slovo.slice(0, 1);
+    if (zkratka.length >= 2) break;
+  }
+  return zkratka.toUpperCase();
+}
+
+/** Telefon do odkazu tel:: jen číslice a jedno plus na začátku. */
+export function telefonHref(telefon) {
+  const text = String(telefon);
+  const cisla = text.replace(/[^0-9]/g, "");
+  const plus = text.replace(/^\s+/, "").startsWith("+") ? "+" : "";
+  return cisla === "" ? "" : plus + cisla;
+}
+
+/** Doplní zkratku a telefon do odkazu, pokud chybí. */
+export function doplnenyClovek(osoba) {
+  const o = Object.assign({}, osoba);
+  if (!o.inicialy) o.inicialy = inicialyZJmena(o.jmeno || "");
+  if (!o.telefonHref) o.telefonHref = telefonHref(o.telefon || "");
+  return o;
+}
+
+/**
+ * Přidá nebo změní jednoho člověka. Bez id se id vyrobí ze jména (slug);
+ * při kolizi se připojuje -2, -3, … Id ze souborů jde do edited (sloučeno
+ * s předchozí změnou) a vybere se z removed, jinak do added.
+ */
+export function upsertClovek(state, osoba, baseList) {
+  if (baseList === undefined) baseList = [];
+  const s = _ensureState(state);
+  const baseIds = new Set(baseList.map((b) => String(b.id)));
+  const addedIds = new Set(s.lide.added.map((a) => String(a.id)));
+
+  let id = osoba.id;
+  if (!id) {
+    const zaklad = slugify(osoba.jmeno || "");
+    id = zaklad;
+    let suffix = 2;
+    while (baseIds.has(id) || addedIds.has(id) || Object.prototype.hasOwnProperty.call(s.lide.edited, id)) {
+      id = zaklad + "-" + suffix;
+      suffix++;
+    }
+  }
+  id = String(id);
+
+  const zapis = _ocistiClovek(osoba);
+  delete zapis.id;
+
+  // Zkratka a odkaz na telefon se odvozují ze jména a z čísla. Když se
+  // zdroj změní a odvozené pole nepřijde, přepočítá se — jinak by po
+  // opravě čísla zůstal odkaz `tel:` na to staré.
+  if ("jmeno" in zapis && !("inicialy" in zapis)) zapis.inicialy = inicialyZJmena(String(zapis.jmeno));
+  if ("telefon" in zapis && !("telefonHref" in zapis)) zapis.telefonHref = telefonHref(String(zapis.telefon));
+
+  // Nejdřív `added`: administrace na ostrém webu dostává do stránky
+  // sloučený seznam, takže `baseList` už přidané lidi obsahuje. Kdyby
+  // rozhodoval základ, oprava přidaného člověka by skončila v `edited` —
+  // a tu spojení zahodí, protože v site.json to id není.
+  const kde = s.lide.added.findIndex((p) => String(p.id) === id);
+  if (kde !== -1) {
+    s.lide.added[kde] = doplnenyClovek(Object.assign({}, s.lide.added[kde], zapis, { id }));
+  } else if (baseIds.has(id)) {
+    const drive = s.lide.edited[id] || {};
+    s.lide.edited[id] = Object.assign({}, drive, zapis);
+    s.lide.removed = s.lide.removed.filter((odebrane) => odebrane !== id);
+  } else {
+    s.lide.added.push(doplnenyClovek(Object.assign({}, zapis, { id })));
+  }
+
+  return s;
+}
+
+/**
+ * Odebere člověka. Přidaný zmizí z added (nebyl nikdy v souborech), ten ze
+ * souborů se zapíše do removed. Výřez fotky jde s ním — jinak by v datech
+ * zůstal záznam, ke kterému už nikdo nepatří.
+ */
+export function removeClovek(state, id) {
+  const s = _ensureState(state);
+  const kde = s.lide.added.findIndex((p) => String(p.id) === id);
+  if (kde !== -1) {
+    s.lide.added.splice(kde, 1);
+  } else {
+    if (!s.lide.removed.includes(id)) s.lide.removed.push(id);
+    delete s.lide.edited[id];
+  }
+  delete s.portrety[id];
+  return s;
+}
+
+/**
+ * Lidé ze souborů se změnami administrace: odebraní vypadnou, změněným se
+ * přelepí pole, přidaní se připojí na konec.
+ */
+export function mergeLide(state, baseList) {
+  const lide = (state && state.lide) || {};
+  const added = Array.isArray(lide.added) ? lide.added : [];
+  const edited = lide.edited && typeof lide.edited === "object" ? lide.edited : {};
+  const removed = new Set(Array.isArray(lide.removed) ? lide.removed.map(String) : []);
+
+  const vysledek = [];
+  for (const osoba of baseList) {
+    if (!osoba || typeof osoba !== "object") continue;
+    const id = String(osoba.id === undefined ? "" : osoba.id);
+    if (removed.has(id)) continue;
+    const zmena = edited[id];
+    vysledek.push(
+      zmena && typeof zmena === "object"
+        ? doplnenyClovek(Object.assign({}, osoba, _ocistiClovek(zmena), { id }))
+        : Object.assign({}, osoba)
+    );
+  }
+  for (const osoba of added) {
+    if (!osoba || typeof osoba !== "object" || !osoba.id) continue;
+    vysledek.push(doplnenyClovek(_ocistiClovek(osoba)));
+  }
+
+  return vysledek;
 }
 
 /** Lidé ze souborů přelepení výřezy z administrace. */

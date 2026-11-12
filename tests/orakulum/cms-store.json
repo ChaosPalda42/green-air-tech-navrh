@@ -10,6 +10,11 @@
      "removed": []
     },
     "portrety": {},
+    "lide": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
     "updatedAt": null
    }
   }
@@ -75,6 +80,11 @@
       "removed": []
      },
      "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
      "updatedAt": null
     },
     "cs",
@@ -93,6 +103,11 @@
      "removed": []
     },
     "portrety": {},
+    "lide": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
     "updatedAt": null
    }
   },
@@ -113,6 +128,11 @@
       "removed": []
      },
      "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
      "updatedAt": null
     },
     "cs",
@@ -134,6 +154,11 @@
      "removed": []
     },
     "portrety": {},
+    "lide": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
     "updatedAt": null
    }
   },
@@ -154,6 +179,11 @@
       "removed": []
      },
      "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
      "updatedAt": null
     },
     "cs",
@@ -173,6 +203,11 @@
      "removed": []
     },
     "portrety": {},
+    "lide": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
     "updatedAt": null
    }
   },
@@ -193,6 +228,11 @@
       "removed": []
      },
      "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
      "updatedAt": null
     },
     "cs",
@@ -212,6 +252,11 @@
      "removed": []
     },
     "portrety": {},
+    "lide": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
     "updatedAt": null
    }
   },
@@ -232,6 +277,11 @@
       "removed": []
      },
      "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
      "updatedAt": null
     },
     "de",
@@ -256,6 +306,11 @@
      "removed": []
     },
     "portrety": {},
+    "lide": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
     "updatedAt": null
    }
   },
@@ -269,6 +324,11 @@
       "removed": []
      },
      "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
      "updatedAt": null
     },
     "cs",
@@ -287,6 +347,11 @@
      "removed": []
     },
     "portrety": {},
+    "lide": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
     "updatedAt": null
    }
   }
@@ -309,6 +374,11 @@
       "removed": []
      },
      "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
      "updatedAt": null
     },
     "cs",
@@ -333,6 +403,11 @@
       "removed": []
      },
      "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
      "updatedAt": null
     },
     "cs",
@@ -357,6 +432,11 @@
       "removed": []
      },
      "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
      "updatedAt": null
     },
     "de",
@@ -374,6 +454,11 @@
       "removed": []
      },
      "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
      "updatedAt": null
     },
     "cs",
@@ -400,6 +485,11 @@
       "removed": []
      },
      "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
      "updatedAt": null
     },
     "cs",
@@ -1192,7 +1282,7 @@
      "admin.zalozky.nastenka": "Nástěnka",
      "admin.zalozky.texty": "Texty webu",
      "admin.zalozky.realizace": "Realizace",
-     "admin.zalozky.portrety": "Fotky lidí",
+     "admin.zalozky.portrety": "Lidé",
      "admin.zalozky.uzivatele": "Uživatelé",
      "admin.zalozky.data": "Záloha a obnovení",
      "admin.texty.titulek": "Texty webu",
@@ -1248,8 +1338,8 @@
      "admin.realizace.fotkyChyba.neplatny": "{soubor}: soubor se nepodařilo načíst.",
      "admin.realizace.fotkyChyba.nacteni": "{soubor}: obrázek se nepodařilo otevřít.",
      "admin.realizace.fotkyPlno": "Prohlížeč už nemá místo na další data. Nějaké fotky odeberte, nebo si změny stáhněte do zálohy a začněte načisto.",
-     "admin.portrety.titulek": "Fotky lidí",
-     "admin.portrety.lead": "Na každé fotce sedí hlava jinak. Posuňte fotku v kolečku tak, jak ji chcete mít na webu — vedle hned vidíte, jak kolečko vypadá ve skutečné velikosti.",
+     "admin.portrety.titulek": "Lidé",
+     "admin.portrety.lead": "Tým, jak ho web ukazuje na stránce O nás. Člověka můžete přidat, odebrat, přepsat mu údaje i nahrát novou fotku. Fotku pak posuňte v kolečku tak, jak ji chcete mít na webu — vedle hned vidíte, jak kolečko vypadá ve skutečné velikosti.",
      "admin.portrety.jakNa": "Chytněte fotku a posuňte ji. Klávesnicí: šipky, se Shiftem po větších krocích.",
      "admin.portrety.priblizeni": "Přiblížení",
      "admin.portrety.nahled": "Takhle kolečko vypadá na webu",
@@ -1257,6 +1347,23 @@
      "admin.portrety.posun": "Posun fotky",
      "admin.portrety.zmeneno": "upraveno",
      "admin.portrety.bezFotky": "Tenhle člověk zatím fotku nemá.",
+     "admin.portrety.pridat": "Přidat člověka",
+     "admin.portrety.upravit": "Upravit údaje",
+     "admin.portrety.nahratFotku": "Nahrát fotku",
+     "admin.portrety.odebrat": "Odebrat",
+     "admin.portrety.odebratPotvrzeni": "Odebrat {jmeno} z týmu? Na webu po uložení zmizí jeho kolečko i kontakt.",
+     "admin.portrety.dialogNovy": "Nový člověk",
+     "admin.portrety.dialogUprava": "Údaje člověka",
+     "admin.portrety.jmeno": "Jméno a příjmení",
+     "admin.portrety.role": "Co dělá",
+     "admin.portrety.roleJazyk": "Co dělá se zapíše do češtiny, angličtiny i němčiny stejně. Překlad upravíte v Textech webu.",
+     "admin.portrety.telefon": "Telefon",
+     "admin.portrety.email": "E-mail",
+     "admin.portrety.ulozit": "Uložit člověka",
+     "admin.portrety.zrusit": "Zrušit",
+     "admin.portrety.novy": "přidaný",
+     "admin.portrety.bezJmena": "Bez jména člověka nejde uložit — na webu by se ukázalo prázdné kolečko.",
+     "admin.portrety.fotkaChyba": "Fotku se nepodařilo nahrát.",
      "admin.data.titulek": "Záloha a obnovení",
      "admin.data.lead": "Změny žijí ve vašem prohlížeči. Tady si je můžete stáhnout jako soubor, nahrát zpět nebo všechno vrátit do výchozího stavu.",
      "admin.data.stahnout": "Stáhnout změny (JSON)",
@@ -2148,7 +2255,7 @@
     "admin.zalozky.nastenka": "Nástěnka",
     "admin.zalozky.texty": "Texty webu",
     "admin.zalozky.realizace": "Realizace",
-    "admin.zalozky.portrety": "Fotky lidí",
+    "admin.zalozky.portrety": "Lidé",
     "admin.zalozky.uzivatele": "Uživatelé",
     "admin.zalozky.data": "Záloha a obnovení",
     "admin.texty.titulek": "Texty webu",
@@ -2204,8 +2311,8 @@
     "admin.realizace.fotkyChyba.neplatny": "{soubor}: soubor se nepodařilo načíst.",
     "admin.realizace.fotkyChyba.nacteni": "{soubor}: obrázek se nepodařilo otevřít.",
     "admin.realizace.fotkyPlno": "Prohlížeč už nemá místo na další data. Nějaké fotky odeberte, nebo si změny stáhněte do zálohy a začněte načisto.",
-    "admin.portrety.titulek": "Fotky lidí",
-    "admin.portrety.lead": "Na každé fotce sedí hlava jinak. Posuňte fotku v kolečku tak, jak ji chcete mít na webu — vedle hned vidíte, jak kolečko vypadá ve skutečné velikosti.",
+    "admin.portrety.titulek": "Lidé",
+    "admin.portrety.lead": "Tým, jak ho web ukazuje na stránce O nás. Člověka můžete přidat, odebrat, přepsat mu údaje i nahrát novou fotku. Fotku pak posuňte v kolečku tak, jak ji chcete mít na webu — vedle hned vidíte, jak kolečko vypadá ve skutečné velikosti.",
     "admin.portrety.jakNa": "Chytněte fotku a posuňte ji. Klávesnicí: šipky, se Shiftem po větších krocích.",
     "admin.portrety.priblizeni": "Přiblížení",
     "admin.portrety.nahled": "Takhle kolečko vypadá na webu",
@@ -2213,6 +2320,23 @@
     "admin.portrety.posun": "Posun fotky",
     "admin.portrety.zmeneno": "upraveno",
     "admin.portrety.bezFotky": "Tenhle člověk zatím fotku nemá.",
+    "admin.portrety.pridat": "Přidat člověka",
+    "admin.portrety.upravit": "Upravit údaje",
+    "admin.portrety.nahratFotku": "Nahrát fotku",
+    "admin.portrety.odebrat": "Odebrat",
+    "admin.portrety.odebratPotvrzeni": "Odebrat {jmeno} z týmu? Na webu po uložení zmizí jeho kolečko i kontakt.",
+    "admin.portrety.dialogNovy": "Nový člověk",
+    "admin.portrety.dialogUprava": "Údaje člověka",
+    "admin.portrety.jmeno": "Jméno a příjmení",
+    "admin.portrety.role": "Co dělá",
+    "admin.portrety.roleJazyk": "Co dělá se zapíše do češtiny, angličtiny i němčiny stejně. Překlad upravíte v Textech webu.",
+    "admin.portrety.telefon": "Telefon",
+    "admin.portrety.email": "E-mail",
+    "admin.portrety.ulozit": "Uložit člověka",
+    "admin.portrety.zrusit": "Zrušit",
+    "admin.portrety.novy": "přidaný",
+    "admin.portrety.bezJmena": "Bez jména člověka nejde uložit — na webu by se ukázalo prázdné kolečko.",
+    "admin.portrety.fotkaChyba": "Fotku se nepodařilo nahrát.",
     "admin.data.titulek": "Záloha a obnovení",
     "admin.data.lead": "Změny žijí ve vašem prohlížeči. Tady si je můžete stáhnout jako soubor, nahrát zpět nebo všechno vrátit do výchozího stavu.",
     "admin.data.stahnout": "Stáhnout změny (JSON)",
@@ -2332,6 +2456,11 @@
       "removed": []
      },
      "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
      "updatedAt": null
     },
     "en",
@@ -3124,7 +3253,7 @@
      "admin.zalozky.nastenka": "Dashboard",
      "admin.zalozky.texty": "Website texts",
      "admin.zalozky.realizace": "Projects",
-     "admin.zalozky.portrety": "Team photos",
+     "admin.zalozky.portrety": "People",
      "admin.zalozky.uzivatele": "Users",
      "admin.zalozky.data": "Backup and restore",
      "admin.texty.titulek": "Website texts",
@@ -3180,8 +3309,8 @@
      "admin.realizace.fotkyChyba.neplatny": "{soubor}: failed to load the file.",
      "admin.realizace.fotkyChyba.nacteni": "{soubor}: failed to open the image.",
      "admin.realizace.fotkyPlno": "The browser no longer has space for additional data. Remove some photos, or download the changes to a backup and start fresh.",
-     "admin.portrety.titulek": "Team photos",
-     "admin.portrety.lead": "Every photo sits differently. Drag the photo inside the circle the way you want it on the site — next to it you see the circle at its real size.",
+     "admin.portrety.titulek": "People",
+     "admin.portrety.lead": "The team as the site shows it on the About us page. You can add a person, remove one, change their details and upload a new photo. Then drag the photo inside the circle the way you want it on the site — next to it you see the circle at its real size.",
      "admin.portrety.jakNa": "Grab the photo and move it. With a keyboard: arrow keys, Shift for bigger steps.",
      "admin.portrety.priblizeni": "Zoom",
      "admin.portrety.nahled": "This is how the circle looks on the site",
@@ -3189,6 +3318,23 @@
      "admin.portrety.posun": "Photo position",
      "admin.portrety.zmeneno": "edited",
      "admin.portrety.bezFotky": "This person has no photo yet.",
+     "admin.portrety.pridat": "Add person",
+     "admin.portrety.upravit": "Edit details",
+     "admin.portrety.nahratFotku": "Upload photo",
+     "admin.portrety.odebrat": "Remove",
+     "admin.portrety.odebratPotvrzeni": "Remove {jmeno} from the team? Once saved, their circle and contact disappear from the site.",
+     "admin.portrety.dialogNovy": "New person",
+     "admin.portrety.dialogUprava": "Person details",
+     "admin.portrety.jmeno": "Name and surname",
+     "admin.portrety.role": "What they do",
+     "admin.portrety.roleJazyk": "What they do is written into Czech, English and German alike. Edit the translation in Site texts.",
+     "admin.portrety.telefon": "Phone",
+     "admin.portrety.email": "E-mail",
+     "admin.portrety.ulozit": "Save person",
+     "admin.portrety.zrusit": "Cancel",
+     "admin.portrety.novy": "added",
+     "admin.portrety.bezJmena": "A person cannot be saved without a name — the site would show an empty circle.",
+     "admin.portrety.fotkaChyba": "The photo could not be uploaded.",
      "admin.data.titulek": "Backup and restore",
      "admin.data.lead": "Changes are stored in your browser. Here you can download them as a file, upload them back, or reset everything to the default state.",
      "admin.data.stahnout": "Download changes (JSON)",
@@ -4080,7 +4226,7 @@
     "admin.zalozky.nastenka": "Dashboard",
     "admin.zalozky.texty": "Website texts",
     "admin.zalozky.realizace": "Projects",
-    "admin.zalozky.portrety": "Team photos",
+    "admin.zalozky.portrety": "People",
     "admin.zalozky.uzivatele": "Users",
     "admin.zalozky.data": "Backup and restore",
     "admin.texty.titulek": "Website texts",
@@ -4136,8 +4282,8 @@
     "admin.realizace.fotkyChyba.neplatny": "{soubor}: failed to load the file.",
     "admin.realizace.fotkyChyba.nacteni": "{soubor}: failed to open the image.",
     "admin.realizace.fotkyPlno": "The browser no longer has space for additional data. Remove some photos, or download the changes to a backup and start fresh.",
-    "admin.portrety.titulek": "Team photos",
-    "admin.portrety.lead": "Every photo sits differently. Drag the photo inside the circle the way you want it on the site — next to it you see the circle at its real size.",
+    "admin.portrety.titulek": "People",
+    "admin.portrety.lead": "The team as the site shows it on the About us page. You can add a person, remove one, change their details and upload a new photo. Then drag the photo inside the circle the way you want it on the site — next to it you see the circle at its real size.",
     "admin.portrety.jakNa": "Grab the photo and move it. With a keyboard: arrow keys, Shift for bigger steps.",
     "admin.portrety.priblizeni": "Zoom",
     "admin.portrety.nahled": "This is how the circle looks on the site",
@@ -4145,6 +4291,23 @@
     "admin.portrety.posun": "Photo position",
     "admin.portrety.zmeneno": "edited",
     "admin.portrety.bezFotky": "This person has no photo yet.",
+    "admin.portrety.pridat": "Add person",
+    "admin.portrety.upravit": "Edit details",
+    "admin.portrety.nahratFotku": "Upload photo",
+    "admin.portrety.odebrat": "Remove",
+    "admin.portrety.odebratPotvrzeni": "Remove {jmeno} from the team? Once saved, their circle and contact disappear from the site.",
+    "admin.portrety.dialogNovy": "New person",
+    "admin.portrety.dialogUprava": "Person details",
+    "admin.portrety.jmeno": "Name and surname",
+    "admin.portrety.role": "What they do",
+    "admin.portrety.roleJazyk": "What they do is written into Czech, English and German alike. Edit the translation in Site texts.",
+    "admin.portrety.telefon": "Phone",
+    "admin.portrety.email": "E-mail",
+    "admin.portrety.ulozit": "Save person",
+    "admin.portrety.zrusit": "Cancel",
+    "admin.portrety.novy": "added",
+    "admin.portrety.bezJmena": "A person cannot be saved without a name — the site would show an empty circle.",
+    "admin.portrety.fotkaChyba": "The photo could not be uploaded.",
     "admin.data.titulek": "Backup and restore",
     "admin.data.lead": "Changes are stored in your browser. Here you can download them as a file, upload them back, or reset everything to the default state.",
     "admin.data.stahnout": "Download changes (JSON)",
@@ -4264,6 +4427,11 @@
       "removed": []
      },
      "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
      "updatedAt": null
     },
     "de",
@@ -4285,6 +4453,11 @@
       "removed": []
      },
      "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
      "updatedAt": null
     },
     "cs",
@@ -4313,6 +4486,11 @@
       "removed": []
      },
      "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
      "updatedAt": null
     },
     "cs",
@@ -4334,6 +4512,11 @@
       "removed": []
      },
      "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
      "updatedAt": null
     },
     {
@@ -4465,6 +4648,11 @@
      "removed": []
     },
     "portrety": {},
+    "lide": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
     "updatedAt": null
    }
   },
@@ -4485,6 +4673,11 @@
       "removed": []
      },
      "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
      "updatedAt": null
     },
     {
@@ -4622,6 +4815,11 @@
      "removed": []
     },
     "portrety": {},
+    "lide": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
     "updatedAt": null
    }
   },
@@ -4648,6 +4846,11 @@
       "removed": []
      },
      "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
      "updatedAt": null
     },
     {
@@ -4784,6 +4987,11 @@
      "removed": []
     },
     "portrety": {},
+    "lide": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
     "updatedAt": null
    }
   },
@@ -4797,6 +5005,11 @@
       "removed": []
      },
      "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
      "updatedAt": null
     },
     {
@@ -4925,6 +5138,11 @@
      "removed": []
     },
     "portrety": {},
+    "lide": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
     "updatedAt": null
    }
   },
@@ -4945,6 +5163,11 @@
       ]
      },
      "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
      "updatedAt": null
     },
     {
@@ -5077,6 +5300,11 @@
      "removed": []
     },
     "portrety": {},
+    "lide": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
     "updatedAt": null
    }
   },
@@ -5090,6 +5318,11 @@
       "removed": []
      },
      "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
      "updatedAt": null
     },
     {
@@ -5217,6 +5450,11 @@
      "removed": []
     },
     "portrety": {},
+    "lide": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
     "updatedAt": null
    }
   },
@@ -5230,6 +5468,11 @@
       "removed": []
      },
      "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
      "updatedAt": null
     },
     {
@@ -5250,6 +5493,11 @@
      "removed": []
     },
     "portrety": {},
+    "lide": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
     "updatedAt": null
    }
   }
@@ -5272,6 +5520,11 @@
       "removed": []
      },
      "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
      "updatedAt": null
     },
     "nova-cistirna-ricany"
@@ -5284,6 +5537,11 @@
      "removed": []
     },
     "portrety": {},
+    "lide": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
     "updatedAt": null
    }
   },
@@ -5302,6 +5560,11 @@
       "removed": []
      },
      "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
      "updatedAt": null
     },
     "logisticke-centrum-d1"
@@ -5316,6 +5579,11 @@
      ]
     },
     "portrety": {},
+    "lide": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
     "updatedAt": null
    }
   },
@@ -5329,6 +5597,11 @@
       "removed": []
      },
      "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
      "updatedAt": null
     },
     "administrativni-budova-karlin"
@@ -5343,6 +5616,11 @@
      ]
     },
     "portrety": {},
+    "lide": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
     "updatedAt": null
    }
   },
@@ -5363,6 +5641,11 @@
       ]
      },
      "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
      "updatedAt": null
     },
     "administrativni-budova-karlin"
@@ -5382,6 +5665,11 @@
      ]
     },
     "portrety": {},
+    "lide": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
     "updatedAt": null
    }
   },
@@ -5395,6 +5683,11 @@
       "removed": []
      },
      "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
      "updatedAt": null
     },
     "neexistuje"
@@ -5409,6 +5702,11 @@
      ]
     },
     "portrety": {},
+    "lide": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
     "updatedAt": null
    }
   }
@@ -5424,6 +5722,11 @@
       "removed": []
      },
      "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
      "updatedAt": null
     },
     [
@@ -5661,6 +5964,11 @@
       "removed": []
      },
      "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
      "updatedAt": null
     },
     [
@@ -5910,6 +6218,11 @@
       ]
      },
      "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
      "updatedAt": null
     },
     [
@@ -6132,6 +6445,11 @@
       "removed": []
      },
      "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
      "updatedAt": null
     },
     [
@@ -6363,6 +6681,11 @@
       "removed": []
      },
      "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
      "updatedAt": null
     },
     []
@@ -6386,6 +6709,11 @@
       "removed": []
      },
      "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
      "updatedAt": null
     },
     []
@@ -6689,6 +7017,11 @@
       "removed": []
      },
      "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
      "updatedAt": null
     },
     "pavel-janda",
@@ -6712,6 +7045,11 @@
       "y": -20
      }
     },
+    "lide": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
     "updatedAt": null
    }
   },
@@ -6730,6 +7068,11 @@
        "x": -12,
        "y": -20
       }
+     },
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
      },
      "updatedAt": null
     },
@@ -6754,6 +7097,11 @@
       "y": 0
      }
     },
+    "lide": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
     "updatedAt": null
    }
   },
@@ -6772,6 +7120,11 @@
        "x": -12,
        "y": -20
       }
+     },
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
      },
      "updatedAt": null
     },
@@ -6796,6 +7149,11 @@
       "y": 0
      }
     },
+    "lide": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
     "updatedAt": null
    }
   },
@@ -6814,6 +7172,11 @@
        "x": -12,
        "y": -20
       }
+     },
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
      },
      "updatedAt": null
     },
@@ -6828,6 +7191,11 @@
      "removed": []
     },
     "portrety": {},
+    "lide": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
     "updatedAt": null
    }
   },
@@ -6846,6 +7214,11 @@
        "x": -12,
        "y": -20
       }
+     },
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
      },
      "updatedAt": null
     },
@@ -6875,6 +7248,11 @@
       "y": -50
      }
     },
+    "lide": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
     "updatedAt": null
    }
   },
@@ -6888,6 +7266,11 @@
       "removed": []
      },
      "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
      "updatedAt": null
     },
     "pavel-janda",
@@ -6911,6 +7294,11 @@
       "y": 0
      }
     },
+    "lide": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
     "updatedAt": null
    }
   }
@@ -6931,6 +7319,11 @@
        "x": -12,
        "y": -20
       }
+     },
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
      },
      "updatedAt": null
     },
@@ -6958,6 +7351,11 @@
        "y": -20
       }
      },
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
      "updatedAt": null
     },
     "martina-masindova"
@@ -6974,6 +7372,11 @@
       "removed": []
      },
      "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
      "updatedAt": null
     },
     "pavel-janda"
@@ -7001,6 +7404,11 @@
        "y": 0
       }
      },
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
      "updatedAt": null
     },
     "martina-masindova"
@@ -7023,6 +7431,11 @@
       "removed": []
      },
      "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
      "updatedAt": null
     },
     [
@@ -7116,6 +7529,11 @@
        "x": -12,
        "y": -20
       }
+     },
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
      },
      "updatedAt": null
     },
@@ -7220,6 +7638,11 @@
        "x": 15,
        "y": 0
       }
+     },
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
      },
      "updatedAt": null
     },
@@ -7325,11 +7748,2663 @@
        "y": -20
       }
      },
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
      "updatedAt": null
     },
     []
    ],
    "out": []
+  }
+ ],
+ "inicialyZJmena": [
+  {
+   "args": [
+    "Pavel Janda"
+   ],
+   "out": "PJ"
+  },
+  {
+   "args": [
+    "Martina Mašindová"
+   ],
+   "out": "MM"
+  },
+  {
+   "args": [
+    "Žofie"
+   ],
+   "out": "Ž"
+  },
+  {
+   "args": [
+    "  dva   mezery  "
+   ],
+   "out": "DM"
+  },
+  {
+   "args": [
+    ""
+   ],
+   "out": ""
+  },
+  {
+   "args": [
+    "   "
+   ],
+   "out": ""
+  },
+  {
+   "args": [
+    "Jan van Beethoven"
+   ],
+   "out": "JV"
+  },
+  {
+   "args": [
+    "Šimon Čížek"
+   ],
+   "out": "ŠČ"
+  },
+  {
+   "args": [
+    "ž"
+   ],
+   "out": "Ž"
+  }
+ ],
+ "telefonHref": [
+  {
+   "args": [
+    "+420 736 532 284"
+   ],
+   "out": "+420736532284"
+  },
+  {
+   "args": [
+    "736 532 284"
+   ],
+   "out": "736532284"
+  },
+  {
+   "args": [
+    " +420-736-532-284 "
+   ],
+   "out": "+420736532284"
+  },
+  {
+   "args": [
+    "420/736 532 284"
+   ],
+   "out": "420736532284"
+  },
+  {
+   "args": [
+    ""
+   ],
+   "out": ""
+  },
+  {
+   "args": [
+    "telefon"
+   ],
+   "out": ""
+  },
+  {
+   "args": [
+    "+"
+   ],
+   "out": ""
+  },
+  {
+   "args": [
+    "00420 736 532 284"
+   ],
+   "out": "00420736532284"
+  }
+ ],
+ "doplnenyClovek": [
+  {
+   "args": [
+    {
+     "id": "x",
+     "jmeno": "Petr Hruška",
+     "telefon": "731 000 111"
+    }
+   ],
+   "out": {
+    "id": "x",
+    "jmeno": "Petr Hruška",
+    "telefon": "731 000 111",
+    "inicialy": "PH",
+    "telefonHref": "731000111"
+   }
+  },
+  {
+   "args": [
+    {
+     "id": "x",
+     "jmeno": "Petr Hruška",
+     "telefon": "731 000 111",
+     "inicialy": "PH",
+     "telefonHref": "+420731000111"
+    }
+   ],
+   "out": {
+    "id": "x",
+    "jmeno": "Petr Hruška",
+    "telefon": "731 000 111",
+    "inicialy": "PH",
+    "telefonHref": "+420731000111"
+   }
+  },
+  {
+   "args": [
+    {
+     "id": "x",
+     "jmeno": ""
+    }
+   ],
+   "out": {
+    "id": "x",
+    "jmeno": "",
+    "inicialy": "",
+    "telefonHref": ""
+   }
+  }
+ ],
+ "upsertClovek": [
+  {
+   "args": [
+    {
+     "texts": {},
+     "realizace": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "updatedAt": null
+    },
+    {
+     "jmeno": "Žofie Nováková",
+     "telefon": "+420 777 123 456"
+    },
+    [
+     {
+      "id": "pavel-janda",
+      "jmeno": "Pavel Janda",
+      "telefon": "+420 736 532 284",
+      "telefonHref": "+420736532284",
+      "email": "pavel.janda@greenairtech.cz",
+      "inicialy": "PJ"
+     },
+     {
+      "id": "martina-masindova",
+      "jmeno": "Martina Mašindová",
+      "telefon": "+420 731 680 053",
+      "telefonHref": "+420731680053",
+      "email": "martina.masindova@greenairtech.cz",
+      "inicialy": "MM"
+     },
+     {
+      "id": "zdenek-bauska",
+      "jmeno": "Zdeněk Bauška",
+      "telefon": "+420 736 532 311",
+      "telefonHref": "+420736532311",
+      "email": "zdenek.bauska@greenairtech.cz",
+      "inicialy": "ZB",
+      "vyrez": {
+       "zoom": 115,
+       "x": 0,
+       "y": 0
+      }
+     },
+     {
+      "id": "jan-rezac",
+      "jmeno": "Jan Řezáč",
+      "telefon": "+420 736 532 316",
+      "telefonHref": "+420736532316",
+      "email": "jan.rezac@greenairtech.cz",
+      "inicialy": "JŘ"
+     },
+     {
+      "id": "radek-tyla",
+      "jmeno": "Radek Týla",
+      "telefon": "+420 736 532 319",
+      "telefonHref": "+420736532319",
+      "email": "radek.tyla@greenairtech.cz",
+      "inicialy": "RT",
+      "vyrez": {
+       "zoom": 115,
+       "x": 0,
+       "y": 0
+      }
+     },
+     {
+      "id": "denisa-jandova",
+      "jmeno": "Bc. Denisa Jandová",
+      "telefon": "+420 720 253 436",
+      "telefonHref": "+420720253436",
+      "email": "denisa.jandova@greenairtech.cz",
+      "inicialy": "DJ"
+     },
+     {
+      "id": "jonas-benak",
+      "jmeno": "Jonáš Benák",
+      "telefon": "+420 736 532 285",
+      "telefonHref": "+420736532285",
+      "email": "jonas.benak@greenairtech.cz",
+      "inicialy": "JB"
+     }
+    ]
+   ],
+   "out": {
+    "texts": {},
+    "realizace": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
+    "portrety": {},
+    "lide": {
+     "added": [
+      {
+       "jmeno": "Žofie Nováková",
+       "telefon": "+420 777 123 456",
+       "inicialy": "ŽN",
+       "telefonHref": "+420777123456",
+       "id": "zofie-novakova"
+      }
+     ],
+     "edited": {},
+     "removed": []
+    },
+    "updatedAt": null
+   }
+  },
+  {
+   "args": [
+    {
+     "texts": {},
+     "realizace": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "portrety": {},
+     "lide": {
+      "added": [
+       {
+        "jmeno": "Žofie Nováková",
+        "telefon": "+420 777 123 456",
+        "email": "zofie.novakova@greenairtech.cz",
+        "inicialy": "ŽN",
+        "telefonHref": "+420777123456",
+        "id": "zofie-novakova"
+       }
+      ],
+      "edited": {},
+      "removed": []
+     },
+     "updatedAt": null
+    },
+    {
+     "jmeno": "Žofie Nováková"
+    },
+    [
+     {
+      "id": "pavel-janda",
+      "jmeno": "Pavel Janda",
+      "telefon": "+420 736 532 284",
+      "telefonHref": "+420736532284",
+      "email": "pavel.janda@greenairtech.cz",
+      "inicialy": "PJ"
+     },
+     {
+      "id": "martina-masindova",
+      "jmeno": "Martina Mašindová",
+      "telefon": "+420 731 680 053",
+      "telefonHref": "+420731680053",
+      "email": "martina.masindova@greenairtech.cz",
+      "inicialy": "MM"
+     },
+     {
+      "id": "zdenek-bauska",
+      "jmeno": "Zdeněk Bauška",
+      "telefon": "+420 736 532 311",
+      "telefonHref": "+420736532311",
+      "email": "zdenek.bauska@greenairtech.cz",
+      "inicialy": "ZB",
+      "vyrez": {
+       "zoom": 115,
+       "x": 0,
+       "y": 0
+      }
+     },
+     {
+      "id": "jan-rezac",
+      "jmeno": "Jan Řezáč",
+      "telefon": "+420 736 532 316",
+      "telefonHref": "+420736532316",
+      "email": "jan.rezac@greenairtech.cz",
+      "inicialy": "JŘ"
+     },
+     {
+      "id": "radek-tyla",
+      "jmeno": "Radek Týla",
+      "telefon": "+420 736 532 319",
+      "telefonHref": "+420736532319",
+      "email": "radek.tyla@greenairtech.cz",
+      "inicialy": "RT",
+      "vyrez": {
+       "zoom": 115,
+       "x": 0,
+       "y": 0
+      }
+     },
+     {
+      "id": "denisa-jandova",
+      "jmeno": "Bc. Denisa Jandová",
+      "telefon": "+420 720 253 436",
+      "telefonHref": "+420720253436",
+      "email": "denisa.jandova@greenairtech.cz",
+      "inicialy": "DJ"
+     },
+     {
+      "id": "jonas-benak",
+      "jmeno": "Jonáš Benák",
+      "telefon": "+420 736 532 285",
+      "telefonHref": "+420736532285",
+      "email": "jonas.benak@greenairtech.cz",
+      "inicialy": "JB"
+     }
+    ]
+   ],
+   "out": {
+    "texts": {},
+    "realizace": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
+    "portrety": {},
+    "lide": {
+     "added": [
+      {
+       "jmeno": "Žofie Nováková",
+       "telefon": "+420 777 123 456",
+       "email": "zofie.novakova@greenairtech.cz",
+       "inicialy": "ŽN",
+       "telefonHref": "+420777123456",
+       "id": "zofie-novakova"
+      },
+      {
+       "jmeno": "Žofie Nováková",
+       "inicialy": "ŽN",
+       "id": "zofie-novakova-2",
+       "telefonHref": ""
+      }
+     ],
+     "edited": {},
+     "removed": []
+    },
+    "updatedAt": null
+   }
+  },
+  {
+   "args": [
+    {
+     "texts": {},
+     "realizace": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "portrety": {},
+     "lide": {
+      "added": [
+       {
+        "jmeno": "Žofie Nováková",
+        "telefon": "+420 777 123 456",
+        "email": "zofie.novakova@greenairtech.cz",
+        "inicialy": "ŽN",
+        "telefonHref": "+420777123456",
+        "id": "zofie-novakova"
+       },
+       {
+        "jmeno": "Žofie Nováková",
+        "inicialy": "ŽN",
+        "id": "zofie-novakova-2",
+        "telefonHref": ""
+       }
+      ],
+      "edited": {},
+      "removed": []
+     },
+     "updatedAt": null
+    },
+    {
+     "jmeno": "Žofie Nováková"
+    },
+    [
+     {
+      "id": "pavel-janda",
+      "jmeno": "Pavel Janda",
+      "telefon": "+420 736 532 284",
+      "telefonHref": "+420736532284",
+      "email": "pavel.janda@greenairtech.cz",
+      "inicialy": "PJ"
+     },
+     {
+      "id": "martina-masindova",
+      "jmeno": "Martina Mašindová",
+      "telefon": "+420 731 680 053",
+      "telefonHref": "+420731680053",
+      "email": "martina.masindova@greenairtech.cz",
+      "inicialy": "MM"
+     },
+     {
+      "id": "zdenek-bauska",
+      "jmeno": "Zdeněk Bauška",
+      "telefon": "+420 736 532 311",
+      "telefonHref": "+420736532311",
+      "email": "zdenek.bauska@greenairtech.cz",
+      "inicialy": "ZB",
+      "vyrez": {
+       "zoom": 115,
+       "x": 0,
+       "y": 0
+      }
+     },
+     {
+      "id": "jan-rezac",
+      "jmeno": "Jan Řezáč",
+      "telefon": "+420 736 532 316",
+      "telefonHref": "+420736532316",
+      "email": "jan.rezac@greenairtech.cz",
+      "inicialy": "JŘ"
+     },
+     {
+      "id": "radek-tyla",
+      "jmeno": "Radek Týla",
+      "telefon": "+420 736 532 319",
+      "telefonHref": "+420736532319",
+      "email": "radek.tyla@greenairtech.cz",
+      "inicialy": "RT",
+      "vyrez": {
+       "zoom": 115,
+       "x": 0,
+       "y": 0
+      }
+     },
+     {
+      "id": "denisa-jandova",
+      "jmeno": "Bc. Denisa Jandová",
+      "telefon": "+420 720 253 436",
+      "telefonHref": "+420720253436",
+      "email": "denisa.jandova@greenairtech.cz",
+      "inicialy": "DJ"
+     },
+     {
+      "id": "jonas-benak",
+      "jmeno": "Jonáš Benák",
+      "telefon": "+420 736 532 285",
+      "telefonHref": "+420736532285",
+      "email": "jonas.benak@greenairtech.cz",
+      "inicialy": "JB"
+     }
+    ]
+   ],
+   "out": {
+    "texts": {},
+    "realizace": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
+    "portrety": {},
+    "lide": {
+     "added": [
+      {
+       "jmeno": "Žofie Nováková",
+       "telefon": "+420 777 123 456",
+       "email": "zofie.novakova@greenairtech.cz",
+       "inicialy": "ŽN",
+       "telefonHref": "+420777123456",
+       "id": "zofie-novakova"
+      },
+      {
+       "jmeno": "Žofie Nováková",
+       "inicialy": "ŽN",
+       "id": "zofie-novakova-2",
+       "telefonHref": ""
+      },
+      {
+       "jmeno": "Žofie Nováková",
+       "inicialy": "ŽN",
+       "id": "zofie-novakova-3",
+       "telefonHref": ""
+      }
+     ],
+     "edited": {},
+     "removed": []
+    },
+    "updatedAt": null
+   }
+  },
+  {
+   "args": [
+    {
+     "texts": {},
+     "realizace": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "updatedAt": null
+    },
+    {
+     "id": "pavel-janda",
+     "telefon": "+420 111 222 333"
+    },
+    [
+     {
+      "id": "pavel-janda",
+      "jmeno": "Pavel Janda",
+      "telefon": "+420 736 532 284",
+      "telefonHref": "+420736532284",
+      "email": "pavel.janda@greenairtech.cz",
+      "inicialy": "PJ"
+     },
+     {
+      "id": "martina-masindova",
+      "jmeno": "Martina Mašindová",
+      "telefon": "+420 731 680 053",
+      "telefonHref": "+420731680053",
+      "email": "martina.masindova@greenairtech.cz",
+      "inicialy": "MM"
+     },
+     {
+      "id": "zdenek-bauska",
+      "jmeno": "Zdeněk Bauška",
+      "telefon": "+420 736 532 311",
+      "telefonHref": "+420736532311",
+      "email": "zdenek.bauska@greenairtech.cz",
+      "inicialy": "ZB",
+      "vyrez": {
+       "zoom": 115,
+       "x": 0,
+       "y": 0
+      }
+     },
+     {
+      "id": "jan-rezac",
+      "jmeno": "Jan Řezáč",
+      "telefon": "+420 736 532 316",
+      "telefonHref": "+420736532316",
+      "email": "jan.rezac@greenairtech.cz",
+      "inicialy": "JŘ"
+     },
+     {
+      "id": "radek-tyla",
+      "jmeno": "Radek Týla",
+      "telefon": "+420 736 532 319",
+      "telefonHref": "+420736532319",
+      "email": "radek.tyla@greenairtech.cz",
+      "inicialy": "RT",
+      "vyrez": {
+       "zoom": 115,
+       "x": 0,
+       "y": 0
+      }
+     },
+     {
+      "id": "denisa-jandova",
+      "jmeno": "Bc. Denisa Jandová",
+      "telefon": "+420 720 253 436",
+      "telefonHref": "+420720253436",
+      "email": "denisa.jandova@greenairtech.cz",
+      "inicialy": "DJ"
+     },
+     {
+      "id": "jonas-benak",
+      "jmeno": "Jonáš Benák",
+      "telefon": "+420 736 532 285",
+      "telefonHref": "+420736532285",
+      "email": "jonas.benak@greenairtech.cz",
+      "inicialy": "JB"
+     }
+    ]
+   ],
+   "out": {
+    "texts": {},
+    "realizace": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
+    "portrety": {},
+    "lide": {
+     "added": [],
+     "edited": {
+      "pavel-janda": {
+       "telefon": "+420 111 222 333",
+       "telefonHref": "+420111222333"
+      }
+     },
+     "removed": []
+    },
+    "updatedAt": null
+   }
+  },
+  {
+   "args": [
+    {
+     "texts": {},
+     "realizace": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {
+       "pavel-janda": {
+        "telefon": "+420 111 222 333",
+        "telefonHref": "+420111222333"
+       }
+      },
+      "removed": []
+     },
+     "updatedAt": null
+    },
+    {
+     "id": "pavel-janda",
+     "email": "jiny@greenairtech.cz"
+    },
+    [
+     {
+      "id": "pavel-janda",
+      "jmeno": "Pavel Janda",
+      "telefon": "+420 736 532 284",
+      "telefonHref": "+420736532284",
+      "email": "pavel.janda@greenairtech.cz",
+      "inicialy": "PJ"
+     },
+     {
+      "id": "martina-masindova",
+      "jmeno": "Martina Mašindová",
+      "telefon": "+420 731 680 053",
+      "telefonHref": "+420731680053",
+      "email": "martina.masindova@greenairtech.cz",
+      "inicialy": "MM"
+     },
+     {
+      "id": "zdenek-bauska",
+      "jmeno": "Zdeněk Bauška",
+      "telefon": "+420 736 532 311",
+      "telefonHref": "+420736532311",
+      "email": "zdenek.bauska@greenairtech.cz",
+      "inicialy": "ZB",
+      "vyrez": {
+       "zoom": 115,
+       "x": 0,
+       "y": 0
+      }
+     },
+     {
+      "id": "jan-rezac",
+      "jmeno": "Jan Řezáč",
+      "telefon": "+420 736 532 316",
+      "telefonHref": "+420736532316",
+      "email": "jan.rezac@greenairtech.cz",
+      "inicialy": "JŘ"
+     },
+     {
+      "id": "radek-tyla",
+      "jmeno": "Radek Týla",
+      "telefon": "+420 736 532 319",
+      "telefonHref": "+420736532319",
+      "email": "radek.tyla@greenairtech.cz",
+      "inicialy": "RT",
+      "vyrez": {
+       "zoom": 115,
+       "x": 0,
+       "y": 0
+      }
+     },
+     {
+      "id": "denisa-jandova",
+      "jmeno": "Bc. Denisa Jandová",
+      "telefon": "+420 720 253 436",
+      "telefonHref": "+420720253436",
+      "email": "denisa.jandova@greenairtech.cz",
+      "inicialy": "DJ"
+     },
+     {
+      "id": "jonas-benak",
+      "jmeno": "Jonáš Benák",
+      "telefon": "+420 736 532 285",
+      "telefonHref": "+420736532285",
+      "email": "jonas.benak@greenairtech.cz",
+      "inicialy": "JB"
+     }
+    ]
+   ],
+   "out": {
+    "texts": {},
+    "realizace": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
+    "portrety": {},
+    "lide": {
+     "added": [],
+     "edited": {
+      "pavel-janda": {
+       "telefon": "+420 111 222 333",
+       "telefonHref": "+420111222333",
+       "email": "jiny@greenairtech.cz"
+      }
+     },
+     "removed": []
+    },
+    "updatedAt": null
+   }
+  },
+  {
+   "args": [
+    {
+     "texts": {},
+     "realizace": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "portrety": {},
+     "lide": {
+      "added": [
+       {
+        "jmeno": "Žofie Nováková",
+        "telefon": "+420 777 123 456",
+        "email": "zofie.novakova@greenairtech.cz",
+        "inicialy": "ŽN",
+        "telefonHref": "+420777123456",
+        "id": "zofie-novakova"
+       }
+      ],
+      "edited": {},
+      "removed": []
+     },
+     "updatedAt": null
+    },
+    {
+     "id": "zofie-novakova",
+     "fotka": "media/z1.webp"
+    },
+    [
+     {
+      "id": "pavel-janda",
+      "jmeno": "Pavel Janda",
+      "telefon": "+420 736 532 284",
+      "telefonHref": "+420736532284",
+      "email": "pavel.janda@greenairtech.cz",
+      "inicialy": "PJ"
+     },
+     {
+      "id": "martina-masindova",
+      "jmeno": "Martina Mašindová",
+      "telefon": "+420 731 680 053",
+      "telefonHref": "+420731680053",
+      "email": "martina.masindova@greenairtech.cz",
+      "inicialy": "MM"
+     },
+     {
+      "id": "zdenek-bauska",
+      "jmeno": "Zdeněk Bauška",
+      "telefon": "+420 736 532 311",
+      "telefonHref": "+420736532311",
+      "email": "zdenek.bauska@greenairtech.cz",
+      "inicialy": "ZB",
+      "vyrez": {
+       "zoom": 115,
+       "x": 0,
+       "y": 0
+      }
+     },
+     {
+      "id": "jan-rezac",
+      "jmeno": "Jan Řezáč",
+      "telefon": "+420 736 532 316",
+      "telefonHref": "+420736532316",
+      "email": "jan.rezac@greenairtech.cz",
+      "inicialy": "JŘ"
+     },
+     {
+      "id": "radek-tyla",
+      "jmeno": "Radek Týla",
+      "telefon": "+420 736 532 319",
+      "telefonHref": "+420736532319",
+      "email": "radek.tyla@greenairtech.cz",
+      "inicialy": "RT",
+      "vyrez": {
+       "zoom": 115,
+       "x": 0,
+       "y": 0
+      }
+     },
+     {
+      "id": "denisa-jandova",
+      "jmeno": "Bc. Denisa Jandová",
+      "telefon": "+420 720 253 436",
+      "telefonHref": "+420720253436",
+      "email": "denisa.jandova@greenairtech.cz",
+      "inicialy": "DJ"
+     },
+     {
+      "id": "jonas-benak",
+      "jmeno": "Jonáš Benák",
+      "telefon": "+420 736 532 285",
+      "telefonHref": "+420736532285",
+      "email": "jonas.benak@greenairtech.cz",
+      "inicialy": "JB"
+     }
+    ]
+   ],
+   "out": {
+    "texts": {},
+    "realizace": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
+    "portrety": {},
+    "lide": {
+     "added": [
+      {
+       "jmeno": "Žofie Nováková",
+       "telefon": "+420 777 123 456",
+       "email": "zofie.novakova@greenairtech.cz",
+       "inicialy": "ŽN",
+       "telefonHref": "+420777123456",
+       "id": "zofie-novakova",
+       "fotka": "media/z1.webp"
+      }
+     ],
+     "edited": {},
+     "removed": []
+    },
+    "updatedAt": null
+   }
+  },
+  {
+   "args": [
+    {
+     "texts": {},
+     "realizace": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": [
+       "pavel-janda"
+      ]
+     },
+     "updatedAt": null
+    },
+    {
+     "id": "pavel-janda",
+     "jmeno": "Zpátky"
+    },
+    [
+     {
+      "id": "pavel-janda",
+      "jmeno": "Pavel Janda",
+      "telefon": "+420 736 532 284",
+      "telefonHref": "+420736532284",
+      "email": "pavel.janda@greenairtech.cz",
+      "inicialy": "PJ"
+     },
+     {
+      "id": "martina-masindova",
+      "jmeno": "Martina Mašindová",
+      "telefon": "+420 731 680 053",
+      "telefonHref": "+420731680053",
+      "email": "martina.masindova@greenairtech.cz",
+      "inicialy": "MM"
+     },
+     {
+      "id": "zdenek-bauska",
+      "jmeno": "Zdeněk Bauška",
+      "telefon": "+420 736 532 311",
+      "telefonHref": "+420736532311",
+      "email": "zdenek.bauska@greenairtech.cz",
+      "inicialy": "ZB",
+      "vyrez": {
+       "zoom": 115,
+       "x": 0,
+       "y": 0
+      }
+     },
+     {
+      "id": "jan-rezac",
+      "jmeno": "Jan Řezáč",
+      "telefon": "+420 736 532 316",
+      "telefonHref": "+420736532316",
+      "email": "jan.rezac@greenairtech.cz",
+      "inicialy": "JŘ"
+     },
+     {
+      "id": "radek-tyla",
+      "jmeno": "Radek Týla",
+      "telefon": "+420 736 532 319",
+      "telefonHref": "+420736532319",
+      "email": "radek.tyla@greenairtech.cz",
+      "inicialy": "RT",
+      "vyrez": {
+       "zoom": 115,
+       "x": 0,
+       "y": 0
+      }
+     },
+     {
+      "id": "denisa-jandova",
+      "jmeno": "Bc. Denisa Jandová",
+      "telefon": "+420 720 253 436",
+      "telefonHref": "+420720253436",
+      "email": "denisa.jandova@greenairtech.cz",
+      "inicialy": "DJ"
+     },
+     {
+      "id": "jonas-benak",
+      "jmeno": "Jonáš Benák",
+      "telefon": "+420 736 532 285",
+      "telefonHref": "+420736532285",
+      "email": "jonas.benak@greenairtech.cz",
+      "inicialy": "JB"
+     }
+    ]
+   ],
+   "out": {
+    "texts": {},
+    "realizace": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
+    "portrety": {},
+    "lide": {
+     "added": [],
+     "edited": {
+      "pavel-janda": {
+       "jmeno": "Zpátky",
+       "inicialy": "Z"
+      }
+     },
+     "removed": []
+    },
+    "updatedAt": null
+   }
+  },
+  {
+   "args": [
+    {
+     "texts": {},
+     "realizace": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "updatedAt": null
+    },
+    {
+     "jmeno": "Bez základu"
+    },
+    []
+   ],
+   "out": {
+    "texts": {},
+    "realizace": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
+    "portrety": {},
+    "lide": {
+     "added": [
+      {
+       "jmeno": "Bez základu",
+       "inicialy": "BZ",
+       "id": "bez-zakladu",
+       "telefonHref": ""
+      }
+     ],
+     "edited": {},
+     "removed": []
+    },
+    "updatedAt": null
+   }
+  },
+  {
+   "args": [
+    {
+     "texts": {},
+     "realizace": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "updatedAt": null
+    },
+    {
+     "jmeno": "  Mezery  ",
+     "telefon": "  731 000 111  "
+    },
+    [
+     {
+      "id": "pavel-janda",
+      "jmeno": "Pavel Janda",
+      "telefon": "+420 736 532 284",
+      "telefonHref": "+420736532284",
+      "email": "pavel.janda@greenairtech.cz",
+      "inicialy": "PJ"
+     },
+     {
+      "id": "martina-masindova",
+      "jmeno": "Martina Mašindová",
+      "telefon": "+420 731 680 053",
+      "telefonHref": "+420731680053",
+      "email": "martina.masindova@greenairtech.cz",
+      "inicialy": "MM"
+     },
+     {
+      "id": "zdenek-bauska",
+      "jmeno": "Zdeněk Bauška",
+      "telefon": "+420 736 532 311",
+      "telefonHref": "+420736532311",
+      "email": "zdenek.bauska@greenairtech.cz",
+      "inicialy": "ZB",
+      "vyrez": {
+       "zoom": 115,
+       "x": 0,
+       "y": 0
+      }
+     },
+     {
+      "id": "jan-rezac",
+      "jmeno": "Jan Řezáč",
+      "telefon": "+420 736 532 316",
+      "telefonHref": "+420736532316",
+      "email": "jan.rezac@greenairtech.cz",
+      "inicialy": "JŘ"
+     },
+     {
+      "id": "radek-tyla",
+      "jmeno": "Radek Týla",
+      "telefon": "+420 736 532 319",
+      "telefonHref": "+420736532319",
+      "email": "radek.tyla@greenairtech.cz",
+      "inicialy": "RT",
+      "vyrez": {
+       "zoom": 115,
+       "x": 0,
+       "y": 0
+      }
+     },
+     {
+      "id": "denisa-jandova",
+      "jmeno": "Bc. Denisa Jandová",
+      "telefon": "+420 720 253 436",
+      "telefonHref": "+420720253436",
+      "email": "denisa.jandova@greenairtech.cz",
+      "inicialy": "DJ"
+     },
+     {
+      "id": "jonas-benak",
+      "jmeno": "Jonáš Benák",
+      "telefon": "+420 736 532 285",
+      "telefonHref": "+420736532285",
+      "email": "jonas.benak@greenairtech.cz",
+      "inicialy": "JB"
+     }
+    ]
+   ],
+   "out": {
+    "texts": {},
+    "realizace": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
+    "portrety": {},
+    "lide": {
+     "added": [
+      {
+       "jmeno": "Mezery",
+       "telefon": "731 000 111",
+       "inicialy": "M",
+       "telefonHref": "731000111",
+       "id": "mezery"
+      }
+     ],
+     "edited": {},
+     "removed": []
+    },
+    "updatedAt": null
+   }
+  },
+  {
+   "args": [
+    {
+     "texts": {},
+     "realizace": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "portrety": {},
+     "lide": {
+      "added": [
+       {
+        "jmeno": "Žofie Nováková",
+        "telefon": "+420 777 123 456",
+        "email": "zofie.novakova@greenairtech.cz",
+        "inicialy": "ŽN",
+        "telefonHref": "+420777123456",
+        "id": "zofie-novakova"
+       }
+      ],
+      "edited": {},
+      "removed": []
+     },
+     "updatedAt": null
+    },
+    {
+     "id": "zofie-novakova",
+     "telefon": "+420 999 888 777"
+    },
+    [
+     {
+      "id": "pavel-janda",
+      "jmeno": "Pavel Janda",
+      "telefon": "+420 736 532 284",
+      "telefonHref": "+420736532284",
+      "email": "pavel.janda@greenairtech.cz",
+      "inicialy": "PJ"
+     },
+     {
+      "id": "martina-masindova",
+      "jmeno": "Martina Mašindová",
+      "telefon": "+420 731 680 053",
+      "telefonHref": "+420731680053",
+      "email": "martina.masindova@greenairtech.cz",
+      "inicialy": "MM"
+     },
+     {
+      "id": "zdenek-bauska",
+      "jmeno": "Zdeněk Bauška",
+      "telefon": "+420 736 532 311",
+      "telefonHref": "+420736532311",
+      "email": "zdenek.bauska@greenairtech.cz",
+      "inicialy": "ZB",
+      "vyrez": {
+       "zoom": 115,
+       "x": 0,
+       "y": 0
+      }
+     },
+     {
+      "id": "jan-rezac",
+      "jmeno": "Jan Řezáč",
+      "telefon": "+420 736 532 316",
+      "telefonHref": "+420736532316",
+      "email": "jan.rezac@greenairtech.cz",
+      "inicialy": "JŘ"
+     },
+     {
+      "id": "radek-tyla",
+      "jmeno": "Radek Týla",
+      "telefon": "+420 736 532 319",
+      "telefonHref": "+420736532319",
+      "email": "radek.tyla@greenairtech.cz",
+      "inicialy": "RT",
+      "vyrez": {
+       "zoom": 115,
+       "x": 0,
+       "y": 0
+      }
+     },
+     {
+      "id": "denisa-jandova",
+      "jmeno": "Bc. Denisa Jandová",
+      "telefon": "+420 720 253 436",
+      "telefonHref": "+420720253436",
+      "email": "denisa.jandova@greenairtech.cz",
+      "inicialy": "DJ"
+     },
+     {
+      "id": "jonas-benak",
+      "jmeno": "Jonáš Benák",
+      "telefon": "+420 736 532 285",
+      "telefonHref": "+420736532285",
+      "email": "jonas.benak@greenairtech.cz",
+      "inicialy": "JB"
+     },
+     {
+      "id": "zofie-novakova",
+      "jmeno": "Žofie Nováková",
+      "telefon": "+420 777 123 456",
+      "telefonHref": "+420777123456",
+      "email": "zofie.novakova@greenairtech.cz",
+      "inicialy": "ŽN"
+     }
+    ]
+   ],
+   "out": {
+    "texts": {},
+    "realizace": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
+    "portrety": {},
+    "lide": {
+     "added": [
+      {
+       "jmeno": "Žofie Nováková",
+       "telefon": "+420 999 888 777",
+       "email": "zofie.novakova@greenairtech.cz",
+       "inicialy": "ŽN",
+       "telefonHref": "+420999888777",
+       "id": "zofie-novakova"
+      }
+     ],
+     "edited": {},
+     "removed": []
+    },
+    "updatedAt": null
+   }
+  },
+  {
+   "args": [
+    {
+     "texts": {},
+     "realizace": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "updatedAt": null
+    },
+    {
+     "id": "pavel-janda",
+     "jmeno": "Nové Jméno"
+    },
+    [
+     {
+      "id": "pavel-janda",
+      "jmeno": "Pavel Janda",
+      "telefon": "+420 736 532 284",
+      "telefonHref": "+420736532284",
+      "email": "pavel.janda@greenairtech.cz",
+      "inicialy": "PJ"
+     },
+     {
+      "id": "martina-masindova",
+      "jmeno": "Martina Mašindová",
+      "telefon": "+420 731 680 053",
+      "telefonHref": "+420731680053",
+      "email": "martina.masindova@greenairtech.cz",
+      "inicialy": "MM"
+     },
+     {
+      "id": "zdenek-bauska",
+      "jmeno": "Zdeněk Bauška",
+      "telefon": "+420 736 532 311",
+      "telefonHref": "+420736532311",
+      "email": "zdenek.bauska@greenairtech.cz",
+      "inicialy": "ZB",
+      "vyrez": {
+       "zoom": 115,
+       "x": 0,
+       "y": 0
+      }
+     },
+     {
+      "id": "jan-rezac",
+      "jmeno": "Jan Řezáč",
+      "telefon": "+420 736 532 316",
+      "telefonHref": "+420736532316",
+      "email": "jan.rezac@greenairtech.cz",
+      "inicialy": "JŘ"
+     },
+     {
+      "id": "radek-tyla",
+      "jmeno": "Radek Týla",
+      "telefon": "+420 736 532 319",
+      "telefonHref": "+420736532319",
+      "email": "radek.tyla@greenairtech.cz",
+      "inicialy": "RT",
+      "vyrez": {
+       "zoom": 115,
+       "x": 0,
+       "y": 0
+      }
+     },
+     {
+      "id": "denisa-jandova",
+      "jmeno": "Bc. Denisa Jandová",
+      "telefon": "+420 720 253 436",
+      "telefonHref": "+420720253436",
+      "email": "denisa.jandova@greenairtech.cz",
+      "inicialy": "DJ"
+     },
+     {
+      "id": "jonas-benak",
+      "jmeno": "Jonáš Benák",
+      "telefon": "+420 736 532 285",
+      "telefonHref": "+420736532285",
+      "email": "jonas.benak@greenairtech.cz",
+      "inicialy": "JB"
+     }
+    ]
+   ],
+   "out": {
+    "texts": {},
+    "realizace": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
+    "portrety": {},
+    "lide": {
+     "added": [],
+     "edited": {
+      "pavel-janda": {
+       "jmeno": "Nové Jméno",
+       "inicialy": "NJ"
+      }
+     },
+     "removed": []
+    },
+    "updatedAt": null
+   }
+  },
+  {
+   "args": [
+    {
+     "texts": {},
+     "realizace": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "updatedAt": null
+    },
+    {
+     "id": "pavel-janda",
+     "telefon": "+420 111 000 999",
+     "telefonHref": "+420000"
+    },
+    [
+     {
+      "id": "pavel-janda",
+      "jmeno": "Pavel Janda",
+      "telefon": "+420 736 532 284",
+      "telefonHref": "+420736532284",
+      "email": "pavel.janda@greenairtech.cz",
+      "inicialy": "PJ"
+     },
+     {
+      "id": "martina-masindova",
+      "jmeno": "Martina Mašindová",
+      "telefon": "+420 731 680 053",
+      "telefonHref": "+420731680053",
+      "email": "martina.masindova@greenairtech.cz",
+      "inicialy": "MM"
+     },
+     {
+      "id": "zdenek-bauska",
+      "jmeno": "Zdeněk Bauška",
+      "telefon": "+420 736 532 311",
+      "telefonHref": "+420736532311",
+      "email": "zdenek.bauska@greenairtech.cz",
+      "inicialy": "ZB",
+      "vyrez": {
+       "zoom": 115,
+       "x": 0,
+       "y": 0
+      }
+     },
+     {
+      "id": "jan-rezac",
+      "jmeno": "Jan Řezáč",
+      "telefon": "+420 736 532 316",
+      "telefonHref": "+420736532316",
+      "email": "jan.rezac@greenairtech.cz",
+      "inicialy": "JŘ"
+     },
+     {
+      "id": "radek-tyla",
+      "jmeno": "Radek Týla",
+      "telefon": "+420 736 532 319",
+      "telefonHref": "+420736532319",
+      "email": "radek.tyla@greenairtech.cz",
+      "inicialy": "RT",
+      "vyrez": {
+       "zoom": 115,
+       "x": 0,
+       "y": 0
+      }
+     },
+     {
+      "id": "denisa-jandova",
+      "jmeno": "Bc. Denisa Jandová",
+      "telefon": "+420 720 253 436",
+      "telefonHref": "+420720253436",
+      "email": "denisa.jandova@greenairtech.cz",
+      "inicialy": "DJ"
+     },
+     {
+      "id": "jonas-benak",
+      "jmeno": "Jonáš Benák",
+      "telefon": "+420 736 532 285",
+      "telefonHref": "+420736532285",
+      "email": "jonas.benak@greenairtech.cz",
+      "inicialy": "JB"
+     }
+    ]
+   ],
+   "out": {
+    "texts": {},
+    "realizace": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
+    "portrety": {},
+    "lide": {
+     "added": [],
+     "edited": {
+      "pavel-janda": {
+       "telefon": "+420 111 000 999",
+       "telefonHref": "+420000"
+      }
+     },
+     "removed": []
+    },
+    "updatedAt": null
+   }
+  }
+ ],
+ "removeClovek": [
+  {
+   "args": [
+    {
+     "texts": {},
+     "realizace": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "portrety": {},
+     "lide": {
+      "added": [
+       {
+        "jmeno": "Žofie Nováková",
+        "telefon": "+420 777 123 456",
+        "email": "zofie.novakova@greenairtech.cz",
+        "inicialy": "ŽN",
+        "telefonHref": "+420777123456",
+        "id": "zofie-novakova"
+       }
+      ],
+      "edited": {},
+      "removed": []
+     },
+     "updatedAt": null
+    },
+    "zofie-novakova"
+   ],
+   "out": {
+    "texts": {},
+    "realizace": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
+    "portrety": {},
+    "lide": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
+    "updatedAt": null
+   }
+  },
+  {
+   "args": [
+    {
+     "texts": {},
+     "realizace": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "portrety": {
+      "pavel-janda": {
+       "zoom": 160,
+       "x": -12,
+       "y": -20
+      }
+     },
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "updatedAt": null
+    },
+    "pavel-janda"
+   ],
+   "out": {
+    "texts": {},
+    "realizace": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
+    "portrety": {},
+    "lide": {
+     "added": [],
+     "edited": {},
+     "removed": [
+      "pavel-janda"
+     ]
+    },
+    "updatedAt": null
+   }
+  },
+  {
+   "args": [
+    {
+     "texts": {},
+     "realizace": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {
+       "pavel-janda": {
+        "telefon": "+420 111 222 333",
+        "telefonHref": "+420111222333"
+       }
+      },
+      "removed": []
+     },
+     "updatedAt": null
+    },
+    "pavel-janda"
+   ],
+   "out": {
+    "texts": {},
+    "realizace": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
+    "portrety": {},
+    "lide": {
+     "added": [],
+     "edited": {},
+     "removed": [
+      "pavel-janda"
+     ]
+    },
+    "updatedAt": null
+   }
+  },
+  {
+   "args": [
+    {
+     "texts": {},
+     "realizace": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": [
+       "pavel-janda"
+      ]
+     },
+     "updatedAt": null
+    },
+    "pavel-janda"
+   ],
+   "out": {
+    "texts": {},
+    "realizace": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
+    "portrety": {},
+    "lide": {
+     "added": [],
+     "edited": {},
+     "removed": [
+      "pavel-janda"
+     ]
+    },
+    "updatedAt": null
+   }
+  },
+  {
+   "args": [
+    {
+     "texts": {},
+     "realizace": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "updatedAt": null
+    },
+    "nikdo-takovy"
+   ],
+   "out": {
+    "texts": {},
+    "realizace": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
+    "portrety": {},
+    "lide": {
+     "added": [],
+     "edited": {},
+     "removed": [
+      "nikdo-takovy"
+     ]
+    },
+    "updatedAt": null
+   }
+  },
+  {
+   "args": [
+    {
+     "texts": {},
+     "realizace": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "portrety": {
+      "pavel-janda": {
+       "zoom": 160,
+       "x": -12,
+       "y": -20
+      },
+      "martina-masindova": {
+       "zoom": 130,
+       "x": 15,
+       "y": 0
+      }
+     },
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "updatedAt": null
+    },
+    "martina-masindova"
+   ],
+   "out": {
+    "texts": {},
+    "realizace": {
+     "added": [],
+     "edited": {},
+     "removed": []
+    },
+    "portrety": {
+     "pavel-janda": {
+      "zoom": 160,
+      "x": -12,
+      "y": -20
+     }
+    },
+    "lide": {
+     "added": [],
+     "edited": {},
+     "removed": [
+      "martina-masindova"
+     ]
+    },
+    "updatedAt": null
+   }
+  }
+ ],
+ "mergeLide": [
+  {
+   "args": [
+    {
+     "texts": {},
+     "realizace": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "updatedAt": null
+    },
+    [
+     {
+      "id": "pavel-janda",
+      "jmeno": "Pavel Janda",
+      "telefon": "+420 736 532 284",
+      "telefonHref": "+420736532284",
+      "email": "pavel.janda@greenairtech.cz",
+      "inicialy": "PJ"
+     },
+     {
+      "id": "martina-masindova",
+      "jmeno": "Martina Mašindová",
+      "telefon": "+420 731 680 053",
+      "telefonHref": "+420731680053",
+      "email": "martina.masindova@greenairtech.cz",
+      "inicialy": "MM"
+     },
+     {
+      "id": "zdenek-bauska",
+      "jmeno": "Zdeněk Bauška",
+      "telefon": "+420 736 532 311",
+      "telefonHref": "+420736532311",
+      "email": "zdenek.bauska@greenairtech.cz",
+      "inicialy": "ZB",
+      "vyrez": {
+       "zoom": 115,
+       "x": 0,
+       "y": 0
+      }
+     },
+     {
+      "id": "jan-rezac",
+      "jmeno": "Jan Řezáč",
+      "telefon": "+420 736 532 316",
+      "telefonHref": "+420736532316",
+      "email": "jan.rezac@greenairtech.cz",
+      "inicialy": "JŘ"
+     },
+     {
+      "id": "radek-tyla",
+      "jmeno": "Radek Týla",
+      "telefon": "+420 736 532 319",
+      "telefonHref": "+420736532319",
+      "email": "radek.tyla@greenairtech.cz",
+      "inicialy": "RT",
+      "vyrez": {
+       "zoom": 115,
+       "x": 0,
+       "y": 0
+      }
+     },
+     {
+      "id": "denisa-jandova",
+      "jmeno": "Bc. Denisa Jandová",
+      "telefon": "+420 720 253 436",
+      "telefonHref": "+420720253436",
+      "email": "denisa.jandova@greenairtech.cz",
+      "inicialy": "DJ"
+     },
+     {
+      "id": "jonas-benak",
+      "jmeno": "Jonáš Benák",
+      "telefon": "+420 736 532 285",
+      "telefonHref": "+420736532285",
+      "email": "jonas.benak@greenairtech.cz",
+      "inicialy": "JB"
+     }
+    ]
+   ],
+   "out": [
+    {
+     "id": "pavel-janda",
+     "jmeno": "Pavel Janda",
+     "telefon": "+420 736 532 284",
+     "telefonHref": "+420736532284",
+     "email": "pavel.janda@greenairtech.cz",
+     "inicialy": "PJ"
+    },
+    {
+     "id": "martina-masindova",
+     "jmeno": "Martina Mašindová",
+     "telefon": "+420 731 680 053",
+     "telefonHref": "+420731680053",
+     "email": "martina.masindova@greenairtech.cz",
+     "inicialy": "MM"
+    },
+    {
+     "id": "zdenek-bauska",
+     "jmeno": "Zdeněk Bauška",
+     "telefon": "+420 736 532 311",
+     "telefonHref": "+420736532311",
+     "email": "zdenek.bauska@greenairtech.cz",
+     "inicialy": "ZB",
+     "vyrez": {
+      "zoom": 115,
+      "x": 0,
+      "y": 0
+     }
+    },
+    {
+     "id": "jan-rezac",
+     "jmeno": "Jan Řezáč",
+     "telefon": "+420 736 532 316",
+     "telefonHref": "+420736532316",
+     "email": "jan.rezac@greenairtech.cz",
+     "inicialy": "JŘ"
+    },
+    {
+     "id": "radek-tyla",
+     "jmeno": "Radek Týla",
+     "telefon": "+420 736 532 319",
+     "telefonHref": "+420736532319",
+     "email": "radek.tyla@greenairtech.cz",
+     "inicialy": "RT",
+     "vyrez": {
+      "zoom": 115,
+      "x": 0,
+      "y": 0
+     }
+    },
+    {
+     "id": "denisa-jandova",
+     "jmeno": "Bc. Denisa Jandová",
+     "telefon": "+420 720 253 436",
+     "telefonHref": "+420720253436",
+     "email": "denisa.jandova@greenairtech.cz",
+     "inicialy": "DJ"
+    },
+    {
+     "id": "jonas-benak",
+     "jmeno": "Jonáš Benák",
+     "telefon": "+420 736 532 285",
+     "telefonHref": "+420736532285",
+     "email": "jonas.benak@greenairtech.cz",
+     "inicialy": "JB"
+    }
+   ]
+  },
+  {
+   "args": [
+    {
+     "texts": {},
+     "realizace": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "portrety": {},
+     "lide": {
+      "added": [
+       {
+        "jmeno": "Žofie Nováková",
+        "telefon": "+420 777 123 456",
+        "email": "zofie.novakova@greenairtech.cz",
+        "inicialy": "ŽN",
+        "telefonHref": "+420777123456",
+        "id": "zofie-novakova"
+       }
+      ],
+      "edited": {},
+      "removed": []
+     },
+     "updatedAt": null
+    },
+    [
+     {
+      "id": "pavel-janda",
+      "jmeno": "Pavel Janda",
+      "telefon": "+420 736 532 284",
+      "telefonHref": "+420736532284",
+      "email": "pavel.janda@greenairtech.cz",
+      "inicialy": "PJ"
+     },
+     {
+      "id": "martina-masindova",
+      "jmeno": "Martina Mašindová",
+      "telefon": "+420 731 680 053",
+      "telefonHref": "+420731680053",
+      "email": "martina.masindova@greenairtech.cz",
+      "inicialy": "MM"
+     },
+     {
+      "id": "zdenek-bauska",
+      "jmeno": "Zdeněk Bauška",
+      "telefon": "+420 736 532 311",
+      "telefonHref": "+420736532311",
+      "email": "zdenek.bauska@greenairtech.cz",
+      "inicialy": "ZB",
+      "vyrez": {
+       "zoom": 115,
+       "x": 0,
+       "y": 0
+      }
+     },
+     {
+      "id": "jan-rezac",
+      "jmeno": "Jan Řezáč",
+      "telefon": "+420 736 532 316",
+      "telefonHref": "+420736532316",
+      "email": "jan.rezac@greenairtech.cz",
+      "inicialy": "JŘ"
+     },
+     {
+      "id": "radek-tyla",
+      "jmeno": "Radek Týla",
+      "telefon": "+420 736 532 319",
+      "telefonHref": "+420736532319",
+      "email": "radek.tyla@greenairtech.cz",
+      "inicialy": "RT",
+      "vyrez": {
+       "zoom": 115,
+       "x": 0,
+       "y": 0
+      }
+     },
+     {
+      "id": "denisa-jandova",
+      "jmeno": "Bc. Denisa Jandová",
+      "telefon": "+420 720 253 436",
+      "telefonHref": "+420720253436",
+      "email": "denisa.jandova@greenairtech.cz",
+      "inicialy": "DJ"
+     },
+     {
+      "id": "jonas-benak",
+      "jmeno": "Jonáš Benák",
+      "telefon": "+420 736 532 285",
+      "telefonHref": "+420736532285",
+      "email": "jonas.benak@greenairtech.cz",
+      "inicialy": "JB"
+     }
+    ]
+   ],
+   "out": [
+    {
+     "id": "pavel-janda",
+     "jmeno": "Pavel Janda",
+     "telefon": "+420 736 532 284",
+     "telefonHref": "+420736532284",
+     "email": "pavel.janda@greenairtech.cz",
+     "inicialy": "PJ"
+    },
+    {
+     "id": "martina-masindova",
+     "jmeno": "Martina Mašindová",
+     "telefon": "+420 731 680 053",
+     "telefonHref": "+420731680053",
+     "email": "martina.masindova@greenairtech.cz",
+     "inicialy": "MM"
+    },
+    {
+     "id": "zdenek-bauska",
+     "jmeno": "Zdeněk Bauška",
+     "telefon": "+420 736 532 311",
+     "telefonHref": "+420736532311",
+     "email": "zdenek.bauska@greenairtech.cz",
+     "inicialy": "ZB",
+     "vyrez": {
+      "zoom": 115,
+      "x": 0,
+      "y": 0
+     }
+    },
+    {
+     "id": "jan-rezac",
+     "jmeno": "Jan Řezáč",
+     "telefon": "+420 736 532 316",
+     "telefonHref": "+420736532316",
+     "email": "jan.rezac@greenairtech.cz",
+     "inicialy": "JŘ"
+    },
+    {
+     "id": "radek-tyla",
+     "jmeno": "Radek Týla",
+     "telefon": "+420 736 532 319",
+     "telefonHref": "+420736532319",
+     "email": "radek.tyla@greenairtech.cz",
+     "inicialy": "RT",
+     "vyrez": {
+      "zoom": 115,
+      "x": 0,
+      "y": 0
+     }
+    },
+    {
+     "id": "denisa-jandova",
+     "jmeno": "Bc. Denisa Jandová",
+     "telefon": "+420 720 253 436",
+     "telefonHref": "+420720253436",
+     "email": "denisa.jandova@greenairtech.cz",
+     "inicialy": "DJ"
+    },
+    {
+     "id": "jonas-benak",
+     "jmeno": "Jonáš Benák",
+     "telefon": "+420 736 532 285",
+     "telefonHref": "+420736532285",
+     "email": "jonas.benak@greenairtech.cz",
+     "inicialy": "JB"
+    },
+    {
+     "id": "zofie-novakova",
+     "jmeno": "Žofie Nováková",
+     "telefon": "+420 777 123 456",
+     "telefonHref": "+420777123456",
+     "email": "zofie.novakova@greenairtech.cz",
+     "inicialy": "ŽN"
+    }
+   ]
+  },
+  {
+   "args": [
+    {
+     "texts": {},
+     "realizace": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {
+       "pavel-janda": {
+        "telefon": "+420 111 222 333",
+        "telefonHref": "+420111222333"
+       }
+      },
+      "removed": []
+     },
+     "updatedAt": null
+    },
+    [
+     {
+      "id": "pavel-janda",
+      "jmeno": "Pavel Janda",
+      "telefon": "+420 736 532 284",
+      "telefonHref": "+420736532284",
+      "email": "pavel.janda@greenairtech.cz",
+      "inicialy": "PJ"
+     },
+     {
+      "id": "martina-masindova",
+      "jmeno": "Martina Mašindová",
+      "telefon": "+420 731 680 053",
+      "telefonHref": "+420731680053",
+      "email": "martina.masindova@greenairtech.cz",
+      "inicialy": "MM"
+     },
+     {
+      "id": "zdenek-bauska",
+      "jmeno": "Zdeněk Bauška",
+      "telefon": "+420 736 532 311",
+      "telefonHref": "+420736532311",
+      "email": "zdenek.bauska@greenairtech.cz",
+      "inicialy": "ZB",
+      "vyrez": {
+       "zoom": 115,
+       "x": 0,
+       "y": 0
+      }
+     },
+     {
+      "id": "jan-rezac",
+      "jmeno": "Jan Řezáč",
+      "telefon": "+420 736 532 316",
+      "telefonHref": "+420736532316",
+      "email": "jan.rezac@greenairtech.cz",
+      "inicialy": "JŘ"
+     },
+     {
+      "id": "radek-tyla",
+      "jmeno": "Radek Týla",
+      "telefon": "+420 736 532 319",
+      "telefonHref": "+420736532319",
+      "email": "radek.tyla@greenairtech.cz",
+      "inicialy": "RT",
+      "vyrez": {
+       "zoom": 115,
+       "x": 0,
+       "y": 0
+      }
+     },
+     {
+      "id": "denisa-jandova",
+      "jmeno": "Bc. Denisa Jandová",
+      "telefon": "+420 720 253 436",
+      "telefonHref": "+420720253436",
+      "email": "denisa.jandova@greenairtech.cz",
+      "inicialy": "DJ"
+     },
+     {
+      "id": "jonas-benak",
+      "jmeno": "Jonáš Benák",
+      "telefon": "+420 736 532 285",
+      "telefonHref": "+420736532285",
+      "email": "jonas.benak@greenairtech.cz",
+      "inicialy": "JB"
+     }
+    ]
+   ],
+   "out": [
+    {
+     "id": "pavel-janda",
+     "jmeno": "Pavel Janda",
+     "telefon": "+420 111 222 333",
+     "telefonHref": "+420111222333",
+     "email": "pavel.janda@greenairtech.cz",
+     "inicialy": "PJ"
+    },
+    {
+     "id": "martina-masindova",
+     "jmeno": "Martina Mašindová",
+     "telefon": "+420 731 680 053",
+     "telefonHref": "+420731680053",
+     "email": "martina.masindova@greenairtech.cz",
+     "inicialy": "MM"
+    },
+    {
+     "id": "zdenek-bauska",
+     "jmeno": "Zdeněk Bauška",
+     "telefon": "+420 736 532 311",
+     "telefonHref": "+420736532311",
+     "email": "zdenek.bauska@greenairtech.cz",
+     "inicialy": "ZB",
+     "vyrez": {
+      "zoom": 115,
+      "x": 0,
+      "y": 0
+     }
+    },
+    {
+     "id": "jan-rezac",
+     "jmeno": "Jan Řezáč",
+     "telefon": "+420 736 532 316",
+     "telefonHref": "+420736532316",
+     "email": "jan.rezac@greenairtech.cz",
+     "inicialy": "JŘ"
+    },
+    {
+     "id": "radek-tyla",
+     "jmeno": "Radek Týla",
+     "telefon": "+420 736 532 319",
+     "telefonHref": "+420736532319",
+     "email": "radek.tyla@greenairtech.cz",
+     "inicialy": "RT",
+     "vyrez": {
+      "zoom": 115,
+      "x": 0,
+      "y": 0
+     }
+    },
+    {
+     "id": "denisa-jandova",
+     "jmeno": "Bc. Denisa Jandová",
+     "telefon": "+420 720 253 436",
+     "telefonHref": "+420720253436",
+     "email": "denisa.jandova@greenairtech.cz",
+     "inicialy": "DJ"
+    },
+    {
+     "id": "jonas-benak",
+     "jmeno": "Jonáš Benák",
+     "telefon": "+420 736 532 285",
+     "telefonHref": "+420736532285",
+     "email": "jonas.benak@greenairtech.cz",
+     "inicialy": "JB"
+    }
+   ]
+  },
+  {
+   "args": [
+    {
+     "texts": {},
+     "realizace": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": [
+       "pavel-janda"
+      ]
+     },
+     "updatedAt": null
+    },
+    [
+     {
+      "id": "pavel-janda",
+      "jmeno": "Pavel Janda",
+      "telefon": "+420 736 532 284",
+      "telefonHref": "+420736532284",
+      "email": "pavel.janda@greenairtech.cz",
+      "inicialy": "PJ"
+     },
+     {
+      "id": "martina-masindova",
+      "jmeno": "Martina Mašindová",
+      "telefon": "+420 731 680 053",
+      "telefonHref": "+420731680053",
+      "email": "martina.masindova@greenairtech.cz",
+      "inicialy": "MM"
+     },
+     {
+      "id": "zdenek-bauska",
+      "jmeno": "Zdeněk Bauška",
+      "telefon": "+420 736 532 311",
+      "telefonHref": "+420736532311",
+      "email": "zdenek.bauska@greenairtech.cz",
+      "inicialy": "ZB",
+      "vyrez": {
+       "zoom": 115,
+       "x": 0,
+       "y": 0
+      }
+     },
+     {
+      "id": "jan-rezac",
+      "jmeno": "Jan Řezáč",
+      "telefon": "+420 736 532 316",
+      "telefonHref": "+420736532316",
+      "email": "jan.rezac@greenairtech.cz",
+      "inicialy": "JŘ"
+     },
+     {
+      "id": "radek-tyla",
+      "jmeno": "Radek Týla",
+      "telefon": "+420 736 532 319",
+      "telefonHref": "+420736532319",
+      "email": "radek.tyla@greenairtech.cz",
+      "inicialy": "RT",
+      "vyrez": {
+       "zoom": 115,
+       "x": 0,
+       "y": 0
+      }
+     },
+     {
+      "id": "denisa-jandova",
+      "jmeno": "Bc. Denisa Jandová",
+      "telefon": "+420 720 253 436",
+      "telefonHref": "+420720253436",
+      "email": "denisa.jandova@greenairtech.cz",
+      "inicialy": "DJ"
+     },
+     {
+      "id": "jonas-benak",
+      "jmeno": "Jonáš Benák",
+      "telefon": "+420 736 532 285",
+      "telefonHref": "+420736532285",
+      "email": "jonas.benak@greenairtech.cz",
+      "inicialy": "JB"
+     }
+    ]
+   ],
+   "out": [
+    {
+     "id": "martina-masindova",
+     "jmeno": "Martina Mašindová",
+     "telefon": "+420 731 680 053",
+     "telefonHref": "+420731680053",
+     "email": "martina.masindova@greenairtech.cz",
+     "inicialy": "MM"
+    },
+    {
+     "id": "zdenek-bauska",
+     "jmeno": "Zdeněk Bauška",
+     "telefon": "+420 736 532 311",
+     "telefonHref": "+420736532311",
+     "email": "zdenek.bauska@greenairtech.cz",
+     "inicialy": "ZB",
+     "vyrez": {
+      "zoom": 115,
+      "x": 0,
+      "y": 0
+     }
+    },
+    {
+     "id": "jan-rezac",
+     "jmeno": "Jan Řezáč",
+     "telefon": "+420 736 532 316",
+     "telefonHref": "+420736532316",
+     "email": "jan.rezac@greenairtech.cz",
+     "inicialy": "JŘ"
+    },
+    {
+     "id": "radek-tyla",
+     "jmeno": "Radek Týla",
+     "telefon": "+420 736 532 319",
+     "telefonHref": "+420736532319",
+     "email": "radek.tyla@greenairtech.cz",
+     "inicialy": "RT",
+     "vyrez": {
+      "zoom": 115,
+      "x": 0,
+      "y": 0
+     }
+    },
+    {
+     "id": "denisa-jandova",
+     "jmeno": "Bc. Denisa Jandová",
+     "telefon": "+420 720 253 436",
+     "telefonHref": "+420720253436",
+     "email": "denisa.jandova@greenairtech.cz",
+     "inicialy": "DJ"
+    },
+    {
+     "id": "jonas-benak",
+     "jmeno": "Jonáš Benák",
+     "telefon": "+420 736 532 285",
+     "telefonHref": "+420736532285",
+     "email": "jonas.benak@greenairtech.cz",
+     "inicialy": "JB"
+    }
+   ]
+  },
+  {
+   "args": [
+    {
+     "texts": {},
+     "realizace": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "portrety": {},
+     "lide": {
+      "added": [
+       {
+        "jmeno": "Petr Hruška",
+        "telefon": "731 000 111",
+        "fotka": "media/p1.webp",
+        "inicialy": "PH",
+        "telefonHref": "731000111",
+        "id": "petr-hruska"
+       }
+      ],
+      "edited": {
+       "pavel-janda": {
+        "telefon": "+420 111 222 333",
+        "telefonHref": "+420111222333"
+       }
+      },
+      "removed": [
+       "zdenek-bauska"
+      ]
+     },
+     "updatedAt": null
+    },
+    [
+     {
+      "id": "pavel-janda",
+      "jmeno": "Pavel Janda",
+      "telefon": "+420 736 532 284",
+      "telefonHref": "+420736532284",
+      "email": "pavel.janda@greenairtech.cz",
+      "inicialy": "PJ"
+     },
+     {
+      "id": "martina-masindova",
+      "jmeno": "Martina Mašindová",
+      "telefon": "+420 731 680 053",
+      "telefonHref": "+420731680053",
+      "email": "martina.masindova@greenairtech.cz",
+      "inicialy": "MM"
+     },
+     {
+      "id": "zdenek-bauska",
+      "jmeno": "Zdeněk Bauška",
+      "telefon": "+420 736 532 311",
+      "telefonHref": "+420736532311",
+      "email": "zdenek.bauska@greenairtech.cz",
+      "inicialy": "ZB",
+      "vyrez": {
+       "zoom": 115,
+       "x": 0,
+       "y": 0
+      }
+     },
+     {
+      "id": "jan-rezac",
+      "jmeno": "Jan Řezáč",
+      "telefon": "+420 736 532 316",
+      "telefonHref": "+420736532316",
+      "email": "jan.rezac@greenairtech.cz",
+      "inicialy": "JŘ"
+     },
+     {
+      "id": "radek-tyla",
+      "jmeno": "Radek Týla",
+      "telefon": "+420 736 532 319",
+      "telefonHref": "+420736532319",
+      "email": "radek.tyla@greenairtech.cz",
+      "inicialy": "RT",
+      "vyrez": {
+       "zoom": 115,
+       "x": 0,
+       "y": 0
+      }
+     },
+     {
+      "id": "denisa-jandova",
+      "jmeno": "Bc. Denisa Jandová",
+      "telefon": "+420 720 253 436",
+      "telefonHref": "+420720253436",
+      "email": "denisa.jandova@greenairtech.cz",
+      "inicialy": "DJ"
+     },
+     {
+      "id": "jonas-benak",
+      "jmeno": "Jonáš Benák",
+      "telefon": "+420 736 532 285",
+      "telefonHref": "+420736532285",
+      "email": "jonas.benak@greenairtech.cz",
+      "inicialy": "JB"
+     }
+    ]
+   ],
+   "out": [
+    {
+     "id": "pavel-janda",
+     "jmeno": "Pavel Janda",
+     "telefon": "+420 111 222 333",
+     "telefonHref": "+420111222333",
+     "email": "pavel.janda@greenairtech.cz",
+     "inicialy": "PJ"
+    },
+    {
+     "id": "martina-masindova",
+     "jmeno": "Martina Mašindová",
+     "telefon": "+420 731 680 053",
+     "telefonHref": "+420731680053",
+     "email": "martina.masindova@greenairtech.cz",
+     "inicialy": "MM"
+    },
+    {
+     "id": "jan-rezac",
+     "jmeno": "Jan Řezáč",
+     "telefon": "+420 736 532 316",
+     "telefonHref": "+420736532316",
+     "email": "jan.rezac@greenairtech.cz",
+     "inicialy": "JŘ"
+    },
+    {
+     "id": "radek-tyla",
+     "jmeno": "Radek Týla",
+     "telefon": "+420 736 532 319",
+     "telefonHref": "+420736532319",
+     "email": "radek.tyla@greenairtech.cz",
+     "inicialy": "RT",
+     "vyrez": {
+      "zoom": 115,
+      "x": 0,
+      "y": 0
+     }
+    },
+    {
+     "id": "denisa-jandova",
+     "jmeno": "Bc. Denisa Jandová",
+     "telefon": "+420 720 253 436",
+     "telefonHref": "+420720253436",
+     "email": "denisa.jandova@greenairtech.cz",
+     "inicialy": "DJ"
+    },
+    {
+     "id": "jonas-benak",
+     "jmeno": "Jonáš Benák",
+     "telefon": "+420 736 532 285",
+     "telefonHref": "+420736532285",
+     "email": "jonas.benak@greenairtech.cz",
+     "inicialy": "JB"
+    },
+    {
+     "id": "petr-hruska",
+     "jmeno": "Petr Hruška",
+     "telefon": "731 000 111",
+     "telefonHref": "731000111",
+     "inicialy": "PH",
+     "fotka": "media/p1.webp"
+    }
+   ]
+  },
+  {
+   "args": [
+    {
+     "texts": {},
+     "realizace": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "updatedAt": null
+    },
+    []
+   ],
+   "out": []
+  },
+  {
+   "args": [
+    {
+     "texts": {},
+     "realizace": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
+     "portrety": {},
+     "lide": {
+      "added": [
+       {
+        "jmeno": "Žofie Nováková",
+        "telefon": "+420 777 123 456",
+        "email": "zofie.novakova@greenairtech.cz",
+        "inicialy": "ŽN",
+        "telefonHref": "+420777123456",
+        "id": "zofie-novakova"
+       }
+      ],
+      "edited": {},
+      "removed": []
+     },
+     "updatedAt": null
+    },
+    []
+   ],
+   "out": [
+    {
+     "id": "zofie-novakova",
+     "jmeno": "Žofie Nováková",
+     "telefon": "+420 777 123 456",
+     "telefonHref": "+420777123456",
+     "email": "zofie.novakova@greenairtech.cz",
+     "inicialy": "ŽN"
+    }
+   ]
   }
  ],
  "importJson": [
@@ -7343,9 +10418,14 @@
       "removed": []
      },
      "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
      "updatedAt": null
     },
-    "{\"texts\":{\"cs\":{\"nav.sluzby\":\"Co umíme\"},\"en\":{\"nav.sluzby\":\"What we do\"}},\"realizace\":{\"added\":[],\"edited\":{},\"removed\":[]},\"portrety\":{},\"updatedAt\":null}"
+    "{\"texts\":{\"cs\":{\"nav.sluzby\":\"Co umíme\"},\"en\":{\"nav.sluzby\":\"What we do\"}},\"realizace\":{\"added\":[],\"edited\":{},\"removed\":[]},\"portrety\":{},\"lide\":{\"added\":[],\"edited\":{},\"removed\":[]},\"updatedAt\":null}"
    ],
    "out": {
     "ok": true,
@@ -7364,6 +10444,11 @@
       "removed": []
      },
      "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
      "updatedAt": null
     }
    }
@@ -7378,6 +10463,11 @@
       "removed": []
      },
      "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
      "updatedAt": null
     },
     "{\"texts\":{\"cs\":{\"a.b\":\"x\"}}}"
@@ -7395,7 +10485,12 @@
       "edited": {},
       "removed": []
      },
-     "portrety": {}
+     "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     }
     }
    }
   },
@@ -7409,6 +10504,11 @@
       "removed": []
      },
      "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
      "updatedAt": null
     },
     "{}"
@@ -7422,7 +10522,12 @@
       "edited": {},
       "removed": []
      },
-     "portrety": {}
+     "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     }
     }
    }
   },
@@ -7436,6 +10541,11 @@
       "removed": []
      },
      "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
      "updatedAt": null
     },
     "[1,2]"
@@ -7455,6 +10565,11 @@
       "removed": []
      },
      "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
      "updatedAt": null
     },
     "\"text\""
@@ -7474,6 +10589,11 @@
       "removed": []
      },
      "portrety": {},
+     "lide": {
+      "added": [],
+      "edited": {},
+      "removed": []
+     },
      "updatedAt": null
     },
     "null"

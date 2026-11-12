@@ -210,28 +210,41 @@ final class Administrace
            obrázků, ne prohlížeč. admin.js k nim jen přiváže tahání a
            posuvník a přepisuje vlastnosti --vz/--vx/--vy. */
         $portretyData = [];
-        $radkyPortretu = '';
-        foreach ($site['lide'] as $osoba) {
-            $id = $osoba['id'];
+        /* Jeden řádek skládá tahle funkce — a ona samá vyrobí i <template>
+           pro člověka, kterého prohlížeč přidá bez znovunačtení stránky.
+           Dvě dlouhé šablony vedle sebe se nám tu už jednou nevyplatily. */
+        $radekPortretu = function (array $osoba) use ($ctx): string {
+            $id = (string) ($osoba['id'] ?? '');
+            $jmeno = (string) ($osoba['jmeno'] ?? '');
             $vyrez = StavVyrezu::normalizuj($osoba['vyrez'] ?? null);
             $styl = StavVyrezu::styl($osoba['vyrez'] ?? null);
-            $portretyData[] = ['id' => $id, 'jmeno' => $osoba['jmeno'], 'vyrez' => $vyrez];
-            $maFotku = $ctx->maObrazek("portret-{$id}");
-            $velka = $maFotku
-                ? $ctx->obrazek("portret-{$id}", ['alt' => '', 'sirky' => '15rem', 'trida' => 'vyrez-fotka', 'styl' => $styl])
-                : '<p class="napoveda vyrez-bez-fotky">' . $ctx->t('admin.portrety.bezFotky') . '</p>';
-            $mala = $maFotku
-                ? $ctx->obrazek("portret-{$id}", ['alt' => $osoba['jmeno'], 'sirky' => '72px', 'trida' => 'portret', 'styl' => $styl])
-                : '';
-            $radkyPortretu .= '<div class="vyrez-radek" data-vyrez="' . $id . '">
+            /* Nahraná fotka je cesta do media/ — v manifestu obrázků není. */
+            $nahrana = (string) ($osoba['fotka'] ?? '');
+            $e = static fn (string $x): string => htmlspecialchars($x, ENT_QUOTES, 'UTF-8');
+            $atrStyl = $styl !== '' ? ' style="' . $e($styl) . '"' : '';
+            $maFotku = $id !== '' && $ctx->maObrazek("portret-{$id}");
+            if ($nahrana !== '') {
+                $velka = '<img src="' . $e($ctx->odkazKoren($nahrana)) . '" alt="" class="vyrez-fotka"'
+                    . $atrStyl . ' loading="lazy" decoding="async">';
+                $mala = '<img src="' . $e($ctx->odkazKoren($nahrana)) . '" width="72" height="72" alt="'
+                    . $e($jmeno) . '" class="portret"' . $atrStyl . ' loading="lazy" decoding="async">';
+            } elseif ($maFotku) {
+                $velka = $ctx->obrazek("portret-{$id}", ['alt' => '', 'sirky' => '15rem', 'trida' => 'vyrez-fotka', 'styl' => $styl]);
+                $mala = $ctx->obrazek("portret-{$id}", ['alt' => $jmeno, 'sirky' => '72px', 'trida' => 'portret', 'styl' => $styl]);
+            } else {
+                $velka = '<p class="napoveda vyrez-bez-fotky">' . $ctx->t('admin.portrety.bezFotky') . '</p>';
+                $mala = '';
+            }
+            return '<div class="vyrez-radek" data-vyrez="' . $e($id) . '">
           <div class="vyrez-plocha" data-vyrez-plocha tabindex="0" role="group" aria-label="'
-                . Layout::a($ctx->t('admin.portrety.posun') . ': ' . $osoba['jmeno']) . '">
+                . Layout::a($ctx->t('admin.portrety.posun') . ': ' . $jmeno) . '">
             ' . $velka . '
             <span class="vyrez-kruh" aria-hidden="true"></span>
           </div>
           <div class="vyrez-ovladani">
-            <p class="vyrez-jmeno">' . $osoba['jmeno']
-                . ' <span class="vyrez-znacka" data-vyrez-zmeneno hidden>' . $ctx->t('admin.portrety.zmeneno') . '</span></p>
+            <p class="vyrez-jmeno"><span data-clovek-jmeno>' . $jmeno . '</span>
+              <span class="vyrez-znacka" data-vyrez-zmeneno hidden>' . $ctx->t('admin.portrety.zmeneno') . '</span>
+              <span class="vyrez-znacka" data-clovek-novy hidden>' . $ctx->t('admin.portrety.novy') . '</span></p>
             <p class="napoveda">' . $ctx->t('admin.portrety.jakNa') . '</p>
             <label class="vyrez-zoom">
               <span>' . $ctx->t('admin.portrety.priblizeni') . '</span>
@@ -240,7 +253,7 @@ final class Administrace
             </label>
             <div class="vyrez-paticka">
               <span class="avatar vyrez-nahled" data-vyrez-nahled>
-                <span class="inicialy" aria-hidden="true">' . $osoba['inicialy'] . '</span>
+                <span class="inicialy" aria-hidden="true">' . ($osoba['inicialy'] ?? '') . '</span>
                 ' . $mala . '
               </span>
               <div>
@@ -248,9 +261,28 @@ final class Administrace
                 <button type="button" class="tl tl-obrys tl-mala" data-vyrez-vratit>' . $ctx->t('admin.portrety.vratit') . '</button>
               </div>
             </div>
+            <div class="vyrez-akce">
+              <button type="button" class="tl tl-obrys tl-mala" data-clovek-upravit>' . $ctx->t('admin.portrety.upravit') . '</button>
+              <button type="button" class="tl tl-obrys tl-mala" data-clovek-fotka>' . $ctx->t('admin.portrety.nahratFotku') . '</button>
+              <button type="button" class="tl tl-obrys tl-mala vyrez-odebrat" data-clovek-odebrat>' . $ctx->t('admin.portrety.odebrat') . '</button>
+            </div>
           </div>
         </div>';
+        };
+        $radkyPortretu = '';
+        foreach ($site['lide'] as $osoba) {
+            $portretyData[] = [
+                'id' => $osoba['id'],
+                'jmeno' => $osoba['jmeno'],
+                'inicialy' => $osoba['inicialy'] ?? '',
+                'telefon' => $osoba['telefon'] ?? '',
+                'email' => $osoba['email'] ?? '',
+                'fotka' => $osoba['fotka'] ?? '',
+                'vyrez' => StavVyrezu::normalizuj($osoba['vyrez'] ?? null),
+            ];
+            $radkyPortretu .= $radekPortretu($osoba);
         }
+        $vzorRadku = $radekPortretu(['id' => '', 'jmeno' => '', 'inicialy' => '', 'vyrez' => null]);
         $data['portrety'] = $portretyData;
 
         $popisky = [];
@@ -270,6 +302,12 @@ final class Administrace
             'fotkyNastavTitulni' => 'admin.realizace.fotkyNastavTitulni',
             'fotkyOdebrat' => 'admin.realizace.fotkyOdebrat', 'fotkyDoleva' => 'admin.realizace.fotkyDoleva',
             'fotkyDoprava' => 'admin.realizace.fotkyDoprava', 'fotkyPlno' => 'admin.realizace.fotkyPlno',
+            'clovekPosun' => 'admin.portrety.posun',
+            'clovekOdebratPotvrzeni' => 'admin.portrety.odebratPotvrzeni',
+            'clovekBezJmena' => 'admin.portrety.bezJmena',
+            'clovekFotkaChyba' => 'admin.portrety.fotkaChyba',
+            'clovekDialogNovy' => 'admin.portrety.dialogNovy',
+            'clovekDialogUprava' => 'admin.portrety.dialogUprava',
         ] as $jmeno => $klic) {
             $popisky[$jmeno] = $ctx->t($klic);
         }
@@ -370,10 +408,14 @@ final class Administrace
       <div class="admin-panel" data-panel="portrety" hidden>
         <div class="admin-nastroje">
           <p class="lead" style="font-size:.95rem;flex:1;min-width:16rem">' . $ctx->t('admin.portrety.lead') . '</p>
+          <button type="button" class="tl tl-hlavni tl-mala" data-pridat-clovek>' . self::ikona('plus') . $ctx->t('admin.portrety.pridat') . '</button>
         </div>
-        <div class="vyrez-mrizka">
+        <div class="vyrez-mrizka" data-vyrez-mrizka>
           ' . $radkyPortretu . '
         </div>
+        <!-- Vzor řádku pro člověka, kterého prohlížeč přidá bez znovunačtení. -->
+        <template data-vyrez-vzor>' . $vzorRadku . '</template>
+        <input type="file" accept="image/jpeg,image/png,image/webp" data-clovek-soubor hidden>
       </div>
 
       <!-- ------------------------------------------------- uživatelé -->
@@ -477,6 +519,26 @@ final class Administrace
     </form>
   </dialog>
 ') . '
+  <dialog class="admin-dialog" data-dialog-clovek>
+    <form method="dialog" data-clovek-form>
+      <h2 data-clovek-titulek>' . $ctx->t('admin.portrety.dialogNovy') . '</h2>
+      <input type="hidden" name="id" value="">
+      <div class="formular-dvojice">
+        <div class="pole"><label for="c-jmeno">' . $ctx->t('admin.portrety.jmeno') . '</label><input type="text" id="c-jmeno" name="jmeno" maxlength="120" required></div>
+        <div class="pole"><label for="c-role">' . $ctx->t('admin.portrety.role') . '</label><input type="text" id="c-role" name="role" maxlength="120"></div>
+      </div>
+      <p class="napoveda">' . $ctx->t('admin.portrety.roleJazyk') . '</p>
+      <div class="formular-dvojice">
+        <div class="pole"><label for="c-telefon">' . $ctx->t('admin.portrety.telefon') . '</label><input type="tel" id="c-telefon" name="telefon" maxlength="40"></div>
+        <div class="pole"><label for="c-email">' . $ctx->t('admin.portrety.email') . '</label><input type="email" id="c-email" name="email" maxlength="190"></div>
+      </div>
+      <div class="tlacitka" style="justify-content:flex-end;margin-top:1rem">
+        <button type="button" class="tl tl-obrys tl-mala" data-zavrit-clovek>' . $ctx->t('admin.portrety.zrusit') . '</button>
+        <button type="submit" class="tl tl-hlavni tl-mala">' . self::ikona('ulozit') . $ctx->t('admin.portrety.ulozit') . '</button>
+      </div>
+    </form>
+  </dialog>
+
   <dialog class="admin-dialog" data-dialog-uzivatel>
     <form method="dialog" data-uzivatel-form>
       <h2>' . $ctx->t('admin.uzivatele.pridat') . '</h2>
