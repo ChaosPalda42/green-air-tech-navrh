@@ -29,12 +29,19 @@
     statistiky: "Statistiky se nepovedlo načíst, ukazuje se ukázkový náhled.",
   };
 
+  /* Hosting u klienta nepouští PUT ani DELETE: Apache je odmítne 403 dřív,
+     než se spustí PHP, takže by se z administrace neuložilo nic. Posílá se
+     proto POST a skutečná metoda jde v hlavičce — tu cizí stránka nenastaví
+     (prohlížeč by si napřed vyžádal CORS preflight), takže se tím nic
+     neotvírá. Na serveru ji přečte App\Jadro\Metoda. */
   function api(metoda, cil, telo, soubor) {
+    var prestrojena = metoda === "PUT" || metoda === "DELETE";
     var volby = {
-      method: metoda,
+      method: prestrojena ? "POST" : metoda,
       credentials: "same-origin",
       headers: { "X-CSRF": window.GAT_CSRF || "" },
     };
+    if (prestrojena) volby.headers["X-HTTP-Method-Override"] = metoda;
     if (soubor) {
       var fd = new FormData();
       fd.append("fotka", soubor);

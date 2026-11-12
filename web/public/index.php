@@ -25,6 +25,7 @@ use App\Db\UlozisteDb;
 use App\Fotky\Zpracovani;
 use App\Jadro\Adresa;
 use App\Jadro\Config;
+use App\Jadro\Metoda;
 use App\Jadro\Odkazy;
 use App\Jadro\Stranka;
 use App\Obsah\ZdrojDb;
@@ -68,6 +69,13 @@ if (str_starts_with($cesta, 'api/')) {
         App\Jadro\Poptavka::obsluz($metoda, $zdroj, $uloziste, $odpoved);
         return;
     }
+
+    /* Administrace ukládá PUTem a maže DELETE. Hosting u klienta ale ani
+       jedno nepustí — Apache vrátí 403 dřív, než se PHP spustí, a správci
+       se neuloží nic. Prohlížeč proto posílá POST se skutečnou metodou
+       v hlavičce; rozhoduje o tom App\Jadro\Metoda. Pod poptávkou schválně:
+       ta je veřejná a zůstává POST jako POST. */
+    $metoda = Metoda::skutecna($metoda, $_SERVER);
 
     if ($uloziste === null || !class_exists(Router::class)) {
         $odpoved(503, ['chyba' => 'api-neni']);
