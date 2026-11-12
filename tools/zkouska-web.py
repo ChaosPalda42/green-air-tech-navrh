@@ -38,9 +38,19 @@ class Klient:
         )
 
     def posli(self, metoda: str, cesta: str, telo=None, hlavicky=None, syrove=None):
+        """Posílá to, co by poslal prohlížeč — PUT a DELETE tedy přestrojené.
+
+        Administrace je od 78063d6 posílá jako POST s metodou v hlavičce,
+        protože hosting u klienta PUT ani DELETE nepustí. Kdyby tenhle
+        nástroj posílal PUT natvrdo, měřil by něco jiného než prohlížeč a
+        na ostrém webu by hlásil chyby, které tam nejsou.
+        """
         url = cesta if cesta.startswith("http") else ADRESA + cesta
         data = None
         h = dict(hlavicky or {})
+        if metoda in ("PUT", "DELETE"):
+            h.setdefault("X-HTTP-Method-Override", metoda)
+            metoda = "POST"
         if syrove is not None:
             data = syrove
         elif telo is not None:
@@ -113,7 +123,10 @@ def main() -> int:
     stav, telo, _ = host.posli("GET", "/api/stav")
     kontrola("API vydá stav přihlášenému", stav == 200 and "stav" in jsonu(telo), f"HTTP {stav}")
 
-    novy = {"texts": {"cs": {"nav.sluzby": "Co děláme (zkouška)"}}, "realizace": {"added": [], "edited": {}, "removed": []}}
+    # Klíč musí být v web/data/admin-klice.json, jinak Meze vrátí 400
+    # „neznamy-klic" a zkouška nic nezměří. `nav.sluzby` tam nikdy nebyl —
+    # navigace se z administrace needituje.
+    novy = {"texts": {"cs": {"home.kontakt.titulek": "Ozvěte se (zkouška)"}}, "realizace": {"added": [], "edited": {}, "removed": []}}
     stav, telo, _ = host.posli("PUT", "/api/stav", telo=novy)
     kontrola("zápis bez CSRF neprojde", stav == 403 and jsonu(telo).get("chyba") == "bez-csrf" or stav == 403, f"HTTP {stav}")
 
@@ -122,7 +135,7 @@ def main() -> int:
     kontrola("zápis stavu s CSRF projde", stav == 200, f"HTTP {stav}")
 
     stav, telo, _ = Klient().posli("GET", "/domacnosti.html")
-    kontrola("změna je vidět na veřejné stránce", stav == 200 and "Co děláme (zkouška)".encode() in telo, f"HTTP {stav}")
+    kontrola("změna je vidět na veřejné stránce", stav == 200 and "Ozvěte se (zkouška)".encode() in telo, f"HTTP {stav}")
 
     # fotka: malý skutečný jpeg vyrobený v PHP leží v nasazeni/zkouska.jpg
     fotka = KOREN / "nasazeni" / "zkouska.jpg"
@@ -185,7 +198,7 @@ def main() -> int:
     t = autor.csrf()
     # Pozor: stav už v databázi JE, takže poslat ho znovu není změna textu a
     # právem by to prošlo. Autor proto musí poslat jinou hodnotu.
-    autoruv = {"texts": {"cs": {"nav.sluzby": "Co děláme (autor)"}},
+    autoruv = {"texts": {"cs": {"home.kontakt.titulek": "Ozvěte se (autor)"}},
                "realizace": {"added": [], "edited": {}, "removed": []}}
     stav, telo, _ = autor.posli("PUT", "/api/stav", telo=autoruv, hlavicky={"X-CSRF": t})
     kontrola("autor nesmí přepsat texty", stav == 403, f"HTTP {stav}")
