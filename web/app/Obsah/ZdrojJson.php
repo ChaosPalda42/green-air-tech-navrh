@@ -63,6 +63,32 @@ class ZdrojJson implements Zdroj
                 $verze[$jmeno] = substr(sha1_file($cesta) ?: '', 0, 8);
             }
         }
+
+        /* Obrázky verzi v názvu nenesou a .htaccess je posílá jako
+           „immutable" — bez `?v=` by prohlížeč, který si starou fotku stáhl,
+           novou na témže jméně celý rok nevyžádal. Otisky variant nese
+           manifest z tools/optimize_images.py, takže se jen přečtou; zbytek
+           složky (logo, odznak, favicon, og) jsou čtyři soubory a spočítají
+           se tady. Totéž dělá build.mjs nad svou kopií týchž souborů —
+           proto otisk obsahu, ne čas změny. */
+        $varianty = [];
+        foreach ($this->obrazky() as $zaznam) {
+            foreach ($zaznam['varianty'] ?? [] as $v) {
+                foreach (['webp', 'zaloha'] as $druh) {
+                    if (isset($v[$druh], $v['verze'][$druh])) {
+                        $verze['img/' . $v[$druh]] = (string) $v['verze'][$druh];
+                        $varianty[$v[$druh]] = true;
+                    }
+                }
+            }
+        }
+        foreach (glob($this->assetsDir . '/img/*') ?: [] as $cesta) {
+            $jmeno = basename($cesta);
+            if (!isset($varianty[$jmeno]) && is_file($cesta)) {
+                $verze['img/' . $jmeno] = substr(sha1_file($cesta) ?: '', 0, 8);
+            }
+        }
+
         return $verze;
     }
 }

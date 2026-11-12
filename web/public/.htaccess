@@ -49,7 +49,12 @@ ErrorDocument 404 /index.php
   # Bezpečnostní hlavičky stránek posílá PHP (App\Jadro\Hlavicky) — platí pak
   # i na nginxu, kde se tenhle soubor vůbec nečte, a nejdou dvakrát. Tady se
   # ošetří jen soubory, které Apache posílá bez PHP: CSS, skripty, fonty,
-  # obrázky a nahrané fotky. Jména aktiv nesou hash obsahu, proto natrvalo.
+  # obrázky a nahrané fotky. „immutable" smí být jen proto, že se adresa
+  # souboru mění s jeho obsahem: styly, skripty i obrázky nesou `?v=<otisk>`
+  # (App\Obsah\ZdrojJson, hlídá tests/test_php_verze_obrazku.py), nahraná
+  # fotka se jmenuje hashem svého obsahu (App\Fotky\Zpracovani) a fonty se
+  # nemění. Obrázky to do 12. 11. 2026 neplatily a opravená fotka se k nikomu,
+  # kdo si starou stáhl, nedostala.
   <FilesMatch "\.(css|js|mjs|woff2?|png|jpe?g|webp|avif|svg|ico|map)$">
     Header always set X-Content-Type-Options "nosniff"
     Header always set X-Frame-Options "SAMEORIGIN"

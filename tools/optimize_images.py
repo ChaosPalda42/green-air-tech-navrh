@@ -1,6 +1,7 @@
 """Responzivní obrázky – WebP + záložní formát."""
 from __future__ import annotations
 
+import hashlib
 import json
 import sys
 from pathlib import Path
@@ -8,6 +9,11 @@ from pathlib import Path
 from PIL import Image
 
 SUPPORTED_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp"}
+
+
+def otisk(cesta: Path) -> str:
+    """Prvních 8 znaků sha1 obsahu — stejné pravidlo jako u stylů v build.mjs."""
+    return hashlib.sha1(cesta.read_bytes()).hexdigest()[:8]
 
 
 def plan_sizes(width: int, targets: list[int]) -> list[int]:
@@ -153,6 +159,18 @@ def build_manifest(
         else:
             zaznam = process_image(src, out_dir, widths, quality=82)
             manifest[jmeno] = zaznam
+
+    # Verze do adresy obrázku. `.htaccess` posílá obrázky jako „immutable",
+    # takže prohlížeč, který si starou fotku stáhl, novou na témže jméně už
+    # nevyžádá; adresa se proto musí změnit s obsahem. Otisk se bere z
+    # hotového souboru, ne z času změny: tentýž manifest čte i PHP nad jinou
+    # kopií týchž souborů a čísla se musí trefit bajt na bajt.
+    for zaznam in manifest.values():
+        for v in zaznam["varianty"]:
+            v["verze"] = {
+                "webp": otisk(out_dir / v["webp"]),
+                "zaloha": otisk(out_dir / v["zaloha"]),
+            }
 
     return manifest
 

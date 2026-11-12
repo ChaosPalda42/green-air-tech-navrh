@@ -217,6 +217,26 @@ async function main() {
     verze[jmeno] = createHash("sha1").update(obsah).digest("hex").slice(0, 8);
   }
 
+  /* Obrázky verzi v názvu nenesou a .htaccess je posílá jako „immutable" —
+     bez `?v=` by opravenou fotku nikdo, kdo si starou stáhl, celý rok
+     neuviděl. Otisky variant už spočítal tools/optimize_images.py do
+     manifestu; zbytek složky (logo, odznak, favicon, og) se spočítá tady.
+     PHP dělá přesně totéž nad svou kopií týchž souborů. */
+  const variantyObrazku = new Set();
+  for (const z of Object.values(obrazky)) {
+    for (const v of z.varianty) {
+      verze[`img/${v.webp}`] = v.verze.webp;
+      verze[`img/${v.zaloha}`] = v.verze.zaloha;
+      variantyObrazku.add(v.webp);
+      variantyObrazku.add(v.zaloha);
+    }
+  }
+  for (const jmeno of await readdir(path.join(VEN, "assets", "img"))) {
+    if (variantyObrazku.has(jmeno)) continue;
+    const obsah = await readFile(path.join(VEN, "assets", "img", jmeno));
+    verze[`img/${jmeno}`] = createHash("sha1").update(obsah).digest("hex").slice(0, 8);
+  }
+
   await writeFile(
     path.join(VEN, "robots.txt"),
     "# Ukázkový návrh webu – neindexovat.\n" +
